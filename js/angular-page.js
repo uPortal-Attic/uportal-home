@@ -2,7 +2,8 @@
  var app = angular.module('portal', [
     'ngRoute',
  	'portal.controllers',
- 	'portal.directives'
+ 	'portal.directives',
+ 	'portal.notificationControllers'
  ]);
  app.config(['$routeProvider',
 	function($routeProvider) {

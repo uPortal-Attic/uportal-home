@@ -11,27 +11,6 @@
   		});
   	} ]);
   
-  app.controller('NotificationController', [ '$http', function($http){
-    var store = this;
-    store.notifications = [];
-    
-    $http.get('/portal/f/u17l1s10/p/notification-icon.u17l1n11/normal/GET-NOTIFICATIONS-UNCATEGORIZED.resource.uP')
-    		.success(function(data) {
-    			store.notifications = data.feed;
-    		});
-    
-    this.getClass = function getClass(index, notifications) {
-      return {
-        unread : !notifications[index].attributes.READ.value,
-        read : notifications[index].attributes.READ.value
-      };
-    }
-
-    this.markRead = function markRead(index, notifications) {
-      notifications[index].unread = false;
-    }
-  } ]);
-  
   app.controller('MainController', [ '$http', function($http) {
   	var store = this;
   	store.data = [];
