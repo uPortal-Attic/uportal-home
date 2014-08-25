@@ -1,0 +1,17 @@
+.top-section {
+  background-color: #696969;
+  height: 100px;
+}
+.nav-section {
+  background-color: #cccccc;
+  height: 1200px;
+}
+.main-content {
+  background-color: #e5e5e5;
+  height: 1200px;
+}
+@media (max-width: 768px) {
+  .nav-section {
+    display: none;
+  }
+}

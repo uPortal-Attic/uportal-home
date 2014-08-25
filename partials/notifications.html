@@ -1,0 +1,9 @@
+<ul class="notifications-list" ng-controller="NotificationController as notificationCtrl">
+  <li class="notification-item" ng-repeat="notification in notificationCtrl.notifications"
+      ng-class="notificationCtrl.getClass($index, notificationCtrl.notifications)"
+      ng-click="notificationCtrl.markRead($index, notificationCtrl.notifications)">
+    <i class="fa fa-circle-thin read-icon" ></i>
+    {{ notification.title }} ...
+  </li>
+  <li class="notification-item read"><a href="/portal/p/notification/max/Render.up" class="center">Show all notifications...</a></li>
+</ul>

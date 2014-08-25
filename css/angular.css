@@ -1,0 +1,10 @@
+.portlet-title h1 img {
+  margin: 8px;
+}
+
+.unread {
+	font-weight: bold;
+	border: 1px black solid;
+	cursor: pointer;
+}
+
