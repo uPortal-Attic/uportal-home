@@ -7,6 +7,7 @@
     var store = this;
     store.notifications = [];
     store.count = 0;
+    store.notificationUrl = '/portal/p/notification/';
     
     $http.get('/portal/p/notification/normal/GET-NOTIFICATIONS-UNCATEGORIZED.resource.uP')
     		.success(function(data) {

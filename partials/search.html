@@ -1,0 +1,51 @@
+<style>
+.main-search {
+          width: 90%;
+          display: block;
+          background-color: #f7f5e8;
+          border: none;
+          border-bottom: 1px solid #f7f5e8;
+          margin-top: -5px;
+          margin-bottom: 3px;
+          font-size: 1.6em;
+          color: #660000;
+          float: right;
+          padding: 3px 0px 3px 15px;
+        }
+        .main-search[placeholder="Search My-UW"] {
+          color: #b70101;
+        }
+        .main-search:focus {
+          outline: none;
+        }
+        .glyphicon-search {
+          float: right;
+          color: #f7f5e8;
+          top:5px;
+          padding-right:8px;
+        }
+::-webkit-input-placeholder {
+   color: #660000;
+   font-size:0.8em;
+   font-weight:200;
+   line-height:1.8em;
+   }
+:-moz-placeholder { /* Firefox 18- */
+   color: #660000;
+   font-size:1em;
+   font-weight:200;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #660000;
+   font-size:1em;
+   font-weight:200;
+}
+:-ms-input-placeholder {
+   color: #660000;
+   font-size:1em;
+   font-weight:200;
+}
+</style>
+<form action="/portal/p/portletmarketplace" method="GET">
+    <p><input type="search" class="main-search" placeholder="Search My UW" name="initialFilter"><span class="glyphicon glyphicon-search"></span></p>
+</form>

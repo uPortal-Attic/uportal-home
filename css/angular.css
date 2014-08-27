@@ -8,3 +8,36 @@
 	cursor: pointer;
 }
 
+.container-fluid {
+	background-color: #b70101;
+}
+
+.bucky-nav-large li:first-of-type+li{
+	position:absolute;width:30%;left:35%
+
+
+}
+
+a#myuw-header {
+   color: #fff;
+   font-weight: 200;
+}
+
+a#myuw-header:hover {
+   text-decoration: none;
+}
+
+a#myuw-header img {
+  display: block;
+  position: absolute;
+  width: 55px;
+  top: -15px;
+  left: -7px;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.col-sm-10 {
+	padding-left: 15px;
+	padding-right: 15px;
+}
