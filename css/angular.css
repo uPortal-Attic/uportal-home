@@ -46,3 +46,14 @@ a#myuw-header img {
 .portlet-div {
 	height: 10em;
 }
+
+.side-bar-menu li {
+    background-color: inherit !important;
+    width: 80% !important;
+    border: none !important;
+}
+
+.bucky-nav ul li a {
+	color : #fff !important;
+	font-size : 1.3em;
+}
