@@ -41,3 +41,7 @@ a#myuw-header img {
 	padding-left: 15px;
 	padding-right: 15px;
 }
+
+.portlet-div {
+	height: 10em;
+}

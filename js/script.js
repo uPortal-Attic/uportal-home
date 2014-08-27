@@ -1,9 +1,5 @@
-// $(document).ready(function() {
-//   $('.hide').hide();
-//   $('.app-drawer').click(function() {
-//     $('.hide').show();
-//   })
-// });
+var up = up || {};
+
 $(document).ready(function() {
     $('.app-drawer').toggle(
         function() {
@@ -13,4 +9,5 @@ $(document).ready(function() {
             $('.arrow').slideUp("fast");
         }
     );
+    
 });
