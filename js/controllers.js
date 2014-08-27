@@ -14,7 +14,7 @@
   app.controller('MainController', [ '$http', function($http) {
   	var store = this;
   	store.data = [];
-  	$http.get('/portal/api/layoutDoc').success(function(data) {
+  	$http.get('/portal/api/layoutDoc?tab=UW Bucky Home').success(function(data) {
   		store.data = data;
   	});
   	
