@@ -120,18 +120,6 @@ form {
   z-index: 10;
   overflow: hidden;
 }
-.main-search {
-  width: 90%;
-  background-color: #b70101;
-  border: none;
-  border-bottom: 2px solid #660000;
-  margin-top: -5px;
-  margin-bottom: 5px;
-  font-size: 1.6em;
-  color: #f7f5e8;
-  float: right;
-  padding: 0px 0px 2px 6px;
-}
 .main-search[placeholder="Search My-UW"] {
   color: #f7f5e8;
 }
@@ -144,7 +132,7 @@ form {
   background-color: #f7f5e8;
   border: none;
   border-bottom: 1px solid #f7f5e8;
-  margin-top: -10px;
+  margin-top: -2px;
   margin-bottom: 3px;
   font-size: 1.6em;
   color: ;
@@ -344,14 +332,15 @@ li a:hover {
 }
 .notifications-list li {
   font-size: 1.1em;
-  color: #444;
+  color: #333;
   background-color: #e7d9c1;
   border-radius: 4px;
   margin: 8px 0px;
   padding: 8px 10px 8px 10px;
-  border-left: 5px solid #b70101;
+  border:none;
+  border-left: 10px solid #b70101;
   font-weight: 400;
-  opacity: 0.8;
+
 }
 .notifications-list a {
   color: #b70101;
@@ -388,6 +377,12 @@ li.read {
 section.side-bar-menu {
   box-shadow: none;
 }
+
+
+
+
+
+
 @media (max-width: 992px) {
   .main-search {
     display: none;
