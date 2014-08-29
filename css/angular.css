@@ -69,7 +69,7 @@ a#myuw-header img {
 	color : #fff !important;
 	font-size : 1.3em;
 }
-.col-sm-12 {
+.col-xs-12,.col-sm-12 {
   padding:0;
 }
 #my-uw-header-nav {
