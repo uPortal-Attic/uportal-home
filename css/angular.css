@@ -55,6 +55,10 @@ a#myuw-header img {
   box-shadow:none;
 }
 
+.bucky-nav .side-bar-menu {
+    position: inherit;
+}
+
 .side-bar-menu li {
     background-color: inherit !important;
     width: 80% !important;
