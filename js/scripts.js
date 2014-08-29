@@ -9,5 +9,5 @@ $(document).ready(function() {
             $('.arrow').slideUp("fast");
         }
     );
-    
+
 });

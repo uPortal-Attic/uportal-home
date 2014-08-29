@@ -1,0 +1,31 @@
+
+<div ng-controller="MarketplaceController as marketplaceCtrl" class="marketplace col-xs-12 col-md-12">
+  <div class="marketplace-header">
+    <img src="img/terrace.jpg">
+    <div class="mp-header-text">
+      <h1>UW Marketplace</h1>
+      <p>The Marketplace contains everything you need at UW. Search for what you need or browse the collection to add what you'll use most often to your home page.</p>
+      <span class="fa fa-search mp-search-icon"></span><input type="text" class="marketplace-search" placeholder="What are you looking for?" ng-model="searchTerm">
+    </div>
+  </div>
+
+  <div class="portlet-list-item" ng-repeat="portlet in marketplaceCtrl.portlets | filter:searchTerm | orderBy:'name'" ng-class="{test: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
+    <h2><span class="fa fa-circle"></span><span class="portlet-title">{{portlet.name}}</span></h2>
+    <div class="action-buttons">
+      <form style="display:inline" action="{{portlet.url}}" method="get">
+        <button class="btn btn-default btn-add" id="target"><span class="fa fa-plus"></span>Add to Home</button>
+      </form>
+      <button class="btn btn-default btn-launch"><span class="fa fa-arrow-circle-o-right"></span>Launch</button>
+    </div>
+    <p>{{portlet.description}}</p>
+    <div class="category-list">
+      <a ng-repeat="category in portlet.categories" href="#" class="category-links">{{category}}</a>
+    </div>
+    <div class="action-buttons-mobile">
+      <form style="display:inline" action="{{portlet.url}}" method="get">
+        <button class="btn btn-default btn-add" id="target"><span class="fa fa-plus"></span>Add to Home</button>
+      </form>
+      <button class="btn btn-default btn-launch"><span class="fa fa-arrow-circle-o-right"></span>Launch</button>
+    </div>
+  </div>
+</div>
