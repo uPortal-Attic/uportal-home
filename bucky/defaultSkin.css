@@ -1,5 +1,121 @@
-@import "etc/normalize.css";
-@import "etc/font-awesome.css";
+/**
+ * Licensed to Jasig under one or more contributor license
+ * agreements. See the NOTICE file distributed with this work
+ * for additional information regarding copyright ownership.
+ * Jasig licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file
+ * except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+/**
+ * Default Skin file.  The default skin is available in two flavors:  dynamic and
+ * static.  See skinList.xml for more information.
+ */
+/**
+ * Import order:
+ * 1. defaultSkin/less/variables.less
+ * 2. common/less/common.less  - see comments in common.less file for more information
+ * 3. defaultSkin/less/skin.less
+ */
+/**
+ * Licensed to Jasig under one or more contributor license
+ * agreements. See the NOTICE file distributed with this work
+ * for additional information regarding copyright ownership.
+ * Jasig licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file
+ * except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+/*
+ * Grayscale colors. 1 is lightest, 10 is darkest.
+ */
+/*
+ * Primary color with 3 lightened shades and 3 darkened shades.
+ *
+ * The variable color1 is used by the DynamicRespondrSkin portlet.
+ * 1) Do not change the variable name. It is used as a portlet preference variable name that users can override
+ *    the value of.
+ * 2) The value must be on the same line as the variable name and be terminated with a semicolon due to
+ *    regex searches by skin manager.
+ */
+/*
+ * Secondary color with 3 lightened shades and 3 darkened shades.
+ *
+ * The variable color1 is used by the DynamicRespondrSkin portlet.
+ * 1) Do not change the variable name. It is used as a portlet preference variable name that users can override
+ *    the value of.
+ * 2) The value must be on the same line as the variable name and be terminated with a semicolon due to
+ *    regex searches by skin manager.
+ */
+/*
+ * Tertiary color with 3 lightened shades and 3 darkened shades.
+ *
+ * The variable color1 is used by the DynamicRespondrSkin portlet.
+ * 1) Do not change the variable name. It is used as a portlet preference variable name that users can override
+ *    the value of.
+ * 2) The value must be on the same line as the variable name and be terminated with a semicolon due to
+ *    regex searches by skin manager.
+ */
+/* Using the furley pattern from http://subtlepatterns.com */
+/**
+ * Link colors
+ */
+/**
+ * Region Styles
+ */
+/**
+ * User bar styles
+ */
+/**
+ * Header
+ */
+/**
+ * Nav
+ */
+/**
+ * Search field
+ */
+/**
+ * Portlet Chrome Settings
+ */
+/**
+ * Detached Header (aka sticky header) styles
+ */
+/*
+ * Custom Mixins
+ */
+/*
+ * Simple float. Pass in the direction; default is left.
+ */
+/*
+ * Base formatting for converting a block-list to an inline-list.
+ */
+.inline-block-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 /**
  * Licensed to Jasig under one or more contributor license
  * agreements. See the NOTICE file distributed with this work
@@ -3992,8 +4108,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+  background-color: #b70101;
+  border-color: #960101;
 }
 .navbar-default .navbar-brand {
   color: #777777;
@@ -4018,7 +4134,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   color: #555555;
-  background-color: #e7e7e7;
+  background-color: #960101;
 }
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,
@@ -4038,12 +4154,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-  border-color: #e7e7e7;
+  border-color: #960101;
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-  background-color: #e7e7e7;
+  background-color: #960101;
   color: #555555;
 }
 @media (max-width: 767px) {
@@ -4059,7 +4175,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #555555;
-    background-color: #e7e7e7;
+    background-color: #960101;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
@@ -7852,168 +7968,73 @@ fieldset[disabled] .portal .btn-skin-alt.active {
  * specific language governing permissions and limitations
  * under the License.
  */
-/* ==========================================================================
-   Variables
-   ========================================================================== */
-/*
- * Grayscale colors. 1 is lightest, 10 is darkest.
- */
-/*
- * Primary color with 3 lightened shades and 3 darkened shades.
- *
- * The variable color1 is used by the DynamicRespondrSkin portlet.
- * 1) Do not change the variable name. It is used as a portlet preference variable name that users can override
- *    the value of.
- * 2) The value must be on the same line as the variable name and be terminated with a semicolon due to
- *    regex searches by skin manager.
- */
-/*
- * Secondary color with 3 lightened shades and 3 darkened shades.
- *
- * The variable color1 is used by the DynamicRespondrSkin portlet.
- * 1) Do not change the variable name. It is used as a portlet preference variable name that users can override
- *    the value of.
- * 2) The value must be on the same line as the variable name and be terminated with a semicolon due to
- *    regex searches by skin manager.
- */
-/*
- * Tertiary color with 3 lightened shades and 3 darkened shades.
- *
- * The variable color1 is used by the DynamicRespondrSkin portlet.
- * 1) Do not change the variable name. It is used as a portlet preference variable name that users can override
- *    the value of.
- * 2) The value must be on the same line as the variable name and be terminated with a semicolon due to
- *    regex searches by skin manager.
- */
-/* Using the furley pattern from http://subtlepatterns.com */
 /**
- * Link colors
+ * Place any and all style over-rides in this file.
  */
-/**
- * Region Styles
- */
-/**
- * User bar styles
- */
-/**
- * Header
- */
-/**
- * Nav
- */
-/**
- * Search field
- */
-/**
- * Portlet Chrome Settings
- */
-/**
- * Detached Header (aka sticky header) styles
- */
-/*
- * Custom Mixins
- */
-/*
- * Simple float. Pass in the direction; default is left.
- */
-/*
- * Base formatting for converting a block-list to an inline-list.
- */
-.inline-block-list {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+.modal-dialog {
+  position: initial;
 }
-/* MyUW colors */
-/* General MyUW Styles */
-body {
-  width: 100%;
-  background-color: #f7f5e8;
-  font-weight: 200;
-}
-#body-background {
-  background-color: #f7f5e8;
-  background-image: url(http://www.transparenttextures.com/patterns/grey-jean.png);
-  padding-bottom: 100px;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  vertical-align: center;
-  font-weight: 200;
-}
-.container-fluid b {
-  font-weight: 400;
-}
-ul {
-  list-style-type: none;
-}
-header {
-  width: 100%;
-}
-.fixed {
-  position: fixed;
-  z-index: 50;
-  width: 100%;
-}
-.center {
+#portalPageFooterLinks {
   text-align: center;
 }
-footer {
-  margin: 20px 0px;
+/**
+ * See http://www.uc.wisc.edu/brand/web/colors.php
+ */
+/* Pulled over some items from portal.css to make some stuff look a little better for now */
+.up .ui-widget-header {
+  background: none #E8E4D8;
 }
-.container-fluid {
-  background-color: #b70101;
+.up .ui-state-default,
+.ui-widget-content .ui-state-default {
+  background: none #C1B49A;
 }
-.col-xs-12,
-.col-sm-12 {
-  padding: 0;
+.up .ui-state-default.ui-tabs-selected,
+.ui-widget-content .ui-state-default.ui-tabs-selected {
+  background: none #fff;
 }
-.col-sm-10 {
-  padding-left: 15px;
-  padding-right: 15px;
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+  border-color: #c3a97d;
 }
-.col-sm-10,
-.col-md-12,
-.col-md-6,
-.col-sm-6,
-.col-md-3 {
-  padding-left: 0px;
-  padding-right: 0px;
+.ui-widget-header {
+  border: 1px solid #c3a97d;
 }
-.col-sm-10 {
-  margin-top: 20px;
+.ui-widget-content {
+  border-color: #a76969;
 }
-div:focus,
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-  outline: none !important;
+.navbar {
+  border-radius: 0;
+  border: 0;
+  margin: 0;
 }
-.bucky-nav-large li:first-of-type + li {
-  position: absolute;
-  width: 30%;
-  left: 35%;
+.navbar-nav {
+  margin: 0px;
 }
-a#myuw-header {
-  color: #fff;
-  font-weight: 200;
+#bucky-navbar-collapse {
+  padding: 0px;
+  border-color: #b70101;
 }
-a#myuw-header:hover {
-  text-decoration: none;
+.bucky-nav ul {
+  width: 100% !important;
+  background-image: url('common/images/large-crest.png');
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: 130% 45%;
+  padding-bottom: 20px;
+  margin: 0px;
 }
-a#myuw-header img {
+.bucky-nav ul li {
+  position: relative;
   display: block;
-  position: absolute;
-  width: 55px;
-  top: -15px;
-  left: -7px;
-  z-index: 5;
-  overflow: hidden;
+  padding: 8px 30px;
+  margin-bottom: -1px;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  font-size: 1.3em;
+}
+.bucky-nav ul li a {
+  color: #fff;
 }
 .bucky-nav ul li a:hover {
   text-decoration: none;
@@ -8035,65 +8056,143 @@ a#myuw-header img {
 .navbar-brand {
   padding: 15px 15px 15px 0px;
 }
-.bucky-nav ul {
-  width: 100% !important;
-  background-image: url('../img/large-crest.png');
-  background-size: 70%;
-  background-repeat: no-repeat;
-  background-position: 130% 45%;
-  padding-bottom: 20px;
-  margin: 0px;
+#portalPageBody {
+  margin-top: 4.5em;
 }
-.bucky-nav ul li {
-  position: relative;
-  display: block;
-  padding: 8px 30px;
-  margin-bottom: -1px;
-  background-color: transparent;
-  border: none;
-  text-align: left;
-  font-size: 1.3em;
+#addedSuccessfullyNotice {
+  float: right;
+  margin-right: 3em;
+  color: white;
+  background: gray;
+  padding-left: .25em;
+  border-radius: 1em;
+  padding-right: .25em;
 }
-.bucky-nav ul li a {
-  color: #fff;
-}
-#bucky-navbar-collapse {
-  padding: 0px;
-  border-color: #b70101;
-}
-.navbar {
-  border-radius: 0;
-  border: 0;
+#addedSuccessfullyNotice.no-margin {
   margin: 0;
+  float: inherit;
+  background: inherit;
+  color: black;
 }
-.navbar-nav {
+#addedSuccessfullyNotice.no-margin span {
+  color: green;
+}
+div:focus,
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none !important;
+}
+#region-pre-header {
+  float: left;
+}
+body {
+  width: 100%;
+  background-color: #f7f5e8;
+  font-weight: 200;
+  background-image: url('common/images/grey-jean.png');
+}
+.container-fluid {
+  background-color: none;
+  z-index: 10;
+}
+h1 {
+  color: #f7f5e8;
+  vertical-align: center;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 200;
+}
+.container-fluid b {
+  font-weight: 400;
+}
+ul {
+  list-style-type: none;
+}
+.fixed {
+  position: fixed;
+  z-index: 50;
+  width: 100%;
+}
+footer {
+  margin: 20px 0px;
+}
+.up-portlet-wrapper a:hover {
+  text-decoration: none;
+}
+.up-portlet-wrapper li {
+  text-align: left;
+  font-size: 1.2em;
+  margin: 3px;
+  background-color: none;
+}
+.side-bar-menu .list-group li.list-group-item {
+  background-color: #f7f5e8;
+  background-image: url('common/images/grey-jean.png');
+  width: 120px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  color: #b70101;
+  font-size: 1.1em;
+  padding: 7px;
+  margin-left: 10px;
+}
+#region-global-sidebar-left ul.list-group {
+  padding-left: 20px;
+}
+.up-portlet-content-wrapper-inner {
+  margin-left: 0px;
+}
+ul.notification-list {
+  margin: 0px;
+  padding: 0px;
+  padding-left: 8px;
+}
+header.portal-header {
+  position: fixed;
+  z-index: 20;
+  height: 90px;
+  overflow: hidden;
+}
+.bucky-nav-large li:first-of-type + li {
+  position: absolute;
+  width: 30%;
+  left: 35%;
+}
+.dropdown-menu {
+  background-color: #b70101;
+  padding: 0px 0px 5px;
+}
+.dropdown-menu li {
   margin: 0px;
 }
-.side-bar-menu {
-  width: 100%;
-  position: fixed;
-  top: 60px;
-  left: 15px;
+.dropdown-menu li a {
+  padding: 4px 10px;
 }
-.list-group {
+.side-bar-menu .list-group li.list-group-item a {
+  color: #b70101;
+}
+.portal-page-column .glyphicon-cog {
+  color: #b70101;
+  font-size: 1.8em;
+  top: 5px;
+  right: 5px;
+}
+#region-sidebar-left.side-bar-menu {
   box-shadow: none;
 }
-.bucky-nav .side-bar-menu {
-  position: inherit;
+.portal .up-portlet-titlebar div li a {
+  color: #ffffff;
 }
-.side-bar-menu li {
-  background-color: inherit !important;
-  width: 80% !important;
-  border: none !important;
+.portal-page-column {
+  margin-top: 0px;
 }
-.side-bar-menu .glyphicon {
-  padding-right: 8px;
-}
-.bucky-nav ul li a {
-  color: #fff !important;
-  font-size: 1.3em;
-}
-/* Beta to Classic Transition */
 .beta-sidebar {
   position: fixed;
   bottom: 20px;
@@ -8107,55 +8206,20 @@ a#myuw-header img {
 .beta-sidebar p {
   margin: 0px;
 }
-.side-bar-menu .list-group li.list-group-item a {
-  color: #b70101;
+.portal .container-fluid {
+  padding-left: 10px;
+  padding-right: 10px;
 }
-.side-bar-menu .list-group li.list-group-item {
-  background-color: #f7f5e8;
-  background-image: url('common/images/grey-jean.png');
-  width: 120px;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  color: #b70101;
-  font-size: 1.1em;
-  padding: 7px;
-  margin-left: 10px;
+.col-sm-10,
+.col-md-12,
+.col-md-6,
+.col-sm-6,
+.col-md-3 {
+  padding-left: 0px;
+  padding-right: 0px;
 }
-/* Notification Styling */
-.notifications-list {
-  margin: 20px 20px 0px 0px;
-  padding: 0px;
-}
-.notifications-list li {
-  font-size: 1.1em;
-  color: #333;
-  background-color: #e7d9c1;
-  border-radius: 4px;
-  margin: 8px 0px;
-  padding: 8px 10px 8px 10px;
-  border: none;
-  border-left: 10px solid #b70101;
-  font-weight: 400;
-}
-.notifications-list a {
-  color: #b70101;
-}
-.notifications-list a :hover {
-  color: #660000;
-  text-decoration: none;
-}
-li.read {
-  background-color: #f7f5e8;
-  font-weight: 200;
-  color: #555;
-  border: none;
-  opacity: 0.7;
-  padding-left: 15px;
-}
-.unread {
-  font-weight: bold;
-  border: 1px black solid;
-  cursor: pointer;
+.col-sm-10 {
+  margin-top: 20px;
 }
 @media (min-width: 768px) {
   #myuw-header span {
@@ -8169,313 +8233,4 @@ li.read {
   .beta-sidebar {
     display: none;
   }
-}
-@media (max-width: 768px) {
-  .marketplace-search {
-    width: 90%;
-    left: 5%;
-  }
-  .card h2 {
-    font-size: 1.6em !important;
-  }
-  .card h2 span.fa {
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    vertical-align: center;
-    padding: 7px 0px 0px 0px;
-  }
-  .portlet-list-item {
-    min-height: 90px;
-  }
-  .marketplace-header {
-    height: 300px;
-  }
-  .action-buttons {
-    display: none;
-  }
-  .action-buttons-mobile {
-    margin: 20px 0px 0px;
-    display: block;
-    text-align: right;
-  }
-  .portlet-div {
-    margin: 20px 0px 0px 0px;
-  }
-}
-@media (max-width: 992px) {
-  .main-search {
-    display: none;
-  }
-  .up-portlet-wrapper {
-    display: none;
-  }
-  .notifications-list {
-    margin-right: 0px;
-  }
-  .glyphicon-search {
-    visibility: hidden;
-  }
-  .log-out {
-    display: none;
-  }
-  .left-column .portlet-div {
-    margin: 20px 0px 0px 0px;
-  }
-  .right-column {
-    padding-left: 15px !important;
-  }
-}
-/* Marketplace Styling */
-.portlet-list-item p {
-  padding: 5px;
-}
-.action-buttons {
-  background-color: none;
-  text-shadow: none;
-  float: right;
-}
-.action-buttons-mobile {
-  display: none;
-}
-.btn-add {
-  border: 1px solid #b70101;
-  color: #b70101;
-  text-shadow: none;
-  margin: 5px 8px 0px 0px;
-}
-.btn-add:hover {
-  background-color: #b70101;
-  color: #fff;
-}
-.btn-launch {
-  border: 1px solid #56d000;
-  color: #56d000;
-  text-shadow: none;
-  margin: 5px 8px 0px 0px;
-}
-.btn-launch:hover {
-  background-color: #56d000;
-  color: #fff;
-}
-.category-links {
-  background-color: #066999;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 3px;
-  font-size: 0.8em;
-  font-weight: 400;
-  padding: 4px 8px;
-  margin-left: 6px;
-  opacity: 0.7;
-}
-.category-links:hover {
-  text-decoration: none;
-  background-color: #04547a;
-  color: #fff;
-  opacity: 0.9;
-}
-.marketplace-search {
-  width: 60%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  position: relative;
-  left: 20%;
-  font-size: 1.8em;
-  font-weight: 200;
-  padding: 4px 4px 4px 12px;
-  margin: 20px 0px 30px 0px;
-  display: block;
-}
-.mp-search-icon {
-  position: relative;
-  left: 17%;
-  top: 50px;
-  padding-right: 8px;
-  display: inline-block;
-  color: #fff;
-  text-shadow: 0px 0px 15px #000;
-}
-.portlet-list-item {
-  min-height: 100px;
-  border-bottom: 1px solid #ddd;
-  padding: 12px 0px;
-}
-.portlet-list-item:hover {
-  cursor: pointer;
-}
-.portlet_hover {
-  min-height: 100px;
-  border-bottom: 1px solid #ddd;
-  border-left: 5px solid #b70101;
-  background-color: #fff;
-  padding-left: 20px;
-  padding-right: 15px;
-  box-shadow: inset 0px 0px 10px #ccc;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-/* Card UI Styling */
-.page-content {
-  margin: 0;
-}
-.card {
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0px 0px 7px #ccc;
-  padding: 0px 15px;
-}
-.card-header {
-  height: 260px;
-  position: relative;
-  overflow: hidden;
-  margin-left: -15px;
-  margin-right: -15px;
-  z-index: 20;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-.card-header-text {
-  z-index: 10;
-  position: absolute;
-  width: 100%;
-  padding: 5px 0px 5px 20px;
-  box-shadow: inset 0 200px 150px -50px rgba(0, 0, 0, 0.6);
-}
-.card-header-text p {
-  color: #fff;
-  width: 60%;
-  max-width: 500px;
-  font-weight: 200;
-}
-.card-header .header-image {
-  border-radius: 4px;
-  margin: -15px;
-  padding: 15px;
-  opacity: 0.7;
-  z-index: 0;
-  position: absolute;
-}
-.marketplace-search {
-  width: 60%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  position: relative;
-  left: 20%;
-  font-size: 1.8em;
-  font-weight: 200;
-  padding: 4px 4px 4px 12px;
-  margin: 20px 0px 30px 0px;
-  display: block;
-}
-.mp-search-icon {
-  position: relative;
-  left: 17%;
-  top: 50px;
-  padding-right: 8px;
-  display: inline-block;
-  color: #fff;
-  text-shadow: 0px 0px 15px #000;
-}
-.card h1 {
-  color: #fff;
-  margin-top: 10px;
-  font-weight: 100;
-}
-.card h2 {
-  padding: 0px 5px 2px 0px;
-  margin: 0px;
-  display: inline;
-}
-.card .fa {
-  padding-right: 8px;
-}
-.card h2 span.fa {
-  width: 38px;
-  height: 38px;
-  font-size: 0.7em;
-  margin: 0px 12px 5px 5px;
-  position: relative;
-  border-radius: 50%;
-  border: 1px solid #333;
-  text-align: center;
-  padding: 8px 0px 0px 0px;
-  opacity: 1.0;
-  color: #333;
-}
-.card h2 span.portlet-title {
-  position: relative;
-  top: 2px;
-  border: none;
-}
-.portlet-title h1 img {
-  margin: 8px;
-  min-height: 1.5em;
-}
-.portlet-div {
-  background-color: #ffffff;
-  margin: 20px 20px 0px 0px;
-  padding-bottom: 10px;
-  border-radius: 3px;
-  border: 0px solid #b70101;
-  box-shadow: 0px 0px 7px #ccc;
-  box-model: border-box;
-}
-.portlet-content {
-  padding: 10px 20px;
-}
-.portlet-title {
-  border-top: 5px solid #b70101;
-  border-bottom: 1px solid #e5e5e5;
-  margin: 0px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-.portlet-title h1 {
-  font-size: 1.8em;
-  color: #b70101;
-  width: 100%;
-  font-weight: 200;
-  display: inline;
-  margin: 0px;
-  position: relative;
-}
-.portlet-title h1 span.fa {
-  width: 38px;
-  height: 38px;
-  font-size: 0.8em;
-  margin: 8px;
-  position: relative;
-  border-radius: 50%;
-  border: 1px solid #b70101;
-  text-align: center;
-  padding: 8px 0px 0px 0px;
-  opacity: 1.0;
-}
-.portlet-title > div {
-  float: right;
-  display: inline;
-  padding-right: 10px;
-}
-.page-h1 {
-  font-size: 2.3em;
-  color: #b70101;
-  margin: 20px 0px -5px 25px;
-  padding: 0;
-  font-weight: 200;
-}
-.page-content {
-  position: relative;
-  top: 55px;
-}
-.portlet-title div {
-  position: relative;
-  top: 10px;
-}
-.portlet-list {
-  margin: 0px;
-  padding: 0px;
-}
-.portlet-list li {
-  font-size: 1.2em;
 }

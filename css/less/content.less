@@ -1,0 +1,238 @@
+/**
+ * Licensed to Jasig under one or more contributor license
+ * agreements. See the NOTICE file distributed with this work
+ * for additional information regarding copyright ownership.
+ * Jasig licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file
+ * except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+/**
+ * Local Variables
+ */
+@portletWrapperBorderRadius: 5px;
+
+    /** Page Message for returned action messages */
+    #portalPageBodyMessage {
+        display: none;
+        .border-radius(7px);
+        margin-bottom: 1em;
+    }
+    #portalPageBodyMessage.error {
+        background-color: @color3-lighter;
+        .border(@color3-dark);
+    }
+    #portalPageBodyMessage.warn {
+        background-color: @color3-lighter;
+        .border(@color3-dark);
+    }
+    #portalPageBodyMessage.success {
+        background-color: @color2-lighter;
+        .border(@color2-dark);
+    }
+    #portalPageBodyMessage p {
+        font-weight: bold; margin-bottom: 2px;
+        text-align: center;
+    }
+
+    .portlet {
+        margin-bottom: 2px;
+        padding: 10px;
+    }
+
+    .portlet-header {
+
+    }
+
+    .portlet-title {
+        .border-radiuses-top(5px);
+
+        .btn-group {
+
+        }
+        
+        a span.fa {
+            width: 38px;
+            height: 38px;
+            font-size: 0.8em;
+            margin: 8px;
+            position: relative;
+            border-radius: 50%;
+            border: 1px solid @color1;
+            text-align: center;
+            padding: 8px 0px 0px 0px;
+            opacity: 1.0;
+        }
+    }
+    
+    .portlet-content {
+        color: @grayscale8;
+        padding: 0 20px 20px 20px;
+    }
+
+    .borderless {
+        background: @grayscale10;
+        border-color: @black;
+
+        .portlet-header {
+            display: none;
+        }
+
+        .portlet-content {
+            color: @grayscale2;
+            padding: 20px;
+        }
+
+    }
+
+    section h1 {
+        font-size: 135%;
+    }
+    section h2 {
+        font-size: 125%;
+    }
+    section h3 {
+        font-size: 115%;
+    }
+    section h4 {
+        font-size: 105%;
+    }
+
+    .up-portlet-wrapper {
+      margin: 0px 10px 20px 10px;
+    }
+
+    .up-portlet-wrapper-inner {
+        margin: 0px 0;
+        box-shadow: 0px 0px 7px #ccc;
+    }
+
+    .up-portlet-titlebar {
+        background-color: @white; /* Old browsers */
+        border-top:5px solid @color1;
+        border-bottom: 1px solid @grayscale1;
+        .border-radiuses-top(@portlet-border-radius);
+        position: relative;
+        padding:8px;
+
+
+        h2 {
+            font-size: 1.8em;
+            padding:6px 0px 6px 12px;
+            margin: 0;
+            list-style: none;
+            line-height: 20px;
+            a {
+                color: @portlet-titlebar-link-color;
+                &:hover {
+                    color: darken(@portlet-titlebar-link-color, 20%)
+                }
+            }
+        }
+
+        .btn-group {
+            position: absolute;
+            top: 2px;
+            right: 0;
+            margin: 0;
+
+            >a {
+                color: @portlet-options-link-color;
+                font-size: 11px;
+                font-weight: normal;
+                .caret {
+                    border-top-color: @portlet-options-link-color;
+        }
+                &:hover {
+                    color: @portlet-options-link-hover-color;
+
+        .caret {
+                        border-top-color: @portlet-options-link-hover-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .up-portlet-content-wrapper {
+        background-color: @white;
+        border: none;
+        .border-radiuses-bottom(@portletWrapperBorderRadius);
+        overflow: hidden;
+        padding: 10px;
+
+
+      .stacktrace {
+        text-align: left;
+      }
+    }
+
+    .btn-skin {
+        .pretty-buttons(@btn-skin-color, @btn-skin-bg);
+    }
+
+    .btn-skin-alt {
+        .pretty-buttons(@btn-skin-alt-color, @btn-skin-alt-bg);
+    }
+    .notification-icon {
+        a {
+            color: #fff;
+        }
+    }
+
+    #portal-sticky-header {
+        margin-top: @detached-header-height;
+
+        .navbar {
+            background: @detached-header-backbround-color;
+            min-height: @detached-header-height;
+            max-height: @detached-header-height;
+            padding-top: 5px;
+
+            a {
+                color: @detached-header-link-color;
+            }
+
+            .navbar-header {
+                font-size: 16pt;
+            }
+        }
+        .portal-global {
+            padding: 0;
+        }
+    }
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+/*
+ * Breakpoints: 240px, 320px, 480px, 600px, 769px, and 992px.
+ */
+
+
+/*
+ * When the screen size is larger than 769px wide...
+ * (Corresponds to the smallest breakpoint in Bootstrap)
+ */
+
+@media only screen and (min-width: 769px) {
+    .portal-content {
+        padding: 0px;
+    }
+
+    .portlet {
+        margin-bottom: 10px;
+        .border-radius;
+    }
+
+}

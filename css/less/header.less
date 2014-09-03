@@ -1,0 +1,125 @@
+/**
+ * Licensed to Jasig under one or more contributor license
+ * agreements. See the NOTICE file distributed with this work
+ * for additional information regarding copyright ownership.
+ * Jasig licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file
+ * except in compliance with the License. You may obtain a
+ * copy of the License at:
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+.portal-header {
+    background: @header-background-color;
+    color: @header-text-color;
+
+    .portal-nav {
+        .container {
+            padding: 0;
+        }
+    }
+}
+
+.portal-global {
+    padding-top: 10px;
+    right: 0;
+
+    .logout-launcher {
+        a.portal-logout {
+           color: @user-portal-logout-btn-text-color;
+        }
+    }
+}
+
+.portal-editing {
+    .inline-block-list;
+
+    li {
+        .float;
+    }
+}
+
+h1.portal-logo {
+    font-size: 400%;
+    text-rendering: optimizelegibility;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+    margin: 30px 0 10px 0;
+}
+
+#webSearchContainer {
+    margin: 10px 0 20px 0;
+}
+
+#webSearchSubmit {
+    span {
+        display: none;
+    }
+}
+
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+/*
+ * Breakpoints: 240px, 320px, 480px, 600px, 769px, and 992px.
+ */
+
+@media only screen and (min-width: 769px) {
+     .portal-global {
+        position: relative;
+        padding-top: 10px;
+        left: 0;
+        .gradient(@portal-global-background-color, @portal-global-background-gradient);
+        border-bottom: 1px solid @portal-global-border-color;
+        .drop-shadow;
+        text-align: right;
+        padding: 4px 0;
+    }
+
+     .portal-header {
+         .container {
+             padding: 0;
+
+             .portal-user {
+                a {
+                  //color: @user-portal-link-color;
+                    margin-left: 10px;
+                }
+                .notification-icon {
+                    margin-right: 10px;
+                    a {
+                        color: #fff;
+                        text-decoration: none;
+                    }
+                }
+             }
+         }
+    }
+}
+
+
+#up-notification {
+  position: fixed;
+  z-index: 99999;
+  width: 100%;
+}
+
+div.global-container {
+    padding: 0;
+}
+
+h1.page-title {
+  font-size: 2.3em;
+  color: #b70101;
+  margin: 0px 0px -5px 0px;
+  padding: 0;
+  font-weight: 200;
+}
