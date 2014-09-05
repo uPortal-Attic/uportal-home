@@ -23,7 +23,9 @@
   	$http.get('/portal/api/layoutDoc?tab=UW Bucky Home').success(function(data) {
   		store.data = data;
   	});
-
+    this.directToPortlet = function directToPortlet(url) {
+      $location.path(url);
+    }
   	this.removePortlet = function removePortletFunction(index, layout) {
         var portletId = layout[index].nodeId;
         $.ajax({
@@ -41,6 +43,7 @@
                 }
             });
       };
+
 
 	} ]);
 

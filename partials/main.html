@@ -7,6 +7,11 @@
       <h1>MyUW Home</h1>
       <p>This is the Angular version of MyUW. Enjoy!</p>
     </div>
+    <div class="news-article">
+      <p class="news-section-title">News</p>
+      <h3 class="news-article-title">Initial Impression</h3>
+      <p class="news-article-description">First-year students take to the turf for W Project. <a href="https://www.youtube.com/watch?v=-I_Ia6wNwkA&feature=youtu.be">Read more <i class="fa fa-angle-right"></i></a></p>
+    </div>
   </div>
   <div class="col-xs-12 notification-section">
     <h3 class="home-section-header">Notifications</h3>
@@ -16,16 +21,21 @@
     <h3 class="home-section-header portlet-section-header">Your Favorites</h3>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" ng-repeat="portlet in mainCtrl.data.layout">
       <div class="portlet-div" id="portlet-id-{{portlet.nodeId}}">
-        <div class="portlet-title">
-          <h1><img src="{{portlet.iconUrl}}"><a href="{{ portlet.url}}">{{ portlet.title }}</a></h1>
-          <div>
-            <span class="glyphicon glyphicon-remove portlet-options" ng-click="mainCtrl.removePortlet($index,mainCtrl.data.layout)"></span>
+        <a href="{{portlet.url}}">
+          <div class="portlet-title">
+          <h1><img src="{{portlet.iconUrl}}">{{ portlet.title }}</h1>
+            <div>
+              <i class="fa fa-times portlet-options" ng-click="mainCtrl.removePortlet($index,mainCtrl.data.layout)"></i>
+            </div>
           </div>
-        </div>
-        <div class="portlet-content">
-          {{portlet.description}}
-        </div>
+        </a>
+        <a href="{{portlet.url}}">
+          <div class="portlet-content">
+            {{portlet.description}}
+          </div>
+        </a>
       </div>
+    </a>
     </div>
   </div>
 </div>
