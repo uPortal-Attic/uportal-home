@@ -7,14 +7,15 @@
   background-color:#fff;
   border-radius:4px;
   box-shadow:0px 0px 7px #ccc;
-  padding:0px 15px;
+  padding:0px 0px;
+  margin:0px;
+
 }
 .card-header {
   height:260px;
   position:relative;
   overflow:hidden;
-  margin-left:-15px;
-  margin-right:-15px;
+
   z-index:20;
   border-top-left-radius:4px;
   border-top-right-radius:4px;
@@ -23,6 +24,7 @@
   z-index:10;
   position:absolute;
   width:100%;
+  height:300px;
   padding:5px 0px 5px 20px;
   box-shadow: inset 0 200px 150px -50px rgba(0,0,0,0.6);
 }
@@ -106,26 +108,24 @@
   min-height : 1.5em;
 }
 .portlet-div {
+  height:130px;
   background-color: #ffffff;
-  margin: 20px 20px 0px 0px;
   padding-bottom: 10px;
-  border-radius: 3px;
-  border: 0px solid #b70101;
-  box-shadow: 0px 0px 7px #ccc;
+  border-bottom: 1px solid #ccc !important;
+  border-right:1px solid #ccc !important;
   box-model: border-box;
 }
 .portlet-content {
-  padding: 10px 20px;
+  padding:0px 12px 0px 12px;
 }
 .portlet-title {
-  border-top: 5px solid #b70101;
-  border-bottom: 1px solid #e5e5e5;
-  margin: 0px;
+/* border-top: 5px solid #b70101;  border-bottom: 1px solid #e5e5e5;
+ */  margin: 0px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 .portlet-title h1 {
-  font-size: 1.8em;
+  font-size: 1.6em;
   color: #b70101;
   width: 100%;
   font-weight: 200;
@@ -154,7 +154,6 @@
 .page-h1 {
   font-size: 2.3em;
   color: #b70101;
-  margin: 20px 0px -5px 25px;
   padding: 0;
   font-weight: 200;
 }
@@ -172,4 +171,15 @@
 }
 .portlet-list li {
   font-size: 1.2em;
+}
+
+.home-section-header {
+  padding:10px 12px;
+  margin:0px;
+  margin-top:10px;
+  margin-bottom:0px;
+  border-bottom:1px solid @color1;
+}
+.portlet-section-header {
+  margin-top:30px;
 }
