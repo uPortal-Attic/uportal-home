@@ -14,22 +14,26 @@
 }
 .btn-add {
   border:1px solid #b70101;
+  background-color:transparent;
   color:#b70101;
   text-shadow:none;
   margin:5px 8px 0px 0px;
 }
 .btn-add:hover {
   background-color:#b70101;
+  border:#b70101;
   color:#fff;
 }
 .btn-launch {
   border:1px solid #56d000;
+  background-color:transparent;
   color:#56d000;
   text-shadow:none;
   margin:5px 8px 0px 0px;
 }
 .btn-launch:hover {
   background-color:#56d000;
+  border:1px solid #56d000;
   color:#fff;
 }
 .category-links {
@@ -75,7 +79,7 @@
 .portlet-list-item {
   min-height:100px;
   border-bottom:1px solid #ddd;
-  padding:12px 0px;
+  padding:12px 10px;
 
 }
 .portlet-list-item:hover {
@@ -85,8 +89,38 @@
   min-height:100px;
   border-bottom:1px solid #ddd;
   border-left:5px solid #b70101;
+  background-color:#f3f3f3;
+  padding-right:10px;
+  padding-left:5px;
+}
+.mp-header {
+  height:300px;
+}
+.mp-opaque {
+  height:40px;
+  background-color:rgba(256,256,256,0.8);
+}
+.mp-opaque ul {
+  padding:0;
+}
+.mp-opaque li {
+  float:left;
+  width:25%;
+  border-left:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+  border-top:0px solid #ccc;
+  height:40px;
+  padding:10px 0px;
+  text-align:center;
+  box-sizing:border-box;
+}
+.mp-opaque li:hover {
   background-color:#fff;
-  padding-left:20px;
-  padding-right:15px;
-  box-shadow:inset 0px 0px 10px #ccc;
+  cursor:pointer;
+}
+#browse-by {
+  background-color:#fff;
+}
+#browse-by:hover {
+  cursor:default;
 }

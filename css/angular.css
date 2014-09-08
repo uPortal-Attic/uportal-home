@@ -7995,6 +7995,242 @@ textarea:focus,
 button:focus {
   outline: none !important;
 }
+/* Card UI Styling */
+.page-content {
+  margin: 0;
+}
+.card {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 7px #ccc;
+  padding: 0px 0px;
+  margin: 0px;
+}
+.card-header {
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+  z-index: 20;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.card-header-text {
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  padding: 5px 20px 5px 20px;
+  box-shadow: inset 0 200px 150px -50px rgba(0, 0, 0, 0.6);
+}
+.card-header-text p {
+  color: #fff;
+  width: 60%;
+  max-width: 500px;
+  font-weight: 200;
+}
+.card-header .header-image {
+  width: 120%;
+  border-radius: 4px;
+  margin: -15px;
+  padding: 15px;
+  opacity: 0.7;
+  z-index: 0;
+  position: absolute;
+}
+.header-opaque {
+  height: 70px;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.6);
+  bottom: 0px;
+  z-index: 150;
+}
+.news-article-title {
+  font-weight: 200;
+  position: absolute;
+  bottom: 28px;
+  right: 15px;
+  color: #333;
+  padding: 0;
+  margin: 0;
+  font-size: 1.8em;
+}
+.news-article-description {
+  position: absolute;
+  bottom: 8px;
+  right: 15px;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+.news-section-title {
+  font-size: 0.7em;
+  position: absolute;
+  bottom: 53px;
+  right: 5px;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+.news-article a {
+  color: #b70101;
+}
+.marketplace-search {
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  left: 20%;
+  font-size: 1.8em;
+  font-weight: 200;
+  padding: 4px 4px 4px 12px;
+  margin: 20px 0px 30px 0px;
+  display: block;
+}
+.mp-search-icon {
+  position: relative;
+  left: 17%;
+  top: 50px;
+  padding-right: 8px;
+  display: inline-block;
+  color: #fff;
+  text-shadow: 0px 0px 15px #000;
+}
+.card h1 {
+  color: #fff;
+  margin-top: 10px;
+  font-weight: 100;
+}
+.card h2 {
+  padding: 0px 5px 2px 0px;
+  margin: 0px;
+  display: inline;
+}
+.card .btn .fa {
+  padding-right: 8px;
+}
+.card h2 span.fa {
+  width: 38px;
+  height: 38px;
+  font-size: 0.7em;
+  margin: 0px 12px 5px 5px;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid #333;
+  text-align: center;
+  padding: 8px 0px 0px 0px;
+  opacity: 1.0;
+  color: #333;
+}
+.card h2 span.portlet-title {
+  position: relative;
+  top: 2px;
+  border: none;
+}
+.portlet-title h1 img {
+  margin: 6px;
+  min-height: 1.5em;
+}
+.portlet-div {
+  position: relative;
+  height: 130px;
+  background-color: #ffffff;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd !important;
+  border-right: 1px solid #ddd !important;
+  box-model: border-box;
+}
+.portlet-div:hover {
+  background-color: #f3f3f3;
+  /*   border-right:1px solid #555 !important;
+border-top:1px solid #555 !important;
+border-bottom:1px solid #555 !important; */
+  border-left: 5px solid #b70101;
+  cursor: pointer;
+  z-index: 100;
+}
+.portlet-div a {
+  color: #000;
+}
+.portlet-div a:hover {
+  text-decoration: none;
+}
+.portlet-div .portlet-options {
+  color: #aaa;
+  font-size: 1.3em;
+  padding: 6px 8px;
+}
+.portlet-div .portlet-options:hover {
+  color: #333;
+}
+.portlet-content {
+  padding: 0px 12px 0px 12px;
+  height: 100%;
+}
+.portlet-title {
+  /* border-top: 5px solid #b70101;  border-bottom: 1px solid #e5e5e5;
+ */
+  margin: 0px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.portlet-title h1 {
+  font-size: 1.6em;
+  color: #600;
+  width: 100%;
+  font-weight: 200;
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+.portlet-title h1 span.fa {
+  width: 38px;
+  height: 38px;
+  font-size: 0.8em;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid #b70101;
+  text-align: center;
+  padding: 8px 0px 0px 0px;
+  opacity: 1.0;
+}
+.portlet-title > div {
+  float: right;
+  display: inline;
+  padding: 0px;
+}
+.page-h1 {
+  font-size: 2.3em;
+  color: #b70101;
+  padding: 0;
+  font-weight: 200;
+}
+.page-content {
+  position: relative;
+  top: 55px;
+}
+.portlet-title div {
+  position: relative;
+  top: 0px;
+}
+.portlet-list {
+  margin: 0px;
+  padding: 0px;
+}
+.portlet-list li {
+  font-size: 1.2em;
+}
+.home-section-header {
+  padding: 10px 12px;
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #b70101;
+}
+.portlet-section-header {
+  margin-top: 30px;
+}
 .bucky-nav-large li:first-of-type + li {
   position: absolute;
   width: 30%;
@@ -8196,22 +8432,26 @@ li.read:hover {
 }
 .btn-add {
   border: 1px solid #b70101;
+  background-color: transparent;
   color: #b70101;
   text-shadow: none;
   margin: 5px 8px 0px 0px;
 }
 .btn-add:hover {
   background-color: #b70101;
+  border: #b70101;
   color: #fff;
 }
 .btn-launch {
   border: 1px solid #56d000;
+  background-color: transparent;
   color: #56d000;
   text-shadow: none;
   margin: 5px 8px 0px 0px;
 }
 .btn-launch:hover {
   background-color: #56d000;
+  border: 1px solid #56d000;
   color: #fff;
 }
 .category-links {
@@ -8255,7 +8495,7 @@ li.read:hover {
 .portlet-list-item {
   min-height: 100px;
   border-bottom: 1px solid #ddd;
-  padding: 12px 0px;
+  padding: 12px 10px;
 }
 .portlet-list-item:hover {
   cursor: pointer;
@@ -8264,246 +8504,40 @@ li.read:hover {
   min-height: 100px;
   border-bottom: 1px solid #ddd;
   border-left: 5px solid #b70101;
-  background-color: #fff;
-  padding-left: 20px;
-  padding-right: 15px;
-  box-shadow: inset 0px 0px 10px #ccc;
-}
-/* Card UI Styling */
-.page-content {
-  margin: 0;
-}
-.card {
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0px 0px 7px #ccc;
-  padding: 0px 0px;
-  margin: 0px;
-}
-.card-header {
-  height: 260px;
-  position: relative;
-  overflow: hidden;
-  z-index: 20;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-.card-header-text {
-  z-index: 10;
-  position: absolute;
-  width: 100%;
-  height: 300px;
-  padding: 5px 0px 5px 20px;
-  box-shadow: inset 0 200px 150px -50px rgba(0, 0, 0, 0.6);
-}
-.card-header-text p {
-  color: #fff;
-  width: 60%;
-  max-width: 500px;
-  font-weight: 200;
-}
-.card-header .header-image {
-  width: 120%;
-  border-radius: 4px;
-  margin: -15px;
-  padding: 15px;
-  opacity: 0.7;
-  z-index: 0;
-  position: absolute;
-}
-.news-article {
-  height: 70px;
-  width: 100%;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.6);
-  bottom: 0px;
-  z-index: 150;
-}
-.news-article-title {
-  font-weight: 200;
-  position: absolute;
-  bottom: 28px;
-  right: 15px;
-  color: #333;
-  padding: 0;
-  margin: 0;
-  font-size: 1.8em;
-}
-.news-article-description {
-  position: absolute;
-  bottom: 8px;
-  right: 15px;
-  color: #333;
-  margin: 0;
-  padding: 0;
-}
-.news-section-title {
-  font-size: 0.7em;
-  position: absolute;
-  bottom: 53px;
-  right: 5px;
-  color: #333;
-  margin: 0;
-  padding: 0;
-}
-.news-article a {
-  color: #b70101;
-}
-.marketplace-search {
-  width: 60%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  position: relative;
-  left: 20%;
-  font-size: 1.8em;
-  font-weight: 200;
-  padding: 4px 4px 4px 12px;
-  margin: 20px 0px 30px 0px;
-  display: block;
-}
-.mp-search-icon {
-  position: relative;
-  left: 17%;
-  top: 50px;
-  padding-right: 8px;
-  display: inline-block;
-  color: #fff;
-  text-shadow: 0px 0px 15px #000;
-}
-.card h1 {
-  color: #fff;
-  margin-top: 10px;
-  font-weight: 100;
-}
-.card h2 {
-  padding: 0px 5px 2px 0px;
-  margin: 0px;
-  display: inline;
-}
-.card .fa {
-  padding-right: 8px;
-}
-.card h2 span.fa {
-  width: 38px;
-  height: 38px;
-  font-size: 0.7em;
-  margin: 0px 12px 5px 5px;
-  position: relative;
-  border-radius: 50%;
-  border: 1px solid #333;
-  text-align: center;
-  padding: 8px 0px 0px 0px;
-  opacity: 1.0;
-  color: #333;
-}
-.card h2 span.portlet-title {
-  position: relative;
-  top: 2px;
-  border: none;
-}
-.portlet-title h1 img {
-  margin: 6px;
-  min-height: 1.5em;
-}
-.portlet-div {
-  position: relative;
-  height: 130px;
-  background-color: #ffffff;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd !important;
-  border-right: 1px solid #ddd !important;
-  box-model: border-box;
-}
-.portlet-div:hover {
   background-color: #f3f3f3;
-  /*   border-right:1px solid #555 !important;
-border-top:1px solid #555 !important;
-border-bottom:1px solid #555 !important; */
-  border-left: 5px solid #b70101;
-  cursor: pointer;
-  z-index: 100;
+  padding-right: 10px;
+  padding-left: 5px;
 }
-.portlet-div a {
-  color: #000;
+.mp-header {
+  height: 300px;
 }
-.portlet-div a:hover {
-  text-decoration: none;
+.mp-opaque {
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
-.portlet-div .portlet-options {
-  color: #aaa;
-  font-size: 1.3em;
-  padding: 6px 8px;
-}
-.portlet-div .portlet-options:hover {
-  color: #333;
-}
-.portlet-content {
-  padding: 0px 12px 0px 12px;
-  height: 100%;
-}
-.portlet-title {
-  /* border-top: 5px solid #b70101;  border-bottom: 1px solid #e5e5e5;
- */
-  margin: 0px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-.portlet-title h1 {
-  font-size: 1.6em;
-  color: #600;
-  width: 100%;
-  font-weight: 200;
-  display: inline;
-  margin: 0px;
-  padding: 0px;
-  position: relative;
-}
-.portlet-title h1 span.fa {
-  width: 38px;
-  height: 38px;
-  font-size: 0.8em;
-  position: relative;
-  border-radius: 50%;
-  border: 1px solid #b70101;
-  text-align: center;
-  padding: 8px 0px 0px 0px;
-  opacity: 1.0;
-}
-.portlet-title > div {
-  float: right;
-  display: inline;
-  padding: 0px;
-}
-.page-h1 {
-  font-size: 2.3em;
-  color: #b70101;
+.mp-opaque ul {
   padding: 0;
-  font-weight: 200;
 }
-.page-content {
-  position: relative;
-  top: 55px;
+.mp-opaque li {
+  float: left;
+  width: 25%;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-top: 0px solid #ccc;
+  height: 40px;
+  padding: 10px 0px;
+  text-align: center;
+  box-sizing: border-box;
 }
-.portlet-title div {
-  position: relative;
-  top: 0px;
+.mp-opaque li:hover {
+  background-color: #fff;
+  cursor: pointer;
 }
-.portlet-list {
-  margin: 0px;
-  padding: 0px;
+#browse-by {
+  background-color: #fff;
 }
-.portlet-list li {
-  font-size: 1.2em;
-}
-.home-section-header {
-  padding: 10px 12px;
-  margin: 0px;
-  margin-top: 10px;
-  margin-bottom: 0px;
-  border-bottom: 1px solid #b70101;
-}
-.portlet-section-header {
-  margin-top: 30px;
+#browse-by:hover {
+  cursor: default;
 }
 @media (min-width: 768px) {
   #myuw-header span {
@@ -8513,15 +8547,14 @@ border-bottom:1px solid #555 !important; */
     display: none;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .beta-sidebar {
     display: none;
   }
-}
-@media (max-width: 768px) {
   .marketplace-search {
     width: 90%;
     left: 5%;
+    font-size: 1.5em;
   }
   .card h2 {
     font-size: 1.6em !important;
@@ -8552,6 +8585,58 @@ border-bottom:1px solid #555 !important; */
     border-right: 0px solid #ccc;
     height: auto;
   }
+  .card-header-text p {
+    width: 90%;
+  }
+  .marketplace-search {
+    width: 100%;
+    margin: 10px 15px 10px 0px;
+    left: 0%;
+  }
+  .card-header .header-image {
+    width: 180%;
+  }
+  .header-opaque {
+    height: 65px;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    bottom: 0px;
+    z-index: 150;
+  }
+  .news-article-title {
+    font-weight: 200;
+    position: absolute;
+    bottom: 33px;
+    right: 10px;
+    color: #333;
+    padding: 0px;
+    margin: 0;
+    font-size: 1.5em;
+  }
+  .news-article-description {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    color: #333;
+    margin: 0;
+    padding: 0px 0px 0px 20px;
+    font-size: 0.8em;
+    text-align: right;
+    line-height: 1.1em;
+  }
+  .news-section-title {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: 48px;
+    left: 5px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  .news-article a {
+    color: #b70101;
+  }
 }
 @media (max-width: 992px) {
   .main-search {
@@ -8574,5 +8659,11 @@ border-bottom:1px solid #555 !important; */
   }
   .right-column {
     padding-left: 15px !important;
+  }
+}
+@media (max-width: 500px) {
+  .mp-opaque li {
+    font-size: 0.8em;
+    padding: 12px 0px;
   }
 }

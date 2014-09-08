@@ -1,11 +1,19 @@
 
 <div ng-controller="MarketplaceController as marketplaceCtrl" class="card col-xs-12 col-md-12">
-  <div class="card-header">
+  <div class="card-header mp-header">
     <img class="header-image" src="img/terrace.jpg">
     <div class="card-header-text">
       <h1>UW Marketplace</h1>
       <p>The Marketplace contains everything you need at UW. Search for what you need or browse the collection to add what you'll use most often to your home page.</p>
       <span class="fa fa-search mp-search-icon"></span><input type="text" class="marketplace-search" placeholder="What are you looking for?" ng-model="searchTerm">
+    </div>
+    <div class="header-opaque mp-opaque">
+      <ul>
+        <li id="browse-by">Browse by:</li>
+        <li>Most Popular</li>
+        <li>A-Z</li>
+        <li>Categories</li>
+      </ul>
     </div>
   </div>
 
