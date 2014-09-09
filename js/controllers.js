@@ -52,7 +52,7 @@
     store.portlets = [];
     store.count = 0;
 
-  	$http.get('/portal/api/portlets.json')
+  	$http.get('/portal/api/marketplace/entries.json')
       .success(function(data) {
         var portlets = data.portlets
         store.count = portlets.length;
