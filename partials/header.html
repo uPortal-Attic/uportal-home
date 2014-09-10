@@ -18,7 +18,13 @@
              </ul>
              <ul class="nav navbar-nav hidden-xs bucky-nav-large">
                  <li>
-                    <h3  ng-controller="NotificationController as notificationIconCtrl"><a title="click to view notifications" href="{{notificationIconCtrl.notificationUrl}}"><span class="number-of-nots">{{notificationIconCtrl.count}}</span></a></h3>
+                    <h3  ng-controller="NotificationController as notificationIconCtrl">
+                        <a title="click to view notifications" href="{{notificationIconCtrl.notificationUrl}}">
+                            <div  class='notification-badge'>
+                                <span class="number-of-nots">{{notificationIconCtrl.count}}</span>
+                            </div>
+                        </a>
+                    </h3>
                  </li>
                  <li>
                     <search></search>

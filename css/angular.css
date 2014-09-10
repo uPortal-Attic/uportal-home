@@ -8306,6 +8306,22 @@ a#myuw-header img {
 .navbar-nav {
   margin: 0px;
 }
+.notification-badge {
+  background-color: #f7f5e8;
+  border-radius: 4px;
+  font-size: .75em;
+  font-weight: 200;
+  color: #b70101;
+  padding: 4px 6px 4px 5px;
+  margin: 12px 20px 12px 8px;
+  position: relative;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  top: 0px;
+  line-height: 1em;
+  border: 1px solid #b70101;
+  min-width: 2em;
+}
 .side-bar-menu {
   width: 100%;
   position: fixed;
