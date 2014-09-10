@@ -25,6 +25,13 @@
 	    }
 	  });
 	  
+	 app.directive('marketplaceLight', function(){
+	    return{
+	        restrict: 'E',
+	        templateUrl: 'partials/marketplace-light.html'
+	    } 
+	 });
+	  
 	  app.directive('search', function() {
 		  return {
 			  restrict : 'E',

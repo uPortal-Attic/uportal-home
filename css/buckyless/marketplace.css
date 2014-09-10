@@ -1,0 +1,49 @@
+/* Marketplace Styling */
+.portlet-list-item p {
+  padding: 5px;
+}
+.action-buttons {
+  background-color: none;
+  text-shadow: none;
+  float: right;
+}
+.action-buttons-mobile {
+  display: none;
+}
+.btn-add {
+  border: 1px solid #b70101;
+  color: #b70101;
+  text-shadow: none;
+  margin: 5px 8px 0px 0px;
+}
+.btn-add:hover {
+  background-color: #b70101;
+  color: #fff;
+}
+.btn-launch {
+  border: 1px solid #56d000;
+  color: #56d000;
+  text-shadow: none;
+  margin: 5px 8px 0px 0px;
+}
+.btn-launch:hover {
+  background-color: #56d000;
+  color: #fff;
+}
+.category-links {
+  background-color: #066999;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  font-size: 0.8em;
+  font-weight: 400;
+  padding: 4px 8px;
+  margin-left: 6px;
+  opacity: 0.7;
+}
+.category-links:hover {
+  text-decoration: none;
+  background-color: #04547a;
+  color: #fff;
+  opacity: 0.9;
+}
