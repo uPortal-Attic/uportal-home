@@ -54,13 +54,29 @@
 
   	$http.get('/portal/api/marketplace/entries.json')
       .success(function(data) {
-        var portlets = data.portlets
-        store.count = portlets.length;
-        for(var i = 0; i < store.count; i++) {
-          store.portlets.push(portlets[i]);
-        }
+        store.portlets = data.portlets;
+        store.count = store.portlets.length;
     	}).error(function(data) {
     });
+
+    this.addToHome = function addToHomeFunction(index, portlet) {
+      var fname = portlet.fname;
+      var tabName = "UW Bucky Home";
+      $.ajax({
+              url: "/portal/api/layout?action=addPortlet&fname=" + fname +"&tabName=" + tabName,
+              type: "POST",
+              data: null,
+              dataType: "json",
+              async: true,
+              success: function (request, text){
+                $('.'+fname).html('Added Successfully').prop('disabled',true).removeClass('btn-add');
+
+              },
+              error: function(request, text, error) {
+                $('.'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
+              }
+          });
+    };
 
 
 
