@@ -12,7 +12,7 @@
   <div class="portlet-list-item" ng-repeat="portlet in marketplaceCtrl.portlets | filter:searchTerm | orderBy:'name'" ng-class="{test: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
     <h2><span class="fa fa-circle"></span><span class="portlet-title">{{portlet.name}}</span></h2>
     <div class="action-buttons">
-      <button class="btn btn-default btn-add {{portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)">
+      <button class="btn btn-default btn-add fname-{{portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)">
         <span class="fa fa-plus"></span>Add to Home
       </button>
       <a class="btn btn-default btn-launch" href="{{portlet.maxUrl}}"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>

@@ -69,11 +69,11 @@
               dataType: "json",
               async: true,
               success: function (request, text){
-                $('.'+fname).html('Added Successfully').prop('disabled',true).removeClass('btn-add');
+                $('.fname-'+fname).html('Added Successfully').prop('disabled',true).removeClass('btn-add');
 
               },
               error: function(request, text, error) {
-                $('.'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
+                $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
               }
           });
     };
