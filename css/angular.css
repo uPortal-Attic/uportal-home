@@ -8127,6 +8127,11 @@ button:focus {
   top: 2px;
   border: none;
 }
+.card-remove {
+  top: 8px;
+  position: absolute;
+  right: -3px;
+}
 .portlet-title h1 img {
   margin: 6px;
   min-height: 1.5em;
