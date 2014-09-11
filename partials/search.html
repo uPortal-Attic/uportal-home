@@ -46,6 +46,9 @@
    font-weight:200;
 }
 </style>
-<form action="/portal/p/portletmarketplace" method="GET">
-    <p><input type="search" class="main-search" placeholder="Search My UW" name="initialFilter"><span class="glyphicon glyphicon-search"></span></p>
+<form ng-submit="submit()" ng-controller="SearchController as searchCtrl">
+    <p>
+      <input type="search" class="main-search" placeholder="Search My UW" name="initialFilter" ng-model="initialFilter">
+      <span class="glyphicon glyphicon-search"></span>
+    </p>
 </form>

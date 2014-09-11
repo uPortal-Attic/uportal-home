@@ -3,7 +3,8 @@
     'ngRoute',
     'portal.controllers',
     'portal.directives',
-    'portal.notificationControllers'
+    'portal.notificationControllers',
+    'portal.marketplace_service'
  ]);
  app.config(['$routeProvider',function($routeProvider) {
 	 $routeProvider.
