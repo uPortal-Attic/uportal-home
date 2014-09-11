@@ -8565,6 +8565,9 @@ li.read:hover {
   border-top: none;
   padding: 10px 0px;
 }
+.loading-gif {
+  text-align: center;
+}
 @media (min-width: 768px) {
   #myuw-header span {
     margin-left: 2.7em;
