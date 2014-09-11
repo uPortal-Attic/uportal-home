@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-var app = angular.module('portal.marketplace_service', []);
+var app = angular.module('portal.marketplace.service', []);
 
 app.service('marketplaceService', function() {
   var filter = "";
