@@ -15,6 +15,17 @@
   	} ]);
 
 
+  /* Search */
+
+  app.controller('SearchController', [ '$scope', '$location', 'marketplaceService', function($scope, $location, marketplaceService) {
+      $scope.submit = function(){
+        marketplaceService.initialFilter($scope.initialFilter);
+        $location.path("/marketplace");
+        $scope.initialFilter = "";
+      }
+    } ]);
+
+
   /* Home Page */
 
   app.controller('MainController', [ '$http', function($http) {
@@ -50,10 +61,12 @@
 
   /* Marketplace */
 
-  app.controller('MarketplaceController', [ '$http', function($http) {
+  app.controller('MarketplaceController', [ '$http', '$scope','marketplaceService', function($http, $scope, marketplaceService) {
   	var store = this;
     store.portlets = [];
     store.count = 0;
+    $scope.searchTerm = marketplaceService.getInitialFilter();
+    marketplaceService.initialFilter("");
 
   	$http.get('/portal/api/marketplace/entries.json')
       .success(function(data) {
