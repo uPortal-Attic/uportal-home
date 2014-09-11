@@ -1,11 +1,14 @@
 (function() {
  var app = angular.module('portal', [
     'ngRoute',
-    'portal.controllers',
-    'portal.directives',
-    'portal.notificationControllers',
-    'portal.marketplace_service'
- ]);
+    'portal.misc.controllers',
+    'portal.misc.directives',
+    'portal.main.controllers',
+    'portal.main.directives',
+    'portal.notification.controller',
+    'portal.marketplace.controller',
+    'portal.marketplace.service'
+     ]);
  app.config(['$routeProvider',function($routeProvider) {
 	 $routeProvider.
       when('/marketplace', {templateUrl: 'partials/marketplace.html'}).

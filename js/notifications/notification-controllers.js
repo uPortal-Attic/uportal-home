@@ -1,7 +1,7 @@
   'use strict';
 
  (function() {
-  var app = angular.module('portal.notificationControllers', []);
+  var app = angular.module('portal.notification.controller', []);
 
   app.controller('NotificationController', [ '$http', function($http){
     var store = this;
