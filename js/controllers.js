@@ -3,6 +3,21 @@
  (function() {
   var app = angular.module('portal.controllers', []);
 
+  /* Username */
+
+  app.controller('SessionCheckController', [ '$http', function($http) {
+      var store = this;
+      store.user = {};
+
+      $http.get('/portal/api/session.json').success(function(data) {
+        store.user = data;
+        if(data === null || data.person.userName === "guest") {
+          //redirecting to login screen
+          window.location = "/portal/Login";
+        }
+      });
+    } ]);
+
   /* Profile */
 
   app.controller('ProfileController', [ '$http', function($http) {

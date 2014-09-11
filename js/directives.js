@@ -38,6 +38,12 @@
 			  templateUrl : 'partials/search.html'
 		  }
 	  });
+	  app.directive('username', function() {
+		  return {
+			  restrict : 'E',
+			  templateUrl : 'partials/username.html'
+		  }
+	  });
 
     app.directive('loading',   ['$http' ,function ($http)
     {
