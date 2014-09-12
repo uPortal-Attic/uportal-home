@@ -20,7 +20,7 @@
   <div class="portlet-list-item" ng-repeat="portlet in marketplaceCtrl.portlets | filter:searchTerm | orderBy:'name'" ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
     <h2>
         <span class="fa fa-circle" ng-show="portlet.faIcon === null"></span>
-        <span class="fa {{portlet.faIcon}}" ng-show="portlet.faIcon != null"></span>
+        <span class="fa {{portlet.faIcon}}" ng-hide="portlet.faIcon === null"></span>
         <span class="portlet-title">{{portlet.name}}</span>
     </h2>
     <div class="action-buttons">
