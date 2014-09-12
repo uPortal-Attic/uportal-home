@@ -8333,6 +8333,9 @@ a#myuw-header img {
   text-align: right;
   padding-right: 1em;
 }
+.portlet-title h1 i {
+  margin: 6px;
+}
 .side-bar-menu {
   width: 100%;
   position: fixed;

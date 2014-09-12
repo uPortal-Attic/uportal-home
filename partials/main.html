@@ -24,7 +24,7 @@
         
         <a href="{{portlet.url}}">
           <div class="portlet-title">
-              <h1><img src="{{portlet.iconUrl}}">{{ portlet.title }}</h1>
+              <h1><img src="{{portlet.iconUrl}}" ng-show="portlet.faIcon === null"><i class="fa {{portlet.faIcon}}" ng-show="portlet.faIcon != null"></i>  {{ portlet.title }}</h1>
           </div>
         </a>
         <div class='card-remove'>
