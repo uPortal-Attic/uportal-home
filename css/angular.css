@@ -8577,6 +8577,12 @@ li.read:hover {
 .loading-gif {
   text-align: center;
 }
+.portlet-details {
+  position: relative;
+  float: right;
+  top: -20px;
+  right: 10px;
+}
 @media (min-width: 768px) {
   #myuw-header span {
     margin-left: 2.7em;

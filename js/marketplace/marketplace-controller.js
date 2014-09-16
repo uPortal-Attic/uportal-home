@@ -3,11 +3,14 @@
 (function() {
   var app = angular.module('portal.marketplace.controller', []);
 
-  app.controller('MarketplaceController', [ '$http', '$scope','marketplaceService', function($http, $scope, marketplaceService) {
+  app.controller('MarketplaceController', [ '$http', '$scope','$location','$routeParams','marketplaceService', function($http, $scope, $location, $routeParams, marketplaceService) {
     var store = this;
     store.portlets = [];
     store.count = 0;
     $scope.searchTerm = marketplaceService.getInitialFilter();
+
+
+
     marketplaceService.initialFilter("");
 
     $http.get('/portal/api/marketplace/entries.json')
@@ -16,6 +19,7 @@
         store.count = store.portlets.length;
       }).error(function(data) {
     });
+
 
     this.addToHome = function addToHomeFunction(index, portlet) {
       var fname = portlet.fname;
