@@ -12,6 +12,8 @@
       store.portlets = data.portlets;
     })
 
+    marketplaceService.initialFilter("");
+
 
     this.addToHome = function addToHomeFunction(index, portlet) {
       var fname = portlet.fname;
