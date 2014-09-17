@@ -3,7 +3,8 @@
 (function() {
 var app = angular.module('portal.marketplace.service', []);
 
-app.service('marketplaceService', function() {
+app.factory('marketplaceService', function($http) {
+
   var filter = "";
 
   var initialFilter = function(theFilter) {
@@ -15,9 +16,14 @@ app.service('marketplaceService', function() {
   }
 
   return {
+    getPortlets: function () {
+      return $http.get('/portal/api/marketplace/entries.json').then(function(result) {
+        return result.data;
+      });
+    },
     initialFilter: initialFilter,
     getInitialFilter: getInitialFilter
-  };
+  }
 
 });
 

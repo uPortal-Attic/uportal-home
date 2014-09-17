@@ -8,17 +8,9 @@
     store.portlets = [];
     store.count = 0;
     $scope.searchTerm = marketplaceService.getInitialFilter();
-
-
-
-    marketplaceService.initialFilter("");
-
-    $http.get('/portal/api/marketplace/entries.json')
-      .success(function(data) {
-        store.portlets = data.portlets;
-        store.count = store.portlets.length;
-      }).error(function(data) {
-    });
+    marketplaceService.getPortlets().then(function(data) {
+      store.portlets = data.portlets;
+    })
 
 
     this.addToHome = function addToHomeFunction(index, portlet) {
