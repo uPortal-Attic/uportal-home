@@ -32,4 +32,11 @@
     }
   });
 
+  app.directive('marketplacePortlet', function() {
+    return {
+      restrict : 'E',
+      templateUrl : 'partials/marketplace-portlet.html'
+    }
+  });
+
 })();

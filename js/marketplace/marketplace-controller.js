@@ -14,6 +14,9 @@
 
     marketplaceService.initialFilter("");
 
+    this.goToDetails = function(){
+      $location.path("/marketplace/" + fname );
+    }
 
     this.addToHome = function addToHomeFunction(index, portlet) {
       var fname = portlet.fname;
@@ -37,4 +40,28 @@
 
 
   } ]);
+
+  app.controller('MarketplaceDetailsController', [ '$scope', '$location', '$routeParams', 'marketplaceService', function($scope, $location, $routeParams, marketplaceService) {
+    marketplaceService.getPortlet().then(function(data) {
+      $scope.portlets = data.portlets;
+      for(var p in $scope.portlets) {
+        if ($scope.portlets[p].fname == $routeParams.fname) {
+          $scope.portlet = $scope.portlets[p];
+        };
+      };
+    });
+
+
+
+    marketplaceService.getPortlets().then(function(data) {
+      $scope.portlets = data.portlets;
+    });
+
+    if($routeParams.fname !== null) {
+      $scope.showDetails = true;
+    };
+
+
+
+    } ]);
 })();

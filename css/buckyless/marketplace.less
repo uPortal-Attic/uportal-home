@@ -75,23 +75,28 @@
   color:#fff;
   text-shadow:0px 0px 15px #000;
 }
-
-.portlet-list-item {
-  min-height:100px;
+.portlet-container {
+  padding-left:5px;
   border-bottom:1px solid #ddd;
-  padding:12px 10px;
 
+}
+.portlet-list-item {
+  padding:12px 8px;
+  min-height:100px;
 }
 .portlet-list-item:hover {
   cursor:pointer;
 }
 .portlet_hover {
   min-height:100px;
-  border-bottom:1px solid #ddd;
+  border-bottom:0px solid #ddd;
   border-left:5px solid #b70101;
+  border-bottom:1px solid #ddd;
+
   background-color:#f3f3f3;
-  padding-right:10px;
-  padding-left:5px;
+  padding-right:0px;
+  position:relative;
+  padding-left:0px;
 }
 .mp-header {
   height:300px;
@@ -138,4 +143,41 @@
   float:right;
   top:-20px;
   right:10px;
+}
+.portlet-details-div {
+  margin:0px;
+  margin-top:20px;
+  margin-bottom:20px;
+  h3 {
+    padding:5px 0px 3px 15px;
+    margin:0px;
+    font-size:1.5em;
+  }
+}
+.related-portlets {
+  margin:0px;
+  padding:0px;
+  display:inline-block;
+  border-right:1px solid #ddd;
+  ul {
+    margin:0px;
+    padding:3px 0px 0px 20px;
+  }
+}
+.portlet-screenshots {
+  margin:0px;
+  padding:0px;
+  display:inline-block;
+  ul {
+    margin:0px;
+    padding:0px 0px 0px 20px;
+  }
+  li {
+    display:inline-block;
+    float:left;
+    margin:5px;
+  }
+  img {
+    width:200px;
+  }
 }
