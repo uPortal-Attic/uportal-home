@@ -1,2 +1,4 @@
 .project
-
+*.css
+.codekit-cache
+*.min.js
