@@ -4,6 +4,7 @@
     <span class="fa {{portlet.faIcon}}" ng-show="portlet.faIcon != null"></span>
     <span class="portlet-title">{{portlet.name}}</span>
   </h2>
+  <rating ng-model="portlet.rating" readonly="true" ></rating>
   <div class="action-buttons" ng-click="showDetails = !showDetails">
     <button class="btn btn-default btn-add fname-{{portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)">
       <span class="fa fa-plus"></span>Add to Home
@@ -21,7 +22,7 @@
     <a class="btn btn-default btn-launch" href="{{portlet.maxUrl}}"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
   </div>
   <div class="portlet-details">
-    <a href="" ng-click="showDetails = !showDetails">Details <i class="fa fa-angle-down" ng-show="!showDetails"></i><i class="fa fa-angle-up" ng-show="showDetails"></i></a>
+    <a href="">Details <i class="fa fa-angle-down" ng-show="!showDetails"></i><i class="fa fa-angle-up" ng-show="showDetails"></i></a>
   </div>
   <div ng-show="showDetails" class="row portlet-details-div">
     <div class="col-xs-12 col-sm-3 related-portlets">
