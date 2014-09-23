@@ -8331,7 +8331,10 @@ a#myuw-header img {
   color: #fff;
   min-width: 20em;
   text-align: right;
-  padding-right: 1em;
+  padding: 15px 30px 0px 0px;
+  font-size: 1.2em;
+  font-weight: 100;
+  letter-spacing: 0.06em;
 }
 .portlet-title h1 i {
   margin: 6px;
@@ -8576,6 +8579,12 @@ li.read:hover {
 }
 .loading-gif {
   text-align: center;
+}
+.portlet-details {
+  position: relative;
+  float: right;
+  top: -20px;
+  right: 10px;
 }
 @media (min-width: 768px) {
   #myuw-header span {

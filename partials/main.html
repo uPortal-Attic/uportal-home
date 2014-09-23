@@ -21,7 +21,7 @@
     <h3 class="home-section-header portlet-section-header">Your Favorites</h3>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" ng-repeat="portlet in mainCtrl.data.layout">
       <div class="portlet-div" id="portlet-id-{{portlet.nodeId}}">
-        
+
         <a href="{{portlet.url}}">
           <div class="portlet-title">
               <h1><img src="{{portlet.iconUrl}}" ng-show="portlet.faIcon === null"><i class="fa {{portlet.faIcon}}" ng-show="portlet.faIcon != null"></i>  {{ portlet.title }}</h1>
