@@ -8,11 +8,15 @@
     store.portlets = [];
     store.count = 0;
     $scope.searchTerm = marketplaceService.getInitialFilter();
+    if($routeParams.initFilter !== null && ($scope.searchTerm === null || $scope.searchTerm === "")) {
+      $scope.searchTerm = $routeParams.initFilter;
+    } else {
+      marketplaceService.initialFilter("");
+    }
+
     marketplaceService.getPortlets().then(function(data) {
       store.portlets = data.portlets;
     })
-
-    marketplaceService.initialFilter("");
 
     this.goToDetails = function(){
       $location.path("/marketplace/" + fname );
