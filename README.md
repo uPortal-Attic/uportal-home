@@ -10,7 +10,7 @@ This is an angular approach to the dashboard view of uPortal. This dashboard wil
 ### To Run
 * Startup a uPortal instance
 * Login to said uPortal instance, ei: `my.wisc.edu/portal`
-* Change url to /angular, ei: `my.wisc.edu/angular`
+* Change url to /<whatever you named the directory in /webapps>, ei: `my.wisc.edu/web`
 
 ### Assumptions
 * Your end point of portal is /portal.
