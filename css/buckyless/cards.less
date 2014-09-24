@@ -52,7 +52,7 @@
   background-color:rgba(256,256,256,0.6);
   bottom:0px;
   z-index:150;
-
+  display:none;
 }
 .news-article-title {
   font-weight:200;
@@ -128,7 +128,7 @@
   width: 38px;
   height: 38px;
   font-size: 0.7em;
-  margin: 0px 12px 5px 5px;
+  margin: 4px 0px 0px 10px;
   position: relative;
   border-radius: 50%;
   border: 1px solid #333;
@@ -136,15 +136,20 @@
   padding: 8px 0px 0px 0px;
   opacity: 1.0;
   color:#333;
+  position:relative;
+  top:8px;
 }
 .card h2 span.portlet-title {
   position:relative;
   top:2px;
   border:none;
+  font-size:0.85em;
 }
 
 .card-remove {
-  top: 8px; position: absolute; right: -3px;
+  top: 8px;
+  position: absolute;
+  right: -3px;
 }
 
 
@@ -189,11 +194,9 @@
   height:100%;
 }
 .portlet-title {
-/* border-top: 5px solid #b70101;  border-bottom: 1px solid #e5e5e5;
- */  margin: 0px;
+  margin: 0px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-
 }
 .portlet-title h1 {
   font-size: 1.6em;
@@ -203,7 +206,7 @@
   display: inline;
   margin: 0px;
   padding:0px;
-  position: relative;
+  padding-top:5px;
 }
 .portlet-title h1 span.fa {
   width: 38px;
