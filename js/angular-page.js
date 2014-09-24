@@ -1,6 +1,7 @@
 (function() {
  var app = angular.module('portal', [
     'ngRoute',
+    'ui.bootstrap',
     'portal.misc.controllers',
     'portal.misc.directives',
     'portal.main.controllers',

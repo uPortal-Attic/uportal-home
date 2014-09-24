@@ -13,11 +13,12 @@
   display:none;
 }
 .btn-add {
-  border:1px solid #b70101;
+  border:1px solid @color2;
   background-color:transparent;
   color:#b70101;
   text-shadow:none;
   margin:5px 8px 0px 0px;
+  z-index:100;
 }
 .btn-add:hover {
   background-color:#b70101;
@@ -30,6 +31,7 @@
   color:#56d000;
   text-shadow:none;
   margin:5px 8px 0px 0px;
+  z-index:100;
 }
 .btn-launch:hover {
   background-color:#56d000;
@@ -81,7 +83,7 @@
 
 }
 .portlet-list-item {
-  padding:12px 8px;
+  padding:8px 8px 12px;
   min-height:100px;
 }
 .portlet-list-item:hover {
@@ -180,4 +182,10 @@
   img {
     width:200px;
   }
+}
+input:focus,span:focus {
+  outline:none;
+}
+.rating {
+  margin-left:55px;
 }

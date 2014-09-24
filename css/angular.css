@@ -8044,6 +8044,7 @@ button:focus {
   background-color: rgba(255, 255, 255, 0.6);
   bottom: 0px;
   z-index: 150;
+  display: none;
 }
 .news-article-title {
   font-weight: 200;
@@ -8113,19 +8114,21 @@ button:focus {
   width: 38px;
   height: 38px;
   font-size: 0.7em;
-  margin: 0px 12px 5px 5px;
-  position: relative;
+  margin: 4px 0px 0px 10px;
   border-radius: 50%;
   border: 1px solid #333;
   text-align: center;
   padding: 8px 0px 0px 0px;
   opacity: 1.0;
   color: #333;
+  position: relative;
+  top: 8px;
 }
 .card h2 span.portlet-title {
   position: relative;
   top: 2px;
   border: none;
+  font-size: 0.85em;
 }
 .card-remove {
   top: 8px;
@@ -8141,15 +8144,14 @@ button:focus {
   height: 130px;
   background-color: #ffffff;
   padding-bottom: 10px;
+  padding-left: 5px;
   border-bottom: 1px solid #ddd !important;
   border-right: 1px solid #ddd !important;
   box-model: border-box;
 }
 .portlet-div:hover {
   background-color: #f3f3f3;
-  /*   border-right:1px solid #555 !important;
-border-top:1px solid #555 !important;
-border-bottom:1px solid #555 !important; */
+  padding-left: 0px;
   border-left: 5px solid #b70101;
   cursor: pointer;
   z-index: 100;
@@ -8173,8 +8175,6 @@ border-bottom:1px solid #555 !important; */
   height: 100%;
 }
 .portlet-title {
-  /* border-top: 5px solid #b70101;  border-bottom: 1px solid #e5e5e5;
- */
   margin: 0px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
@@ -8187,7 +8187,7 @@ border-bottom:1px solid #555 !important; */
   display: inline;
   margin: 0px;
   padding: 0px;
-  position: relative;
+  padding-top: 5px;
 }
 .portlet-title h1 span.fa {
   width: 38px;
@@ -8464,11 +8464,12 @@ li.read:hover {
   display: none;
 }
 .btn-add {
-  border: 1px solid #b70101;
+  border: 1px solid #990000;
   background-color: transparent;
   color: #b70101;
   text-shadow: none;
   margin: 5px 8px 0px 0px;
+  z-index: 100;
 }
 .btn-add:hover {
   background-color: #b70101;
@@ -8481,6 +8482,7 @@ li.read:hover {
   color: #56d000;
   text-shadow: none;
   margin: 5px 8px 0px 0px;
+  z-index: 100;
 }
 .btn-launch:hover {
   background-color: #56d000;
@@ -8525,21 +8527,26 @@ li.read:hover {
   color: #fff;
   text-shadow: 0px 0px 15px #000;
 }
-.portlet-list-item {
-  min-height: 100px;
+.portlet-container {
+  padding-left: 5px;
   border-bottom: 1px solid #ddd;
-  padding: 12px 10px;
+}
+.portlet-list-item {
+  padding: 8px 8px 12px;
+  min-height: 100px;
 }
 .portlet-list-item:hover {
   cursor: pointer;
 }
 .portlet_hover {
   min-height: 100px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 0px solid #ddd;
   border-left: 5px solid #b70101;
+  border-bottom: 1px solid #ddd;
   background-color: #f3f3f3;
-  padding-right: 10px;
-  padding-left: 5px;
+  padding-right: 0px;
+  position: relative;
+  padding-left: 0px;
 }
 .mp-header {
   height: 300px;
@@ -8585,6 +8592,50 @@ li.read:hover {
   float: right;
   top: -20px;
   right: 10px;
+}
+.portlet-details-div {
+  margin: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.portlet-details-div h3 {
+  padding: 5px 0px 3px 15px;
+  margin: 0px;
+  font-size: 1.5em;
+}
+.related-portlets {
+  margin: 0px;
+  padding: 0px;
+  display: inline-block;
+  border-right: 1px solid #ddd;
+}
+.related-portlets ul {
+  margin: 0px;
+  padding: 3px 0px 0px 20px;
+}
+.portlet-screenshots {
+  margin: 0px;
+  padding: 0px;
+  display: inline-block;
+}
+.portlet-screenshots ul {
+  margin: 0px;
+  padding: 0px 0px 0px 20px;
+}
+.portlet-screenshots li {
+  display: inline-block;
+  float: left;
+  margin: 5px;
+}
+.portlet-screenshots img {
+  width: 200px;
+}
+input:focus,
+span:focus {
+  outline: none;
+}
+.rating {
+  margin-left: 55px;
 }
 @media (min-width: 768px) {
   #myuw-header span {
@@ -8650,6 +8701,7 @@ li.read:hover {
     background-color: rgba(255, 255, 255, 0.6);
     bottom: 0px;
     z-index: 150;
+    display: none;
   }
   .news-article-title {
     font-weight: 200;
@@ -8686,6 +8738,17 @@ li.read:hover {
   }
   .mp-opaque {
     height: 40px;
+  }
+  .portlet-details {
+    float: left;
+    padding: 0px 0px 0px 15px;
+    top: -20px;
+  }
+  .portlet-title {
+    font-size: 1em;
+  }
+  .rating {
+    margin-left: 47px;
   }
 }
 @media (max-width: 992px) {
