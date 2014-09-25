@@ -8369,7 +8369,10 @@ a#myuw-header img {
 .side-bar-menu li {
   background-color: inherit !important;
   width: 80% !important;
-  border: none !important;
+  border-radius: 0px !important;
+  border-right: none;
+  border-bottom: none;
+  border-top: none;
 }
 .side-bar-menu .glyphicon {
   padding-right: 8px;
@@ -8399,12 +8402,24 @@ a#myuw-header img {
   background-color: #f7f5e8;
   background-image: url('common/images/grey-jean.png');
   width: 120px;
-  border: none;
-  border-bottom: 1px solid #ccc;
   color: #b70101;
   font-size: 1.1em;
-  padding: 7px;
-  margin-left: 10px;
+  padding: 7px 0px 7px 15px;
+  border-left: 1px solid #900;
+}
+.sidebar {
+  margin-left: 5px;
+  margin-top: 11px;
+}
+.side-bar-menu .list-group li.list-group-item:hover {
+  position: relative;
+  text-decoration: none;
+  color: #900;
+  border-left: 4px solid #900;
+  padding-left: 12px;
+}
+.side-bar-menu a:hover {
+  text-decoration: none;
 }
 /* Notification Styling */
 .notifications-list {
