@@ -8267,11 +8267,14 @@ a#myuw-header img {
 .navbar-default {
   height: 50px !important;
 }
+.container-fluid {
+  height: inherit;
+}
 .navbar-header {
   height: inherit;
 }
 .navbar-header h3 {
-  margin-top: 11px;
+  margin-top: 12px;
 }
 .navbar-default .navbar-toggle {
   float: left;
@@ -8761,6 +8764,9 @@ span:focus {
   }
   .rating {
     margin-left: 47px;
+  }
+  .container-fluid {
+    height: auto;
   }
 }
 @media (max-width: 992px) {
