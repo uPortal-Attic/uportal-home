@@ -8213,7 +8213,7 @@ button:focus {
 }
 .page-content {
   position: relative;
-  top: 55px;
+  top: 48px;
 }
 .portlet-title div {
   position: relative;
@@ -8241,6 +8241,9 @@ button:focus {
   width: 30%;
   left: 35%;
 }
+#myuw-header span {
+  font-size: 25px;
+}
 a#myuw-header {
   color: #fff;
   font-weight: 200;
@@ -8260,6 +8263,18 @@ a#myuw-header img {
 .bucky-nav ul li a:hover {
   text-decoration: none;
   color: #1a0000;
+}
+.navbar-default {
+  height: 50px !important;
+}
+.container-fluid {
+  height: inherit;
+}
+.navbar-header {
+  height: inherit;
+}
+.navbar-header h3 {
+  margin-top: 12px;
 }
 .navbar-default .navbar-toggle {
   float: left;
@@ -8331,7 +8346,7 @@ a#myuw-header img {
   color: #fff;
   min-width: 20em;
   text-align: right;
-  padding: 15px 30px 0px 0px;
+  padding: 12px 30px 0px 0px;
   font-size: 1.2em;
   font-weight: 100;
   letter-spacing: 0.06em;
@@ -8639,7 +8654,7 @@ span:focus {
 }
 @media (min-width: 768px) {
   #myuw-header span {
-    margin-left: 2.7em;
+    margin-left: 48px;
   }
   .beta-portlet {
     display: none;
