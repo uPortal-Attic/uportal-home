@@ -41,6 +41,13 @@
           });
     };
 
+    $scope.searchTermFilter = function(portlet) {
+      return ($scope.searchTerm === undefined 
+        || portlet.name.indexOf($scope.searchTerm) !== -1 
+        || (portlet.description !== null && portlet.description.indexOf($scope.searchTerm) !== -1) 
+      );
+    };
+
 
 
   } ]);
