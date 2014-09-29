@@ -32,7 +32,7 @@
               dataType: "json",
               async: true,
               success: function (request, text){
-                $('.fname-'+fname).html('Added Successfully').prop('disabled',true).removeClass('btn-add');
+                $('.fname-'+fname).html('<i class="fa fa-check"></i> Added Successfully').prop('disabled',true).removeClass('btn-add').addClass('btn-added');
 
               },
               error: function(request, text, error) {

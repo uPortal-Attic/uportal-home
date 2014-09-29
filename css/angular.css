@@ -8354,6 +8354,13 @@ a#myuw-header img {
 .portlet-title h1 i {
   margin: 6px;
 }
+#myuw-header .beta-logo {
+  font-size: 0.55em;
+  color: #fcf49c;
+  position: relative;
+  top: 5px;
+  margin-left: 3px;
+}
 .side-bar-menu {
   width: 100%;
   position: fixed;
@@ -8496,34 +8503,36 @@ li.read:hover {
   display: none;
 }
 .btn-add {
-  border: 1px solid #990000;
-  background-color: transparent;
-  color: #b70101;
+  border: none;
+  background-color: #b70101;
+  color: #fff;
   text-shadow: none;
   margin: 5px 8px 0px 0px;
   z-index: 100;
 }
 .btn-add:hover {
-  background-color: #b70101;
-  border: #b70101;
+  background-color: #900;
   color: #fff;
 }
+.btn-added {
+  margin: 5px 8px 0px 0px;
+}
 .btn-launch {
-  border: 1px solid #56d000;
-  background-color: transparent;
-  color: #56d000;
+  border: none;
+  background-color: #5cb85c;
+  color: #fff;
   text-shadow: none;
   margin: 5px 8px 0px 0px;
   z-index: 100;
 }
 .btn-launch:hover {
-  background-color: #56d000;
-  border: 1px solid #56d000;
+  background-color: #449d44;
+  border: none;
   color: #fff;
 }
 .category-links {
-  background-color: #066999;
-  color: #fff;
+  background-color: #fff;
+  color: #066999;
   text-decoration: none;
   border-radius: 3px;
   font-size: 0.8em;
@@ -8531,10 +8540,11 @@ li.read:hover {
   padding: 4px 8px;
   margin-left: 6px;
   opacity: 0.7;
+  border: 1px solid #066999;
 }
 .category-links:hover {
   text-decoration: none;
-  background-color: #04547a;
+  background-color: #066999;
   color: #fff;
   opacity: 0.9;
 }
@@ -8575,7 +8585,6 @@ li.read:hover {
   border-bottom: 0px solid #ddd;
   border-left: 5px solid #b70101;
   border-bottom: 1px solid #ddd;
-  background-color: #f3f3f3;
   padding-right: 0px;
   position: relative;
   padding-left: 0px;
