@@ -8041,7 +8041,6 @@ button:focus {
   background-color: rgba(255, 255, 255, 0.6);
   bottom: 0px;
   z-index: 150;
-  display: none;
 }
 .news-article-title {
   font-weight: 200;
@@ -8826,7 +8825,6 @@ span:focus {
     background-color: rgba(255, 255, 255, 0.6);
     bottom: 0px;
     z-index: 150;
-    display: none;
   }
   .news-article-title {
     font-weight: 200;
