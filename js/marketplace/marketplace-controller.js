@@ -84,15 +84,6 @@
 
     };
 
-
-    // $scope.filterCategories = function(portlet) {
-    //   for (var cat in portlet.categories) {
-    //     if (cat === categoryToShow) {
-    //       return ($scope.searchTerm || portlet)
-    //     }
-    //   };
-    // };
-
   } ]);
 
   app.controller('MarketplaceDetailsController', [ '$scope', '$location', '$routeParams', 'marketplaceService', function($scope, $location, $routeParams, marketplaceService) {
