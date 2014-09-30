@@ -48,9 +48,7 @@
       );
     };
 
-    $scope.showCategories = function() {
 
-    }
     $scope.categories = [
       'Academics',
       'Administration',
@@ -63,7 +61,37 @@
       'News',
       'Uportal'
     ];
+    $scope.categoryToShow = "";
+    $scope.selectedFilter = 'popular';
+    $scope.sortParameter = 'rating';
+    $scope.selectFilter = function (filter,category) {
+      $scope.sortParameter = filter;
+      $scope.categoryToShow = category;
+      $scope.showCategories = false;
+      if (filter === 'popular') {
+        $scope.selectedFilter = 'popular';
+        $scope.sortParameter = 'rating';
+      }
+      if (filter === 'az') {
+        $scope.selectedFilter = 'az';
+        $scope.sortParameter = 'name';
+      }
+      if (filter === 'category') {
+        $scope.selectedFilter = 'category';
+        $scope.sortParameter = 'name';
+        $scope.showCategories = true;
+      }
 
+    };
+
+
+    // $scope.filterCategories = function(portlet) {
+    //   for (var cat in portlet.categories) {
+    //     if (cat === categoryToShow) {
+    //       return ($scope.searchTerm || portlet)
+    //     }
+    //   };
+    // };
 
   } ]);
 

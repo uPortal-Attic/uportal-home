@@ -10,19 +10,20 @@
     <div class="header-opaque mp-opaque">
       <ul>
         <li id="browse-by">Browse by:</li>
-        <li>Most Popular</li>
-        <li>A-Z</li>
-        <li ng-click="showCategories = !showCategories">Categories</li>
+        <li ng-click="selectFilter('popular','')" ng-class="{true:'selected-filter'}[selectedFilter === 'popular']">Most Popular</li>
+        <li ng-click="selectFilter('az','')" ng-class="{true: 'selected-filter'}[selectedFilter === 'az']">A-Z</li>
+        <li ng-click="selectFilter('category','')" ng-class="{true: 'selected-filter'}[selectedFilter === 'category']">Categories</li>
       </ul>
 
     </div>
 
   </div>
   <div ng-show="showCategories" class="show-categories">
-    <a ng-repeat="category in categories" href="#" class="category-links">{{category}}</a>
+    <p>Categories:</p><a ng-repeat="category in categories" href="" class="category-links" ng-click="selectFilter('category',category)" ng-class="{true: 'selected-category'}[categoryToShow === category]">{{category}}</a>
   </div>
+
   <div data-loading class='loading-gif'><img src="img/ajax-loader.gif"></div>
-  <div class="portlet-container" ng-repeat="portlet in marketplaceCtrl.portlets | filter:searchTermFilter | orderBy:'name'" ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="showDetails = !showDetails">
+  <div class="portlet-container" ng-repeat="portlet in marketplaceCtrl.portlets | filter:searchTermFilter | showCategory:categoryToShow | orderBy:sortParameter" ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="showDetails = !showDetails">
     <marketplace-portlet></marketplace-portlet>
   </div>
 </div>
