@@ -30,7 +30,7 @@
           </div>
         </a>
         <div class='card-remove'>
-           <i title="Remove" class="fa fa-times portlet-options" ng-click="mainCtrl.removePortlet($index,mainCtrl.data.layout)"></i>
+           <i title="Remove" class="fa fa-times portlet-options" ng-click="mainCtrl.removePortlet(portlet.nodeId)"></i>
         </div>
         <a href="{{portlet.url}}">
           <div class="portlet-content">
