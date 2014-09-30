@@ -8761,6 +8761,17 @@ span:focus {
 .rating {
   margin-left: 55px;
 }
+.show-categories {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  display: inline-block;
+  width: 100%;
+}
+.show-categories a {
+  float: left;
+  display: block;
+  margin: 3px;
+}
 @media (min-width: 768px) {
   #myuw-header span {
     margin-left: 48px;

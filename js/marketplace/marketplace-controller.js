@@ -42,12 +42,27 @@
     };
 
     $scope.searchTermFilter = function(portlet) {
-      return ($scope.searchTerm === undefined 
-        || portlet.name.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1 
-        || (portlet.description !== null && portlet.description.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1) 
+      return ($scope.searchTerm === undefined
+        || portlet.name.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1
+        || (portlet.description !== null && portlet.description.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1)
       );
     };
 
+    $scope.showCategories = function() {
+
+    }
+    $scope.categories = [
+      'Academics',
+      'Administration',
+      'Demonstration',
+      'Entertainment',
+      'Featured',
+      'Help',
+      'Information',
+      'Instructors',
+      'News',
+      'Uportal'
+    ];
 
 
   } ]);
