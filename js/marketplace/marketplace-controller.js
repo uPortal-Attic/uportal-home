@@ -61,7 +61,7 @@
       'News',
       'Uportal'
     ];
-    
+
     // Empty string indicates no categories, show all portlets
     $scope.categoryToShow = "";
     // Default filter is to sort by popularity
@@ -74,6 +74,7 @@
     $scope.selectFilter = function (filter,category) {
       $scope.sortParameter = filter;
       $scope.categoryToShow = category;
+      $scope.showCategories = false;
       if (filter === 'popular') {
         $scope.selectedFilter = 'popular';
         $scope.sortParameter = 'rating';
