@@ -39,10 +39,11 @@
       store.user = {};
 
       $http.get('/portal/api/session.json').success(function(data) {
-        store.user = data;
         if(data === null || data.person.userName === "guest") {
           //redirecting to login screen
           window.location = "/portal/Login";
+        } else {
+          store.user = data.person;
         }
       });
     } ]);
