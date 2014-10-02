@@ -5,6 +5,7 @@
     'portal.misc.controllers',
     'portal.misc.directives',
     'portal.main.controllers',
+    'portal.main.service',
     'portal.main.directives',
  /* 'portal.notification.controller', */
     'portal.marketplace.controller',
