@@ -10,12 +10,3 @@
 </nav>
 <div class="beta-sidebar"><p>You are using a <b>beta version</b> of MyUW.<br /><a href="/portal/Login?profile=default">Take me to classic view.</a></p>
 </div>
-
-<script>
-  up.jQuery(document).ready(function() {
-    up.jQuery(window).scroll(function() {
-      if (up.jQuery(window).scrollTop() + up.jQuery(window).height() > up.jQuery(document).height()-125) {       up.jQuery('.beta-sidebar').hide();}
-      if (up.jQuery(window).scrollTop() + up.jQuery(window).height() < up.jQuery(document).height()-125) {       up.jQuery('.beta-sidebar').show(); }
-    });
-  });
-</script>
