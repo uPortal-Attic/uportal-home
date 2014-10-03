@@ -39,4 +39,11 @@
     }
   });
 
+  app.directive('siteFooter', function() {
+    return {
+      restrict : 'E',
+      templateUrl : 'partials/footer.html'
+    }
+  });
+
 })();

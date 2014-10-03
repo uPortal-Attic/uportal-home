@@ -34,18 +34,14 @@
 
   /* Username */
 
-  app.controller('SessionCheckController', [ '$http', function($http) {
-      var store = this;
-      store.user = {};
-
-      $http.get('/portal/api/session.json').success(function(data) {
-        store.user = data;
-        if(data === null || data.person.userName === "guest") {
-          //redirecting to login screen
-          window.location = "/portal/Login";
-        }
-      });
-    } ]);
+  app.controller('SessionCheckController', [ 'mainService', function(mainService) {
+    var that = this;
+    that.user = [];
+    mainService.getUser().then(function(data){
+      that.user = data;
+      console.log(data);
+    });
+  }]);
 
   /* Search */
 
