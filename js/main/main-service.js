@@ -11,7 +11,8 @@ app.factory('mainService', function($http) {
   		var data = result.data;
 		if(data === null || data.person.userName === "guest") {
 			//redirecting to login screen
-			window.location = "/portal/Login";
+      $('body').append("<form id='redirectForm' action='/portal/Login'></form>");
+      $('#redirectForm').submit();
 		} else {
 			return data.person;
 		}
