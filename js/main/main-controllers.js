@@ -53,6 +53,10 @@
       }
     } ]);
 
+  app.controller('HeaderController', [ '$scope', function($scope) {
+    $scope.showSearch = false;
+  }])
+
 
 
 })();
