@@ -3,12 +3,17 @@
 (function() {
   var app = angular.module('portal.main.controllers', []);
 
-  app.controller('MainController', [ '$http', function($http) {
+  app.controller('MainController', [ '$http', 'errorService', function($http, errorService) {
     var store = this;
     store.data = [];
-    $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').success(function(data) {
-      store.data = data;
-    });
+    $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').then(
+      function(result) {
+        store.data = result.data;
+      } ,
+      function(reason){
+       errorService.redirectUser(reason.status, 'layoutDoc call');
+      }
+    );
     this.directToPortlet = function directToPortlet(url) {
       $location.path(url);
     }
@@ -24,7 +29,7 @@
                   $('#portlet-id-'+ nodeId).parent().remove();
                 },
                 error: function(request, text, error) {
-                  //$('#up-notification').noty({text: request.response, type: 'error'});
+                  
                 }
             });
       };
@@ -37,9 +42,8 @@
   app.controller('SessionCheckController', [ 'mainService', function(mainService) {
     var that = this;
     that.user = [];
-    mainService.getUser().then(function(data){
-      that.user = data;
-      console.log(data);
+    mainService.getUser().then(function(result){
+      that.user = result.data.person;
     });
   }]);
 
