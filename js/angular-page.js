@@ -4,6 +4,7 @@
     'ui.bootstrap',
     'portal.misc.controllers',
     'portal.misc.directives',
+    'portal.misc.service',
     'portal.main.controllers',
     'portal.main.service',
     'portal.main.directives',
