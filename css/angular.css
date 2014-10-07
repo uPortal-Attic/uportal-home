@@ -8489,6 +8489,7 @@ footer a:hover {
 }
 .side-bar-menu .list-group li.list-group-item {
   background-color: #f7f5e8;
+  background-image: url('common/images/grey-jean.png');
   width: 120px;
   color: #b70101;
   font-size: 1.1em;
@@ -8916,5 +8917,46 @@ span:focus {
   .mp-opaque li {
     font-size: 0.8em;
     padding: 12px 0px;
+  }
+}
+.navbar-fixed-top {
+  top: 50px;
+}
+.beta-announcement {
+  z-index: 1030;
+  position: fixed;
+  top: 0;
+  height: 50px !important;
+  width: 100%;
+  background-image: url('common/images/grey-jean.png');
+  background-color: #f7f5e8;
+}
+.beta-announcement .text {
+  padding-left: 12px;
+}
+.beta-announcement div a {
+  margin-top: 7px;
+}
+.side-bar-menu {
+  top: 110px;
+}
+.page-content {
+  padding-top: 98px;
+}
+.feedback-button {
+  background-color: #F4D9A2;
+}
+@media (max-width: 768px) {
+  #beta-buttons {
+    padding-right: 0 !important;
+  }
+  #beta-buttons span a {
+    font-size: x-small;
+  }
+}
+@media (min-width: 769px) {
+  .beta-announcement .text {
+    padding-left: 28px;
+    padding-right: 0;
   }
 }

@@ -40,4 +40,11 @@
         };
 
     }]);
+
+    app.directive('betaHeader', function() {
+        return {
+            restrict : 'E',
+            templateUrl : 'partials/beta-header.html'
+        }
+    });
 })();

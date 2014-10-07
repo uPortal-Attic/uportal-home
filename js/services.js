@@ -13,7 +13,7 @@ app.factory('errorService', function($http, $modal) {
     	$('body').append("<form id='redirectForm' action='/portal/Login'><input type='hidden' name='profile' value='bucky'/></form>");
     	$('#redirectForm').submit();
     } else {
-    	conosole.warn("Strange behavior from " + caller +". Returned status code : " + status);
+    	console.warn("Strange behavior from " + caller +". Returned status code : " + status);
     }
   }
 
