@@ -8950,6 +8950,9 @@ span:focus {
   #beta-buttons {
     padding-right: 0 !important;
   }
+  #beta-buttons span a {
+    font-size: x-small;
+  }
 }
 @media (min-width: 769px) {
   .beta-announcement .text {
