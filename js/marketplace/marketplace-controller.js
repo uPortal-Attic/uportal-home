@@ -51,15 +51,22 @@
 
     $scope.categories = [
       'Academics',
-      'Administration',
-      'Demonstration',
-      'Entertainment',
-      'Featured',
+      'Advisor',
+      'Applications',
+      'Campus Apps',
+      'CourseGuide',
+      'Finances',
       'Help',
-      'Information',
-      'Instructors',
+      'Home',
+      'Instructor',
+      'Library',
       'News',
-      'Uportal'
+      'Notification',
+      'Research',
+      'Services',
+      'Student Learning',
+      'Student Services',
+      'Work'
     ];
 
     // Empty string indicates no categories, show all portlets
