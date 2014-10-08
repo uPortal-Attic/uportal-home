@@ -14,7 +14,7 @@
    <!-- | <a href="">rate</a> -->
   <p>{{portlet.description}}</p>
   <div class="category-list" ng-click="showDetails = !showDetails">
-    <a ng-repeat="category in portlet.categories" href="#" class="category-links">{{category}}</a>
+    <a ng-repeat="category in portlet.categories" href="" ng-click="selectFilter('category',category)" class="category-links">{{category}}</a>
   </div>
   <div class="action-buttons-mobile" ng-click="showDetails = !showDetails">
     <button class="btn btn-default btn-add" ng-click="marketplaceCtrl.addToHome($index , portlet)">

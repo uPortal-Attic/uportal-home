@@ -42,13 +42,61 @@
     };
 
     $scope.searchTermFilter = function(portlet) {
-      return ($scope.searchTerm === undefined 
-        || portlet.name.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1 
-        || (portlet.description !== null && portlet.description.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1) 
+      return ($scope.searchTerm === undefined
+        || portlet.name.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1
+        || (portlet.description !== null && portlet.description.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1)
       );
     };
 
 
+    $scope.categories = [
+      'Academics',
+      'Advisor',
+      'Applications',
+      'Campus Apps',
+      'CourseGuide',
+      'Finances',
+      'Help',
+      'Home',
+      'Instructor',
+      'Library',
+      'News',
+      'Notification',
+      'Research',
+      'Services',
+      'Student Learning',
+      'Student Services',
+      'Work'
+    ];
+
+    // Empty string indicates no categories, show all portlets
+    $scope.categoryToShow = "";
+    // Default filter is to sort by popularity
+    $scope.selectedFilter = 'popular';
+    // To sort by popularity, angular will use portlet.rating to filter
+    $scope.sortParameter = 'rating';
+    // Hide category selection div by default
+    $scope.showCategories = false;
+
+    $scope.selectFilter = function (filter,category) {
+      $scope.sortParameter = filter;
+      $scope.categoryToShow = category;
+      $scope.showCategories = false;
+      if (filter === 'popular') {
+        $scope.selectedFilter = 'popular';
+        $scope.sortParameter = 'rating';
+      }
+      if (filter === 'az') {
+        $scope.selectedFilter = 'az';
+        $scope.sortParameter = 'name';
+      }
+      if (filter === 'category') {
+        $scope.selectedFilter = 'category';
+        $scope.sortParameter = 'name';
+        $scope.showCategories = true;
+      }
+
+    };
 
   } ]);
 
@@ -75,4 +123,22 @@
 
 
     } ]);
+
+    app.filter('showCategory', function () {
+      return function (portlets, category) {
+        if (category === "") {
+          return portlets;
+        }
+        var filtered = [];
+        for (var i = 0; i < portlets.length; i++) {
+          var portlet = portlets[i];
+          for (var j=0; j < portlet.categories.length; j++) {
+            if (portlet.categories[j] === category) {
+              filtered.push(portlet);
+            }
+          }
+        }
+        return filtered;
+      };
+    });
 })();
