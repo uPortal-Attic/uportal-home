@@ -8945,17 +8945,37 @@ span:focus {
 .feedback-button {
   background-color: #F4D9A2;
 }
+.beta-buttons {
+  float: right;
+  padding-right: 10px;
+}
+.beta-buttons .btn {
+  border: 1px solid #ccc;
+  margin-left: 10px;
+}
 @media (max-width: 768px) {
-  #beta-buttons {
-    padding-right: 0 !important;
+  .text {
+    display: table;
+    height: 50px;
   }
-  #beta-buttons span a {
-    font-size: x-small;
+  .text strong {
+    vertical-align: middle;
+    display: table-cell;
+  }
+  .beta-buttons-div .beta-buttons .btn {
+    padding: 8px 6px;
+    margin-left: 0px;
+  }
+  .beta-buttons-div span a {
+    font-size: 0.85em;
   }
 }
 @media (min-width: 769px) {
   .beta-announcement .text {
-    padding-left: 28px;
-    padding-right: 0;
+    padding-left: 60px;
+    padding-top: 5px;
+  }
+  .beta-buttons {
+    padding-right: 12px;
   }
 }

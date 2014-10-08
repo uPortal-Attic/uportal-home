@@ -32,19 +32,42 @@
 .feedback-button {
 	background-color: #F4D9A2;
 }
+.beta-buttons {
+  float:right;
+  padding-right:10px;
+  .btn {
+    border:1px solid #ccc;
+    margin-left:10px;
+  }
+}
+
 
 @media (max-width: 768px) {
-  #beta-buttons {
-  	padding-right : 0 !important;
+  .text {
+    display:table;
+    height:50px;
+  }
+  .text strong {
+    vertical-align:middle;
+    display:table-cell;
+  }
+  .beta-buttons-div {
+    .beta-buttons .btn {
+      padding:8px 6px;
+      margin-left:0px;
+    }
     span a {
-      font-size : x-small;
+      font-size : 0.85em;
     }
   }
 }
 
 @media (min-width: 769px) {
   .beta-announcement .text {
-  	padding-left : 28px;
-  	padding-right: 0;
+  	padding-left : 60px;
+  	padding-top: 5px;
+  }
+  .beta-buttons {
+    padding-right:12px;
   }
 }
