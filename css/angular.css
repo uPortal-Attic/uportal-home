@@ -8235,6 +8235,15 @@ button:focus {
 .add-more-title {
   padding-top: 33px;
 }
+div.table {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+div.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
 .bucky-nav-large li:first-of-type + li {
   position: absolute;
   width: 30%;
