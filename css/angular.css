@@ -7993,9 +7993,9 @@ button:focus {
   outline: none !important;
 }
 .btn-default:focus {
-  color: #bbb;
-  background-color: #fff;
-  border-color: #bbb;
+  color: #adadad;
+  background-color: #ffffff;
+  border-color: #adadad;
 }
 /* Card UI Styling */
 .page-content {
@@ -8630,14 +8630,14 @@ li.read:hover {
   color: #ffffff;
 }
 .cant-add {
-  background-color: #fff;
-  border: 1px solid #bbb;
-  color: #bbb;
+  background-color: #ffffff;
+  border: 1px solid #adadad;
+  color: #adadad;
 }
 .cant-add:hover {
-  background-color: #fff;
-  border: 1px solid #bbb;
-  color: #bbb;
+  background-color: #ffffff;
+  border: 1px solid #adadad;
+  color: #adadad;
   cursor: default;
 }
 .category-links {

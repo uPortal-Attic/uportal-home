@@ -7,20 +7,20 @@
   <div class="action-buttons" ng-click="showDetails = !showDetails">
 
     <!-- Add to Home button with access -->
-    <button class="btn btn-default btn-add fname-{{portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd === true">
+    <button class="btn btn-default btn-add fname-{{portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd">
       <span class="fa fa-plus"></span>Add to Home
     </button>
 
     <!-- Add to Home button without access -->
-    <button class="btn btn-default btn-add cant-add" ng-show="portlet.canAdd === false" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
+    <button class="btn btn-default btn-add cant-add" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
       <span class="fa fa-plus"></span>Add to Home
     </button>
 
     <!-- Launch button with access -->
-    <a class="btn btn-default btn-launch" href="{{portlet.maxUrl}}" ng-show="portlet.canAdd === true"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a class="btn btn-default btn-launch" href="{{portlet.maxUrl}}" ng-show="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
     <!-- Launch button without access -->
-    <a class="btn btn-default btn-launch cant-add" href ng-show="portlet.canAdd === false" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a class="btn btn-default btn-launch cant-add" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
   </div><br>
   <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
@@ -34,20 +34,20 @@
   <div class="action-buttons-mobile" ng-click="showDetails = !showDetails">
 
     <!-- Add to Home button with access on mobile-->
-    <button class="btn btn-default btn-add fname-{{portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd === true">
+    <button class="btn btn-default btn-add fname-{{portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd">
       <span class="fa fa-plus"></span>Add to Home
     </button>
 
     <!-- Add to Home button without access on mobile-->
-    <button class="btn btn-default btn-add cant-add" ng-show="portlet.canAdd === false" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
+    <button class="btn btn-default btn-add cant-add" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
       <span class="fa fa-plus"></span>Add to Home
     </button>
 
     <!-- Launch button with access on mobile-->
-    <a class="btn btn-default btn-launch" href="{{portlet.maxUrl}}" ng-show="portlet.canAdd === true"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a class="btn btn-default btn-launch" href="{{portlet.maxUrl}}" ng-show="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
     <!-- Launch button without access on mobile-->
-    <a class="btn btn-default btn-launch cant-add" href ng-show="portlet.canAdd === false" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a class="btn btn-default btn-launch cant-add" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
   </div>
 
   <div class="portlet-details">
