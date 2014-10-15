@@ -7992,6 +7992,11 @@ textarea:focus,
 button:focus {
   outline: none !important;
 }
+.btn-default:focus {
+  color: #bbb;
+  background-color: #fff;
+  border-color: #bbb;
+}
 /* Card UI Styling */
 .page-content {
   margin: 0;
@@ -8623,6 +8628,17 @@ li.read:hover {
   background-color: #449d44;
   border: none;
   color: #ffffff;
+}
+.cant-add {
+  background-color: #fff;
+  border: 1px solid #bbb;
+  color: #bbb;
+}
+.cant-add:hover {
+  background-color: #fff;
+  border: 1px solid #bbb;
+  color: #bbb;
+  cursor: default;
 }
 .category-links {
   background-color: #ffffff;
