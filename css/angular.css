@@ -1,4 +1,5 @@
 @import "etc/normalize.css";
+
 @import "etc/font-awesome.css";
 /**
  * Licensed to Jasig under one or more contributor license
@@ -297,7 +298,7 @@ html {
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
   color: #333333;
   background-color: #ffffff;
 }
@@ -339,7 +340,7 @@ img {
 }
 .img-thumbnail {
   padding: 4px;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 4px;
@@ -621,7 +622,7 @@ dl {
 }
 dt,
 dd {
-  line-height: 1.42857143;
+  line-height: 1.428571429;
 }
 dt {
   font-weight: bold;
@@ -668,7 +669,7 @@ blockquote small,
 blockquote .small {
   display: block;
   font-size: 80%;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
   color: #999999;
 }
 blockquote footer:before,
@@ -707,7 +708,7 @@ blockquote:after {
 address {
   margin-bottom: 20px;
   font-style: normal;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
 }
 code,
 kbd,
@@ -736,7 +737,7 @@ pre {
   padding: 9.5px;
   margin: 0 0 10px;
   font-size: 13px;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
   word-break: break-all;
   word-wrap: break-word;
   color: #333333;
@@ -800,73 +801,73 @@ pre code {
   width: 100%;
 }
 .col-xs-11 {
-  width: 91.66666667%;
+  width: 91.66666666666666%;
 }
 .col-xs-10 {
-  width: 83.33333333%;
+  width: 83.33333333333334%;
 }
 .col-xs-9 {
   width: 75%;
 }
 .col-xs-8 {
-  width: 66.66666667%;
+  width: 66.66666666666666%;
 }
 .col-xs-7 {
-  width: 58.33333333%;
+  width: 58.333333333333336%;
 }
 .col-xs-6 {
   width: 50%;
 }
 .col-xs-5 {
-  width: 41.66666667%;
+  width: 41.66666666666667%;
 }
 .col-xs-4 {
-  width: 33.33333333%;
+  width: 33.33333333333333%;
 }
 .col-xs-3 {
   width: 25%;
 }
 .col-xs-2 {
-  width: 16.66666667%;
+  width: 16.666666666666664%;
 }
 .col-xs-1 {
-  width: 8.33333333%;
+  width: 8.333333333333332%;
 }
 .col-xs-pull-12 {
   right: 100%;
 }
 .col-xs-pull-11 {
-  right: 91.66666667%;
+  right: 91.66666666666666%;
 }
 .col-xs-pull-10 {
-  right: 83.33333333%;
+  right: 83.33333333333334%;
 }
 .col-xs-pull-9 {
   right: 75%;
 }
 .col-xs-pull-8 {
-  right: 66.66666667%;
+  right: 66.66666666666666%;
 }
 .col-xs-pull-7 {
-  right: 58.33333333%;
+  right: 58.333333333333336%;
 }
 .col-xs-pull-6 {
   right: 50%;
 }
 .col-xs-pull-5 {
-  right: 41.66666667%;
+  right: 41.66666666666667%;
 }
 .col-xs-pull-4 {
-  right: 33.33333333%;
+  right: 33.33333333333333%;
 }
 .col-xs-pull-3 {
   right: 25%;
 }
 .col-xs-pull-2 {
-  right: 16.66666667%;
+  right: 16.666666666666664%;
 }
 .col-xs-pull-1 {
-  right: 8.33333333%;
+  right: 8.333333333333332%;
 }
 .col-xs-pull-0 {
   right: 0%;
@@ -875,37 +876,37 @@ pre code {
   left: 100%;
 }
 .col-xs-push-11 {
-  left: 91.66666667%;
+  left: 91.66666666666666%;
 }
 .col-xs-push-10 {
-  left: 83.33333333%;
+  left: 83.33333333333334%;
 }
 .col-xs-push-9 {
   left: 75%;
 }
 .col-xs-push-8 {
-  left: 66.66666667%;
+  left: 66.66666666666666%;
 }
 .col-xs-push-7 {
-  left: 58.33333333%;
+  left: 58.333333333333336%;
 }
 .col-xs-push-6 {
   left: 50%;
 }
 .col-xs-push-5 {
-  left: 41.66666667%;
+  left: 41.66666666666667%;
 }
 .col-xs-push-4 {
-  left: 33.33333333%;
+  left: 33.33333333333333%;
 }
 .col-xs-push-3 {
   left: 25%;
 }
 .col-xs-push-2 {
-  left: 16.66666667%;
+  left: 16.666666666666664%;
 }
 .col-xs-push-1 {
-  left: 8.33333333%;
+  left: 8.333333333333332%;
 }
 .col-xs-push-0 {
   left: 0%;
@@ -914,37 +915,37 @@ pre code {
   margin-left: 100%;
 }
 .col-xs-offset-11 {
-  margin-left: 91.66666667%;
+  margin-left: 91.66666666666666%;
 }
 .col-xs-offset-10 {
-  margin-left: 83.33333333%;
+  margin-left: 83.33333333333334%;
 }
 .col-xs-offset-9 {
   margin-left: 75%;
 }
 .col-xs-offset-8 {
-  margin-left: 66.66666667%;
+  margin-left: 66.66666666666666%;
 }
 .col-xs-offset-7 {
-  margin-left: 58.33333333%;
+  margin-left: 58.333333333333336%;
 }
 .col-xs-offset-6 {
   margin-left: 50%;
 }
 .col-xs-offset-5 {
-  margin-left: 41.66666667%;
+  margin-left: 41.66666666666667%;
 }
 .col-xs-offset-4 {
-  margin-left: 33.33333333%;
+  margin-left: 33.33333333333333%;
 }
 .col-xs-offset-3 {
   margin-left: 25%;
 }
 .col-xs-offset-2 {
-  margin-left: 16.66666667%;
+  margin-left: 16.666666666666664%;
 }
 .col-xs-offset-1 {
-  margin-left: 8.33333333%;
+  margin-left: 8.333333333333332%;
 }
 .col-xs-offset-0 {
   margin-left: 0%;
@@ -957,73 +958,73 @@ pre code {
     width: 100%;
   }
   .col-sm-11 {
-    width: 91.66666667%;
+    width: 91.66666666666666%;
   }
   .col-sm-10 {
-    width: 83.33333333%;
+    width: 83.33333333333334%;
   }
   .col-sm-9 {
     width: 75%;
   }
   .col-sm-8 {
-    width: 66.66666667%;
+    width: 66.66666666666666%;
   }
   .col-sm-7 {
-    width: 58.33333333%;
+    width: 58.333333333333336%;
   }
   .col-sm-6 {
     width: 50%;
   }
   .col-sm-5 {
-    width: 41.66666667%;
+    width: 41.66666666666667%;
   }
   .col-sm-4 {
-    width: 33.33333333%;
+    width: 33.33333333333333%;
   }
   .col-sm-3 {
     width: 25%;
   }
   .col-sm-2 {
-    width: 16.66666667%;
+    width: 16.666666666666664%;
   }
   .col-sm-1 {
-    width: 8.33333333%;
+    width: 8.333333333333332%;
   }
   .col-sm-pull-12 {
     right: 100%;
   }
   .col-sm-pull-11 {
-    right: 91.66666667%;
+    right: 91.66666666666666%;
   }
   .col-sm-pull-10 {
-    right: 83.33333333%;
+    right: 83.33333333333334%;
   }
   .col-sm-pull-9 {
     right: 75%;
   }
   .col-sm-pull-8 {
-    right: 66.66666667%;
+    right: 66.66666666666666%;
   }
   .col-sm-pull-7 {
-    right: 58.33333333%;
+    right: 58.333333333333336%;
   }
   .col-sm-pull-6 {
     right: 50%;
   }
   .col-sm-pull-5 {
-    right: 41.66666667%;
+    right: 41.66666666666667%;
   }
   .col-sm-pull-4 {
-    right: 33.33333333%;
+    right: 33.33333333333333%;
   }
   .col-sm-pull-3 {
     right: 25%;
   }
   .col-sm-pull-2 {
-    right: 16.66666667%;
+    right: 16.666666666666664%;
   }
   .col-sm-pull-1 {
-    right: 8.33333333%;
+    right: 8.333333333333332%;
   }
   .col-sm-pull-0 {
     right: 0%;
@@ -1032,37 +1033,37 @@ pre code {
     left: 100%;
   }
   .col-sm-push-11 {
-    left: 91.66666667%;
+    left: 91.66666666666666%;
   }
   .col-sm-push-10 {
-    left: 83.33333333%;
+    left: 83.33333333333334%;
   }
   .col-sm-push-9 {
     left: 75%;
   }
   .col-sm-push-8 {
-    left: 66.66666667%;
+    left: 66.66666666666666%;
   }
   .col-sm-push-7 {
-    left: 58.33333333%;
+    left: 58.333333333333336%;
   }
   .col-sm-push-6 {
     left: 50%;
   }
   .col-sm-push-5 {
-    left: 41.66666667%;
+    left: 41.66666666666667%;
   }
   .col-sm-push-4 {
-    left: 33.33333333%;
+    left: 33.33333333333333%;
   }
   .col-sm-push-3 {
     left: 25%;
   }
   .col-sm-push-2 {
-    left: 16.66666667%;
+    left: 16.666666666666664%;
   }
   .col-sm-push-1 {
-    left: 8.33333333%;
+    left: 8.333333333333332%;
   }
   .col-sm-push-0 {
     left: 0%;
@@ -1071,37 +1072,37 @@ pre code {
     margin-left: 100%;
   }
   .col-sm-offset-11 {
-    margin-left: 91.66666667%;
+    margin-left: 91.66666666666666%;
   }
   .col-sm-offset-10 {
-    margin-left: 83.33333333%;
+    margin-left: 83.33333333333334%;
   }
   .col-sm-offset-9 {
     margin-left: 75%;
   }
   .col-sm-offset-8 {
-    margin-left: 66.66666667%;
+    margin-left: 66.66666666666666%;
   }
   .col-sm-offset-7 {
-    margin-left: 58.33333333%;
+    margin-left: 58.333333333333336%;
   }
   .col-sm-offset-6 {
     margin-left: 50%;
   }
   .col-sm-offset-5 {
-    margin-left: 41.66666667%;
+    margin-left: 41.66666666666667%;
   }
   .col-sm-offset-4 {
-    margin-left: 33.33333333%;
+    margin-left: 33.33333333333333%;
   }
   .col-sm-offset-3 {
     margin-left: 25%;
   }
   .col-sm-offset-2 {
-    margin-left: 16.66666667%;
+    margin-left: 16.666666666666664%;
   }
   .col-sm-offset-1 {
-    margin-left: 8.33333333%;
+    margin-left: 8.333333333333332%;
   }
   .col-sm-offset-0 {
     margin-left: 0%;
@@ -1115,73 +1116,73 @@ pre code {
     width: 100%;
   }
   .col-md-11 {
-    width: 91.66666667%;
+    width: 91.66666666666666%;
   }
   .col-md-10 {
-    width: 83.33333333%;
+    width: 83.33333333333334%;
   }
   .col-md-9 {
     width: 75%;
   }
   .col-md-8 {
-    width: 66.66666667%;
+    width: 66.66666666666666%;
   }
   .col-md-7 {
-    width: 58.33333333%;
+    width: 58.333333333333336%;
   }
   .col-md-6 {
     width: 50%;
   }
   .col-md-5 {
-    width: 41.66666667%;
+    width: 41.66666666666667%;
   }
   .col-md-4 {
-    width: 33.33333333%;
+    width: 33.33333333333333%;
   }
   .col-md-3 {
     width: 25%;
   }
   .col-md-2 {
-    width: 16.66666667%;
+    width: 16.666666666666664%;
   }
   .col-md-1 {
-    width: 8.33333333%;
+    width: 8.333333333333332%;
   }
   .col-md-pull-12 {
     right: 100%;
   }
   .col-md-pull-11 {
-    right: 91.66666667%;
+    right: 91.66666666666666%;
   }
   .col-md-pull-10 {
-    right: 83.33333333%;
+    right: 83.33333333333334%;
   }
   .col-md-pull-9 {
     right: 75%;
   }
   .col-md-pull-8 {
-    right: 66.66666667%;
+    right: 66.66666666666666%;
   }
   .col-md-pull-7 {
-    right: 58.33333333%;
+    right: 58.333333333333336%;
   }
   .col-md-pull-6 {
     right: 50%;
   }
   .col-md-pull-5 {
-    right: 41.66666667%;
+    right: 41.66666666666667%;
   }
   .col-md-pull-4 {
-    right: 33.33333333%;
+    right: 33.33333333333333%;
   }
   .col-md-pull-3 {
     right: 25%;
   }
   .col-md-pull-2 {
-    right: 16.66666667%;
+    right: 16.666666666666664%;
   }
   .col-md-pull-1 {
-    right: 8.33333333%;
+    right: 8.333333333333332%;
   }
   .col-md-pull-0 {
     right: 0%;
@@ -1190,37 +1191,37 @@ pre code {
     left: 100%;
   }
   .col-md-push-11 {
-    left: 91.66666667%;
+    left: 91.66666666666666%;
   }
   .col-md-push-10 {
-    left: 83.33333333%;
+    left: 83.33333333333334%;
   }
   .col-md-push-9 {
     left: 75%;
   }
   .col-md-push-8 {
-    left: 66.66666667%;
+    left: 66.66666666666666%;
   }
   .col-md-push-7 {
-    left: 58.33333333%;
+    left: 58.333333333333336%;
   }
   .col-md-push-6 {
     left: 50%;
   }
   .col-md-push-5 {
-    left: 41.66666667%;
+    left: 41.66666666666667%;
   }
   .col-md-push-4 {
-    left: 33.33333333%;
+    left: 33.33333333333333%;
   }
   .col-md-push-3 {
     left: 25%;
   }
   .col-md-push-2 {
-    left: 16.66666667%;
+    left: 16.666666666666664%;
   }
   .col-md-push-1 {
-    left: 8.33333333%;
+    left: 8.333333333333332%;
   }
   .col-md-push-0 {
     left: 0%;
@@ -1229,37 +1230,37 @@ pre code {
     margin-left: 100%;
   }
   .col-md-offset-11 {
-    margin-left: 91.66666667%;
+    margin-left: 91.66666666666666%;
   }
   .col-md-offset-10 {
-    margin-left: 83.33333333%;
+    margin-left: 83.33333333333334%;
   }
   .col-md-offset-9 {
     margin-left: 75%;
   }
   .col-md-offset-8 {
-    margin-left: 66.66666667%;
+    margin-left: 66.66666666666666%;
   }
   .col-md-offset-7 {
-    margin-left: 58.33333333%;
+    margin-left: 58.333333333333336%;
   }
   .col-md-offset-6 {
     margin-left: 50%;
   }
   .col-md-offset-5 {
-    margin-left: 41.66666667%;
+    margin-left: 41.66666666666667%;
   }
   .col-md-offset-4 {
-    margin-left: 33.33333333%;
+    margin-left: 33.33333333333333%;
   }
   .col-md-offset-3 {
     margin-left: 25%;
   }
   .col-md-offset-2 {
-    margin-left: 16.66666667%;
+    margin-left: 16.666666666666664%;
   }
   .col-md-offset-1 {
-    margin-left: 8.33333333%;
+    margin-left: 8.333333333333332%;
   }
   .col-md-offset-0 {
     margin-left: 0%;
@@ -1273,73 +1274,73 @@ pre code {
     width: 100%;
   }
   .col-lg-11 {
-    width: 91.66666667%;
+    width: 91.66666666666666%;
   }
   .col-lg-10 {
-    width: 83.33333333%;
+    width: 83.33333333333334%;
   }
   .col-lg-9 {
     width: 75%;
   }
   .col-lg-8 {
-    width: 66.66666667%;
+    width: 66.66666666666666%;
   }
   .col-lg-7 {
-    width: 58.33333333%;
+    width: 58.333333333333336%;
   }
   .col-lg-6 {
     width: 50%;
   }
   .col-lg-5 {
-    width: 41.66666667%;
+    width: 41.66666666666667%;
   }
   .col-lg-4 {
-    width: 33.33333333%;
+    width: 33.33333333333333%;
   }
   .col-lg-3 {
     width: 25%;
   }
   .col-lg-2 {
-    width: 16.66666667%;
+    width: 16.666666666666664%;
   }
   .col-lg-1 {
-    width: 8.33333333%;
+    width: 8.333333333333332%;
   }
   .col-lg-pull-12 {
     right: 100%;
   }
   .col-lg-pull-11 {
-    right: 91.66666667%;
+    right: 91.66666666666666%;
   }
   .col-lg-pull-10 {
-    right: 83.33333333%;
+    right: 83.33333333333334%;
   }
   .col-lg-pull-9 {
     right: 75%;
   }
   .col-lg-pull-8 {
-    right: 66.66666667%;
+    right: 66.66666666666666%;
   }
   .col-lg-pull-7 {
-    right: 58.33333333%;
+    right: 58.333333333333336%;
   }
   .col-lg-pull-6 {
     right: 50%;
   }
   .col-lg-pull-5 {
-    right: 41.66666667%;
+    right: 41.66666666666667%;
   }
   .col-lg-pull-4 {
-    right: 33.33333333%;
+    right: 33.33333333333333%;
   }
   .col-lg-pull-3 {
     right: 25%;
   }
   .col-lg-pull-2 {
-    right: 16.66666667%;
+    right: 16.666666666666664%;
   }
   .col-lg-pull-1 {
-    right: 8.33333333%;
+    right: 8.333333333333332%;
   }
   .col-lg-pull-0 {
     right: 0%;
@@ -1348,37 +1349,37 @@ pre code {
     left: 100%;
   }
   .col-lg-push-11 {
-    left: 91.66666667%;
+    left: 91.66666666666666%;
   }
   .col-lg-push-10 {
-    left: 83.33333333%;
+    left: 83.33333333333334%;
   }
   .col-lg-push-9 {
     left: 75%;
   }
   .col-lg-push-8 {
-    left: 66.66666667%;
+    left: 66.66666666666666%;
   }
   .col-lg-push-7 {
-    left: 58.33333333%;
+    left: 58.333333333333336%;
   }
   .col-lg-push-6 {
     left: 50%;
   }
   .col-lg-push-5 {
-    left: 41.66666667%;
+    left: 41.66666666666667%;
   }
   .col-lg-push-4 {
-    left: 33.33333333%;
+    left: 33.33333333333333%;
   }
   .col-lg-push-3 {
     left: 25%;
   }
   .col-lg-push-2 {
-    left: 16.66666667%;
+    left: 16.666666666666664%;
   }
   .col-lg-push-1 {
-    left: 8.33333333%;
+    left: 8.333333333333332%;
   }
   .col-lg-push-0 {
     left: 0%;
@@ -1387,37 +1388,37 @@ pre code {
     margin-left: 100%;
   }
   .col-lg-offset-11 {
-    margin-left: 91.66666667%;
+    margin-left: 91.66666666666666%;
   }
   .col-lg-offset-10 {
-    margin-left: 83.33333333%;
+    margin-left: 83.33333333333334%;
   }
   .col-lg-offset-9 {
     margin-left: 75%;
   }
   .col-lg-offset-8 {
-    margin-left: 66.66666667%;
+    margin-left: 66.66666666666666%;
   }
   .col-lg-offset-7 {
-    margin-left: 58.33333333%;
+    margin-left: 58.333333333333336%;
   }
   .col-lg-offset-6 {
     margin-left: 50%;
   }
   .col-lg-offset-5 {
-    margin-left: 41.66666667%;
+    margin-left: 41.66666666666667%;
   }
   .col-lg-offset-4 {
-    margin-left: 33.33333333%;
+    margin-left: 33.33333333333333%;
   }
   .col-lg-offset-3 {
     margin-left: 25%;
   }
   .col-lg-offset-2 {
-    margin-left: 16.66666667%;
+    margin-left: 16.666666666666664%;
   }
   .col-lg-offset-1 {
-    margin-left: 8.33333333%;
+    margin-left: 8.333333333333332%;
   }
   .col-lg-offset-0 {
     margin-left: 0%;
@@ -1441,7 +1442,7 @@ th {
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
   padding: 8px;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
   vertical-align: top;
   border-top: 1px solid #dddddd;
 }
@@ -1684,6 +1685,7 @@ input[type="checkbox"] {
   margin: 4px 0 0;
   margin-top: 1px \9;
   /* IE8-9 */
+
   line-height: normal;
 }
 input[type="file"] {
@@ -1708,7 +1710,7 @@ output {
   display: block;
   padding-top: 7px;
   font-size: 14px;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
   color: #555555;
 }
 .form-control {
@@ -1717,7 +1719,7 @@ output {
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
   color: #555555;
   background-color: #ffffff;
   background-image: none;
@@ -2033,7 +2035,7 @@ select[multiple].input-lg {
   white-space: nowrap;
   padding: 6px 12px;
   font-size: 14px;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
   border-radius: 4px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -3079,7 +3081,7 @@ input[type="button"].btn-block {
   padding: 3px 20px;
   clear: both;
   font-weight: normal;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
   color: #333333;
   white-space: nowrap;
 }
@@ -3128,7 +3130,7 @@ input[type="button"].btn-block {
   display: block;
   padding: 3px 20px;
   font-size: 12px;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
   color: #999999;
 }
 .dropdown-backdrop {
@@ -3555,7 +3557,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav-tabs > li > a {
   margin-right: 2px;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
   border: 1px solid transparent;
   border-radius: 4px 4px 0 0;
 }
@@ -4195,7 +4197,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   float: left;
   padding: 6px 12px;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
   text-decoration: none;
   color: #660000;
   background-color: #ffffff;
@@ -4457,7 +4459,7 @@ a.list-group-item.active > .badge,
   display: block;
   padding: 4px;
   margin-bottom: 20px;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 4px;
@@ -5232,14 +5234,14 @@ button.close {
 .modal-header {
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
-  min-height: 16.42857143px;
+  min-height: 16.428571429px;
 }
 .modal-header .close {
   margin-top: -2px;
 }
 .modal-title {
   margin: 0;
-  line-height: 1.42857143;
+  line-height: 1.428571429;
 }
 .modal-body {
   position: relative;
@@ -5978,19 +5980,25 @@ td.visible-print {
   /* ==========================================================================
        General-purpose styles that apply to all regions
        ========================================================================== */
+
   /* Fix horizontal scrolling bug caused by Bootstrap */
+
   /* ==========================================================================
        Namespace: .region-pre-header
        ========================================================================== */
+
   /* ==========================================================================
        Namespace: .region-header-bottom
        ========================================================================== */
+
   /* ==========================================================================
        Namespace: .region-system-tray
        ========================================================================== */
+
   /* ==========================================================================
        Namespace: region-customizeDrawer
        ========================================================================== */
+
 }
 .portal [id^="region-"] [id^="portlet_"] {
   position: relative;
@@ -6103,21 +6111,22 @@ td.visible-print {
 }
 .portal .up-gallery .handle {
   /* Clickable handle that opens the drawer. Once open, the handle can be clicked to close the drawer. */
-  background: #000000 url("common/images/gallery-bar.png") bottom left repeat-x;
+
+  background: #000000 url("./common/images/gallery-bar.png") bottom left repeat-x;
 }
 .portal .up-gallery .handle a {
-  background: #ffffff scroll url("common/images/gallery-handle.png") 0 0 repeat-x;
+  background: #ffffff scroll url("./common/images/gallery-handle.png") 0 0 repeat-x;
   color: #404040;
   border: 1px solid #8c8c8c;
   border-top: none;
 }
 .portal .up-gallery .handle a span {
-  background-image: url("common/images/gallery-handle-arrow-down.png");
+  background-image: url("./common/images/gallery-handle-arrow-down.png");
   background-position: right center;
   background-repeat: no-repeat;
 }
 .portal .up-gallery .handle .handle-arrow-up {
-  background-image: url("common/images/gallery-handle-arrow-up.png");
+  background-image: url("./common/images/gallery-handle-arrow-up.png");
 }
 .portal .up-gallery .gallery-inner {
   display: none;
@@ -6125,7 +6134,9 @@ td.visible-print {
   height: 200px;
   position: relative;
   /* end .menu-wrapper */
+
   /* end .content-filters-wrapper*/
+
 }
 .portal .up-gallery .gallery-inner .menu-wrapper {
   display: block;
@@ -6134,6 +6145,7 @@ td.visible-print {
   position: relative;
   width: 130px;
   /* The navigation menu of gallery views. */
+
 }
 .portal .up-gallery .gallery-inner .menu-wrapper .menu {
   border: 1px solid #d8d8d8;
@@ -6182,7 +6194,7 @@ td.visible-print {
   color: #ffffff;
 }
 .portal .up-gallery .gallery-inner .menu-wrapper .menu .active span {
-  background: transparent url("common/images/gallery-arrow-right.png") 90% 50% no-repeat;
+  background: transparent url("./common/images/gallery-arrow-right.png") 90% 50% no-repeat;
   position: relative;
 }
 .portal .up-gallery .gallery-inner .menu-wrapper .menu .active:hover {
@@ -6194,6 +6206,7 @@ td.visible-print {
 }
 .portal .up-gallery .gallery-inner .content-filters-wrapper {
   /* Search and category filters for the add portlet and use portlet views. */
+
   background: #404040;
   border: 1px solid #696969;
   -webkit-border-radius: 5px;
@@ -6206,6 +6219,7 @@ td.visible-print {
 }
 .portal .up-gallery .gallery-inner .content-filters-wrapper h3 {
   /* Filter titles */
+
   background: #333333;
   color: #b70101;
   margin: 0;
@@ -6260,11 +6274,13 @@ td.visible-print {
 }
 .portal .up-gallery .gallery-inner .content-filters-wrapper h4 {
   /* Filter subtitles */
+
   color: #e5e5e5;
   border-bottom: 1px dotted #404040;
 }
 .portal .up-gallery .gallery-inner .content-filters-wrapper .portlet-search-input {
   /* Filter search */
+
   background: #696969;
   color: #333333;
   padding: 0.3em;
@@ -6283,6 +6299,7 @@ td.visible-print {
 }
 .portal .up-gallery .gallery-inner .content-filters-wrapper .categories {
   /* Filter categories */
+
 }
 .portal .up-gallery .gallery-inner .content-filters-wrapper .categories a {
   color: #d8d8d8;
@@ -6296,10 +6313,12 @@ td.visible-print {
 }
 .portal .up-gallery .gallery-inner .content-filters-wrapper .packages-wrapper {
   /* Filter packages */
+
   color: #e5e5e5;
 }
 .portal .up-gallery .gallery-inner .results-wrapper {
   /* Results section of the gallery. Lists portlets, packages, skins, or layout options. */
+
   padding-bottom: 5px;
   color: #cccccc;
 }
@@ -6405,7 +6424,7 @@ td.visible-print {
   background-clip: padding-box;
 }
 .portal .up-gallery .gallery-inner .results-wrapper .ri-wrapper .portlet-thumb-gripper {
-  background: #404040 url("common/images/gripper.png") 5px 0px no-repeat;
+  background: #404040 url("./common/images/gripper.png") 5px 0px no-repeat;
   cursor: move;
   display: block;
 }
@@ -6613,7 +6632,7 @@ td.visible-print {
   bottom: 0px;
   left: 0px;
   right: 0px;
-  background-image: url("common/images/gallery-content-preloader.gif");
+  background-image: url("./common/images/gallery-content-preloader.gif");
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
@@ -6715,18 +6734,18 @@ td.visible-print {
 .up-gallery .pager-button-up-inner {
   display: block;
   height: 59px;
-  background: url('common/images/gallery-pager-up-active.png') center 85% no-repeat;
+  background: url('./common/images/gallery-pager-up-active.png') center 85% no-repeat;
 }
 .up-gallery .pager-button-down-inner {
   display: block;
   height: 59px;
-  background: url('common/images/gallery-pager-down-active.png') center 15% no-repeat;
+  background: url('./common/images/gallery-pager-down-active.png') center 15% no-repeat;
 }
 .up-gallery .pager-button-up.fl-pager-disabled .pager-button-up-inner {
-  background-image: url('common/images/gallery-pager-up-inactive.png');
+  background-image: url('./common/images/gallery-pager-up-inactive.png');
 }
 .up-gallery .pager-button-down.fl-pager-disabled .pager-button-down-inner {
-  background-image: url('common/images/gallery-pager-down-inactive.png');
+  background-image: url('./common/images/gallery-pager-down-inactive.png');
 }
 .up-gallery .pager-button-up,
 .up-gallery .pager-button-down {
@@ -6918,7 +6937,7 @@ td.visible-print {
 }
 .portlet.ui-draggable-dragging .portlet-thumb-gripper {
   display: block;
-  background: #444444 url("common/images/gripper.png") 5px 0px no-repeat;
+  background: #444444 url("./common/images/gripper.png") 5px 0px no-repeat;
   cursor: move;
   -moz-border-radius-topleft: 5px;
   -webkit-border-top-left-radius: 5px;
@@ -6971,7 +6990,7 @@ td.visible-print {
 }
 .layout-draggable-target-dropped {
   border: 1px solid #CCC;
-  background: #efefef url("common/images/loading.gif") 50% 50% no-repeat;
+  background: #efefef url("./common/images/loading.gif") 50% 50% no-repeat;
 }
 .layout-draggable-target-dropped span {
   display: none;
@@ -6999,7 +7018,7 @@ td.visible-print {
  */
 body {
   background-color: #ffffff;
-  background-image: url(common/images/grey-jean.png);
+  background-image: url(./common/images/grey-jean.png);
 }
 /* ==========================================================================
    Namespace: .portal
@@ -7014,9 +7033,11 @@ body {
    * Using the Google Font "Oxygen" as the base font.
    * Font is currently being included in the markup.
    */
+
   /* ==========================================================================
      Header
      ========================================================================== */
+
   /**
  * Licensed to Jasig under one or more contributor license
  * agreements. See the NOTICE file distributed with this work
@@ -7035,15 +7056,19 @@ body {
  * specific language governing permissions and limitations
  * under the License.
  */
+
   /* ==========================================================================
    Responsive Design
    ========================================================================== */
+
   /*
  * Breakpoints: 240px, 320px, 480px, 600px, 769px, and 992px.
  */
+
   /* ==========================================================================
      Navigation
      ========================================================================== */
+
   /**
  * Licensed to Jasig under one or more contributor license
  * agreements. See the NOTICE file distributed with this work
@@ -7062,9 +7087,11 @@ body {
  * specific language governing permissions and limitations
  * under the License.
  */
+
   /* ==========================================================================
      Content
      ========================================================================== */
+
   /**
  * Licensed to Jasig under one or more contributor license
  * agreements. See the NOTICE file distributed with this work
@@ -7083,23 +7110,30 @@ body {
  * specific language governing permissions and limitations
  * under the License.
  */
+
   /**
  * Local Variables
  */
+
   /** Page Message for returned action messages */
+
   /* ==========================================================================
    Responsive Design
    ========================================================================== */
+
   /*
  * Breakpoints: 240px, 320px, 480px, 600px, 769px, and 992px.
  */
+
   /*
  * When the screen size is larger than 769px wide...
  * (Corresponds to the smallest breakpoint in Bootstrap)
  */
+
   /* ==========================================================================
      Personalization
      ========================================================================== */
+
   /**
  * Licensed to Jasig under one or more contributor license
  * agreements. See the NOTICE file distributed with this work
@@ -7118,9 +7152,11 @@ body {
  * specific language governing permissions and limitations
  * under the License.
  */
+
   /* ==========================================================================
      Footer
      ========================================================================== */
+
   /**
  * Licensed to Jasig under one or more contributor license
  * agreements. See the NOTICE file distributed with this work
@@ -7139,21 +7175,27 @@ body {
  * specific language governing permissions and limitations
  * under the License.
  */
+
   /* ==========================================================================
    Footer Nav
    ========================================================================== */
+
   /* ==========================================================================
    Footer Legal
    ========================================================================== */
+
   /* ==========================================================================
    Responsive Design
    ========================================================================== */
+
   /*
  * Breakpoints: 240px, 320px, 480px, 600px, 769px, and 992px.
  */
+
   /* ==========================================================================
      Fluis stop-gap file - This will be removed when Universality and Fluid Components are EOL
      ========================================================================== */
+
   /**
 * Licensed to Jasig under one or more contributor license
 * agreements. See the NOTICE file distributed with this work
@@ -7172,8 +7214,11 @@ body {
 * specific language governing permissions and limitations
 * under the License.
 */
+
   /* Changing Login Button Colors to Black */
+
   /* Changing Logout Button Color to Black */
+
 }
 .portal .portal-header {
   background: #b70101;
@@ -7382,8 +7427,9 @@ body {
 @media only screen and (min-width: 769px) {
   .portal {
     /*
- * Convert navigation from toggled block menu to inline tabs.
- */
+   * Convert navigation from toggled block menu to inline tabs.
+   */
+  
   }
   .portal .portal-nav .menu-toggle {
     display: none;
@@ -7492,6 +7538,7 @@ body {
 .portal .up-portlet-titlebar {
   background-color: #ffffff;
   /* Old browsers */
+
   border-top: 5px solid #b70101;
   border-bottom: 1px solid #f5f5f5;
   -webkit-border-top-right-radius: 3px;
@@ -7675,6 +7722,7 @@ fieldset[disabled] .portal .btn-skin-alt.active {
 }
 .portal .fl-reorderer-dropMarker {
   /* Indicate where the item may be dropped. */
+
   background-color: #660000;
   border: 2px dashed #000000;
   height: 200px;
@@ -8038,7 +8086,7 @@ button:focus {
   height: 70px;
   width: 100%;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(256, 256, 256, 0.6);
   bottom: 0px;
   z-index: 150;
 }
@@ -8169,6 +8217,9 @@ button:focus {
 .portlet-content {
   padding: 0px 12px 0px 12px;
   height: 100%;
+  line-height: 1.4em;
+  height: 2.8em;
+  overflow: hidden;
 }
 .portlet-title {
   margin: 0px;
@@ -8404,12 +8455,14 @@ a#myuw-header img {
 }
 :-moz-placeholder {
   /* Firefox 18- */
+
   color: #660000;
   font-size: 1em;
   font-weight: 200;
 }
 ::-moz-placeholder {
   /* Firefox 19+ */
+
   color: #660000;
   font-size: 1em;
   font-weight: 200;
@@ -8688,7 +8741,7 @@ li.read:hover {
 }
 .mp-opaque {
   height: 40px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(256, 256, 256, 0.8);
 }
 .mp-opaque ul {
   padding: 0;
@@ -8866,7 +8919,7 @@ span:focus {
     height: 65px;
     width: 100%;
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(256, 256, 256, 0.6);
     bottom: 0px;
     z-index: 150;
   }
