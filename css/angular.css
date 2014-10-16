@@ -8153,7 +8153,8 @@ button:focus {
   position: relative;
   height: 130px;
   background-color: #ffffff;
-  padding: 5px 10px 10px 5px;
+  padding-bottom: 10px;
+  padding-left: 5px;
   border-bottom: 1px solid #ddd !important;
   border-right: 1px solid #ddd !important;
   box-model: border-box;
