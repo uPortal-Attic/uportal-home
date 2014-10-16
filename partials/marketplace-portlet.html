@@ -5,10 +5,23 @@
     <span class="portlet-title">{{portlet.name}}</span>
   </h2>
   <div class="action-buttons" ng-click="showDetails = !showDetails">
-    <button class="btn btn-default btn-add fname-{{portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)">
+
+    <!-- Add to Home button with access -->
+    <button class="btn btn-default btn-add fname-{{portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd">
       <span class="fa fa-plus"></span>Add to Home
     </button>
-    <a class="btn btn-default btn-launch" href="{{portlet.maxUrl}}"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+
+    <!-- Add to Home button without access -->
+    <button class="btn btn-default btn-add cant-add" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
+      <span class="fa fa-plus"></span>Add to Home
+    </button>
+
+    <!-- Launch button with access -->
+    <a class="btn btn-default btn-launch" href="{{portlet.maxUrl}}" ng-show="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+
+    <!-- Launch button without access -->
+    <a class="btn btn-default btn-launch cant-add" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+
   </div><br>
   <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
     ( {{ portlet.userRated }} rating<span ng-show="portlet.userRated !== 1">s</span> )</span>
@@ -16,15 +29,32 @@
   <div class="category-list" ng-click="showDetails = !showDetails">
     <a ng-repeat="category in portlet.categories" href="" ng-click="selectFilter('category',category)" class="category-links">{{category}}</a>
   </div>
+
+  <!-- Action buttons for mobile -->
   <div class="action-buttons-mobile" ng-click="showDetails = !showDetails">
-    <button class="btn btn-default btn-add" ng-click="marketplaceCtrl.addToHome($index , portlet)">
+
+    <!-- Add to Home button with access on mobile-->
+    <button class="btn btn-default btn-add fname-{{portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd">
       <span class="fa fa-plus"></span>Add to Home
     </button>
-    <a class="btn btn-default btn-launch" href="{{portlet.maxUrl}}"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+
+    <!-- Add to Home button without access on mobile-->
+    <button class="btn btn-default btn-add cant-add" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
+      <span class="fa fa-plus"></span>Add to Home
+    </button>
+
+    <!-- Launch button with access on mobile-->
+    <a class="btn btn-default btn-launch" href="{{portlet.maxUrl}}" ng-show="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+
+    <!-- Launch button without access on mobile-->
+    <a class="btn btn-default btn-launch cant-add" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
   </div>
+
   <div class="portlet-details">
     <a href="">Details <i class="fa fa-angle-down" ng-show="!showDetails"></i><i class="fa fa-angle-up" ng-show="showDetails"></i></a>
   </div>
+
+  <!-- Portlet Details (hidden by default) -->
   <div ng-show="showDetails" class="row portlet-details-div">
     <div class="col-xs-12 col-sm-3 related-portlets">
       <h3>Related</h3>
@@ -42,4 +72,5 @@
       </ul>
     </div>
   </div>
+
 </div>
