@@ -8136,6 +8136,15 @@ button:focus {
   position: absolute;
   right: -3px;
 }
+.add-more {
+  padding: 15px;
+}
+.add-more .portlet-title {
+  margin-bottom: 5px;
+}
+.add-more:hover {
+  padding-left: 10px;
+}
 .portlet-title h1 img {
   margin: 6px;
   min-height: 1.5em;
@@ -8629,16 +8638,18 @@ li.read:hover {
   border: none;
   color: #ffffff;
 }
-.cant-add {
+.disabled {
+  border: 1px solid #8c8c8c;
   background-color: #ffffff;
-  border: 1px solid #adadad;
-  color: #adadad;
+  color: #8c8c8c;
+  cursor: default !important;
+  pointer-events: auto !important;
 }
-.cant-add:hover {
+.disabled:hover {
+  border: 1px solid #8c8c8c;
   background-color: #ffffff;
-  border: 1px solid #adadad;
-  color: #adadad;
-  cursor: default;
+  color: #8c8c8c;
+  cursor: default !important;
 }
 .category-links {
   background-color: #ffffff;

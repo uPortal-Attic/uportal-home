@@ -40,16 +40,18 @@
   border:none;
   color:@white;
 }
-.cant-add {
+.disabled {
+  border:1px solid @grayscale7;
   background-color:@white;
-  border:1px solid @grayscale5;
-  color:@grayscale5;
+  color:@grayscale7;
+  cursor:default !important;
+  pointer-events:auto !important;
 }
-.cant-add:hover {
+.disabled:hover {
+  border:1px solid @grayscale7;
   background-color:@white;
-  border:1px solid @grayscale5;
-  color:@grayscale5;
-  cursor:default;
+  color:@grayscale7;
+  cursor:default !important;
 }
 .category-links {
   background-color:@white;
