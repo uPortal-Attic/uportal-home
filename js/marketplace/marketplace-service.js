@@ -3,7 +3,7 @@
 (function() {
 var app = angular.module('portal.marketplace.service', []);
 
-app.factory('marketplaceService', function($http, errorService) {
+app.factory('marketplaceService', function($http, miscService) {
 
   var filter = "";
 
@@ -20,7 +20,7 @@ app.factory('marketplaceService', function($http, errorService) {
         return result.data;
       }, 
       function(reason){
-        errorService.redirectUser(reason.status, "Marketplace entries fetch");
+        miscService.redirectUser(reason.status, "Marketplace entries fetch");
       }
     );
   };

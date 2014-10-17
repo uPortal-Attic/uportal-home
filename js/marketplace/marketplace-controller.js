@@ -3,7 +3,10 @@
 (function() {
   var app = angular.module('portal.marketplace.controller', []);
 
-  app.controller('MarketplaceController', [ '$http', '$scope','$location','$routeParams','marketplaceService', function($http, $scope, $location, $routeParams, marketplaceService) {
+  app.controller('MarketplaceController', [  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
+
+    miscService.pushPageview();
+
     var store = this;
     store.portlets = [];
     store.count = 0;
@@ -100,7 +103,10 @@
 
   } ]);
 
-  app.controller('MarketplaceDetailsController', [ '$scope', '$location', '$routeParams', 'marketplaceService', function($scope, $location, $routeParams, marketplaceService) {
+  app.controller('MarketplaceDetailsController', [ '$scope', '$location', '$routeParams', 'marketplaceService', 'miscService', function($scope, $location, $routeParams, marketplaceService, miscService) {
+
+    miscService.pushPageview();
+
     marketplaceService.getPortlet().then(function(data) {
       $scope.portlets = data.portlets;
       for(var p in $scope.portlets) {

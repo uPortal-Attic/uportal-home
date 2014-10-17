@@ -3,7 +3,7 @@
 (function() {
 var app = angular.module('portal.main.service', []);
 
-app.factory('mainService', function($http, errorService) {
+app.factory('mainService', function($http, miscService) {
   var prom = $http.get('/portal/api/session.json');
 
   var getUser = function() {
@@ -11,7 +11,7 @@ app.factory('mainService', function($http, errorService) {
       function(data, status) { //success function
     		return data.person;
 	  }).error(function(data, status) { // failure function
-      errorService.redirectUser(status, "Get User Info");
+      miscService.redirectUser(status, "Get User Info");
     });
   }
 
