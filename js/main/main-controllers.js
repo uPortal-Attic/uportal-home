@@ -3,7 +3,10 @@
 (function() {
   var app = angular.module('portal.main.controllers', []);
 
-  app.controller('MainController', [ '$http', 'errorService', function($http, errorService) {
+  app.controller('MainController', [ '$http', 'miscService', function($http, miscService) {
+
+    miscService.pushPageview();
+    
     var store = this;
     store.data = [];
     $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').then(
@@ -11,7 +14,7 @@
         store.data = result.data;
       } ,
       function(reason){
-       errorService.redirectUser(reason.status, 'layoutDoc call');
+       miscService.redirectUser(reason.status, 'layoutDoc call');
       }
     );
     this.directToPortlet = function directToPortlet(url) {

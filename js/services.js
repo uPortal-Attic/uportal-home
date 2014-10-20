@@ -3,7 +3,7 @@
 (function() {
 var app = angular.module('portal.misc.service', []);
 
-app.factory('errorService', function($http, $modal) {
+app.factory('miscService', function($http, $modal, $window, $location) {
   
   var redirectUser = function(status, caller) {
   	if(status === 0 || status === 302) {
@@ -17,8 +17,13 @@ app.factory('errorService', function($http, $modal) {
     }
   }
 
+  var pushPageview = function () {
+    $window._gaq.push(['_trackPageview', $location.path()]);
+  }
+
   return {
-    redirectUser: redirectUser
+    redirectUser: redirectUser,
+    pushPageview: pushPageview
   }
 
 });
