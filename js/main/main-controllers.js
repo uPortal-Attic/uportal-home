@@ -32,7 +32,7 @@
                   $('#portlet-id-'+ nodeId).parent().remove();
                 },
                 error: function(request, text, error) {
-                  
+
                 }
             });
       };
@@ -57,12 +57,13 @@
         marketplaceService.initialFilter($scope.initialFilter);
         $location.path("/marketplace");
         $scope.initialFilter = "";
-      }
+      };
     } ]);
 
   app.controller('HeaderController', [ '$scope', function($scope) {
     $scope.showSearch = false;
-  }])
+    $scope.test = "hi myuw";
+  }]);
 
 
 
