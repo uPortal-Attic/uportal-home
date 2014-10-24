@@ -24,7 +24,7 @@
 
     this.goToDetails = function(){
       $location.path("/marketplace/" + fname );
-    }
+    };
 
     this.addToHome = function addToHomeFunction(index, portlet) {
       var fname = portlet.fname;

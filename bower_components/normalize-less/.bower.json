@@ -1,0 +1,32 @@
+{
+  "name": "normalize-less",
+  "main": "normalize.less",
+  "authors": [
+    "Richard Bailey <additive.inverse@gmail.com>"
+  ],
+  "description": "a small normalize-css ( Thank you, Nicolas Gallagher ) fork of Markus Reiter's normalize.less. Mostly for formatting and removing dependencies on bootstrap.",
+  "keywords": [
+    "normalize",
+    "bower",
+    "less"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/additiveinverse/normalize.less",
+  "license": "MIT",
+  "_release": "accc0cafe4",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "accc0cafe42c8fe70c2ddbe600e6b6877fb8a886"
+  },
+  "_source": "git://github.com/additiveinverse/normalize.less.git",
+  "_target": "*",
+  "_originalSource": "normalize-less",
+  "_direct": true
+}
