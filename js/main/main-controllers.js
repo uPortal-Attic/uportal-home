@@ -6,7 +6,7 @@
   app.controller('MainController', [ '$http', 'miscService', function($http, miscService) {
 
     miscService.pushPageview();
-    
+
     var store = this;
     store.data = [];
     $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').then(
@@ -62,7 +62,6 @@
 
   app.controller('HeaderController', [ '$scope', function($scope) {
     $scope.showSearch = false;
-    $scope.test = "hi myuw";
   }]);
 
 
