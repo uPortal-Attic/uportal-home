@@ -19,6 +19,9 @@
   "devDependencies": {
     "karma": "^0.12.24",
     "karma-chrome-launcher": "^0.1.5",
-    "karma-jasmine": "^0.1.5"
+    "karma-html-reporter": "^0.2.4",
+    "karma-htmlfile-reporter": "^0.1.2",
+    "karma-jasmine": "^0.1.5",
+    "karma-jasmine-html-reporter": "^0.1.5"
   }
 }

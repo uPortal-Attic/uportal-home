@@ -1,29 +1,7 @@
 
 
 
-/* This is a working sample test that checks whether
-a variable in the HeaderController scope is correct */
-
-describe("Example Test", function() {
-  var scope;
-  var controller;
-
-  // load the main controllers module
-  beforeEach(function() {
-    module('portal.main.controllers');
-  });
-
-  describe("Testing", function() {
-    beforeEach(inject(function($rootScope, $controller) {
-      scope = $rootScope.$new();
-      controller = $controller('HeaderController', {'$scope': scope});
-    }));
-    it("that the scope variable greets me", function() {
-      expect(scope.test).toBe('hi myuw');
-    });
-
-  });
-});
+/* This tests that the Marketplace has exactly 17 categories */
 
 describe("MarketplaceController", function() {
   var scope;
@@ -31,7 +9,6 @@ describe("MarketplaceController", function() {
 
   // load the marketplace controller
   beforeEach(function() {
-    // module('portal.marketplace.controller');
     module('portal.marketplace.controller');
     module('ngRoute');
     module('portal.marketplace.service');
