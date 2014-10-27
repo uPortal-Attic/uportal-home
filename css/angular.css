@@ -10210,7 +10210,7 @@ button:focus {
   margin: 0px;
 }
 .card-header {
-  height: 260px;
+  height: 120px;
   position: relative;
   overflow: hidden;
   z-index: 20;
