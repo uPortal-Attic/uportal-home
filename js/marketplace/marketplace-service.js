@@ -56,7 +56,7 @@ app.factory('marketplaceService', function($http, miscService) {
       }
     }
     
-    return categories;
+    return categories.sort();
   };
   
 
