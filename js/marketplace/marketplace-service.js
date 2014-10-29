@@ -17,6 +17,10 @@ app.factory('marketplaceService', ['$http', 'miscService', function($http, miscS
   var getPortlets = function () {
     return $http.get('/portal/api/marketplace/entries.json', {cache : true}).then(
       function(result) {
+        
+        result.data.categories =
+          categoriesFromPortlets(result.data.portlets);
+        
         return result.data;
       }, 
       function(reason){
@@ -32,6 +36,29 @@ app.factory('marketplaceService', ['$http', 'miscService', function($http, miscS
 
     return portlets;
   };
+
+  
+  var categoriesFromPortlets = function (portlets) {
+    console.log("Calculating categories from portlets.");
+    var categories = [];
+
+    for (var portlet_index in portlets) {
+      
+      var categoriesOfThisPortlet = portlets[portlet_index].categories;
+      
+      for (var category_index in categoriesOfThisPortlet) {
+        
+        var category = categoriesOfThisPortlet[category_index];
+        
+        if ($.inArray(category, categories) == -1) {
+          categories.push(category);
+        }
+      }
+    }
+    
+    return categories.sort();
+  };
+  
 
   return {
     getPortlets: getPortlets,

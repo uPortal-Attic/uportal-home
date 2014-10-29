@@ -19,6 +19,7 @@
 
     marketplaceService.getPortlets().then(function(data) {
       store.portlets = data.portlets;
+      $scope.categories = data.categories;
     })
 
     this.goToDetails = function(){
@@ -51,26 +52,6 @@
       );
     };
 
-
-    $scope.categories = [
-      'Academics',
-      'Advisor',
-      'Applications',
-      'Campus Apps',
-      'CourseGuide',
-      'Finances',
-      'Help',
-      'Home',
-      'Instructor',
-      'Library',
-      'News',
-      'Notification',
-      'Research',
-      'Services',
-      'Student Learning',
-      'Student Services',
-      'Work'
-    ];
 
     // Empty string indicates no categories, show all portlets
     $scope.categoryToShow = "";
