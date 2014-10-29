@@ -3,7 +3,7 @@
 (function() {
 var app = angular.module('portal.marketplace.service', []);
 
-app.factory('marketplaceService', function($http, miscService) {
+app.factory('marketplaceService', ['$http', 'miscService', function($http, miscService) {
 
   var filter = "";
 
@@ -40,6 +40,6 @@ app.factory('marketplaceService', function($http, miscService) {
     getPortlet: getPortlet
   }
 
-});
+}]);
 
 })();
