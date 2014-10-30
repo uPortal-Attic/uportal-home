@@ -20,11 +20,11 @@
     marketplaceService.getPortlets().then(function(data) {
       store.portlets = data.portlets;
       $scope.categories = data.categories;
-    })
+    });
 
     this.goToDetails = function(){
       $location.path("/marketplace/" + fname );
-    }
+    };
 
     this.addToHome = function addToHomeFunction(index, portlet) {
       var fname = portlet.fname;

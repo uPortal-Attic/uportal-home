@@ -9,9 +9,9 @@
     'portal.main.controllers',
     'portal.main.service',
     'portal.main.directives',
- /* 'portal.notification.controller', */
     'portal.marketplace.controller',
-    'portal.marketplace.service'
+    'portal.marketplace.service',
+    /* 'portal.notification.controller' */
      ]);
  app.config(['$routeProvider',function($routeProvider, $locationProvider) {
 	 $routeProvider.
@@ -23,6 +23,6 @@
       }
  	]);
 
-    
+
 
 })();

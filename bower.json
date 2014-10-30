@@ -1,0 +1,32 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "homepage": "https://github.com/UW-Madison-DoIT/angularjs-portal",
+  "authors": [
+    "Jared Hanstra <jared.hanstra@wisc.edu>"
+  ],
+  "moduleType": [
+    "amd",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-mocks": "~1.3.0",
+    "angular-resource": "~1.3.0",
+    "angular-route": "~1.3.0",
+    "angular": "~1.3.0"
+  },
+  "devDependencies": {
+    "font-awesome": "~4.2.0",
+    "bootstrap": "~3.2.0",
+    "jquery": "~2.1.1",
+    "normalize-less": "*"
+  }
+}

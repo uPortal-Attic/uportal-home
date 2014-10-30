@@ -6,7 +6,7 @@
   app.controller('MainController', [ '$http', 'miscService', function($http, miscService) {
 
     miscService.pushPageview();
-    
+
     var store = this;
     store.data = [];
     $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').then(
@@ -32,7 +32,7 @@
                   $('#portlet-id-'+ nodeId).parent().remove();
                 },
                 error: function(request, text, error) {
-                  
+
                 }
             });
       };
@@ -57,12 +57,12 @@
         marketplaceService.initialFilter($scope.initialFilter);
         $location.path("/marketplace");
         $scope.initialFilter = "";
-      }
+      };
     } ]);
 
   app.controller('HeaderController', [ '$scope', function($scope) {
     $scope.showSearch = false;
-  }])
+  }]);
 
 
 

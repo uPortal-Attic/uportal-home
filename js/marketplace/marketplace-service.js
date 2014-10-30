@@ -22,7 +22,7 @@ app.factory('marketplaceService', ['$http', 'miscService', function($http, miscS
           categoriesFromPortlets(result.data.portlets);
         
         return result.data;
-      }, 
+      },
       function(reason){
         miscService.redirectUser(reason.status, "Marketplace entries fetch");
       }
@@ -65,7 +65,7 @@ app.factory('marketplaceService', ['$http', 'miscService', function($http, miscS
     initialFilter: initialFilter,
     getInitialFilter: getInitialFilter,
     getPortlet: getPortlet
-  }
+  };
 
 }]);
 
