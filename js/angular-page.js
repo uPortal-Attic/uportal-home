@@ -17,7 +17,7 @@
 	 $routeProvider.
       when('/marketplace', {templateUrl: 'partials/marketplace.html'}).
    /* when('/notifications', {templateUrl: 'partials/notifications-full.html'}). */
-      when('/marketplace/:fname', {templateUrl: 'partials/marketplace-details.html', controller:'MarketplaceDetailsController'}).
+      when('/marketplace/details/:fname', {templateUrl: 'partials/marketplace-details.html', controller:'MarketplaceDetailsController'}).
       when('/marketplace/search/:initFilter', {templateUrl: 'partials/marketplace.html'}).
       otherwise({templateUrl: 'partials/main.html'});
       }

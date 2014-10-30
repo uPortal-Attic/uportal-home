@@ -54,9 +54,11 @@
 
   app.controller('SearchController', [ '$scope', '$location', 'marketplaceService', function($scope, $location, marketplaceService) {
       $scope.submit = function(){
-        marketplaceService.initialFilter($scope.initialFilter);
-        $location.path("/marketplace");
-        $scope.initialFilter = "";
+        if($scope.initialFilter != "") {
+          marketplaceService.initialFilter($scope.initialFilter);
+          $location.path("/marketplace/search/"+ $scope.initialFilter);
+          $scope.initialFilter = "";
+        }
       };
     } ]);
 

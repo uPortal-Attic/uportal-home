@@ -47,4 +47,23 @@
             templateUrl : 'partials/beta-header.html'
         }
     });
+
+    app.directive('selectOnPageLoad',function($timeout){
+        return {
+            restrict: 'A',
+            link: function(scope,element){
+                //wait until intial value is there, then select it, then clear the watch so doesn't keep doing it
+                var clearWatch = scope.$watch(
+                    function(){ return $(element[0]).val(); },
+                    function(value){
+                        if (value){
+                            element[0].focus();
+                            clearWatch();
+                        }
+                    }
+                )
+            }
+        }
+    })
+
 })();
