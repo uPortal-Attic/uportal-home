@@ -18,4 +18,37 @@
             return input;
         };
     });
+    app.filter('showApplicable', function() {
+        return function(portlets, showAll) {
+            var filteredPortlets = [];
+            if (showAll === true) {
+              return portlets;
+            }
+            if (showAll === false) {
+              angular.forEach(portlets, function(portlet) {
+                if ( portlet.canAdd === true) {
+                  filteredPortlets.push(portlet);
+                }
+              });
+              return filteredPortlets;
+            }
+        };
+    });
+    app.filter('showCategory', function () {
+      return function (portlets, category) {
+        if (category === "") {
+          return portlets;
+        }
+        var filtered = [];
+        for (var i = 0; i < portlets.length; i++) {
+          var portlet = portlets[i];
+          for (var j=0; j < portlet.categories.length; j++) {
+            if (portlet.categories[j] === category) {
+              filtered.push(portlet);
+            }
+          }
+        }
+        return filtered;
+      };
+    });
 } ());
