@@ -85,11 +85,6 @@
     $scope.toggleShowAll = function() {
       $scope.showAll = !$scope.showAll;
     };
-    // for (var i=0; i<$scope.totalPortlets; i++) {
-    //   if store.portlets[i].canAdd === true {
-    //     $scope.portletsShowing++;
-    //   }
-    // }
 
 
 
