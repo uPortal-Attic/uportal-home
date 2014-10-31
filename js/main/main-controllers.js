@@ -20,7 +20,7 @@
     this.directToPortlet = function directToPortlet(url) {
       $location.path(url);
     }
-    this.removePortlet = function removePortletFunction(nodeId) {
+    this.removePortlet = function removePortletFunction(nodeId, title) {
         $.ajax({
                 url: "/portal/api/layout?action=removeElement&elementID=" + nodeId,
                 type: "POST",
@@ -30,6 +30,7 @@
                 success: function (request, text){
                   $('#portlet-id-'+ nodeId).parent().fadeOut();
                   $('#portlet-id-'+ nodeId).parent().remove();
+                  miscService.pushGAEvent('Layout Modification', 'Remove', title);
                 },
                 error: function(request, text, error) {
 
