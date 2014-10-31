@@ -81,6 +81,12 @@
       }
 
     };
+    $scope.showAll = false;
+    $scope.toggleShowAll = function() {
+      $scope.showAll = !$scope.showAll;
+    };
+
+
 
   } ]);
 
@@ -110,22 +116,4 @@
 
 
     } ]);
-
-    app.filter('showCategory', function () {
-      return function (portlets, category) {
-        if (category === "") {
-          return portlets;
-        }
-        var filtered = [];
-        for (var i = 0; i < portlets.length; i++) {
-          var portlet = portlets[i];
-          for (var j=0; j < portlet.categories.length; j++) {
-            if (portlet.categories[j] === category) {
-              filtered.push(portlet);
-            }
-          }
-        }
-        return filtered;
-      };
-    });
 })();

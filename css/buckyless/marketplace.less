@@ -227,7 +227,7 @@ input:focus,span:focus {
 .mp-opaque li.selected-filter {
   background-color:@white;
   cursor:pointer;
-  border-top:3px solid #b70101;
+  border-top:3px solid @color1;
   border-bottom:none;
   padding:7px 0px;
 }
@@ -235,4 +235,29 @@ input:focus,span:focus {
   background-color:#066999;
   color:@white;
   opacity:1.0;
+}
+.show-all-div {
+  border-bottom:1px solid @color1;
+  padding:10px 15px;
+  height:40px;
+  display:block;
+  position:relative;
+  p {
+    float:left;
+    display:inline;
+  }
+  div {
+    float:right;
+    display:inline;
+    input {
+      margin-right:5px;
+      left:5px;
+      cursor:pointer;
+    }
+    i {
+      margin-left:8px;
+      display:inline-block;
+      cursor:pointer;
+    }
+  }
 }

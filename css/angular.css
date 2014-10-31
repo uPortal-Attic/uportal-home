@@ -9360,6 +9360,31 @@ span:focus {
   color: #ffffff;
   opacity: 1.0;
 }
+.show-all-div {
+  border-bottom: 1px solid #b70101;
+  padding: 10px 15px;
+  height: 40px;
+  display: block;
+  position: relative;
+}
+.show-all-div p {
+  float: left;
+  display: inline;
+}
+.show-all-div div {
+  float: right;
+  display: inline;
+}
+.show-all-div div input {
+  margin-right: 5px;
+  left: 5px;
+  cursor: pointer;
+}
+.show-all-div div i {
+  margin-left: 8px;
+  display: inline-block;
+  cursor: pointer;
+}
 @media (min-width: 768px) {
   #myuw-header span {
     margin-left: 48px;
