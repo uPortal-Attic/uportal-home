@@ -99,8 +99,8 @@
       for(var p in $scope.portlets) {
         if ($scope.portlets[p].fname == $routeParams.fname) {
           $scope.portlet = $scope.portlets[p];
-        };
-      };
+        }
+      }
     });
 
 
@@ -111,7 +111,7 @@
 
     if($routeParams.fname !== null) {
       $scope.showDetails = true;
-    };
+    } 
 
 
 
