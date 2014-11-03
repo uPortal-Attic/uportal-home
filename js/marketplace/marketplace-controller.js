@@ -23,7 +23,7 @@
     });
 
     this.goToDetails = function(){
-      $location.path("/marketplace/" + fname );
+      $location.path("/apps/" + fname );
     };
 
     this.addToHome = function addToHomeFunction(index, portlet) {

@@ -56,7 +56,7 @@
       $scope.submit = function(){
         if($scope.initialFilter != "") {
           marketplaceService.initialFilter($scope.initialFilter);
-          $location.path("/marketplace/search/"+ $scope.initialFilter);
+          $location.path("/apps/search/"+ $scope.initialFilter);
           $scope.initialFilter = "";
         }
       };
