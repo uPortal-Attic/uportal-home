@@ -37,7 +37,7 @@
               async: true,
               success: function (request, text){
                 $('.fname-'+fname).html('<i class="fa fa-check"></i> Added Successfully').prop('disabled',true).removeClass('btn-add').addClass('btn-added');
-
+                miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
               },
               error: function(request, text, error) {
                 $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');

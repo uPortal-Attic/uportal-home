@@ -21,9 +21,14 @@ app.factory('miscService', function($http, $modal, $window, $location) {
     $window._gaq.push(['_trackPageview', $location.path()]);
   }
 
+  var pushGAEvent = function(category, action, label) {
+    $window._gaq.push(['_trackEvent', category, action, label]);
+  }
+
   return {
     redirectUser: redirectUser,
-    pushPageview: pushPageview
+    pushPageview: pushPageview,
+    pushGAEvent : pushGAEvent
   }
 
 });
