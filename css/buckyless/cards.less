@@ -146,9 +146,9 @@
 }
 
 .card-remove {
-  top: 8px;
+  top: 0px;
   position: absolute;
-  right: -3px;
+  right:0px;
 }
 
 .add-more {
@@ -160,16 +160,17 @@
 .add-more:hover {
   padding-left:10px;
 }
-.portlet-title h1 img {
-  margin: 6px;
-  min-height : 1.5em;
+.portlet-title img {
+  position:relative;
+  width:25px;
+  top:-4px;
+  margin-right:10px;
 }
 .portlet-div {
   position:relative;
-  height:130px;
+  height:150px;
   background-color: @white;
-  padding-bottom:10px;
-  padding-left:5px;
+  padding:5px;
   border-bottom: 1px solid #ddd !important;
   border-right:1px solid #ddd !important;
   box-model: border-box;
@@ -191,31 +192,37 @@
 .portlet-div .portlet-options {
   color:#aaa;
   font-size:1.3em;
-  padding:6px 8px;
+  padding:8px 10px;
 }
 .portlet-div .portlet-options:hover {
   color:#333;
 }
 .portlet-content {
   padding:0px 12px 0px 12px;
-  height:100%;
+  height:80px;
 }
 .portlet-title {
   margin: 0px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  padding:6px 30px 5px 12px;
+
 }
-.portlet-title h1 {
-  font-size: 1.6em;
+.portlet-title h1, .portlet-title i.fa {
+  font-size: 1.5em;
   color: #600;
   width: 100%;
   font-weight: 200;
   display: inline;
-  margin: 0px;
-  padding:0px;
-  padding-top:5px;
 }
-.portlet-title h1 span.fa {
+.portlet-title i, .portlet-title img {
+  margin-right:10px;
+  font-size:1.7em;
+}
+.portlet-title img {
+
+}
+.portlet-title span.fa {
   width: 38px;
   height: 38px;
   font-size: 0.8em;
