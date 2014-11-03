@@ -3,7 +3,7 @@
 (function() {
   var app = angular.module('portal.marketplace.controller', []);
 
-  app.controller('MarketplaceController', [  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
+  app.controller('MarketplaceController', [  '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
 
     miscService.pushPageview();
 
@@ -20,6 +20,7 @@
     marketplaceService.getPortlets().then(function(data) {
       store.portlets = data.portlets;
       $scope.categories = data.categories;
+      $rootScope.layout = data.layout;
     });
 
     this.goToDetails = function(){
@@ -94,13 +95,13 @@
 
     miscService.pushPageview();
 
-    marketplaceService.getPortlet().then(function(data) {
+    marketplaceService.getPortlets().then(function(data) {
       $scope.portlets = data.portlets;
       for(var p in $scope.portlets) {
         if ($scope.portlets[p].fname == $routeParams.fname) {
           $scope.portlet = $scope.portlets[p];
-        }
-      }
+        };
+      };
     });
 
 
@@ -111,7 +112,7 @@
 
     if($routeParams.fname !== null) {
       $scope.showDetails = true;
-    } 
+    };
 
 
 

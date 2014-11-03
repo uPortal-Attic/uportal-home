@@ -26,14 +26,6 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
     });
   };
 
-  var getPortlet = function() {
-    var portlets = [];
-
-      portlets = getPortlets();
-
-    return portlets;
-  };
-
   //private functions
 
   var postProcessing = function(result, data) {
@@ -63,6 +55,7 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
     });
 
     result.categories = categories.sort();
+    result.layout = layout;
   }
   
   //return list of avaliable functions
@@ -70,8 +63,7 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
   return {
     getPortlets: getPortlets,
     initialFilter: initialFilter,
-    getInitialFilter: getInitialFilter,
-    getPortlet: getPortlet
+    getInitialFilter: getInitialFilter
   };
 
 }]);
