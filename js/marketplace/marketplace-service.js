@@ -19,8 +19,6 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
       return filter;
   };
   var getPortlets = function () {
-
-
     return $q.all([marketplacePromise, mainService.getLayout()]).then(function(data){
       var result = {};
       postProcessing(result,data);
@@ -45,9 +43,7 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
     var categories = [];
     var layout = data[1].layout;
 
-    for (var portlet_index in result.portlets) {
-      var cur = result.portlets[portlet_index];
-      
+    $.each(result.portlets, function (index, cur){
       //in layout check
       var inLayout = $.grep(layout, function(e) { return e.title === cur.name}).length;
       if(inLayout > 0) {
@@ -58,16 +54,13 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
       
       //categories building
       var categoriesOfThisPortlet = cur.categories;
-      
-      for (var category_index in categoriesOfThisPortlet) {
-        
-        var category = categoriesOfThisPortlet[category_index];
-        
+
+      $.each(categoriesOfThisPortlet, function(index, category){
         if ($.inArray(category, categories) == -1) {
           categories.push(category);
         }
-      }
-    }
+      });
+    });
 
     result.categories = categories.sort();
   }
