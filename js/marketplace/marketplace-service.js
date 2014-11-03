@@ -23,9 +23,7 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
 
     return $q.all([marketplacePromise, mainService.getLayout()]).then(function(data){
       var result = {};
-      result.categories = categoriesFromPortlets(data[0].data.portlets);
-      result.portlets = addFlagForIfInLayout(data[0].data.portlets,data[1].layout);
-      
+      postProcessing(result,data);
       return result;
     });
   };
@@ -40,46 +38,26 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
 
   //private functions
 
-  var addFlagForIfInLayout = function (portlets, layout) {
-    /// new way
-    var hitPortletCount = 0;
-    for(var portlets_index in portlets) {
-      var cur = portlets[portlets_index];
-      var result = $.grep(layout, function(e) { hitPortletCount ++; return e.title === cur.name});
-      if(result.length > 0) {
+  var postProcessing = function(result, data) {
+    
+    result.portlets = data[0].data.portlets;
+    
+    var categories = [];
+    var layout = data[1].layout;
+
+    for (var portlet_index in result.portlets) {
+      var cur = result.portlets[portlet_index];
+      
+      //in layout check
+      var inLayout = $.grep(layout, function(e) { return e.title === cur.name}).length;
+      if(inLayout > 0) {
         cur.hasInLayout = true;
       } else {
         cur.hasInLayout = false;
       }
-    }
-
-    console.log("Hit portlets " + hitPortletCount);
-    ///old way
-
-    /*for (var portlet_index in portlets) {
-      var curPortlet = portlets[portlet_index];
-      for (var layout_index in layout ) {
-        //compare names
-        if(curPortlet.name === layout[layout_index].title) {
-          curPortlet.hasInLayout = true;
-          break;
-        } else {
-          curPortlet.hasInLayout = false;
-        }
-      }
-    }*/
-
-    return portlets;
-  }
-
-  
-  var categoriesFromPortlets = function (portlets) {
-    console.log("Calculating categories from portlets.");
-    var categories = [];
-
-    for (var portlet_index in portlets) {
       
-      var categoriesOfThisPortlet = portlets[portlet_index].categories;
+      //categories building
+      var categoriesOfThisPortlet = cur.categories;
       
       for (var category_index in categoriesOfThisPortlet) {
         
@@ -90,9 +68,9 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
         }
       }
     }
-    
-    return categories.sort();
-  };
+
+    result.categories = categories.sort();
+  }
   
   //return list of avaliable functions
 
