@@ -41,7 +41,22 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
   //private functions
 
   var addFlagForIfInLayout = function (portlets, layout) {
-    for (var portlet_index in portlets) {
+    /// new way
+    var hitPortletCount = 0;
+    for(var portlets_index in portlets) {
+      var cur = portlets[portlets_index];
+      var result = $.grep(layout, function(e) { hitPortletCount ++; return e.title === cur.name});
+      if(result.length > 0) {
+        cur.hasInLayout = true;
+      } else {
+        cur.hasInLayout = false;
+      }
+    }
+
+    console.log("Hit portlets " + hitPortletCount);
+    ///old way
+
+    /*for (var portlet_index in portlets) {
       var curPortlet = portlets[portlet_index];
       for (var layout_index in layout ) {
         //compare names
@@ -52,7 +67,7 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
           curPortlet.hasInLayout = false;
         }
       }
-    }
+    }*/
 
     return portlets;
   }
