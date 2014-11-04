@@ -3,20 +3,15 @@
 (function() {
   var app = angular.module('portal.main.controllers', []);
 
-  app.controller('MainController', [ '$http', 'miscService', function($http, miscService) {
+  app.controller('MainController', [  '$rootScope', '$scope', 'mainService', 'miscService', function($rootScope, $scope, mainService, miscService) {
 
     miscService.pushPageview();
+    $rootScope.layout = [];
+    
+    mainService.getLayout().then(function(data){
+      $rootScope.layout = data.layout;
+    });
 
-    var store = this;
-    store.data = [];
-    $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').then(
-      function(result) {
-        store.data = result.data;
-      } ,
-      function(reason){
-       miscService.redirectUser(reason.status, 'layoutDoc call');
-      }
-    );
     this.directToPortlet = function directToPortlet(url) {
       $location.path(url);
     }
@@ -28,8 +23,12 @@
                 dataType: "json",
                 async: true,
                 success: function (request, text){
-                  $('#portlet-id-'+ nodeId).parent().fadeOut();
-                  $('#portlet-id-'+ nodeId).parent().remove();
+                  $scope.$apply(function(){
+                    var result = $.grep($rootScope.layout, function(e) { return e.nodeId === nodeId});
+                    var index = $.inArray(result[0], $rootScope.layout);
+                    //remove
+                    $rootScope.layout.splice(index,1);
+                  });
                   miscService.pushGAEvent('Layout Modification', 'Remove', title);
                 },
                 error: function(request, text, error) {

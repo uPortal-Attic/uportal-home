@@ -3,7 +3,7 @@
 (function() {
   var app = angular.module('portal.marketplace.controller', []);
 
-  app.controller('MarketplaceController', [  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
+  app.controller('MarketplaceController', [  '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
 
     miscService.pushPageview();
 
@@ -20,6 +20,7 @@
     marketplaceService.getPortlets().then(function(data) {
       store.portlets = data.portlets;
       $scope.categories = data.categories;
+      $rootScope.layout = data.layout;
     });
 
     this.goToDetails = function(){
@@ -37,7 +38,9 @@
               async: true,
               success: function (request, text){
                 $('.fname-'+fname).html('<i class="fa fa-check"></i> Added Successfully').prop('disabled',true).removeClass('btn-add').addClass('btn-added');
-                miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
+				miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
+                portlet.title = portlet.name;
+                $scope.$apply(function(){$scope.layout.push(portlet);});
               },
               error: function(request, text, error) {
                 $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
@@ -94,13 +97,13 @@
 
     miscService.pushPageview();
 
-    marketplaceService.getPortlet().then(function(data) {
+    marketplaceService.getPortlets().then(function(data) {
       $scope.portlets = data.portlets;
       for(var p in $scope.portlets) {
         if ($scope.portlets[p].fname == $routeParams.fname) {
           $scope.portlet = $scope.portlets[p];
-        }
-      }
+        };
+      };
     });
 
 
@@ -111,7 +114,7 @@
 
     if($routeParams.fname !== null) {
       $scope.showDetails = true;
-    } 
+    };
 
 
 
