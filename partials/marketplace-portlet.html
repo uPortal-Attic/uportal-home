@@ -7,20 +7,20 @@
   <div class="action-buttons" ng-click="showDetails = !showDetails">
 
     <!-- Add to Home button with access -->
-    <button class="btn btn-default btn-add fname-{{portlet.fname}}" 
-            ng-click="marketplaceCtrl.addToHome($index , portlet)" 
+    <button class="btn btn-default btn-add fname-{{portlet.fname}}"
+            ng-click="marketplaceCtrl.addToHome($index , portlet)"
             ng-show="portlet.canAdd && !portlet.hasInLayout"
             ng-class="{disabled : portlet.hasInLayout}">
       <span class="fa fa-plus"></span>Add to Home
     </button>
 
     <!-- Already in Home -->
-    <button class="btn btn-default btn-add fname-{{portlet.fname}}" 
+    <button class="btn btn-default btn-add fname-{{portlet.fname}}"
             ng-show="portlet.canAdd && portlet.hasInLayout"
             ng-class="{disabled : portlet.hasInLayout}"
-            popover="This app is already on your home" 
-            popover-trigger="mouseenter" 
-            popover-placement="top" 
+            popover="This app is already on your home"
+            popover-trigger="mouseenter"
+            popover-placement="top"
             popover-popup-delay="500">
       <span class="fa fa-plus"></span>Add to Home
     </button>
@@ -80,7 +80,7 @@
       <h3>Screenshots</h3>
       <ul ng-repeat="screenshot in portlet.marketplaceScreenshots">
         <li>
-          <img src="{{ screenshot.url }}">
+          <img src="{{ screenshot.url }}" alt="{{ screenshot.caption }}">
           <p ng-repeat="caption in screenshot.captions">{{ caption }}</p>
         </li>
       </ul>

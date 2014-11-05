@@ -1,7 +1,7 @@
 
 <div ng-controller="MarketplaceController as marketplaceCtrl" class="card col-xs-12 col-md-12">
   <div class="card-header mp-header">
-    <img class="header-image" src="img/terrace.jpg">
+    <img class="header-image" src="img/terrace.jpg" alt="Chairs at the Union Terrace">
     <div class="card-header-text">
       <h1>UW Apps</h1>
       <p>Find the information and resources you need at UW-Madison. Add frequently used apps to your Home page or simply launch an app for immediate use.</p>
@@ -25,7 +25,7 @@
     <p>Categories:</p><a ng-repeat="category in categories" href="" class="category-links" ng-click="selectFilter('category',category)" ng-class="{true: 'selected-category'}[categoryToShow === category]">{{category}}</a>
   </div>
 
-  <div data-loading class='loading-gif'><img src="img/ajax-loader.gif"></div>
+  <div data-loading class='loading-gif'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
   <div class="portlet-container" ng-repeat="portlet in marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:sortParameter" ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="showDetails = !showDetails">
     <marketplace-portlet></marketplace-portlet>
   </div>
