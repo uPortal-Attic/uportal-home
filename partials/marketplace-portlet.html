@@ -80,7 +80,7 @@
       <h3>Screenshots</h3>
       <ul ng-repeat="screenshot in portlet.marketplaceScreenshots">
         <li>
-          <img src="{{ screenshot.url }}" alt="{{ screenshot.caption }}">
+          <img src="{{ screenshot.url }}" alt="{{ screenshot.captions }}">
           <p ng-repeat="caption in screenshot.captions">{{ caption }}</p>
         </li>
       </ul>
