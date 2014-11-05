@@ -41,6 +41,25 @@
 
     }]);
 
+    app.directive('hideWhileLoading',   ['$http' ,function ($http)
+    {
+        return {
+            restrict: 'A',
+            link: function (scope, elm, attrs)
+            {
+                scope.$watch(scope.isLoading, function (v)
+                {
+                    if(v){
+                        elm.hide();
+                    }else{
+                        elm.show();
+                    }
+                });
+            }
+        };
+
+    }]);
+
     app.directive('betaHeader', function() {
         return {
             restrict : 'E',

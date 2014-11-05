@@ -8525,6 +8525,9 @@ button:focus {
   background-color: #ffffff;
   border-color: #adadad;
 }
+.loading-gif {
+  margin: 20px 0px;
+}
 /* Card UI Styling */
 .page-content {
   margin: 0;
