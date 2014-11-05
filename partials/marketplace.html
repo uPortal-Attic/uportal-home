@@ -25,7 +25,7 @@
     <p>Categories:</p><a ng-repeat="category in categories" href="" class="category-links" ng-click="selectFilter('category',category)" ng-class="{true: 'selected-category'}[categoryToShow === category]">{{category}}</a>
   </div>
 
-  <div data-loading class='loading-gif'><img src="img/ajax-loader.gif"></div>
+  <div data-loading class='loading-gif'><img src="img/ajax-loader-2.gif"></div>
   <div class="portlet-container" ng-repeat="portlet in marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:sortParameter" ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="showDetails = !showDetails">
     <marketplace-portlet></marketplace-portlet>
   </div>

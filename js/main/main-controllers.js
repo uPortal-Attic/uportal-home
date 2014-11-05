@@ -5,9 +5,10 @@
 
   app.controller('MainController', [  '$rootScope', '$scope', 'mainService', 'miscService', function($rootScope, $scope, mainService, miscService) {
 
+
     miscService.pushPageview();
     $rootScope.layout = [];
-    
+
     mainService.getLayout().then(function(data){
       $rootScope.layout = data.layout;
     });
