@@ -2,7 +2,7 @@
 
 <div class="row card" ng-controller="MainController as mainCtrl">
   <div class="card-header">
-    <img class="header-image" src="img/square.jpg">
+    <img class="header-image" src="img/square.jpg" alt="UW Campus cover image">
     <div class="card-header-text">
       <h1>MyUW Home</h1>
       <!-- <p>This is the Angular version of MyUW. Enjoy!</p> -->
@@ -21,13 +21,13 @@
   -->
   <div class="col-xs-12 portlet-section">
     <h3 class="home-section-header portlet-section-header">Your Favorites</h3>
-    <div data-loading class='loading-gif'><img src="img/ajax-loader.gif"></div>
+    <div data-loading class='loading-gif'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" ng-repeat="portlet in layout  | orderBy:'title'">
       <div class="portlet-div" id="portlet-id-{{portlet.nodeId}}">
 
         <a href="{{portlet.url}}">
           <div class="portlet-title">
-              <img src="{{portlet.iconUrl}}" ng-show="portlet.faIcon === null"><i class="fa {{portlet.faIcon}}" ng-show="portlet.faIcon != null"></i><h1>{{ portlet.title }}</h1>
+              <img src="{{portlet.iconUrl}}" ng-show="portlet.faIcon === null" alt="App icon"><i class="fa {{portlet.faIcon}}" ng-show="portlet.faIcon != null"></i><h1>{{ portlet.title }}</h1>
           </div>
         </a>
         <div class='card-remove'>
