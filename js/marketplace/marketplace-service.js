@@ -5,8 +5,7 @@ var app = angular.module('portal.marketplace.service', []);
 
 app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', function($q, $http, mainService, miscService) {
 
-  //local variables and promises
-  var marketplacePromise = $http.get('/portal/api/marketplace/entries.json', {cache : true});
+  //local variables
   var filter = "";
 
   //public functions
@@ -19,7 +18,7 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
       return filter;
   };
   var getPortlets = function () {
-    return $q.all([marketplacePromise, mainService.getLayout()]).then(function(data){
+    return $q.all([$http.get('/portal/api/marketplace/entries.json', {cache : true}), mainService.getLayout()]).then(function(data){
       var result = {};
       postProcessing(result,data);
       return result;
