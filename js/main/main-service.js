@@ -5,7 +5,6 @@ var app = angular.module('portal.main.service', []);
 
 app.factory('mainService', function($http, miscService) {
   var prom = $http.get('/portal/api/session.json');
-  var layoutPromise = $http.get('/portal/api/layoutDoc?tab=UW Bucky Home');
 
   var getUser = function() {
   	return prom.success(
@@ -17,7 +16,7 @@ app.factory('mainService', function($http, miscService) {
   }
 
   var getLayout = function() {
-    return layoutPromise.then(
+    return $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').then(
       function(result) {
         return  result.data;
       } ,
