@@ -9393,6 +9393,12 @@ span:focus {
   display: inline-block;
   cursor: pointer;
 }
+#load-more {
+  padding: 1em 20em 1em 20em;
+  margin: 1em 1em 1em 30%;
+  background-color: #b70101;
+  color: #ffffff;
+}
 @media (min-width: 768px) {
   #myuw-header span {
     margin-left: 48px;

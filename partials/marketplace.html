@@ -18,8 +18,7 @@
     </div>
   </div>
   <div class="show-all-div">
-    <p>Showing {{ (marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length }} of {{ marketplaceCtrl.portlets.length }} apps. 
-      <span ng-show="(marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > 30">(Currently limited to 30)</span></p>
+    <p>Showing {{ (marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length }} of {{ marketplaceCtrl.portlets.length }} apps. </p>
     <div><p><input type="checkbox" ng-click="toggleShowAll()">Show all<span tooltip-placement="left" tooltip="Show all apps, even if I don't have access" tooltip-append-to-body="true"><i class="fa fa-question-circle" ></i></span></p></input></div>
   </div>
   <div ng-show="showCategories" class="show-categories">
@@ -27,7 +26,13 @@
   </div>
 
   <div data-loading class='loading-gif'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
-  <div class="portlet-container" ng-repeat="portlet in marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:sortParameter | limitTo:30" ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="showDetails = !showDetails">
+  <div class="portlet-container" ng-repeat="portlet in marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:sortParameter | limitTo:searchResultLimit" ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="showDetails = !showDetails">
     <marketplace-portlet></marketplace-portlet>
   </div>
+  <button id="load-more" 
+          class="btn btn-default" 
+          ng-click="searchResultLimit = searchResultLimit + 20;" 
+          hide-while-loading
+          ng-show="(marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"
+         >Load More</button>
 </div>

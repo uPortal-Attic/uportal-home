@@ -28,6 +28,7 @@
       marketplaceService.initialFilter("");
     }
     $scope.searchText = $scope.searchTerm;
+    $scope.searchResultLimit = 20;
 
     
     //Functions
