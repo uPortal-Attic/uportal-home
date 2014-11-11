@@ -3,25 +3,34 @@
 (function() {
   var app = angular.module('portal.marketplace.controller', []);
 
-  app.controller('MarketplaceController', [  '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
+  app.controller('MarketplaceController', [  '$timeout', '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($timeout, $rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
 
     miscService.pushPageview();
 
+    //init variables
     var store = this;
     store.portlets = [];
     store.count = 0;
+
+    //get marketplace portlets
+    marketplaceService.getPortlets().then(function(data) {
+      store.portlets = data.portlets;
+      $scope.categories = data.categories;
+      $rootScope.layout = data.layout;
+    });
+
+    //setup search term
+    var tempFilterText = '', filterTextTimeout;
     $scope.searchTerm = marketplaceService.getInitialFilter();
     if($routeParams.initFilter !== null && ($scope.searchTerm === null || $scope.searchTerm === "")) {
       $scope.searchTerm = $routeParams.initFilter;
     } else {
       marketplaceService.initialFilter("");
     }
+    $scope.searchText = $scope.searchTerm;
 
-    marketplaceService.getPortlets().then(function(data) {
-      store.portlets = data.portlets;
-      $scope.categories = data.categories;
-      $rootScope.layout = data.layout;
-    });
+    
+    //Functions
 
     this.goToDetails = function(){
       $location.path("/apps/" + fname );
@@ -89,7 +98,16 @@
       $scope.showAll = !$scope.showAll;
     };
 
+    
+    //delay on the filter
+    $scope.$watch('searchText', function (val) {
+        if (filterTextTimeout) $timeout.cancel(filterTextTimeout);
 
+        tempFilterText = val;
+        filterTextTimeout = $timeout(function() {
+            $scope.searchTerm = tempFilterText;
+        }, 250); // delay 250 ms
+    })
 
   } ]);
 
