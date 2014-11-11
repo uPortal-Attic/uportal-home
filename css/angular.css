@@ -9393,9 +9393,12 @@ span:focus {
   display: inline-block;
   cursor: pointer;
 }
-#load-more {
-  padding: 1em 20em 1em 20em;
-  margin: 1em 1em 1em 25%;
+.marketplace-load-more {
+  text-align: center;
+}
+.marketplace-load-more button#load-more {
+  padding: 1em 10% 1em 10%;
+  margin: 1em auto;
   background-color: #b70101;
   color: #ffffff;
 }

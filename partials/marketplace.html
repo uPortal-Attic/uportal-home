@@ -29,10 +29,12 @@
   <div class="portlet-container" ng-repeat="portlet in marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:sortParameter | limitTo:searchResultLimit" ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="showDetails = !showDetails">
     <marketplace-portlet></marketplace-portlet>
   </div>
-  <button id="load-more" 
-          class="btn btn-default" 
-          ng-click="searchResultLimit = searchResultLimit + 20;" 
-          hide-while-loading
-          ng-show="(marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"
-         >Load More</button>
+  <div class="marketplace-load-more">
+    <button id="load-more" 
+            class="btn btn-default" 
+            ng-click="searchResultLimit = searchResultLimit + 20;" 
+            hide-while-loading
+            ng-show="(marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"
+           >Load More</button>
+  </div>
 </div>
