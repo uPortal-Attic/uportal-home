@@ -5,7 +5,7 @@
     <div class="card-header-text">
       <h1>UW Apps</h1>
       <p>Find the information and resources you need at UW-Madison. Add frequently used apps to your Home page or simply launch an app for immediate use.</p>
-      <span class="fa fa-search mp-search-icon"></span><input type="text" class="marketplace-search" placeholder="What are you looking for?" ng-model="searchText" select-on-page-load>
+      <span class="fa fa-search mp-search-icon"></span><input type="text" class="marketplace-search" placeholder="What are you looking for?" ng-model="searchTerm" select-on-page-load>
     </div>
     <div class="header-opaque mp-opaque">
       <ul>
@@ -26,7 +26,7 @@
   </div>
 
   <div data-loading class='loading-gif'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
-  <div class="portlet-container" ng-repeat="portlet in marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:sortParameter" ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="showDetails = !showDetails">
+  <div class="portlet-container" ng-repeat="portlet in marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:sortParameter | limitTo:30" ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-click="showDetails = !showDetails">
     <marketplace-portlet></marketplace-portlet>
   </div>
 </div>
