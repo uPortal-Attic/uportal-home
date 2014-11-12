@@ -9396,11 +9396,13 @@ span:focus {
 .marketplace-load-more {
   text-align: center;
 }
-.marketplace-load-more button#load-more {
+#load-more {
   padding: 1em 10% 1em 10%;
   margin: 1em auto;
   background-color: #b70101;
   color: #ffffff;
+  position: relative;
+  left: 30px;
 }
 @media (min-width: 768px) {
   #myuw-header span {
@@ -9532,6 +9534,11 @@ span:focus {
   }
   .search-mobile span {
     display: none;
+  }
+  #load-more {
+    position: relative;
+    margin-right: 80px;
+    left: 0px;
   }
 }
 @media (max-width: 992px) {
