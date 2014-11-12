@@ -36,7 +36,7 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
 
     $.each(result.portlets, function (index, cur){
       //in layout check
-      var inLayout = $.grep(layout, function(e) { return e.title === cur.name}).length;
+      var inLayout = $.grep(layout, function(e) { return e.fname === cur.fname}).length;
       if(inLayout > 0) {
         cur.hasInLayout = true;
       } else {
