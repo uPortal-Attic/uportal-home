@@ -52,7 +52,7 @@
   }]);
 
   /* Header */
-  app.controller('HeaderController', [ '$rootScope','$scope','$location', 'marketplaceService', function($rootScope, $scope, $location, marketplaceService) {
+  app.controller('HeaderController', ['$scope','$location', 'marketplaceService', function($scope, $location, marketplaceService) {
     $scope.showSearch = false;
     $scope.submit = function(){
       if($scope.initialFilter != "") {
