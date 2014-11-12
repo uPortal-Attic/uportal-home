@@ -1,22 +1,22 @@
 <div class="portlet-list-item" >
   <h2>
     <span class="fa fa-circle" ng-show="portlet.faIcon === null"></span>
-    <span class="fa {{portlet.faIcon}}" ng-show="portlet.faIcon != null"></span>
-    <span class="portlet-title">{{portlet.name}}</span>
+    <span class="fa {{::portlet.faIcon}}" ng-show="portlet.faIcon != null"></span>
+    <span class="portlet-title">{{::portlet.name}}</span>
   </h2>
   <div class="action-buttons" ng-click="showDetails = !showDetails">
 
     <!-- Add to Home button with access -->
-    <button class="btn btn-default btn-add fname-{{portlet.fname}}"
+    <button class="btn btn-default btn-add fname-{{::portlet.fname}}"
             ng-click="marketplaceCtrl.addToHome($index , portlet)"
-            ng-show="portlet.canAdd && !portlet.hasInLayout"
+            ng-if="portlet.canAdd && !portlet.hasInLayout"
             ng-class="{disabled : portlet.hasInLayout}">
       <span class="fa fa-plus"></span>Add to Home
     </button>
 
     <!-- Already in Home -->
-    <button class="btn btn-default btn-add fname-{{portlet.fname}}"
-            ng-show="portlet.canAdd && portlet.hasInLayout"
+    <button class="btn btn-default btn-add fname-{{::portlet.fname}}"
+            ng-if="portlet.canAdd && portlet.hasInLayout"
             ng-class="{disabled : portlet.hasInLayout}"
             popover="This app is already on your home"
             popover-trigger="mouseenter"
@@ -31,24 +31,24 @@
     </button>
 
     <!-- Launch button with access -->
-    <a class="btn btn-default btn-launch" href="{{portlet.maxUrl}}" ng-show="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a class="btn btn-default btn-launch" href="{{::portlet.maxUrl}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
     <!-- Launch button without access -->
     <a class="btn btn-default btn-launch disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
   </div><br>
   <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
-    ( {{ portlet.userRated }} rating<span ng-show="portlet.userRated !== 1">s</span> )</span>
-  <p>{{portlet.description}}</p>
+    ( {{:: portlet.userRated }} rating<span ng-if="portlet.userRated !== 1">s</span> )</span>
+  <p>{{::portlet.description}}</p>
   <div class="category-list" ng-click="showDetails = !showDetails">
-    <a ng-repeat="category in portlet.categories" href="" ng-click="selectFilter('category',category)" class="category-links">{{category}}</a>
+    <a ng-repeat="category in portlet.categories" href="" ng-click="selectFilter('category',category)" class="category-links">{{::category}}</a>
   </div>
 
   <!-- Action buttons for mobile -->
   <div class="action-buttons-mobile" ng-click="showDetails = !showDetails">
 
     <!-- Add to Home button with access on mobile-->
-    <button class="btn btn-default btn-add fname-{{portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd">
+    <button class="btn btn-default btn-add fname-{{::portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd">
       <span class="fa fa-plus"></span>Add to Home
     </button>
 
@@ -58,7 +58,7 @@
     </button>
 
     <!-- Launch button with access on mobile-->
-    <a class="btn btn-default btn-launch" href="{{portlet.maxUrl}}" ng-show="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a class="btn btn-default btn-launch" href="{{::portlet.maxUrl}}" ng-show="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
     <!-- Launch button without access on mobile-->
     <a class="btn btn-default btn-launch disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
@@ -69,19 +69,19 @@
   </div>
 
   <!-- Portlet Details (hidden by default) -->
-  <div ng-show="showDetails" class="row portlet-details-div">
+  <div ng-if="showDetails" class="row portlet-details-div">
     <div class="col-xs-12 col-sm-3 related-portlets">
       <h3>Related</h3>
       <ul ng-repeat="related in portlet.relatedPortlets">
-        <li><a href="{{ related.maxUrl }}">{{ related.name }}</a></li>
+        <li><a href="{{ ::related.maxUrl }}">{{ ::related.name }}</a></li>
       </ul>
     </div>
     <div class="col-xs-12 col-sm-9 portlet-screenshots" ng-if="portlet.marketplaceScreenshots.length !== 0">
       <h3>Screenshots</h3>
       <ul ng-repeat="screenshot in portlet.marketplaceScreenshots">
         <li>
-          <img src="{{ screenshot.url }}" alt="{{ screenshot.captions }}">
-          <p ng-repeat="caption in screenshot.captions">{{ caption }}</p>
+          <img src="{{ ::screenshot.url }}" alt="{{ ::screenshot.captions }}">
+          <p ng-repeat="caption in screenshot.captions">{{ ::caption }}</p>
         </li>
       </ul>
     </div>
