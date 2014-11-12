@@ -76,7 +76,7 @@
         <li><a href="{{ related.maxUrl }}">{{ related.name }}</a></li>
       </ul>
     </div>
-    <div class="col-xs-12 col-sm-9 portlet-screenshots">
+    <div class="col-xs-12 col-sm-9 portlet-screenshots" ng-if="portlet.marketplaceScreenshots.length !== 0">
       <h3>Screenshots</h3>
       <ul ng-repeat="screenshot in portlet.marketplaceScreenshots">
         <li>

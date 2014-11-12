@@ -9306,7 +9306,6 @@ li.read:hover {
   margin: 0px;
   padding: 0px;
   display: inline-block;
-  border-right: 1px solid #ddd;
 }
 .related-portlets ul {
   margin: 0px;
@@ -9316,6 +9315,7 @@ li.read:hover {
   margin: 0px;
   padding: 0px;
   display: inline-block;
+  border-left: 1px solid #ddd;
 }
 .portlet-screenshots ul {
   margin: 0px;
