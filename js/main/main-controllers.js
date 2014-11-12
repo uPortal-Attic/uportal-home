@@ -51,20 +51,17 @@
     });
   }]);
 
-  /* Search */
-
-  app.controller('SearchController', [ '$scope', '$location', 'marketplaceService', function($scope, $location, marketplaceService) {
-      $scope.submit = function(){
-        if($scope.initialFilter != "") {
-          marketplaceService.initialFilter($scope.initialFilter);
-          $location.path("/apps/search/"+ $scope.initialFilter);
-          $scope.initialFilter = "";
-        }
-      };
-    } ]);
-
-  app.controller('HeaderController', [ '$scope', function($scope) {
+  /* Header */
+  app.controller('HeaderController', [ '$rootScope','$scope','$location', 'marketplaceService', function($rootScope, $scope, $location, marketplaceService) {
     $scope.showSearch = false;
+    $scope.submit = function(){
+      if($scope.initialFilter != "") {
+        marketplaceService.initialFilter($scope.initialFilter);
+        $location.path("/apps/search/"+ $scope.initialFilter);
+        $scope.initialFilter = "";
+        $scope.showSearch = false;
+      }
+    };
   }]);
 
 
