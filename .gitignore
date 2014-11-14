@@ -3,3 +3,5 @@
 config.codekit
 config.js
 target
+src/main/webapp/css/angular.css
+src/main/webapp/config.js
