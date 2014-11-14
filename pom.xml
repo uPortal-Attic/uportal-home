@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.wisc.my.portal</groupId>
+  <artifactId>angularjs-portal</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>portal-angular</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>web</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.lesscss</groupId>
+        <artifactId>lesscss-maven-plugin</artifactId>
+        <version>1.3.3</version>
+        <configuration>
+            <sourceDirectory>${project.basedir}/src/main/webapp/css/</sourceDirectory>
+            <outputDirectory>${project.build.directory}/${project.build.finalName}/css/</outputDirectory>
+            <compress>true</compress>
+            <includes>
+                <include>angular.less</include>
+            </includes>
+            <lessJs>${project.basedir}/src/main/webapp/css/lib/less-1.6.2.js</lessJs>
+        </configuration>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>compile</goal>
+                </goals>
+            </execution>
+        </executions>
+      </plugin>
+      <plugin>
+      <groupId>org.apache.tomcat.maven</groupId>
+      <artifactId>tomcat7-maven-plugin</artifactId>
+      <version>2.2</version>
+      <configuration>
+        <url>http://localhost:8080/manager/text</url>
+        <server>TomcatServer</server>
+        <path>/web</path>
+      </configuration>
+    </plugin>
+    </plugins>
+  </build>
+</project>
+
