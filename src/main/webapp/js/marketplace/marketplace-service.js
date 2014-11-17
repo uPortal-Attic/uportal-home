@@ -24,6 +24,22 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
       return result;
     });
   };
+  
+  var getUserRating = function(fname) {
+      return $http.get('/portal/api/marketplace/' + fname + '/getRating').then(function(result) {
+          return result.data.rating;
+      });
+  };
+  
+  var saveRating = function(fname, rating) {
+      $http.post('/portal/api/marketplace/' + fname + '/rating/' + rating.rating , {}, {params: {review : rating.review}}).
+          success(function(data, status, headers, config){
+              console.log("successfully saved marketplace rating for " + fname + " with data " + rating);
+          }).
+          error(function(data, status, headers, config){
+              console.error("Failed to save marketplace rating for " + fname + " with data " + rating);
+          });
+  }
 
   //private functions
 
@@ -62,7 +78,9 @@ app.factory('marketplaceService', ['$q', '$http', 'mainService', 'miscService', 
   return {
     getPortlets: getPortlets,
     initialFilter: initialFilter,
-    getInitialFilter: getInitialFilter
+    getInitialFilter: getInitialFilter,
+    getUserRating : getUserRating,
+    saveRating : saveRating
   };
 
 }]);

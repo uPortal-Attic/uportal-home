@@ -3,7 +3,7 @@
 (function() {
   var app = angular.module('portal.marketplace.controller', []);
 
-  app.controller('MarketplaceController', [  '$timeout', '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($timeout, $rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
+  app.controller('MarketplaceController', [ '$modal', '$timeout', '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($modal,$timeout, $rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
 
     miscService.pushPageview();
 
@@ -56,6 +56,24 @@
                 $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
               }
           });
+    };
+    name
+    $scope.openRating = function (size, fname, name) {
+        var modalInstance = $modal.open({
+        templateUrl: 'ratingModal.html',
+        controller: 'RatingModalController',
+        size: size,
+        resolve: {
+          fname: function(){return fname;},
+          name: function(){return name;}
+        }
+      });
+    
+      modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+      }, function () {
+        console.log('Modal dismissed at: ' + new Date());
+      });
     };
 
     $scope.searchTermFilter = function(portlet) {
@@ -111,6 +129,35 @@
     })
 
   } ]);
+  
+  app.controller('RatingModalController', function ($scope, $modalInstance, marketplaceService, fname, name) {
+
+    $scope.fname = fname;
+    $scope.name = name;
+    $scope.rating = {};
+    $scope.thanks = false;
+    
+    marketplaceService.getUserRating(fname).then(function(data) {
+        var rating = data;
+        if (rating !== null) {
+            $scope.rating = rating;
+        } else {
+            $scope.rating = {"rating" : 0 , "review" : ""};//init view
+        }
+        
+    });
+    
+
+    $scope.ok = function () {
+      $scope.thanks = true;
+      marketplaceService.saveRating($scope.fname, $scope.rating);
+      $modalInstance.close();
+    };
+
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
+  });
 
   app.controller('MarketplaceDetailsController', [ '$scope', '$location', '$routeParams', 'marketplaceService', 'miscService', function($scope, $location, $routeParams, marketplaceService, miscService) {
 
