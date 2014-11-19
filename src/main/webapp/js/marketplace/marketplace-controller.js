@@ -57,7 +57,7 @@
               }
           });
     };
-    name
+
     $scope.openRating = function (size, fname, name) {
         var modalInstance = $modal.open({
         templateUrl: 'ratingModal.html',
