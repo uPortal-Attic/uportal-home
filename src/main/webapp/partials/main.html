@@ -23,11 +23,11 @@
     <h3 class="home-section-header portlet-section-header">Your Favorites</h3>
     <div data-loading class='loading-gif'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" ng-repeat="portlet in layout  | orderBy:'title'">
-      <div class="portlet-div" id="portlet-id-{{portlet.nodeId}}">
+      <div class="portlet-div" id="portlet-id-{{::portlet.nodeId}}">
 
         <a href="{{::portlet.url}}" target="{{::portlet.target}}" >
           <div class="portlet-title">
-              <img src="{{portlet.iconUrl}}" ng-show="portlet.faIcon === null" alt="App icon"><i class="fa {{portlet.faIcon}}" ng-show="portlet.faIcon != null"></i><h1>{{ portlet.title }}</h1>
+              <img src="{{portlet.iconUrl}}" ng-show="portlet.faIcon === null" alt="App icon"><i class="fa {{::portlet.faIcon}}" ng-show="portlet.faIcon != null"></i><h1>{{ ::portlet.title }}</h1>
           </div>
         </a>
         <div class='card-remove'>
@@ -35,7 +35,7 @@
         </div>
         <a href="{{::portlet.url}}" target="{{::portlet.target}}" >
           <div class="portlet-content">
-            {{portlet.description | truncate:160}}
+            {{:: portlet.description | truncate:160}}
           </div>
         </a>
       </div>
@@ -44,29 +44,3 @@
     <marketplace-light class="col-xs-12 col-sm-6 col-md-6 col-lg-4" ></marketplace-light>
   </div>
 </div>
-
-<!--
-  <div class="row">
-    <h1 class="page-h1">Angular Page</h1>
-  </div>
-  <div class="row notifications">
-    <div class="col-sm-12">
-
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" ng-repeat="portlet in mainCtrl.data.layout">
-    <div class="portlet-div" id="portlet-id-{{portlet.nodeId}}">
-      <div class="portlet-title">
-        <h1><img src="{{portlet.iconUrl}}"><a href="{{ portlet.url}}">{{ portlet.title }}</a></h1>
-        <div>
-          <span class="glyphicon glyphicon-remove portlet-options" ng-click="mainCtrl.removePortlet($index,mainCtrl.data.layout)"></span>
-        </div>
-      </div>
-      <div class="portlet-content">
-        {{portlet.description}}
-      </div>
-    </div>
-  </div>
-</div>
-
--->
