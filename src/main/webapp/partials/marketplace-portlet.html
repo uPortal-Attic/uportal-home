@@ -31,7 +31,7 @@
     </button>
 
     <!-- Launch button with access -->
-    <a class="btn btn-default btn-launch" href="{{::portlet.maxUrl}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a class="btn btn-default btn-launch" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
     <!-- Launch button without access -->
     <a class="btn btn-default btn-launch disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
