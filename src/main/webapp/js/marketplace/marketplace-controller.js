@@ -61,7 +61,12 @@
                 $('.fname-'+fname).html('<i class="fa fa-check"></i> Added Successfully').prop('disabled',true).removeClass('btn-add').addClass('btn-added');
 				miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
                 portlet.title = portlet.name;
-                $scope.$apply(function(){$scope.layout.push(portlet);});
+                $scope.$apply(function(){
+                    $scope.layout.push(portlet);
+                    $sessionStorage.layout.push(portlet);
+                    var marketplaceEntry = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname})[0];
+                    marketplaceEntry.hasInLayout = true;
+                });
               },
               error: function(request, text, error) {
                 $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
