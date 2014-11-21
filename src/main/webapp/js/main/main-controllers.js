@@ -3,7 +3,7 @@
 (function() {
   var app = angular.module('portal.main.controllers', []);
 
-  app.controller('MainController', [  '$rootScope', '$scope', 'mainService', 'miscService', function($rootScope, $scope, mainService, miscService) {
+  app.controller('MainController', [ '$sessionStorage', '$rootScope', '$scope', 'mainService', 'miscService', function($sessionStorage, $rootScope, $scope, mainService, miscService) {
 
 
     miscService.pushPageview();
@@ -29,6 +29,12 @@
                     var index = $.inArray(result[0], $rootScope.layout);
                     //remove
                     $rootScope.layout.splice(index,1);
+                    if($sessionStorage.marketplace != null) {
+                        var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === result[0].fname});
+                        if(marketplaceEntries.length > 0) {
+                            marketplaceEntries[0].hasInLayout = false;
+                        }
+                    }
                   });
                   miscService.pushGAEvent('Layout Modification', 'Remove', title);
                 },

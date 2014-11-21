@@ -17,7 +17,6 @@
     if($sessionStorage.marketplace != null) {
         store.portlets = $sessionStorage.marketplace;
         $scope.categories = $sessionStorage.categories;
-        $rootScope.layout = $sessionStorage.layout;
     } else {
         marketplaceService.getPortlets().then(function(data) {
           store.portlets = data.portlets;
@@ -26,7 +25,6 @@
           
           $sessionStorage.marketplace = data.portlets;
           $sessionStorage.categories = data.categories;
-          $sessionStorage.layout = data.layout;
         });
     }
 
@@ -63,9 +61,10 @@
                 portlet.title = portlet.name;
                 $scope.$apply(function(){
                     $scope.layout.push(portlet);
-                    $sessionStorage.layout.push(portlet);
-                    var marketplaceEntry = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname})[0];
-                    marketplaceEntry.hasInLayout = true;
+                    var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname});
+                    if(marketplaceEntries.length > 0) {
+                        marketplaceEntries[0].hasInLayout = true;
+                    }
                 });
               },
               error: function(request, text, error) {
