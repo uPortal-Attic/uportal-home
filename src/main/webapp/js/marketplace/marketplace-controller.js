@@ -3,21 +3,32 @@
 (function() {
   var app = angular.module('portal.marketplace.controller', []);
 
-  app.controller('MarketplaceController', [ '$modal', '$timeout', '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($modal,$timeout, $rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
+  app.controller('MarketplaceController', [ '$sessionStorage', '$modal', '$timeout', '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($sessionStorage,$modal,$timeout, $rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
 
     miscService.pushPageview();
 
+    $scope.$storage = $sessionStorage;
     //init variables
     var store = this;
     store.portlets = [];
     store.count = 0;
 
     //get marketplace portlets
-    marketplaceService.getPortlets().then(function(data) {
-      store.portlets = data.portlets;
-      $scope.categories = data.categories;
-      $rootScope.layout = data.layout;
-    });
+    if($sessionStorage.marketplace != null) {
+        store.portlets = $sessionStorage.marketplace;
+        $scope.categories = $sessionStorage.categories;
+        $rootScope.layout = $sessionStorage.layout;
+    } else {
+        marketplaceService.getPortlets().then(function(data) {
+          store.portlets = data.portlets;
+          $scope.categories = data.categories;
+          $rootScope.layout = data.layout;
+          
+          $sessionStorage.marketplace = data.portlets;
+          $sessionStorage.categories = data.categories;
+          $sessionStorage.layout = data.layout;
+        });
+    }
 
     //setup search term
     var tempFilterText = '', filterTextTimeout;
