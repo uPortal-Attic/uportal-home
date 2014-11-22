@@ -10,6 +10,20 @@
 	      templateUrl : 'partials/notifications.html'
 	    }
 	  });
+    
+    app.directive('defaultCard', function(){
+    	return {
+    		restrict : 'E',
+    		templateUrl : 'partials/default-card.html'
+    	}
+    });
+    
+    app.directive('staticContentCard', function(){
+    	return {
+    		restrict : 'E',
+    		templateUrl : 'partials/static-content-card.html'
+    	}
+    });
 
 	 app.directive('marketplaceLight', function(){
 	    return{
