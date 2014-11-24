@@ -19,10 +19,10 @@
     <notifications></notifications>
   </div>
   -->
-  <div class="col-xs-12 portlet-section">
+  <div class="col-xs-12 portlet-section"  ui-sortable="sortableOptions" ng-model='layout'>
     <h3 class="home-section-header portlet-section-header">Your Favorites</h3>
     <div data-loading class='loading-gif'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 portlet-container" ng-repeat="portlet in layout  | orderBy:'title'">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 portlet-container" ng-repeat="portlet in layout">
       <default-card ng-if="portlet.staticContent == null"></default-card>
       <static-content-card ng-if="portlet.staticContent != null"></static-content-card>
     </a>

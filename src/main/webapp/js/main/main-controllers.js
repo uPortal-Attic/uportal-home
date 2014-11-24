@@ -43,6 +43,12 @@
                 }
             });
       };
+
+	  $scope.sortableOptions = {
+              stop : function() {
+                  alert('stopped')
+              }
+      };
       
       this.toggleDiv = function toggleDiv(nodeId) {
           //Toggle Make full row
