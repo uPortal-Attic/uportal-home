@@ -3,21 +3,30 @@
 (function() {
   var app = angular.module('portal.marketplace.controller', []);
 
-  app.controller('MarketplaceController', [ '$modal', '$timeout', '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($modal,$timeout, $rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
+  app.controller('MarketplaceController', [ '$sessionStorage', '$modal', '$timeout', '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($sessionStorage,$modal,$timeout, $rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
 
     miscService.pushPageview();
 
+    $scope.$storage = $sessionStorage;
     //init variables
     var store = this;
     store.portlets = [];
     store.count = 0;
 
     //get marketplace portlets
-    marketplaceService.getPortlets().then(function(data) {
-      store.portlets = data.portlets;
-      $scope.categories = data.categories;
-      $rootScope.layout = data.layout;
-    });
+    if($sessionStorage.marketplace != null) {
+        store.portlets = $sessionStorage.marketplace;
+        $scope.categories = $sessionStorage.categories;
+    } else {
+        marketplaceService.getPortlets().then(function(data) {
+          store.portlets = data.portlets;
+          $scope.categories = data.categories;
+          $rootScope.layout = data.layout;
+          
+          $sessionStorage.marketplace = data.portlets;
+          $sessionStorage.categories = data.categories;
+        });
+    }
 
     //setup search term
     var tempFilterText = '', filterTextTimeout;
@@ -50,7 +59,12 @@
                 $('.fname-'+fname).html('<i class="fa fa-check"></i> Added Successfully').prop('disabled',true).removeClass('btn-add').addClass('btn-added');
 				miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
                 portlet.title = portlet.name;
-                $scope.$apply(function(){$scope.layout.push(portlet);});
+                $scope.$apply(function(){
+                    var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname});
+                    if(marketplaceEntries.length > 0) {
+                        marketplaceEntries[0].hasInLayout = true;
+                    }
+                });
               },
               error: function(request, text, error) {
                 $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');

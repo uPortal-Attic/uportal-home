@@ -1,6 +1,7 @@
 (function() {
  var app = angular.module('portal', [
     'ngRoute',
+    'ngStorage',
     'ui.bootstrap',
     'ngSanitize',
     'portal.misc.controllers',
