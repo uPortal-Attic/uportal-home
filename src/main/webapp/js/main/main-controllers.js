@@ -7,10 +7,10 @@
 
 
     miscService.pushPageview();
-    $rootScope.layout = [];
+    $scope.layout = [];
 
     mainService.getLayout().then(function(data){
-      $rootScope.layout = data.layout;
+      $scope.layout = data.layout;
     });
 
     this.directToPortlet = function directToPortlet(url) {
@@ -25,10 +25,10 @@
                 async: true,
                 success: function (request, text){
                   $scope.$apply(function(){
-                    var result = $.grep($rootScope.layout, function(e) { return e.nodeId === nodeId});
-                    var index = $.inArray(result[0], $rootScope.layout);
+                    var result = $.grep($scope.layout, function(e) { return e.nodeId === nodeId});
+                    var index = $.inArray(result[0], $scope.layout);
                     //remove
-                    $rootScope.layout.splice(index,1);
+                    $scope.layout.splice(index,1);
                     if($sessionStorage.marketplace != null) {
                         var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === result[0].fname});
                         if(marketplaceEntries.length > 0) {
@@ -43,11 +43,18 @@
                 }
             });
       };
-
-	  $scope.sortableOptions = {
-              stop : function() {
-                  alert('stopped')
-              }
+      
+      $scope.sortableOptions = {
+    		  'ui-floating': true,
+    		  stop : function() {
+    			  console.log("stop");
+    			  console.log($scope.layout[0].fname);
+    		  },
+      
+      		  update : function() {
+      			  console.log("update");
+      			  console.log($scope.layout[0].fname);
+      		  }
       };
       
       this.toggleDiv = function toggleDiv(nodeId) {

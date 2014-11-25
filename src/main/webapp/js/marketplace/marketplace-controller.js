@@ -21,7 +21,7 @@
         marketplaceService.getPortlets().then(function(data) {
           store.portlets = data.portlets;
           $scope.categories = data.categories;
-          $rootScope.layout = data.layout;
+          $scope.layout = data.layout;
           
           $sessionStorage.marketplace = data.portlets;
           $sessionStorage.categories = data.categories;
