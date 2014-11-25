@@ -45,16 +45,18 @@
       };
       
       $scope.sortableOptions = {
-    		  'ui-floating': true,
-    		  stop : function() {
-    			  console.log("stop");
-    			  console.log($scope.layout[0].fname);
-    		  },
-      
-      		  update : function() {
-      			  console.log("update");
-      			  console.log($scope.layout[0].fname);
-      		  }
+    		  'ui-floating': 'auto',
+    		  stop: function(e, ui) {
+    		      if(ui.item.sortable.dropindex != ui.item.sortable.index) {
+    		          console.log("Change happened, logging move of " + $scope.layout[ui.item.sortable.dropindex].fname + " from " + ui.item.sortable.index + " to " + ui.item.sortable.dropindex); 
+        		      var node = $scope.layout[ui.item.sortable.dropindex];
+        		      //index, length, movingNodeId, previousNodeId, nextNodeId
+        		      var prevNodeId = ui.item.sortable.dropindex != 0 ? $scope.layout[ui.item.sortable.dropindex - 1].nodeId : null;
+        		      var nextNodeId = ui.item.sortable.dropindex != $scope.layout.length - 1 ? $scope.layout[ui.item.sortable.dropindex + 1].nodeId : null;
+        		      mainService.moveStuff(ui.item.sortable.dropindex, $scope.layout.length, node.nodeId, prevNodeId, nextNodeId);
+        		      
+    		      }
+    		  }
       };
       
       this.toggleDiv = function toggleDiv(nodeId) {
