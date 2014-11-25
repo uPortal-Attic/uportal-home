@@ -2,6 +2,7 @@
  var app = angular.module('portal', [
     'ngRoute',
     'ui.bootstrap',
+    'ngSanitize',
     'portal.misc.controllers',
     'portal.misc.directives',
     'portal.misc.filters',

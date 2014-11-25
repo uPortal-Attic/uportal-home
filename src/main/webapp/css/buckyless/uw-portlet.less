@@ -1,0 +1,39 @@
+/* PORTLET STYLES */
+.up-portlet-content-wrapper {
+  padding:20px;
+
+  ul {
+    padding:0px 0px 0px 5px;
+    margin:0px;
+    text-rendering: auto;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    li {
+      font-size:18px;
+      padding:7px 0px;
+      line-height:1.41em;
+      a {
+        font-weight:400;
+      }
+      &:before {
+        content: "\f18e";
+        color:@grayscale4;
+        padding-right:8px;
+      }
+      p {
+        font-size:14px;
+        color:@grayscale5;
+        padding:0px 35px 0px 35px;
+        margin-bottom:-7px;;
+        line-height:1.41em;
+      }
+    }
+  }
+  a {
+    color:@link-color;
+    &:hover {
+      color:@color3;
+      text-decoration:underline;
+    }
+  }
+}
