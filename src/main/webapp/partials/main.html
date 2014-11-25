@@ -23,10 +23,10 @@
     <h3 class="home-section-header portlet-section-header">Your Favorites</h3>
     <div data-loading class='loading-gif'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
     <div ui-sortable="sortableOptions" ng-model="layout">
-		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 portlet-container" ng-repeat="portlet in layout">
-		  <default-card ng-if="portlet.staticContent == null"></default-card>
-		  <static-content-card ng-if="portlet.staticContent != null"></static-content-card>
-		</div>
+       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 portlet-container" ng-repeat="portlet in layout">
+          <default-card ng-if="portlet.staticContent == null"></default-card>
+          <static-content-card ng-if="portlet.staticContent != null"></static-content-card>
+        </div>
     </div>
     <marketplace-light class="col-xs-12 col-sm-6 col-md-6 col-lg-4" ></marketplace-light>
   </div>
