@@ -40,7 +40,7 @@ app.factory('mainService', function($http, miscService) {
               dataType: "json",
               async: false,
               success: function (){
-                console.log("layout move successful. URL: " + saveOrderURL);
+                //console.log("layout move successful. URL: " + saveOrderURL);
               },
               error: function(request, text, error) {
                 console.error("Error persisting move " + saveOrderURL);
