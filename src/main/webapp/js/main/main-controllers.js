@@ -7,10 +7,10 @@
 
 
     miscService.pushPageview();
-    $rootScope.layout = [];
+    $scope.layout = [];
 
     mainService.getLayout().then(function(data){
-      $rootScope.layout = data.layout;
+      $scope.layout = data.layout;
     });
 
     this.directToPortlet = function directToPortlet(url) {
@@ -25,10 +25,10 @@
                 async: true,
                 success: function (request, text){
                   $scope.$apply(function(){
-                    var result = $.grep($rootScope.layout, function(e) { return e.nodeId === nodeId});
-                    var index = $.inArray(result[0], $rootScope.layout);
+                    var result = $.grep($scope.layout, function(e) { return e.nodeId === nodeId});
+                    var index = $.inArray(result[0], $scope.layout);
                     //remove
-                    $rootScope.layout.splice(index,1);
+                    $scope.layout.splice(index,1);
                     if($sessionStorage.marketplace != null) {
                         var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === result[0].fname});
                         if(marketplaceEntries.length > 0) {
@@ -42,6 +42,22 @@
 
                 }
             });
+      };
+      
+      $scope.sortableOptions = {
+    		  'ui-floating': 'auto',
+    		  stop: function(e, ui) {
+    		      if(ui.item.sortable.dropindex != ui.item.sortable.index) {
+    		          
+        		      var node = $scope.layout[ui.item.sortable.dropindex];
+        		      console.log("Change happened, logging move of " + node.fname + " from " + ui.item.sortable.index + " to " + ui.item.sortable.dropindex);
+        		      //index, length, movingNodeId, previousNodeId, nextNodeId
+        		      var prevNodeId = ui.item.sortable.dropindex != 0 ? $scope.layout[ui.item.sortable.dropindex - 1].nodeId : null;
+        		      var nextNodeId = ui.item.sortable.dropindex != $scope.layout.length - 1 ? $scope.layout[ui.item.sortable.dropindex + 1].nodeId : null;
+        		      mainService.moveStuff(ui.item.sortable.dropindex, $scope.layout.length, node.nodeId, prevNodeId, nextNodeId);
+        		      
+    		      }
+    		  }
       };
       
       this.toggleDiv = function toggleDiv(nodeId) {

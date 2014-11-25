@@ -4,6 +4,7 @@
     'ngStorage',
     'ui.bootstrap',
     'ngSanitize',
+    'ui.sortable',
     'portal.misc.controllers',
     'portal.misc.directives',
     'portal.misc.filters',
