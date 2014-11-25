@@ -60,7 +60,6 @@
 				miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
                 portlet.title = portlet.name;
                 $scope.$apply(function(){
-                    $scope.layout.push(portlet);
                     var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname});
                     if(marketplaceEntries.length > 0) {
                         marketplaceEntries[0].hasInLayout = true;
