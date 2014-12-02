@@ -1,6 +1,10 @@
 <form ng-submit="submit()">
-    <p>
-      <input type="search" class="main-search" placeholder="Search MyUW" name="initialFilter" ng-model="initialFilter" aria-label="Search MyUW">
-      <span class="glyphicon glyphicon-search"></span>
-    </p>
+  <div class="input-group">
+    <input type="search" class="main-search" placeholder="Search MyUW" name="initialFilter" ng-model="initialFilter" aria-label="Search MyUW">
+    <span class="input-group-btn">
+      <button class="btn btn-default btn-search">
+        <i class="fa fa-search"></i>
+      </button>
+    </span>
+  </div>
 </form>
