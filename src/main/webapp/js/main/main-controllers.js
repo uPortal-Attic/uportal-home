@@ -45,7 +45,7 @@
       };
       
       $scope.sortableOptions = {
-    		  'ui-floating': 'auto',
+              cursorAt : {top: 15, left: 15},
     		  stop: function(e, ui) {
     		      if(ui.item.sortable.dropindex != ui.item.sortable.index) {
     		          
