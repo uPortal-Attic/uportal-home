@@ -155,8 +155,9 @@
         var rating = data;
         if (rating !== null) {
             $scope.rating = rating;
+            $scope.rating.previouslyRated=true;
         } else {
-            $scope.rating = {"rating" : 0 , "review" : ""};//init view
+            $scope.rating = {"rating" : 0 , "review" : "", "previouslyRated": false};//init view
         }
         
     });
