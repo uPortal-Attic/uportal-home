@@ -58,7 +58,6 @@
               success: function (request, text){
                 $('.fname-'+fname).html('<i class="fa fa-check"></i> Added Successfully').prop('disabled',true).removeClass('btn-add').addClass('btn-added');
 				miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
-                portlet.title = portlet.name;
                 $scope.$apply(function(){
                     var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname});
                     if(marketplaceEntries.length > 0) {
@@ -92,7 +91,7 @@
 
     $scope.searchTermFilter = function(portlet) {
       return ($scope.searchTerm === undefined
-        || portlet.name.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1
+        || portlet.title.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1
         || (portlet.description !== null && portlet.description.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1)
       );
     };
