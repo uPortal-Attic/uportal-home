@@ -102,7 +102,7 @@
     // Default filter is to sort by popularity
     $scope.selectedFilter = 'popular';
     // To sort by popularity, angular will use portlet.rating to filter
-    $scope.sortParameter = '-rating';
+    $scope.sortParameter = ['-rating','-userRated'];
     // Hide category selection div by default
     $scope.showCategories = false;
 
@@ -112,7 +112,7 @@
       $scope.showCategories = false;
       if (filter === 'popular') {
         $scope.selectedFilter = 'popular';
-        $scope.sortParameter = '-rating';
+        $scope.sortParameter = ['-rating','-userRated'];
       }
       if (filter === 'az') {
         $scope.selectedFilter = 'az';
