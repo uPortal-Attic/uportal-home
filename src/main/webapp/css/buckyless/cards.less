@@ -293,10 +293,29 @@ div.table-cell {
 .ui-sortable-helper a:-moz-any-link {
   cursor:move;
 }
+.ui-sortable-placeholder {
+  background-color:#eee !important;
+  height:150px;
+  width:100%;
+  visibility:visible !important;
+}
 
 
 @media (max-width: 767px) {
   div.table {
     margin-top : 20px;
   }
+}
+
+#cards-sortable { list-style-type: none; margin: 0; padding: 0; }
+@media (min-width: 768px) {
+    #cards-sortable li { float: left; width: 50%; height: 150px; }
+}
+
+@media (min-width: 1105px) {
+    #cards-sortable li { float: left; width: 33%; height: 150px; }
+}
+
+.ui-sortable-placeholder {
+  background-color : grey;
 }

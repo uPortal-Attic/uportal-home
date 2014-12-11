@@ -38,7 +38,7 @@ app.factory('mainService', function($http, miscService) {
               type: "POST",
               data: null,
               dataType: "json",
-              async: false,
+              async: true,
               success: function (){
                 //console.log("layout move successful. URL: " + saveOrderURL);
               },
