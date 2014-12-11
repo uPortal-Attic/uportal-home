@@ -90,10 +90,30 @@
     };
 
     $scope.searchTermFilter = function(portlet) {
-      return ($scope.searchTerm === undefined
-        || portlet.title.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1
-        || (portlet.description !== null && portlet.description.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1)
-      );
+        if($scope.searchTerm === undefined) {//nothing filled for search
+            return true;
+        }
+        var searchTerm = $scope.searchTerm.toLowerCase(); //create local var for searchTerm
+        
+        if(portlet.title.toLowerCase().indexOf(searchTerm) !== -1) {//check title
+            return true;
+        }
+        
+        //check description match
+        if(portlet.description !== null 
+                && portlet.description.toLowerCase().indexOf(searchTerm) !== -1) {
+            return true;
+        }
+        
+        //last ditch effort, check keywords
+        if(portlet.keywords !== null) {
+            for(var i = 0; i < portlet.keywords.length; i++) {
+                if(portlet.keywords[i].toLowerCase().indexOf(searchTerm) !== -1) {
+                    return true;
+                }
+            }
+        }
+        return false;
     };
 
 
