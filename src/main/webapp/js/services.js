@@ -17,8 +17,12 @@ app.factory('miscService', function($http, $modal, $window, $location) {
     }
   }
 
-  var pushPageview = function () {
-    $window._gaq.push(['_trackPageview', $location.path()]);
+  var pushPageview = function (search) {
+    var path = $location.path();
+    if(typeof search !== 'undefined' && search !== null) {
+        path += "?q=" + search;
+    }
+    $window._gaq.push(['_trackPageview', path]);
   }
 
   var pushGAEvent = function(category, action, label) {
