@@ -1,5 +1,5 @@
 
-<div ng-controller="MarketplaceController as marketplaceCtrl" class="card col-xs-12 col-md-12">
+<div ng-controller="MarketplaceController as marketplaceCtrl" class="card col-xs-12 col-md-12 no-padding">
   <div class="card-header mp-header">
     <img class="header-image" src="img/terrace.jpg" alt="Chairs at the Union Terrace">
     <div class="card-header-text">
@@ -30,9 +30,9 @@
     <marketplace-portlet></marketplace-portlet>
   </div>
   <div class="marketplace-load-more">
-    <button id="load-more" 
-            class="btn btn-default" 
-            ng-click="searchResultLimit = searchResultLimit + 20;" 
+    <button id="load-more"
+            class="btn btn-default"
+            ng-click="searchResultLimit = searchResultLimit + 20;"
             hide-while-loading
             ng-show="(marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"
            >Load More</button>
