@@ -5,8 +5,6 @@
 
   app.controller('MarketplaceController', [ '$sessionStorage', '$modal', '$timeout', '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($sessionStorage,$modal,$timeout, $rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
 
-    miscService.pushPageview();
-
     $scope.$storage = $sessionStorage;
     //init variables
     var store = this;
@@ -38,6 +36,8 @@
     }
     $scope.searchText = $scope.searchTerm;
     $scope.searchResultLimit = 20;
+    
+    miscService.pushPageview($scope.searchTerm);
 
     
     //Functions
