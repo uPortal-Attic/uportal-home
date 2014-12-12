@@ -57,13 +57,16 @@
     width:180%;
   }
   .header-opaque {
-    height:65px;
+    display:none;
+    height:50px;
     width:100%;
     position:absolute;
-    background-color:rgba(256,256,256,0.6);
+    background-color:rgba(256,256,256,0.8);
     bottom:0px;
     z-index:150;
-
+    div p {
+      margin:0px 0px;
+    }
   }
   .news-article-title {
     font-weight:200;
@@ -168,5 +171,13 @@
   .mp-opaque li {
     font-size:0.8em;
     padding:12px 0px;
+  }
+}
+@media (max-width:1020px) {
+  .header-opaque {
+    height:60px;
+    .description {
+      width:50%;
+    }
   }
 }

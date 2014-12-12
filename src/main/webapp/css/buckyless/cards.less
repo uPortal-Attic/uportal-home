@@ -8,11 +8,11 @@
   border-radius:4px;
   box-shadow:0px 0px 7px #ccc;
   padding:0px 0px;
-  margin:0px;
+  margin:20px 0px;
 
 }
 .card-header {
-  height:120px;
+  height:150px;
   position:relative;
   overflow:hidden;
 
@@ -45,12 +45,43 @@
 
 }
 .header-opaque {
-  height:70px;
+  height:40px;
   width:100%;
   position:absolute;
-  background-color:rgba(256,256,256,0.6);
+  background-color:rgba(256,256,256,0.8);
   bottom:0px;
   z-index:150;
+  div {
+    display:inline-block;
+    float:left;
+    margin:0px 10px;
+    h3 {
+      margin-top:9px;
+      font-size:20px;
+    }
+    p {
+      color:#555;
+      margin:10px 0px;
+    }
+  }
+  .new {
+    text-transform:uppercase;
+    color:#fcf49c;
+    background-color:rgba(183,1,1,0.8);
+    border-radius:8px;
+    padding:3px 8px 1px;
+    margin:10px 0px;
+    font-size:12px;
+  }
+  .remove {
+    float:right;
+    padding:10px 0px;
+    color:#555;
+  }
+  .remove:hover {
+    cursor:pointer;
+    color:#333;
+  }
 }
 .news-article-title {
   font-weight:200;
@@ -299,6 +330,24 @@ div.table-cell {
   width:100%;
   visibility:visible !important;
 }
+.features-feed {
+  padding:20px;
+  font-weight:400;
+  .date {
+    font-size:10px;
+    color:#aaa;
+  }
+  h3 {
+    margin:0px;
+  }
+  hr {
+    margin:10px 0px;
+  }
+  img {
+    width:60%;
+    margin:20px 0px;
+  }
+}
 
 
 @media (max-width: 767px) {
@@ -314,8 +363,4 @@ div.table-cell {
 
 @media (min-width: 1105px) {
     #cards-sortable li { float: left; width: 33%; height: 150px; }
-}
-
-.ui-sortable-placeholder {
-  background-color : grey;
 }
