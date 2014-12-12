@@ -104,6 +104,13 @@
       }
     };
   }]);
+  
+  app.controller('NewStuffController', ['$scope', 'mainService', function ($scope, mainService){
+      $scope.newStuffArray = [];
+      mainService.getNewStuffFeed().then(function(result){
+          $scope.newStuffArray = result;
+      });
+  }]);
 
 
 

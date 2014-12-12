@@ -58,11 +58,23 @@ app.factory('mainService', function($http, miscService) {
           insertNode(movingNodeId, nextNodeId, 'insertBefore');
       }
     };
+    
+    var getNewStuffFeed = function() {
+        return $http.get('/web/samples/new-stuff.json').then(
+          function(result) {
+            return  result.data.stuff;
+          } ,
+          function(reason){
+           miscService.redirectUser(reason.status, 'new stuff json feed call');
+          }
+        );
+      }
 
   return {
     getUser: getUser,
     getLayout : getLayout,
-    moveStuff : moveStuff
+    moveStuff : moveStuff,
+    getNewStuffFeed : getNewStuffFeed
   }
 
 });
