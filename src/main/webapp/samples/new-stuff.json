@@ -1,7 +1,13 @@
-{"stuff" :  [
-              { "title" : "Drag and Drop",
+{"stuff" :  
+            [
+              { 
+                "id" : 1,
+                "expireYr"  : 2015,
+                "expireMon" : 1,
+                "expireDay" : 1,
+                "title" : "Drag and Drop",
                 "shortDesc" : "Now you can arrange your favorites on the home screen however you want. ",
-                "link" : "/web/#/features"
+                "link" : null
               }
             ]
 }

@@ -4,9 +4,6 @@
   var app = angular.module('portal.main.controllers', []);
 
   app.controller('MainController', [ '$sessionStorage', '$rootScope', '$scope', 'mainService', 'miscService', function($sessionStorage, $rootScope, $scope, mainService, miscService) {
-    $scope.showNewStuff = true;
-
-
     miscService.pushPageview();
     $scope.layout = [];
 
@@ -110,6 +107,12 @@
       mainService.getNewStuffFeed().then(function(result){
           $scope.newStuffArray = result;
       });
+      
+      this.show = function(stuff) {
+          var date = new Date(stuff.expireYr, stuff.expireMon, stuff.expireDay);
+          var today = new Date();
+          return date >= today;
+      }
   }]);
 
 
