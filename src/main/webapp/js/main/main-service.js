@@ -26,12 +26,12 @@ app.factory('mainService', function($http, miscService) {
     );
   }
   
-  var moveStuff = function moveStuffFunction(index, length, movingNodeId, previousNodeId, nextNodeId) {
-      var insertNode = function(sourceID, destinationID, method){
-          var saveOrderURL = "/portal/api/layout?action=movePortlet"
-          + "&sourceID=" + sourceID
-          + "&elementID=" + destinationID
-          + "&method=" + method;
+  var moveStuff = function moveStuffFunction(index, length, sourceId, previousNodeId, nextNodeId) {
+      var insertNode = function(sourceId, previousNodeId, nextNodeId){
+          var saveOrderURL = "/portal/api/layout?action=movePortletAjax"
+          + "&sourceId=" + sourceId
+          + "&previousNodeId=" + previousNodeId
+          + "&nextNodeId=" + nextNodeId;
           console.log(saveOrderURL);
           $.ajax({
               url: saveOrderURL,
@@ -40,23 +40,15 @@ app.factory('mainService', function($http, miscService) {
               dataType: "json",
               async: true,
               success: function (){
-                //console.log("layout move successful. URL: " + saveOrderURL);
+                console.log("layout move successful.");
               },
               error: function(request, text, error) {
                 console.error("Error persisting move " + saveOrderURL);
               }
           });
       };
-
-      //We need to insert item both before and after
       
-      if(index != 0) { //append after iff the dropIndex isn't the beginning
-          insertNode(movingNodeId, previousNodeId, 'appendAfter');
-      }
-      
-      if(index != (length - 1)){ //insert before the next node iff the dropIndex isn't the end
-          insertNode(movingNodeId, nextNodeId, 'insertBefore');
-      }
+      insertNode(sourceId, previousNodeId, nextNodeId);
     };
     
     var getNewStuffFeed = function() {
