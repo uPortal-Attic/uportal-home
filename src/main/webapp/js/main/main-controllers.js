@@ -76,7 +76,8 @@
     	  //Toggle content visible
     	  $('#content-' + nodeId).toggleClass('hidden');
       };
-
+      
+      $scope.showSidebar = true;
   } ]);
 
   /* Username */
