@@ -92,14 +92,22 @@
   /* Header */
   app.controller('HeaderController', ['$scope','$location', 'marketplaceService', function($scope, $location, marketplaceService) {
     $scope.showSearch = false;
+    $scope.showSearchFocus = false;
     $scope.submit = function(){
       if($scope.initialFilter != "") {
         marketplaceService.initialFilter($scope.initialFilter);
         $location.path("/apps/search/"+ $scope.initialFilter);
         $scope.initialFilter = "";
         $scope.showSearch = false;
+        $scope.showSearchFocus = false;
       }
     };
+    
+    //
+    this.toggleSearch = function() {
+        $scope.showSearch = !$scope.showSearch;
+        $scope.showSearchFocus = !$scope.showSearchFocus; 
+    }
   }]);
   
   app.controller('NewStuffController', ['$scope', 'mainService', function ($scope, mainService){
