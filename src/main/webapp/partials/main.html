@@ -28,7 +28,17 @@
   </div>
   -->
   <div class="col-xs-12 no-padding portlet-section">
-    <h3 class="home-section-header portlet-section-header">Your Favorites</h3>
+    <h3 class="home-section-header portlet-section-header">
+        Your Favorites <span class='small-font-plus'>
+        <a href='#/apps'
+           popover="Browse for more apps"
+           popover-trigger="mouseenter"
+           popover-placement="top"
+           popover-popup-delay="500">
+            <i class='fa fa-plus'></i>
+        </a>
+        </span>
+    </h3>
     <div data-loading class='loading-gif'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
     <ul ui-sortable="sortableOptions" ng-model="layout" id="cards-sortable">
        <li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 no-padding portlet-container-home" ng-repeat="portlet in layout">
