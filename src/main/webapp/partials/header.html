@@ -11,7 +11,8 @@
                <h3><a class="header-text" href="#/" id="myuw-header"><img src="/portal/media/skins/bucky/common/images/uwcrest_web_sm.png" class="hidden-xs" alt="UW Crest"><span>MyUW</span><span class="beta-logo">Beta</span></a></h3>
              </div>
               <div class="search-mobile-icon hidden-sm hidden-md hidden-lg">
-                <i class="fa fa-search" ng-click="showSearch = !showSearch"></i>              </div>
+                <i class="fa fa-search" ng-click="headerCtrl.toggleSearch()"></i>
+              </div>
               <div class="search-mobile" ng-show="showSearch">
                 <search class="hidden-sm hidden-md hidden-lg"></search>
               </div>
