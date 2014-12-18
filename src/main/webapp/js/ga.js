@@ -27,11 +27,19 @@ function _gaLt(event){
 
     if(el && el.href){
     if(el.href.indexOf(location.host) == -1){ /* external link */
-            _gaq.push(["_trackEvent", "Outgoing Links", el.href, document.location.pathname + document.location.search]);
-            /* if target not set then delay opening of window by 0.5s to allow tracking */
-            if(!el.target || el.target.match(/^_(self|parent|top)$/i)){
+            _gaq.push(['_trackEvent', 'Outbound Link', el.href, el.text]);
+            // Click will open in a new window if it is the middle button or the
+            // meta or control keys are held
+            var target = (el.target && !el.target.match(/^_(self|parent|top)$/i)) ? el.target : false;
+            var newWindow = event.button == 1 || event.metaKey || event.ctrlKey || target;
+            /* HitCallback function to either open link in either same or new window */
+            var hitBack = function(link, target){
+                target ? window.open(link, target) : window.location.href = link;
+            };
+            
+            if(newWindow){
                 setTimeout(function(){
-                    document.location.href = el.href;
+                    window.open(el.href);
                 }.bind(el),500);
                 /* Prevent standard click */
                 event.preventDefault ? event.preventDefault() : event.returnValue = !1;
