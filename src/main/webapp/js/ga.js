@@ -9,6 +9,8 @@ var _gaq = _gaq || [];
 if(config.gaID !== undefined && config.gaID !== null) {
 
   _gaq.push(['_setAccount', config.gaID]);
+  
+  _gaq.push(['_trackPageview']);
 
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -16,4 +18,10 @@ if(config.gaID !== undefined && config.gaID !== null) {
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
+}
+
+var trackOutboundLink = function(url) {
+    _gaq.push(['_trackEvent', 'Outbound', 'Click', this.href]);
+    setTimeout('document.location = "' + this.href + '"', 100);
+    return false;
 }
