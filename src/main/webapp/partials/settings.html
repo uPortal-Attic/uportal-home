@@ -8,18 +8,43 @@
   </div>
   <div class="col-xs-12 no-padding portlet-section">
     <h3 class="home-section-header portlet-section-header">Your Options</h3>
-    <ul class='fluid-container row' style='padding-top: 1em;'>
-       <li class="col-xs-6 portlet-container-home" style='border : 1px gainsboro solid; padding: 1em;'>
+    <ul class='col-sm-6' style='padding-top: 1em;'>
+       <li class="portlet-container-home beta-card-style">
            <h4>
                <span class="btn-group">
                    <label class="btn" ng-class="{'btn-success' : $storage.sidebarQuicklinks, 'btn-danger' : !$storage.sidebarQuicklinks, }" ng-model="$storage.sidebarQuicklinks" btn-radio="true">On</label>
                    <label class="btn" ng-class="{'btn-success' : $storage.sidebarQuicklinks, 'btn-danger' : !$storage.sidebarQuicklinks, }" ng-model="$storage.sidebarQuicklinks" btn-radio="false">Off</label>
                </span>
-               Sidebar Quicklinks &nbsp;<small>Shows quicklinks to various campus sites in side bar</small> 
+               Sidebar Quicklinks
            </h4>
+           <small>Shows quicklinks to various campus sites in sidebar</small> 
            
        </li>
-       <li class="col-xs-6 no-padding portlet-container-home"></li>
+       <li class="portlet-container-home beta-card-style">
+           <h4>
+               <span class="btn-group">
+                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowSettings, 'btn-danger' : !$storage.sidebarShowSettings }" ng-model="$storage.sidebarShowSettings" btn-radio="true">On</label>
+                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowSettings, 'btn-danger' : !$storage.sidebarShowSettings }" ng-model="$storage.sidebarShowSettings" btn-radio="false">Off</label>
+               </span>
+               Sidebar Settings 
+           </h4>
+           <small>Shows the settings button to get to this page easier</small>
+           
+       </li>
+    </ul>
+    <ul class="col-sm-6" style='padding-top: 1em;'>
+        <li class="no-padding portlet-container-home  beta-card-style" style='text-align : center;'>
+          <h4>Home Background Image &nbsp;</h4>
+          <small>Pick a different background image for MyUW Home</small>
+          <div style='text-align: center;'>
+            <div style='padding: 1em;'>
+                <img ng-src="{{$storage.homeImg}}" height='100px'>
+            </div>
+            <label class="btn btn-primary" ng-model="$storage.homeImg" btn-radio="'img/terrace.jpg'">Chairs at the Union Terrace</label>
+            <label class="btn btn-primary" ng-model="$storage.homeImg" btn-radio="'img/square.jpg'">333 East Campus</label>
+            
+          </div>
+       </li>
     </ul>
   </div>
 </div>

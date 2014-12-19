@@ -15,7 +15,7 @@
   	} ]);
   
   app.controller('SettingsController', [ '$localStorage', '$scope', function($localStorage, $scope) {
-      $scope.$storage = $localStorage.$default( {showSidebar: true, sidebarQuicklinks: false} );
+      $scope.$storage = $localStorage.$default( {showSidebar: true, sidebarQuicklinks: false, homeImg : "img/square.jpg"} );
   } ]);
 
  })();
