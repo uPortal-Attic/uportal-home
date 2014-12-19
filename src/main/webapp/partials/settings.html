@@ -12,8 +12,8 @@
        <li class="col-xs-6 portlet-container-home" style='border : 1px gainsboro solid; padding: 1em;'>
            <h4>
                <span class="btn-group">
-                   <label class="btn btn-primary" ng-model="$storage.sidebarQuicklinks" btn-radio="true">On</label>
-                   <label class="btn btn-primary" ng-model="$storage.sidebarQuicklinks" btn-radio="false">Off</label>
+                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarQuicklinks, 'btn-danger' : !$storage.sidebarQuicklinks, }" ng-model="$storage.sidebarQuicklinks" btn-radio="true">On</label>
+                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarQuicklinks, 'btn-danger' : !$storage.sidebarQuicklinks, }" ng-model="$storage.sidebarQuicklinks" btn-radio="false">Off</label>
                </span>
                Sidebar Quicklinks &nbsp;<small>Shows quicklinks to various campus sites in side bar</small> 
            </h4>
