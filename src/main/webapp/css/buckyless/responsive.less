@@ -7,6 +7,29 @@
   }
 }
 @media (max-width:767px) {
+  .show-sidebar,.hide-sidebar,.quicklinks {
+    display:none;
+  }
+  .side-bar-nav ul.sidebar {
+    margin-top:0px;
+    padding-top:20px;
+    background:linear-gradient(
+      rgba(20,20,20, 0.8), 
+      rgba(20,20,20, 0.8)
+      ),url(../img/madison.jpg);
+    background-size:100%;
+  }
+  .section-divider {
+    width:100px;
+    margin:10px 15px 5px;
+  }
+  .region-sidebar-left li.list-group-item a {
+    padding: 10px 35px !important;
+    font-size:14px;
+  }
+  .max-view {
+    margin-left:0%;
+  }
   .beta-sidebar {
     display:none;
   }
@@ -165,6 +188,9 @@
   }
   .right-column {
     padding-left: 15px !important;
+  }
+  .region-sidebar-left li.list-group-item a {
+    padding: 10px 15px !important;
   }
 }
 @media (max-width:500px) {

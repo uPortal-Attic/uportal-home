@@ -3,9 +3,11 @@
 (function() {
   var app = angular.module('portal.main.controllers', []);
 
-  app.controller('MainController', [ '$sessionStorage', '$rootScope', '$scope', 'mainService', 'miscService', function($sessionStorage, $rootScope, $scope, mainService, miscService) {
+  app.controller('MainController', [ '$sessionStorage', '$localStorage', '$rootScope', '$scope', 'mainService', 'miscService', function($sessionStorage, $localStorage, $rootScope, $scope, mainService, miscService) {
     miscService.pushPageview();
     $scope.layout = [];
+    $scope.$storage = $localStorage.$default( {showSidebar: true, sidebarQuicklinks: false} );
+    
 
     mainService.getLayout().then(function(data){
       $scope.layout = data.layout;
@@ -76,7 +78,7 @@
     	  //Toggle content visible
     	  $('#content-' + nodeId).toggleClass('hidden');
       };
-
+      
   } ]);
 
   /* Username */

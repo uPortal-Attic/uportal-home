@@ -1,10 +1,19 @@
-<nav id="portlet_u1311l1n19" class="side-bar-menu">
+<div>
+<nav class="side-bar-nav">
+  <span class="fa fa-remove hide-sidebar" ng-click="$storage.showSidebar = false"></span>
   <ul class="list-group sidebar">
     <li class="list-group-item"><a href="#/" ng-click="navbarCollapsed = true"><span class="fa fa-home fa-fw"></span> Home</a></li>
-    <li class="list-group-item"><a href='#/apps' ng-click="navbarCollapsed = true"><span class="fa fa-cog fa-fw"></span> Apps</a></li>
+    <li class="list-group-item"><a href='#/apps' ng-click="navbarCollapsed = true"><span class="fa fa-star fa-fw"></span> Apps</a></li>
     <!-- <li class="list-group-item"><a href='#' ng-click="navbarCollapsed = true"><span class="fa fa-user fa-fw"></span> My Profile</a></li>
     <li class="list-group-item"><a href='#' ng-click="navbarCollapsed = true"><span class="fa fa-eye fa-fw"></span> Settings</a></li>-->
     <li class="list-group-item"><a href='/portal/p/myuw-help' ng-click="navbarCollapsed = true"><span class="fa fa-question fa-fw"></span> Help</a></li> 
     <li class="list-group-item"><a href="/portal/Logout" ng-click="navbarCollapsed = true"><span class="fa fa-sign-out fa-fw"></span> Log out</a></li>
+    <div class="quicklinks" ng-if="$storage.sidebarQuicklinks">
+      <p class="section-divider">Quicklinks</p>
+      <li class="list-group-item"><a href="/portal/p/student-center/max/action.uP?pP_action=loginAction" target='_blank' ng-click="navbarCollapsed = true">Student Center</a></li>
+      <li class="list-group-item"><a href="https://uwmad.courses.wisconsin.edu/Shibboleth.sso/Login?target=https://uwmad.courses.wisconsin.edu/d2l/shibbolethSSO/deepLinkLogin.d2l" target='_blank' ng-click="navbarCollapsed = true">Learn@UW</a></li>
+      <li class="list-group-item"><a href="https://uwmadison.box.com/" target='_blank' ng-click="navbarCollapsed = true">Box</a></li>
+    </div>
  </ul>
 </nav>
+</div>
