@@ -8,7 +8,7 @@
     <li class="list-group-item"><a href='#' ng-click="navbarCollapsed = true"><span class="fa fa-eye fa-fw"></span> Settings</a></li>-->
     <li class="list-group-item"><a href='/portal/p/myuw-help' ng-click="navbarCollapsed = true"><span class="fa fa-question fa-fw"></span> Help</a></li> 
     <li class="list-group-item"><a href="/portal/Logout" ng-click="navbarCollapsed = true"><span class="fa fa-sign-out fa-fw"></span> Log out</a></li>
-    <div class="quicklinks">
+    <div class="quicklinks" ng-if="$storage.sidebarQuicklinks">
       <p class="section-divider">Quicklinks</p>
       <li class="list-group-item"><a href="https://finaid.wisc.edu/student-center.htm" ng-click="navbarCollapsed = true">Student Center</a></li>
       <li class="list-group-item"><a href="https://learnuw.wisc.edu/" ng-click="navbarCollapsed = true">Learn@UW</a></li>

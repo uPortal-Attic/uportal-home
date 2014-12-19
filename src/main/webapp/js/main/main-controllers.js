@@ -6,7 +6,7 @@
   app.controller('MainController', [ '$sessionStorage', '$localStorage', '$rootScope', '$scope', 'mainService', 'miscService', function($sessionStorage, $localStorage, $rootScope, $scope, mainService, miscService) {
     miscService.pushPageview();
     $scope.layout = [];
-    $scope.$storage = $localStorage.$default( {showSidebar: true} );
+    $scope.$storage = $localStorage.$default( {showSidebar: true, sidebarQuicklinks: false} );
     
 
     mainService.getLayout().then(function(data){
