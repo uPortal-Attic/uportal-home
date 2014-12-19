@@ -10,9 +10,9 @@
     <li class="list-group-item"><a href="/portal/Logout" ng-click="navbarCollapsed = true"><span class="fa fa-sign-out fa-fw"></span> Log out</a></li>
     <div class="quicklinks" ng-if="$storage.sidebarQuicklinks">
       <p class="section-divider">Quicklinks</p>
-      <li class="list-group-item"><a href="https://finaid.wisc.edu/student-center.htm" ng-click="navbarCollapsed = true">Student Center</a></li>
-      <li class="list-group-item"><a href="https://learnuw.wisc.edu/" ng-click="navbarCollapsed = true">Learn@UW</a></li>
-      <li class="list-group-item"><a href="https://uwmadison.app.box.com/login" ng-click="navbarCollapsed = true">Box</a></li>
+      <li class="list-group-item"><a href="/portal/p/student-center/max/action.uP?pP_action=loginAction" target='_blank' ng-click="navbarCollapsed = true">Student Center</a></li>
+      <li class="list-group-item"><a href="https://uwmad.courses.wisconsin.edu/Shibboleth.sso/Login?target=https://uwmad.courses.wisconsin.edu/d2l/shibbolethSSO/deepLinkLogin.d2l" target='_blank' ng-click="navbarCollapsed = true">Learn@UW</a></li>
+      <li class="list-group-item"><a href="https://uwmadison.box.com/" target='_blank' ng-click="navbarCollapsed = true">Box</a></li>
     </div>
  </ul>
 </nav>
