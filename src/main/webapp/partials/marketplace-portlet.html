@@ -38,13 +38,18 @@
 
   </div><br>
   <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
-    ( {{:: portlet.userRated }} rating<span ng-if="portlet.userRated !== 1">s</span> )
+    ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
   </span>
   <span> | <button ng-click="openRating('sm',portlet.fname, portlet.title)" class="btn btn-default">Rate</button></span>
   <p>{{::portlet.description}}</p>
   <div class="category-list" ng-click="showDetails = !showDetails">
     <a ng-repeat="category in portlet.categories" href="" ng-click="selectFilter('category',category)" class="category-links">{{::category}}</a>
+    <div class="portlet-details">
+      <a href="">Details <i class="fa fa-angle-down" ng-show="!showDetails"></i><i class="fa fa-angle-up" ng-show="showDetails"></i></a>
+    </div>
   </div>
+  
+  
 
   <!-- Action buttons for mobile -->
   <div class="action-buttons-mobile" ng-click="showDetails = !showDetails">
@@ -66,9 +71,7 @@
     <a class="btn btn-default btn-launch disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
   </div>
 
-  <div class="portlet-details">
-    <a href="">Details <i class="fa fa-angle-down" ng-show="!showDetails"></i><i class="fa fa-angle-up" ng-show="showDetails"></i></a>
-  </div>
+  
 
   <!-- Portlet Details (hidden by default) -->
   <div ng-if="showDetails" class="row portlet-details-div">
