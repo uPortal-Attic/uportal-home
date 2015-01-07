@@ -11,23 +11,23 @@
             ng-click="marketplaceCtrl.addToHome($index , portlet)"
             ng-if="portlet.canAdd && !portlet.hasInLayout"
             ng-class="{disabled : portlet.hasInLayout}">
-      <span class="fa fa-plus"></span>Add to Home
+      <span class="fa fa-plus"></span>Add to Favorites
     </button>
 
     <!-- Already in Home -->
     <button class="btn btn-default btn-add fname-{{::portlet.fname}}"
             ng-if="portlet.canAdd && portlet.hasInLayout"
             ng-class="{disabled : portlet.hasInLayout}"
-            popover="This app is already on your home"
+            popover="This app is already in your favorites"
             popover-trigger="mouseenter"
             popover-placement="top"
             popover-popup-delay="500">
-      <i class="fa fa-check"></i>Already on Home
+      <i class="fa fa-check"></i>Already in Favorites
     </button>
 
     <!-- Add to Home button without access -->
     <button class="btn btn-default btn-add disabled" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
-      <span class="fa fa-plus"></span>Add to Home
+      <span class="fa fa-plus"></span>Add to Favorites
     </button>
 
     <!-- Launch button with access -->
@@ -56,12 +56,12 @@
 
     <!-- Add to Home button with access on mobile-->
     <button class="btn btn-default btn-add fname-{{::portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd">
-      <span class="fa fa-plus"></span>Add to Home
+      <span class="fa fa-plus"></span>Add to Favorites
     </button>
 
     <!-- Add to Home button without access on mobile-->
     <button class="btn btn-default btn-add disabled" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
-      <span class="fa fa-plus"></span>Add to Home
+      <span class="fa fa-plus"></span>Add to Favorites
     </button>
 
     <!-- Launch button with access on mobile-->
