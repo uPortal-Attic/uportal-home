@@ -27,7 +27,7 @@
   </dependencies>
 
   <build>
-    <finalName>web</finalName>
+    <finalName>frame</finalName>
     <plugins>
       <plugin>
         <groupId>org.lesscss</groupId>
@@ -57,7 +57,7 @@
       <configuration>
         <url>http://localhost:8080/manager/text</url>
         <server>TomcatServer</server>
-        <path>/web</path>
+        <path>/frame</path>
       </configuration>
     </plugin>
     </plugins>

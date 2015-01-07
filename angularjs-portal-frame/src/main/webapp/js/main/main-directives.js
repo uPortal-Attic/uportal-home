@@ -31,19 +31,19 @@
       templateUrl : 'partials/username.html'
     }
   });
-
-  app.directive('marketplacePortlet', function() {
-    return {
-      restrict : 'E',
-      templateUrl : 'partials/marketplace-portlet.html'
-    }
-  });
-
+  
   app.directive('siteFooter', function() {
-    return {
-      restrict : 'E',
-      templateUrl : 'partials/footer.html'
-    }
+      return {
+        restrict : 'E',
+        templateUrl : 'partials/footer.html'
+      }
+    });
+  
+  app.directive('betaHeader', function() {
+      return {
+          restrict : 'E',
+          templateUrl : 'partials/beta-header.html'
+      }
   });
 
 })();
