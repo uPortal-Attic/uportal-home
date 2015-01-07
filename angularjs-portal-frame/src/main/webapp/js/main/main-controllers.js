@@ -92,12 +92,11 @@
   }]);
 
   /* Header */
-  app.controller('HeaderController', ['$scope','$location', 'marketplaceService', function($scope, $location, marketplaceService) {
+  app.controller('HeaderController', ['$scope','$location', function($scope, $location) {
     $scope.showSearch = false;
     $scope.showSearchFocus = false;
     $scope.submit = function(){
       if($scope.initialFilter != "") {
-        marketplaceService.initialFilter($scope.initialFilter);
         $location.path("/apps/search/"+ $scope.initialFilter);
         $scope.initialFilter = "";
         $scope.showSearch = false;
