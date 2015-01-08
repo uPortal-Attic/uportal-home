@@ -4,7 +4,7 @@
   var app = angular.module('portal.main.controllers', []);
 
   app.controller('MainController', ['$localStorage','$scope', function($localStorage, $scope) {
-    $scope.$storage = $localStorage.$default( {showSidebar: true, sidebarQuicklinks: false, homeImg : "img/square.jpg"} );
+    $scope.$storage = $localStorage.$default( {showSidebar: true, sidebarQuicklinks: false, homeImg : "img/square.jpg", notificationsDemo : false} );
   } ]);
 
   /* Username */

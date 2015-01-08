@@ -9,7 +9,8 @@
     store.notifications_full = [];
     store.count = 0;
     store.notificationUrl = '/portal/p/notification/';
-    store.fetchUrl = '/portal/p/notification/normal/GET-NOTIFICATIONS-UNCATEGORIZED.resource.uP';
+    //store.fetchUrl = '/portal/p/notification/normal/GET-NOTIFICATIONS-UNCATEGORIZED.resource.uP';
+    store.fetchUrl = '/web/samples/sample_notification.json';
 
     $http.get(store.fetchUrl)
     		.success(function(data) {

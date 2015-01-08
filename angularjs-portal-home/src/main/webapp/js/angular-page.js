@@ -17,16 +17,16 @@
     'portal.main.directives',
     'portal.marketplace.controller',
     'portal.marketplace.service',
-    'portal.marketplace.directives'
-    /* 'portal.notification.controller',
-     * 'portal.notification.directives*/
+    'portal.marketplace.directives',
+    'portal.notification.controller',
+    'portal.notification.directives'
      ]);
  app.config(['$routeProvider',function($routeProvider, $locationProvider) {
 	 $routeProvider.
       when('/apps', {templateUrl: 'partials/marketplace.html'}).
       when('/features', {templateUrl: 'partials/features.html'}).
       when('/settings', {templateUrl: 'partials/settings.html'}).
-   /* when('/notifications', {templateUrl: 'partials/notifications-full.html'}). */
+      when('/notifications', {templateUrl: 'partials/notifications-full.html'}). 
       when('/apps/details/:fname', {templateUrl: 'partials/marketplace-details.html', controller:'MarketplaceDetailsController'}).
       when('/apps/search/:initFilter', {templateUrl: 'partials/marketplace.html'}).
       otherwise({templateUrl: 'partials/layout.html'});
