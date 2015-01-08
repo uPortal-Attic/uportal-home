@@ -9,24 +9,18 @@
     </div>
     <div ng-controller="NewStuffController as newStuffCtrl">
       <div ng-repeat="stuff in newStuffArray">
-      <div ng-if='newStuffCtrl.show(stuff)'  class="header-opaque">
-      <div><p class="new">New</p></div>
-      <div><h3>{{::stuff.title}}</h3></div>
-      <div class="description"><p>{{::stuff.shortDesc}}<a ng-if="stuff.link !== null" href="{{::stuff.link}}">Find out more.</a></p></div>
-      <!--<div class="remove"><i class="fa fa-remove" ng-click="mainCtrl.showNewStuff = false"></i></div>-->
+          <div ng-if='newStuffCtrl.show(stuff)'  class="header-opaque">
+              <div><p class="new">New</p></div>
+              <div><h3>{{::stuff.title}}</h3></div>
+              <div class="description"><p>{{::stuff.shortDesc}}<a ng-if="stuff.link !== null" href="{{::stuff.link}}">Find out more.</a></p></div>
+          </div>
       </div>
-      </div>
-      <!--<p class="news-section-title">News</p>
-      <h3 class="news-article-title">Initial Impression</h3>
-      <p class="news-article-description">First-year students take to the turf for W Project. <a href="https://www.youtube.com/watch?v=-I_Ia6wNwkA&feature=youtu.be">Read more <i class="fa fa-angle-right"></i></a></p>-->
     </div>
   </div>
-  <!--
-  <div class="col-xs-12 notification-section">
+  <div class="col-xs-12 notification-section" ng-show="{{$storage.notificationsDemo}}">
     <h3 class="home-section-header">Notifications</h3>
     <notifications></notifications>
   </div>
-  -->
   <div class="col-xs-12 no-padding portlet-section" ng-controller="LayoutController as layoutCtrl">
     <h3 class="home-section-header portlet-section-header">
         Your Favorites <span class='small-font-plus'>
