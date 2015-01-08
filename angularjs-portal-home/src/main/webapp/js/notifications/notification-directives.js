@@ -10,5 +10,12 @@
         templateUrl : 'partials/notifications.html'
       }
     });
+  
+  app.directive('notificationBell', function(){
+      return {
+          restrict : 'E',
+          templateUrl : 'partials/notification-bell.html'
+        }
+  });
 
 })();

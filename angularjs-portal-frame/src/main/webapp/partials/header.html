@@ -26,13 +26,7 @@
              </ul>
              <ul class="nav navbar-nav hidden-xs bucky-nav-large">
                  <li>
-                    <h3  ng-controller="NotificationController as notificationIconCtrl" ng-show="{{$storage.notificationsDemo}}">
-                        <a title="click to view notifications" href="{{notificationIconCtrl.notificationUrl}}">
-                            <div  class='notification-badge'>
-                                <span class="number-of-nots">{{notificationIconCtrl.count}}</span>
-                            </div>
-                        </a>
-                    </h3>
+                    <notification-bell></notification-bell>
                  </li>
                  <li>
                     <search></search>
