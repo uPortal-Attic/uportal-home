@@ -1,11 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <parent>
+    <groupId>edu.wisc.doit.code</groupId>
+    <artifactId>shared-tools-uw-parent</artifactId>
+    <version>9</version>
+  </parent>
+  
   <modelVersion>4.0.0</modelVersion>
-  <groupId>edu.wisc.my.portal</groupId>
-  <artifactId>angularjs-portal</artifactId>
+  <groupId>edu.wisc.my.portal.angular</groupId>
+  <artifactId>angularjs-portal-parent</artifactId>
   <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>portal-angular</name>
+  <version>4.1.1.14-SNAPSHOT</version>
+  <name>angularjs-portal</name>
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
   
   <modules>
