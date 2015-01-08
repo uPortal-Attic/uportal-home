@@ -15,6 +15,13 @@
   <name>angularjs-portal</name>
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
   
+  <repositories>
+        <repository>
+            <id>code.doit-uw-releases</id>
+            <url>https://code.doit.wisc.edu/maven/content/repositories/uw-releases/</url>
+        </repository>
+    </repositories>
+  
   <modules>
     <module>angularjs-portal-frame</module>
     <module>angularjs-portal-home</module>
