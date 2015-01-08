@@ -11,10 +11,15 @@
     'portal.misc.service',
     'portal.main.controllers',
     'portal.main.service',
+    'portal.layout.directives',
+    'portal.layout.controllers',
+    'portal.layout.service',
     'portal.main.directives',
     'portal.marketplace.controller',
     'portal.marketplace.service',
-    /* 'portal.notification.controller' */
+    'portal.marketplace.directives'
+    /* 'portal.notification.controller',
+     * 'portal.notification.directives*/
      ]);
  app.config(['$routeProvider',function($routeProvider, $locationProvider) {
 	 $routeProvider.
@@ -24,7 +29,7 @@
    /* when('/notifications', {templateUrl: 'partials/notifications-full.html'}). */
       when('/apps/details/:fname', {templateUrl: 'partials/marketplace-details.html', controller:'MarketplaceDetailsController'}).
       when('/apps/search/:initFilter', {templateUrl: 'partials/marketplace.html'}).
-      otherwise({templateUrl: 'partials/main.html'});
+      otherwise({templateUrl: 'partials/layout.html'});
       }
  	]);
 

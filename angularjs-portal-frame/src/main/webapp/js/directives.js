@@ -3,35 +3,7 @@
 (function() {
   var app = angular.module('portal.misc.directives', []);
 
-    app.directive('notifications', function(){
-
-	    return {
-	      restrict : 'E',
-	      templateUrl : 'partials/notifications.html'
-	    }
-	  });
     
-    app.directive('defaultCard', function(){
-    	return {
-    		restrict : 'E',
-    		templateUrl : 'partials/default-card.html'
-    	}
-    });
-    
-    app.directive('staticContentCard', function(){
-    	return {
-    		restrict : 'E',
-    		templateUrl : 'partials/static-content-card.html'
-    	}
-    });
-
-	 app.directive('marketplaceLight', function(){
-	    return{
-	        restrict: 'E',
-	        templateUrl: 'partials/marketplace-light.html'
-	    }
-	 });
-
     app.directive('loading',   ['$http' ,function ($http)
     {
         return {
@@ -73,13 +45,6 @@
         };
 
     }]);
-
-    app.directive('betaHeader', function() {
-        return {
-            restrict : 'E',
-            templateUrl : 'partials/beta-header.html'
-        }
-    });
 
     app.directive('selectOnPageLoad',function($timeout){
         return {
