@@ -5,7 +5,7 @@
   </div>
   
   <div class='card-remove'>
-     <i title="Remove" class="fa fa-times portlet-options" ng-click="mainCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
+     <i title="Remove" class="fa fa-times portlet-options" ng-click="layoutCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
   </div>
   <div class="portlet-content">
     {{:: portlet.description | truncate:160}}
