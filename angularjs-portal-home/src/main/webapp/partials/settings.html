@@ -12,8 +12,8 @@
        <li class="portlet-container-home beta-card-style">
            <h4>
                <span class="btn-group">
-                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarQuicklinks, 'btn-danger' : !$storage.sidebarQuicklinks, }" ng-model="$storage.sidebarQuicklinks" btn-radio="true">On</label>
-                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarQuicklinks, 'btn-danger' : !$storage.sidebarQuicklinks, }" ng-model="$storage.sidebarQuicklinks" btn-radio="false">Off</label>
+                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarQuicklinks, 'btn-default' : !$storage.sidebarQuicklinks, }" ng-model="$storage.sidebarQuicklinks" btn-radio="true">On</label>
+                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarQuicklinks, 'btn-default' : !$storage.sidebarQuicklinks, }" ng-model="$storage.sidebarQuicklinks" btn-radio="false">Off</label>
                </span>
                Sidebar Quicklinks
            </h4>
@@ -23,8 +23,8 @@
        <li class="portlet-container-home beta-card-style">
            <h4>
                <span class="btn-group">
-                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowSettings, 'btn-danger' : !$storage.sidebarShowSettings }" ng-model="$storage.sidebarShowSettings" btn-radio="true">On</label>
-                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowSettings, 'btn-danger' : !$storage.sidebarShowSettings }" ng-model="$storage.sidebarShowSettings" btn-radio="false">Off</label>
+                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowSettings, 'btn-default' : !$storage.sidebarShowSettings }" ng-model="$storage.sidebarShowSettings" btn-radio="true">On</label>
+                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowSettings, 'btn-default' : !$storage.sidebarShowSettings }" ng-model="$storage.sidebarShowSettings" btn-radio="false">Off</label>
                </span>
                Sidebar Settings 
            </h4>
@@ -32,15 +32,25 @@
            
        </li>
        <li class="portlet-container-home beta-card-style">
-           <h4>
-               <span class="btn-group">
-                   <label class="btn" ng-class="{'btn-success' : $storage.notificationsDemo, 'btn-danger' : !$storage.notificationsDemo }" ng-model="$storage.notificationsDemo" btn-radio="true">On</label>
-                   <label class="btn" ng-class="{'btn-success' : $storage.notificationsDemo, 'btn-danger' : !$storage.notificationsDemo }" ng-model="$storage.notificationsDemo" btn-radio="false">Off</label>
-               </span>
-               Notification Demo
-           </h4>
-           <small>Shows a demo of what the notifications could look like on the home page</small>
-           
+         <h4>
+           <span class="btn-group">
+             <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowProfile, 'btn-default' : !$storage.sidebarShowProfile }" ng-model="$storage.sidebarShowProfile" btn-radio="true">On</label>
+             <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowProfile, 'btn-default' : !$storage.sidebarShowProfile }" ng-model="$storage.sidebarShowProfile" btn-radio="false">Off</label>
+           </span>
+           Profile picture 
+         </h4>
+         <small>Shows the profile picture in the sidebar</small>
+         
+       </li>
+       <li>
+         <h4>
+           <span class="btn-group">
+             <label class="btn" ng-class="{'btn-success' : $storage.notificationsDemo, 'btn-danger' : !$storage.notificationsDemo }" ng-model="$storage.notificationsDemo" btn-radio="true">On</label>
+             <label class="btn" ng-class="{'btn-success' : $storage.notificationsDemo, 'btn-danger' : !$storage.notificationsDemo }" ng-model="$storage.notificationsDemo" btn-radio="false">Off</label>
+           </span>
+           Notification Demo
+         </h4>
+         <small>Shows a demo of what the notifications could look like on the home page</small>
        </li>
     </ul>
     <ul class="col-sm-6" style='padding-top: 1em;'>
@@ -55,6 +65,18 @@
             <label class="btn btn-primary" ng-model="$storage.homeImg" btn-radio="'img/square.jpg'">333 East Campus</label>
             
           </div>
+       </li>
+       <li class="no-padding portlet-container-home  beta-card-style" style='text-align : center;'>
+         <h4>Home Profile Image &nbsp;</h4>
+         <small>Pick a different profile image for MyUW Home</small>
+         <div style='text-align: center;'>
+           <div style='padding: 1em;'>
+             <img ng-src="{{$storage.profileImg}}" height='100px'>
+           </div>
+           <label class="btn btn-primary" ng-model="$storage.profileImg" btn-radio="'img/terrace.jpg'">Chairs at the Union Terrace</label>
+           <label class="btn btn-primary" ng-model="$storage.profileImg" btn-radio="'img/square.jpg'">333 East Campus</label>
+           
+         </div>
        </li>
     </ul>
   </div>

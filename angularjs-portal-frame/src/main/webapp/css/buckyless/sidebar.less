@@ -14,7 +14,6 @@
   left:15px;
   ul.sidebar {
     margin-top:11px;
-    padding-top:25px;
     width:12em;
     box-shadow:none;
     width:100%;
@@ -63,14 +62,17 @@
   }
 }
 
-.hide-sidebar {
-  float:right;
-  color:@grayscale6;
-  cursor:pointer;
-  padding-right:10px;
-  font-size:20px;
-  &:hover {
-    color:@grayscale5;
+.hide-sidebar-div {
+  height:35px;
+  .hide-sidebar {
+    float:right;
+    color:@grayscale6;
+    cursor:pointer;
+    padding:5px;
+    font-size:20px;
+    &:hover {
+      color:@grayscale5;
+    }
   }
 }
 .section-divider {
@@ -98,6 +100,31 @@
     transition:0.2s ease-in-out;
   }
 }
+
+.profile-pic {
+  display:block;
+  width:100%;
+  text-align:center;
+  padding:0px 10px;
+  img {
+    width:70px;
+    height:70px;
+    overflow:hidden;
+    border-radius:50%;
+    border:2px solid #ccc;
+    margin:10px 0px;
+  }
+  p {
+    color:@grayscale3;
+    margin:5px 0px;
+    font-size:1.1em;
+  }
+}
+.side-bar-nav hr {
+  width:70%;
+  border-top:1px solid @grayscale7;
+}
+
 
 /* Beta to Classic Transition */
 
