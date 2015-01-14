@@ -1,0 +1,9 @@
+{"sidebar" :  
+            [
+                {"title": "Home", "hyperlink" : "/web/#/", "target" : "", "faIcon" : "fa-home", "displayFlag" : ""},
+                {"title": "Apps", "hyperlink" : "/web/#/apps", "target" : "", "faIcon" : "fa-star", "displayFlag" : ""},
+                {"title": "Beta Settings", "hyperlink" : "/web/#/settings", "target" : "", "faIcon" : "fa-cog", "displayFlag" : "sidebarShowSettings"},
+                {"title": "Help", "hyperlink" : "/portal/p/myuw-help", "target" : "", "faIcon" : "fa-question", "displayFlag" : ""},
+                {"title": "Log out", "hyperlink" : "/portal/Logout", "target" : "", "faIcon" : "fa-sign-out", "displayFlag" : ""}
+            ]
+}
