@@ -43,6 +43,7 @@
       };
 
       $scope.sortableOptions = {
+              delay:250,
               cursorAt : {top: 30, left: 30},
               stop: function(e, ui) {
                   if(ui.item.sortable.dropindex != ui.item.sortable.index) {
