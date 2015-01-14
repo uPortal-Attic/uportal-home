@@ -31,11 +31,26 @@
       }
     };
     
-    //
     this.toggleSearch = function() {
         $scope.showSearch = !$scope.showSearch;
         $scope.showSearchFocus = !$scope.showSearchFocus; 
     }
+  }]);
+  
+  app.controller('SidebarController',[ '$localStorage', '$scope', 'mainService', function($localStorage, $scope, mainService) {
+      $scope.$storage = $localStorage;
+      $scope.sidebar = [];
+      mainService.getSidebar().then(function(result){
+          $scope.sidebar = result.data.sidebar;
+      });
+      
+      this.canSee = function(storageVar) {
+          if(storageVar === '')
+              return true;
+          else {
+              return $scope.$storage[storageVar];
+          }
+      }
   }]);
 
 })();
