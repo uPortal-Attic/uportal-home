@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{site.name}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Bootstrap -->
+    <link href="/dist/css/uw-ui-toolkit.min.css" rel="stylesheet" media="screen">
+    <link href="/doc-assets/custom.css" rel="stylesheet" media="screen">
+    <link href="/doc-assets/select2/select2.css" rel="stylesheet" media="screen">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="/doc-assets/select2/select2.min.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body data-slug="{{page.slug}}">
+    <div class="navbar navbar-fixed-top navbar-inverse red-dark">
+      <div class="container">
+        <div class="navbar-header">
+          <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">UW UI Toolkit</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/getting-started/">Getting started</a></li>
+            <li><a href="/ui-components/">UI Components</a></li>
+            <li><a href="/examples/">Examples</a></li>
+            <li><a href="/documentation/">Documentation</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {{ content }}
+    <div id="footer">
+      <div class="container">
+        <p>
+          &copy; {{ site.time | date: "%Y" }} Board of Regents of the <a href="http://www.wisconsin.edu">University of Wisconsin System</a>.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      $('[data-active]').each(function(i,el) {
+        var active = new RegExp($(this).data('active'));
+        if (active.test(location.pathname))
+          $(this).addClass('active');
+      });
+      $("[data-toggle='tooltip']").tooltip();
+    </script>
+  </body>
+</html>

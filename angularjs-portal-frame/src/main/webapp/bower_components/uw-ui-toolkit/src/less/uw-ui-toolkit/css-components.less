@@ -1,0 +1,19 @@
+// bold links within paragraphs and list items that appear within the grid
+[class*="col-"] {
+  p, li {
+    a {
+      font-weight: bold;
+    }
+  }
+}
+
+// Make an element -- e.g. <p> -- bolder and bigger
+.uw-intro {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  color: #777;
+  @media (min-width: @grid-float-breakpoint) {
+    font-size: 1.5em;
+  }
+}

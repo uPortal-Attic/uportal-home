@@ -1,0 +1,98 @@
+---
+layout: default
+---
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="#">Users</a></li>
+        <li class="active">Profile</li>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <!-- Success -->
+      <div class="alert alert-dismissable alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Success!</strong> The user has been saved, this can be closed.
+      </div>
+
+      <!-- Warning -->
+      <div class="alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Error!</strong> Aren't you glad you don't really have to fill this form out!
+      </div>
+
+      <div class="page-header">
+        <h1>Admin Page <small>a really nice admin area</small></h1>
+      </div>
+
+      <form role="form">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" id="exampleInputFile">
+          <p class="help-block">Example block-level help text here.</p>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Check me out
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-cancel">Cancel</button>
+      </form>
+      <hr />
+      <h2>Users List</h2>
+      <table class="table table-condensed table-striped">
+        <thead>
+          <th>Username</th>
+          <th>Email</th>
+        </thead>
+        <tbody>
+          <tr><td>bbadger</td><td>bucky@wisc.edu</td></tr>
+          <tr><td>bbadger</td><td>bucky@wisc.edu</td></tr>
+          <tr><td>bbadger</td><td>bucky@wisc.edu</td></tr>
+          <tr><td>bbadger</td><td>bucky@wisc.edu</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">User Information</div>
+        <div class="panel-body">
+          <p><strong>Name:</strong> Bucky Badger</p>
+          <p><strong>Email:</strong> bucky@wisc.edu</p>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#info" data-toggle="tab">Information</a></li>
+        <li><a href="#stats" data-toggle="tab">Stats</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active in" id="info">
+          <p style="padding-top:5px">
+            Information about something going on in this pane.
+            Really important content here.
+          </p>
+        </div>
+        <div class="tab-pane" id="stats">
+          <p style="padding-top:5px">
+            Some stats information here. Tabs can also have dropdowns
+            which can trigger other regions to show.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

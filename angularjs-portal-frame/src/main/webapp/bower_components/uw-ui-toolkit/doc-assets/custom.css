@@ -1,0 +1,6 @@
+.jumbotron a.btn{
+  vertical-align:top
+}
+.jumbotron a.btn:first-child{
+  margin:0px 5px 20px 0
+}
