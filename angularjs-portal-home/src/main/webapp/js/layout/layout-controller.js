@@ -3,7 +3,7 @@
 (function() {
   var app = angular.module('portal.layout.controllers', []);
 
-  app.controller('LayoutController', [ '$scope', 'layoutService', 'miscService', function($scope, layoutService, miscService) {
+  app.controller('LayoutController', [ '$sessionStorage', '$scope', 'layoutService', 'miscService', function($sessionStorage, $scope, layoutService, miscService) {
     miscService.pushPageview();
     $scope.layout = [];
 
