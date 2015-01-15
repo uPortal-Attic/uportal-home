@@ -41,6 +41,16 @@
          </h4>
          <small>Shows a demo of what the notifications could look like on the home page</small>
        </li>
+       <li class="portlet-container-home beta-card-style">
+         <h4>
+           <span class="btn-group">
+             <label class="btn" ng-class="{'btn-success' : $storage.staticContentOnHome, 'btn-default' : !$storage.staticContentOnHome }" ng-model="$storage.staticContentOnHome" btn-radio="true">On</label>
+             <label class="btn" ng-class="{'btn-success' : $storage.staticContentOnHome, 'btn-default' : !$storage.staticContentOnHome }" ng-model="$storage.staticContentOnHome" btn-radio="false">Off</label>
+           </span>
+           Static content cards
+         </h4>
+         <small>Shows static content cards rather than default cards for portlets with associated static content.</small>
+       </li>
     </ul>
     <ul class="col-sm-6" style='padding-top: 1em;'>
         <li class="no-padding portlet-container-home  beta-card-style" style='text-align : center;'>
