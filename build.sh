@@ -1,9 +1,9 @@
 #!/bin/bash
 
-mvn package
+mvn -Djava.awt.headless=true package
 pushd angularjs-portal-frame
-mvn tomcat7:redeploy
+mvn -Djava.awt.headless=true tomcat7:redeploy
 popd
 pushd angularjs-portal-home
-mvn tomcat7:redeploy
+mvn -Djava.awt.headless=true tomcat7:redeploy
 popd
