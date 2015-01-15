@@ -36,8 +36,14 @@
     <div data-loading class='loading-gif'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
     <ul ui-sortable="sortableOptions" ng-model="layout" id="cards-sortable">
        <li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 no-padding portlet-container-home" ng-repeat="portlet in layout">
-          <default-card></default-card>
-          <!-- <static-content-card ng-if="portlet.staticContent != null"></static-content-card> -->
+          <default-card 
+            ng-if="!$storage.staticContentOnHome || 
+                    portlet.staticContent == null">
+          </default-card>
+          <static-content-card 
+            ng-if="$storage.staticContentOnHome &&
+                    portlet.staticContent != null">
+          </static-content-card>
         </li>
     </ul>
     <marketplace-light class="col-xs-12 col-sm-6 col-md-6 col-lg-4 no-padding" ></marketplace-light>
