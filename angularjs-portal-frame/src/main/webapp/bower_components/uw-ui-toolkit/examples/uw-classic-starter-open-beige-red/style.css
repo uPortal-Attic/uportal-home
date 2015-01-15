@@ -1,0 +1,79 @@
+/*  This is example of how you can write your own CSS to customize any template based on the UW UI Toolkit.
+
+The following CSS rules override the default UW UI Toolkit's UW Classic starter template, removing the borders around the #header, #content, and #footer areas, and adding a gradiend to the #header area */
+
+
+#header {
+	background: -webkit-linear-gradient(#f7f5e8, #e1dbcc);
+  background: -o-linear-gradient(#f7f5e8, #e1dbcc);
+  background: -moz-linear-gradient(#f7f5e8, #e1dbcc);
+  background: linear-gradient(#f7f5e8, #e1dbcc);
+}
+
+#header .container {
+	background-color: transparent;
+}
+
+#header .uw-header-site-title a {
+	color: #b70101; 
+}
+
+#header .uw-header-wordmark {
+	color: #333;
+}
+
+/*.navbar.uw-navbar-classic .container .navbar-toggle .icon-bar{
+	background-color: #CCC
+}
+*/
+
+
+
+.navbar.uw-navbar-classic .container .nav > li.active,
+.navbar.uw-navbar-classic .container .nav > li > a:hover {
+	background: #770000;
+}
+
+#navbar .uw-navbar-classic {
+	background: #990000;
+}
+
+#navbar .container {
+	box-shadow: none;
+	background: #990000;
+}
+#navbar .navbar-nav li,
+#navbar .navbar-nav a {
+	border: none;
+	color: #FFF;
+}
+#navbar .navbar-nav li li,
+#navbar .navbar-nav li li a {
+	border: none;
+	color: #333;
+}
+
+
+ #navbar .navbar.uw-navbar-classic .container .nav.uw-navbar-classic-utility > li > a {
+	color: #aaa;
+}
+.navbar.uw-navbar-classic .container .caret {
+	border-top-color:#6e6a5b;
+	border-bottom-color:#6e6a5b;
+}
+
+#content {
+	background: none;
+}
+
+#content .container {
+	border: none;
+}
+
+#footer {
+	border-top: 10px solid #666152;
+}
+
+#footer .container {
+	border: 0;
+}

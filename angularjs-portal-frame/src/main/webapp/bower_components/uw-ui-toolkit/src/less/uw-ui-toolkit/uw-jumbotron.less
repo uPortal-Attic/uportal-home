@@ -1,0 +1,16 @@
+// UW light tan background and h1 font size adjustment for Jumbptron class
+.jumbotron {
+  background-color: @uw-tan-light;
+  border-bottom:1px solid #C8C8C8;
+  padding: 15px;
+  @media (min-width: @grid-float-breakpoint) {
+    padding: 30px;
+  }
+  h1 {
+    font-size: floor(@font-size-base * 1.75);
+    margin-top: 0;
+    @media (min-width: @grid-float-breakpoint) {
+      font-size: floor(@font-size-base * 3.25);
+    }
+  }
+}

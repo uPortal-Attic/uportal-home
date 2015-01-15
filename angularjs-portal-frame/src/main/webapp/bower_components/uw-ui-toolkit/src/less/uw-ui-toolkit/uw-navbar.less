@@ -1,0 +1,299 @@
+.navbar {
+  
+  &.navbar-default,
+  &.navbar-inverse {
+    background-image: url('../img/uwcrest_web_sm.png');
+    background-position: -13px -13px;
+    background-repeat: no-repeat;
+    background-size: 50px;
+    padding-left: 0;
+    .container {
+      width: auto; //Keep navbar content always aligned to left no matter page width
+      padding-left: 15px;
+    }
+    .navbar-header {
+      margin-left: 28px;
+    }
+  }
+
+  // .navbar responsiveness
+  @media (max-width: @grid-float-breakpoint) {
+    &.navbar-default {
+      .navbar-collapse {
+        background-color: @navbar-default-bg;
+      }
+    }
+    &.navbar-inverse {
+      .navbar-collapse {
+        background-color: @navbar-inverse-bg;
+      }
+    }
+  }
+
+}
+.page-header {
+  margin-top: 0;
+  h1 {
+    margin-top: 0;
+  }
+}
+
+// If we're using a fixed navbar, add margin-top to adjacent sibling containers
+.navbar-fixed-top + .jumbotron {
+  margin-top: 50px;
+}
+.navbar-fixed-top + .container, .navbar-fixed-top + .row {
+  margin-top: 72px;
+}
+
+
+// add margin before the first container after the navbar
+body > .container {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+
+
+// UW navbar overrides
+
+/* UW Classic */
+.navbar.uw-navbar-classic {
+  background-color: #AC0809;
+  min-height: inherit;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  padding:0;
+  @media (min-width: @grid-float-breakpoint) {
+    min-height: 25px;
+  }
+  .container {
+    height: inherit;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    margin-bottom:0;
+    padding-left: 0;
+    padding-right: 0;
+    background-image: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    @media (min-width: @grid-float-breakpoint) {
+      height: 26px;
+      position: relative;
+      #gradient > .vertical (#E7DBCB, #D9C39E);
+      filter: none;
+      background-color: #E7DBCB;
+    }
+    .navbar-toggle {
+      border: none;
+      position: absolute;
+      top: -47px;
+      right: -20px;
+      .icon-bar {
+        background-color: #fff;
+        height: 3px;
+      }
+    }
+    text-transform: none;
+    @media (min-width: @grid-float-breakpoint) {
+      text-transform: uppercase;
+    }
+    .nav {
+      text-transform: uppercase;
+      font-size: @font-size-base - 1; //13px
+      > li {
+        border-right: none;
+        @media (min-width: @grid-float-breakpoint) {
+          border-right: 1px solid @uw-brown-light;
+        }
+        &:last-child > a {
+          border-bottom: none;
+        }
+        > a {
+          border-right: none;
+          color: #fff;
+          border-bottom: 1px dotted #797979;
+          padding: 5px 15px 4px;
+          &:hover {
+            background-color: @gray;
+          }
+          &:first-child {
+            border-left:0;
+            a {
+              border-left:0;
+            }
+          }
+          @media (min-width: @grid-float-breakpoint) {
+            border-bottom: none;
+            color: @uw-red-medium;
+            padding: 3px 15px 2px;
+            border-right: 1px solid @uw-tan;
+          }
+        }
+      }
+    }
+    .nav > li.active > a, .nav > li.open > a, .nav > li:hover > a {
+      background-image: none;
+    }
+    .nav > li.active {
+      background-image: none;
+      background-color: #555;
+    }
+    .nav > li > a:hover {
+      bacground-image: none;
+    }
+    .nav > li > a:focus {
+      background-color: transparent;
+    }
+    .nav .open > a {
+      background-color: @gray-dark;
+      @media (min-width: @container-sm) {
+        background-color: transparent;
+      }
+    }
+    .navbar-collapse {
+      padding: 0;
+      margin-right: 0;
+      margin-left: 0;
+      background-color: @gray-dark;
+      box-shadow: 0 4px 4px rgba(0,0,0,0.4);
+      @media (min-width: @grid-float-breakpoint) {
+        box-shadow: none;
+        background-color: transparent;
+      }
+    }
+    .navbar-nav {
+      margin: 0px 0 3px 0;
+      @media (min-width: @grid-float-breakpoint) {
+        margin-bottom: 0;
+      }
+    }
+    .nav .dropdown-menu {
+      text-transform: none;
+      padding-top: 0;
+      padding-bottom: 0;
+      background-color: @gray-light;
+      border:0;
+      border-radius:0;
+      margin:0;
+      &:before,
+      &:after {
+        display:none;
+      }
+      @media (min-width: @grid-float-breakpoint) {
+        background-color: #F0E7D8;
+        .divider {
+          background-color: @uw-gold;
+        }
+      }
+      li {
+        border-bottom: 1px dotted #797979;
+        @media (min-width: @grid-float-breakpoint) {
+          border-bottom: 1px dotted lighten(@uw-brown-light,3%);
+        }
+        &:last-child {
+          border-bottom: none;
+        }
+        a {
+          padding: 6px 15px;
+          color: #fff;
+          &:hover {
+            background-color: lighten(@gray-light,4%);
+            @media (min-width: @grid-float-breakpoint) {
+              background: #D1BD98;
+            }
+          }
+          @media (min-width: @grid-float-breakpoint) {
+            color: @uw-red-badger;
+          }
+        }
+        &.dropdown-header {
+          color: #000;
+          font-weight: bold;
+          text-transform: uppercase;
+          padding: 5px 15px;
+        }
+        &.divider {
+          display: none;
+        }
+      }
+    }
+    .caret {
+      margin-top:-2px;
+      border-top-color: @uw-red;
+      border-bottom-color: @uw-red;
+    }
+    /* UW Utility */
+    .nav.uw-navbar-classic-utility {
+      position: absolute;
+      right: 0px;
+      top: -110px;
+      > li {
+        border-right: 1px solid @uw-brown-light;
+        &:last-child {
+          border-right: none;
+        }
+        > a {
+          border:0;
+          color: @uw-tan-light;
+          font-size: @font-size-base - 1; // 11px;
+          text-transform: none;
+          line-height: 100%;
+          padding: 0 10px;
+          height: 15px;
+          &:hover {
+            background: transparent;
+            text-decoration:underline;
+          }
+        }
+
+        &.open, &.active {
+          background-image: none;
+          background-color: transparent;
+          > a {
+            background: transparent;
+          }
+        }
+      }
+    }
+    .uw-navbar-classic-search {
+      margin-right: 0;
+      margin-left: 0;
+      margin-bottom: 0px;
+      padding: 10px 15px;
+      box-shadow: none;
+      @media (min-width: @container-sm) {
+        position: absolute;
+        right: 0;
+        top: -80px;
+        margin-bottom: 8px;
+      }
+    }
+    .uw-navbar-classic-search + ul li:first-child a {
+      border-top: 1px dotted #797979;
+    }
+  }
+}
+
+// I can't get LESS to override this with an embedded MQ above for some reason - NW
+@media (min-width: @grid-float-breakpoint) {
+  .navbar.uw-navbar-classic  {
+    .container {
+      .nav {
+        > li {
+          &.active {
+            #gradient > .vertical (#FDFCFA, #D9C39E);
+          }
+          > a {
+            &:hover {
+              #gradient > .vertical (#FDFCFA, #D9C39E);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

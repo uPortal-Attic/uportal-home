@@ -1,0 +1,99 @@
+/*
+A web font variation of the university's official type face -- Friz Quadrata -- can be used in the templates.
+
+FrizQuadrata can be purchased via MyFonts.com:
+http://www.myfonts.com/fonts/efscangraphic/friz-quadrata-sh/regular/
+
+To use your own licensed copy of FrizQuadrata, un comment the @font-face definition below, replacing the file names for your purchased copy.
+
+@font-face {
+  font-family: 'FrizQuadrataSH-Regular';
+  src: url('/dist/fonts/25F17F_0_0.eot');
+  src: url('/dist/fonts/25F17F_0_0.eot?#iefix') format('embedded-opentype'), url('/dist/fonts/25F17F_0_0.woff') format('woff'), url('/dist/fonts/25F17F_0_0.ttf') format('truetype'), url('/dist/fonts/25F17F_0_0.svg#wf') format('svg');
+}
+*/
+
+.uw-header-classic {
+  color: #fff;
+  background-color: #7C0D00;
+  padding-top: 24px;
+  @media (min-width: @grid-float-breakpoint) {
+    #gradient > .vertical(#a60800, #6f0500);
+    background-color: #7C0D00;
+    padding-top: 40px;
+  }
+  .container {
+    background: none repeat scroll 0 0 #B70101;
+    position:relative;
+    padding:0;
+    height:40px;
+    @media (min-width: @grid-float-breakpoint) {
+      height: 90px;
+    }
+    .uw-header-branding {
+      padding:0 2px;
+      .uw-header-logo {
+        margin-top: -23px;
+        width: 30px;
+        @media (min-width: @grid-float-breakpoint) {
+          width: 70px;
+        }
+      }
+      .uw-header-wordmark {
+        color: #FFF;
+        font-family: 'EB Garamond', serif;
+        left: 36px;
+        position: absolute;
+        top: -20px;
+        font-size: 13px;
+        letter-spacing: normal;
+        font-weight: 2px; // set to 'normal' when generating example thumnails via `grunt oneshot`
+        text-decoration: none;
+        width:auto;
+
+
+        @media (min-width: @grid-float-breakpoint) {
+          // width: 260px;
+          left: 68px;
+        }
+
+      }
+      .uw-header-site-title {
+        position: absolute;
+        top: 0;
+        a {
+          color: #ffffff;
+          text-decoration: none;
+        }
+        font-size: 24px;
+        font-family: 'FrizQuadrataSH-Regular', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        padding: 0;
+        margin-top: 6px;
+        left: 36px;
+        @media (min-width: @grid-float-breakpoint) {
+          font-size: 36px;
+          margin-top: 26px;
+          left: 76px;
+        }
+      }
+      .uw-header-tagline {
+        display: none;
+        color: @uw-cream;
+        font-size: @font-size-small ;
+        font-weight: bold;
+        position: absolute;
+        top: 36px;
+        left: 76px;
+      }
+    }
+    .uw-header-search {
+      display: none;
+      text-align: right;
+      padding: 8px 8px 0;
+      #search-submit {
+        display:none;
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+/*  This is example of how you can write your own CSS to customize any template based on the UW UI Toolkit.
+
+The following CSS rules override the default UW UI Toolkit's UW Classic starter template, removing the borders around the #header, #content, and #footer areas */
+
+
+#header {
+	background: #fff;
+}
+
+#header .container {
+	background-color: transparent;
+}
+
+#header .uw-header-site-title a {
+	color: #b70101; 
+}
+
+#header .uw-header-wordmark {
+	color: #333;
+}
+
+/*.navbar.uw-navbar-classic .container .navbar-toggle .icon-bar{
+	background-color: #CCC
+}
+*/
+
+.navbar.uw-navbar-classic .container .nav.uw-navbar-classic-utility > li > a {
+	color: #c8c5bb;
+}
+
+.navbar.uw-navbar-classic .container .nav > li.active,
+.navbar.uw-navbar-classic .container .nav > li > a:hover {
+	background: #d9c39e;
+}
+
+#navbar .uw-navbar-classic {
+	background: #e7dbcb;
+}
+
+#navbar .container {
+	box-shadow: none;
+	background: #e7dbcb;
+}
+#navbar .navbar-nav li,
+#navbar .navbar-nav a {
+	border: none;
+}
+
+#content {
+	background: none;
+}
+
+#content .container {
+	border: none;
+}
+
+#footer {
+	border-top: 10px solid #666152;
+}
+
+#footer .container {
+	border: 0;
+}
+
+@media (max-width: 768px){
+	#header .container {
+		background-color: #e7dbcb;
+	}
+}

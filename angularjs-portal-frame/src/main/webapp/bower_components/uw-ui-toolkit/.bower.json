@@ -1,0 +1,56 @@
+{
+  "name": "uw-ui-toolkit",
+  "version": "0.1.5",
+  "homepage": "https://github.com/UWMadisonUcomm/uw-ui-toolkit",
+  "authors": [
+    "UW-Madison University Communications"
+  ],
+  "description": "UW-Madison UI Toolkit",
+  "main": [
+    "./dist/css/uw-ui-toolkit.css",
+    "./dist/js/uw-ui-toolkit.js",
+    "./dist/img/crest.png",
+    "./dist/img/favicon.ico",
+    "./dist/img/noise.png",
+    "./dist/img/uw-classic-starter.gif",
+    "./dist/img/uwcrest_web_sm.png",
+    "./dist/img/wordmark.png",
+    "./dist/fonts/glyphicons-halflings-regular.eot",
+    "./dist/fonts/glyphicons-halflings-regular.svg",
+    "./dist/fonts/glyphicons-halflings-regular.ttf",
+    "./dist/fonts/glyphicons-halflings-regular.woff"
+  ],
+  "ignore": [
+    "**/.*",
+    "_config.yml",
+    "_site",
+    "config.json",
+    ".bundle",
+    ".ruby-version",
+    "CNAME",
+    "composer.json",
+    "CONTRIBUTING.md",
+    "docs",
+    "js/tests",
+    "build/",
+    "package.json",
+    "node_modules",
+    "bower_components",
+    "Gemfile*",
+    "Gruntfile*",
+    "bower.json"
+  ],
+  "dependencies": {
+    "bootstrap": "3.1.1"
+  },
+  "_release": "0.1.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.5",
+    "commit": "942865872ebd325122f32546dd8fb6bd5e6be6e8"
+  },
+  "_source": "git://github.com/UWMadisonUcomm/uw-ui-toolkit.git",
+  "_target": "~0.1.5",
+  "_originalSource": "uw-ui-toolkit",
+  "_direct": true
+}
