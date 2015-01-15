@@ -31,17 +31,6 @@
            <small>Shows the settings button to get to this page easier</small>
            
        </li>
-       <li class="portlet-container-home beta-card-style">
-         <h4>
-           <span class="btn-group">
-             <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowProfile, 'btn-default' : !$storage.sidebarShowProfile }" ng-model="$storage.sidebarShowProfile" btn-radio="true">On</label>
-             <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowProfile, 'btn-default' : !$storage.sidebarShowProfile }" ng-model="$storage.sidebarShowProfile" btn-radio="false">Off</label>
-           </span>
-           Profile picture 
-         </h4>
-         <small>Shows the profile picture in the sidebar</small>
-         
-       </li>
        <li>
          <h4>
            <span class="btn-group">
@@ -68,6 +57,16 @@
        </li>
        <li class="no-padding portlet-container-home  beta-card-style" style='text-align : center;'>
          <h4>Home Profile Image &nbsp;</h4>
+         
+         <h5>
+           <span class="btn-group">
+             <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowProfile, 'btn-default' : !$storage.sidebarShowProfile }" ng-model="$storage.sidebarShowProfile" btn-radio="true">On</label>
+             <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowProfile, 'btn-default' : !$storage.sidebarShowProfile }" ng-model="$storage.sidebarShowProfile" btn-radio="false">Off</label>
+           </span>
+           Show profile picture 
+         </h5>
+         <small>Shows the profile picture in the sidebar</small>
+         <br/>
          <small>Pick a different profile image for MyUW Home</small>
          <div style='text-align: center;'>
            <div style='padding: 1em;'>
