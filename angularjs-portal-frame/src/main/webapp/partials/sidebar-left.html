@@ -9,11 +9,11 @@
     </div>
     <hr>
     <div   ng-controller="SidebarController as sidebarCtrl">
-        <ul class="list-group sidebar"  >
+        <ul class="list-group sidebar-list">
           <li class="list-group-item" ng-repeat="item in sidebar" ng-if="sidebarCtrl.canSee(item.displayFlag)"><a href="{{item.hyperlink}}" ng-click="navbarCollapsed = true"><span class="fa {{item.faIcon}} fa-fw"></span> {{item.title}}</a></li>
        </ul>
    </div>
-   <ul class="list-group sidebar" >
+   <ul class="list-group sidebar-list" >
     <div class="quicklinks" ng-if="$storage.sidebarQuicklinks">
         <p class="section-divider">Quicklinks</p>
         <li class="list-group-item"><a href="/portal/p/student-center/max/action.uP?pP_action=loginAction" target='_blank' ng-click="navbarCollapsed = true">Student Center</a></li>
