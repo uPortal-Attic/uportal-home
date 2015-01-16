@@ -3,28 +3,46 @@
 (function() {
   var app = angular.module('portal.marketplace.controller', []);
 
-  app.controller('MarketplaceController', [ '$sessionStorage', '$modal', '$timeout', '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($sessionStorage,$modal,$timeout, $rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
+  app.controller('MarketplaceController', 
+    [ '$sessionStorage', '$modal', '$timeout', '$rootScope', '$window', 
+    '$http', '$scope', '$location', '$routeParams', 'marketplaceService',
+    'miscService', 'mainService', 
+    function($sessionStorage, $modal, $timeout, $rootScope, $window, 
+      $http, $scope, $location, $routeParams, marketplaceService, 
+      miscService, mainService) {
 
     $scope.$storage = $sessionStorage;
     //init variables
     var store = this;
     store.portlets = [];
     store.count = 0;
+    store.user = [];
+    mainService.getUser().then(function(result){
+      store.user = result.data.person;
 
-    //get marketplace portlets
-    if($sessionStorage.marketplace != null) {
-        store.portlets = $sessionStorage.marketplace;
-        $scope.categories = $sessionStorage.categories;
-    } else {
-        marketplaceService.getPortlets().then(function(data) {
-          store.portlets = data.portlets;
-          $scope.categories = data.categories;
-          $scope.layout = data.layout;
+      //get marketplace portlets
+      if($sessionStorage.sessionKey == store.user.sessionKey
+        && $sessionStorage.marketplace != null
+        && $sessionStorage.categories != null) {
+
+          store.portlets = $sessionStorage.marketplace;
+          $scope.categories = $sessionStorage.categories;
           
-          $sessionStorage.marketplace = data.portlets;
-          $sessionStorage.categories = data.categories;
-        });
-    }
+      } else {
+          marketplaceService.getPortlets().then(function(data) {
+            store.portlets = data.portlets;
+            $scope.categories = data.categories;
+            $scope.layout = data.layout;
+            
+            $sessionStorage.marketplace = data.portlets;
+            $sessionStorage.categories = data.categories;
+            $sessionStorage.sessionKey = store.user.sessionKey;
+          });
+      }
+      
+    });
+    
+    
 
     //setup search term
     var tempFilterText = '', filterTextTimeout;
