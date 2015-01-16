@@ -98,7 +98,11 @@
          <small>Pick a different profile image for MyUW Home</small>
          <div style='text-align: center;'>
            <div style='padding: 1em;'>
-             <img ng-src="{{$storage.profileImg}}" height='100px'>
+             <img ng-src="{{$storage.profileImg}}" height='100px' ng-click="showCustom=true;">
+           </div>
+           <div class="form-group" ng-if="showCustom">
+             <label for="customProfilePic">Custom URL</label>
+             <input type="URL" class="form-control" id="customProfilePic" placeholder="http://grumpycat.com" ng-model="$storage.profileImg">
            </div>
            <label class="btn btn-primary" ng-model="$storage.profileImg" btn-radio="'img/terrace.jpg'">Chairs at the Union Terrace</label>
            <label class="btn btn-primary" ng-model="$storage.profileImg" btn-radio="'img/square.jpg'">333 East Campus</label>
