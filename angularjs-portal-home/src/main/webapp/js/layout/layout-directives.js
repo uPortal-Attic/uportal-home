@@ -16,6 +16,14 @@
           templateUrl : 'partials/static-content-card.html'
       }
   });
+  
+  app.directive('pithyContentCard', function(){
+      return {
+          restrict : 'E',
+          templateUrl : 'partials/pithy-content-card.html'
+      }
+  });
+
 
    app.directive('marketplaceLight', function(){
       return{

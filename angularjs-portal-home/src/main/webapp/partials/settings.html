@@ -49,7 +49,25 @@
            </span>
            Static content cards
          </h4>
-         <small>Shows static content cards rather than default cards for portlets with associated static content.</small>
+         <small>Shows static content cards rather than default cards for portlets with associated static content.  Static content cards are the cards that expand to show the static content right on the home.</small>
+       </li>
+       <li class="portlet-container-home beta-card-style">
+         <h4>
+           <span class="btn-group">
+             <label class="btn" ng-class="{'btn-success' : $storage.pithyContentOnHome, 'btn-default' : !$storage.pithyContentOnHome }" ng-model="$storage.pithyContentOnHome" btn-radio="true">On</label>
+             <label class="btn" ng-class="{'btn-success' : $storage.pithyContentOnHome, 'btn-default' : !$storage.pithyContentOnHome }" ng-model="$storage.pithyContentOnHome" btn-radio="false">Off</label>
+           </span>
+           Pithy content cards
+         </h4>
+         <small>Shows pithy content cards rather than default cards for portlets with associated pithy static content.  Pithy content cards are the cards show some portlet-specific markup right on the face of the card.</small>
+         <div class="alert alert-info" role="alert"
+           ng-show="$storage.pithyContentOnHome 
+                    && $storage.staticContentOnHome">
+          The static card feature takes precedence over pithy content, 
+          so for portlets with both static and pithy content associated 
+          with them, the Static content card will display and 
+          the Pithy content card will not.
+         </div>
        </li>
     </ul>
     <ul class="col-sm-6" style='padding-top: 1em;'>
