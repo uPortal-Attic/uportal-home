@@ -60,6 +60,14 @@
            Pithy content cards
          </h4>
          <small>Shows pithy content cards rather than default cards for portlets with associated pithy static content.  Pithy content cards are the cards show some portlet-specific markup right on the face of the card.</small>
+         <div class="alert alert-info" role="alert"
+           ng-show="$storage.pithyContentOnHome 
+                    && $storage.staticContentOnHome">
+          The static card feature takes precedence over pithy content, 
+          so for portlets with both static and pithy content associated 
+          with them, the Static content card will display and 
+          the Pithy content card will not.
+         </div>
        </li>
     </ul>
     <ul class="col-sm-6" style='padding-top: 1em;'>
