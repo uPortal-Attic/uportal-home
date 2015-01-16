@@ -38,11 +38,11 @@
        <li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 no-padding portlet-container-home" ng-repeat="portlet in layout">
           <default-card 
             ng-if="!$storage.staticContentOnHome || 
-                    portlet.staticContent == null">
+                    portlet.pithyStaticContent == null">
           </default-card>
           <static-content-card 
             ng-if="$storage.staticContentOnHome &&
-                    portlet.staticContent != null">
+                    portlet.pithyStaticContent != null">
           </static-content-card>
         </li>
     </ul>
