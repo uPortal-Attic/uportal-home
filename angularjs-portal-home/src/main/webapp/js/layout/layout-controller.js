@@ -61,17 +61,21 @@
 
       this.toggleDiv = function toggleDiv(nodeId) {
           //Toggle Make full row
-          $('#portlet-id-' + nodeId).parent().parent('.portlet-container').toggleClass('col-sm-6');
-          $('#portlet-id-' + nodeId).parent().parent('.portlet-container').toggleClass('col-md-6');
-          $('#portlet-id-' + nodeId).parent().parent('.portlet-container').toggleClass('col-lg-4');
+          $('#portlet-id-' + nodeId).parent().parent().toggleClass('col-sm-6');
+          $('#portlet-id-' + nodeId).parent().parent().toggleClass('col-md-6');
+          $('#portlet-id-' + nodeId).parent().parent().toggleClass('col-lg-4');
 
-          $('#portlet-id-' + nodeId).parent().parent('.portlet-container').toggleClass('col-sm-12');
+          $('#portlet-id-' + nodeId).parent().parent().toggleClass('col-sm-12');
 
           //Toggle height : auto
           if( $('#portlet-id-' + nodeId).css('height') == '150px') {
               $('#portlet-id-' + nodeId).css('height','auto');
+              $('#portlet-id-' + nodeId).parent().parent().css('width','100%');
+              $('#portlet-id-' + nodeId).parent().parent().css('z-index','1000');
+              
           } else {
               $('#portlet-id-' + nodeId).css('height','150px');
+              $('#portlet-id-' + nodeId).parent().parent().css('width','');
           }
 
           //Toggle content visible

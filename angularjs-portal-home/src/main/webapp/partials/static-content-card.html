@@ -1,4 +1,4 @@
-<div class="portlet-div" id="portlet-id-{{::portlet.nodeId}}" ng-click="mainCtrl.toggleDiv(portlet.nodeId);">
+<div class="portlet-div" id="portlet-id-{{::portlet.nodeId}}" ng-click="layoutCtrl.toggleDiv(portlet.nodeId);">
 
   <div class="portlet-title">
       <img ng-src="{{portlet.iconUrl}}" ng-if="portlet.faIcon === '' || portlet.faIcon === null" alt="App icon"><i class="fa {{::portlet.faIcon}}" ng-if="portlet.faIcon !== '' && portlet.faIcon !== null"></i><h1>{{ ::portlet.title }}</h1>
