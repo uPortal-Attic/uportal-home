@@ -3,7 +3,7 @@
 (function() {
   var app = angular.module('portal.marketplace.controller', []);
 
-  app.controller('MarketplaceController', [ '$sessionStorage', '$modal', '$timeout', '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', function($sessionStorage,$modal,$timeout, $rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService) {
+  app.controller('MarketplaceController', [ '$sessionStorage', '$modal', '$timeout', '$rootScope',  '$window', '$http', '$scope','$location','$routeParams','marketplaceService','miscService', 'mainService', function($sessionStorage,$modal,$timeout, $rootScope, $window, $http, $scope, $location, $routeParams, marketplaceService, miscService, mainService) {
 
     $scope.$storage = $sessionStorage;
     //init variables
