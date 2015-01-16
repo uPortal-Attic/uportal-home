@@ -1,5 +1,4 @@
-<div class="portlet-div" id="portlet-id-{{::portlet.nodeId}}" ng-click="mainCtrl.toggleDiv(portlet.nodeId);">
-
+<div class="portlet-div" id="portlet-id-{{::portlet.nodeId}}">
   <div class="portlet-title">
       <img ng-src="{{portlet.iconUrl}}" ng-if="portlet.faIcon === '' || portlet.faIcon === null" alt="App icon"><i class="fa {{::portlet.faIcon}}" ng-if="portlet.faIcon !== '' && portlet.faIcon !== null"></i><h1>{{ ::portlet.title }}</h1>
   </div>
@@ -8,8 +7,6 @@
      <i title="Remove" class="fa fa-times portlet-options" ng-click="layoutCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
   </div>
   <div class="portlet-content">
-    {{:: portlet.description | truncate:160}}
-  </div>
-  <div ng-bind-html="portlet.staticContent" class="hidden up-portlet-content-wrapper" id="content-{{::portlet.nodeId}}">
+    <div ng-bind-html="portlet.pithyStaticContent"></div>
   </div>
 </div>
