@@ -51,6 +51,16 @@
          </h4>
          <small>Shows static content cards rather than default cards for portlets with associated static content.</small>
        </li>
+       <li class="portlet-container-home beta-card-style">
+         <h4>
+           <span class="btn-group">
+             <label class="btn" ng-class="{'btn-success' : $storage.pithyContentOnHome, 'btn-default' : !$storage.pithyContentOnHome }" ng-model="$storage.pithyContentOnHome" btn-radio="true">On</label>
+             <label class="btn" ng-class="{'btn-success' : $storage.pithyContentOnHome, 'btn-default' : !$storage.pithyContentOnHome }" ng-model="$storage.pithyContentOnHome" btn-radio="false">Off</label>
+           </span>
+           Pithy content cards
+         </h4>
+         <small>Shows pithy content cards rather than default cards for portlets with associated pithy static content.  Pithy content cards are the cards show some portlet-specific markup right on the face of the card.</small>
+       </li>
     </ul>
     <ul class="col-sm-6" style='padding-top: 1em;'>
         <li class="no-padding portlet-container-home  beta-card-style" style='text-align : center;'>

@@ -12,7 +12,8 @@
       sidebarShowProfile: false, 
       profileImg: "img/terrace.jpg", 
       notificationsDemo : false, 
-      staticContentOnHome : false } );
+      staticContentOnHome : false,
+      pithyContentOnHome : false } );
   } ]);
 
   /* Username */
