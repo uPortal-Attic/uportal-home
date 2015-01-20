@@ -42,7 +42,7 @@ a#myuw-header img {
 
 .navbar-default .navbar-toggle {
   float: left;
-  margin-left: .5em;
+  margin-left: 8px;
   background-color:rgba(20,20,20,0.7);
   border-color:transparent;
   .icon-bar {
@@ -53,16 +53,22 @@ a#myuw-header img {
 .navbar-default .navbar-toggle:focus {
   background-color:rgba(20,20,20,0.9);
 }
+.navbar.navbar-default .navbar-header,
+.navbar.navbar-inverse .navbar-header {
+  margin-left: -15px;
+}
 .navbar-brand {
   padding:15px 15px 15px 0px;
 }
+.bucky-nav {
+  background:linear-gradient(
+    rgba(20,20,20, 0.8), 
+    rgba(20,20,20, 0.8)
+    ),url(../img/madison.jpg);
+  background-size:100%;
+}
 .bucky-nav ul {
   width: 100% !important;
-  background-image:url('../img/large-crest.png');
-  background-size: 70%;
-  background-repeat: no-repeat;
-  background-position: 130% 45%;
-  padding-bottom: 20px;
   margin:0px;
   li {
     position: relative;
