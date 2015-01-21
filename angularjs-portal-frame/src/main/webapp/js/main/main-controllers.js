@@ -28,6 +28,7 @@
 
   /* Header */
   app.controller('HeaderController', ['$scope','$location', function($scope, $location) {
+    this.navbarCollapsed = true;
     $scope.showSearch = false;
     $scope.showSearchFocus = false;
     $scope.submit = function(){
