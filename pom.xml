@@ -14,6 +14,13 @@
   <version>4.1.1.14-SNAPSHOT</version>
   <name>angularjs-portal</name>
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
+
+  <scm>
+    <connection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</connection>
+    <developerConnection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</developerConnection>
+    <url>https://github.com/Jasig/angularjs-portal</url>
+    <tag>HEAD</tag>
+  </scm>
   
   <repositories>
         <repository>
