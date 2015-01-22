@@ -1,6 +1,6 @@
 {
   "name": "uw-ui-toolkit",
-  "version": "0.1.5",
+  "version": "0.2.2",
   "homepage": "https://github.com/UWMadisonUcomm/uw-ui-toolkit",
   "authors": [
     "UW-Madison University Communications"
@@ -24,21 +24,37 @@
     "**/.*",
     "_config.yml",
     "_site",
+    "_includes",
+    "_layouts",
+    "_plugins",
+    "/doc-assets",
+    "/documentation",
+    "/examples",
+    "/getting-started",
+    "/my-uw",
+    "/ui-components",
     "config.json",
     ".bundle",
     ".ruby-version",
     "CNAME",
     "composer.json",
     "CONTRIBUTING.md",
-    "docs",
+    "/docs",
     "js/tests",
-    "build/",
+    "/build/",
     "package.json",
     "node_modules",
     "bower_components",
     "Gemfile*",
     "Gruntfile*",
-    "bower.json"
+    "bower.json",
+    "kitchensink.html",
+    "index.md",
+    "NOTICE",
+    "NOTICE.template",
+    "LICENSE",
+    "README-Maven.md",
+    "pom.xml"
   ],
   "dependencies": {
     "bootstrap": "3.1.1"
