@@ -29,7 +29,7 @@
     <marketplace-portlet></marketplace-portlet>
   </div>
   <div class="marketplace-load-more">
-    <button class="btn btn-uw btn-lg"
+    <button class="btn btn-lg"
             ng-click="searchResultLimit = searchResultLimit + 20;"
             hide-while-loading
             ng-show="(marketplaceCtrl.portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"
