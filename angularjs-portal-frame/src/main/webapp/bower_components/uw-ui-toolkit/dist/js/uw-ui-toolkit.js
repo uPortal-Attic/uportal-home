@@ -175,14 +175,14 @@
             relatedTarget: $next[0],
             direction: direction
         });
-        // force reflow
         return this.$element.trigger(e), e.isDefaultPrevented() ? void 0 : (this.sliding = !0, 
         isCycling && this.pause(), this.$indicators.length && (this.$indicators.find(".active").removeClass("active"), 
         this.$element.one("slid.bs.carousel", function() {
             var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()]);
             $nextIndicator && $nextIndicator.addClass("active");
         })), $.support.transition && this.$element.hasClass("slide") ? ($next.addClass(type), 
-        $next[0].offsetWidth, $active.addClass(direction), $next.addClass(direction), $active.one($.support.transition.end, function() {
+        $next[0].offsetWidth, // force reflow
+        $active.addClass(direction), $next.addClass(direction), $active.one($.support.transition.end, function() {
             $next.removeClass([ type, direction ].join(" ")).addClass("active"), $active.removeClass([ "active", direction ].join(" ")), 
             that.sliding = !1, setTimeout(function() {
                 that.$element.trigger("slid.bs.carousel");
@@ -267,7 +267,8 @@
                 var complete = function() {
                     this.transitioning = 0, this.$element.trigger("hidden.bs.collapse").removeClass("collapsing").addClass("collapse");
                 };
-                return $.support.transition ? void this.$element[dimension](0).one($.support.transition.end, $.proxy(complete, this)).emulateTransitionEnd(350) : complete.call(this);
+                return $.support.transition ? (this.$element[dimension](0).one($.support.transition.end, $.proxy(complete, this)).emulateTransitionEnd(350), 
+                void 0) : complete.call(this);
             }
         }
     }, Collapse.prototype.toggle = function() {
@@ -525,14 +526,14 @@
         }), options;
     }, Tooltip.prototype.enter = function(obj) {
         var self = obj instanceof this.constructor ? obj : $(obj.currentTarget)[this.type](this.getDelegateOptions()).data("bs." + this.type);
-        return clearTimeout(self.timeout), self.hoverState = "in", self.options.delay && self.options.delay.show ? void (self.timeout = setTimeout(function() {
+        return clearTimeout(self.timeout), self.hoverState = "in", self.options.delay && self.options.delay.show ? (self.timeout = setTimeout(function() {
             "in" == self.hoverState && self.show();
-        }, self.options.delay.show)) : self.show();
+        }, self.options.delay.show), void 0) : self.show();
     }, Tooltip.prototype.leave = function(obj) {
         var self = obj instanceof this.constructor ? obj : $(obj.currentTarget)[this.type](this.getDelegateOptions()).data("bs." + this.type);
-        return clearTimeout(self.timeout), self.hoverState = "out", self.options.delay && self.options.delay.hide ? void (self.timeout = setTimeout(function() {
+        return clearTimeout(self.timeout), self.hoverState = "out", self.options.delay && self.options.delay.hide ? (self.timeout = setTimeout(function() {
             "out" == self.hoverState && self.hide();
-        }, self.options.delay.hide)) : self.hide();
+        }, self.options.delay.hide), void 0) : self.hide();
     }, Tooltip.prototype.show = function() {
         var e = $.Event("show.bs." + this.type);
         if (this.hasContent() && this.enabled) {
@@ -606,7 +607,6 @@
             height: el.offsetHeight
         }, this.$element.offset());
     }, Tooltip.prototype.getCalculatedOffset = function(placement, pos, actualWidth, actualHeight) {
-        /* placement == 'right' */
         return "bottom" == placement ? {
             top: pos.top + pos.height,
             left: pos.left + pos.width / 2 - actualWidth / 2
@@ -616,7 +616,8 @@
         } : "left" == placement ? {
             top: pos.top + pos.height / 2 - actualHeight / 2,
             left: pos.left - actualWidth
-        } : {
+        } : /* placement == 'right' */
+        {
             top: pos.top + pos.height / 2 - actualHeight / 2,
             left: pos.left + pos.width
         };
@@ -724,7 +725,7 @@
     // ==========================
     function ScrollSpy(element, options) {
         var href, process = $.proxy(this.process, this);
-        this.$element = $($(element).is("body") ? window : element), this.$body = $("body"), 
+        this.$element = $(element).is("body") ? $(window) : $(element), this.$body = $("body"), 
         this.$scrollElement = this.$element.on("scroll.bs.scroll-spy.data-api", process), 
         this.options = $.extend({}, ScrollSpy.DEFAULTS, options), this.selector = (this.options.target || (href = $(element).attr("href")) && href.replace(/.*(?=#[^\s]+$)/, "") || "") + " .nav li > a", 
         this.offsets = $([]), this.targets = $([]), this.activeTarget = null, this.refresh(), 
