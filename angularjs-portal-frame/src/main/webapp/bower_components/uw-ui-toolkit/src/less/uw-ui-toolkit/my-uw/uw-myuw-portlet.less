@@ -1,5 +1,103 @@
 /* MyUW Portlet Styles */
 
+.my-uw {
+  /* Buttons */
+  .btn-lg {
+    padding:12px 40px;
+  }
+  .btn-sm {
+    padding:4px 12px;
+  }
+  .btn-xs {
+    padding:2px 5px;
+  }
+  .btn {
+    background-color: #b70101;
+    margin: 10px 0px;
+    color: #fff;
+    border-radius: 4px;
+    border: 0px solid transparent;
+    box-shadow: 0px 5px 0px #600;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    position: relative;
+  }
+  .btn:hover {
+    transform: translateY(2px);
+    background-color:#900;
+    text-decoration:none;
+    box-shadow:0px 3px 0px #000;
+    transition:0.1s ease-in-out;
+  }
+  // .btn:active {
+  //   box-shadow:0px 1px 0px #000;
+  //   transform:translateY(4px);
+  // }
+  .btn-flat {
+    background-color:#b70101;
+    border:0px solid transparent;
+    border-radius:4px;
+    margin:10px 0px;
+    color:#fff;
+    box-shadow:none;
+  }
+  .btn-flat:hover {
+    transform:none;
+    background-color:#900;
+    box-shadow:none;
+  }
+  .btn-outline {
+    background-color:transparent;
+    color:#b70101;
+    margin:10px 0px;
+    border-radius:4px;
+    border:1px solid #b70101;
+    box-shadow:none;
+  }
+  .btn-outline:hover {
+    background-color:#b70101;
+    box-shadow:none;
+    transform:none;
+    color:#fff;
+  }
+  .btn-dark {
+    background-color:#900;
+    box-shadow:0px 5px 0px #600;
+  }
+  .btn-dark:hover {
+    background-color:#600;
+  }
+  .btn-success {
+    background-color:#00c70d;
+    box-shadow:0px 5px 0px #009411;
+  }
+  .btn-success:hover {
+    background-color:#009411;
+    box-shadow:0px 3px 0px #067500;
+  }
+  .btn-neutral {
+    background-color:#007acc;
+    box-shadow:0px 5px 0px #004980;
+  }
+  .btn-neutral:hover {
+    background-color:#004980;
+    box-shadow: 0px 3px 0px #002c52;
+  }
+  .btn-disabled {
+    background-color:#ddd;
+    color:#999;
+    box-shadow:0px 5px 0px #ccc;
+    cursor:default;
+  }
+  .btn-disabled:hover {
+    transform:none;
+    background-color:#ddd;
+    color:#999;
+    box-shadow:0px 5px 0px #ccc;
+    cursor:default;
+  }
+}
+
 .up-portlet-content-wrapper {
   padding:10px 20px;
   padding-right:20px;
@@ -113,101 +211,7 @@
     margin:0px auto;
   }
   
-  /* Buttons */
-  .btn-lg {
-    padding:12px 40px;
-  }
-  .btn-sm {
-    padding:4px 12px;
-  }
-  .btn-xs {
-    padding:2px 5px;
-  }
-  .btn-uw {
-    background-color: #b70101;
-    margin: 10px 0px;
-    color: #fff;
-    border-radius: 4px;
-    border: 0px solid transparent;
-    box-shadow: 0px 5px 0px #600;
-    cursor: pointer;
-    transition: 0.1s ease-in-out;
-    position: relative;
-  }
-  .btn-uw:hover {
-    transform: translateY(2px);
-    background-color:#900;
-    text-decoration:none;
-    box-shadow:0px 3px 0px #000;
-    transition:0.1s ease-in-out;
-  }
-  // .btn-uw:active {
-  //   box-shadow:0px 1px 0px #000;
-  //   transform:translateY(4px);
-  // }
-  .btn-uw-flat {
-    background-color:#b70101;
-    border:0px solid transparent;
-    border-radius:4px;
-    margin:10px 0px;
-    color:#fff;
-    box-shadow:none;
-  }
-  .btn-uw-flat:hover {
-    transform:none;
-    background-color:#900;
-    box-shadow:none;
-  }
-  .btn-uw-outline {
-    background-color:transparent;
-    color:#b70101;
-    margin:10px 0px;
-    border-radius:4px;
-    border:1px solid #b70101;
-    box-shadow:none;
-  }
-  .btn-uw-outline:hover {
-    background-color:#b70101;
-    box-shadow:none;
-    transform:none;
-    color:#fff;
-  }
-  .btn-uw-dark {
-    background-color:#900;
-    box-shadow:0px 5px 0px #600;
-  }
-  .btn-uw-dark:hover {
-    background-color:#600;
-  }
-  .btn-uw-success {
-    background-color:#00c70d;
-    box-shadow:0px 5px 0px #009411;
-  }
-  .btn-uw-success:hover {
-    background-color:#009411;
-    box-shadow:0px 3px 0px #067500;
-  }
-  .btn-uw-neutral {
-    background-color:#007acc;
-    box-shadow:0px 5px 0px #004980;
-  }
-  .btn-uw-neutral:hover {
-    background-color:#004980;
-    box-shadow: 0px 3px 0px #002c52;
-  }
-  .btn-uw-disabled {
-    background-color:#ddd;
-    color:#999;
-    box-shadow:0px 5px 0px #ccc;
-    cursor:default;
-  }
-  .btn-uw-disabled:hover {
-    transform:none;
-    background-color:#ddd;
-    color:#999;
-    box-shadow:0px 5px 0px #ccc;
-    cursor:default;
-  }
+  
   
   /* Search */
   .uw-search-group {

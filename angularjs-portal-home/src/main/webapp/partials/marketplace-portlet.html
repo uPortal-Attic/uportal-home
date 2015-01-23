@@ -7,7 +7,7 @@
   <div class="action-buttons" ng-click="showDetails = !showDetails">
 
     <!-- Add to Home button with access -->
-    <button class="btn btn-default btn-add fname-{{::portlet.fname}}"
+    <button class="btn fname-{{::portlet.fname}}"
             ng-click="marketplaceCtrl.addToHome($index , portlet)"
             ng-if="portlet.canAdd && !portlet.hasInLayout"
             ng-class="{disabled : portlet.hasInLayout}">
@@ -15,9 +15,9 @@
     </button>
 
     <!-- Already in Home -->
-    <button class="btn btn-default btn-add fname-{{::portlet.fname}}"
+    <button class="btn btn-disabled fname-{{::portlet.fname}}"
             ng-if="portlet.canAdd && portlet.hasInLayout"
-            ng-class="{disabled : portlet.hasInLayout}"
+            ng-class="{btn-disabled : portlet.hasInLayout}"
             popover="This app is already in your favorites"
             popover-trigger="mouseenter"
             popover-placement="top"
@@ -26,15 +26,15 @@
     </button>
 
     <!-- Add to Home button without access -->
-    <button class="btn btn-default btn-add disabled" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
+    <button class="btn btn-disabled" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
       <span class="fa fa-plus"></span>Add to Favorites
     </button>
 
     <!-- Launch button with access -->
-    <a class="btn btn-default btn-launch" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a class="btn btn-success" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
     <!-- Launch button without access -->
-    <a class="btn btn-default btn-launch disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
   </div><br>
   <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
@@ -55,20 +55,20 @@
   <div class="action-buttons-mobile" ng-click="showDetails = !showDetails">
 
     <!-- Add to Home button with access on mobile-->
-    <button class="btn btn-default btn-add fname-{{::portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd">
+    <button class="btn fname-{{::portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd">
       <span class="fa fa-plus"></span>Add to Favorites
     </button>
 
     <!-- Add to Home button without access on mobile-->
-    <button class="btn btn-default btn-add disabled" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
+    <button class="btn btn-disabled" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
       <span class="fa fa-plus"></span>Add to Favorites
     </button>
 
     <!-- Launch button with access on mobile-->
-    <a class="btn btn-default btn-launch" href="{{::portlet.maxUrl}}" ng-show="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a class="btn btn-success" href="{{::portlet.maxUrl}}" ng-show="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
     <!-- Launch button without access on mobile-->
-    <a class="btn btn-default btn-launch disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
   </div>
 
   
