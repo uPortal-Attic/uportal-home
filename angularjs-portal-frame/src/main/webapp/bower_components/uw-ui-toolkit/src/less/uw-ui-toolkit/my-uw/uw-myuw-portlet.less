@@ -12,27 +12,39 @@
     padding:2px 5px;
   }
   .btn {
-    background-color: #b70101;
     margin: 10px 0px;
-    color: #fff;
     border-radius: 4px;
-    border: 0px solid transparent;
-    box-shadow: 0px 5px 0px #600;
     cursor: pointer;
     transition: 0.1s ease-in-out;
     position: relative;
+    border:0px solid transparent;
+    box-shadow:0px 0px 0px transparent;
   }
   .btn:hover {
     transform: translateY(2px);
-    background-color:#900;
     text-decoration:none;
-    box-shadow:0px 3px 0px #000;
     transition:0.1s ease-in-out;
   }
-  // .btn:active {
-  //   box-shadow:0px 1px 0px #000;
-  //   transform:translateY(4px);
-  // }
+  .btn-default {
+    background-color:transparent;
+    color: #222;
+    box-shadow: 0px 2px 0px #ccc;
+    border: 1px solid #ddd;
+  }
+  .btn-default:hover {
+    background-color:#ddd;
+    box-shadow:0px 0px 0px #000;
+  }
+  .btn-primary {
+    background-color: #b70101;
+    color:#fff;
+    box-shadow:0px 2px 0px #600;
+    border:0px solid transparent;
+  }
+  .btn-primary:hover {
+    background-color:#900;
+    box-shadow:0px 0px 0px #900;
+  }
   .btn-flat {
     background-color:#b70101;
     border:0px solid transparent;
@@ -44,6 +56,7 @@
   .btn-flat:hover {
     transform:none;
     background-color:#900;
+    color:#fff;
     box-shadow:none;
   }
   .btn-outline {
@@ -62,39 +75,61 @@
   }
   .btn-dark {
     background-color:#900;
-    box-shadow:0px 5px 0px #600;
+    box-shadow:0px 2px 0px #600;
+    border:0px solid transparent;
+    color:#fff;
   }
   .btn-dark:hover {
     background-color:#600;
+    box-shadow:0px 0px 0px #900;
+    color:#fff;
   }
   .btn-success {
     background-color:#00c70d;
-    box-shadow:0px 5px 0px #009411;
+    box-shadow:0px 2px 0px #009411;
+    border:0px solid transparent;
+    color:#fff;
   }
   .btn-success:hover {
     background-color:#009411;
-    box-shadow:0px 3px 0px #067500;
+    box-shadow:0px 0px 0px #067500;
+    color:#fff;
   }
   .btn-neutral {
     background-color:#007acc;
-    box-shadow:0px 5px 0px #004980;
+    box-shadow:0px 2px 0px #004980;
+    border:0px solid transparent;
+    color:#fff;
   }
   .btn-neutral:hover {
     background-color:#004980;
-    box-shadow: 0px 3px 0px #002c52;
+    box-shadow: 0px 0px 0px #002c52;
+    color:#fff;
   }
   .btn-disabled {
     background-color:#ddd;
     color:#999;
-    box-shadow:0px 5px 0px #ccc;
+    box-shadow:0px 2px 0px #ccc;
+    border:0px solid transparent;
     cursor:default;
   }
   .btn-disabled:hover {
     transform:none;
     background-color:#ddd;
     color:#999;
-    box-shadow:0px 5px 0px #ccc;
     cursor:default;
+  }
+  .btn:active {
+    box-shadow:inset 0px 2px 3px #555;
+    outline:none;
+  }
+  .btn-flat:active,
+  .btn-outline:active {
+    box-shadow:0px 0px 0px transparent;
+    outline:none;
+  }
+  .btn-disabled:active {
+    box-shadow:0px 2px 0px #ccc;
   }
 }
 
