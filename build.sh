@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ "$#" = "0" ]; then
- mvn -Djava.awt.headless=true clean package
+ mvn -Djava.awt.headless=true clean install
 else 
  mvn -Djava.awt.headless=true $@
 fi
