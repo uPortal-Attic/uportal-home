@@ -7,7 +7,7 @@
   <div class="action-buttons" ng-click="showDetails = !showDetails">
 
     <!-- Add to Home button with access -->
-    <button class="btn fname-{{::portlet.fname}}"
+    <button class="btn btn-primary fname-{{::portlet.fname}}"
             ng-click="marketplaceCtrl.addToHome($index , portlet)"
             ng-if="portlet.canAdd && !portlet.hasInLayout"
             ng-class="{disabled : portlet.hasInLayout}">
@@ -55,7 +55,7 @@
   <div class="action-buttons-mobile" ng-click="showDetails = !showDetails">
 
     <!-- Add to Home button with access on mobile-->
-    <button class="btn fname-{{::portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd">
+    <button class="btn btn-primary fname-{{::portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd">
       <span class="fa fa-plus"></span>Add to Favorites
     </button>
 
