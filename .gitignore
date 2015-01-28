@@ -7,3 +7,4 @@ src/main/webapp/css/angular.css
 src/main/webapp/config.js
 .classpath
 .settings
+.tern-project
