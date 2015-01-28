@@ -1,0 +1,12 @@
+<div class="row card"  ng-controller="StaticContentController as staticContentCtrl">
+  <div class="card-header">
+    <img class="header-image" ng-src="{{$storage.homeImg}}" alt="UW Campus cover image">
+    <div class="card-header-text">
+      <h1><img ng-src="{{portlet.iconUrl}}" ng-if="portlet.faIcon === '' || portlet.faIcon === null" alt="App icon"><i class="fa {{::portlet.faIcon}}" ng-if="portlet.faIcon !== '' && portlet.faIcon !== null"></i> {{ ::portlet.title }}</h1>
+    </div>
+  </div>
+  <div class="col-xs-12 no-padding portlet-section">
+	  <div ng-bind-html="portlet.staticContent" class="up-portlet-content-wrapper" id="content-{{::portlet.nodeId}}">
+	  </div>
+  </div>
+</div>

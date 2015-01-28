@@ -44,12 +44,29 @@
        <li class="portlet-container-home beta-card-style">
          <h4>
            <span class="btn-group">
+             <label class="btn" ng-class="{'btn-success' : $storage.staticContentMax, 'btn-default' : !$storage.staticContentMax }" ng-model="$storage.staticContentMax" btn-radio="true">On</label>
+             <label class="btn" ng-class="{'btn-success' : $storage.staticContentMax, 'btn-default' : !$storage.staticContentMax }" ng-model="$storage.staticContentMax" btn-radio="false">Off</label>
+           </span>
+           Static content on an Angular max page
+         </h4>
+         <small>Just changes the ng-view to /static/fname. This will save a server trip and 2 xslt transformatios.</small>
+       </li>
+       <li class="portlet-container-home beta-card-style">
+         <h4>
+           <span class="btn-group">
              <label class="btn" ng-class="{'btn-success' : $storage.staticContentOnHome, 'btn-default' : !$storage.staticContentOnHome }" ng-model="$storage.staticContentOnHome" btn-radio="true">On</label>
              <label class="btn" ng-class="{'btn-success' : $storage.staticContentOnHome, 'btn-default' : !$storage.staticContentOnHome }" ng-model="$storage.staticContentOnHome" btn-radio="false">Off</label>
            </span>
-           Static content cards
+           Static Content Cards
          </h4>
          <small>Shows static content cards rather than default cards for portlets with associated static content.  Static content cards are the cards that expand to show the static content right on the home.</small>
+         <div class="alert alert-info" role="alert"
+           ng-show="$storage.staticContentMax 
+                    && $storage.staticContentOnHome">
+          The "Static content on an Angular max page" feature takes precedence over 
+          "Static Content Cards", so for portlets with static content associated 
+          with them, the Static content max will display on click.
+         </div>
        </li>
        <li class="portlet-container-home beta-card-style">
          <h4>
@@ -62,10 +79,11 @@
          <small>Shows pithy content cards rather than default cards for portlets with associated pithy static content.  Pithy content cards are the cards show some portlet-specific markup right on the face of the card.</small>
          <div class="alert alert-info" role="alert"
            ng-show="$storage.pithyContentOnHome 
-                    && $storage.staticContentOnHome">
-          The static card feature takes precedence over pithy content, 
+                    && ($storage.staticContentOnHome ||
+                        $storage.staticContentMax)">
+          The static content features take precedence over pithy content, 
           so for portlets with both static and pithy content associated 
-          with them, the Static content card will display and 
+          with them, the Static content will display and 
           the Pithy content card will not.
          </div>
        </li>

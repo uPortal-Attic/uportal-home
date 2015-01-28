@@ -29,6 +29,7 @@
       when('/notifications', {templateUrl: 'partials/notifications-full.html'}). 
       when('/apps/details/:fname', {templateUrl: 'partials/marketplace-details.html', controller:'MarketplaceDetailsController'}).
       when('/apps/search/:initFilter', {templateUrl: 'partials/marketplace.html'}).
+      when('/static/:fname', {templateUrl: 'partials/static-content-max.html'}).
       otherwise({templateUrl: 'partials/layout.html'});
       }
  	]);
