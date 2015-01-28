@@ -11,7 +11,8 @@
       homeImg : "img/square.jpg", 
       sidebarShowProfile: false, 
       profileImg: "img/terrace.jpg", 
-      notificationsDemo : false, 
+      notificationsDemo : false,
+      staticContentMax : false,
       staticContentOnHome : false,
       pithyContentOnHome : false } );
   } ]);

@@ -17,6 +17,13 @@
       }
   });
   
+  app.directive('staticContentCardMax', function(){
+      return {
+          restrict : 'E',
+          templateUrl : 'partials/static-content-card-max.html'
+      }
+  });
+  
   app.directive('pithyContentCard', function(){
       return {
           restrict : 'E',

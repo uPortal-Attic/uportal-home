@@ -41,14 +41,23 @@
                     portlet.staticContent == null)
                     &&
                     (!$storage.pithyContentOnHome || 
-                     portlet.pithyStaticContent == null)">
+                     portlet.pithyStaticContent == null)
+                    &&
+                    (!$storage.staticContentMax || 
+                    portlet.staticContent == null)">
           </default-card>
-          <static-content-card 
-            ng-if="$storage.staticContentOnHome &&
+          <static-content-card-max 
+            ng-if="$storage.staticContentMax &&
                     portlet.staticContent != null">
+          </static-content-card-max>
+          <static-content-card 
+            ng-if="$storage.staticContentOnHome   &&
+                    portlet.staticContent != null &&
+                    !$storage.staticContentMax">
           </static-content-card>
           <pithy-content-card 
-            ng-if="(!$storage.staticContentOnHome || 
+            ng-if="((!$storage.staticContentOnHome &&
+                    !$storage.staticContentMax) ||
                     portlet.staticContent == null)
                     &&
                     ($storage.pithyContentOnHome &&
