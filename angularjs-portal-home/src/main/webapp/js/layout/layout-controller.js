@@ -3,13 +3,16 @@
 (function() {
   var app = angular.module('portal.layout.controllers', []);
 
-  app.controller('LayoutController', [ '$location', '$sessionStorage', '$scope', 'layoutService', 'miscService', 'sharedPortletService', function($location, $sessionStorage, $scope, layoutService, miscService, sharedPortletService) {
+  app.controller('LayoutController', [ '$location', '$sessionStorage', '$scope', '$rootScope', 'layoutService', 'miscService', 'sharedPortletService', function($location, $sessionStorage, $scope, $rootScope, layoutService, miscService, sharedPortletService) {
     miscService.pushPageview();
-    $scope.layout = [];
-
-    layoutService.getLayout().then(function(data){
-      $scope.layout = data.layout;
-    });
+    if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
+      
+      $rootScope.layout = [];
+    
+      layoutService.getLayout().then(function(data){
+        $rootScope.layout = data.layout;
+      });
+    }
     
     this.maxStaticPortlet = function gotoMaxStaticPortlet(url, portlet) {
     	sharedPortletService.setProperty(portlet);
@@ -89,7 +92,7 @@
       
   } ]);
   
-  app.controller('StaticContentController', ['$routeParams', '$scope', 'layoutService', 'sharedPortletService', function ($routeParams, $scope, layoutService, sharedPortletService){
+  app.controller('StaticContentController', ['$routeParams', '$rootScope','$scope', 'layoutService', 'sharedPortletService', function ($routeParams, $rootScope, $scope, layoutService, sharedPortletService){
 	  $scope.portlet = sharedPortletService.getProperty() || {};
 	  var that = this;
 	  that.getPortlet = function(fname, portlets ) {
@@ -103,12 +106,16 @@
 	  }
 	  
 	  if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== $routeParams.fname) {
-		  if($scope.layout != null) {
-			  $scope.portlet = that.getPortlet($routeParams.fname, $scope.portlets);
+		  
+		  if(typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
+			  $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
+		  } else {
+			  layoutService.getLayout().then(function(data){
+			      $rootScope.layout = data.layout;
+			      $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
+			  });
 		  }
-	      layoutService.getLayout().then(function(data){
-	        $scope.portlet = that.getPortlet($routeParams.fname, data.layout);
-	      });
+	      
        }
   }]);
   
