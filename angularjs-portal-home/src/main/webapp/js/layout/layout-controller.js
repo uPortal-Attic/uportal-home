@@ -3,13 +3,18 @@
 (function() {
   var app = angular.module('portal.layout.controllers', []);
 
-  app.controller('LayoutController', [ '$sessionStorage', '$scope', 'layoutService', 'miscService', function($sessionStorage, $scope, layoutService, miscService) {
+  app.controller('LayoutController', [ '$location', '$sessionStorage', '$scope', 'layoutService', 'miscService', 'sharedPortlet', function($location, $sessionStorage, $scope, layoutService, miscService, sharedPortlet) {
     miscService.pushPageview();
     $scope.layout = [];
 
     layoutService.getLayout().then(function(data){
       $scope.layout = data.layout;
     });
+    
+    this.maxStaticPortlet = function gotoMaxStaticPortlet(url, portlet) {
+    	sharedPortlet.setProperty(portlet);
+    	$location.path(url);
+    }
 
     this.directToPortlet = function directToPortlet(url) {
       $location.path(url);
@@ -84,20 +89,19 @@
       
   } ]);
   
-  app.controller('StaticContentController', ['$routeParams', '$scope', 'layoutService', function ($routeParams, $scope, layoutService){
-	  $scope.portlet = [];
-	  layoutService.getLayout().then(function(data){
-		  $scope.portlets = data.layout;
-		  //TODO: make this better
-	      for(var p in $scope.portlets) {
-	        if ($scope.portlets[p].fname == $routeParams.fname) {
-	            $scope.portlet = $scope.portlets[p];
+  app.controller('StaticContentController', ['$routeParams', '$scope', 'layoutService', 'sharedPortlet', function ($routeParams, $scope, layoutService, sharedPortlet){
+	  $scope.portlet = sharedPortlet.getProperty() || {};
+	  if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== $routeParams.fname) {
+	      layoutService.getLayout().then(function(data){
+	        for(var p in data.layout) {
+	          if (data.layout[p].fname == $routeParams.fname) {
+	            $scope.portlet = data.layout[p];
 	            break;
+	          }
 	        };
-	      };
-      });
+	      });
+       }
   }]);
-
   
   app.controller('NewStuffController', ['$scope', 'layoutService', function ($scope, layoutService){
       $scope.newStuffArray = [];

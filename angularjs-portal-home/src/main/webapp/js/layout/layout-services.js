@@ -3,6 +3,19 @@
 (function() {
 var app = angular.module('portal.layout.service', []);
 
+app.service('sharedPortlet', function () {
+    var property = {};
+
+    return {
+        getProperty: function () {
+            return property;
+        },
+        setProperty: function(value) {
+            property = value;
+        }
+    };
+});
+
 app.factory('layoutService', function($http, miscService) {
 
     var getLayout = function() {
