@@ -3,7 +3,7 @@
 (function() {
   var app = angular.module('portal.layout.controllers', []);
 
-  app.controller('LayoutController', [ '$location', '$sessionStorage', '$scope', 'layoutService', 'miscService', 'sharedPortlet', function($location, $sessionStorage, $scope, layoutService, miscService, sharedPortlet) {
+  app.controller('LayoutController', [ '$location', '$sessionStorage', '$scope', 'layoutService', 'miscService', 'sharedPortletService', function($location, $sessionStorage, $scope, layoutService, miscService, sharedPortletService) {
     miscService.pushPageview();
     $scope.layout = [];
 
@@ -12,7 +12,7 @@
     });
     
     this.maxStaticPortlet = function gotoMaxStaticPortlet(url, portlet) {
-    	sharedPortlet.setProperty(portlet);
+    	sharedPortletService.setProperty(portlet);
     	$location.path(url);
     }
 
@@ -89,16 +89,25 @@
       
   } ]);
   
-  app.controller('StaticContentController', ['$routeParams', '$scope', 'layoutService', 'sharedPortlet', function ($routeParams, $scope, layoutService, sharedPortlet){
-	  $scope.portlet = sharedPortlet.getProperty() || {};
+  app.controller('StaticContentController', ['$routeParams', '$scope', 'layoutService', 'sharedPortletService', function ($routeParams, $scope, layoutService, sharedPortletService){
+	  $scope.portlet = sharedPortletService.getProperty() || {};
+	  var that = this;
+	  that.getPortlet = function(fname, portlets ) {
+	    for(var p in portlets) {
+	      if (portlets[p].fname == fname) {
+	        return portlets[p];
+	        break;
+	      }
+	    };
+	    return {};
+	  }
+	  
 	  if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== $routeParams.fname) {
+		  if($scope.layout != null) {
+			  $scope.portlet = that.getPortlet($routeParams.fname, $scope.portlets);
+		  }
 	      layoutService.getLayout().then(function(data){
-	        for(var p in data.layout) {
-	          if (data.layout[p].fname == $routeParams.fname) {
-	            $scope.portlet = data.layout[p];
-	            break;
-	          }
-	        };
+	        $scope.portlet = that.getPortlet($routeParams.fname, data.layout);
 	      });
        }
   }]);

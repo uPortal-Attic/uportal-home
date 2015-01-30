@@ -3,7 +3,7 @@
 (function() {
 var app = angular.module('portal.layout.service', []);
 
-app.service('sharedPortlet', function () {
+app.factory('sharedPortletService', function () {
     var property = {};
 
     return {
