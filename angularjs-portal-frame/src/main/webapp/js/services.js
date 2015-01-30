@@ -31,10 +31,56 @@ app.factory('miscService', function($http, $window, $location) {
     $window._gaq.push(['_trackEvent', category, action, label]);
   }
 
+    var portletMatchesSearchTerm = function(portlet, searchTerm) {
+        if (!searchTerm) {
+            return false;
+        }
+
+        var lowerSearchTerm = searchTerm.toLowerCase(); //create local var for searchTerm
+
+        if(portlet.title.toLowerCase().indexOf(lowerSearchTerm) !== -1) {//check title
+            return true;
+        }
+
+        //check description match
+        if(portlet.description && portlet.description.toLowerCase().indexOf(lowerSearchTerm) !== -1) {
+            return true;
+        }
+
+        //last ditch effort, check keywords
+        if(portlet.keywords) {
+            for(var i = 0; i < portlet.keywords.length; i++) {
+                if(portlet.keywords[i].toLowerCase().indexOf(lowerSearchTerm) !== -1) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    };
+
+    var filterPortletsBySearchTerm = function(portletList, searchTerm) {
+        var matches;
+
+        if (!angular.isArray(portletList)) {
+            return null;
+        }
+
+        matches = [];
+        angular.forEach(portletList, function(portlet) {
+            if (portletMatchesSearchTerm(portlet, searchTerm)) {
+                matches.push(portlet);
+            }
+        });
+
+        return matches;
+    };
+
   return {
     redirectUser: redirectUser,
     pushPageview: pushPageview,
-    pushGAEvent : pushGAEvent
+    pushGAEvent : pushGAEvent,
+    filterPortletsBySearchTerm: filterPortletsBySearchTerm,
+    portletMatchesSearchTerm: portletMatchesSearchTerm
   }
 
 });

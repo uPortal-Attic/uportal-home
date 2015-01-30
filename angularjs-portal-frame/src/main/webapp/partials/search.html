@@ -1,6 +1,7 @@
 <form ng-submit="submit()">
   <div class="input-group">
-    <input type="search" class="main-search" placeholder="Search MyUW" name="initialFilter" ng-model="initialFilter" aria-label="Search MyUW" focus-me="showSearchFocus">
+    <input type="search" class="main-search" placeholder="Search MyUW" name="initialFilter" ng-model="initialFilter" aria-label="Search MyUW" focus-me="showSearchFocus"
+            typeahead="title as match.title for match in filterMatches | limitTo:10" typeahead-on-select="onSelect($item, $model, $label)" typeahead-loading="portletListLoading" typeahead-min-length="2">
     <span class="input-group-btn">
       <button class="btn btn-default btn-search">
         <i class="fa fa-search"></i>
