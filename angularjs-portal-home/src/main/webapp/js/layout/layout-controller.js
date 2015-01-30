@@ -92,7 +92,7 @@
       
   } ]);
   
-  app.controller('StaticContentController', ['$routeParams', '$rootScope','$scope', 'layoutService', 'sharedPortletService', function ($routeParams, $rootScope, $scope, layoutService, sharedPortletService){
+  app.controller('StaticContentController', ['$location', '$routeParams', '$rootScope','$scope', 'layoutService', 'sharedPortletService', function ($location, $routeParams, $rootScope, $scope, layoutService, sharedPortletService){
 	  $scope.portlet = sharedPortletService.getProperty() || {};
 	  var that = this;
 	  that.getPortlet = function(fname, portlets ) {
@@ -109,10 +109,16 @@
 		  
 		  if(typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
 			  $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
+			  if(typeof $scope.portlet.fname === 'undefined') {
+				  $location.path('/');
+			  }
 		  } else {
 			  layoutService.getLayout().then(function(data){
 			      $rootScope.layout = data.layout;
 			      $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
+			      if(typeof $scope.portlet.fname === 'undefined') {
+			    	  $location.path('/');
+			      }
 			  });
 		  }
 	      
