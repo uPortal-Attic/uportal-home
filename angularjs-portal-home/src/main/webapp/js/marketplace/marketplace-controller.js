@@ -81,6 +81,7 @@
                     if(marketplaceEntries.length > 0) {
                         marketplaceEntries[0].hasInLayout = true;
                     }
+                    $rootScope.layout = null; //reset layout due to modifications
                 });
               },
               error: function(request, text, error) {

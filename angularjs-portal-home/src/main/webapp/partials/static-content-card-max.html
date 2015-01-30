@@ -1,16 +1,16 @@
 <div class="portlet-div" id="portlet-id-{{::portlet.nodeId}}">
 
-  <a href="#/static/{{::portlet.fname}}">
+  <div ng-click="layoutCtrl.maxStaticPortlet(portlet)">
     <div class="portlet-title">
         <img ng-src="{{portlet.iconUrl}}" ng-if="portlet.faIcon === '' || portlet.faIcon === null" alt="App icon"><i class="fa {{::portlet.faIcon}}" ng-if="portlet.faIcon !== '' && portlet.faIcon !== null"></i><h1>{{ ::portlet.title }}</h1>
     </div>
-  </a>
+  </div>
   <div class='card-remove'>
      <i title="Remove" class="fa fa-times portlet-options" ng-click="layoutCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
   </div>
-  <a href="#/static/{{::portlet.fname}}" >
+  <div ng-click="layoutCtrl.maxStaticPortlet(portlet)">
     <div class="portlet-content">
       {{:: portlet.description | truncate:160}}
     </div>
-  </a>
+  </div>
 </div>

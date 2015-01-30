@@ -3,13 +3,21 @@
 (function() {
   var app = angular.module('portal.layout.controllers', []);
 
-  app.controller('LayoutController', [ '$sessionStorage', '$scope', 'layoutService', 'miscService', function($sessionStorage, $scope, layoutService, miscService) {
+  app.controller('LayoutController', [ '$location', '$sessionStorage', '$scope', '$rootScope', 'layoutService', 'miscService', 'sharedPortletService', function($location, $sessionStorage, $scope, $rootScope, layoutService, miscService, sharedPortletService) {
     miscService.pushPageview();
-    $scope.layout = [];
-
-    layoutService.getLayout().then(function(data){
-      $scope.layout = data.layout;
-    });
+    if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
+      
+      $rootScope.layout = [];
+    
+      layoutService.getLayout().then(function(data){
+        $rootScope.layout = data.layout;
+      });
+    }
+    
+    this.maxStaticPortlet = function gotoMaxStaticPortlet(portlet) {
+    	sharedPortletService.setProperty(portlet);
+    	$location.path('/static/'+portlet.fname);
+    }
 
     this.directToPortlet = function directToPortlet(url) {
       $location.path(url);
@@ -84,20 +92,38 @@
       
   } ]);
   
-  app.controller('StaticContentController', ['$routeParams', '$scope', 'layoutService', function ($routeParams, $scope, layoutService){
-	  $scope.portlet = [];
-	  layoutService.getLayout().then(function(data){
-		  $scope.portlets = data.layout;
-		  //TODO: make this better
-	      for(var p in $scope.portlets) {
-	        if ($scope.portlets[p].fname == $routeParams.fname) {
-	            $scope.portlet = $scope.portlets[p];
-	            break;
-	        };
-	      };
-      });
+  app.controller('StaticContentController', ['$location', '$routeParams', '$rootScope','$scope', 'layoutService', 'sharedPortletService', function ($location, $routeParams, $rootScope, $scope, layoutService, sharedPortletService){
+	  $scope.portlet = sharedPortletService.getProperty() || {};
+	  var that = this;
+	  that.getPortlet = function(fname, portlets ) {
+	    for(var p in portlets) {
+	      if (portlets[p].fname == fname) {
+	        return portlets[p];
+	        break;
+	      }
+	    };
+	    return {};
+	  }
+	  
+	  if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== $routeParams.fname) {
+		  
+		  if(typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
+			  $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
+			  if(typeof $scope.portlet.fname === 'undefined') {
+				  $location.path('/');
+			  }
+		  } else {
+			  layoutService.getLayout().then(function(data){
+			      $rootScope.layout = data.layout;
+			      $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
+			      if(typeof $scope.portlet.fname === 'undefined') {
+			    	  $location.path('/');
+			      }
+			  });
+		  }
+	      
+       }
   }]);
-
   
   app.controller('NewStuffController', ['$scope', 'layoutService', function ($scope, layoutService){
       $scope.newStuffArray = [];
