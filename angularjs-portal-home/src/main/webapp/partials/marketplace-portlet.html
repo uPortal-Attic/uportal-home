@@ -17,7 +17,7 @@
     <!-- Already in Home -->
     <button class="btn btn-disabled fname-{{::portlet.fname}}"
             ng-if="portlet.canAdd && portlet.hasInLayout"
-            ng-class="{btn-disabled : portlet.hasInLayout}"
+            ng-class="{'btn-disabled' : portlet.hasInLayout}"
             popover="This app is already in your favorites"
             popover-trigger="mouseenter"
             popover-placement="top"
