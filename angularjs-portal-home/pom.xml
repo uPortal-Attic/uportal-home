@@ -3,7 +3,7 @@
   <parent>
     <groupId>edu.wisc.my.portal.angular</groupId>
     <artifactId>angularjs-portal-parent</artifactId>
-    <version>4.1.1.15-SNAPSHOT</version>
+    <version>4.1.1.15</version>
   </parent>
   
   <modelVersion>4.0.0</modelVersion>
@@ -11,7 +11,7 @@
   <groupId>edu.wisc.my.portal.angular</groupId>
   <artifactId>angularjs-portal-home</artifactId>
   <packaging>war</packaging>
-  <version>4.1.1.15-SNAPSHOT</version>
+  <version>4.1.1.15</version>
   <name>angularjs-portal-home</name>
   
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
