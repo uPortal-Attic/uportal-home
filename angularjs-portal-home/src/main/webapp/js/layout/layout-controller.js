@@ -14,9 +14,9 @@
       });
     }
     
-    this.maxStaticPortlet = function gotoMaxStaticPortlet(url, portlet) {
+    this.maxStaticPortlet = function gotoMaxStaticPortlet(portlet) {
     	sharedPortletService.setProperty(portlet);
-    	$location.path(url);
+    	$location.path('/static/'+portlet.fname);
     }
 
     this.directToPortlet = function directToPortlet(url) {
