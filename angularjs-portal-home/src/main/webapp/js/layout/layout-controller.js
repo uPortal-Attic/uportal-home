@@ -113,10 +113,10 @@
 				  $location.path('/');
 			  }
 		  } else {
-			  layoutService.getLayout().then(function(data){
-			      $rootScope.layout = data.layout;
-			      $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
-			      if(typeof $scope.portlet.fname === 'undefined') {
+			  layoutService.getApp($routeParams.fname).then(function(data){
+			      $scope.portlet = data.portlet;
+			      if(typeof $scope.portlet === 'undefined' || 
+			              typeof $scope.portlet.fname === 'undefined') {
 			    	  $location.path('/');
 			      }
 			  });
