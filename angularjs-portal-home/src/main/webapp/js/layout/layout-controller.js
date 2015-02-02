@@ -3,7 +3,7 @@
 (function() {
   var app = angular.module('portal.layout.controllers', []);
 
-  app.controller('LayoutController', [ '$location', '$sessionStorage', '$scope', '$rootScope', 'layoutService', 'miscService', 'sharedPortletService', function($location, $sessionStorage, $scope, $rootScope, layoutService, miscService, sharedPortletService) {
+  app.controller('LayoutController', [ '$location', '$localStorage', '$sessionStorage', '$scope', '$rootScope', 'layoutService', 'miscService', 'sharedPortletService', function($location, $localStorage, $sessionStorage, $scope, $rootScope, layoutService, miscService, sharedPortletService) {
     miscService.pushPageview();
     if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
       
@@ -12,6 +12,22 @@
       layoutService.getLayout().then(function(data){
         $rootScope.layout = data.layout;
       });
+    }
+    
+    this.portletType = function portletType(portlet) {
+      if((portlet.staticContent == null
+                        || portlet.altMaxUrl == true)
+                    && (!$localStorage.pithyContentOnHome 
+                        || portlet.pithyStaticContent == null)) {
+          return "NORMAL";
+      } else if (portlet.staticContent != null 
+                 && portlet.altMaxUrl == false
+                 && (!$localStorage.pithyContentOnHome 
+                     || portlet.pithyStaticContent == null)) {
+          return "SIMPLE";
+      } else if ($localStorage.pithyContentOnHome && portlet.pithyStaticContent != null) {
+          return "PITHY";
+      }
     }
     
     this.maxStaticPortlet = function gotoMaxStaticPortlet(portlet) {

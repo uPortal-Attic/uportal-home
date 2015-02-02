@@ -37,19 +37,13 @@
     <ul ui-sortable="sortableOptions" ng-model="layout" id="cards-sortable">
        <li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 no-padding portlet-container-home" ng-repeat="portlet in layout">
           <default-card 
-            ng-if="(portlet.staticContent == null
-                        || portlet.altMaxUrl == true)
-                    && (!$storage.pithyContentOnHome 
-                        || portlet.pithyStaticContent == null)">
+            ng-if="'NORMAL' === layoutCtrl.portletType(portlet)">
           </default-card>
           <static-content-card-max 
-            ng-if="portlet.staticContent != null 
-                    && portlet.altMaxUrl == false
-                   && (!$storage.pithyContentOnHome 
-                       || portlet.pithyStaticContent == null)">
+            ng-if="'SIMPLE' === layoutCtrl.portletType(portlet)">
           </static-content-card-max>
           <pithy-content-card 
-            ng-if="$storage.pithyContentOnHome && portlet.pithyStaticContent != null">
+            ng-if="'PITHY' === layoutCtrl.portletType(portlet)">
           </pithy-content-card>
         </li>
     </ul>
