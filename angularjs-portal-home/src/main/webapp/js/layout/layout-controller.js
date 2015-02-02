@@ -15,18 +15,14 @@
     }
     
     this.portletType = function portletType(portlet) {
-      if((portlet.staticContent == null
-                        || portlet.altMaxUrl == true)
-                    && (!$localStorage.pithyContentOnHome 
-                        || portlet.pithyStaticContent == null)) {
+      if($localStorage.pithyContentOnHome && portlet.pithyStaticContent != null) {
+          return "PITHY";
+      } else if(portlet.staticContent == null
+                 || portlet.altMaxUrl == true) {
           return "NORMAL";
       } else if (portlet.staticContent != null 
-                 && portlet.altMaxUrl == false
-                 && (!$localStorage.pithyContentOnHome 
-                     || portlet.pithyStaticContent == null)) {
+                 && portlet.altMaxUrl == false) {
           return "SIMPLE";
-      } else if ($localStorage.pithyContentOnHome && portlet.pithyStaticContent != null) {
-          return "PITHY";
       }
     }
     
