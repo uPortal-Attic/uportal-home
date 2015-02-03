@@ -104,7 +104,7 @@
       
   } ]);
   
-  app.controller('StaticContentController', ['$modal', '$location', '$routeParams', '$rootScope','$scope', 'layoutService', 'sharedPortletService', function ($modal, $location, $routeParams, $rootScope, $scope, layoutService, sharedPortletService){
+  app.controller('StaticContentController', ['$modal', '$location','$sessionStorage', '$routeParams', '$rootScope','$scope', 'layoutService', 'miscService', 'sharedPortletService', function ($modal, $location,$sessionStorage, $routeParams, $rootScope, $scope, layoutService,miscService, sharedPortletService){
 	  $scope.portlet = sharedPortletService.getProperty() || {};
 	  var that = this;
 	  that.getPortlet = function(fname, portlets ) {
@@ -152,6 +152,24 @@
             console.log('Modal dismissed at: ' + new Date());
           });
       };
+      
+      this.addToHome = function(portlet) {
+          var ret = layoutService.addToHome(portlet);
+          ret.success(function (request, text){
+              $('.fname-'+portlet.fname).html('<span style="color : green;"><i class="fa fa-check"></i> Added Successfully</span>').prop('disabled',true);
+              miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
+              $scope.$apply(function(){
+                  var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname});
+                  if(marketplaceEntries.length > 0) {
+                      marketplaceEntries[0].hasInLayout = true;
+                  }
+                  $rootScope.layout = null; //reset layout due to modifications
+              });
+          })
+          .error(function(request, text, error) {
+            $('.fname-'+portlet.fname).html('<span style="color : red;">Issue adding to home, please try again later</span>');
+          });
+      }
   }]);
   
   app.controller('NewStuffController', ['$scope', 'layoutService', function ($scope, layoutService){
