@@ -104,7 +104,7 @@
       
   } ]);
   
-  app.controller('StaticContentController', ['$location', '$routeParams', '$rootScope','$scope', 'layoutService', 'sharedPortletService', function ($location, $routeParams, $rootScope, $scope, layoutService, sharedPortletService){
+  app.controller('StaticContentController', ['$modal', '$location', '$routeParams', '$rootScope','$scope', 'layoutService', 'sharedPortletService', function ($modal, $location, $routeParams, $rootScope, $scope, layoutService, sharedPortletService){
 	  $scope.portlet = sharedPortletService.getProperty() || {};
 	  var that = this;
 	  that.getPortlet = function(fname, portlets ) {
@@ -135,6 +135,23 @@
 		  }
 	      
        }
+      $scope.openRating = function (size, fname, name) {
+            var modalInstance = $modal.open({
+            templateUrl: 'ratingModal.html',
+            controller: 'RatingModalController',
+            size: size,
+            resolve: {
+              fname: function(){return fname;},
+              name: function(){return name;}
+            }
+          });
+        
+          modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+          }, function () {
+            console.log('Modal dismissed at: ' + new Date());
+          });
+      };
   }]);
   
   app.controller('NewStuffController', ['$scope', 'layoutService', function ($scope, layoutService){

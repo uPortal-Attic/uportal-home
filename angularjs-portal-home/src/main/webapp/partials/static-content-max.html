@@ -2,7 +2,24 @@
   <div class="card-header">
     <img class="header-image" ng-src="{{$storage.homeImg}}" alt="UW Campus cover image">
     <div class="card-header-text">
-      <h1><img ng-src="{{portlet.iconUrl}}" ng-if="portlet.faIcon === '' || portlet.faIcon === null" alt="App icon"><i class="fa {{portlet.faIcon}}" ng-if="portlet.faIcon !== '' && portlet.faIcon !== null"></i> {{portlet.title }}</h1>
+      <h1>
+        <span><img ng-src="{{portlet.iconUrl}}" ng-if="(portlet.faIcon === '' || portlet.faIcon === null) && portlet.iconUrl != null" alt="App icon">
+              <i class="fa {{portlet.faIcon}}" ng-if="portlet.faIcon !== '' && portlet.faIcon !== null"></i> {{portlet.title }}</span>
+              
+        <span class="dropdown" dropdown on-toggle="toggled(open)" style='float: right;'>
+          <a href class="dropdown-toggle" dropdown-toggle>
+            <i class="fa fa-cog" style='color : white;'></i>
+          </a>
+          <ul class="dropdown-menu" style='right: 0; left: auto;'>
+            <li role="presentation">
+                <a ng-click="openRating('sm',portlet.fname, portlet.title)"><span>Add to Favorites</span></a>
+            </li>
+            <li role="presentation">
+                <a ng-click="openRating('sm',portlet.fname, portlet.title)"><span>Rate this App</span></a>
+            </li>
+          </ul>
+        </span>
+      </h1>
     </div>
   </div>
   <div class="col-xs-12 no-padding portlet-section">
@@ -10,4 +27,5 @@
 	  <div ng-bind-html="portlet.staticContent" class="up-portlet-content-wrapper" id="content-{{portlet.nodeId}}">
 	  </div>
   </div>
+  <rating-modal-template></rating-modal-template>
 </div>

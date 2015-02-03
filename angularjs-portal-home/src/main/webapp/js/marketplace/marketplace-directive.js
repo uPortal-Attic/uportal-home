@@ -9,4 +9,11 @@
       }
     });
   
+  app.directive('ratingModalTemplate', function() {
+      return {
+          restrict : 'E',
+          templateUrl : 'partials/rating-modal-template.html'
+      }
+  });
+  
 })();
