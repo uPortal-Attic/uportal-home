@@ -79,6 +79,16 @@
             </h4>
             <small>Enable/Disable the typeahead in the portlet search bar</small>
         </li>
+        <li class="portlet-container-home beta-card-style">
+             <h4>
+            <span class="btn-group">
+             <label class="btn" ng-class="{'btn-success' : $storage.contentView, 'btn-default' : !$storage.contentView }" ng-model="$storage.contentView" btn-radio="true">On</label>
+             <label class="btn" ng-class="{'btn-success' : $storage.contentView, 'btn-default' : !$storage.contentView }" ng-model="$storage.contentView" btn-radio="false">Off</label>
+           </span>
+           Content View
+         </h4>
+         <small>Displays the toggle to switch views between list and content.</small>
+       </li>
     </ul>
     <ul class="col-sm-6" style='padding-top: 1em;'>
         <li class="no-padding portlet-container-home  beta-card-style" style='text-align : center;'>

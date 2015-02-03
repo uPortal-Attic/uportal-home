@@ -1,0 +1,485 @@
+/* Card UI Styling */
+
+.card {
+  border-radius:4px;
+  padding:0px 0px;
+  margin:16px 0px 16px;
+  background-color:@white;
+  padding-bottom:5px;
+}
+.card-header {
+  height:150px;
+  position:relative;
+  overflow:hidden;
+
+  z-index:20;
+  border-top-left-radius:4px;
+  border-top-right-radius:4px;
+}
+
+.card-header-text {
+  z-index:10;
+  position:absolute;
+  width:100%;
+  height:300px;
+  padding:5px 20px 5px 20px;
+  box-shadow: inset 0 200px 150px -50px rgba(0,0,0,0.7);
+}
+.card-header-text p {
+  color:@white;
+  width:60%;
+  max-width:500px;
+}
+.card-header .header-image {
+  width:120%;
+  border-radius:4px;
+  margin:-15px;
+  padding:15px;
+  opacity:0.7;
+  z-index:0;
+  position:absolute;
+
+}
+.header-opaque {
+  height:40px;
+  width:100%;
+  position:absolute;
+  background-color:rgba(256,256,256,0.8);
+  bottom:0px;
+  z-index:150;
+  div {
+    display:inline-block;
+    float:left;
+    margin:0px 10px;
+    h3 {
+      margin-top:9px;
+      font-size:20px;
+    }
+    p {
+      color:#555;
+      margin:10px 0px;
+    }
+  }
+  .new {
+    text-transform:uppercase;
+    color:#fcf49c;
+    background-color:rgba(183,1,1,0.8);
+    border-radius:8px;
+    padding:3px 8px 1px;
+    margin:10px 0px;
+    font-size:12px;
+  }
+  .remove {
+    float:right;
+    padding:10px 0px;
+    color:#555;
+  }
+  .remove:hover {
+    cursor:pointer;
+    color:#333;
+  }
+}
+.news-article-title {
+  font-weight:200;
+  position:absolute;
+  bottom:28px;
+  right:15px;
+  color:#333;
+  padding:0;
+  margin:0;
+  font-size:1.8em;
+}
+.news-article-description {
+  position:absolute;
+  bottom:8px;
+  right:15px;
+  color:#333;
+  margin:0;
+  padding:0;
+}
+.news-section-title {
+  font-size:0.7em;
+  position:absolute;
+  bottom:53px;
+  right:5px;
+  color:#333;
+  margin:0;
+  padding:0;
+}
+.news-article a {
+  color:#b70101;
+}
+.marketplace-search {
+  width:60%;
+  border:1px solid #ccc;
+  border-radius:4px;
+  position:relative;
+  left:20%;
+  font-size:1.8em;
+  font-weight:200;
+  padding:4px 4px 4px 12px;
+  margin:20px 0px 30px 0px;
+  display:block;
+}
+.mp-search-icon {
+  position:relative;
+  left:17%;
+  top:50px;
+  padding-right:8px;
+  display:inline-block;
+  color:@white;
+  text-shadow:0px 0px 15px #000;
+}
+.card h1 {
+  color:@white;
+  margin-top:10px;
+  font-weight:200;
+
+}
+.card h2 {
+  padding:0px 5px 2px 0px;
+  margin:0px;
+  display:inline;
+}
+.card h3 {
+
+}
+
+.card .btn .fa {
+  padding-right:8px;
+}
+
+.card h2 span.fa {
+  width: 38px;
+  height: 38px;
+  font-size: 0.7em;
+  margin: 4px 0px 0px 10px;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid #333;
+  text-align: center;
+  padding: 8px 0px 0px 0px;
+  opacity: 1.0;
+  color:#333;
+  position:relative;
+  top:8px;
+}
+.card h2 span.portlet-title {
+  position:relative;
+  top:2px;
+  border:none;
+  font-size:0.85em;
+}
+
+.card-remove {
+  top: 0px;
+  position: absolute;
+  right:0px;
+}
+
+.add-more {
+  padding:15px;
+  .portlet-title {
+    margin-bottom:5px;
+  }
+}
+.add-more:hover {
+  padding-left:10px;
+}
+.portlet-title img {
+  position:relative;
+  width:25px;
+  top:-4px;
+  margin-right:10px;
+}
+.portlet-div {
+  position:relative;
+  height:60px;
+  background-color: @white;
+  padding:5px;
+  border-bottom: 1px solid #ddd !important;
+  border-right:1px solid #ddd !important;
+  box-model: border-box;
+}
+.portlet-div:hover {
+  background-color:#f3f3f3;
+  padding-left:0px;
+  border-left:5px solid @color1;
+  z-index:100;
+}
+.portlet-div a {
+  color:#000;
+}
+.portlet-div a:hover {
+  text-decoration:none;
+}
+.portlet-div .portlet-options {
+  color:#aaa;
+  font-size:1.3em;
+  padding:8px 10px;
+}
+.portlet-div .portlet-options:hover {
+  color:#333;
+}
+.portlet-content {
+  padding:0px 12px 0px 12px;
+  height:80px;
+}
+.portlet-title {
+  margin: 0px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding:6px 30px 5px 12px;
+
+}
+.portlet-title h1, .portlet-title i.fa {
+  font-size: 1.5em;
+  color: #600;
+  width: 100%;
+  font-weight: 200;
+  display: inline;
+}
+.portlet-title i, .portlet-title img {
+  margin-right:10px;
+  font-size:1.7em;
+}
+.portlet-title > div {
+  float: right;
+  display: inline;
+  padding:0px;
+}
+
+.page-h1 {
+  font-size: 2.3em;
+  color: #b70101;
+  padding: 0;
+  font-weight: 200;
+}
+.page-content {
+  padding-top: 48px;
+  //padding-bottom: 17px;
+}
+.portlet-title div {
+  position: relative;
+  top: 0px;
+}
+.portlet-list {
+  margin: 0px;
+  padding: 0px;
+}
+.portlet-list li {
+  font-size: 1.2em;
+}
+
+.home-section-header {
+  padding:10px 12px;
+  margin:0px;
+  margin-bottom:0px;
+  color:#333;
+  border-bottom:1px solid @color3;
+  display:table;
+  height:100%;
+  width:100%;
+  h3 {
+    display:table-cell;
+    vertical-align:middle;
+  }
+}
+
+
+div.table {
+  display : table;
+  width: 100%;
+  height : 100%;
+}
+div.table-cell {
+  display : table-cell;
+  vertical-align : middle;
+}
+.ui-sortable-helper {
+  box-shadow:0px 0px 25px #ccc;
+  -ms-transform: rotate(3deg); /* IE 9 */
+  -webkit-transform: rotate(3deg); /* Chrome, Safari, Opera */
+  transform: rotate(3deg);
+}
+.ui-sortable-helper:active {
+  cursor:move;
+}
+.ui-sortable-helper a:-webkit-any-link {
+  cursor:move;
+}
+.ui-sortable-helper a:-moz-any-link {
+  cursor:move;
+}
+.ui-sortable-placeholder {
+  background-color:#eee !important;
+  //height:150px;
+  //width:100%;
+  visibility:visible !important;
+}
+.features-feed {
+  padding:20px;
+  font-weight:400;
+  .date {
+    font-size:10px;
+    color:#aaa;
+  }
+  h3 {
+    margin:0px;
+  }
+  hr {
+    margin:10px 0px;
+  }
+  img {
+    width:60%;
+    margin:20px 0px;
+  }
+}
+.layout-chooser {
+  display:table-cell;
+  vertical-align:middle;
+  float:right;
+  background-color:rgba(20,20,20,0.8);
+  border-radius:4px;
+  width:70px;
+  height:32px;
+  i {
+    width:35px;
+    float:left;
+    font-size:18px;
+    padding:7px 9px;
+    color:@white;
+    border-radius:4px;
+    &:hover {
+      background-color:#222;
+      cursor:pointer;
+    }
+    &:first-child {
+      border-right:1px solid @white;
+      border-top-right-radius:0px;
+      border-bottom-right-radius:0px;
+    }
+    
+  }
+  
+}
+.selected-view {
+  background-color:#222;
+}
+.portlet-widget {
+  background-color: @color4;
+  padding:5px;
+  margin:5px;
+  border-radius:4px;
+}
+.tile-list { 
+  list-style-type: none; 
+  margin: 5px; 
+  padding: 0px; 
+}
+.widget-container {
+  
+}
+.list-container {
+  
+}
+.list-content {
+  position:relative;
+  margin:5px;
+  background:#f3f3f3;
+  border-radius:3px;
+  height:45px;
+  color:#333;
+  a {
+    display:block;
+    height:100%;
+    &:hover {
+      background-color:@color3;
+      color:@white;
+      border-radius:4px;
+      h4 {
+        color:@white;
+      }
+    }
+  }
+  h4 {
+    font-size:1.2em;
+    margin:0px;
+    color:#333;
+  }
+  div {
+    display:inline-block;
+    float:left;
+  }
+  .icon-container,
+  .card-remove {
+    display:table;
+    height:100%;
+    i {
+      display:table-cell;
+      vertical-align:middle;
+      padding:0px 10px;
+    }
+  }
+  .list-item-container {
+    display:table;
+    height:100%;
+    width:80%;
+    h4 {
+      display:table-cell;
+      vertical-align:middle;
+    }
+  }
+}
+.widget-content {
+  position:relative;
+  margin:5px;
+  background:#f3f3f3;
+  border-radius:3px;
+  height:230px;
+  color:#333;
+  h4 {
+    font-size:1.2em;
+    padding:8px;
+    margin:0px;
+  }
+  p {
+    padding:3px 8px;
+  }
+  hr {
+    margin-top:0px;
+    margin-bottom:0px;
+  }
+  .launch {
+    width:100%;
+    padding:8px;
+    background-color:#ccc;
+    color:#333;
+    position:absolute;
+    bottom:0px;
+    text-align:center;
+    display:block;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px;
+    &:hover {
+      background-color:darken(green,5%);
+      text-decoration:none;
+    }
+  }
+}
+
+
+@media (max-width: 767px) {
+  div.table {
+    margin-top : 20px;
+  }
+}
+
+
+@media (min-width: 768px) {
+    #cards-sortable li { float: left; width: 50%; height: 150px; }
+}
+
+@media (min-width: 1105px) {
+    #cards-sortable li { float: left; width: 33.3333333%; height: 150px; }
+}
