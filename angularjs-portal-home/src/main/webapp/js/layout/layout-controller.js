@@ -169,6 +169,24 @@
             $('.fname-'+portlet.fname).html('<span style="color : red;">Issue adding to home, please try again later</span>');
           });
       }
+      
+      this.inLayout = function(portlet) {
+        var layout = $rootScope.layout;
+        var ret=true;
+        if(!layout) {
+          //get layout
+         layoutService.getLayout().then(function(data) {
+           $rootScope.layout = data.layout;
+           var portlets = $.grep($rootScope.layout, function(e) { return e.fname === portlet.fname});
+           ret = portlets.length > 0;
+         });
+        } else {
+            var portlets = $.grep($rootScope.layout, function(e) { return e.fname === portlet.fname});
+            ret = portlets.length > 0;
+        }
+        
+        return ret;
+      }
   }]);
   
   app.controller('NewStuffController', ['$scope', 'layoutService', function ($scope, layoutService){

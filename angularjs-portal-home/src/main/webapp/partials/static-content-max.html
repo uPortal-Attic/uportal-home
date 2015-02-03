@@ -11,7 +11,7 @@
             <i class="fa fa-cog" style='color : white;'></i>
           </a>
           <ul class="dropdown-menu" style='right: 0; left: auto;'>
-            <li role="presentation" class="fname-{{portlet.fname}}">
+            <li role="presentation" class="fname-{{portlet.fname}}" ng-class='{hidden : staticContentCtrl.inLayout(portlet)}'>
                 <a ng-click="staticContentCtrl.addToHome(portlet)" href='javascript:;'><span>Add to Favorites</span></a>
             </li>
             <li role="presentation">
