@@ -28,7 +28,7 @@ app.factory('layoutService', function($http, miscService) {
               dataType: "json",
               async: true,
               success: function (request, text){
-                console.log('added successfully');
+                console.log('Added ' + portlet.fname + 'successfully');
                 miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
                 return true;
               },

@@ -157,7 +157,6 @@
           var ret = layoutService.addToHome(portlet);
           ret.success(function (request, text){
               $('.fname-'+portlet.fname).html('<span style="color : green;"><i class="fa fa-check"></i> Added Successfully</span>').prop('disabled',true);
-              miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
               $scope.$apply(function(){
                   var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname});
                   if(marketplaceEntries.length > 0) {
