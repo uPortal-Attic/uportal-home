@@ -3,7 +3,7 @@
 (function() {
   var app = angular.module('portal.layout.controllers', []);
 
-  app.controller('LayoutController', [ '$location', '$sessionStorage', '$scope', '$rootScope', 'layoutService', 'miscService', 'sharedPortletService', function($location, $sessionStorage, $scope, $rootScope, layoutService, miscService, sharedPortletService) {
+  app.controller('LayoutController', [ '$location', '$localStorage', '$sessionStorage', '$scope', '$rootScope', 'layoutService', 'miscService', 'sharedPortletService', function($location, $localStorage, $sessionStorage, $scope, $rootScope, layoutService, miscService, sharedPortletService) {
     miscService.pushPageview();
     if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
       
@@ -12,6 +12,18 @@
       layoutService.getLayout().then(function(data){
         $rootScope.layout = data.layout;
       });
+    }
+    
+    this.portletType = function portletType(portlet) {
+      if($localStorage.pithyContentOnHome && portlet.pithyStaticContent != null) {
+          return "PITHY";
+      } else if(portlet.staticContent == null
+                 || portlet.altMaxUrl == true) {
+          return "NORMAL";
+      } else if (portlet.staticContent != null 
+                 && portlet.altMaxUrl == false) {
+          return "SIMPLE";
+      }
     }
     
     this.maxStaticPortlet = function gotoMaxStaticPortlet(portlet) {
@@ -113,10 +125,10 @@
 				  $location.path('/');
 			  }
 		  } else {
-			  layoutService.getLayout().then(function(data){
-			      $rootScope.layout = data.layout;
-			      $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
-			      if(typeof $scope.portlet.fname === 'undefined') {
+			  layoutService.getApp($routeParams.fname).then(function(data){
+			      $scope.portlet = data.portlet;
+			      if(typeof $scope.portlet === 'undefined' || 
+			              typeof $scope.portlet.fname === 'undefined') {
 			    	  $location.path('/');
 			      }
 			  });

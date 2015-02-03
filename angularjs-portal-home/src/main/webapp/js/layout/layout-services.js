@@ -18,7 +18,7 @@ app.factory('sharedPortletService', function () {
 
 app.factory('layoutService', function($http, miscService) {
 
-    var getLayout = function() {
+  var getLayout = function() {
     return $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').then(
       function(result) {
         return  result.data;
@@ -28,7 +28,18 @@ app.factory('layoutService', function($http, miscService) {
       }
     );
   }
-  
+    
+  var getApp = function(fname) {
+      return $http.get('/portal/api/portlet/' +fname + '.json').then(
+        function(result) {
+          return  result.data;
+        } ,
+        function(reason){
+         miscService.redirectUser(reason.status, 'getApp call');
+         return reason.data;
+        }
+      );
+  }
   var moveStuff = function moveStuffFunction(index, length, sourceId, previousNodeId, nextNodeId) {
       var insertNode = function(sourceId, previousNodeId, nextNodeId){
           var saveOrderURL = "/portal/api/layout?action=movePortletAjax"
@@ -67,6 +78,7 @@ app.factory('layoutService', function($http, miscService) {
 
   return {
     getLayout : getLayout,
+    getApp : getApp,
     moveStuff : moveStuff,
     getNewStuffFeed : getNewStuffFeed
   }
