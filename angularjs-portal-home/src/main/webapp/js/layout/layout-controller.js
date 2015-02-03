@@ -121,10 +121,8 @@
 		  
 		  if(typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
 			  $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
-			  if(typeof $scope.portlet.fname === 'undefined') {
-				  $location.path('/');
-			  }
-		  } else {
+		  } 
+		  if(typeof $scope.portlet.fname === 'undefined'){
 			  layoutService.getApp($routeParams.fname).then(function(data){
 			      $scope.portlet = data.portlet;
 			      if(typeof $scope.portlet === 'undefined' || 
@@ -158,9 +156,11 @@
           ret.success(function (request, text){
               $('.fname-'+portlet.fname).html('<span style="color : green;"><i class="fa fa-check"></i> Added Successfully</span>').prop('disabled',true);
               $scope.$apply(function(){
-                  var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname});
-                  if(marketplaceEntries.length > 0) {
-                      marketplaceEntries[0].hasInLayout = true;
+                  if(typeof $sessionStorage.marketplace !== 'undefined') {
+                      var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname});
+                      if(marketplaceEntries.length > 0) {
+                          marketplaceEntries[0].hasInLayout = true;
+                      }
                   }
                   $rootScope.layout = null; //reset layout due to modifications
               });
@@ -168,24 +168,6 @@
           .error(function(request, text, error) {
             $('.fname-'+portlet.fname).html('<span style="color : red;">Issue adding to home, please try again later</span>');
           });
-      }
-      
-      this.inLayout = function(portlet) {
-        var layout = $rootScope.layout;
-        var ret=true;
-        if(!layout) {
-          //get layout
-         layoutService.getLayout().then(function(data) {
-           $rootScope.layout = data.layout;
-           var portlets = $.grep($rootScope.layout, function(e) { return e.fname === portlet.fname});
-           ret = portlets.length > 0;
-         });
-        } else {
-            var portlets = $.grep($rootScope.layout, function(e) { return e.fname === portlet.fname});
-            ret = portlets.length > 0;
-        }
-        
-        return ret;
       }
   }]);
   

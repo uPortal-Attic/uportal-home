@@ -3,15 +3,15 @@
     <img class="header-image" ng-src="{{$storage.homeImg}}" alt="UW Campus cover image">
     <div class="card-header-text">
       <h1>
-        <span><img ng-src="{{portlet.iconUrl}}" ng-if="(portlet.faIcon === '' || portlet.faIcon === null) && portlet.iconUrl != null" alt="App icon">
-              <i class="fa {{portlet.faIcon}}" ng-if="portlet.faIcon !== '' && portlet.faIcon !== null"></i> {{portlet.title }}</span>
+        <span><img ng-src="{{::portlet.iconUrl}}" ng-if="(portlet.faIcon === '' || portlet.faIcon === null) && portlet.iconUrl != null" alt="App icon">
+              <i class="fa {{::portlet.faIcon}}" ng-if="portlet.faIcon !== '' && portlet.faIcon !== null"></i> {{::portlet.title }}</span>
               
         <span class="dropdown" dropdown on-toggle="toggled(open)" style='float: right;'>
           <a href class="dropdown-toggle" dropdown-toggle>
             <i class="fa fa-cog" style='color : white;'></i>
           </a>
           <ul class="dropdown-menu" style='right: 0; left: auto;'>
-            <li role="presentation" class="fname-{{portlet.fname}}" ng-class='{hidden : staticContentCtrl.inLayout(portlet)}'>
+            <li role="presentation" class="fname-{{::portlet.fname}}">
                 <a ng-click="staticContentCtrl.addToHome(portlet)" href='javascript:;'><span>Add to Favorites</span></a>
             </li>
             <li role="presentation">
@@ -24,7 +24,7 @@
   </div>
   <div class="col-xs-12 no-padding portlet-section">
       <div data-loading class='loading-gif'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
-	  <div ng-bind-html="portlet.staticContent" class="up-portlet-content-wrapper" id="content-{{portlet.nodeId}}">
+	  <div ng-bind-html="::portlet.staticContent" class="up-portlet-content-wrapper" id="content-{{::portlet.nodeId}}">
 	  </div>
   </div>
   <rating-modal-template></rating-modal-template>
