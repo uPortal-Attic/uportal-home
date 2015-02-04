@@ -17,15 +17,20 @@ app.factory('miscService', function($http, $window, $location) {
     }
   }
 
-  var pushPageview = function (search) {
+  var pushPageview = function (search, category) {
     var path = $location.path();
     if(typeof search !== 'undefined' && search !== null) {
         path += "?q=" + search;
+        if(typeof category !== 'undefined' && category !== null) {
+           path += "&c=" + category;
+        }
     }
+    console.log('ga pageview logged ' + path);
     $window._gaq.push(['_trackPageview', path]);
   }
 
   var pushGAEvent = function(category, action, label) {
+    console.log('ga event logged c:' + category + " a:" + action + " l:" + label);
     $window._gaq.push(['_trackEvent', category, action, label]);
   }
 

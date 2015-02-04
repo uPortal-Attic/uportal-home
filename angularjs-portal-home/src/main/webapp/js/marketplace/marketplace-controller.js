@@ -55,7 +55,7 @@
     $scope.searchText = $scope.searchTerm;
     $scope.searchResultLimit = 20;
     
-    miscService.pushPageview($scope.searchTerm);
+    miscService.pushPageview($scope.searchTerm, 'Initial');
 
     
     //Functions
@@ -169,6 +169,7 @@
         tempFilterText = val;
         filterTextTimeout = $timeout(function() {
             $scope.searchTerm = tempFilterText;
+            miscService.pushPageview($scope.searchTerm, 'Filter');
         }, 250); // delay 250 ms
     })
 
