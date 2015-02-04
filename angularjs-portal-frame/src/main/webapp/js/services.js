@@ -17,13 +17,10 @@ app.factory('miscService', function($http, $window, $location) {
     }
   }
 
-  var pushPageview = function (search, category) {
+  var pushPageview = function (search) {
     var path = $location.path();
     if(typeof search !== 'undefined' && search !== null) {
         path += "?q=" + search;
-        if(typeof category !== 'undefined' && category !== null) {
-           path += "&c=" + category;
-        }
     }
     console.log('ga pageview logged ' + path);
     $window._gaq.push(['_trackPageview', path]);
