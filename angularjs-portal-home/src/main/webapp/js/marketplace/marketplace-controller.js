@@ -161,7 +161,7 @@
       $scope.showAll = !$scope.showAll;
     };
 
-    
+    var initFilter = false;
     //delay on the filter
     $scope.$watch('searchText', function (val) {
         if (filterTextTimeout) $timeout.cancel(filterTextTimeout);
@@ -169,7 +169,11 @@
         tempFilterText = val;
         filterTextTimeout = $timeout(function() {
             $scope.searchTerm = tempFilterText;
-            miscService.pushGAEvent('Search','Filter',$scope.searchTerm);
+            if(initFilter && $scope.searchTerm) {
+                miscService.pushGAEvent('Search','Filter',$scope.searchTerm);
+            } else {
+                initFilter = true;
+            }
         }, 250); // delay 250 ms
     })
 
