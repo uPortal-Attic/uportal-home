@@ -17,6 +17,29 @@ app.factory('sharedPortletService', function () {
 });
 
 app.factory('layoutService', function($http, miscService) {
+    
+  var addToHome = function addToHomeFunction(portlet) {
+      var fname = portlet.fname;
+      var tabName = "UW Bucky Home";
+      var ret = $.ajax({
+              url: "/portal/api/layout?action=addPortlet&fname=" + fname +"&tabName=" + tabName,
+              type: "POST",
+              data: null,
+              dataType: "json",
+              async: true,
+              success: function (request, text){
+                console.log('Added ' + portlet.fname + ' successfully');
+                miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
+                return true;
+              },
+              error: function(request, text, error) {
+                  console.warn('failed to add app to home.');
+                  return false;
+              }
+          });
+      
+      return ret;
+    };
 
   var getLayout = function() {
     return $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').then(
@@ -80,7 +103,8 @@ app.factory('layoutService', function($http, miscService) {
     getLayout : getLayout,
     getApp : getApp,
     moveStuff : moveStuff,
-    getNewStuffFeed : getNewStuffFeed
+    getNewStuffFeed : getNewStuffFeed,
+    addToHome : addToHome
   }
 
 });

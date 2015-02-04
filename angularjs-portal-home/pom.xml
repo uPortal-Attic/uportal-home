@@ -8,10 +8,8 @@
   
   <modelVersion>4.0.0</modelVersion>
   
-  <groupId>edu.wisc.my.portal.angular</groupId>
   <artifactId>angularjs-portal-home</artifactId>
   <packaging>war</packaging>
-  <version>4.1.1.16-SNAPSHOT</version>
   <name>angularjs-portal-home</name>
   
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>

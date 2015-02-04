@@ -6,10 +6,10 @@
   app.controller('MarketplaceController', 
     [ '$sessionStorage', '$modal', '$timeout', '$rootScope', '$window', 
     '$http', '$scope', '$location', '$routeParams', 'marketplaceService',
-    'miscService', 'mainService', 
+    'layoutService','miscService', 'mainService', 
     function($sessionStorage, $modal, $timeout, $rootScope, $window, 
       $http, $scope, $location, $routeParams, marketplaceService, 
-      miscService, mainService) {
+      layoutService, miscService, mainService) {
 
     $scope.$storage = $sessionStorage;
     //init variables
@@ -65,29 +65,21 @@
     };
 
     this.addToHome = function addToHomeFunction(index, portlet) {
-      var fname = portlet.fname;
-      var tabName = "UW Bucky Home";
-      $.ajax({
-              url: "/portal/api/layout?action=addPortlet&fname=" + fname +"&tabName=" + tabName,
-              type: "POST",
-              data: null,
-              dataType: "json",
-              async: true,
-              success: function (request, text){
-                $('.fname-'+fname).html('<i class="fa fa-check"></i> Added Successfully').prop('disabled',true).removeClass('btn-add').addClass('btn-added');
-				miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
-                $scope.$apply(function(){
-                    var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname});
-                    if(marketplaceEntries.length > 0) {
-                        marketplaceEntries[0].hasInLayout = true;
-                    }
-                    $rootScope.layout = null; //reset layout due to modifications
-                });
-              },
-              error: function(request, text, error) {
-                $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
-              }
-          });
+        var fname = portlet.fname;
+        var ret = layoutService.addToHome(portlet);
+        ret.success(function (request, text){
+            $('.fname-'+fname).html('<i class="fa fa-check"></i> Added Successfully').prop('disabled',true).removeClass('btn-add').addClass('btn-added');
+            $scope.$apply(function(){
+                var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname});
+                if(marketplaceEntries.length > 0) {
+                    marketplaceEntries[0].hasInLayout = true;
+                }
+                $rootScope.layout = null; //reset layout due to modifications
+            });
+          })
+        .error(function(request, text, error) {
+            $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
+        });
     };
 
     $scope.openRating = function (size, fname, name) {

@@ -20,6 +20,8 @@
                         elm.show();
                     }else{
                         elm.hide();
+                        elm.css('margin','0')
+                        elm.html(""); //removes content of div, so if it shows again later it doesn't make the page look funky
                     }
                 });
             }
