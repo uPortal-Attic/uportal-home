@@ -17,8 +17,8 @@
     store.portlets = [];
     store.count = 0;
     store.user = [];
-    mainService.getUser().then(function(result){
-      store.user = result.data.person;
+    mainService.getUser().then(function(person){
+      store.user = person;
 
       //get marketplace portlets
       if($sessionStorage.sessionKey == store.user.sessionKey
@@ -101,30 +101,10 @@
     };
 
     $scope.searchTermFilter = function(portlet) {
-        if($scope.searchTerm === undefined) {//nothing filled for search
-            return true;
-        }
-        var searchTerm = $scope.searchTerm.toLowerCase(); //create local var for searchTerm
-        
-        if(portlet.title.toLowerCase().indexOf(searchTerm) !== -1) {//check title
-            return true;
-        }
-        
-        //check description match
-        if(portlet.description !== null 
-                && portlet.description.toLowerCase().indexOf(searchTerm) !== -1) {
-            return true;
-        }
-        
-        //last ditch effort, check keywords
-        if(portlet.keywords !== null) {
-            for(var i = 0; i < portlet.keywords.length; i++) {
-                if(portlet.keywords[i].toLowerCase().indexOf(searchTerm) !== -1) {
-                    return true;
-                }
-            }
-        }
-        return false;
+      return miscService.portletMatchesSearchTerm(portlet, $scope.searchTerm, {
+          searchDescription: true,
+          searchKeywords: true
+      });
     };
 
 
