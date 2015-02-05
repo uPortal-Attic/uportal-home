@@ -22,10 +22,12 @@ app.factory('miscService', function($http, $window, $location) {
     if(typeof search !== 'undefined' && search !== null) {
         path += "?q=" + search;
     }
+    console.log('ga pageview logged ' + path);
     $window._gaq.push(['_trackPageview', path]);
   }
 
   var pushGAEvent = function(category, action, label) {
+    console.log('ga event logged c:' + category + " a:" + action + " l:" + label);
     $window._gaq.push(['_trackEvent', category, action, label]);
   }
 
