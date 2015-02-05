@@ -3,7 +3,7 @@
 (function() {
 var app = angular.module('portal.main.service', []);
 
-app.factory('mainService', ['$http', 'miscService', '$q', function($http, miscService, $q) {
+app.factory('mainService', ['$http', 'miscService', function($http, miscService) {
   var prom = $http.get('/portal/api/session.json', { cache: true});
   var sidebarPromise = $http.get('/web/samples/sidebar.json');
   var userPromise;
