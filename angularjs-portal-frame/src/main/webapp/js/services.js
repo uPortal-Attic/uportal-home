@@ -31,7 +31,7 @@ app.factory('miscService', function($http, $window, $location) {
     $window._gaq.push(['_trackEvent', category, action, label]);
   }
 
-    var portletMatchesSearchTerm = function(portlet, searchTerm) {
+    var portletMatchesSearchTerm = function(portlet, searchTerm, opts) {
         if (!searchTerm) {
             return false;
         }
@@ -42,23 +42,27 @@ app.factory('miscService', function($http, $window, $location) {
             return true;
         }
 
-        //check description match
-        if(portlet.description && portlet.description.toLowerCase().indexOf(lowerSearchTerm) !== -1) {
-            return true;
+        if (opts && opts.searchDescription) {
+            //check description match
+            if(portlet.description && portlet.description.toLowerCase().indexOf(lowerSearchTerm) !== -1) {
+                return true;
+            }
         }
 
         //last ditch effort, check keywords
-        if(portlet.keywords) {
-            for(var i = 0; i < portlet.keywords.length; i++) {
-                if(portlet.keywords[i].toLowerCase().indexOf(lowerSearchTerm) !== -1) {
-                    return true;
+        if (opts && opts.searchKeywords) {
+            if (portlet.keywords) {
+                for (var i = 0; i < portlet.keywords.length; i++) {
+                    if (portlet.keywords[i].toLowerCase().indexOf(lowerSearchTerm) !== -1) {
+                        return true;
+                    }
                 }
             }
         }
         return false;
     };
 
-    var filterPortletsBySearchTerm = function(portletList, searchTerm) {
+    var filterPortletsBySearchTerm = function(portletList, searchTerm, opts) {
         var matches;
 
         if (!angular.isArray(portletList)) {
@@ -67,7 +71,7 @@ app.factory('miscService', function($http, $window, $location) {
 
         matches = [];
         angular.forEach(portletList, function(portlet) {
-            if (portletMatchesSearchTerm(portlet, searchTerm)) {
+            if (portletMatchesSearchTerm(portlet, searchTerm, opts)) {
                 matches.push(portlet);
             }
         });

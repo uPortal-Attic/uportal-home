@@ -17,8 +17,8 @@
     store.portlets = [];
     store.count = 0;
     store.user = [];
-    mainService.getUser().then(function(result){
-      store.user = result.data.person;
+    mainService.getUser().then(function(person){
+      store.user = person;
 
       //get marketplace portlets
       if($sessionStorage.sessionKey == store.user.sessionKey
@@ -101,7 +101,10 @@
     };
 
     $scope.searchTermFilter = function(portlet) {
-      return miscService.portletMatchesSearchTerm(portlet, $scope.searchTerm);
+      return miscService.portletMatchesSearchTerm(portlet, $scope.searchTerm, {
+          searchDescription: true,
+          searchKeywords: true
+      });
     };
 
 
