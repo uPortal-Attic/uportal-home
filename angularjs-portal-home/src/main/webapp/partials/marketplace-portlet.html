@@ -77,17 +77,25 @@
   <div ng-if="showDetails" class="row portlet-details-div">
     <div class="col-xs-12 col-sm-3 related-portlets">
       <h3>Related Apps</h3>
-      <ul ng-repeat="related in portlet.relatedPortlets">
-        <li><a href="{{ ::related.maxUrl }}">{{ ::related.title }}</a></li>
+      <ul >
+        <li ng-repeat="related in portlet.relatedPortlets"><a href="{{ ::related.maxUrl }}">{{ ::related.title }}</a></li>
       </ul>
     </div>
     <div class="col-xs-12 col-sm-9 portlet-screenshots" ng-if="portlet.marketplaceScreenshots.length !== 0">
       <h3>Screenshots</h3>
-      <ul ng-repeat="screenshot in portlet.marketplaceScreenshots">
-        <li>
+      <ul >
+        <li ng-repeat="screenshot in portlet.marketplaceScreenshots">
           <img ng-src="{{ ::screenshot.url }}" alt="{{ ::screenshot.captions }}">
           <p ng-repeat="caption in screenshot.captions">{{ ::caption }}</p>
         </li>
+      </ul>
+    </div>
+    
+    <div class="col-xs-12 col-sm-3 related-portlets" ng-if="$storage.showKeywordsInMarketplace">
+        <h3>Keywords</h3>
+      <ul >
+        <li ng-repeat="keyword in portlet.keywords | orderBy:'toLowerCase()'  track by $index"><a href='#/apps/search/{{ ::keyword }}'>{{ ::keyword }}</a></li>
+        <li ng-if="portlet.keywords == null || portlet.keywords.length == 0">(no keywords set)</li>
       </ul>
     </div>
   </div>

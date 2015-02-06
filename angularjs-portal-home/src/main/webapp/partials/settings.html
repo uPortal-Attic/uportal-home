@@ -61,6 +61,16 @@
          </h4>
          <small>Enable/Disable the option to jump to my profile in the sidebar</small>
        </li>
+       <li class="portlet-container-home beta-card-style">
+         <h4>
+           <span class="btn-group">
+             <label class="btn" ng-class="{'btn-success' : $storage.showKeywordsInMarketplace, 'btn-default' : !$storage.showKeywordsInMarketplace }" ng-model="$storage.showKeywordsInMarketplace" btn-radio="true">On</label>
+             <label class="btn" ng-class="{'btn-success' : $storage.showKeywordsInMarketplace, 'btn-default' : !$storage.showKeywordsInMarketplace }" ng-model="$storage.showKeywordsInMarketplace" btn-radio="false">Off</label>
+           </span>
+           Show Keywords in Marketplace
+         </h4>
+         <small>Enable/Disable keywords showing up in marketplace details</small>
+       </li>
     </ul>
     <ul class="col-sm-6" style='padding-top: 1em;'>
         <li class="no-padding portlet-container-home  beta-card-style" style='text-align : center;'>
