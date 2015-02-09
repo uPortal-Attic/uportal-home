@@ -8,6 +8,7 @@
     $scope.$storage = $localStorage.$default( {
       showSidebar: true, 
       sidebarQuicklinks: false, 
+      showKeywordsInMarketplace : false,
       homeImg : "img/square.jpg", 
       sidebarShowProfile: false, 
       profileImg: "img/terrace.jpg", 

@@ -11,7 +11,6 @@
       $http, $scope, $location, $routeParams, marketplaceService, 
       layoutService, miscService, mainService) {
 
-    $scope.$storage = $sessionStorage;
     //init variables
     var store = this;
     store.portlets = [];
