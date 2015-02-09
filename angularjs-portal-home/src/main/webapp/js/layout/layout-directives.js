@@ -3,6 +3,13 @@
 (function() {
   var app = angular.module('portal.layout.directives', []);
   
+  app.directive('portletIcon', function(){
+      return {
+          restrict : 'E',
+          templateUrl : 'partials/portlet-icon.html'
+      }
+  });
+  
   app.directive('defaultCard', function(){
       return {
           restrict : 'E',
