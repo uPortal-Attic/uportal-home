@@ -78,7 +78,7 @@
     <div class="col-xs-12 col-sm-3 related-portlets">
       <h3>Related Apps</h3>
       <ul >
-        <li ng-repeat="related in portlet.relatedPortlets"><a href="{{ ::related.maxUrl }}">{{ ::related.title }}</a></li>
+        <li ng-repeat="related in portlet.relatedPortlets"><a href="#/apps/search/{{ ::related.title }}">{{ ::related.title }}</a></li>
       </ul>
     </div>
     <div class="col-xs-12 col-sm-9 portlet-screenshots" ng-if="portlet.marketplaceScreenshots.length !== 0">
