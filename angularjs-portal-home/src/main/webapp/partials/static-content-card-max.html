@@ -1,4 +1,4 @@
-<div class="portlet-div" id="portlet-id-{{::portlet.nodeId}}">
+<!-- <div class="portlet-div" id="portlet-id-{{::portlet.nodeId}}">
 
   <a ng-click="layoutCtrl.maxStaticPortlet(portlet)" href='javascript:;'>
     <div class="portlet-title">
@@ -8,9 +8,24 @@
   <div class='card-remove'>
      <i title="Remove" class="fa fa-times portlet-options" ng-click="layoutCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
   </div>
-  <a ng-click="layoutCtrl.maxStaticPortlet(portlet)" href='javascript:;'>
-    <div class="portlet-content">
-      {{:: portlet.description | truncate:160}}
+    <a ng-click="layoutCtrl.maxStaticPortlet(portlet)" href='javascript:;'>
+      <div class="portlet-content">
+        {{:: portlet.description | truncate:160}}
+      </div>
+    </a>
+  </div>
+</div> -->
+
+<div class="list-content" id="portlet-id-{{::portlet.nodeId}}">
+  <a href="{{::portlet.url}}" target="{{::portlet.target}}" ng-click="layoutCtrl.maxStaticPortlet(portlet)">
+    <div class="icon-container">
+      <i class="fa {{::portlet.faIcon}}" ng-if="portlet.faIcon !== '' && portlet.faIcon !== null"></i>
+    </div>
+    <div class="list-item-container">
+      <h4>{{ ::portlet.title }}</h4>
     </div>
   </a>
+  <div class='card-remove'>
+    <i title="Remove" class="fa fa-times portlet-options" ng-click="layoutCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
+  </div>
 </div>
