@@ -1,12 +1,10 @@
 
 
-<div class="row card">
-  <div class="card-header">
-    <img class="header-image" ng-src="{{$storage.homeImg}}" alt="UW Campus cover image">
-    <div class="card-header-text">
+<div class="row portlet-frame">
+  <div class="portlet-header">
+    <img ng-src="{{$storage.homeImg}}" alt="UW Campus cover image">
       <h1>MyUW Home</h1>
       <!-- <p>This is the Angular version of MyUW. Enjoy!</p> -->
-    </div>
     <div ng-controller="NewStuffController as newStuffCtrl">
       <div ng-repeat="stuff in newStuffArray">
           <div ng-if='newStuffCtrl.show(stuff)'  class="header-opaque">
@@ -21,8 +19,8 @@
     <h3 class="home-section-header">Notifications</h3>
     <notifications></notifications>
   </div>
-  <div class="col-xs-12 no-padding portlet-section" ng-controller="LayoutController as layoutCtrl">
-    <h3 class="home-section-header portlet-section-header">
+  <div class="col-xs-12 no-padding portlet-body" ng-controller="LayoutController as layoutCtrl">
+    <h3 class="home-section-header">
         Your Favorites <span class='small-font-plus'>
         <a href='#/apps'
            popover="Browse for more apps"

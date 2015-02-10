@@ -1,19 +1,16 @@
 
-<div ng-controller="MarketplaceController as marketplaceCtrl" class="row card col-xs-12 col-md-12 no-padding">
-  <div class="card-header mp-header">
+<div ng-controller="MarketplaceController as marketplaceCtrl" class="row portlet-frame marketplace col-xs-12 col-md-12 no-padding">
+  <div class="portlet-header mp-header">
     <img class="header-image" src="img/terrace.jpg" alt="Chairs at the Union Terrace">
-    <div class="card-header-text">
-      <h1>UW Apps</h1>
-      <p>Find the information and resources you need at UW-Madison. Add frequently used apps to your Home page or simply launch an app for immediate use.</p>
-      <span class="fa fa-search mp-search-icon"></span><input type="text" class="marketplace-search" placeholder="What are you looking for?" ng-model="searchText" select-on-page-load aria-label="Filter Apps">
-    </div>
+    <h1>UW Apps</h1>
+    <p>Find the information and resources you need at UW-Madison. Add frequently used apps to your Home page or simply launch an app for immediate use.</p>
+    <span class="fa fa-search mp-search-icon"></span><input type="text" class="marketplace-search" placeholder="What are you looking for?" ng-model="searchText" select-on-page-load aria-label="Filter Apps">
     <div class="header-opaque mp-opaque">
       <ul>
         <li ng-click="selectFilter('popular','')" ng-class="{true:'selected-filter'}[selectedFilter === 'popular']">Most Popular</li>
         <li ng-click="selectFilter('az','')" ng-class="{true: 'selected-filter'}[selectedFilter === 'az']">A-Z</li>
         <li ng-click="selectFilter('category','')" ng-class="{true: 'selected-filter'}[selectedFilter === 'category']">Categories</li>
       </ul>
-
     </div>
   </div>
   <div class="show-all-div">
