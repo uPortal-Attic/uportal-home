@@ -24,36 +24,39 @@
     <dependency>
       <groupId>edu.wisc.my.portal.angular</groupId>
       <artifactId>angularjs-portal-frame</artifactId>
-      <version>${project.version}</version>
       <type>war</type>
+      <version>${project.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>javax.servlet.jsp.jstl</groupId>
+        <artifactId>jstl-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
     </dependency>
   </dependencies>
 
   <build>
     <finalName>web</finalName>
-    <plugins>
-      <!-- Commenting out until we need less on the home front -->
-      <!-- <plugin>
-        <groupId>org.lesscss</groupId>
-        <artifactId>lesscss-maven-plugin</artifactId>
-        <version>1.3.3</version>
-        <configuration>
-            <sourceDirectory>${project.basedir}/src/main/webapp/css/</sourceDirectory>
-            <outputDirectory>${project.build.directory}/${project.build.finalName}/css/</outputDirectory>
-            <compress>true</compress>
+    <resources>
+        <resource>
+            <directory>src/main/webapp</directory>
             <includes>
-                <include>angular.less</include>
+                <include>home.html</include>
             </includes>
-            <lessJs>${project.basedir}/src/main/webapp/css/lib/less-1.6.2.js</lessJs>
-        </configuration>
-        <executions>
-            <execution>
-                <goals>
-                    <goal>compile</goal>
-                </goals>
-            </execution>
-        </executions>
-      </plugin> -->
+            <filtering>true</filtering>
+            
+        </resource>
+    </resources>
+    <plugins>
       <plugin>
       <groupId>org.apache.tomcat.maven</groupId>
       <artifactId>tomcat7-maven-plugin</artifactId>

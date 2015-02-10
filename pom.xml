@@ -33,5 +33,20 @@
     <module>angularjs-portal-home</module>
   </modules>
   
+  <dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>jstl-api</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+          <groupId>jstl</groupId>
+          <artifactId>jstl</artifactId>
+          <version>1.2</version>
+        </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
 </project>
 

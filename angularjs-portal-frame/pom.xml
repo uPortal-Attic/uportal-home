@@ -8,10 +8,8 @@
   
   <modelVersion>4.0.0</modelVersion>
   
-  <groupId>edu.wisc.my.portal.angular</groupId>
   <artifactId>angularjs-portal-frame</artifactId>
   <packaging>war</packaging>
-  <version>4.1.1.16-SNAPSHOT</version>
   <name>angularjs-portal-frame</name>
   
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
@@ -23,15 +21,32 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+        <groupId>javax.servlet.jsp.jstl</groupId>
+        <artifactId>jstl-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+    </dependency>
   </dependencies>
 
   <build>
     <finalName>frame</finalName>
+    <resources>
+        <resource>
+            <directory>src/main/webapp</directory>
+            <includes>
+                <include>frame.html</include>
+            </includes>
+            <filtering>true</filtering>
+        </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.lesscss</groupId>
         <artifactId>lesscss-maven-plugin</artifactId>
-        <version>1.3.3</version>
+        <version>1.7.0.1.1</version>
         <configuration>
             <sourceDirectory>${project.basedir}/src/main/webapp/css/</sourceDirectory>
             <outputDirectory>${project.build.directory}/${project.build.finalName}/css/</outputDirectory>
@@ -39,7 +54,7 @@
             <includes>
                 <include>angular.less</include>
             </includes>
-            <lessJs>${project.basedir}/src/main/webapp/css/lib/less-1.6.2.js</lessJs>
+            <outputFileFormat>{fileName}.${project.version}.css</outputFileFormat>
         </configuration>
         <executions>
             <execution>
