@@ -3,10 +3,10 @@
               { 
                 "id" : 1,
                 "expireYr"  : 2015,
-                "expireMon" : 0,
-                "expireDay" : 1,
-                "title" : "Drag and Drop",
-                "shortDesc" : "Now you can arrange your favorites on the home screen however you want. ",
+                "expireMon" : 1,
+                "expireDay" : 20,
+                "title" : "New Sidebar",
+                "shortDesc" : "Don't see the new sidebar?  Sorry for the glitch!  Refresh the page and it should appear. ",
                 "link" : null
               }
             ]
