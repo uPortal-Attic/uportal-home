@@ -10,8 +10,7 @@ app.factory('miscService', function($http, $window, $location) {
   		//got a redirect call from shib due to session timeout or /web direct hit
   		console.log("redirect happening");
     	console.log(status);
-    	$('body').append("<form id='redirectForm' action='/portal/Login'><input type='hidden' name='profile' value='bucky'/></form>");
-    	$('#redirectForm').submit();
+    	window.location.replace('/portal/Login?profile=bucky');
     } else {
     	console.warn("Strange behavior from " + caller +". Returned status code : " + status);
     }

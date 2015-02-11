@@ -77,7 +77,7 @@ app.factory('marketplaceService', ['$q', '$http','$sessionStorage', 'layoutServi
           };
 
           // no caching...  request from the server
-          marketplacePromise = $q.all([$http.get('/portal/api/marketplace/entries.json', {cache : true}), layoutService.getLayout()]).then(successFn,errorFn);
+          marketplacePromise = $q.all([$http.get('/portal/web/marketplace/entries.json', {cache : true}), layoutService.getLayout()]).then(successFn,errorFn);
           return marketplacePromise;
           return 
       });
@@ -85,13 +85,13 @@ app.factory('marketplaceService', ['$q', '$http','$sessionStorage', 'layoutServi
   };
   
   var getUserRating = function(fname) {
-      return $http.get('/portal/api/marketplace/' + fname + '/getRating').then(function(result) {
+      return $http.get('/portal/web/marketplace/' + fname + '/getRating').then(function(result) {
           return result.data.rating;
       });
   };
   
   var saveRating = function(fname, rating) {
-      $http.post('/portal/api/marketplace/' + fname + '/rating/' + rating.rating , {}, {params: {review : rating.review}}).
+      $http.post('/portal/web/marketplace/' + fname + '/rating/' + rating.rating , {}, {params: {review : rating.review}}).
           success(function(data, status, headers, config){
               console.log("successfully saved marketplace rating for " + fname + " with data " + rating);
           }).

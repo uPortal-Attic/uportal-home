@@ -21,7 +21,7 @@ app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionSt
       var fname = portlet.fname;
       var tabName = "UW Bucky Home";
       var ret = $.ajax({
-              url: "/portal/api/layout?action=addPortlet&fname=" + fname +"&tabName=" + tabName,
+              url: "/portal/web/layout?action=addPortlet&fname=" + fname +"&tabName=" + tabName,
               type: "POST",
               data: null,
               dataType: "json",
@@ -83,7 +83,7 @@ app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionSt
             };
 
             // no caching...  request from the server
-            return $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').then(successFn, errorFn);;
+            return $http.get('/portal/web/layoutDoc?tab=UW Bucky Home').then(successFn, errorFn);;
         });
     };
     
