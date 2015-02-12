@@ -3,8 +3,8 @@
 (function() {
 var app = angular.module('portal.marketplace.service', []);
 
-app.factory('marketplaceService', ['$q', '$http', 'layoutService', 'miscService', function($q, $http, layoutService, miscService) {
-
+app.factory('marketplaceService', ['$q', '$http','$sessionStorage', 'layoutService', 'miscService', 'mainService', function($q, $http, $sessionStorage, layoutService, miscService, mainService) {
+  var marketplacePromise;
   //local variables
   var filter = "";
 
@@ -17,12 +17,71 @@ app.factory('marketplaceService', ['$q', '$http', 'layoutService', 'miscService'
   var getInitialFilter = function(){
       return filter;
   };
+  
+  var checkMarketplaceCache = function() {
+      var userPromise = mainService.getUser();
+      return userPromise.then(function(user) {
+          if ($sessionStorage.sessionKey === user.sessionKey && $sessionStorage.marketplace) {
+              return {
+                  portlets : $sessionStorage.marketplace,
+                  categories : $sessionStorage.categories,
+              };
+          }
+
+          return null;
+      });
+  };
+  
+  var storeMarketplaceInCache = function(data) {
+      var userPromise = mainService.getUser();
+      userPromise.then(function(user) {
+          $sessionStorage.sessionKey = user.sessionKey;
+          $sessionStorage.marketplace = data.portlets;
+          $sessionStorage.categories = data.categories;
+      });
+  };
+  
   var getPortlets = function () {
-    return $q.all([$http.get('/portal/api/marketplace/entries.json', {cache : true}), layoutService.getLayout()]).then(function(data){
-      var result = {};
-      postProcessing(result,data);
-      return result;
-    });
+      return checkMarketplaceCache().then(function(data) {
+          var successFn, errorFn, defer;
+
+          // first, check the local storage...
+          if (data) {
+              defer = $q.defer();
+              defer.resolve(data);
+              return defer.promise;
+          }
+
+          // then check for outstanding requests that may have not yet been cached.
+
+          // Downside of adding caching in getUser() is that the
+          // promise in getUser blocks till we get results.  That blocks
+          // the call to getMarketplace.  So, they pile up.  Then, when
+          // getUser clears, all the getUser promises fire immediately.
+          // They all fire so fast that the layout data doesn't make it
+          // to cache between calls.  So, cache the very first promise locally.
+          // Then, if the marketplace promise exists use it again.
+          if (marketplacePromise) {
+              return marketplacePromise;
+          }
+
+          successFn =function(data){
+              var result = {};
+              postProcessing(result,data);
+              storeMarketplaceInCache(result);
+              return result;
+            };
+
+          errorFn = function(reason) {
+              miscService.redirectUser(reason.status, 'marketplace entries call');
+          };
+
+          // no caching...  request from the server
+          marketplacePromise = $q.all([$http.get('/portal/api/marketplace/entries.json', {cache : true}), layoutService.getLayout()]).then(successFn,errorFn);
+          return marketplacePromise;
+          return 
+      });
+    
   };
   
   var getUserRating = function(fname) {

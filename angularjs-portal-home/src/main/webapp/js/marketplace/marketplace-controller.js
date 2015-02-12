@@ -16,29 +16,10 @@
     store.portlets = [];
     store.count = 0;
     store.user = [];
-    mainService.getUser().then(function(person){
-      store.user = person;
-
-      //get marketplace portlets
-      if($sessionStorage.sessionKey == store.user.sessionKey
-        && $sessionStorage.marketplace != null
-        && $sessionStorage.categories != null) {
-
-          store.portlets = $sessionStorage.marketplace;
-          $scope.categories = $sessionStorage.categories;
-          
-      } else {
-          marketplaceService.getPortlets().then(function(data) {
-            store.portlets = data.portlets;
-            $scope.categories = data.categories;
-            $scope.layout = data.layout;
-            
-            $sessionStorage.marketplace = data.portlets;
-            $sessionStorage.categories = data.categories;
-            $sessionStorage.sessionKey = store.user.sessionKey;
-          });
-      }
-      
+    
+    marketplaceService.getPortlets().then(function(data) {
+        store.portlets = data.portlets;
+        $scope.categories = data.categories;
     });
     
     
