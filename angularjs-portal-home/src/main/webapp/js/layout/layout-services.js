@@ -17,8 +17,6 @@ app.factory('sharedPortletService', function () {
 });
 
 app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionStorage', '$q', function($http, miscService, mainService, $sessionStorage, $q) {
-    var layoutPromise;
-    
   var addToHome = function addToHomeFunction(portlet) {
       var fname = portlet.fname;
       var tabName = "UW Bucky Home";
@@ -73,19 +71,6 @@ app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionSt
                 return defer.promise;
             }
 
-            // then check for outstanding requests that may have not yet been cached.
-
-            // Downside of adding caching in getUser() is that the
-            // promise in getUser blocks till we get results.  That blocks
-            // the call to getLayout.  So, they pile up.  Then, when
-            // getUser clears, all the getUser promises fire immediately.
-            // They all fire so fast that the layout data doesn't make it
-            // to cache between calls.  So, cache the very first promise locally.
-            // Then, if the layout promise exists use it again.
-            if (layoutPromise) {
-                return layoutPromise;
-            }
-
             successFn = function(result) {
                 var data =  result.data;
                 storeLayoutInCache(data);
@@ -98,8 +83,7 @@ app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionSt
             };
 
             // no caching...  request from the server
-            layoutPromise = $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').then(successFn, errorFn);
-            return layoutPromise;
+            return $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').then(successFn, errorFn);;
         });
     };
     
