@@ -13,7 +13,10 @@
       sidebarShowProfile: false, 
       profileImg: "img/terrace.jpg", 
       notificationsDemo : false,
-      pithyContentOnHome : false } );
+      staticContentMax : false,
+      staticContentOnHome : false,
+      pithyContentOnHome : false,
+      typeaheadSearch: false} );
   } ]);
 
   /* Username */
@@ -22,7 +25,7 @@
     var that = this;
     that.user = [];
     mainService.getUser().then(function(result){
-      that.user = result.data.person;
+      that.user = result;
     });
   }]);
 
