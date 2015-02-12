@@ -83,10 +83,17 @@
     </div>
     <div class="col-xs-12 col-sm-9 portlet-screenshots" ng-if="portlet.marketplaceScreenshots.length !== 0">
       <h3>Screenshots</h3>
-      <ul >
-        <li ng-repeat="screenshot in portlet.marketplaceScreenshots">
-          <img ng-src="{{ ::screenshot.url }}" alt="{{ ::screenshot.captions }}">
-          <p ng-repeat="caption in screenshot.captions">{{ ::caption }}</p>
+<<<<<<< HEAD
+      
+      <ul class="enlarge" ng-repeat="screenshot in portlet.marketplaceScreenshots">
+        <li>
+          <img ng-src="{{ ::screenshot.url }}" width ="320px" alt="{{ ::screenshot.captions }}">
+          <span>
+          	<img ng-src="{{ ::screenshot.url }}" alt="{{ ::screenshot.captions }}">
+          	<p ng-repeat="caption in screenshot.captions">{{ ::caption }}</p>
+          </span>
+          
+>>>>>>> MUMUP-1470: Bigger Screenshots
         </li>
       </ul>
     </div>
