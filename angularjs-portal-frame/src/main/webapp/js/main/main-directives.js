@@ -18,33 +18,11 @@
     }
   });
 
-  app.directive('search', ['miscService', 'marketplaceService', '$location', function(miscService, marketplaceService, $location) {
+  app.directive('search', [function() {
     return {
       restrict : 'E',
       templateUrl : 'partials/search.html',
-      controller: function($scope) {
-          $scope.initialFilter = '';
-          $scope.filterMatches = [];
-          $scope.portletListLoading = true;
-          marketplaceService.getPortlets().then(function(data){
-              $scope.portlets = data.portlets;
-              $scope.portletListLoading = false;
-          });
-
-          $scope.$watch('initialFilter', function(newVal, oldVal) {
-              if (!newVal || !$scope.portlets) {
-                  $scope.filterMatches = [];
-                  return;
-              }
-
-              $scope.filterMatches = miscService.filterPortletsBySearchTerm($scope.portlets, newVal);
-          });
-
-          $scope.onSelect = function(portlet) {
-              $scope.initialFilter = portlet.name;
-              $location.path("/apps/search/" + $scope.initialFilter);
-          };
-      }
+      controller: 'SearchController'
     }
   }]);
 

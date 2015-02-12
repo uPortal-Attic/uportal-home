@@ -10,7 +10,8 @@
             typeahead="title as match.title for match in filterMatches | limitTo:10"
             typeahead-on-select="onSelect($item, $model, $label)"
             typeahead-loading="portletListLoading"
-            typeahead-min-length="2">
+            typeahead-min-length="2"
+            autocomplete="off" >
 
       <input type="search" class="main-search"
             placeholder="Search MyUW"
@@ -18,7 +19,8 @@
             ng-model="initialFilter"
             aria-label="Search MyUW"
             focus-me="showSearchFocus"
-            ng-hide="$storage.typeaheadSearch"/>
+            ng-hide="$storage.typeaheadSearch"
+            autocomplete="off" />
 
 
     <span class="input-group-btn">

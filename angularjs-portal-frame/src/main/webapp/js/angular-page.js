@@ -11,7 +11,8 @@
     'portal.misc.service',
     'portal.main.controllers',
     'portal.main.service',
-    'portal.main.directives'
+    'portal.main.directives',
+    'portal.search.controllers',
      ]);
  app.config(['$routeProvider',function($routeProvider, $locationProvider) {
 	 $routeProvider.

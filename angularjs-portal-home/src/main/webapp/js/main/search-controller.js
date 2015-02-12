@@ -1,0 +1,30 @@
+'use strict';
+
+(function() {
+  var app = angular.module('portal.search.controllers', []);
+  app.controller('SearchController', [ 'marketplaceService', '$location', '$scope', '$localStorage', function(marketplaceService, $location, $scope, $localStorage) {
+      $scope.initialFilter = '';
+      $scope.filterMatches = [];
+      $scope.portletListLoading = true;
+      if($localStorage && $localStorage.typeaheadSearch) {
+          marketplaceService.getPortlets().then(function(data){
+              $scope.portlets = data.portlets;
+              $scope.portletListLoading = false;
+          });
+      }
+
+      $scope.$watch('initialFilter', function(newVal, oldVal) {
+          if (!newVal || !$scope.portlets) {
+              $scope.filterMatches = [];
+              return;
+          }
+
+          $scope.filterMatches = marketplaceService.filterPortletsBySearchTerm($scope.portlets, newVal);
+      });
+
+      $scope.onSelect = function(portlet) {
+          $scope.initialFilter = portlet.name;
+          $location.path("/apps/search/" + $scope.initialFilter);
+      };
+    }]);
+})();

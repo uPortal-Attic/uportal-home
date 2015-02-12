@@ -74,6 +74,7 @@
                     marketplaceEntries[0].hasInLayout = true;
                 }
                 $rootScope.layout = null; //reset layout due to modifications
+                $sessionStorage.layout = null;
             });
           })
         .error(function(request, text, error) {
@@ -100,9 +101,10 @@
     };
 
     $scope.searchTermFilter = function(portlet) {
-      return miscService.portletMatchesSearchTerm(portlet, $scope.searchTerm, {
+      return marketplaceService.portletMatchesSearchTerm(portlet, $scope.searchTerm, {
           searchDescription: true,
-          searchKeywords: true
+          searchKeywords: true,
+          defaultReturn : true,
       });
     };
 
