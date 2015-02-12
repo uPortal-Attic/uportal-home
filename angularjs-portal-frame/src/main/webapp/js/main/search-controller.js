@@ -20,8 +20,19 @@
       });
 
       $scope.onSelect = function(portlet) {
-          $scope.initialFilter = portlet.name;
-          $location.path("/apps/search/" + $scope.initialFilter);
+              $location.path("/apps/search/"+ portlet.name);
+              $scope.initialFilter = "";
+              $scope.showSearch = false;
+              $scope.showSearchFocus = false;
       };
+      
+      $scope.submit = function(){
+          if($scope.initialFilter != "") {
+            $location.path("/apps/search/"+ $scope.initialFilter);
+            $scope.initialFilter = "";
+            $scope.showSearch = false;
+            $scope.showSearchFocus = false;
+          }
+        };
     }]);
 })();

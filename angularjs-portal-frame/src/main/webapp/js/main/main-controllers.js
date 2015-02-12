@@ -34,14 +34,6 @@
     this.navbarCollapsed = true;
     $scope.showSearch = false;
     $scope.showSearchFocus = false;
-    $scope.submit = function(){
-      if($scope.initialFilter != "") {
-        $location.path("/apps/search/"+ $scope.initialFilter);
-        $scope.initialFilter = "";
-        $scope.showSearch = false;
-        $scope.showSearchFocus = false;
-      }
-    };
     
     this.toggleSearch = function() {
         $scope.showSearch = !$scope.showSearch;
