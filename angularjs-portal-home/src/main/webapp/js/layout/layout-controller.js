@@ -162,7 +162,11 @@
                           marketplaceEntries[0].hasInLayout = true;
                       }
                   }
-                  $rootScope.layout = null; //reset layout due to modifications
+                  
+                  //reset layout due to modifications
+                  $rootScope.layout = null; 
+                  $sessionStorage.layout = null;
+                  
               });
           })
           .error(function(request, text, error) {
