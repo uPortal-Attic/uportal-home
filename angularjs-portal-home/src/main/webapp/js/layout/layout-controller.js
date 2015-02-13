@@ -36,7 +36,7 @@
     }
     this.removePortlet = function removePortletFunction(nodeId, title) {
         $.ajax({
-                url: "/portal/api/layout?action=removeElement&elementID=" + nodeId,
+                url: "/portal/web/layout?action=removeElement&elementID=" + nodeId,
                 type: "POST",
                 data: null,
                 dataType: "json",
