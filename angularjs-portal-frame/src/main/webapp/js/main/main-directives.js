@@ -18,12 +18,13 @@
     }
   });
 
-  app.directive('search', function() {
+  app.directive('search', [function() {
     return {
       restrict : 'E',
-      templateUrl : 'partials/search.html'
+      templateUrl : 'partials/search.html',
+      controller: 'SearchController'
     }
-  });
+  }]);
 
   app.directive('username', function() {
     return {

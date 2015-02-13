@@ -13,7 +13,8 @@
       sidebarShowProfile: false, 
       profileImg: "img/terrace.jpg", 
       notificationsDemo : false,
-      pithyContentOnHome : false } );
+      pithyContentOnHome : false,
+      typeaheadSearch: false} );
   } ]);
 
   /* Username */
@@ -22,7 +23,7 @@
     var that = this;
     that.user = [];
     mainService.getUser().then(function(result){
-      that.user = result.data.person;
+      that.user = result;
     });
   }]);
 
@@ -31,14 +32,6 @@
     this.navbarCollapsed = true;
     $scope.showSearch = false;
     $scope.showSearchFocus = false;
-    $scope.submit = function(){
-      if($scope.initialFilter != "") {
-        $location.path("/apps/search/"+ $scope.initialFilter);
-        $scope.initialFilter = "";
-        $scope.showSearch = false;
-        $scope.showSearchFocus = false;
-      }
-    };
     
     this.toggleSearch = function() {
         $scope.showSearch = !$scope.showSearch;

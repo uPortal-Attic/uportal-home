@@ -16,29 +16,10 @@
     store.portlets = [];
     store.count = 0;
     store.user = [];
-    mainService.getUser().then(function(result){
-      store.user = result.data.person;
-
-      //get marketplace portlets
-      if($sessionStorage.sessionKey == store.user.sessionKey
-        && $sessionStorage.marketplace != null
-        && $sessionStorage.categories != null) {
-
-          store.portlets = $sessionStorage.marketplace;
-          $scope.categories = $sessionStorage.categories;
-          
-      } else {
-          marketplaceService.getPortlets().then(function(data) {
-            store.portlets = data.portlets;
-            $scope.categories = data.categories;
-            $scope.layout = data.layout;
-            
-            $sessionStorage.marketplace = data.portlets;
-            $sessionStorage.categories = data.categories;
-            $sessionStorage.sessionKey = store.user.sessionKey;
-          });
-      }
-      
+    
+    marketplaceService.getPortlets().then(function(data) {
+        store.portlets = data.portlets;
+        $scope.categories = data.categories;
     });
     
     
@@ -74,6 +55,7 @@
                     marketplaceEntries[0].hasInLayout = true;
                 }
                 $rootScope.layout = null; //reset layout due to modifications
+                $sessionStorage.layout = null;
             });
           })
         .error(function(request, text, error) {
@@ -100,30 +82,11 @@
     };
 
     $scope.searchTermFilter = function(portlet) {
-        if($scope.searchTerm === undefined) {//nothing filled for search
-            return true;
-        }
-        var searchTerm = $scope.searchTerm.toLowerCase(); //create local var for searchTerm
-        
-        if(portlet.title.toLowerCase().indexOf(searchTerm) !== -1) {//check title
-            return true;
-        }
-        
-        //check description match
-        if(portlet.description !== null 
-                && portlet.description.toLowerCase().indexOf(searchTerm) !== -1) {
-            return true;
-        }
-        
-        //last ditch effort, check keywords
-        if(portlet.keywords !== null) {
-            for(var i = 0; i < portlet.keywords.length; i++) {
-                if(portlet.keywords[i].toLowerCase().indexOf(searchTerm) !== -1) {
-                    return true;
-                }
-            }
-        }
-        return false;
+      return marketplaceService.portletMatchesSearchTerm(portlet, $scope.searchTerm, {
+          searchDescription: true,
+          searchKeywords: true,
+          defaultReturn : true,
+      });
     };
 
 

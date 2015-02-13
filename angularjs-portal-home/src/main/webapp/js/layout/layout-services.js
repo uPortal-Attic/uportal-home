@@ -16,8 +16,7 @@ app.factory('sharedPortletService', function () {
     };
 });
 
-app.factory('layoutService', function($http, miscService) {
-    
+app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionStorage', '$q', function($http, miscService, mainService, $sessionStorage, $q) {
   var addToHome = function addToHomeFunction(portlet) {
       var fname = portlet.fname;
       var tabName = "UW Bucky Home";
@@ -41,16 +40,52 @@ app.factory('layoutService', function($http, miscService) {
       return ret;
     };
 
-  var getLayout = function() {
-    return $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').then(
-      function(result) {
-        return  result.data;
-      } ,
-      function(reason){
-       miscService.redirectUser(reason.status, 'layoutDoc call');
-      }
-    );
-  }
+    var checkLayoutCache = function() {
+        var userPromise = mainService.getUser();
+        return userPromise.then(function(user) {
+            if ($sessionStorage.sessionKey === user.sessionKey && $sessionStorage.layout) {
+                return $sessionStorage.layout;
+            }
+
+            return null;
+        });
+    };
+
+    var storeLayoutInCache = function(data) {
+        var userPromise = mainService.getUser();
+        userPromise.then(function(user) {
+            $sessionStorage.sessionKey = user.sessionKey;
+            $sessionStorage.layout = data;
+        });
+    };
+
+
+    var getLayout = function() {
+        return checkLayoutCache().then(function(data) {
+            var successFn, errorFn, defer;
+
+            // first, check the local storage...
+            if (data) {
+                defer = $q.defer();
+                defer.resolve(data);
+                return defer.promise;
+            }
+
+            successFn = function(result) {
+                var data =  result.data;
+                storeLayoutInCache(data);
+
+                return data;
+            };
+
+            errorFn = function(reason) {
+                miscService.redirectUser(reason.status, 'layoutDoc call');
+            };
+
+            // no caching...  request from the server
+            return $http.get('/portal/api/layoutDoc?tab=UW Bucky Home').then(successFn, errorFn);;
+        });
+    };
     
   var getApp = function(fname) {
       return $http.get('/portal/api/portlet/' +fname + '.json').then(
@@ -107,6 +142,6 @@ app.factory('layoutService', function($http, miscService) {
     addToHome : addToHome
   }
 
-});
+}]);
 
 })();

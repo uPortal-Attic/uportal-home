@@ -14,6 +14,7 @@
     'portal.layout.directives',
     'portal.layout.controllers',
     'portal.layout.service',
+    'portal.search.controllers',
     'portal.main.directives',
     'portal.marketplace.controller',
     'portal.marketplace.service',

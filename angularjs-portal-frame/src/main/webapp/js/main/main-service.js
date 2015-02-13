@@ -3,18 +3,24 @@
 (function() {
 var app = angular.module('portal.main.service', []);
 
-app.factory('mainService', function($http, miscService) {
+app.factory('mainService', ['$http', 'miscService', function($http, miscService) {
   var prom = $http.get('/portal/api/session.json', { cache: true});
   var sidebarPromise = $http.get('/web/samples/sidebar.json');
+  var userPromise;
 
   var getUser = function() {
-  	return prom.success(
+    if (userPromise) {
+        return userPromise;
+    }
+
+    userPromise = prom.then(
       function(data, status) { //success function
-        return data.person;
-      }).error(function(data, status) { // failure function
+          return data.data.person;
+      }, function(data, status) { // failure function
       miscService.redirectUser(status, "Get User Info");
     });
-  }
+    return userPromise;
+  };
   
   var getSidebar = function() {
     return sidebarPromise.success(
@@ -23,13 +29,13 @@ app.factory('mainService', function($http, miscService) {
       }).error(function(data, status) { // failure function
       miscService.redirectUser(status, "Get sidebar info");
     });
-  }
+  };
   
   return {
     getUser: getUser,
     getSidebar : getSidebar
-  }
+  };
 
-});
+}]);
 
 })();

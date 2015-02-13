@@ -34,7 +34,7 @@ app.factory('miscService', function($http, $window, $location) {
   return {
     redirectUser: redirectUser,
     pushPageview: pushPageview,
-    pushGAEvent : pushGAEvent
+    pushGAEvent : pushGAEvent,
   }
 
 });
