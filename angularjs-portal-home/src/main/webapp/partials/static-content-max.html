@@ -1,25 +1,23 @@
 <div class="row portlet-frame static-content"  ng-controller="StaticContentController as staticContentCtrl">
   <div class="portlet-header">
     <img class="header-image" ng-src="{{$storage.homeImg}}" alt="UW Campus cover image">
-    <h1>
-      <span><portlet-icon></portlet-icon> {{::portlet.title }}</span>      
-        <span class="dropdown" dropdown on-toggle="toggled(open)" style='float: right;'>
-          <a href class="dropdown-toggle" dropdown-toggle>
-            <i class="fa fa-cog" style='color : white;'></i>
-          </a>
-          <ul class="dropdown-menu" style='right: 0; left: auto;'>
-            <li role="presentation" class="fname-{{::portlet.fname}}" ng-class='{hidden : inFavorites}'>
-                <a ng-click="staticContentCtrl.addToHome(portlet)" href='javascript:;'><span>Add to Favorites</span></a>
-            </li>
-            <li role="presentation">
-                <a ng-click="openRating('sm',portlet.fname, portlet.title)" href='javascript:;'><span>Rate this App</span></a>
-            </li>
-          </ul>
-        </span>
-      </h1>
-    <div data-loading class='loading-gif abs-bottom-right'><img style='height: 30px; width: 30px; ' src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
+    <h1><span><portlet-icon></portlet-icon> {{::portlet.title }}</span></h1>
+    <span class="dropdown" dropdown on-toggle="toggled(open)">
+      <a href class="dropdown-toggle" dropdown-toggle>
+        <i class="fa fa-cog"></i>
+      </a>
+      <ul class="dropdown-menu">
+        <li role="presentation" class="fname-{{::portlet.fname}}" ng-class='{hidden : inFavorites}'>
+            <a ng-click="staticContentCtrl.addToHome(portlet)" href='javascript:;'><span>Add to Favorites</span></a>
+        </li>
+        <li role="presentation">
+            <a ng-click="openRating('sm',portlet.fname, portlet.title)" href='javascript:;'><span>Rate this App</span></a>
+        </li>
+      </ul>
+    </span>
   </div>
   <div class="col-xs-12 no-padding portlet-body">
+    <div data-loading class='loading-gif abs-bottom-right'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
 	  <div ng-bind-html="::portlet.staticContent" class="up-portlet-content-wrapper" id="content-{{::portlet.nodeId}}">
 	  </div>
   </div>
