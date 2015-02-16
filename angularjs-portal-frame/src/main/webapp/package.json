@@ -17,11 +17,14 @@
   },
   "homepage": "https://github.com/UW-Madison-DoIT/angularjs-portal",
   "devDependencies": {
-    "karma": "^0.12.24",
-    "karma-chrome-launcher": "^0.1.5",
+    "grunt": "^0.4.5",
+    "grunt-karma": "^0.10.1",
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
     "karma-html-reporter": "^0.2.4",
     "karma-htmlfile-reporter": "^0.1.2",
-    "karma-jasmine": "^0.1.5",
+    "karma-jasmine": "^0.3.5",
     "karma-jasmine-html-reporter": "^0.1.5"
   }
 }

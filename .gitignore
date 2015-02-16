@@ -2,8 +2,9 @@
 .codekit-cache
 config.codekit
 target
-src/main/webapp/css/angular.css
-src/main/webapp/config.js
 .classpath
 .settings
 .tern-project
+node_modules
+units.html
+
