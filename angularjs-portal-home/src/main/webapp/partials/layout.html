@@ -20,27 +20,30 @@
     <notifications></notifications>
   </div>
   <div class="col-xs-12 no-padding portlet-body" ng-controller="LayoutController as layoutCtrl">
-    <div class="home-section-header">
-    <h3>
-          Your Favorites <span class='small-font-plus'>
-          <a href='#/apps'
-             popover="Browse for more apps"
-             popover-trigger="mouseenter"
-             popover-placement="top"
-             popover-popup-delay="500">
-              <i class='fa fa-plus'></i>
-          </a>
-          </span>
-      </h3>
-      <div class="layout-chooser" ng-if="$storage.contentView">
-        <i class="fa fa-th" ng-click="$storage.view ='list'" ng-class="{true:'selected-view'}[$storage.view == 'list']"></i>
-        <i class="fa fa-th-large" ng-click="$storage.view='content'" ng-class="{true:'selected-view'}[ $storage.view == 'content' ]"></i>
-      </div>
+    <div class="inner-nav-container">
+      <ul class="inner-nav">
+        <li class="active">
+            <a>Your Favorites</a><!-- <span class='small-font-plus'>
+            <a href='#/apps'
+               popover="Browse for more apps"
+               popover-trigger="mouseenter"
+               popover-placement="top"
+               popover-popup-delay="500">
+                <i class='fa fa-plus'></i>
+            </a>
+            </span> -->
+        </li>
+        <span class="layout-chooser" ng-if="$storage.contentView">
+          <li ng-click="$storage.view ='list'" ng-class="{true:'active'}[$storage.view == 'list']"><a><i class="fa fa-th" ng-if="$storage.contentView" ></i></a></li>
+          <li ng-click="$storage.view='content'" ng-class="{true:'active'}[ $storage.view == 'content' ]"><a><i class="fa fa-th-large" ng-if="$storage.contentView"></i></a></li>
+        </span>
+      </ul>
+      
     </div>
     <div data-loading class='loading-gif'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
     <!-- List View -->
     <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list" ng-if="$storage.view == 'list'">
-       <li class="col-xs-12 col-sm-4 col-md-4 col-lg-3 no-padding list-container" ng-repeat="portlet in layout">
+       <li class="col-xs-12 col-sm-3 col-md-3 col-lg-2 no-padding list-container" ng-repeat="portlet in layout">
           <default-card 
             ng-if="'NORMAL' === layoutCtrl.portletType(portlet)">
           </default-card>
@@ -54,107 +57,10 @@
     </ul>
     
     <!-- Widget View -->
-    <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list" ng-if="$storage.view == 'content'">
-      <li class="col-xs-12 col-sm-4 col-lg-3 no-padding widget-container">
-        <div class="widget-content">
-          <h4>Student Center</h4>
-          <a href
-        </div>
-      </li>
-      <li class="col-xs-12 col-sm-4 col-lg-3 no-padding widget-container">
-        <div class="widget-content">
-          <h4>Email</h4>
-          <h2>7</h2>
-          <p>new emails</p>
-          <a class="launch" href="http://google.com">Go to Email</a>
-        </div>
-      </li>
-      <li class="col-xs-12 col-sm-4 col-lg-3 no-padding widget-container">
-        <div class="widget-content">
-          <h4>Calendar</h4>
-          <a class="launch" href="http://google.com">Go to Email</a>
-        </div>
-      </li>
-      <li class="col-xs-12 col-sm-4 col-lg-3 no-padding widget-container">
-        <div class="widget-content">
-          <h4>Payroll</h4>
-          <div>
-            <p>Next Paycheck: 4/17</p>
-          </div>
-          <p>Recent Paychecks:</p>
-          <a href="">1/26/15</a>
-          <a href="">1/12/15</a>
-          <a href="">See All</a>
-        </div>
-      </li>
-      <li class="col-xs-12 col-sm-4 col-lg-3 no-padding widget-container">
-        <div class="widget-content">
-          <h4>My Courses</h4>
-          
-        </div>
-      </li>
-      <li class="col-xs-12 col-sm-4 col-lg-3 no-padding widget-container">
-        <div class="widget-content">
-          <h4>Course Services</h4>
-          <div>
-            <ul>
-              <li><a href="https://admin.lists.wisc.edu/classlists" target="_blank">Manage EMAIL CLASS LISTS (Classlist Module)</a></li>
-              <li><a href="http://www.registrar.wisc.edu/classroom_scheduling.htm" target="_blank">Classroom scheduling</a></li>
-              <li><a href="http://registrar.wisc.edu/grades_and_grading_policy.htm" target="_blank">Grades and grading policy</a></li>
-              <li><a href="http://www.doit.wisc.edu/learnatuw/" target="_blank">Learn about Learn@UW</a>
-              <li><a href="http://www.library.wisc.edu/inst-services" target="_blank">Library Instructional Services for Faculty</a></li>
-    
-              </ul>
-            </div>
-        </div>
-      </li>
-      <li class="col-xs-12 col-sm-4 col-lg-3 no-padding widget-container">
-        <div class="widget-content">
-          <h4>Directory</h4>
-          <form>
-            <input type="search"></input>
-            <input type="submit"></input>
-          </form>
-      </li>
-      <li class="col-xs-12 col-sm-4 col-lg-3 no-padding widget-container">
-        <div class="widget-content">
-          <h4>Payroll</h4>
-          <div>
-            <p>Next Paycheck: 4/17</p>
-          </div>
-          <p>Recent Paychecks:</p>
-          <a href="">1/26/15</a>
-          <a href="">1/12/15</a>
-          <a href="">See All</a>
-        </div>
-      </li>
-      <li class="col-xs-12 col-sm-4 col-lg-3 no-padding widget-container">
-        <div class="widget-content">
-          <h4>Payroll</h4>
-          <div>
-            <p>Next Paycheck: 4/17</p>
-          </div>
-          <p>Recent Paychecks:</p>
-          <a href="">1/26/15</a>
-          <a href="">1/12/15</a>
-          <a href="">See All</a>
-        </div>
-      </li>
-      <li class="col-xs-12 col-sm-4 col-lg-3 no-padding widget-container">
-        <div class="widget-content">
-          <h4>Payroll</h4>
-          <div>
-            <p>Next Paycheck: 4/17</p>
-          </div>
-          <p>Recent Paychecks:</p>
-          <a href="">1/26/15</a>
-          <a href="">1/12/15</a>
-          <a href="">See All</a>
-        </div>
-      </li>
-    
-      
-    </ul>
+    <div style="text-align:center; margin-top:30px" ng-if="$storage.view == 'content'">
+      <h3>Coming Soon</h3>
+      <p>Widgets are coming soon! Woohoo!</p>
+    </div>
     <!-- <marketplace-light class="col-xs-12 col-sm-6 col-md-6 col-lg-4 no-padding" ></marketplace-light> -->
   </div>
 </div>

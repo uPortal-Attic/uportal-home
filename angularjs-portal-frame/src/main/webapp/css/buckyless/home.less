@@ -79,8 +79,15 @@
   padding:10px 12px;
   margin:0px;
   margin-bottom:0px;
-  border-bottom:1px solid @color1;
-  margin-top:30px;
+  color:#333;
+  border-bottom:1px solid @color3;
+  display:table;
+  height:100%;
+  width:100%;
+  h3 {
+    display:table-cell;
+    vertical-align:middle;
+  }
 }
 .portlet-title div {
   position: relative;
@@ -112,10 +119,137 @@ div.table-cell {
 }
 .ui-sortable-placeholder {
   background-color:#eee !important;
-  height:150px;
-  width:100%;
   visibility:visible !important;
 }
+
+
+.tile-list { 
+  list-style-type: none; 
+  margin: 5px; 
+  padding: 0px; 
+}
+
+// View Toggle
+
+.inner-nav-container .inner-nav .layout-chooser {
+  float:right;
+  i {
+    font-size:18px;
+    color:@color1;
+    }
+}
+
+// List View
+
+.list-content {
+  position:relative;
+  margin:5px;
+  background:#fcfcfc;
+  border-radius:3px;
+  height:150px;
+  color:#333;
+  text-align:center;
+  a {
+    display:block;
+    height:100%;
+    box-shadow:0px 2px 0px #ddd;
+    border-radius:4px;
+    &:hover {
+      background-color:#fbfbfb;
+      color:@color1;
+      box-shadow:0px 3px 0px #ddd;
+      h4 {
+        color:@color1;
+      }
+      i {
+        color:@color1;
+      }
+    }
+  }
+  h4 {
+    font-size:1.2em;
+    margin:0px;
+    color:#333;
+    padding:0px 5px;
+  }
+  div {
+    display:inline-block;
+    float:left;
+  }
+  .icon-container,
+  .card-remove {
+    display:table;
+    width:100%;
+    i {
+      color:#222;
+      display:table-cell;
+      vertical-align:middle;
+      padding:30px 10px;
+      font-size:50px;
+    }
+  }
+  .list-item-container {
+    display:table;
+    width:100%;
+    h4 {
+      display:table-cell;
+      vertical-align:middle;
+    }
+  }
+}
+
+
+
+// Widget View
+
+.widget-content {
+  position:relative;
+  margin:5px;
+  background:#f3f3f3;
+  border-radius:3px;
+  height:230px;
+  color:#333;
+  h4 {
+    font-size:1.2em;
+    padding:8px;
+    margin:0px;
+  }
+  p {
+    padding:3px 8px;
+  }
+  hr {
+    margin-top:0px;
+    margin-bottom:0px;
+  }
+  .launch {
+    width:100%;
+    padding:8px;
+    background-color:#ccc;
+    color:#333;
+    position:absolute;
+    bottom:0px;
+    text-align:center;
+    display:block;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px;
+    &:hover {
+      background-color:darken(#ccc,5%);
+      text-decoration:none;
+    }
+  }
+}
+
+.portlet-widget {
+  background-color: @color4;
+  padding:5px;
+  margin:5px;
+  border-radius:4px;
+}
+
+
+
+
+
 @media (max-width: 767px) {
   div.table {
     margin-top : 20px;
