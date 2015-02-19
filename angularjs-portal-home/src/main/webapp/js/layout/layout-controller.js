@@ -3,8 +3,26 @@
 (function() {
   var app = angular.module('portal.layout.controllers', []);
 
-  app.controller('LayoutController', [ '$location', '$localStorage', '$sessionStorage', '$scope', '$rootScope', 'layoutService', 'miscService', 'sharedPortletService', function($location, $localStorage, $sessionStorage, $scope, $rootScope, layoutService, miscService, sharedPortletService) {
+  app.controller('LayoutController', [ '$location', 
+                                       '$localStorage', 
+                                       '$sessionStorage', 
+                                       '$scope', 
+                                       '$rootScope', 
+                                       'layoutService', 
+                                       'miscService', 
+                                       'sharedPortletService',
+                                       'APP_FLAGS', 
+                                       function($location, 
+                                    		    $localStorage, 
+                                    		    $sessionStorage, 
+                                    		    $scope, 
+                                    		    $rootScope, 
+                                    		    layoutService, 
+                                    		    miscService, 
+                                    		    sharedPortletService,
+                                    		    APP_FLAGS) {
     miscService.pushPageview();
+    $scope.toggle = APP_FLAGS.enableToggle;
     if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
       
       $rootScope.layout = [];
