@@ -20,31 +20,60 @@
     <notifications></notifications>
   </div>
   <div class="col-xs-12 no-padding portlet-body" ng-controller="LayoutController as layoutCtrl">
-    <h3 class="home-section-header">
-        Your Favorites <span class='small-font-plus'>
-        <a href='#/apps'
-           popover="Browse for more apps"
-           popover-trigger="mouseenter"
-           popover-placement="top"
-           popover-popup-delay="500">
-            <i class='fa fa-plus'></i>
-        </a>
-        </span>
-    </h3>
-    <div data-loading class='loading-gif'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
-    <ul ui-sortable="sortableOptions" ng-model="layout" id="cards-sortable">
-       <li class="col-xs-12 col-sm-6 col-md-6 col-lg-4 no-padding portlet-container-home" ng-repeat="portlet in layout">
-          <default-card 
-            ng-if="'NORMAL' === layoutCtrl.portletType(portlet)">
-          </default-card>
-          <static-content-card-max 
-            ng-if="'SIMPLE' === layoutCtrl.portletType(portlet)">
-          </static-content-card-max>
-          <pithy-content-card 
-            ng-if="'PITHY' === layoutCtrl.portletType(portlet)">
-          </pithy-content-card>
+    <div class="inner-nav-container">
+      <ul class="inner-nav">
+        <li class="active home-title">
+            <a>My Favorites</a>
         </li>
+        <li class="hide-mobile">
+          <a href='#/apps'
+           tooltip="Browse for more apps"
+           tooltip-trigger="mouseenter"
+           tooltip-placement="top"
+           tooltip-popup-delay="500">
+          <i class='fa fa-plus'></i>
+         </a>
+        </li>
+        <span class="layout-chooser" ng-if="toggle">
+          <li ng-click="$storage.view ='list'" ng-class="{true:'active'}[$storage.view == 'list']"><a><i class="fa fa-th" ng-if="toggle"></i></a></li>
+          <li ng-click="$storage.view='content'" ng-class="{true:'active'}[ $storage.view == 'content' ]"><a><i class="fa fa-th-large" ng-if="toggle"></i></a></li>
+        </span>
+      </ul>
+      
+    </div>
+    <div data-loading class='loading-gif'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
+    <!-- List View -->
+    <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list" ng-if="$storage.view == 'list'">
+       <li class="col-xs-6 col-sm-3 col-md-3 col-lg-2 no-padding list-container" ng-repeat="portlet in layout">
+         <default-card 
+          ng-if="'NORMAL' === layoutCtrl.portletType(portlet)">
+         </default-card>
+         <static-content-card-max 
+          ng-if="'SIMPLE' === layoutCtrl.portletType(portlet)">
+         </static-content-card-max>
+         <pithy-content-card 
+          ng-if="'PITHY' === layoutCtrl.portletType(portlet)">
+         </pithy-content-card>
+       </li>
+       <li class="col-xs-6 col-sm-3 col-md-3 col-lg-2 no-padding list-container">
+         <div class="list-content add-favorites">
+           <a href='#/apps'>
+             <div class="icon-container">
+               <i class="fa fa-plus"></i>
+             </div>
+             <div class="list-item-container">
+               <h4>Add to Favorites</h4>
+             </div>
+           </a>
+         </div>
+       </li>
     </ul>
-    <marketplace-light class="col-xs-12 col-sm-6 col-md-6 col-lg-4 no-padding" ></marketplace-light>
+    
+    <!-- Widget View -->
+    <div style="text-align:center; margin-top:30px" ng-if="$storage.view == 'content'">
+      <h3>Coming Soon</h3>
+      <p>Widgets are coming soon! Woohoo!</p>
+    </div>
+    <!-- <marketplace-light class="col-xs-12 col-sm-6 col-md-6 col-lg-4 no-padding" ></marketplace-light> -->
   </div>
 </div>

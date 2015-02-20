@@ -1,0 +1,152 @@
+/* Portlet Frame */
+
+/*  
+The portlet frame is the div that houses the main content of the page. 
+It contains a header div (.portlet-header), usually with a title, description, and background image. 
+It also contains a body div (.portlet-body), that houses the content.
+*/
+
+.portlet-frame {
+  border-radius:4px;
+  padding:0px 0px;
+  margin:16px 0px 16px;
+  background-color:@white;
+  padding-bottom:5px;
+  box-shadow:0px 0px 15px #bbb;
+  position:relative;
+}
+.portlet-header {
+  height:150px;
+  position:relative;
+  overflow:hidden;
+  z-index:20;
+  border-top-left-radius:4px;
+  border-top-right-radius:4px;
+  background-color:#222;
+}
+.portlet-header h1 {
+  color:@white;
+  margin-top:10px;
+  font-weight:200;
+  padding:5px 20px 0px;
+  z-index:5;
+}
+.portlet-header p {
+  color:@white;
+  padding:0px 20px;
+  z-index:5;
+}
+.portlet-description {
+  width:60%;
+}
+.portlet-header img {
+  width:120%;
+  z-index:-1;
+  position:absolute;
+  opacity:0.3;
+}
+.page-content {
+  padding-top: 48px;
+  //padding-bottom: 17px;
+}
+.portlet-header .dropdown {
+  position:absolute;
+  top:20px;
+  right:20px;
+  .dropdown-menu {
+    right: 0px;
+    left: auto;
+  }
+  i {
+    font-size:20px;
+    color:@white;
+  }
+}
+
+// Top Navigation
+.inner-nav-container {
+  border:0px solid transparent;
+  padding:0px;
+  margin:0px;
+}
+.inner-nav-container .inner-nav {
+  background-color:@white;
+  border:0px solid transparent;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+  border-bottom-left-radius:0px;
+  border-bottom-right-radius:0px;
+  padding:0px;
+  margin:0px;
+  border-bottom:1px solid @uw-red-badger;
+  font-size:0px;
+  li {
+    background:@white;
+    border:0px solid transparent;
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+    margin:0px;
+    padding:0px;
+    top:0px;
+    display:inline-block;
+    a {
+      display:inline-block;
+      padding:8px 20px;
+      margin:0px;
+      font-size:16px;
+      font-weight:400;
+      color:#777;
+      &:hover {
+        background-color:@white;
+        padding:8px 20px 10px;
+        border-bottom:1px solid @uw-red-badger;
+        color:#666;
+        text-decoration:none;
+        cursor:pointer;
+      }
+    }
+  }
+}
+
+// Selected Tab styles
+.inner-nav-container .inner-nav li.active {
+  border-bottom:3px solid @uw-red-badger !important;
+  padding-bottom:0px;
+  a {
+    font-weight:600;
+    color:@uw-red-badger;
+    &:hover {
+      padding:8px 20px;
+      border-bottom:0px !important;
+    }
+    &:focus {
+      outline:none;
+    }
+  }
+}
+@media (max-width:768px) {
+  .inner-nav-container .inner-nav {
+    border-bottom:0px solid transparent;
+  }
+  .inner-nav-container .inner-nav li:nth-child(odd) {
+    border-right:1px solid #ccc;
+  }
+  .inner-nav-container .inner-nav li,
+  .inner-nav-container .inner-nav li.ui-tabs-selected {
+    width:50%;
+    border-bottom:1px solid #ccc !important;
+    text-align:center;
+    a {
+      padding:8px 20px;
+      width:100%;
+      &:hover {
+        padding:8px 20px;
+        border-bottom:0px !important;
+      }
+    }
+  }
+  .inner-nav-container .inner-nav li.ui-tabs-selected {
+    border-bottom:1px solid 
+     !important;
+  }
+}

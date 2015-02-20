@@ -1,4 +1,4 @@
-<div class="portlet-div" id="portlet-id-{{::portlet.nodeId}}">
+<div id="portlet-id-{{::portlet.nodeId}}">
   
   <a href="{{::portlet.url}}" target="{{::portlet.target}}" >
   <div class="portlet-title">
@@ -6,9 +6,9 @@
   </div>
   </a>
   
-  <div class='card-remove'>
+  <!-- <div class='card-remove'>
      <i title="Remove" class="fa fa-times portlet-options" ng-click="layoutCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
-  </div>
+  </div> -->
   <div class="portlet-content">
      <div ng-bind-html="portlet.pithyStaticContent"></div>
   </div>
