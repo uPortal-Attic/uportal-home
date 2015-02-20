@@ -122,7 +122,26 @@
       
   } ]);
   
-  app.controller('StaticContentController', ['$modal', '$location','$sessionStorage', '$routeParams', '$rootScope','$scope', 'layoutService', 'miscService', 'sharedPortletService', function ($modal, $location,$sessionStorage, $routeParams, $rootScope, $scope, layoutService,miscService, sharedPortletService){
+  app.controller('StaticContentController', ['$modal', 
+                                             '$location',
+                                             '$sessionStorage', 
+                                             '$routeParams', 
+                                             '$rootScope',
+                                             '$scope', 
+                                             'layoutService', 
+                                             'miscService', 
+                                             'sharedPortletService', 
+                                             function ($modal, 
+                                                       $location,
+                                                       $sessionStorage, 
+                                                       $routeParams, 
+                                                       $rootScope, 
+                                                       $scope, 
+                                                       layoutService,
+                                                       miscService, 
+                                                       sharedPortletService){
+      
+      miscService.pushPageview();
 	  $scope.portlet = sharedPortletService.getProperty() || {};
 	  var that = this;
 	  that.getPortlet = function(fname, portlets ) {
