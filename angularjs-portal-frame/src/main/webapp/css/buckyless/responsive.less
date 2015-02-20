@@ -173,6 +173,31 @@
   .new-stuff {
     display:none;
   }
+  
+  // Home page minimized view
+  .inner-nav-container .inner-nav .layout-chooser {
+    display:none;
+  }
+  .hide-mobile {
+    display:none;
+  }
+  .list-content {
+    height:100px;
+    .icon-container {
+      height:60px;
+      i {
+        font-size:30px;
+        padding:20px 0px 0px;
+      }
+    }
+    .list-item-container {
+      height:40px;
+      h4 {
+        font-size:1em;
+      }
+    }
+  }
+
 
 
 }
@@ -209,5 +234,12 @@
     .description {
       width:50%;
     }
+  }
+}
+
+// Super Large Screens 
+@media (min-width:1500px) {
+  .tile-list {
+    margin:0 auto;
   }
 }

@@ -126,25 +126,42 @@ div.table-cell {
 .tile-list { 
   list-style-type: none; 
   margin: 5px; 
-  padding: 0px; 
+  padding: 0px;
+  max-width:1200px; 
 }
 
 // View Toggle
-
+.home-title {
+  padding:0px 0px 0px 15px;
+  
+}
+.inner-nav-container .inner-nav li.home-title {
+  border-bottom:3px solid transparent !important;
+  a {
+    color:#555;
+    font-weight:400;
+    border-right:0px solid transparent;
+    &:hover {
+      cursor:default;
+    }
+  }
+}
 .inner-nav-container .inner-nav .layout-chooser {
   float:right;
   i {
     font-size:18px;
     color:@color1;
-    }
+  }
+  
 }
+
 
 // List View
 
 .list-content {
   position:relative;
   margin:5px;
-  background:#fcfcfc;
+  background:#f3f3f3;
   border-radius:3px;
   height:150px;
   color:#333;
@@ -155,7 +172,7 @@ div.table-cell {
     box-shadow:0px 2px 0px #ddd;
     border-radius:4px;
     &:hover {
-      background-color:#fbfbfb;
+      background-color:#f8f8f8;
       color:@color1;
       box-shadow:0px 3px 0px #ddd;
       h4 {
@@ -176,13 +193,11 @@ div.table-cell {
     display:inline-block;
     float:left;
   }
-  .icon-container,
-  .card-remove {
-    display:table;
+  .icon-container {
     width:100%;
+    height:100px;
     i {
-      color:#222;
-      display:table-cell;
+      color:#333;
       vertical-align:middle;
       padding:30px 10px;
       font-size:50px;
@@ -191,10 +206,57 @@ div.table-cell {
   .list-item-container {
     display:table;
     width:100%;
+    height:50px;
     h4 {
       display:table-cell;
       vertical-align:middle;
     }
+  }
+}
+.list-content .card-info,
+.list-content .card-remove {
+  display:none;
+  .tooltip-inner {
+    max-width:200px;
+    width:200px;
+  }
+}
+.list-content:hover {
+  .card-info {
+    display:inline;
+    position:absolute;
+    left:8px;
+    top:3px;
+    i {
+      color:#999;
+      &:hover {
+        cursor:pointer;
+        color:#666;
+      }
+    }
+  }
+  .card-remove {
+    display:inline;
+    position:absolute;
+    right:8px;
+    top:3px;
+    i {
+      color:#999;
+      &:hover {
+        cursor:pointer;
+        color:#666;
+      }
+    }
+  }
+}
+.add-favorites {
+  background:transparent;
+  border:1px dashed #ccc;
+  &:hover {
+    border:1px solid #f8f8f8;
+  }
+  a {
+    box-shadow:0px 0px 0px transparent;
   }
 }
 
