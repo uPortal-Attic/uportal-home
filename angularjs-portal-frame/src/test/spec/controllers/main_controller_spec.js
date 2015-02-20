@@ -19,4 +19,8 @@ describe("MainController", function() {
   it("should set storage in scope", function() {
       expect(scope.$storage).not.toBeNull();
     });
+  
+  it("should set your default view to list", function(){
+      expect(scope.$storage.view).toBe('list');
+  });
 });
