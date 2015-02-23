@@ -32,7 +32,9 @@
       when('/apps/details/:fname', {templateUrl: 'partials/marketplace-details.html', controller:'MarketplaceDetailsController'}).
       when('/apps/search/:initFilter', {templateUrl: 'partials/marketplace.html'}).
       when('/static/:fname', {templateUrl: 'partials/static-content-max.html'}).
-      otherwise({templateUrl: 'partials/layout.html'});
+      when('/widgets', {templateUrl: 'partials/home-widget-view.html'}).
+      when('/list', {templateUrl: 'partials/home-list-view.html'}).
+      otherwise({templateUrl: 'partials/home-list-view.html'});
       }
  	]);
 

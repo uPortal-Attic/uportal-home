@@ -45,5 +45,12 @@
           templateUrl: 'partials/marketplace-light.html'
       }
    });
+   
+   app.directive('homeHeader', function(){
+      return{
+          restrict: 'E',
+          templateUrl: 'partials/home-header.html'
+      }
+   });
 
 })();
