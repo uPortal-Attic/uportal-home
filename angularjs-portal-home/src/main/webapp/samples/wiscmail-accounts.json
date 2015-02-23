@@ -1,0 +1,14 @@
+{"accounts" :  
+            {
+                "system" : "wiscmail",
+                "uri"    : "https://wiscmail.wisc.edu",
+                "linked" : [
+                            {
+                                "sample-link@doit.wisc.edu" {
+                                    "system" : "office365",
+                                    "uri" : "https://wiscmail.wisc.edu"
+                                }
+                            }
+                           ]
+            }
+}
