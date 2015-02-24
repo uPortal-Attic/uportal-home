@@ -2,8 +2,8 @@
             [
               { 
                 "id" : 1,
-                "expireYr"  : 2015,
-                "expireMon" : 1,
+                "expireYr"  : 2016,
+                "expireMon" : 2,
                 "expireDay" : 20,
                 "title" : "New Sidebar",
                 "shortDesc" : "Don't see the new sidebar?  Sorry for the glitch!  Refresh the page and it should appear. ",
