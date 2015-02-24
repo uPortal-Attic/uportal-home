@@ -28,18 +28,8 @@
     <!-- List View -->
     <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list">
        <li class="col-xs-6 col-sm-3 col-md-3 col-lg-2 no-padding list-container" ng-repeat="portlet in layout">
-         <default-card 
-          ng-if="'NORMAL' === layoutCtrl.portletType(portlet)">
-         </default-card>
-         <static-content-card-max 
-          ng-if="'SIMPLE' === layoutCtrl.portletType(portlet)">
-         </static-content-card-max>
-         <pithy-content-card 
-          ng-if="'PITHY' === layoutCtrl.portletType(portlet)">
-         </pithy-content-card>
+         <default-card></default-card>
        </li>
-    </ul>
-    <ul class="tile-list" >
        <li class="col-xs-6 col-sm-3 col-md-3 col-lg-2 no-padding list-container">
          <marketplace-light></marketplace-light>
        </li>

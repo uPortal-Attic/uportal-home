@@ -37,6 +37,13 @@
           templateUrl : 'partials/pithy-content-card.html'
       }
   });
+  
+  app.directive('widgetCard', function(){
+      return {
+          restrict : 'E',
+          templateUrl : 'partials/widget-card.html'
+      }
+  });
 
 
    app.directive('marketplaceLight', function(){
