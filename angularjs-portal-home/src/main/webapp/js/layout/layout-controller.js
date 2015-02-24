@@ -33,9 +33,7 @@
     }
     
     this.portletType = function portletType(portlet) {
-      if($localStorage.pithyContentOnHome && portlet.pithyStaticContent != null) {
-          return "PITHY";
-      } else if(portlet.staticContent == null
+      if(portlet.staticContent == null
                  || portlet.altMaxUrl == true) {
           return "NORMAL";
       } else if (portlet.staticContent != null 
