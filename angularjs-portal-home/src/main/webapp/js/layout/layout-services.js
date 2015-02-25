@@ -60,7 +60,7 @@ app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionSt
     };
 
 
-    var getLayout = function() {
+    var getLayout = function(populateWidgetContent) {
         return checkLayoutCache().then(function(data) {
             var successFn, errorFn, defer;
 
@@ -73,8 +73,12 @@ app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionSt
 
             successFn = function(result) {
                 var data =  result.data;
+                if(populateWidgetContent) {
+                    //populate widget content
+                    console.log('populating widget content');
+                    data.populateWidgetContent = true;
+                }
                 storeLayoutInCache(data);
-
                 return data;
             };
 

@@ -27,18 +27,17 @@
       
       $rootScope.layout = [];
     
-      layoutService.getLayout().then(function(data){
+      layoutService.getLayout(false).then(function(data){
         $rootScope.layout = data.layout;
       });
     }
     
     this.portletType = function portletType(portlet) {
-      if(portlet.staticContent == null
-                 || portlet.altMaxUrl == true) {
-          return "NORMAL";
-      } else if (portlet.staticContent != null 
+      if (portlet.staticContent != null 
                  && portlet.altMaxUrl == false) {
           return "SIMPLE";
+      } else {
+          return "NORMAL";
       }
     }
     
@@ -123,20 +122,21 @@
       
       $rootScope.layout = [];
     
-      layoutService.getLayout().then(function(data){
+      layoutService.getLayout(true).then(function(data){
         $rootScope.layout = data.layout;
       });
     }
     
     this.portletType = function portletType(portlet) {
-      if($localStorage.pithyContentOnHome && portlet.pithyStaticContent != null) {
+      if (portlet.widgetType) {
+          return "WIDGET";
+      }else if($localStorage.pithyContentOnHome && portlet.pithyStaticContent != null) {
           return "PITHY";
-      } else if(portlet.staticContent == null
-                 || portlet.altMaxUrl == true) {
-          return "NORMAL";
       } else if (portlet.staticContent != null 
                  && portlet.altMaxUrl == false) {
           return "SIMPLE";
+      } else {
+          return "NORMAL";
       }
     }
     
