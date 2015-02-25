@@ -13,14 +13,14 @@
                                        'sharedPortletService',
                                        'APP_FLAGS', 
                                        function($location, 
-                                    		    $localStorage, 
-                                    		    $sessionStorage, 
-                                    		    $scope, 
-                                    		    $rootScope, 
-                                    		    layoutService, 
-                                    		    miscService, 
-                                    		    sharedPortletService,
-                                    		    APP_FLAGS) {
+                                                $localStorage, 
+                                                $sessionStorage, 
+                                                $scope, 
+                                                $rootScope, 
+                                                layoutService, 
+                                                miscService, 
+                                                sharedPortletService,
+                                                APP_FLAGS) {
     miscService.pushPageview();
     $scope.toggle = APP_FLAGS.enableToggle;
     if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
@@ -43,8 +43,8 @@
     }
     
     this.maxStaticPortlet = function gotoMaxStaticPortlet(portlet) {
-    	sharedPortletService.setProperty(portlet);
-    	$location.path('/static/'+portlet.fname);
+        sharedPortletService.setProperty(portlet);
+        $location.path('/static/'+portlet.fname);
     }
 
     this.directToPortlet = function directToPortlet(url) {
@@ -218,33 +218,33 @@
                                                        sharedPortletService){
       
       miscService.pushPageview();
-	  $scope.portlet = sharedPortletService.getProperty() || {};
-	  var that = this;
-	  that.getPortlet = function(fname, portlets ) {
-	    for(var p in portlets) {
-	      if (portlets[p].fname == fname) {
-	        return portlets[p];
-	        break;
-	      }
-	    };
-	    return {};
-	  }
-	  
-	  if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== $routeParams.fname) {
-		  
-		  if(typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
-			  $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
-		  } 
-		  if(typeof $scope.portlet.fname === 'undefined'){
-			  layoutService.getApp($routeParams.fname).then(function(data){
-			      $scope.portlet = data.portlet;
-			      if(typeof $scope.portlet === 'undefined' || 
-			              typeof $scope.portlet.fname === 'undefined') {
-			    	  $location.path('/');
-			      }
-			  });
-		  }
-	      
+      $scope.portlet = sharedPortletService.getProperty() || {};
+      var that = this;
+      that.getPortlet = function(fname, portlets ) {
+        for(var p in portlets) {
+          if (portlets[p].fname == fname) {
+            return portlets[p];
+            break;
+          }
+        };
+        return {};
+      }
+      
+      if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== $routeParams.fname) {
+          
+          if(typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
+              $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
+          } 
+          if(typeof $scope.portlet.fname === 'undefined'){
+              layoutService.getApp($routeParams.fname).then(function(data){
+                  $scope.portlet = data.portlet;
+                  if(typeof $scope.portlet === 'undefined' || 
+                          typeof $scope.portlet.fname === 'undefined') {
+                      $location.path('/');
+                  }
+              });
+          }
+          
        }
       $scope.openRating = function (size, fname, name) {
             var modalInstance = $modal.open({
