@@ -1,4 +1,3 @@
-(function() {
  var app = angular.module('portal', [
     'ngRoute',
     'ngStorage',
@@ -21,7 +20,4 @@
       otherwise({templateUrl: 'partials/main.html'});
       }
  	]);
-
-
-
-})();
+ 	
