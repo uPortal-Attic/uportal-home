@@ -1,0 +1,60 @@
+<div class="widget-content" id="portlet-id-{{::portlet.nodeId}}">
+  
+  <!-- Widget Chrome -->
+  <div class='card-info'>
+    <i title="Info" class="fa fa-info-circle"
+    tooltip="{{::portlet.description}}"
+    tooltip-trigger="mouseenter"
+    tooltip-placement="top"
+    tooltip-popup-delay="200"></i>
+  </div>
+  <div class='card-remove'>
+    <i title="Remove" class="fa fa-times portlet-options" ng-click="widgetCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
+  </div>
+  
+  <!-- For widgets, show fancy markup! -->
+  <div ng-if="'WIDGET' === widgetCtrl.portletType(portlet)">
+    <div class="widget-title">
+      <h4>{{ ::portlet.title }}</h4>
+    </div>
+    <div class="portlet-content">
+       <div ng-bind-html="portlet.widgetContent"></div>
+    </div>
+    <a class="btn btn-default launch-app-button" href="{{::portlet.url}}" target="{{::portlet.target}}">Launch Full App</a>
+  </div>
+  
+  <!-- For basic apps (not a widget, not simple content, no pithy content), show only an icon -->
+  <a ng-if="'NORMAL' === widgetCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
+    <div class="widget-title">
+      <h4>{{ ::portlet.title }}</h4>
+    </div>
+    <div class="widget-icon-container">
+      <portlet-icon></portlet-icon>
+    </div>
+    <button class="btn btn-default launch-app-button">Launch Full App</button>
+  </a>
+  
+  <!-- For pithy content, display the pithy content -->
+  <div ng-if="'PITHY' === widgetCtrl.portletType(portlet)">
+    <div class="widget-title">
+      <h4>{{ ::portlet.title }}</h4>
+    </div>
+    <div class="portlet-content">
+       <div ng-bind-html="portlet.pithyStaticContent"></div>
+    </div>
+    <a class="btn btn-default launch-app-button" href="{{::portlet.url}}" target="{{::portlet.target}}">Launch Full App</a>
+  </div>
+  
+  <!-- For simple content portlets, show only an icon -->
+  <a ng-if="'SIMPLE' === widgetCtrl.portletType(portlet)" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="simple-content-container">
+    <div class="widget-title">
+      <h4>{{ ::portlet.title }}</h4>
+    </div>
+    <div class="widget-icon-container">
+      <portlet-icon></portlet-icon>
+    </div>
+    <button class="btn btn-default launch-app-button">Launch Full App</button>
+  </a>
+  
+  
+</div>

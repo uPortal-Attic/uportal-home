@@ -9,7 +9,7 @@
   <div class='card-remove'>
     <i title="Remove" class="fa fa-times portlet-options" ng-click="layoutCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
   </div>
-  <a href="{{::portlet.url}}" target="{{::portlet.target}}">
+  <a ng-if="'NORMAL' === layoutCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
     <div class="icon-container">
       <portlet-icon></portlet-icon>
     </div>
@@ -17,5 +17,14 @@
       <h4>{{ ::portlet.title }}</h4>
     </div>
   </a>
+  <a ng-if="'SIMPLE' === layoutCtrl.portletType(portlet)" ng-click="layoutCtrl.maxStaticPortlet(portlet)">
+    <div class="icon-container">
+      <portlet-icon></portlet-icon>
+    </div>
+    <div class="list-item-container">
+      <h4>{{ ::portlet.title }}</h4>
+    </div>
+  </a>
+  
   
 </div>
