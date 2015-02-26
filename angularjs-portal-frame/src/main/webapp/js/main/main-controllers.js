@@ -14,7 +14,8 @@
       profileImg: "img/terrace.jpg", 
       notificationsDemo : false,
       pithyContentOnHome : false,
-      typeaheadSearch: false
+      typeaheadSearch: false,
+      exampleWidgets: false
       } );
   } ]);
 

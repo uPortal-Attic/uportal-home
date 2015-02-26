@@ -87,5 +87,11 @@
            link : link
        }
     });
+   app.directive('exampleWidgets', function(){
+      return{
+          restrict: 'E',
+          templateUrl: 'partials/example-widgets.html'
+      }
+   });
 
 })();

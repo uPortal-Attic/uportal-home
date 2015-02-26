@@ -26,26 +26,7 @@
     
     <!-- Widget View -->
     <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list">
-      <!-- Widget Example -->
-      <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 no-padding list-container">  
-        <div class="widget-content" id="portlet-id-{{::portlet.nodeId}}">
-          <div class="ribbon-wrapper"><div class="ribbon">Demo</div></div>
-          <div>
-            <div class="widget-title">
-              <h4>My Courses</h4>
-            </div>
-            <ul>
-              <li>General Physics</li>
-              <li>Introduction to Pottery</li>
-              <li>European Intellectual History</li>
-              <li>Molecular Mechanics</li>
-              <li>Biochemistry</li>
-            </ul>
-            <a class="btn btn-default launch-app-button" href="{{::portlet.url}}" target="{{::portlet.target}}">Launch Full App</a>
-          </div>
-        </div>
-      </li>
-      <!-- End Example -->
+      <example-widgets ng-if="$storage.exampleWidgets"></example-widgets>
       <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 no-padding list-container" ng-repeat="portlet in layout">
         <widget-card></widget-card>
       </li>

@@ -272,7 +272,7 @@ div.table-cell {
   margin:5px;
   background:#f3f3f3;
   border-radius:3px;
-  height:230px;
+  height:280px;
   color:#333;
   .widget-title {
     font-size:1.2em;
@@ -325,6 +325,51 @@ div.table-cell {
     }
   }
 }
+.widget-content select.form-control {
+  margin:0px auto 10px;
+  width:auto;
+}
+.widget-list {
+  margin:0;
+  padding:0;
+  li {
+    border-top:1px solid #ddd;
+    margin:0px 15px;
+    padding:3px 0px;
+  }
+  li:first-child {
+    border-top:0px solid transparent;
+  }
+  li:hover {
+    cursor:pointer;
+    margin:0px 5px;
+    padding:3px 10px;
+    background-color:#ddd;
+    border-radius:4px;
+  }
+  li:hover + li {
+    border-top:0px solid transparent;
+    padding:4px 0px 3px;
+  }
+  p {
+    color:#666;
+    margin:0;
+    padding:0px;
+    font-size:12px;
+  }
+  
+  .bold {
+    font-weight:600;
+    color:#222;
+  }
+  .right {
+    float:right;
+  }
+  .offset {
+    position:absolute;
+    left:55px;
+  }
+}
 
 .portlet-widget {
   background-color: @color4;
@@ -333,11 +378,11 @@ div.table-cell {
   border-radius:4px;
 }
 .simple-content-container {
-  height:230px;
+  height:280px;
   overflow:hidden;
 }
 .widget-simple-html {
-  height:160px;
+  height:210px;
   overflow:scroll;
 }
 
