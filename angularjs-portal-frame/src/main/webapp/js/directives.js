@@ -81,5 +81,34 @@
           }
         };
       });
+    
+    /**
+     * Directive to render the div with the "portlet-header" class.
+     * Supports 3 attributes:
+     * 
+     * <ol>
+     * <li>app-image: background image for the div</li>
+     * <li>app-title: displayed in an h1 child element</li>
+     * <li>app-description: displayed in a p child element</li>
+     * </ol>
+     * 
+     * Example:
+     * <pre>
+     * <portlet-header app-title="My App Title" app-image="img/square.jpg" app-description="Optional app description."></portlet-header>
+     * </pre>
+     * 
+     * See ../partials/portlet-header.html.
+     */
+    app.directive('portletHeader', function() {
+    	return {
+    		restrict: 'E',
+    		scope: {
+    			title: '@appTitle',
+    			image: '@appImage',
+    			description: '@appDescription'
+    		},
+    		templateUrl: 'partials/portlet-header.html'
+    	};
+    });
 
 })();
