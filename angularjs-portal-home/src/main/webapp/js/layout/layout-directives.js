@@ -62,11 +62,15 @@
    
    app.directive('optionLink', function(){
        function link (scope, element, attrs) {
-           if(scope.hasSingleEl) {
-               //set the default selected url
-               scope.portlet.selectedUrl = scope.portlet.widgetData[scope.valueEl];
-           } else if(scope.portlet.widgetData[scope.arrayName].length > 0) {
-               scope.portlet.widgetData[scope.arrayName][0][scope.valueEl];
+           if(scope.config) {
+               if(scope.config.singleElement) {
+                   //set the default selected url
+                   scope.portlet.selectedUrl = scope.portlet.widgetData[scope.config.value];
+               } else if(scope.portlet.widgetData[scope.config.arrayName].length > 0) {
+                   scope.portlet.widgetData[scope.config.arrayName][0][scope.config.value];
+               }
+           } else {
+               console.warn('config not set for option link directive');
            }
            
            scope.$watch(attrs.app, function(value) {
@@ -78,10 +82,7 @@
            restrict: 'E',
            scope : {
                portlet : '=app',
-               valueEl : '@valueName',
-               displayEl : '@displayName',
-               arrayName : '@arrayName',
-               hasSingleEl : '@singleElement'
+               config  : '=config'
            },
            templateUrl: 'partials/widgets/option-link.html',
            link : link
