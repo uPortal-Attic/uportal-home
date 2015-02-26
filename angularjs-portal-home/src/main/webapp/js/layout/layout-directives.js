@@ -61,9 +61,24 @@
    });
    
    app.directive('optionLink', function(){
+       function link (scope, element, attrs) {
+           scope.selectedUrl = attrs.app[attrs.valueEl];
+           scope.$watch(attrs.app, function(value) {
+              scope.portlet = value;
+           });
+       }
+       
        return{
            restrict: 'E',
-           templateUrl: 'partials/widgets/option-link.html'
+           scope : {
+               portlet : '=app',
+               valueEl : '@valueName',
+               displayEl : '@displayName',
+               arrayName : '@arrayName',
+               hasSingleEl : '@singleElement'
+           },
+           templateUrl: 'partials/widgets/option-link.html',
+           link : link
        }
     });
 
