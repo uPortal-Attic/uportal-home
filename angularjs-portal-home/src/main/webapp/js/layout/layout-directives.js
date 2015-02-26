@@ -67,7 +67,7 @@
                    //set the default selected url
                    scope.portlet.selectedUrl = scope.portlet.widgetData[scope.config.value];
                } else if(scope.portlet.widgetData[scope.config.arrayName].length > 0) {
-                   scope.portlet.widgetData[scope.config.arrayName][0][scope.config.value];
+                   scope.portlet.selectedUrl = scope.portlet.widgetData[scope.config.arrayName][0][scope.config.value];
                }
            } else {
                //setting up defaults
