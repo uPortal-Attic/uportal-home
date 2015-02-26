@@ -27,7 +27,7 @@
       
       $rootScope.layout = [];
     
-      layoutService.getLayout(false).then(function(data){
+      layoutService.getLayout().then(function(data){
         $rootScope.layout = data.layout;
       });
     }
@@ -122,7 +122,7 @@
       
       $rootScope.layout = [];
     
-      layoutService.getLayout(true).then(function(data){
+      layoutService.getLayout().then(function(data){
         $rootScope.layout = data.layout;
         for(var i=0; i < $rootScope.layout.length; i++) {
             if($rootScope.layout[i].widgetURL && $rootScope.layout[i].widgetType) {
