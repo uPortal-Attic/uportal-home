@@ -130,7 +130,12 @@
               $rootScope.layout[i].widgetData = [];
               layoutService.getWidgetJson($rootScope.layout[i], i).then(function(data) {
                 if(data) {
-                    $rootScope.layout[data.index].widgetData = data.result;
+                    if(data.result) {
+                      $rootScope.layout[data.index].widgetData = data.result;
+                    }
+                    if(data.content) {
+                      $rootScope.layout[data.index].widgetContent = data.content;
+                    }
                     console.log($rootScope.layout[data.index].fname + "'s widget data came back with data: ");
                     console.log(data);
                 } else {
