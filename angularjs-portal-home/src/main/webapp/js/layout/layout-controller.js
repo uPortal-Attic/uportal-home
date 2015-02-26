@@ -125,7 +125,7 @@
             if($rootScope.layout[i].widgetURL && $rootScope.layout[i].widgetType) {
               //fetch portlet widget json
               $rootScope.layout[i].widgetData = [];
-              layoutService.getWidgetJson($rootScope.layout[i], i).then(function(data) {
+              layoutService.getWidgetJson($rootScope.layout[i]).then(function(data) {
                 if(data) {
                     console.log(data);
                 } else {

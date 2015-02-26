@@ -133,7 +133,7 @@ app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionSt
         );
       }
     
-    var getWidgetJson = function(portlet, index) {
+    var getWidgetJson = function(portlet) {
         return $http.get(portlet.widgetURL,{ cache : true}).then(
            function(result) {
                var data = result.data;
