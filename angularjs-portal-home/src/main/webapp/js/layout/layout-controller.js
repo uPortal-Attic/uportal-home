@@ -124,12 +124,33 @@
     
       layoutService.getLayout(true).then(function(data){
         $rootScope.layout = data.layout;
+        for(var i=0; i < $rootScope.layout.length; i++) {
+            if($rootScope.layout[i].widgetURL && $rootScope.layout[i].widgetType) {
+              //fetch portlet widget json
+              $rootScope.layout[i].widgetData = [];
+              layoutService.getWidgetJson($rootScope.layout[i], i).then(function(data) {
+                if(data) {
+                    $rootScope.layout[data.index].widgetData = data.result;
+                    console.log($rootScope.layout[data.index].fname + "'s widget data came back with data: ");
+                    console.log(data);
+                } else {
+                    console.warn("Got nothing back from widget fetch");
+                }
+              });
+            }
+        }
       });
     }
     
     this.portletType = function portletType(portlet) {
       if (portlet.widgetType) {
-          return "WIDGET";
+          if('option-link' === portlet.widgetType) {
+              //portlet.widgetData = [{"value" : "levett@wisc.edu"}];
+              return "OPTION_LINK";
+          } else {
+              return "WIDGET";
+          }
+          
       }else if($localStorage.pithyContentOnHome && portlet.pithyStaticContent != null) {
           return "PITHY";
       } else if (portlet.staticContent != null 

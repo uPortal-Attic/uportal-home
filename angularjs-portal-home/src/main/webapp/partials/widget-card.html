@@ -19,9 +19,41 @@
   <!-- For widgets, show fancy markup! -->
   <div ng-if="'WIDGET' === widgetCtrl.portletType(portlet)">
     <div class="portlet-content">
-       <div ng-bind-html="portlet.widgetContent"></div>
+       <div ng-if="'option-link' === portlet.widgetType">
+         <div class="widget-icon-container">
+           <portlet-icon></portlet-icon>
+         </div>
+       </div>
+       <div ng-if='portlet.widgetContent' ng-bind-html="portlet.widgetContent"></div>
     </div>
     <a class="btn btn-default launch-app-button" href="{{::portlet.url}}" target="{{::portlet.target}}">Launch Full App</a>
+  </div>
+  
+  <div ng-if="'OPTION_LINK' === widgetCtrl.portletType(portlet)">
+    <div class="portlet-content">
+       <div ng-if="'option-link' === portlet.widgetType">
+         <div class="widget-icon-container">
+           <portlet-icon></portlet-icon>
+         </div>
+         <div>
+            <div  style='font-size : larger; text-align: center;'>
+            <div ng-if="portlet.widgetData && portlet.widgetData.length == 0">
+                loading...
+            </div>
+            <div ng-if="portlet.widgetData && portlet.widgetData.linked.length == 0" >
+                {{portlet.widgetData.email}}
+            </div>
+            <div ng-if="portlet.widgetData && portlet.widgetData.linked.length >= 1">
+                <select ng-model="portlet.selectedUrl">
+                    <option selected="selected" value="{{portlet.widgetData.uri}}">{{portlet.widgetData.email}}</option>
+                    <option ng-repeat='obj in portlet.widgetData.linked' value="{{obj.uri}}">{{obj.email}}</option>
+                </select>
+            </div>
+            </div>
+         </div>
+       </div>
+    </div>
+    <a class="btn btn-default launch-app-button" href="{{portlet.selectedUrl}}" target="_blank">Launch Email</a>
   </div>
   
   <!-- For basic apps (not a widget, not simple content, no pithy content), show only an icon -->

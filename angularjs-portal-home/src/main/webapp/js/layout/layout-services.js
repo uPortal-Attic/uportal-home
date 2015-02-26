@@ -137,13 +137,26 @@ app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionSt
           }
         );
       }
+    
+    var getWidgetJson = function(portlet, index) {
+        return $http.get(portlet.widgetURL,{ cache : true}).then(
+           function(result) {
+               result.data.index = index;
+               return result.data;
+           },
+           function(reason) {
+               miscService.redirectUser(reason.status, 'widget json for ' + portlet.fname + " failed.");
+           }
+        );
+    }
 
   return {
     getLayout : getLayout,
     getApp : getApp,
     moveStuff : moveStuff,
     getNewStuffFeed : getNewStuffFeed,
-    addToHome : addToHome
+    addToHome : addToHome,
+    getWidgetJson : getWidgetJson
   }
 
 }]);
