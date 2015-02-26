@@ -118,12 +118,9 @@
                                               
     miscService.pushPageview();
     $scope.toggle = APP_FLAGS.enableToggle;
-    if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
-      
-      $rootScope.layout = [];
+    var that = this;
     
-      layoutService.getLayout().then(function(data){
-        $rootScope.layout = data.layout;
+    that.populateWidgetContent = function() {
         for(var i=0; i < $rootScope.layout.length; i++) {
             if($rootScope.layout[i].widgetURL && $rootScope.layout[i].widgetType) {
               //fetch portlet widget json
@@ -144,7 +141,20 @@
               });
             }
         }
+    }
+    
+    if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
+      
+      $rootScope.layout = [];
+    
+      layoutService.getLayout().then(function(data){
+        $rootScope.layout = data.layout;
+        that.populateWidgetContent();
+        $rootScope.widgetsPopulated = true;
       });
+    } else if (!($rootScope.widgetsPopulated)) {
+        that.populateWidgetContent();
+        $rootScope.widgetsPopulated = true;
     }
     
     this.portletType = function portletType(portlet) {
