@@ -83,8 +83,8 @@
     </div>
     <div class="col-xs-12 col-sm-9 portlet-screenshots" ng-if="portlet.marketplaceScreenshots.length !== 0">
       <h3>Screenshots</h3>
-      <ul class="enlarge" ng-repeat="screenshot in portlet.marketplaceScreenshots">
-        <li>
+      <ul class="enlarge">
+        <li ng-repeat="screenshot in portlet.marketplaceScreenshots">
           <img ng-src="{{ ::screenshot.url }}" width ="320px" alt="{{ ::screenshot.captions }}">
           <span>
           	<img ng-src="{{ ::screenshot.url }}" alt="{{ ::screenshot.captions }}">
