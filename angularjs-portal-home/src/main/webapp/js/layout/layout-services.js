@@ -136,8 +136,17 @@ app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionSt
     var getWidgetJson = function(portlet, index) {
         return $http.get(portlet.widgetURL,{ cache : true}).then(
            function(result) {
-               result.data.index = index;
-               return result.data;
+               var data = result.data;
+               if(data) {
+                 if(data.result) {
+                     portlet.widgetData = data.result;
+                 }
+                 if(data.content) {
+                     portlet.widgetContent = data.content;
+                 }
+                 console.log(portlet.fname + "'s widget data came back with data");
+               }
+               return data;
            },
            function(reason) {
                miscService.redirectUser(reason.status, 'widget json for ' + portlet.fname + " failed.");
