@@ -1,14 +1,19 @@
-{"result" :  
-            {
-                "system" : "wiscmail",
-                "uri"    : "https://wiscmail.wisc.edu",
-                "linked" : [
-                            {
-                                "sample-link@doit.wisc.edu" {
-                                    "system" : "office365",
-                                    "uri" : "https://wiscmail.wisc.edu"
-                                }
-                            }
-                           ]
-            }
+{
+ "result" : {
+  "system" : "o365",
+  "uri" : "https://outlook.com/owa/wisc.edu/",
+  "email" : "first.last@wisc.edu",
+  "linked" : [
+    {
+      "system" : "wiscmail",
+      "uri" : "https://wiscmail.wisc.edu/login",
+      "email" : "wiscmail-ex@wisc.edu"
+    },
+    {
+      "system" : "o365",
+      "uri" : "https://outlook.com/owa/my-core_doit@wisc.edu/",
+      "email" : "my-core@doit.wisc.edu"
+    }
+  ]
+ }
 }

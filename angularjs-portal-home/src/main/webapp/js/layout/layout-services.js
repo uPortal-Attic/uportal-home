@@ -74,7 +74,6 @@ app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionSt
             successFn = function(result) {
                 var data =  result.data;
                 storeLayoutInCache(data);
-
                 return data;
             };
 
@@ -133,13 +132,35 @@ app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionSt
           }
         );
       }
+    
+    var getWidgetJson = function(portlet) {
+        return $http.get(portlet.widgetURL,{ cache : true}).then(
+           function(result) {
+               var data = result.data;
+               if(data) {
+                 if(data.result) {
+                     portlet.widgetData = data.result;
+                 }
+                 if(data.content) {
+                     portlet.widgetContent = data.content;
+                 }
+                 console.log(portlet.fname + "'s widget data came back with data");
+               }
+               return data;
+           },
+           function(reason) {
+               miscService.redirectUser(reason.status, 'widget json for ' + portlet.fname + " failed.");
+           }
+        );
+    }
 
   return {
     getLayout : getLayout,
     getApp : getApp,
     moveStuff : moveStuff,
     getNewStuffFeed : getNewStuffFeed,
-    addToHome : addToHome
+    addToHome : addToHome,
+    getWidgetJson : getWidgetJson
   }
 
 }]);

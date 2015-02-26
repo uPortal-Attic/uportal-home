@@ -33,12 +33,11 @@
     }
     
     this.portletType = function portletType(portlet) {
-      if(portlet.staticContent == null
-                 || portlet.altMaxUrl == true) {
-          return "NORMAL";
-      } else if (portlet.staticContent != null 
+      if (portlet.staticContent != null 
                  && portlet.altMaxUrl == false) {
           return "SIMPLE";
+      } else {
+          return "NORMAL";
       }
     }
     
@@ -119,24 +118,54 @@
                                               
     miscService.pushPageview();
     $scope.toggle = APP_FLAGS.enableToggle;
+    var that = this;
+    
+    that.populateWidgetContent = function() {
+        for(var i=0; i < $rootScope.layout.length; i++) {
+            if($rootScope.layout[i].widgetURL && $rootScope.layout[i].widgetType) {
+              //fetch portlet widget json
+              $rootScope.layout[i].widgetData = [];
+              layoutService.getWidgetJson($rootScope.layout[i]).then(function(data) {
+                if(data) {
+                    console.log(data);
+                } else {
+                    console.warn("Got nothing back from widget fetch");
+                }
+              });
+            }
+        }
+    }
+    
     if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
       
       $rootScope.layout = [];
     
       layoutService.getLayout().then(function(data){
         $rootScope.layout = data.layout;
+        that.populateWidgetContent();
+        $rootScope.widgetsPopulated = true;
       });
+    } else if (!($rootScope.widgetsPopulated)) {
+        that.populateWidgetContent();
+        $rootScope.widgetsPopulated = true;
     }
     
     this.portletType = function portletType(portlet) {
-      if($localStorage.pithyContentOnHome && portlet.pithyStaticContent != null) {
+      if (portlet.widgetType) {
+          if('option-link' === portlet.widgetType) {
+              //portlet.widgetData = [{"value" : "levett@wisc.edu"}];
+              return "OPTION_LINK";
+          } else {
+              return "WIDGET";
+          }
+          
+      }else if($localStorage.pithyContentOnHome && portlet.pithyStaticContent != null) {
           return "PITHY";
-      } else if(portlet.staticContent == null
-                 || portlet.altMaxUrl == true) {
-          return "NORMAL";
       } else if (portlet.staticContent != null 
                  && portlet.altMaxUrl == false) {
           return "SIMPLE";
+      } else {
+          return "NORMAL";
       }
     }
     

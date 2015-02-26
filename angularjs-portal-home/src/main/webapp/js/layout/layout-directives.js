@@ -59,5 +59,33 @@
           templateUrl: 'partials/home-header.html'
       }
    });
+   
+   app.directive('optionLink', function(){
+       function link (scope, element, attrs) {
+           if(scope.hasSingleEl) {
+               //set the default selected url
+               scope.portlet.selectedUrl = scope.portlet.widgetData[scope.valueEl];
+           } else if(scope.portlet.widgetData[scope.arrayName].length > 0) {
+               scope.portlet.widgetData[scope.arrayName][0][scope.valueEl];
+           }
+           
+           scope.$watch(attrs.app, function(value) {
+              scope.portlet = value;
+           });
+       }
+       
+       return{
+           restrict: 'E',
+           scope : {
+               portlet : '=app',
+               valueEl : '@valueName',
+               displayEl : '@displayName',
+               arrayName : '@arrayName',
+               hasSingleEl : '@singleElement'
+           },
+           templateUrl: 'partials/widgets/option-link.html',
+           link : link
+       }
+    });
 
 })();
