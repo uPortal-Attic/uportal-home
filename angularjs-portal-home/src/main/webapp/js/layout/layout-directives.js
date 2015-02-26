@@ -59,5 +59,12 @@
           templateUrl: 'partials/home-header.html'
       }
    });
+   
+   app.directive('optionLink', function(){
+       return{
+           restrict: 'E',
+           templateUrl: 'partials/widgets/option-link.html'
+       }
+    });
 
 })();
