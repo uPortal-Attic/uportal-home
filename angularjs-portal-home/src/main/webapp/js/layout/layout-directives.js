@@ -62,7 +62,13 @@
    
    app.directive('optionLink', function(){
        function link (scope, element, attrs) {
-           scope.selectedUrl = attrs.app[attrs.valueEl];
+           if(scope.hasSingleEl) {
+               //set the default selected url
+               scope.portlet.selectedUrl = scope.portlet.widgetData[scope.valueEl];
+           } else if(scope.portlet.widgetData[scope.arrayName].length > 0) {
+               scope.portlet.widgetData[scope.arrayName][0][scope.valueEl];
+           }
+           
            scope.$watch(attrs.app, function(value) {
               scope.portlet = value;
            });

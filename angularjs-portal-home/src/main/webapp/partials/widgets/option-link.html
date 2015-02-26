@@ -8,11 +8,11 @@
           <div ng-if="portlet.widgetData.length == 0">
               loading...
           </div>
-          <div ng-if="hasSingleEl && portlet.widgetData[arrayName].length == 0" >
+          <div ng-if="hasSingleEl && portlet.widgetData[arrayName].length == 0" style='text-align: center; font-size: larger;'>
               {{portlet.widgetData[displayEl]}}
           </div>
           <div ng-if="portlet.widgetData && portlet.widgetData[arrayName].length >= 1">
-             <select ng-model="selectedUrl" class='form-control'>
+             <select ng-model="portlet.selectedUrl" class='form-control'>
                  <option ng-if='hasSingleEl' selected="selected" value="{{portlet.widgetData[valueEl]}}">{{portlet.widgetData[displayEl]}}</option>
                  <option ng-repeat='obj in portlet.widgetData[arrayName]' value="{{obj[valueEl]}}">{{obj[displayEl]}}</option>
              </select>
@@ -21,4 +21,4 @@
      </div>
    </div>
 </div>
-<a class="btn btn-default launch-app-button" href="{{selectedUrl}}" target="_blank">Launch {{portlet.title}}</a>
+<a class="btn btn-default launch-app-button" href="{{portlet.selectedUrl}}" target="_blank">Launch {{portlet.title}}</a>
