@@ -70,7 +70,13 @@
                    scope.portlet.widgetData[scope.config.arrayName][0][scope.config.value];
                }
            } else {
-               console.warn('config not set for option link directive');
+               //setting up defaults
+               scope.config = {
+                   singleElement : false,
+                   arrayName : 'array',
+                   value : 'value',
+                   display : 'display'
+               };
            }
            
            scope.$watch(attrs.app, function(value) {
