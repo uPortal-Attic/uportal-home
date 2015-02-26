@@ -79,6 +79,16 @@
             </h4>
             <small>Enable/Disable the typeahead in the portlet search bar</small>
         </li>
+        <li class="portlet-container-home beta-card-style">
+             <h4>
+            <span class="btn-group">
+              <label class="btn" ng-class="{'btn-success' : $storage.exampleWidgets, 'btn-default' : !$storage.exampleWidgets }" ng-model="$storage.exampleWidgets" btn-radio="true">On</label>
+              <label class="btn" ng-class="{'btn-success' : $storage.exampleWidgets, 'btn-default' : !$storage.exampleWidgets }" ng-model="$storage.exampleWidgets" btn-radio="false">Off</label>
+            </span>
+                 Example Widgets
+             </h4>
+             <small>Show the My Courses, Email, and Calendar example widgets</small>
+         </li>
     </ul>
     <ul class="col-sm-6" style='padding-top: 1em;'>
         <li class="no-padding portlet-container-home  beta-card-style" style='text-align : center;'>
