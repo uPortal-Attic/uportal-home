@@ -63,11 +63,13 @@
    app.directive('optionLink', function(){
        function link (scope, element, attrs) {
            if(scope.config) {
-               if(scope.config.singleElement) {
-                   //set the default selected url
-                   scope.portlet.selectedUrl = scope.portlet.widgetData[scope.config.value];
-               } else if(scope.portlet.widgetData[scope.config.arrayName].length > 0) {
-                   scope.portlet.selectedUrl = scope.portlet.widgetData[scope.config.arrayName][0][scope.config.value];
+               if(scope.portlet.widgetData) {
+                   if(scope.config.singleElement) {
+                       //set the default selected url
+                       scope.portlet.selectedUrl = scope.portlet.widgetData[scope.config.value];
+                   } else if(scope.portlet.widgetData[scope.config.arrayName].length > 0) {
+                       scope.portlet.selectedUrl = scope.portlet.widgetData[scope.config.arrayName][0][scope.config.value];
+                   }
                }
            } else {
                //setting up defaults
@@ -81,6 +83,14 @@
            
            scope.$watch(attrs.app, function(value) {
               scope.portlet = value;
+              if(scope.portlet.widgetData) {
+                  if(scope.config.singleElement) {
+                      //set the default selected url
+                      scope.portlet.selectedUrl = scope.portlet.widgetData[scope.config.value];
+                  } else if(scope.portlet.widgetData[scope.config.arrayName].length > 0) {
+                      scope.portlet.selectedUrl = scope.portlet.widgetData[scope.config.arrayName][0][scope.config.value];
+                  }
+              }
            });
        }
        
