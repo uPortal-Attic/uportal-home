@@ -60,39 +60,17 @@
       }
    });
    
+   /**
+    * <option-link> directive is used to display widget content.
+    * You need to setup a config JSON object, or just use the defaults defined below
+    * config = {
+    *             singleElement : false, //flags if your widgetData object as a single set in addition to the array
+    *             arrayName : 'array', //the array name under widgetData
+    *             value : 'value', //what you want the value to be (usually a URL)
+    *             display : 'display' // what to display in the drop down
+    *         }
+    */
    app.directive('optionLink', function(){
-       function link (scope, element, attrs) {
-           if(scope.config) {
-               if(scope.portlet.widgetData) {
-                   if(scope.config.singleElement) {
-                       //set the default selected url
-                       scope.portlet.selectedUrl = scope.portlet.widgetData[scope.config.value];
-                   } else if(scope.portlet.widgetData[scope.config.arrayName].length > 0) {
-                       scope.portlet.selectedUrl = scope.portlet.widgetData[scope.config.arrayName][0][scope.config.value];
-                   }
-               }
-           } else {
-               //setting up defaults
-               scope.config = {
-                   singleElement : false,
-                   arrayName : 'array',
-                   value : 'value',
-                   display : 'display'
-               };
-           }
-           
-           scope.$watch(attrs.app, function(value) {
-              scope.portlet = value;
-              if(scope.portlet.widgetData) {
-                  if(scope.config.singleElement) {
-                      //set the default selected url
-                      scope.portlet.selectedUrl = scope.portlet.widgetData[scope.config.value];
-                  } else if(scope.portlet.widgetData[scope.config.arrayName].length > 0) {
-                      scope.portlet.selectedUrl = scope.portlet.widgetData[scope.config.arrayName][0][scope.config.value];
-                  }
-              }
-           });
-       }
        
        return{
            restrict: 'E',
@@ -101,7 +79,7 @@
                config  : '=config'
            },
            templateUrl: 'partials/widgets/option-link.html',
-           link : link
+           controller : 'OptionLinkController'
        }
     });
 
