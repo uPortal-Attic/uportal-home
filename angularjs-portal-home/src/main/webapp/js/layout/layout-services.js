@@ -123,7 +123,7 @@ app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionSt
     };
     
     var getNewStuffFeed = function() {
-        return $http.get('/web/api/newstuff.json', {cache : true}).then(
+        return $http.get('/web/samples/new-stuff.json', {cache : true}).then(
           function(result) {
             return  result.data.stuff;
           } ,
