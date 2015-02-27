@@ -60,31 +60,26 @@
       }
    });
    
+   /**
+    * <option-link> directive is used to display widget content.
+    * You need to setup a config JSON object, or just use the defaults defined below
+    * config = {
+    *             singleElement : false, //flags if your widgetData object as a single set in addition to the array
+    *             arrayName : 'array', //the array name under widgetData
+    *             value : 'value', //what you want the value to be (usually a URL)
+    *             display : 'display' // what to display in the drop down
+    *         }
+    */
    app.directive('optionLink', function(){
-       function link (scope, element, attrs) {
-           if(scope.hasSingleEl) {
-               //set the default selected url
-               scope.portlet.selectedUrl = scope.portlet.widgetData[scope.valueEl];
-           } else if(scope.portlet.widgetData[scope.arrayName].length > 0) {
-               scope.portlet.widgetData[scope.arrayName][0][scope.valueEl];
-           }
-           
-           scope.$watch(attrs.app, function(value) {
-              scope.portlet = value;
-           });
-       }
        
        return{
            restrict: 'E',
            scope : {
                portlet : '=app',
-               valueEl : '@valueName',
-               displayEl : '@displayName',
-               arrayName : '@arrayName',
-               hasSingleEl : '@singleElement'
+               config  : '=config'
            },
            templateUrl: 'partials/widgets/option-link.html',
-           link : link
+           controller : 'OptionLinkController'
        }
     });
    app.directive('exampleWidgets', function(){

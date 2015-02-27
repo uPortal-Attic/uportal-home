@@ -8,13 +8,13 @@
           <div ng-if="portlet.widgetData.length == 0">
               loading...
           </div>
-          <div ng-if="hasSingleEl && portlet.widgetData[arrayName].length == 0" style='text-align: center; font-size: larger;'>
-              {{portlet.widgetData[displayEl]}}
+          <div ng-if="config.singleElement && portlet.widgetData[config.arrayName].length == 0" style='text-align: center; font-size: larger;'>
+              {{portlet.widgetData[config.display]}}
           </div>
-          <div ng-if="portlet.widgetData && portlet.widgetData[arrayName].length >= 1">
+          <div ng-if="portlet.widgetData && portlet.widgetData[config.arrayName].length >= 1">
              <select ng-model="portlet.selectedUrl" class='form-control'>
-                 <option ng-if='hasSingleEl' selected="selected" value="{{portlet.widgetData[valueEl]}}">{{portlet.widgetData[displayEl]}}</option>
-                 <option ng-repeat='obj in portlet.widgetData[arrayName]' value="{{obj[valueEl]}}">{{obj[displayEl]}}</option>
+                 <option ng-if='config.singleElement' selected="selected" value="{{portlet.widgetData[config.value]}}">{{portlet.widgetData[config.display]}}</option>
+                 <option ng-repeat='obj in portlet.widgetData[config.arrayName]' value="{{obj[config.value]}}">{{obj[config.display]}}</option>
              </select>
           </div>
         </div>
