@@ -1,0 +1,12 @@
+<div>
+    <ul>
+        <li ng-repeat="weather in portlet.widgetData | limitTo:2">
+            <h4>{{weather.location.city}}, {{weather.location.stateOrCountry}}</h4>
+            <p>
+                Current : <img ng-src="/WeatherPortlet/images/accuweather/{{weather.currentWeather.imgName}}.png" title="{{weather.currentWeather.condition}}" alt="{{weather.currentWeather.condition}}"> {{weather.currentWeather.temperature}}{{weather.temperatureUnit}} 
+            </p>
+            
+        </li>
+    </ul>
+</div>
+<a class="btn btn-default launch-app-button" href="{{::portlet.url}}">Launch Full App</a>

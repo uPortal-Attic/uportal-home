@@ -33,6 +33,10 @@
     <option-link app="portlet" config="portlet.widgetConfig"></option-link>
   </div>
   
+  <div ng-if="'WEATHER' === widgetCtrl.portletType(portlet)">
+    <weather app="portlet" config="portlet.widgetConfig"></weather>
+  </div>
+  
   <!-- For basic apps (not a widget, not simple content, no pithy content), show only an icon -->
   <a ng-if="'NORMAL' === widgetCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
     <div class="widget-icon-container">

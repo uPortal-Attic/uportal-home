@@ -82,6 +82,20 @@
            controller : 'OptionLinkController'
        }
     });
+   
+   app.directive('weather', function(){
+       
+       return{
+           restrict: 'E',
+           scope : {
+               portlet : '=app',
+               config  : '=config'
+           },
+           templateUrl: 'partials/widgets/weather.html',
+           controller : 'WeatherController'
+       }
+    });
+   
    app.directive('exampleWidgets', function(){
       return{
           restrict: 'E',
