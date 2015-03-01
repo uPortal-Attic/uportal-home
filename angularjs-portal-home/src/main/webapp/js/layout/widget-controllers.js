@@ -56,7 +56,8 @@
             });
           }
       }
-      
+      console.log("Config: " + $scope.config);
       populateWidgetContent();
+      $scope.details=false;
   }]);
 })();
