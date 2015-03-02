@@ -14,6 +14,7 @@
     'portal.main.service',
     'portal.layout.directives',
     'portal.layout.controllers',
+    'portal.layout.widget.controllers',
     'portal.layout.service',
     'portal.search.controllers',
     'portal.main.directives',
