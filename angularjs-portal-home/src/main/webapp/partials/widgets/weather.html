@@ -1,7 +1,7 @@
 <div>
     <ul class="widget-list">
         <li ng-repeat="weather in portlet.widgetData | limitTo:2">
-          <a href="{{weather.moreInformationLink}}">
+          <a href="{{weather.moreInformationLink}}" target='_blank'>
             <p class="bold">{{weather.location.city}}, {{weather.location.stateOrCountry}}
             </p>
             <div>
