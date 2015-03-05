@@ -1,27 +1,27 @@
 <div>
-    <ul style='padding-left: 10px;'>
+    <ul class="widget-list">
         <li ng-repeat="weather in portlet.widgetData | limitTo:2">
-            <h4 ng-click="showDetails($index)">{{weather.location.city}}, {{weather.location.stateOrCountry}}
-                <small>
-                    <a ng-hide='details' ng-click="details = !details" href='javascript:;'><i class='fa fa-plus'></i></a>
-                    <a ng-show='details' ng-click="details = !details" href='javascript:;'><i class='fa fa-minus'></i></a>
-                </small>
-            </h4>
+          <a href="{{weather.moreInformationLink}}">
+            <p class="bold">{{weather.location.city}}, {{weather.location.stateOrCountry}}
+            </p>
             <div>
-                <p class="current" ng-hide="details">
-                    <img ng-src="{{config.iconPrefix}}{{weather.currentWeather.imgName}}{{config.iconPostfix}}" title="{{weather.currentWeather.condition}}" alt="{{weather.currentWeather.condition}}"> {{weather.currentWeather.temperature}}{{weather.temperatureUnit}}
-                </p>
-                <div class="forecast" ng-show='details'>
-                    <div class='container-fluid row' style='font-size: x-small; width: 100%; margin: 0;'>
-                        <div class='col-lg-4 day' ng-repeat="forecast in weather.forecast">
-                            {{forecast.day}}
-                            <img style='height: 25px;' ng-src="{{config.iconPrefix}}{{forecast.imgName}}{{config.iconPostfix}}" title="{{forecast.condition}}" alt="{{forecast.condition}}">
-                            H:{{forecast.highTemperature}}
-                            L:{{forecast.lowTemperature}}
+                <div class="forecast">
+                    <div class='row'>
+                        <div class="col-xs-3 day">
+                          <p>Now</p>
+                          <img ng-src="{{config.iconPrefix}}{{weather.currentWeather.imgName}}{{config.iconPostfix}}" title="{{weather.currentWeather.condition}}" alt="{{weather.currentWeather.condition}}">
+                          <p>{{weather.currentWeather.temperature}}&deg; {{weather.temperatureUnit}}</p>
+                        </div>
+                        <div class='col-xs-3 day' ng-repeat="forecast in weather.forecast">
+                            <p>{{forecast.day}}</p>
+                            <img ng-src="{{config.iconPrefix}}{{forecast.imgName}}{{config.iconPostfix}}" title="{{forecast.condition}}" alt="{{forecast.condition}}">
+                            <p>H: {{forecast.highTemperature}}&deg;</p>
+                            <p>L: {{forecast.lowTemperature}}&deg;</p>
                         </div>
                     </div>
                 </div>
             </div>
+          </a>
         </li>
     </ul>
     <div>
