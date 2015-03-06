@@ -21,6 +21,7 @@
           if($scope.portlet.widgetURL && $scope.portlet.widgetType) {
             //fetch portlet widget json
             $scope.portlet.widgetData = [];
+            
             layoutService.getWidgetJson($scope.portlet).then(function(data) {
               if(data) {
                   console.log(data);
@@ -42,6 +43,7 @@
   }]);
 
   app.controller('WeatherController', ['$scope', 'layoutService', function($scope, layoutService){
+      $scope.weatherData = [];
       var populateWidgetContent = function() {
           if($scope.portlet.widgetURL && $scope.portlet.widgetType) {
             //fetch portlet widget json
@@ -50,6 +52,7 @@
               if(data) {
                   console.log(data);
                   $scope.portlet.widgetData = data.weathers;
+                  $scope.weatherData = $scope.portlet.widgetData;
               } else {
                   console.warn("Got nothing back from widget fetch");
               }

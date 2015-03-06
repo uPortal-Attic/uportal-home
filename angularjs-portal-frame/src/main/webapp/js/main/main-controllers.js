@@ -3,20 +3,28 @@
 (function() {
   var app = angular.module('portal.main.controllers', []);
 
-  app.controller('MainController', ['$localStorage','$scope', function($localStorage, $scope) {
+  app.controller('MainController', ['$localStorage', '$sessionStorage','$scope', function($localStorage, $sessionStorage, $scope) {
+    var defaults = {
+            showSidebar: true, 
+            sidebarQuicklinks: false, 
+            showKeywordsInMarketplace : false,
+            homeImg : "img/square.jpg", 
+            sidebarShowProfile: false, 
+            profileImg: "img/terrace.jpg", 
+            notificationsDemo : false,
+            pithyContentOnHome : false,
+            typeaheadSearch: false,
+            exampleWidgets: false
+            };
+    $scope.$storage = $localStorage.$default(defaults);
     
-    $scope.$storage = $localStorage.$default( {
-      showSidebar: true, 
-      sidebarQuicklinks: false, 
-      showKeywordsInMarketplace : false,
-      homeImg : "img/square.jpg", 
-      sidebarShowProfile: false, 
-      profileImg: "img/terrace.jpg", 
-      notificationsDemo : false,
-      pithyContentOnHome : false,
-      typeaheadSearch: false,
-      exampleWidgets: false
-      } );
+    $scope.resetLocal = function() {
+        $localStorage.$reset(defaults);
+    }
+    
+    $scope.clearSession = function() {
+        $sessionStorage.$reset();
+    }
   } ]);
 
   /* Username */

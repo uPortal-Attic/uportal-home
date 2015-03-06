@@ -4,6 +4,41 @@
   var app = angular.module('portal.misc.directives', []);
 
     
+  
+    /**
+     * Loading gif - show loading gif when the length of said array is 0 and empty is not set
+     * REQUIRED attribute that isn't listed below:
+     *   object : this is the scope array we are watching to show/hide gif
+     *   empty  : this is the scope boolean flag that you set if the data came back and it was empty
+     * 
+     */
+    app.directive('loadingGif', [function(){
+        return {
+            restrict : 'E',
+            templateUrl: 'partials/loading-gif.html',
+            link: function(scope, elm, attrs) {
+                scope.isLoading = function () {
+                    
+                    if(typeof attrs.empty === undefined) {
+                        attrs.empty = false;
+                    }
+                    
+                    return (!scope[attrs.object] || scope[attrs.object].length == 0) && ! scope[attrs.empty];
+                };
+
+                scope.$watch(scope.isLoading, function (v)
+                {
+                    if(v){
+                        elm.show();
+                    }else{
+                        elm.hide();
+                        elm.css('margin','0')
+                        elm.html(""); //removes content of div, so if it shows again later it doesn't make the page look funky
+                    }
+                });
+            }
+        }
+    }]);
     app.directive('loading',   ['$http' ,function ($http)
     {
         return {
