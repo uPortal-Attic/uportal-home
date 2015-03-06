@@ -13,12 +13,12 @@
 
     //init variables
     var store = this;
-    store.portlets = [];
+    $scope.portlets = [];
     store.count = 0;
     store.user = [];
     
     marketplaceService.getPortlets().then(function(data) {
-        store.portlets = data.portlets;
+        $scope.portlets = data.portlets;
         $scope.categories = data.categories;
     });
     

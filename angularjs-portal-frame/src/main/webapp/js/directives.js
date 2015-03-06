@@ -18,6 +18,11 @@
             templateUrl: 'partials/loading-gif.html',
             link: function(scope, elm, attrs) {
                 scope.isLoading = function () {
+                    
+                    if(typeof attrs.empty === undefined) {
+                        attrs.empty = false;
+                    }
+                    
                     return scope[attrs.object].length == 0 && ! scope[attrs.empty];
                 };
 
