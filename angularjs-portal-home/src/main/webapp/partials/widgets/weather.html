@@ -1,4 +1,5 @@
 <div>
+    <loading-gif data-object='weatherData'></loading-gif>
     <ul class="widget-list">
         <li ng-repeat="weather in portlet.widgetData | limitTo:2">
           <a href="{{weather.moreInformationLink}}" target='_blank'>

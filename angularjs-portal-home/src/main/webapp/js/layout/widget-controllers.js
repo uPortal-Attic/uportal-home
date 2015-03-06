@@ -21,6 +21,7 @@
           if($scope.portlet.widgetURL && $scope.portlet.widgetType) {
             //fetch portlet widget json
             $scope.portlet.widgetData = [];
+            $scope.weatherData = $scope.portlet.widgetData;
             layoutService.getWidgetJson($scope.portlet).then(function(data) {
               if(data) {
                   console.log(data);

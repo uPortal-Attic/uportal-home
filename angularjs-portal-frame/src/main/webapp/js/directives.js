@@ -23,7 +23,7 @@
                         attrs.empty = false;
                     }
                     
-                    return scope[attrs.object].length == 0 && ! scope[attrs.empty];
+                    return (!scope[attrs.object] || scope[attrs.object].length == 0) && ! scope[attrs.empty];
                 };
 
                 scope.$watch(scope.isLoading, function (v)
