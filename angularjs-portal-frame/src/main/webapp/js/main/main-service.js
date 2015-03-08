@@ -3,9 +3,9 @@
 (function() {
 var app = angular.module('portal.main.service', []);
 
-app.factory('mainService', ['$http', 'miscService', function($http, miscService) {
-  var prom = $http.get('/portal/web/session.json', { cache: true});
-  var sidebarPromise = $http.get('/web/samples/sidebar.json');
+app.factory('mainService', ['$http', 'miscService', 'SERVICE_LOC', function($http, miscService, SERVICE_LOC) {
+  var prom = $http.get(SERVICE_LOC.sessionInfo, { cache: true});
+  var sidebarPromise = $http.get(SERVICE_LOC.sidebarInfo, { cache: true});
   var userPromise;
 
   var getUser = function() {

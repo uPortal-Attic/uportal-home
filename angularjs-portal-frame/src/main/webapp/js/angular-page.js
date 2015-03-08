@@ -4,6 +4,7 @@
     'ui.bootstrap',
     'ngSanitize',
     'ui.sortable',
+    'app-config',
     'portal.misc.controllers',
     'portal.misc.directives',
     'portal.misc.filters',
