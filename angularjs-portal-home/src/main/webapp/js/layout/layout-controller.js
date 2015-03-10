@@ -19,7 +19,6 @@
                                                 layoutService, 
                                                 miscService, 
                                                 sharedPortletService) {
-    miscService.pushPageview();
     if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
       
       $rootScope.layout = [];
@@ -114,9 +113,6 @@
                                             layoutService, 
                                             miscService, 
                                             sharedPortletService) {
-    miscService.pushPageview();
-    var that = this;
-    
     if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
       
       $rootScope.layout = [];
@@ -327,29 +323,45 @@
       }
   }]);
   
-  app.controller('ToggleController',['$localStorage','$scope','$location','APP_FLAGS', function($localStorage, $scope, $location, APP_FLAGS){
-               //init
-               $scope.toggle = APP_FLAGS.enableToggle;
-               if($localStorage.layoutMode && $location.url().indexOf($localStorage.layoutMode) == -1) {
-                   //opps, we are in the wrong mode, switch!
-                   if(APP_FLAGS[$localStorage.layoutMode]) { //check to make sure that mode is active
-                       $location.path('/' + $localStorage.layoutMode);
-                   } else {
-                       console.log("Something is weird, resetting to default layout view");
-                       $localStorage.layoutMode = APP_FLAGS.defaultView;
-                       $location.path('/' + APP_FLAGS.defaultView);
-                   }
+  app.controller('ToggleController',['$localStorage',
+                                     '$scope',
+                                     '$location',
+                                     'miscService',
+                                     'APP_FLAGS', function($localStorage, 
+                                                           $scope, 
+                                                           $location, 
+                                                           miscService, 
+                                                           APP_FLAGS){
+       //scope functions
+       $scope.switchMode = function(mode) {
+           $localStorage.layoutMode = mode;
+           $location.path('/' + mode);
+       }
+       
+       $scope.modeIs = function(mode) {
+           return $localStorage.layoutMode === mode;
+       }
+       
+       //local functions
+       var init = function() {
+           $scope.toggle = APP_FLAGS.enableToggle;
+           if($localStorage.layoutMode && $location.url().indexOf($localStorage.layoutMode) == -1) {
+               //opps, we are in the wrong mode, switch!
+               if(APP_FLAGS[$localStorage.layoutMode]) { //check to make sure that mode is active
+                   $location.path('/' + $localStorage.layoutMode);
+               } else {
+                   console.log("Something is weird, resetting to default layout view");
+                   $localStorage.layoutMode = APP_FLAGS.defaultView;
+                   $location.path('/' + APP_FLAGS.defaultView);
                }
-               //functions
-               $scope.switchMode = function(mode) {
-                   $localStorage.layoutMode = mode;
-                   $location.path('/' + mode);
-               }
-               
-               $scope.modeIs = function(mode) {
-                   return $localStorage.layoutMode === mode;
-               }
-           }])
+           } else {
+               //all is well, ga pageview, go
+               miscService.pushPageview();
+           }
+       }
+       
+       init();
+   }]);
 
 
 

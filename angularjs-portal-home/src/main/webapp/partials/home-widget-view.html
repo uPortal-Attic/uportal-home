@@ -1,24 +1,6 @@
 <div class="row portlet-frame">
   <home-header></home-header>
   <div class="col-xs-12 no-padding portlet-body" ng-controller="WidgetController as widgetCtrl">
-    <div class="inner-nav-container">
-      <ul class="inner-nav">
-        <li class="active home-title">
-            <a>My Favorites</a>
-        </li>
-        <li class="hide-mobile">
-          <a href='#/apps'
-           tooltip="Browse for more apps"
-           tooltip-trigger="mouseenter"
-           tooltip-placement="top"
-           tooltip-popup-delay="500">
-          <i class='fa fa-plus'></i>
-         </a>
-        </li>
-        <home-toggle></home-toggle>
-      </ul>
-      
-    </div>
     <loading-gif  data-object='layout' data-empty='layoutEmpty'></loading-gif>
     <!-- Widget View -->
     <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list">
