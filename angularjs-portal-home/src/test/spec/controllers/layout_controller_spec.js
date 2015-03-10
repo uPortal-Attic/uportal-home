@@ -50,7 +50,25 @@ describe("LayoutController", function() {
                                                   });
   }));
   
-  it("should set scope.toggle", function() {
-      expect(scope.toggle).not.toBeNull();
-    });
+  it("should set layout to something not null", function() {
+      expect(scope.layout).toBeTruthy();
+  });
+  
+  it("should set layoutEmpty to false initially", function() {
+      expect(scope.layoutEmpty).toBe(false);
+  });
+  
+  it("should set layoutEmpty to true after return empty layout", function() {
+      scope.$apply(function(){
+          deferred.resolve({"layout" : []});
+      });
+      expect(scope.layoutEmpty).toBe(true);
+  });
+  
+  it("should set layoutEmpty to false after return non empty layout", function() {
+      scope.$apply(function(){
+          deferred.resolve({"layout" : [{"fake" : true}]});
+      });
+      expect(scope.layoutEmpty).toBe(false);
+  });
 });
