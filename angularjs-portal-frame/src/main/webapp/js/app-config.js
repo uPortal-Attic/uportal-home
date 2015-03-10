@@ -3,9 +3,9 @@
 angular.module('app-config', [])
 .constant('APP_FLAGS', {
                           'enableToggle': true,
-                          'default' : 'list',
+                          'defaultView' : 'list',
                           'list' : true,
-                          'widget' : true
+                          'widgets' : true
                        }
           )
 .constant('SERVICE_LOC', {
