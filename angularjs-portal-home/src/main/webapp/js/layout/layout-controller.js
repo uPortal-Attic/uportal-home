@@ -343,24 +343,24 @@
        }
        
        //local functions
-       var init = function() {
-           $scope.toggle = APP_FLAGS.enableToggle;
-           if($localStorage.layoutMode && $location.url().indexOf($localStorage.layoutMode) == -1) {
-               //opps, we are in the wrong mode, switch!
-               if(APP_FLAGS[$localStorage.layoutMode]) { //check to make sure that mode is active
-                   $location.path('/' + $localStorage.layoutMode);
-               } else {
-                   console.log("Something is weird, resetting to default layout view");
-                   $localStorage.layoutMode = APP_FLAGS.defaultView;
-                   $location.path('/' + APP_FLAGS.defaultView);
-               }
+       this.init = function() {
+         $scope.toggle = APP_FLAGS.enableToggle;
+         if($localStorage.layoutMode 
+              && $location.url().indexOf($localStorage.layoutMode) == -1) {
+           //opps, we are in the wrong mode, switch!
+           if(APP_FLAGS[$localStorage.layoutMode]) { //check to make sure that mode is active
+             $location.path('/' + $localStorage.layoutMode);
            } else {
-               //all is well, ga pageview, go
-               miscService.pushPageview();
+             console.log("Something is weird, resetting to default layout view");
+             $scope.switchMode(APP_FLAGS.defaultView);
            }
+         } else {
+           //all is well, ga pageview, go
+           miscService.pushPageview();
+         }
        }
        
-       init();
+       this.init();
    }]);
 
 
