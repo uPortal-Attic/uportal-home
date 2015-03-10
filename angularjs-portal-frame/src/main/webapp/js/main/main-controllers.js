@@ -12,7 +12,6 @@
             sidebarShowProfile: false, 
             profileImg: "img/terrace.jpg", 
             notificationsDemo : false,
-            pithyContentOnHome : false,
             typeaheadSearch: false,
             exampleWidgets: false
             };
