@@ -326,6 +326,30 @@
           return date >= today;
       }
   }]);
+  
+  app.controller('ToggleController',['$localStorage','$scope','$location','APP_FLAGS', function($localStorage, $scope, $location, APP_FLAGS){
+               //init
+               $scope.toggle = APP_FLAGS.enableToggle;
+               if($localStorage.layoutMode && $location.url().indexOf($localStorage.layoutMode) == -1) {
+                   //opps, we are in the wrong mode, switch!
+                   if(APP_FLAGS[$localStorage.layoutMode]) { //check to make sure that mode is active
+                       $location.path('/' + $localStorage.layoutMode);
+                   } else {
+                       console.log("Something is weird, resetting to default layout view");
+                       $localStorage.layoutMode = APP_FLAGS.defaultView;
+                       $location.path('/' + APP_FLAGS.defaultView);
+                   }
+               }
+               //functions
+               $scope.switchMode = function(mode) {
+                   $localStorage.layoutMode = mode;
+                   $location.path('/' + mode);
+               }
+               
+               $scope.modeIs = function(mode) {
+                   return $localStorage.layoutMode === mode;
+               }
+           }])
 
 
 
