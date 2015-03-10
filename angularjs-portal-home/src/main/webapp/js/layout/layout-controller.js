@@ -143,7 +143,7 @@
               return "WIDGET";
           }
           
-      }else if($localStorage.pithyContentOnHome && portlet.pithyStaticContent != null) {
+      }else if(portlet.pithyStaticContent != null) {
           return "PITHY";
       } else if (portlet.staticContent != null 
                  && portlet.altMaxUrl == false) {
