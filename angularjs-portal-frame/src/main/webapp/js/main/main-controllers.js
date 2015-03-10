@@ -13,7 +13,8 @@
             profileImg: "img/terrace.jpg", 
             notificationsDemo : false,
             typeaheadSearch: false,
-            exampleWidgets: false
+            exampleWidgets: false,
+            layoutMode : 'list' //other option is 'widgets'
             };
     $scope.$storage = $localStorage.$default(defaults);
     

@@ -10,8 +10,7 @@
                                        '$rootScope', 
                                        'layoutService', 
                                        'miscService', 
-                                       'sharedPortletService',
-                                       'APP_FLAGS', 
+                                       'sharedPortletService', 
                                        function($location, 
                                                 $localStorage, 
                                                 $sessionStorage, 
@@ -19,10 +18,7 @@
                                                 $rootScope, 
                                                 layoutService, 
                                                 miscService, 
-                                                sharedPortletService,
-                                                APP_FLAGS) {
-    miscService.pushPageview();
-    $scope.toggle = APP_FLAGS.enableToggle;
+                                                sharedPortletService) {
     if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
       
       $rootScope.layout = [];
@@ -108,8 +104,7 @@
                                        '$rootScope', 
                                        'layoutService', 
                                        'miscService', 
-                                       'sharedPortletService',
-                                       'APP_FLAGS', 
+                                       'sharedPortletService', 
                                        function($location, 
                                             $localStorage, 
                                             $sessionStorage, 
@@ -117,13 +112,7 @@
                                             $rootScope, 
                                             layoutService, 
                                             miscService, 
-                                            sharedPortletService,
-                                            APP_FLAGS) {
-                                              
-    miscService.pushPageview();
-    $scope.toggle = APP_FLAGS.enableToggle;
-    var that = this;
-    
+                                            sharedPortletService) {
     if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
       
       $rootScope.layout = [];
@@ -333,6 +322,46 @@
           return date >= today;
       }
   }]);
+  
+  app.controller('ToggleController',['$localStorage',
+                                     '$scope',
+                                     '$location',
+                                     'miscService',
+                                     'APP_FLAGS', function($localStorage, 
+                                                           $scope, 
+                                                           $location, 
+                                                           miscService, 
+                                                           APP_FLAGS){
+       //scope functions
+       $scope.switchMode = function(mode) {
+           $localStorage.layoutMode = mode;
+           $location.path('/' + mode);
+       }
+       
+       $scope.modeIs = function(mode) {
+           return $localStorage.layoutMode === mode;
+       }
+       
+       //local functions
+       this.init = function() {
+         $scope.toggle = APP_FLAGS.enableToggle;
+         if($localStorage.layoutMode 
+              && $location.url().indexOf($localStorage.layoutMode) == -1) {
+           //opps, we are in the wrong mode, switch!
+           if(APP_FLAGS[$localStorage.layoutMode]) { //check to make sure that mode is active
+             $location.path('/' + $localStorage.layoutMode);
+           } else {
+             console.log("Something is weird, resetting to default layout view");
+             $scope.switchMode(APP_FLAGS.defaultView);
+           }
+         } else {
+           //all is well, ga pageview, go
+           miscService.pushPageview();
+         }
+       }
+       
+       this.init();
+   }]);
 
 
 

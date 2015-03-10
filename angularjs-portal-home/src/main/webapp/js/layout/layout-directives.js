@@ -102,5 +102,13 @@
           templateUrl: 'partials/example-widgets.html'
       }
    });
+   
+   app.directive('homeToggle', function(){
+       return {
+           restrict: 'E',
+           templateUrl: 'partials/home-toggle.html',
+           controller: 'ToggleController'
+       };
+   });
 
 })();

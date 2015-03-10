@@ -2,7 +2,10 @@
 (function() {
 angular.module('app-config', [])
 .constant('APP_FLAGS', {
-                          'enableToggle': true
+                          'enableToggle': true,
+                          'defaultView' : 'list',
+                          'list' : true,
+                          'widgets' : true
                        }
           )
 .constant('SERVICE_LOC', {
