@@ -10,8 +10,7 @@
                                        '$rootScope', 
                                        'layoutService', 
                                        'miscService', 
-                                       'sharedPortletService',
-                                       'APP_FLAGS', 
+                                       'sharedPortletService', 
                                        function($location, 
                                                 $localStorage, 
                                                 $sessionStorage, 
@@ -19,10 +18,8 @@
                                                 $rootScope, 
                                                 layoutService, 
                                                 miscService, 
-                                                sharedPortletService,
-                                                APP_FLAGS) {
+                                                sharedPortletService) {
     miscService.pushPageview();
-    $scope.toggle = APP_FLAGS.enableToggle;
     if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
       
       $rootScope.layout = [];
@@ -108,8 +105,7 @@
                                        '$rootScope', 
                                        'layoutService', 
                                        'miscService', 
-                                       'sharedPortletService',
-                                       'APP_FLAGS', 
+                                       'sharedPortletService', 
                                        function($location, 
                                             $localStorage, 
                                             $sessionStorage, 
@@ -117,11 +113,8 @@
                                             $rootScope, 
                                             layoutService, 
                                             miscService, 
-                                            sharedPortletService,
-                                            APP_FLAGS) {
-                                              
+                                            sharedPortletService) {
     miscService.pushPageview();
-    $scope.toggle = APP_FLAGS.enableToggle;
     var that = this;
     
     if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {

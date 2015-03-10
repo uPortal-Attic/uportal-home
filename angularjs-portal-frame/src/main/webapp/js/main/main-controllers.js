@@ -14,7 +14,8 @@
             notificationsDemo : false,
             pithyContentOnHome : false,
             typeaheadSearch: false,
-            exampleWidgets: false
+            exampleWidgets: false,
+            layoutMode : 'list' //other option is 'widget'
             };
     $scope.$storage = $localStorage.$default(defaults);
     
