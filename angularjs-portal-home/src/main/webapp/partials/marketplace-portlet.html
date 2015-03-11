@@ -1,7 +1,6 @@
 <div class="portlet-list-item" >
   <h2>
-    <span class="fa fa-circle" ng-show="portlet.faIcon === null"></span>
-    <span class="fa {{::portlet.faIcon}}" ng-show="portlet.faIcon != null"></span>
+    <portlet-icon class='five-px-top-left'></portlet-icon>
     <span class="portlet-title">{{::portlet.title}}</span>
   </h2>
   <div class="action-buttons" ng-click="showDetails = !showDetails">
