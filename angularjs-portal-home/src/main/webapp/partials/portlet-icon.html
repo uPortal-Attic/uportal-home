@@ -1,1 +1,3 @@
-<img ng-src="{{portlet.iconUrl}}" ng-if="(portlet.faIcon === '' || portlet.faIcon === null) && portlet.iconUrl != null" alt="App icon"><i class="fa {{::portlet.faIcon}}" ng-if="portlet.faIcon !== '' && portlet.faIcon !== null"></i>
+<img ng-src="{{portlet.iconUrl}}" ng-if="!portlet.faIcon && portlet.iconUrl" alt="App icon">
+<i class="fa {{::portlet.faIcon}}" ng-if="portlet.faIcon"></i>
+<i class="fa fa-star" ng-if="!portlet.faIcon && !portlet.iconUrl"></i>
