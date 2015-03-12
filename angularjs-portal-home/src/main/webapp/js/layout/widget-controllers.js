@@ -33,7 +33,7 @@
                       $scope.portlet.selectedUrl = $scope.portlet.widgetData[$scope.config.arrayName][0][$scope.config.value];
                   }
               } else {
-                  console.warn("Got nothing back from widget fetch");
+                  console.warn("Got nothing back from widget fetch for " + $scope.portlet.fname);
               }
             });
           }
@@ -59,8 +59,31 @@
             });
           }
       }
-      console.log("Config: " + $scope.config);
+      console.log("Config: " + $scope.portlet.widgetConfig);
       populateWidgetContent();
       $scope.details=false;
+  }]);
+  
+  app.controller('GenericWidgetController', ['$scope', 'layoutService', function($scope, layoutService){
+      var populateWidgetContent = function() {
+          if($scope.portlet.widgetURL && $scope.portlet.widgetType) {
+            //fetch portlet widget json
+            layoutService.getWidgetJson($scope.portlet).then(function(data) {
+              if(data) {
+                  console.log(data);
+                  $scope.portlet.widgetData = data;
+                  $scope.content = $scope.portlet.widgetData;
+              } else {
+                  console.warn("Got nothing back from widget fetch from " + $scope.portlet.widgetURL);
+              }
+            });
+          }
+      }
+      
+      $scope.content = [];
+      $scope.template =  $scope.portlet.widgetConfig.template;
+      $scope.portlet.widgetData = [];
+      console.log("Config for "+ $scope.portlet.fname + ": " + $scope.portlet.widgetConfig);
+      populateWidgetContent();
   }]);
 })();

@@ -128,6 +128,8 @@
               return "OPTION_LINK";
           } else if('weather' === portlet.widgetType) {
               return "WEATHER";
+          } else if('generic' === portlet.widgetType) {
+              return "GENERIC";
           } else {
               return "WIDGET";
           }
