@@ -145,5 +145,25 @@
     		templateUrl: 'partials/portlet-header.html'
     	};
     });
+    
+    /**
+     * content-item is a directive that 
+     * displays a template with provided content
+     * 
+     * Params:
+     *  - template: the template to display (can have angular markup)
+     */
+    app.directive('contentItem', function ($compile) {
+
+        var linker = function(scope, element, attrs) {
+            element.html(scope.template).show();
+            $compile(element.contents())(scope);
+        }
+
+        return {
+            restrict: "E",
+            link: linker
+        };
+    });
 
 })();

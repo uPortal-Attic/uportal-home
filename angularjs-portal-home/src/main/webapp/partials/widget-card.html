@@ -37,6 +37,12 @@
     <weather app="portlet" config="portlet.widgetConfig"></weather>
   </div>
   
+  <div ng-if="'GENERIC' === widgetCtrl.portletType(portlet)">
+    <div ng-controller="GenericWidgetController as genericWidgetCtrl">
+        <content-item></content-item>
+    </div>
+  </div>
+  
   <!-- For basic apps (not a widget, not simple content, no pithy content), show only an icon -->
   <a ng-if="'NORMAL' === widgetCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
     <div class="widget-icon-container">
