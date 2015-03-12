@@ -172,8 +172,8 @@
   });
 
   app.controller('MarketplaceDetailsController', 
-    ['$scope', '$location', '$modal', '$routeParams', 'marketplaceService', 'miscService', 
-    function($scope, $location, $modal, $routeParams, marketplaceService, miscService) {
+    ['$scope', '$location', '$modal', '$routeParams', '$sessionStorage', 'marketplaceService', 'miscService', 'layoutService', 
+    function($scope, $location, $modal, $routeParams, $sessionStorage, marketplaceService, miscService, layoutService) {
 
     miscService.pushPageview();
 
@@ -186,23 +186,8 @@
       };
     });
 
-    $scope.openRating = function (size, fname, name) {
-        var modalInstance = $modal.open({
-        templateUrl: 'ratingModal.html',
-        controller: 'RatingModalController',
-        size: size,
-        resolve: {
-          fname: function(){return fname;},
-          name: function(){return name;}
-        }
-      });
     
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
-      }, function () {
-        console.log('Modal dismissed at: ' + new Date());
-      });
-    };
+
 
 
 
