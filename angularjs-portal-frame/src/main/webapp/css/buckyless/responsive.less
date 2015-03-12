@@ -55,9 +55,6 @@
   .marketplace-header {
     height:200px;
   }
-  .action-buttons {
-    display:none;
-  }
   .action-buttons-mobile {
     margin:30px 0px 0px;
     display:block;
@@ -192,9 +189,29 @@
       }
     }
   }
+  .portlet-details-page .desc-item {
+    min-height:0px;
+    border-bottom:1px solid #ddd;
+    margin:0px;
+    padding:20px;
+    h3 {
+      margin:0px 0px 10px;
+    }
+  }
+  .portlet-details-page .desc-item.rating-div {
+    padding-top:20px;
+  }
 
 
-
+}
+@media (max-width: @screen-lg) {
+  .details-header h2 {
+    text-align:center;
+  }
+  .details-header .action-buttons {
+    float:none;
+    text-align:center;
+  }
 }
 
 @media (max-width: 992px) {
@@ -238,3 +255,4 @@
     margin:0 auto;
   }
 }
+

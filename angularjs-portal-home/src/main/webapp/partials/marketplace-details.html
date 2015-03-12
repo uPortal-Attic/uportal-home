@@ -1,3 +1,102 @@
-<div ng-controller="MarketplaceDetailsController as detailsCtrl" class="card col-xs-12 col-md-12">
-  <marketplace-portlet></marketplace-portlet>
+<div ng-controller="MarketplaceDetailsController as detailsCtrl" class="portlet-frame col-xs-12 col-md-12 portlet-details-page">
+  
+  <div class="row details-header no-margin">
+  	<div class="col-xs-12 col-lg-6">
+  		<h2>
+		    <span class="fa fa-circle" ng-show="portlet.faIcon === null"></span>
+		    <span class="fa {{::portlet.faIcon}}" ng-show="portlet.faIcon != null"></span>
+		    <span class="portlet-title">{{::portlet.title}} Details</span>
+		  </h2>
+  	</div>
+		  
+		<div class="col-xs-12 col-lg-6">
+		 	<div class="action-buttons">
+
+		    <!-- Add to Home button with access -->
+		    <button class="btn btn-primary fname-{{::portlet.fname}}"
+		            ng-click="marketplaceCtrl.addToHome($index , portlet)"
+		            ng-if="portlet.canAdd && !portlet.hasInLayout"
+		            ng-class="{disabled : portlet.hasInLayout}">
+		      <span class="fa fa-plus"></span> Add to Favorites
+		    </button>
+
+		    <!-- Already in Home -->
+		    <button class="btn btn-disabled fname-{{::portlet.fname}}"
+		            ng-if="portlet.canAdd && portlet.hasInLayout"
+		            ng-class="{'btn-disabled' : portlet.hasInLayout}"
+		            popover="This app is already in your favorites"
+		            popover-trigger="mouseenter"
+		            popover-placement="top"
+		            popover-popup-delay="500">
+		      <i class="fa fa-check"></i> Already in Favorites
+		    </button>
+
+		    <!-- Add to Home button without access -->
+		    <button class="btn btn-disabled" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
+		      <span class="fa fa-plus"></span> Add to Favorites
+		    </button>
+
+		    <!-- Launch button with access -->
+		    <a class="btn btn-success" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span> Launch</a>
+
+		    <!-- Launch button without access -->
+		    <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+		   </div>
+		</div>
+	</div>
+	<div class="row no-margin">
+		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item">
+			<p class="app-description">{{::portlet.description}}</p>
+		</div>
+		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center rating-div">
+			<span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
+    ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
+  		</span><br>
+  		<button ng-click="openRating('sm',portlet.fname, portlet.title)" class="btn btn-default rate-button">Rate</button>
+		</div>
+		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center">
+			<h3>Related Apps</h3>
+      <ul>
+        <li ng-repeat="related in portlet.relatedPortlets"><a href="#/apps/search/{{ ::related.title }}">{{ ::related.title }}</a></li>
+      </ul>
+		</div>
+		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center">
+			<h3>Categories</h3>
+			<a ng-repeat="category in portlet.categories" href="" ng-click="selectFilter('category',category)" class="category-links">{{::category}}</a>
+		</div>
+		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center">
+			<h3>Keywords</h3>
+	    <ul>
+	      <li ng-repeat="keyword in portlet.keywords | orderBy:'toLowerCase()'  track by $index"><a href='#/apps/search/{{ ::keyword }}'>{{ ::keyword }}</a></li>
+	      <li ng-if="portlet.keywords == null || portlet.keywords.length == 0">(no keywords set)</li>
+	    </ul>
+		</div>
+		<div class="col-xs-12 col-lg-9 desc-item center">
+			<h3>Screenshots</h3>
+	    <ul class="enlarge">
+	      <li ng-repeat="screenshot in portlet.marketplaceScreenshots">
+	        <img ng-src="{{ ::screenshot.url }}" width ="320px" alt="{{ ::screenshot.captions }}">
+	        <span>
+	        	<img ng-src="{{ ::screenshot.url }}" alt="{{ ::screenshot.captions }}">
+	        	<p ng-repeat="caption in screenshot.captions">{{ ::caption }}</p>
+	        </span>
+	      </li>
+	    </ul>
+		</div>
+	</div>
+  
+  
+
+
+
+  
+
+  
+
+	<div class="portlet-footer">
+	 	<ul>
+	 		<li><a href="#/apps"><i class="fa fa-arrow-circle-o-left"></i> Back to Apps</a></li>
+	 	</ul>
+	</div>
+	<rating-modal-template></rating-modal-template>
 </div>
