@@ -3,7 +3,7 @@
     <portlet-icon class='five-px-top-left'></portlet-icon>
     <span class="portlet-title">{{::portlet.title}}</span>
   </h2>
-  <div class="action-buttons" ng-click="showDetails = !showDetails">
+  <div class="action-buttons">
 
     <!-- Add to Home button with access -->
     <button class="btn btn-primary fname-{{::portlet.fname}}"
@@ -41,17 +41,17 @@
   </span>
   <span> | <button ng-click="openRating('sm',portlet.fname, portlet.title)" class="btn btn-default">Rate</button></span>
   <p>{{::portlet.description}}</p>
-  <div class="category-list" ng-click="showDetails = !showDetails">
+  <div class="category-list">
     <a ng-repeat="category in portlet.categories" href="" ng-click="selectFilter('category',category)" class="category-links">{{::category}}</a>
     <div class="portlet-details">
-      <a ng-click="showDetails = !showDetails">Details <i class="fa fa-angle-down" ng-show="!showDetails"></i><i class="fa fa-angle-up" ng-show="showDetails"></i></a>
+      <a href="#/apps/details/{{::portlet.fname}}">Details</a>
     </div>
   </div>
   
   
 
   <!-- Action buttons for mobile -->
-  <div class="action-buttons-mobile" ng-click="showDetails = !showDetails">
+  <div class="action-buttons-mobile">
 
     <!-- Add to Home button with access on mobile-->
     <button class="btn btn-primary fname-{{::portlet.fname}}" ng-click="marketplaceCtrl.addToHome($index , portlet)" ng-show="portlet.canAdd">
@@ -70,36 +70,5 @@
     <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
   </div>
 
-  
-
-  <!-- Portlet Details (hidden by default) -->
-  <div ng-if="showDetails" class="row portlet-details-div">
-    <div class="col-xs-12 col-sm-3 related-portlets">
-      <h3>Related Apps</h3>
-      <ul >
-        <li ng-repeat="related in portlet.relatedPortlets"><a href="#/apps/search/{{ ::related.title }}">{{ ::related.title }}</a></li>
-      </ul>
-    </div>
-    <div class="col-xs-12 col-sm-9 portlet-screenshots" ng-if="portlet.marketplaceScreenshots.length !== 0">
-      <h3>Screenshots</h3>
-      <ul class="enlarge">
-        <li ng-repeat="screenshot in portlet.marketplaceScreenshots">
-          <img ng-src="{{ ::screenshot.url }}" width ="320px" alt="{{ ::screenshot.captions }}">
-          <span>
-          	<img ng-src="{{ ::screenshot.url }}" alt="{{ ::screenshot.captions }}">
-          	<p ng-repeat="caption in screenshot.captions">{{ ::caption }}</p>
-          </span>
-        </li>
-      </ul>
-    </div>
-    
-    <div class="col-xs-12 col-sm-3 related-portlets" ng-if="$storage.showKeywordsInMarketplace">
-        <h3>Keywords</h3>
-      <ul >
-        <li ng-repeat="keyword in portlet.keywords | orderBy:'toLowerCase()'  track by $index"><a href='#/apps/search/{{ ::keyword }}'>{{ ::keyword }}</a></li>
-        <li ng-if="portlet.keywords == null || portlet.keywords.length == 0">(no keywords set)</li>
-      </ul>
-    </div>
-  </div>
 
 </div>
