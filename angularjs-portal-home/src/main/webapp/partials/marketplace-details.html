@@ -8,6 +8,7 @@
 			    <span class="fa {{::portlet.faIcon}}" ng-show="portlet.faIcon != null"></span>
 			    <span class="portlet-title">{{::portlet.title}} Details</span>
 			  </h2>
+			  <a href="#/apps" class="back-to-home"><i class="fa fa-arrow-circle-o-left"></i> Back to Apps</a>
 	  	</div>
 			  
 			<div class="col-xs-12 col-lg-6">
@@ -47,9 +48,11 @@
 		</div>
 		<div class="row no-margin">
 			<div class="col-xs-12 col-sm-4 col-lg-3 desc-item">
+				<h3 class="center">Description</h3>
 				<p class="app-description">{{::portlet.description}}</p>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center rating-div">
+				<h3>Ratings</h3>
 				<span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
 	    ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
 	  		</span><br>
@@ -65,18 +68,17 @@
 				<h3>Categories</h3>
 				<a ng-repeat="category in portlet.categories" href="" ng-click="selectFilter('category',category)" class="category-links">{{::category}}</a>
 			</div>
-			<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center">
+			<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center" ng-if="portlet.keywords">
 				<h3>Keywords</h3>
 		    <ul>
 		      <li ng-repeat="keyword in portlet.keywords | orderBy:'toLowerCase()'  track by $index"><a href='#/apps/search/{{ ::keyword }}'>{{ ::keyword }}</a></li>
-		      <li ng-if="portlet.keywords == null || portlet.keywords.length == 0">(no keywords set)</li>
 		    </ul>
 			</div>
-			<div class="col-xs-12 col-lg-9 desc-item center">
+			<div class="col-xs-12 col-lg-9 desc-item screenshots portlet-screenshots" ng-if="portlet.marketplaceScreenshots.length != 0">
 				<h3>Screenshots</h3>
 		    <ul class="enlarge">
 		      <li ng-repeat="screenshot in portlet.marketplaceScreenshots">
-		        <img ng-src="{{ ::screenshot.url }}" width ="320px" alt="{{ ::screenshot.captions }}">
+		        <img ng-src="{{ ::screenshot.url }}" width ="250px" alt="{{ ::screenshot.captions }}">
 		        <span>
 		        	<img ng-src="{{ ::screenshot.url }}" alt="{{ ::screenshot.captions }}">
 		        	<p ng-repeat="caption in screenshot.captions">{{ ::caption }}</p>

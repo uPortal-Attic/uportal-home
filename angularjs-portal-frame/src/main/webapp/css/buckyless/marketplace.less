@@ -241,14 +241,17 @@
   }
   
   ul.enlarge span{
-  	position:absolute;
-  	left: -9999px;
-  	padding: 5px 5px 0px 5px;
-  	background:#D8D8D8;
+  	position:fixed;
+    left:9000px;
+  	padding: 10px 10px 5px 10px;
+  	background:#333;
   	font-size:.9em;
   	text-align: center;
-  	color: black;
-  	-webkit-border-radius: 8px;
+  	color: #ccc;
+  	border-radius: 4px;
+    p {
+      margin:5px;
+    }
   }
 
   ul.enlarge li:hover{
@@ -258,39 +261,13 @@
   
   @media only screen and (min-width: 768px){
   	ul.enlarge li:hover span{
-  		
-  		top:-220px;
-  		left:-190px;
-  		width:590px;
+      width:60vw;
+  		top:20%;
+      left:28.67%;
   	}
   }
   
-  @media only screen and (min-width: 956px){
-    ul.enlarge li:hover span{
-  		
-  		top: -300px;
-  		left: -210px;
-  		width: 740px;
-  	}
-  }
-
- 
-  @media only screen and (min-width: 1330px){
-    ul.enlarge li:hover span{
-    	
-  		top: -220px;
-  		left:-250px;
-  		width:640px;
-  	}
-  } 
-   @media only screen and (min-width: 1557px){
-    ul.enlarge li:hover span{
-    	
-  		top: -300px;
-  		left: -210px;
-  		width: 740px;
-  	}
-  }
+  
   
 
   
@@ -387,18 +364,22 @@ input:focus,span:focus {
 .portlet-details-page {
   padding-bottom:0px;
   h2 {
-    margin:0px;
+    margin:0px 0px 10px;
     padding-top:10px;
   }
   .details-header {
     padding:10px 5px;
     border-bottom: 1px solid @color1;
-  }
-  .app-description {
-    padding:10px 20px;
+    .back-to-home {
+      color:#999;
+      &:hover {
+        color:#666;
+        text-decoration: none;
+      }
+    }
   }
   .desc-item.rating-div {
-    padding-top:30px;
+    padding-top:10px;
   }
   .rating {
     margin-left:0px;
@@ -411,7 +392,7 @@ input:focus,span:focus {
     border-right:1px solid #ccc;
     margin:20px 0px 10px;
     padding:5px 20px;
-    min-height:180px;
+    min-height:200px;
     h3 {
       margin:5px auto 15px;
       font-size:18px;
@@ -419,6 +400,9 @@ input:focus,span:focus {
     ul {
       margin:0px;
       padding:0px;
+    }
+    .screenshot h3 {
+      margin:5px 20px 15px;
     }
   }
   .portlet-footer {
@@ -431,5 +415,8 @@ input:focus,span:focus {
         text-decoration:none;
       }
     }
+  }
+  .enlarge li {
+    float:left;
   }
 }
