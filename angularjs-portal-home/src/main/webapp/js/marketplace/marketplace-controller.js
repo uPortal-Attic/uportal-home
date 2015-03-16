@@ -185,21 +185,6 @@
         };
       };
     });
-
     
-
-
-
-
-    marketplaceService.getPortlets().then(function(data) {
-      $scope.portlets = data.portlets;
-    });
-
-    if($routeParams.fname !== null) {
-      $scope.showDetails = true;
-    };
-
-
-
     } ]);
 })();
