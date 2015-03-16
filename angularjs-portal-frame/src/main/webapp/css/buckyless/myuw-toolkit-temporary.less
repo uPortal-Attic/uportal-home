@@ -31,19 +31,26 @@ It also contains a body div (.portlet-body), that houses the content.
   padding:5px 20px 0px;
   z-index:5;
 }
-.portlet-header p {
-  color:@white;
-  padding:0px 20px;
-  z-index:5;
-}
-.portlet-description {
-  width:60%;
-}
 .portlet-header img {
   width:120%;
   z-index:-1;
   position:absolute;
   opacity:0.3;
+}
+.no-image {
+  background-color:@uw-red-badger;
+}
+.portlet-footer {
+  border-top:1px solid #b70101;
+  text-align:center;
+  ul {
+    margin:0px;
+    padding:0px;
+  }
+  li {
+    display:inline-block;
+    padding:8px 10px 6px;
+  }
 }
 .page-content {
   padding-top: 48px;

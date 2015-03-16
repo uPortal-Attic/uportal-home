@@ -171,7 +171,9 @@
     };
   });
 
-  app.controller('MarketplaceDetailsController', [ '$scope', '$location', '$routeParams', 'marketplaceService', 'miscService', function($scope, $location, $routeParams, marketplaceService, miscService) {
+  app.controller('MarketplaceDetailsController', 
+    ['$scope', '$location', '$modal', '$routeParams', '$sessionStorage', 'marketplaceService', 'miscService', 'layoutService', 
+    function($scope, $location, $modal, $routeParams, $sessionStorage, marketplaceService, miscService, layoutService) {
 
     miscService.pushPageview();
 
@@ -183,18 +185,6 @@
         };
       };
     });
-
-
-
-    marketplaceService.getPortlets().then(function(data) {
-      $scope.portlets = data.portlets;
-    });
-
-    if($routeParams.fname !== null) {
-      $scope.showDetails = true;
-    };
-
-
-
+    
     } ]);
 })();
