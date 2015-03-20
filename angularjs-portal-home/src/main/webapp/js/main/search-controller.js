@@ -23,7 +23,7 @@
       });
 
       $scope.onSelect = function(portlet) {
-          $location.path("/apps/search/"+ portlet.name);
+          $location.path("/apps/details/"+ portlet.fname);
           $scope.initialFilter = "";
           $scope.showSearch = false;
           $scope.showSearchFocus = false;
