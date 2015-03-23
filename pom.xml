@@ -2,7 +2,7 @@
   
   <parent>
     <groupId>edu.wisc.doit.code</groupId>
-    <artifactId>shared-tools-uw-parent</artifactId>
+    <artifactId>shared-tools-public-parent</artifactId>
     <version>9</version>
   </parent>
   
@@ -23,8 +23,8 @@
   
   <repositories>
     <repository>
-        <id>code.doit-uw-releases</id>
-        <url>https://code.doit.wisc.edu/maven/content/repositories/uw-releases/</url>
+        <id>code.doit-public-releases</id>
+        <url>https://code.doit.wisc.edu/maven/content/repositories/public-releases/</url>
     </repository>
   </repositories>
   <properties>
