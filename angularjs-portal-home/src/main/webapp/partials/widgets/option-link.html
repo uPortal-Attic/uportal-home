@@ -1,24 +1,20 @@
-<div class="portlet-content">
-   <div>
-     <div class="widget-icon-container" style='  max-height: 110px;'>
-       <portlet-icon></portlet-icon>
-     </div>
-     <div>
-        <div>
-          <div ng-if="portlet.widgetData.length == 0">
-              loading...
-          </div>
-          <div ng-if="config.singleElement && (!portlet.widgetData[config.arrayName] || portlet.widgetData[config.arrayName].length == 0)" style='text-align: center; font-size: larger;'>
-              {{portlet.widgetData[config.display]}}
-          </div>
-          <div ng-if="portlet.widgetData && portlet.widgetData[config.arrayName] && portlet.widgetData[config.arrayName].length >= 1">
-             <select ng-model="portlet.selectedUrl" class='form-control'>
-                 <option ng-if='config.singleElement' selected="selected" value="{{portlet.widgetData[config.value]}}">{{portlet.widgetData[config.display]}}</option>
-                 <option ng-repeat='obj in portlet.widgetData[config.arrayName]' value="{{obj[config.value]}}">{{obj[config.display]}}</option>
-             </select>
-          </div>
-        </div>
-     </div>
-   </div>
+<div class="widget-icon-container">
+ <portlet-icon></portlet-icon>
+</div>
+<div>
+  <div>
+    <div ng-if="portlet.widgetData.length == 0">
+        loading...
+    </div>
+    <div ng-if="config.singleElement && (!portlet.widgetData[config.arrayName] || portlet.widgetData[config.arrayName].length == 0)">
+        {{portlet.widgetData[config.display]}}
+    </div>
+    <div ng-if="portlet.widgetData && portlet.widgetData[config.arrayName] && portlet.widgetData[config.arrayName].length >= 1">
+       <select ng-model="portlet.selectedUrl" class='form-control'>
+           <option ng-if='config.singleElement' selected="selected" value="{{portlet.widgetData[config.value]}}">{{portlet.widgetData[config.display]}}</option>
+           <option ng-repeat='obj in portlet.widgetData[config.arrayName]' value="{{obj[config.value]}}">{{obj[config.display]}}</option>
+       </select>
+    </div>
+  </div>
 </div>
 <a class="btn btn-default launch-app-button" href="{{portlet.selectedUrl}}" target="_blank">Launch {{portlet.title}}</a>
