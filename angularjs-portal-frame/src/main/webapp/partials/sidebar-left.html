@@ -10,7 +10,11 @@
     <hr>
     <div ng-controller="SidebarController as sidebarCtrl">
         <ul class="list-group sidebar-list">
-          <li class="list-group-item" ng-repeat="item in sidebar" ng-if="sidebarCtrl.canSee(item.displayFlag)"><a href="{{item.hyperlink}}" ng-click="headerCtrl.navbarCollapsed = true"><span class="fa {{item.faIcon}} fa-fw"></span> {{item.title}}</a></li>
+          <li class="list-group-item" ng-repeat="item in sidebar" ng-if="sidebarCtrl.canSee(item.displayFlag)">
+            <a href="{{item.hyperlink}}" target="{{item.target}}" ng-click="headerCtrl.navbarCollapsed = true">
+              <span class="fa {{item.faIcon}} fa-fw"></span> {{item.title}}
+            </a>
+          </li>
        </ul>
    </div>
    <ul class="list-group sidebar-list" >
