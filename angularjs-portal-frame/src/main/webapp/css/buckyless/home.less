@@ -1,4 +1,4 @@
-.card-remove {
+.widget-remove {
   top: 0px;
   position: absolute;
   right:0px;
@@ -213,10 +213,10 @@ div.table-cell {
     }
   }
 }
-.list-content .card-info,
-.list-content .card-remove,
-.widget-content .card-info,
-.widget-content .card-remove {
+.list-content .widget-info,
+.list-content .widget-remove,
+.widget-frame .widget-info,
+.widget-frame .widget-remove {
   display:none;
   .tooltip-inner {
     max-width:200px;
@@ -224,8 +224,8 @@ div.table-cell {
   }
 }
 .list-content:hover,
-.widget-content:hover {
-  .card-info {
+.widget-frame:hover {
+  .widget-info {
     display:inline;
     position:absolute;
     left:8px;
@@ -239,7 +239,7 @@ div.table-cell {
     }
   }
   
-  .card-remove {
+  .widget-remove {
     display:inline;
     position:absolute;
     right:8px;
@@ -268,7 +268,7 @@ div.table-cell {
 
 // Widget View
 
-.widget-content {
+.widget-frame {
   position:relative;
   margin:5px;
   background:#f3f3f3;
@@ -326,7 +326,7 @@ div.table-cell {
     }
   }
 }
-.widget-content select.form-control {
+.widget-frame select.form-control {
   margin:0px auto 10px;
   width:auto;
 }
