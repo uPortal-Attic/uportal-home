@@ -30,8 +30,9 @@ We added in support to deploy the artifact to tomcat using maven. To setup add a
 </server>
 
 ```
-The id is important here. Then add that user/pass combo to your $TOMCAT_HOME/conf/tomcat-users.xml, example:
+The id is important here. Then add that user/pass combo to your $TOMCAT_HOME/conf/tomcat-users.xml. Also be sure you have a role of manager listed. Example:
 ```xml
+<role rolename="manager"/>
 <user username="user" password="password" roles="manager-script"/>
 
 ```
