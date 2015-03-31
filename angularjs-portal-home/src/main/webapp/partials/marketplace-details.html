@@ -67,7 +67,7 @@
 				<h3>Categories</h3>
 				<a ng-repeat="category in portlet.categories" href="" ng-click="selectFilter('category',category)" class="category-links">{{::category}}</a>
 			</div>
-			<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center" ng-if="$storage.showKeywords">
+			<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center" ng-if="$storage.showKeywordsInMarketplace">
 				<h3>Keywords</h3>
 			    <ul>
 			      <li ng-repeat="keyword in portlet.keywords | orderBy:'toLowerCase()'  track by $index"><a href='#/apps/search/{{ ::keyword }}'>{{ ::keyword }}</a></li>
