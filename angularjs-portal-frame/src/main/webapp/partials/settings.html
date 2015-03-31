@@ -79,6 +79,16 @@
              </h4>
              <small>Show the My Courses, Email, and Calendar example widgets</small>
          </li>
+         <li class="portlet-container-home beta-card-style">
+             <h4>
+            <span class="btn-group">
+              <label class="btn" ng-class="{'btn-success' : $storage.showKeywords, 'btn-default' : !$storage.showKeywords }" ng-model="$storage.showKeywords" btn-radio="true">On</label>
+              <label class="btn" ng-class="{'btn-success' : $storage.showKeywords, 'btn-default' : !$storage.showKeywords }" ng-model="$storage.showKeywords" btn-radio="false">Off</label>
+            </span>
+                 Show Keywords
+             </h4>
+             <small>Show keywords section on the Marketplace Details pages.</small>
+         </li>
     </ul>
     <ul class="col-sm-6" style='padding-top: 1em;'>
         <li class="no-padding portlet-container-home  beta-card-style" style='text-align : center;'>
