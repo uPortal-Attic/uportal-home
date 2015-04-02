@@ -7,4 +7,7 @@ target
 .tern-project
 node_modules
 units.html
+*.swp
+*.iml
+.idea/
 
