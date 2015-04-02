@@ -1,12 +1,12 @@
 <div class="list-content" id="portlet-id-{{::portlet.nodeId}}">
-  <div class='card-info'>
+  <div class='widget-info'>
     <i title="Info" class="fa fa-info-circle"
     tooltip="{{::portlet.description}}"
     tooltip-trigger="mouseenter"
     tooltip-placement="top"
     tooltip-popup-delay="200"></i>
   </div>
-  <div class='card-remove'>
+  <div class='widget-remove'>
     <i title="Remove" class="fa fa-times portlet-options" ng-click="layoutCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
   </div>
   <a ng-if="'NORMAL' === layoutCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">

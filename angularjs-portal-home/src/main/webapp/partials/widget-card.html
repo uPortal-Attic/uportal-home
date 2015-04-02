@@ -1,19 +1,20 @@
-<div class="widget-content" id="portlet-id-{{::portlet.nodeId}}">
-  
-  <!-- Widget Chrome -->
-  <div class='card-info'>
-    <i title="Info" class="fa fa-info-circle"
-    tooltip="{{::portlet.description}}"
-    tooltip-trigger="mouseenter"
-    tooltip-placement="top"
-    tooltip-popup-delay="200"></i>
-  </div>
-  <div class='card-remove'>
-    <i title="Remove" class="fa fa-times portlet-options" ng-click="widgetCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
-  </div>
-  
-  <div class="widget-title">
-    <h4>{{ ::portlet.title }}</h4>
+<div class="widget-frame" id="portlet-id-{{::portlet.nodeId}}">
+  <div class="widget-header">
+    <!-- Widget Chrome -->
+    <div class='widget-info'>
+      <i title="Info" class="fa fa-info-circle"
+      tooltip="{{::portlet.description}}"
+      tooltip-trigger="mouseenter"
+      tooltip-placement="top"
+      tooltip-popup-delay="200"></i>
+    </div>
+    <div class='widget-remove'>
+      <i title="Remove" class="fa fa-times portlet-options" ng-click="widgetCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
+    </div>
+    
+    <div class="widget-title">
+      <h4>{{ ::portlet.title }}</h4>
+    </div>
   </div>
   
   <!-- For widgets, show fancy markup! -->

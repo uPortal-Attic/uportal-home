@@ -2,15 +2,15 @@
   <img ng-src="{{$storage.homeImg}}" alt="UW Campus cover image">
     <h1>MyUW Home</h1>
     <!-- <p>This is the Angular version of MyUW. Enjoy!</p> -->
-  <div ng-controller="NewStuffController as newStuffCtrl">
-    <div ng-repeat="stuff in newStuffArray">
-        <div ng-if='newStuffCtrl.show(stuff)'  class="header-opaque new-stuff">
-            <div><p class="new">New</p></div>
-            <div><h3>{{::stuff.title}}</h3></div>
-            <div class="description"><p>{{::stuff.shortDesc}}<a ng-if="stuff.link !== null" href="{{::stuff.link}}">Find out more.</a></p></div>
-        </div>
+    <div ng-controller="NewStuffController as newStuffCtrl">
+      <div ng-repeat="stuff in newStuffArray">
+          <div ng-if='newStuffCtrl.show(stuff)'  class="header-opaque new-stuff">
+              <div><p class="new">New</p></div>
+              <div><h3>{{::stuff.title}}</h3></div>
+              <div class="description"><p>{{::stuff.shortDesc}}<a ng-if="stuff.link !== null" href="{{::stuff.link}}">Find out more.</a></p></div>
+          </div>
+      </div>
     </div>
-  </div>
 </div>
 <div class="col-xs-12 notification-section" ng-show="{{$storage.notificationsDemo}}">
   <h3 class="home-section-header">Notifications</h3>
