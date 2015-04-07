@@ -1,11 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  
-  <parent>
-    <groupId>edu.wisc.doit.code</groupId>
-    <artifactId>shared-tools-uw-parent</artifactId>
-    <version>9</version>
-  </parent>
-  
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.wisc.my.portal.angular</groupId>
   <artifactId>angularjs-portal-parent</artifactId>
@@ -17,24 +11,24 @@
   <scm>
     <connection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</connection>
     <developerConnection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</developerConnection>
-    <url>https://github.com/Jasig/angularjs-portal</url>
+    <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
     <tag>HEAD</tag>
   </scm>
-  
+
   <repositories>
     <repository>
         <id>code.doit-public-releases</id>
-        <url>https://code.doit.wisc.edu/maven/content/repositories/uw-releases/</url>
+        <url>https://code.doit.wisc.edu/maven/content/repositories/public-releases/</url>
     </repository>
   </repositories>
   <properties>
         <spring.version>4.1.5.RELEASE</spring.version>
-    </properties>
+  </properties>
   <modules>
     <module>angularjs-portal-frame</module>
     <module>angularjs-portal-home</module>
   </modules>
-  
+
   <dependencyManagement>
     <dependencies>
         <dependency>
@@ -62,13 +56,13 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.2.0</version>
         </dependency>
-        
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
         </dependency>
-        
+
         <!-- Logging -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
