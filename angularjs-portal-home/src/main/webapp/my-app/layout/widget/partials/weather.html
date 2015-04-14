@@ -1,5 +1,9 @@
 <div>
-    <loading-gif data-object='weatherData'></loading-gif>
+
+	<div id="loading">
+    	<loading-gif data-object='weatherData'></loading-gif>
+    </div>
+	
     <ul class="widget-list">
         <li ng-repeat="weather in portlet.widgetData | limitTo:2">
           <a href="{{weather.moreInformationLink}}" target='_blank'>
@@ -25,6 +29,44 @@
           </a>
         </li>
     </ul>
+    
+    <div ng-if="weather.location == null">
+		<div ng-model="noLocations" ng-init="noLocations=true">
+			<i class="fa fa-exclamation-triangle" aria-label='Warning'></i>
+			<div class="warning-message">Hold up! You haven't set any weather locations yet! Launch the full app to select your weather locations.</div>
+			<style>
+			
+				.fa-exclamation-triangle{
+					font-size: -webkit-xxx-large;
+					padding: 20px 120px;
+				}
+				.warning-message{
+					text-align:-webkit-center;
+					padding: 9px 0px;
+				}
+				
+			</style>
+		</div>
+	</div>
+    
+    <div ng-if="weatherData.length == 0 && noLocations==false">
+	    <i class="fa fa-frown-o" aria-label='Error'></i>
+        <div class="error-message"> Oops! The weather service seems to be down. Try clicking <a href="http://www.weather.com/weather/today/l/USWI0411:1:US" target="_blank" style="color: red">here</a> for local weather!</div>
+        <style>
+        
+        	.fa-frown-o{
+        		font-size:50px;
+        		padding: 0px 123px;
+        	}
+        	
+			.error-message{
+				font-size:smaller;
+				text-align:center;
+			}
+			
+		</style>
+	</div>
+    
     <p class="credit">Weather provided by <a href="http://www.worldweatheronline.com/">World Weather Online</a></p>
 </div>
 <a class="btn btn-default launch-app-button" href="{{::portlet.url}}">Launch Full App</a>
