@@ -1,6 +1,7 @@
 'use strict';
 
-(function() {
+define(['angular'], function(angular) {
+
   var app = angular.module('portal.main.directives', []);
 
   app.directive('portalHeader', function() {
@@ -11,7 +12,6 @@
   });
 
   app.directive('sideBarMenu', function(){
-
     return {
       restrict : 'E',
       templateUrl : 'partials/sidebar-left.html'
@@ -32,14 +32,14 @@
       templateUrl : 'partials/username.html'
     }
   });
-  
+
   app.directive('siteFooter', function() {
       return {
         restrict : 'E',
         templateUrl : 'partials/footer.html'
       }
     });
-  
+
   app.directive('betaHeader', function() {
       return {
           restrict : 'E',
@@ -47,4 +47,7 @@
       }
   });
 
-})();
+  return app;
+
+});
+

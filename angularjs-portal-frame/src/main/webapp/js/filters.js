@@ -1,5 +1,6 @@
-(function() {
-    'use strict';
+'use strict';
+
+define(['angular'], function(angular) {
 
     var DEFAULT_TRUNCATE_LENGTH = 160;
     var app = angular.module('portal.misc.filters', []);
@@ -51,13 +52,13 @@
         return filtered;
       };
     });
-    
+
     /* WARNING: THIS FILTER IS DANGEROUS.
        You should only filter to trusted status HTML that you are
-       absolutely sure you can trust 
-       (i.e., it definitely did not come from end user input, 
+       absolutely sure you can trust
+       (i.e., it definitely did not come from end user input,
        it only is from a trusted source.)
-       
+
        If you don't understand what this filter does, no worries,
        but then you really shouldn't be using it! :)
      */
@@ -66,4 +67,8 @@
           return $sce.trustAsHtml(text);
       };
     }]);
-} ());
+
+    return app;
+
+});
+

@@ -1,6 +1,7 @@
 'use strict';
 
-(function() {
+define(['angular'], function(angular) {
+
   var app = angular.module('portal.search.controllers', []);
   app.controller('SearchController', [ 'miscService', '$location', '$scope', '$localStorage', function(miscService, $location, $scope, $localStorage) {
       $scope.initialFilter = '';
@@ -25,7 +26,7 @@
               $scope.showSearch = false;
               $scope.showSearchFocus = false;
       };
-      
+
       $scope.submit = function(){
           if($scope.initialFilter != "") {
             $location.path("/apps/search/"+ $scope.initialFilter);
@@ -35,4 +36,7 @@
           }
         };
     }]);
-})();
+
+    return app;
+
+});

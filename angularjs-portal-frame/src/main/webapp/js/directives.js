@@ -1,16 +1,14 @@
 'use strict';
 
-(function() {
+define(['angular'], function(angular) {
   var app = angular.module('portal.misc.directives', []);
 
-    
-  
     /**
      * Loading gif - show loading gif when the length of said array is 0 and empty is not set
      * REQUIRED attribute that isn't listed below:
      *   object : this is the scope array we are watching to show/hide gif
      *   empty  : this is the scope boolean flag that you set if the data came back and it was empty
-     * 
+     *
      */
     app.directive('loadingGif', [function(){
         return {
@@ -18,11 +16,11 @@
             templateUrl: 'partials/loading-gif.html',
             link: function(scope, elm, attrs) {
                 scope.isLoading = function () {
-                    
+
                     if(typeof attrs.empty === undefined) {
                         attrs.empty = false;
                     }
-                    
+
                     return (!scope[attrs.object] || scope[attrs.object].length == 0) && ! scope[attrs.empty];
                 };
 
@@ -100,12 +98,12 @@
             }
         }
     });
-    
+
     app.directive('focusMe', function($timeout) {
         return {
           link: function(scope, element, attrs) {
             scope.$watch(attrs.focusMe, function(value) {
-              if(value === true) { 
+              if(value === true) {
                 console.log('value=',value);
                 $timeout(function() {
                   element[0].focus();
@@ -116,22 +114,22 @@
           }
         };
       });
-    
+
     /**
      * Directive to render the div with the "portlet-header" class.
      * Supports 3 attributes:
-     * 
+     *
      * <ol>
      * <li>app-image: background image for the div</li>
      * <li>app-title: displayed in an h1 child element</li>
      * <li>app-description: displayed in a p child element</li>
      * </ol>
-     * 
+     *
      * Example:
      * <pre>
      * <portlet-header app-title="My App Title" app-image="img/square.jpg" app-description="Optional app description."></portlet-header>
      * </pre>
-     * 
+     *
      * See ../partials/portlet-header.html.
      */
     app.directive('portletHeader', function() {
@@ -145,11 +143,11 @@
     		templateUrl: 'partials/portlet-header.html'
     	};
     });
-    
+
     /**
-     * content-item is a directive that 
+     * content-item is a directive that
      * displays a template with provided content
-     * 
+     *
      * Params:
      *  - template: the template to display (can have angular markup)
      */
@@ -166,4 +164,6 @@
         };
     });
 
-})();
+    return app;
+
+});
