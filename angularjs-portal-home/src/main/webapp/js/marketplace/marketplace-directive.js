@@ -5,15 +5,15 @@
   app.directive('marketplacePortlet', function() {
       return {
         restrict : 'E',
-        templateUrl : 'partials/marketplace-portlet.html'
+        templateUrl : 'portal.partials/marketplace-portlet.html'
       }
     });
-  
+
   app.directive('ratingModalTemplate', function() {
       return {
           restrict : 'E',
-          templateUrl : 'partials/rating-modal-template.html'
+          templateUrl : 'portal.partials/rating-modal-template.html'
       }
   });
-  
+
 })();

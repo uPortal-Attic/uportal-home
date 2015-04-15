@@ -1,49 +1,41 @@
 'use strict';
 
-define(['angular'], function(angular) {
+define(['angular', 'require'], function(angular, require) {
 
   var app = angular.module('portal.main.directives', []);
 
   app.directive('portalHeader', function() {
     return {
       restrict : 'E',
-      templateUrl : 'partials/header.html'
+      templateUrl : require.toUrl('./partials/header.html')
     }
   });
 
   app.directive('sideBarMenu', function(){
     return {
       restrict : 'E',
-      templateUrl : 'partials/sidebar-left.html'
+      templateUrl : require.toUrl('./partials/sidebar-left.html')
     }
   });
-
-  app.directive('search', [function() {
-    return {
-      restrict : 'E',
-      templateUrl : 'partials/search.html',
-      controller: 'SearchController'
-    }
-  }]);
 
   app.directive('username', function() {
     return {
       restrict : 'E',
-      templateUrl : 'partials/username.html'
+      templateUrl : require.toUrl('./partials/username.html')
     }
   });
 
   app.directive('siteFooter', function() {
       return {
         restrict : 'E',
-        templateUrl : 'partials/footer.html'
+        templateUrl : require.toUrl('./partials/footer.html')
       }
     });
 
   app.directive('betaHeader', function() {
       return {
           restrict : 'E',
-          templateUrl : 'partials/beta-header.html'
+          templateUrl : require.toUrl('./partials/beta-header.html')
       }
   });
 

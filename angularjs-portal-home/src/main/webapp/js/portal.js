@@ -1,4 +1,4 @@
-define(['angular', 'angular-route'], function(angular, ngRoute) {
+define(['angular', 'ngRoute'], function(angular, ngRoute) {
 
     var app = angular.module('portal', [
         'app-config',
@@ -27,15 +27,15 @@ define(['angular', 'angular-route'], function(angular, ngRoute) {
     ]);
     app.config(['$routeProvider',function($routeProvider, $locationProvider) {
         $routeProvider.
-            when('/apps', {templateUrl: 'partials/marketplace.html'}).
-            when('/features', {templateUrl: 'partials/features.html'}).
-            when('/settings', {templateUrl: 'partials/settings.html'}).
-            when('/notifications', {templateUrl: 'partials/notifications-full.html'}).
-            when('/apps/details/:fname', {templateUrl: 'partials/marketplace-details.html', controller:'MarketplaceDetailsController'}).
-            when('/apps/search/:initFilter', {templateUrl: 'partials/marketplace.html'}).
-            when('/static/:fname', {templateUrl: 'partials/static-content-max.html'}).
-            when('/widgets', {templateUrl: 'partials/home-widget-view.html'}).
-            when('/list', {templateUrl: 'partials/home-list-view.html'}).
+            when('/apps', {templateUrl: 'portal.partials/marketplace.html'}).
+            when('/features', {templateUrl: 'portal.partials/features.html'}).
+            when('/settings', {templateUrl: 'portal.partials/settings.html'}).
+            when('/notifications', {templateUrl: 'portal.partials/notifications-full.html'}).
+            when('/apps/details/:fname', {templateUrl: 'portal.partials/marketplace-details.html', controller:'MarketplaceDetailsController'}).
+            when('/apps/search/:initFilter', {templateUrl: 'portal.partials/marketplace.html'}).
+            when('/static/:fname', {templateUrl: 'portal.partials/static-content-max.html'}).
+            when('/widgets', {templateUrl: 'portal.partials/home-widget-view.html'}).
+            when('/list', {templateUrl: 'portal.partials/home-list-view.html'}).
             otherwise({ redirectTo : '/list'});
     }]);
 

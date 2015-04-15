@@ -2,7 +2,7 @@
 
 define(['angular'], function(angular) {
 
-  var app = angular.module('portal.misc.service', []);
+  var app = angular.module('portal.misc.services', []);
 
   app.factory('miscService', function($http, $window, $location) {
 

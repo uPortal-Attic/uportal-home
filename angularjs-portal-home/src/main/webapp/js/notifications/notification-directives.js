@@ -7,14 +7,14 @@
 
       return {
         restrict : 'E',
-        templateUrl : 'partials/notifications.html'
+        templateUrl : 'portal.partials/notifications.html'
       }
     });
-  
+
   app.directive('notificationBell', function(){
       return {
           restrict : 'E',
-          templateUrl : 'partials/notification-bell.html'
+          templateUrl : 'portal.partials/notification-bell.html'
         }
   });
 

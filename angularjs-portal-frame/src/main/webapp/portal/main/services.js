@@ -2,7 +2,7 @@
 
 define(['angular'], function(angular) {
 
-  var app = angular.module('portal.main.service', []);
+  var app = angular.module('portal.main.services', []);
 
   app.factory('mainService', ['$http', 'miscService', 'SERVICE_LOC', function($http, miscService, SERVICE_LOC) {
     var prom = $http.get(SERVICE_LOC.sessionInfo, { cache: true});

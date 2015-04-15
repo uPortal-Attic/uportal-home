@@ -2,46 +2,46 @@
 
 (function() {
   var app = angular.module('portal.layout.directives', []);
-  
+
   app.directive('portletIcon', function(){
       return {
           restrict : 'E',
-          templateUrl : 'partials/portlet-icon.html'
+          templateUrl : 'portal.partials/portlet-icon.html'
       }
   });
-  
+
   app.directive('defaultCard', function(){
       return {
           restrict : 'E',
-          templateUrl : 'partials/default-card.html'
+          templateUrl : 'portal.partials/default-card.html'
       }
   });
-  
+
   app.directive('staticContentCard', function(){
       return {
           restrict : 'E',
-          templateUrl : 'partials/static-content-card.html'
+          templateUrl : 'portal.partials/static-content-card.html'
       }
   });
-  
+
   app.directive('staticContentCardMax', function(){
       return {
           restrict : 'E',
-          templateUrl : 'partials/static-content-card-max.html'
+          templateUrl : 'portal.partials/static-content-card-max.html'
       }
   });
-  
+
   app.directive('pithyContentCard', function(){
       return {
           restrict : 'E',
-          templateUrl : 'partials/pithy-content-card.html'
+          templateUrl : 'portal.partials/pithy-content-card.html'
       }
   });
-  
+
   app.directive('widgetCard', function(){
       return {
           restrict : 'E',
-          templateUrl : 'partials/widget-card.html'
+          templateUrl : 'portal.partials/widget-card.html'
       }
   });
 
@@ -49,17 +49,17 @@
    app.directive('marketplaceLight', function(){
       return{
           restrict: 'E',
-          templateUrl: 'partials/marketplace-light.html'
+          templateUrl: 'portal.partials/marketplace-light.html'
       }
    });
-   
+
    app.directive('homeHeader', function(){
       return{
           restrict: 'E',
-          templateUrl: 'partials/home-header.html'
+          templateUrl: 'portal.partials/home-header.html'
       }
    });
-   
+
    /**
     * <option-link> directive is used to display widget content.
     * You need to setup a config JSON object, or just use the defaults defined below
@@ -71,42 +71,42 @@
     *         }
     */
    app.directive('optionLink', function(){
-       
+
        return{
            restrict: 'E',
            scope : {
                portlet : '=app',
                config  : '=config'
            },
-           templateUrl: 'partials/widgets/option-link.html',
+           templateUrl: 'portal.partials/widgets/option-link.html',
            controller : 'OptionLinkController'
        }
     });
-   
+
    app.directive('weather', function(){
-       
+
        return{
            restrict: 'E',
            scope : {
                portlet : '=app',
                config  : '=config'
            },
-           templateUrl: 'partials/widgets/weather.html',
+           templateUrl: 'portal.partials/widgets/weather.html',
            controller : 'WeatherController'
        }
     });
-   
+
    app.directive('exampleWidgets', function(){
       return{
           restrict: 'E',
-          templateUrl: 'partials/example-widgets.html'
+          templateUrl: 'portal.partials/example-widgets.html'
       }
    });
-   
+
    app.directive('homeToggle', function(){
        return {
            restrict: 'E',
-           templateUrl: 'partials/home-toggle.html',
+           templateUrl: 'portal.partials/home-toggle.html',
            controller: 'ToggleController'
        };
    });

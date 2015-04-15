@@ -1,6 +1,6 @@
 'use strict';
 
-define(['angular'], function(angular) {
+define(['angular', 'require'], function(angular, require) {
   var app = angular.module('portal.misc.directives', []);
 
     /**
@@ -13,7 +13,7 @@ define(['angular'], function(angular) {
     app.directive('loadingGif', [function(){
         return {
             restrict : 'E',
-            templateUrl: 'partials/loading-gif.html',
+            templateUrl: require.toUrl('./partials/loading-gif.html'),
             link: function(scope, elm, attrs) {
                 scope.isLoading = function () {
 
@@ -130,7 +130,7 @@ define(['angular'], function(angular) {
      * <portlet-header app-title="My App Title" app-image="img/square.jpg" app-description="Optional app description."></portlet-header>
      * </pre>
      *
-     * See ../partials/portlet-header.html.
+     * See ../portal.partials/portlet-header.html.
      */
     app.directive('portletHeader', function() {
     	return {
@@ -140,7 +140,7 @@ define(['angular'], function(angular) {
     			image: '@appImage',
     			description: '@appDescription'
     		},
-    		templateUrl: 'partials/portlet-header.html'
+    		templateUrl: require.toUrl('./partials/portlet-header.html')
     	};
     });
 
@@ -156,7 +156,7 @@ define(['angular'], function(angular) {
         var linker = function(scope, element, attrs) {
             element.html(scope.template).show();
             $compile(element.contents())(scope);
-        }
+        };
 
         return {
             restrict: "E",
