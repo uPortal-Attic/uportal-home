@@ -13,6 +13,13 @@
   <name>angularjs-portal-frame</name>
   
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
+  
+  <dependencies>
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+    </dependency>
+  </dependencies>
 
   <build>
     <finalName>frame</finalName>
@@ -48,15 +55,15 @@
         </executions>
       </plugin>
       <plugin>
-      <groupId>org.apache.tomcat.maven</groupId>
-      <artifactId>tomcat7-maven-plugin</artifactId>
-      <version>2.2</version>
-      <configuration>
-        <url>http://localhost:8080/manager/text</url>
-        <server>TomcatServer</server>
-        <path>/frame</path>
-      </configuration>
-    </plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.2</version>
+          <configuration>
+            <url>http://localhost:8080/manager/text</url>
+            <server>TomcatServer</server>
+            <path>/frame</path>
+          </configuration>
+        </plugin>
     </plugins>
   </build>
 </project>
