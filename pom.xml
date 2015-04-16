@@ -69,6 +69,11 @@
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>7.0.61</version>
+        </dependency>
         <!-- Logging -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
