@@ -11,5 +11,16 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+      <servlet-name>StaticServlet</servlet-name>
+      <jsp-file>/index.jsp</jsp-file>
+  </servlet>
+  
+  <!-- Keep this in sync with angular-page.js -->
+  <servlet-mapping>
+      <servlet-name>StaticServlet</servlet-name>
+      <url-pattern>/settings</url-pattern>
+  </servlet-mapping>
 </web-app>
 

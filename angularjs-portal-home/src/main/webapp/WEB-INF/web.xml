@@ -49,6 +49,11 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     
+    <servlet>
+      <servlet-name>StaticServlet</servlet-name>
+      <jsp-file>/index.jsp</jsp-file>
+    </servlet>
+    
     <filter-mapping>
        <filter-name>ExpiresFilter</filter-name>
        <url-pattern>/*</url-pattern>
@@ -59,9 +64,23 @@
         <servlet-name>angularweb-api</servlet-name>
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
+    
+    <!-- Keep this in sync with angular-page.js -->
+    <servlet-mapping>
+      <servlet-name>StaticServlet</servlet-name>
+      <url-pattern>/apps</url-pattern>
+      <url-pattern>/apps/*</url-pattern>
+      <url-pattern>/features</url-pattern>
+      <url-pattern>/settings</url-pattern>
+      <url-pattern>/notifications</url-pattern>
+      <url-pattern>/static/*</url-pattern>
+      <url-pattern>/widgets</url-pattern>
+      <url-pattern>/list</url-pattern>
+    </servlet-mapping>
   
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
+
 

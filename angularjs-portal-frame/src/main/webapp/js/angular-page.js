@@ -16,7 +16,8 @@ var app = angular.module('portal', [
   ]);
 
   app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
-	  $routeProvider.
+      //keep in sync with web.xml for html5 mode
+      $routeProvider.
       when('/settings', {templateUrl: 'partials/settings.html'}).
       /* when('/notifications', {templateUrl: 'partials/notifications-full.html'}). */
       otherwise({templateUrl: 'partials/main.html'});

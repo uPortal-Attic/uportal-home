@@ -25,7 +25,8 @@
     'portal.notification.directives'
      ]);
  app.config(['$routeProvider','$locationProvider',function($routeProvider, $locationProvider) {
-	 $routeProvider.
+     //keep this in sync with angular-page.js
+     $routeProvider.
       when('/apps', {templateUrl: 'partials/marketplace.html'}).
       when('/features', {templateUrl: 'partials/features.html'}).
       when('/settings', {templateUrl: 'partials/settings.html'}).
