@@ -14,7 +14,7 @@ define([
     './misc/services',
     './search/controllers',
     './search/directives',
-    '../js/sortable',
+    'sortable',
     'ui-bootstrap'
 ], function(angular, require) {
 

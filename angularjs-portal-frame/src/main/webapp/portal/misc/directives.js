@@ -130,7 +130,7 @@ define(['angular', 'require'], function(angular, require) {
      * <portlet-header app-title="My App Title" app-image="img/square.jpg" app-description="Optional app description."></portlet-header>
      * </pre>
      *
-     * See ../portal.partials/portlet-header.html.
+     * See ./partials/portlet-header.html.
      */
     app.directive('portletHeader', function() {
     	return {

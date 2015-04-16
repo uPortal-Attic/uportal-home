@@ -1,7 +1,8 @@
-  'use strict';
+'use strict';
 
- (function() {
-  var app = angular.module('portal.notification.controller', []);
+define(['angular'], function(angular) {
+
+  var app = angular.module('portal.notifications.controllers ', []);
 
   app.controller('NotificationController', [ '$http', function($http){
     var store = this;
@@ -12,23 +13,24 @@
     //store.fetchUrl = '/portal/p/notification/normal/GET-NOTIFICATIONS-UNCATEGORIZED.resource.uP';
     store.fetchUrl = '/web/samples/sample_notification.json';
 
-    $http.get(store.fetchUrl)
-    		.success(function(data) {
-    			var theFeed = data.feed;
-    			store.count = theFeed.length;
+    $http
+        .get(store.fetchUrl)
+        .success(function(data) {
+          var theFeed = data.feed;
+          store.count = theFeed.length;
           store.notifications_full = theFeed;
-    			for(var i = 0; i < 3; i++) {
-    				store.notifications.push(theFeed[i]);
-    			}
+          for(var i = 0; i < 3; i++) {
+            store.notifications.push(theFeed[i]);
+          }
 
-    		});
+        });
 
     this.getClass = function getClass(index, notifications) {
       return {
         unread : notifications[index].attributes == undefined || notifications[index].attributes.READ == undefined || !notifications[index].attributes.READ,
         read : notifications[index].attributes != undefined && notifications[index].attributes.READ  != undefined && notifications[index].attributes.READ
       };
-    }
+    };
 
     this.markRead = function markRead(index, notifications) {
       if(notifications[index].attributes == undefined) {
@@ -36,8 +38,11 @@
       } else {
         notifications[index].attributes.READ = true;
       }
-
       store.count--;
     }
-  } ]);
- })();
+  }]);
+
+  return app;
+
+});
+
