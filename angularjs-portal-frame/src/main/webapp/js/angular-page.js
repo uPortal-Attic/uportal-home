@@ -15,13 +15,14 @@ var app = angular.module('portal', [
     'portal.search.controllers',
   ]);
 
-  app.config(['$routeProvider',function($routeProvider, $locationProvider) {
+  app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
 	  $routeProvider.
       when('/settings', {templateUrl: 'partials/settings.html'}).
       /* when('/notifications', {templateUrl: 'partials/notifications-full.html'}). */
       otherwise({templateUrl: 'partials/main.html'});
-    }
+
     $locationProvider.html5Mode(true);
-    $locationProvider.hashPrefix('!');
+    }
+    
  	]);
  	

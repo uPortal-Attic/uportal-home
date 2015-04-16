@@ -24,7 +24,7 @@
     'portal.notification.controller',
     'portal.notification.directives'
      ]);
- app.config(['$routeProvider',function($routeProvider, $locationProvider) {
+ app.config(['$routeProvider','$locationProvider',function($routeProvider, $locationProvider) {
 	 $routeProvider.
       when('/apps', {templateUrl: 'partials/marketplace.html'}).
       when('/features', {templateUrl: 'partials/features.html'}).
@@ -36,6 +36,8 @@
       when('/widgets', {templateUrl: 'partials/home-widget-view.html'}).
       when('/list', {templateUrl: 'partials/home-list-view.html'}).
       otherwise({ redirectTo : '/list'});
+
+      $locationProvider.html5Mode(true);
       }
  	]);
 
