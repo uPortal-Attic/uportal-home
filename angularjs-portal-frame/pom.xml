@@ -31,7 +31,7 @@
       <resource>
         <directory>src/main/webapp</directory>
         <includes>
-          <include>frame.html</include>
+          <include>frame.jsp</include>
         </includes>
         <filtering>true</filtering>
       </resource>
