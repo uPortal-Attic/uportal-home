@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
   <meta name="description" content="MyUW"/>
   <meta name="keywords" content="portal, uPortal, academic, higher education, open source, enterprise, JA-SIG, JASIG, Jasig"/>
-  <base href="/web/">
+  <base href="<%=getServletContext().getContextPath() %>/">
 
   <!-- CSS links -->
   <!-- Latest compiled and minified CSS -->
