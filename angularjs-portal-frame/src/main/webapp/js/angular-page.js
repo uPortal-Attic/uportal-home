@@ -2,6 +2,7 @@ var app = angular.module('portal', [
     'ngRoute',
     'ngStorage',
     'ui.bootstrap',
+    'ui.gravatar',
     'ngSanitize',
     'ui.sortable',
     'app-config',

@@ -60,6 +60,7 @@
 <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
 <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 <script type="text/javascript" src="bower_components/ngstorage/ngStorage.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-gravatar/build/angular-gravatar.js"></script>
 <script type="text/javascript" src="js/sortable.js"></script>
 <script type="text/javascript" src="js/angular-page.js"></script>
 <script type="text/javascript" src="js/main/main-controllers.js"></script>
@@ -74,5 +75,6 @@
 <script type="text/javascript" src="js/ui-bootstrap.js"></script>
 <script type="text/javascript" src="js/ga.js"></script>
 <script type="text/javascript" src="bower_components/requirejs/require.js" data-main="main.js"></script>
+
 </body>
 </html>

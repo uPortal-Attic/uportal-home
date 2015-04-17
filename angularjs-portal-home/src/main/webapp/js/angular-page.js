@@ -4,6 +4,7 @@
     'ngRoute',
     'ngStorage',
     'ui.bootstrap',
+    'ui.gravatar',
     'ngSanitize',
     'ui.sortable',
     'portal.misc.controllers',
