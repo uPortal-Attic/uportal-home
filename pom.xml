@@ -24,6 +24,7 @@
   <modules>
     <module>angularjs-portal-frame</module>
     <module>angularjs-portal-home</module>
+    <module>angularjs-portal-mock-portal</module>
   </modules>
 
   <distributionManagement>
@@ -156,6 +157,10 @@
             <contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
               <war>${project.basedir}/angularjs-portal-home/target/web.war</war>
               <contextPath>/web</contextPath>
+            </contextHandler>
+            <contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
+              <war>${project.basedir}/angularjs-portal-mock-portal/target/mock-portal.war</war>
+              <contextPath>/portal</contextPath>
             </contextHandler>
           </contextHandlers>
         </configuration>
