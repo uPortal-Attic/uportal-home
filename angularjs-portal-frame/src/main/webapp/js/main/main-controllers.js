@@ -14,7 +14,9 @@
             notificationsDemo : false,
             typeaheadSearch: false,
             exampleWidgets: false,
-            layoutMode : 'list' //other option is 'widgets'
+            layoutMode : 'list', //other option is 'widgets'
+            gravatarEmail : null,
+            useGravatar : false
             };
     $scope.$storage = $localStorage.$default(defaults);
     
@@ -24,6 +26,10 @@
     
     $scope.clearSession = function() {
         $sessionStorage.$reset();
+    }
+    
+    $scope.reload = function() {
+        location.reload();
     }
   } ]);
 

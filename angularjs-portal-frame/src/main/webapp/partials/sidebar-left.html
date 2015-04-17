@@ -4,7 +4,8 @@
       <span class="fa fa-arrow-left hide-sidebar" ng-click="$storage.showSidebar = false" popover="Minimize sidebar" popover-placement="left" popover-trigger="mouseenter" popover-popup-delay="600" popover-append-to-body="true"></span>
     </div>
     <div class="profile-pic">
-      <img ng-src="{{$storage.profileImg}}" ng-if="$storage.sidebarShowProfile">
+      <img ng-src="{{$storage.profileImg}}" ng-if="$storage.sidebarShowProfile && !$storage.useGravatar">
+      <img gravatar-src="'{{$storage.gravatarEmail}}'" gravatar-size="100" ng-if="$storage.sidebarShowProfile && $storage.useGravatar">
       <username></username>
     </div>
     <hr>
