@@ -95,7 +95,7 @@
        </li>
        <li class="no-padding portlet-container-home  beta-card-style" style='text-align : center;'>
          <h4>Home Profile Image &nbsp;</h4>
-         
+         <small>Show a profile image in the sidebar</small>
          <h5>
            <span class="btn-group">
              <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowProfile, 'btn-default' : !$storage.sidebarShowProfile }" ng-model="$storage.sidebarShowProfile" btn-radio="true">On</label>
@@ -103,10 +103,24 @@
            </span>
            Show profile picture 
          </h5>
-         <small>Shows the profile picture in the sidebar</small>
-         <br/>
-         <small>Pick a different profile image for MyUW Home</small>
-         <div style='text-align: center;'>
+         <h5 ng-if='$storage.sidebarShowProfile'>
+           <span class="btn-group">
+             <label class="btn" ng-class="{'btn-success' : $storage.useGravatar, 'btn-default' : !$storage.useGravatar }" ng-model="$storage.useGravatar" btn-radio="true">Yes</label>
+             <label class="btn" ng-class="{'btn-success' : $storage.useGravatar, 'btn-default' : !$storage.useGravatar }" ng-model="$storage.useGravatar" btn-radio="false">No</label>
+           </span>
+           Use Gravatar Email 
+         </h5>
+         <div ng-show="$storage.useGravatar && $storage.sidebarShowProfile">
+            <label for="gravatarEmail">Gravatar Email <small ng-show="$storage.useGravatar">Setup gravatar account <a href='https://en.gravatar.com/' target='_blank'>here</a>.</small></label>
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="gravatarEmail" placeholder="example@wisc.edu" ng-model="$storage.gravatarEmail">
+                </div>
+                <button class='btn btn-primary' ng-click='reload()'>Reload</button>
+            </form>
+         </div>
+         <small ng-if='$storage.sidebarShowProfile && !$storage.useGravatar'>Pick a different profile image for MyUW Home</small>
+         <div ng-if='$storage.sidebarShowProfile && !$storage.useGravatar' style='text-align: center;'>
            <div style='padding: 1em;'>
              <img ng-src="{{$storage.profileImg}}" height='100px' ng-click="showCustom=true;">
            </div>
