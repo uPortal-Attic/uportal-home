@@ -15,12 +15,14 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      '../../../angularjs-portal-frame/src/main/webapp/bower_components/requirejs/require.js',
       '../../../angularjs-portal-frame/src/main/webapp/bower_components/angular/angular.js',
       '../../../angularjs-portal-frame/src/main/webapp/bower_components/angular-mocks/angular-mocks.js',
       '../../../angularjs-portal-frame/src/main/webapp/bower_components/angular-resource/angular-resource.js',
       '../../../angularjs-portal-frame/src/main/webapp/bower_components/angular-route/angular-route.js',
       '../../../angularjs-portal-frame/src/main/webapp/bower_components/angular-sanitize/angular-sanitize.js',
       '../../../angularjs-portal-frame/src/main/webapp/bower_components/ngstorage/ngStorage.js',
+      '../../../angularjs-portal-frame/src/main/webapp/bower_components/angular-gravatar/build/angular-gravatar.js',
       '../../../angularjs-portal-frame/src/main/webapp/js/**/*.js',
       '../../../angularjs-portal-frame/src/test/spec/**/*.js',
       '../main/webapp/js/**/*.js',
