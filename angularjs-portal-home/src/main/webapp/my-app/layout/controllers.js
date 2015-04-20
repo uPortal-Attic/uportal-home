@@ -1,6 +1,6 @@
 'use strict';
 
-define(['angular'], function(angular) {
+define(['angular', 'jquery'], function(angular, $) {
 
     var app = angular.module('my-app.layout.controllers', []);
 
