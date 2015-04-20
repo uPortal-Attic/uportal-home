@@ -39,7 +39,7 @@ define(['angular', 'jquery'], function(angular, $) {
             //Functions
 
             this.goToDetails = function(){
-                $location.path("/apps/" + fname );
+                $location.path("apps/" + fname );
             };
 
             this.addToHome = function addToHomeFunction(index, portlet) {

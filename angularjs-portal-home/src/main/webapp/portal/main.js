@@ -23,6 +23,7 @@ define([
     './notifications/directives',
     './search/controllers',
     'ui-bootstrap',
+    'ui-gravatar',
     'sortable'
 ], function(angular, require) {
 
@@ -50,10 +51,11 @@ define([
         'portal.notification.directives',
         'portal.search.controllers',
         'ui.bootstrap',
+        'ui.gravatar',
         'ui.sortable'
     ]);
 
-    app.config(['$routeProvider',function($routeProvider, $locationProvider) {
+    app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider.
             when('/apps', {templateUrl: require.toUrl('./partials/marketplace.html')}).
             when('/apps/details/:fname', {templateUrl: require.toUrl('./partials/marketplace-details.html'), controller:'MarketplaceDetailsController'}).

@@ -15,7 +15,8 @@ require.config({
         'ngSanitize'       : "bower_components/angular-sanitize/angular-sanitize.min",
         'ngStorage'        : "bower_components/ngstorage/ngStorage.min",
         'sortable'         : "js/sortable",
-        'ui-bootstrap'     : "js/ui-bootstrap"
+        'ui-bootstrap'     : "js/ui-bootstrap",
+        'ui-gravatar'      : "bower_components/angular-gravatar/build/angular-gravatar.js"
     },
 
     shim: {
@@ -24,7 +25,8 @@ require.config({
         'ngRoute'     : { deps: ['angular'] },
         'ngSanitize'  : { deps: ['angular'] },
         'ngStorage'   : { deps: ['angular'] },
-        'ui-bootstrap': { deps: ['angular'] }
+        'ui-bootstrap': { deps: ['angular'] },
+        'ui-gravatar' : { deps: ['angular'] }
     }
 
 });

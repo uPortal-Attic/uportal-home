@@ -7,7 +7,7 @@
 			    <portlet-icon></portlet-icon>
 			    <span class="portlet-title">{{::portlet.title}} Details</span>
 			  </h2>
-			  <a href="#/apps" class="back-to-home"><i class="fa fa-arrow-circle-o-left"></i> Back to Apps</a>
+			  <a href="apps" class="back-to-home"><i class="fa fa-arrow-circle-o-left"></i> Back to Apps</a>
 	  	</div>
 			  
 			<div class="col-xs-12 col-lg-6">
@@ -60,7 +60,7 @@
 			<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center">
 				<h3>Related Apps</h3>
 	      <ul>
-	        <li ng-repeat="related in portlet.relatedPortlets"><a href="#/apps/details/{{ ::related.fname }}">{{ ::related.title }}</a></li>
+	        <li ng-repeat="related in portlet.relatedPortlets"><a href="apps/details/{{ ::related.fname }}">{{ ::related.title }}</a></li>
 	      </ul>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center">
@@ -70,7 +70,7 @@
 			<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center" ng-if="$storage.showKeywordsInMarketplace">
 				<h3>Keywords</h3>
 		    <ul>
-		      <li ng-repeat="keyword in portlet.keywords | orderBy:'toLowerCase()'  track by $index"><a href='#/apps/search/{{ ::keyword }}'>{{ ::keyword }}</a></li>
+		      <li ng-repeat="keyword in portlet.keywords | orderBy:'toLowerCase()'  track by $index"><a href='apps/search/{{ ::keyword }}'>{{ ::keyword }}</a></li>
 		    </ul>
 			</div>
 			<div class="col-xs-12 col-lg-9 desc-item screenshots portlet-screenshots" ng-if="portlet.marketplaceScreenshots.length != 0">
@@ -97,7 +97,7 @@
 
 		<div class="portlet-footer left">
 		 	<ul>
-		 		<li><a href="#/apps"><i class="fa fa-arrow-circle-o-left"></i> Back to Apps</a></li>
+		 		<li><a href="apps"><i class="fa fa-arrow-circle-o-left"></i> Back to Apps</a></li>
 		 	</ul>
 		</div>
 		<rating-modal-template></rating-modal-template>

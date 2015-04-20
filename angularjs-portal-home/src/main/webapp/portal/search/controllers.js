@@ -24,7 +24,7 @@ define(['angular'], function(angular) {
         });
 
         $scope.onSelect = function(portlet) {
-            $location.path("/apps/details/"+ portlet.fname);
+            $location.path("apps/details/"+ portlet.fname);
             $scope.initialFilter = "";
             $scope.showSearch = false;
             $scope.showSearchFocus = false;
@@ -32,7 +32,7 @@ define(['angular'], function(angular) {
 
         $scope.submit = function(){
             if($scope.initialFilter != "") {
-                $location.path("/apps/search/"+ $scope.initialFilter);
+                $location.path("apps/search/"+ $scope.initialFilter);
                 $scope.initialFilter = "";
                 $scope.showSearch = false;
                 $scope.showSearchFocus = false;

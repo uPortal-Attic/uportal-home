@@ -236,6 +236,7 @@
   
   ul.enlarge span img{
   	padding: 2px;
+  	width:100%;
   }
   
   ul.enlarge span{
@@ -257,21 +258,23 @@
   	cursor:pointer;
   }
   
-  @media only screen and (min-width: 768px){
-  	ul.enlarge li:hover span{
-      width:60vw;
-  		top:20%;
-      left:28.67%;
-  	}
+  img{
+  		width:100%;
   }
   
-  
-  
+  @media only screen and (min-width: 768px){
+  	ul.enlarge li:hover span{
 
-  
-  
-  
- 
+      width:60vw;
+  	  top:20%;
+      left:28.67%;
+
+  	}
+  	img{
+  		width:320px;
+  	}
+  }
+
   li {
     display:inline-block;
     float:left;

@@ -1,19 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  
+
   <parent>
     <groupId>edu.wisc.my.portal.angular</groupId>
     <artifactId>angularjs-portal-parent</artifactId>
     <version>4.1.1.19-SNAPSHOT</version>
   </parent>
-  
+
   <modelVersion>4.0.0</modelVersion>
-  
+
   <artifactId>angularjs-portal-frame</artifactId>
   <packaging>war</packaging>
   <name>angularjs-portal-frame</name>
-  
+
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
-  
+
   <dependencies>
     <dependency>
       <groupId>jstl</groupId>
@@ -21,16 +21,20 @@
     </dependency>
   </dependencies>
 
+  <properties>
+    <webapp.target.directory>${project.build.directory}/${project.build.finalName}</webapp.target.directory>
+  </properties>
+
   <build>
     <finalName>frame</finalName>
     <resources>
-        <resource>
-            <directory>src/main/webapp</directory>
-            <includes>
-                <include>frame.html</include>
-            </includes>
-            <filtering>true</filtering>
-        </resource>
+      <resource>
+        <directory>src/main/webapp</directory>
+        <includes>
+          <include>frame.jsp</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
     </resources>
     <plugins>
       <plugin>
@@ -38,33 +42,46 @@
         <artifactId>lesscss-maven-plugin</artifactId>
         <version>1.7.0.1.1</version>
         <configuration>
-            <sourceDirectory>${project.basedir}/src/main/webapp/css/</sourceDirectory>
-            <outputDirectory>${project.build.directory}/${project.build.finalName}/css/</outputDirectory>
-            <compress>true</compress>
-            <includes>
-                <include>angular.less</include>
-            </includes>
-            <outputFileFormat>{fileName}.${project.version}.css</outputFileFormat>
+          <sourceDirectory>${project.basedir}/src/main/webapp/css/</sourceDirectory>
+          <outputDirectory>${webapp.target.directory}/css/</outputDirectory>
+          <compress>true</compress>
+          <includes>
+            <include>angular.less</include>
+          </includes>
+          <outputFileFormat>{fileName}.${project.version}.css</outputFileFormat>
         </configuration>
         <executions>
-            <execution>
-                <goals>
-                    <goal>compile</goal>
-                </goals>
-            </execution>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
         </executions>
       </plugin>
       <plugin>
-          <groupId>org.apache.tomcat.maven</groupId>
-          <artifactId>tomcat7-maven-plugin</artifactId>
-          <version>2.2</version>
-          <configuration>
-            <url>http://localhost:8080/manager/text</url>
-            <server>TomcatServer</server>
-            <path>/frame</path>
-          </configuration>
-        </plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <url>http://localhost:8080/manager/text</url>
+          <server>TomcatServer</server>
+          <path>/frame</path>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.3.0.M2</version>
+        <configuration>
+          <webApp>
+            <baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
+              <resourcesAsCSV>src/main/webapp,${webapp.target.directory}</resourcesAsCSV>
+            </baseResource>
+          </webApp>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
+
 </project>
 

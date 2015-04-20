@@ -36,7 +36,7 @@ define([
         'ui.sortable'
     ]);
 
-    app.config(['$routeProvider', function ($routeProvider, $locationProvider) {
+    app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider.
             when('/settings', {templateUrl: require.toUrl('./partials/settings.html')}).
             /* when('/notifications', {templateUrl: require.toUrl('./partials/notifications-full.html')}). */

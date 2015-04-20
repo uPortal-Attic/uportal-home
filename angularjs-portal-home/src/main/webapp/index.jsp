@@ -1,2 +1,2 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:import url="/WEB-INF/classes/home.html" />
+<jsp:include page="/WEB-INF/classes/home.jsp" />

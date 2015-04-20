@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US" class="respondr">
+<html ng-app="portal" lang="en-US" class="respondr">
 <head>
   <title>MyUW</title>
   <meta charset="utf-8"/>
@@ -9,12 +9,12 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
   <meta name="description" content="MyUW"/>
   <meta name="keywords" content="portal, uPortal, academic, higher education, open source, enterprise, JA-SIG, JASIG, Jasig"/>
+  <base href="<%=getServletContext().getContextPath() %>/">
 
   <!-- CSS links -->
   <!-- Latest compiled and minified CSS -->
   <!-- <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/> -->
   <link href="css/angular.${project.version}.css" rel="stylesheet" type="text/css"/>
-  <link href="my-app/my-app.css" rel="stylesheet" type="text/css"/>
   <link rel="shortcut icon" href="/portal/favicon.ico" type="image/x-icon"/>
 </head>
 
@@ -46,7 +46,7 @@
         <span class="fa fa-bars"></span>
       </div>
       <div id="region-main" class="col-xs-12 my-uw" ng-class="{'col-sm-10 col-sm-offset-2' : $storage.showSidebar, 'col-sm-11 max-view' : !($storage.showSidebar)}">
-        <div ng-view></div>
+        <div ng-view="" autoscroll=""></div>
       </div>
     </div>
   </div>
