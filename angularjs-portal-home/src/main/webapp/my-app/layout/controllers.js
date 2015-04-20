@@ -2,7 +2,7 @@
 
 define(['angular'], function(angular) {
 
-    var app = angular.module('portal.layout.controllers', []);
+    var app = angular.module('my-app.layout.controllers', []);
 
     app.controller('LayoutController', [
         '$location',

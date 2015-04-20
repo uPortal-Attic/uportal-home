@@ -1,7 +1,7 @@
 'use strict';
 
 define(['angular', 'jquery'], function(angular, $) {
-    var app = angular.module('portal.layout.services', []);
+    var app = angular.module('my-app.layout.services', []);
 
     app.factory('sharedPortletService', function () {
         var property = {};

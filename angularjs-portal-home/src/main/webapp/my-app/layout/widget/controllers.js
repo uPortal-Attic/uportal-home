@@ -2,7 +2,7 @@
 
 define(['angular'], function(angular){
 
-    var app = angular.module('portal.layout.widget.controllers', []);
+    var app = angular.module('my-app.layout.widget.controllers', []);
 
     app.controller('OptionLinkController', ['$scope', 'layoutService', function($scope, layoutService){
 

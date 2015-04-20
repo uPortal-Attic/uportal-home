@@ -1,6 +1,7 @@
 define([
     'angular',
     'require',
+    'portal',
     'app-config',
     'ngRoute',
     'ngSanitize',
@@ -9,53 +10,35 @@ define([
     './layout/directives',
     './layout/services',
     './layout/widget/controllers',
-    './main/controllers',
-    './main/directives',
-    './main/services',
     './marketplace/controllers',
     './marketplace/directives',
     './marketplace/services',
-    './misc/controllers',
-    './misc/directives',
-    './misc/filters',
-    './misc/services',
     './notifications/controllers',
     './notifications/directives',
-    './search/controllers',
-    'ui-bootstrap',
-    'ui-gravatar',
-    'sortable'
-], function(angular, require) {
+    './search/controllers'
+], function(angular, require, portal) {
 
-    var app = angular.module('portal', [
+    var app = angular.module('my-app', [
         'app-config',
+        'my-app.layout.controllers',
+        'my-app.layout.directives',
+        'my-app.layout.services',
+        'my-app.layout.widget.controllers',
+        'my-app.layout.widget.directives',
+        'my-app.marketplace.controllers',
+        'my-app.marketplace.directives',
+        'my-app.marketplace.services',
+        'my-app.notification.controllers ',
+        'my-app.notification.directives',
+        'my-app.search.controllers',
         'ngRoute',
         'ngSanitize',
-        'ngStorage',
-        'portal.layout.controllers',
-        'portal.layout.directives',
-        'portal.layout.services',
-        'portal.layout.widget.controllers',
-        'portal.layout.widget.directives',
-        'portal.main.controllers',
-        'portal.main.directives',
-        'portal.main.services',
-        'portal.marketplace.controllers',
-        'portal.marketplace.directives',
-        'portal.marketplace.services',
-        'portal.misc.controllers',
-        'portal.misc.directives',
-        'portal.misc.filters',
-        'portal.misc.services',
-        'portal.notification.controllers ',
-        'portal.notification.directives',
-        'portal.search.controllers',
-        'ui.bootstrap',
-        'ui.gravatar',
-        'ui.sortable'
+        'ngStorage'
     ]);
 
-    app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    // This replaces the routing configuration of portal, defined in the frame project, NOT the my-app module defined here
+    // TODO: Think of a more extensible approach such that frame and app can each manage their own routing without conflict
+    portal.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider.
             when('/apps', {templateUrl: require.toUrl('./partials/marketplace.html')}).
             when('/apps/details/:fname', {templateUrl: require.toUrl('./partials/marketplace-details.html'), controller:'MarketplaceDetailsController'}).

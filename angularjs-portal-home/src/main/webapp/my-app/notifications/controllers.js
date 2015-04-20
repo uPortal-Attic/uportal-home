@@ -2,7 +2,7 @@
 
 define(['angular'], function(angular) {
 
-  var app = angular.module('portal.notifications.controllers ', []);
+  var app = angular.module('my-app.notifications.controllers ', []);
 
   app.controller('NotificationController', [ '$http', function($http){
     var store = this;
@@ -22,7 +22,6 @@ define(['angular'], function(angular) {
           for(var i = 0; i < 3; i++) {
             store.notifications.push(theFeed[i]);
           }
-
         });
 
     this.getClass = function getClass(index, notifications) {

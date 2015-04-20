@@ -2,7 +2,7 @@
 
 define(['angular', 'jquery'], function(angular, $) {
 
-    var app = angular.module('portal.marketplace.controllers', []);
+    var app = angular.module('my-app.marketplace.controllers', []);
 
     app.controller('MarketplaceController', [
         '$sessionStorage', '$modal', '$timeout', '$rootScope', '$window',

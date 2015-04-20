@@ -1,8 +1,8 @@
 'use strict';
 
-define(['angular'], function(angular) {
+define(['angular', 'portal/search/controllers'], function(angular) {
 
-    var app = angular.module('portal.search.controllers', []);
+    var app = angular.module('my-app.search.controllers', ['portal.search.controllers']);
     app.controller('SearchController', [ 'marketplaceService', '$location', '$scope', '$localStorage', function(marketplaceService, $location, $scope, $localStorage) {
         $scope.initialFilter = '';
         $scope.filterMatches = [];

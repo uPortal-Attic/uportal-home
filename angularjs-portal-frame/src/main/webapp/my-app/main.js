@@ -5,5 +5,8 @@ define(['angular', 'jquery'], function(angular, $) {
 
      For more information, see: https://github.com/UW-Madison-DoIT/my-app-seed
      */
+    var app = angular.module('my-app', []);
+    return app
+
 });
 

@@ -6,7 +6,7 @@ require.config({
     ],
 
     paths: {
-        'angular'          : "bower_components/angular/angular.min",
+        'angular'          : "bower_components/angular/angular",
         'app-config'       : "js/app-config",
         'config'           : "js/config",
         'jquery'           : "bower_components/jquery/dist/jquery.min",
@@ -16,7 +16,7 @@ require.config({
         'ngStorage'        : "bower_components/ngstorage/ngStorage.min",
         'sortable'         : "js/sortable",
         'ui-bootstrap'     : "js/ui-bootstrap",
-        'ui-gravatar'      : "bower_components/angular-gravatar/build/angular-gravatar.js"
+        'ui-gravatar'      : "bower_components/angular-gravatar/build/angular-gravatar"
     },
 
     shim: {

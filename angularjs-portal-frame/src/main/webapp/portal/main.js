@@ -15,7 +15,8 @@ define([
     './search/controllers',
     './search/directives',
     'sortable',
-    'ui-bootstrap'
+    'ui-bootstrap',
+    'ui-gravatar'
 ], function(angular, require) {
 
     var app = angular.module('portal', [
@@ -33,6 +34,7 @@ define([
         'portal.search.controllers',
         'portal.search.directives',
         'ui.bootstrap',
+        'ui.gravatar',
         'ui.sortable'
     ]);
 

@@ -2,7 +2,7 @@
 
 define(['angular', 'require'], function(angular, require) {
 
-    var app = angular.module('portal.marketplace.directives', []);
+    var app = angular.module('my-app.marketplace.directives', []);
     app.directive('marketplacePortlet', function() {
         return {
             restrict : 'E',

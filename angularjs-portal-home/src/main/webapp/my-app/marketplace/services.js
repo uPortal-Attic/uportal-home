@@ -2,7 +2,7 @@
 
 define(['angular', 'jquery'], function(angular, $) {
 
-    var app = angular.module('portal.marketplace.services', []);
+    var app = angular.module('my-app.marketplace.services', []);
 
     app.factory('marketplaceService', ['$q', '$http','$sessionStorage', 'layoutService', 'miscService', 'mainService', function($q, $http, $sessionStorage, layoutService, miscService, mainService) {
         var marketplacePromise;

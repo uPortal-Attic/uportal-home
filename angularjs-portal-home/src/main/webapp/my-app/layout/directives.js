@@ -2,7 +2,7 @@
 
 define(['angular', 'require'], function(angular, require){
 
-    var app = angular.module('portal.layout.directives', []);
+    var app = angular.module('my-app.layout.directives', []);
 
     app.directive('portletIcon', function(){
         return {

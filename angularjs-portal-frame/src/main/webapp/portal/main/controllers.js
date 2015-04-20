@@ -26,8 +26,8 @@ define(['angular'], function(angular) {
 
     $scope.clearSession = function() {
         $sessionStorage.$reset();
-    }
-    
+    };
+
     $scope.reload = function() {
         location.reload();
     }
