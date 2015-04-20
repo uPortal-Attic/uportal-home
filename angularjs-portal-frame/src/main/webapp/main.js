@@ -31,7 +31,7 @@ require.config({
 
 });
 
-require(['angular', 'portal', 'my-app'], function(angular) {
-    angular.bootstrap(document, ['portal']);
+require(['angular', 'my-app'], function(angular) {
+    angular.bootstrap(document, ['my-app']);
 });
 

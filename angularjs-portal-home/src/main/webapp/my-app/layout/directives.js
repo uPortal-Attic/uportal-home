@@ -18,31 +18,10 @@ define(['angular', 'require'], function(angular, require){
         }
     });
 
-    app.directive('staticContentCard', function(){
-        return {
-            restrict : 'E',
-            templateUrl : require.toUrl('./partials/static-content-card.html')
-        }
-    });
-
-    app.directive('staticContentCardMax', function(){
-        return {
-            restrict : 'E',
-            templateUrl : require.toUrl('./partials/static-content-card-max.html')
-        }
-    });
-
     app.directive('pithyContentCard', function(){
         return {
             restrict : 'E',
             templateUrl : require.toUrl('./partials/pithy-content-card.html') //FIXME: this doesn't exist
-        }
-    });
-
-    app.directive('widgetCard', function(){
-        return {
-            restrict : 'E',
-            templateUrl : require.toUrl('./partials/widget-card.html')
         }
     });
 

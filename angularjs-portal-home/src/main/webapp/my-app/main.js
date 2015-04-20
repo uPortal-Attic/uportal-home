@@ -1,6 +1,13 @@
 define([
     'angular',
     'require',
+    './features/route',
+    './marketplace/routes',
+    './layout/list/route',
+    './notifications/route',
+    'portal/settings/route',
+    './layout/static/route',
+    './layout/widget/route',
     'portal',
     'app-config',
     'ngRoute',
@@ -9,14 +16,17 @@ define([
     './layout/controllers',
     './layout/directives',
     './layout/services',
+    './layout/static/controllers',
+    './layout/static/directives',
     './layout/widget/controllers',
+    './layout/widget/directives',
     './marketplace/controllers',
     './marketplace/directives',
     './marketplace/services',
     './notifications/controllers',
     './notifications/directives',
     './search/controllers'
-], function(angular, require, portal) {
+], function(angular, require, featuresRoute, marketplaceRoutes, listRoute, notificationsRoute, settingsRoute, staticRoute, widgetRoute) {
 
     var app = angular.module('my-app', [
         'app-config',
@@ -28,27 +38,27 @@ define([
         'my-app.marketplace.controllers',
         'my-app.marketplace.directives',
         'my-app.marketplace.services',
-        'my-app.notification.controllers ',
-        'my-app.notification.directives',
+        'my-app.notifications.controllers ',
+        'my-app.notifications.directives',
         'my-app.search.controllers',
         'ngRoute',
         'ngSanitize',
-        'ngStorage'
+        'ngStorage',
+        'portal'
     ]);
 
-    // This replaces the routing configuration of portal, defined in the frame project, NOT the my-app module defined here
     // TODO: Think of a more extensible approach such that frame and app can each manage their own routing without conflict
-    portal.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider.
-            when('/apps', {templateUrl: require.toUrl('./partials/marketplace.html')}).
-            when('/apps/details/:fname', {templateUrl: require.toUrl('./partials/marketplace-details.html'), controller:'MarketplaceDetailsController'}).
-            when('/apps/search/:initFilter', {templateUrl: require.toUrl('./partials/marketplace.html')}).
-            when('/features', {templateUrl: require.toUrl('./partials/features.html')}).
-            when('/list', {templateUrl: require.toUrl('./partials/home-list-view.html')}).
-            when('/notifications', {templateUrl: require.toUrl('./partials/notifications-full.html')}).
-            when('/settings', {templateUrl: require.toUrl('./partials/settings.html')}).
-            when('/static/:fname', {templateUrl: require.toUrl('./partials/static-content-max.html')}).
-            when('/widgets', {templateUrl: require.toUrl('./partials/home-widget-view.html')}).
+            when('/apps', marketplaceRoutes.main).
+            when('/apps/details/:fname', marketplaceRoutes.details).
+            when('/apps/search/:initFilter', marketplaceRoutes.main).
+            when('/features', featuresRoute).
+            when('/list', listRoute).
+            when('/notifications', notificationsRoute).
+            when('/settings', settingsRoute).
+            when('/static/:fname', staticRoute).
+            when('/widgets', widgetRoute).
             otherwise({ redirectTo : '/list'});
     }]);
 

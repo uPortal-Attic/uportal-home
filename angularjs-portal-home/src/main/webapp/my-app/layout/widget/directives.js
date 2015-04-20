@@ -2,7 +2,7 @@
 
 define(['angular', 'require'], function(angular, require) {
 
-    var app = angular.module('portal.layout.widget.directives', []);
+    var app = angular.module('my-app.layout.widget.directives', []);
 
     /**
      * <option-link> directive is used to display widget content.
@@ -35,6 +35,13 @@ define(['angular', 'require'], function(angular, require) {
             },
             templateUrl: require.toUrl('./partials/weather.html'),
             controller: 'WeatherController'
+        }
+    });
+
+    app.directive('widgetCard', function(){
+        return {
+            restrict : 'E',
+            templateUrl : require.toUrl('./partials/widget-card.html')
         }
     });
 
