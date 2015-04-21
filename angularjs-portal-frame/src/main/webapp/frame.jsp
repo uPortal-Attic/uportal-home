@@ -14,7 +14,7 @@
   <!-- Latest compiled and minified CSS -->
   <!-- <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/> -->
   <link href="css/angular.${project.version}.css" rel="stylesheet" type="text/css"/>
-  <link href="my-app.css" rel="stylesheet" type="text/css"/>
+  <link href="my-app/my-app.css" rel="stylesheet" type="text/css"/>
   <link rel="shortcut icon" href="/portal/favicon.ico" type="image/x-icon"/>
 </head>
 
@@ -53,28 +53,8 @@
 
   <!-- FOOTER  -->
   <site-footer></site-footer>
-<script type="text/javascript" src="js/config.js"></script>
-<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.min.js"></script>
-<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-<script type="text/javascript" src="bower_components/ngstorage/ngStorage.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-gravatar/build/angular-gravatar.js"></script>
-<script type="text/javascript" src="js/sortable.js"></script>
-<script type="text/javascript" src="js/angular-page.js"></script>
-<script type="text/javascript" src="js/main/main-controllers.js"></script>
-<script type="text/javascript" src="js/main/search-controller.js"></script>
-<script type="text/javascript" src="js/main/main-service.js"></script>
-<script type="text/javascript" src="js/main/main-directives.js"></script>
-<script type="text/javascript" src="js/app-config.js"></script>
-<script type="text/javascript" src="js/controllers.js"></script>
-<script type="text/javascript" src="js/services.js"></script>
-<script type="text/javascript" src="js/directives.js"></script>
-<script type="text/javascript" src="js/filters.js"></script>
-<script type="text/javascript" src="js/ui-bootstrap.js"></script>
-<script type="text/javascript" src="js/ga.js"></script>
-<script type="text/javascript" src="bower_components/requirejs/require.js" data-main="main.js"></script>
+  <script type="text/javascript" src="js/ga.js"></script>
+  <script type="text/javascript" src="bower_components/requirejs/require.js" data-main="main"></script>
 
 </body>
 </html>

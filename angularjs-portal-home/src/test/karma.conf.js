@@ -32,8 +32,8 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [ //basically anything we overwrite
-     '../../angularjs-portal-frame/src/main/webapp/js/angular-page.js',
-     '../../angularjs-portal-frame/src/main/webapp/js/main/search-controller.js'
+     '../../angularjs-portal-frame/src/main/webapp/portal/main.js',
+     '../../angularjs-portal-frame/src/main/webapp/portal/search/controllers.js'
     ],
 
     // karma plugins
