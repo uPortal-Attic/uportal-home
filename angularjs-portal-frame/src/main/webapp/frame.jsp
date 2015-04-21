@@ -53,6 +53,7 @@
 
   <!-- FOOTER  -->
   <site-footer></site-footer>
+  <script type="text/javascript" src="js/config.js"></script>
   <script type="text/javascript" src="js/ga.js"></script>
   <script type="text/javascript" src="bower_components/requirejs/require.js" data-main="main"></script>
 

@@ -8,7 +8,6 @@ require.config({
     paths: {
         'angular'          : "bower_components/angular/angular",
         'app-config'       : "js/app-config",
-        'config'           : "js/config",
         'jquery'           : "bower_components/jquery/dist/jquery.min",
         'jquery-ui'        : "bower_components/jquery-ui/jquery-ui.min",
         'ngRoute'          : "bower_components/angular-route/angular-route.min",
@@ -21,7 +20,6 @@ require.config({
 
     shim: {
         'angular'     : { deps: ['jquery'], exports: 'angular' },
-        'config'      : {},
         'ngRoute'     : { deps: ['angular'] },
         'ngSanitize'  : { deps: ['angular'] },
         'ngStorage'   : { deps: ['angular'] },
