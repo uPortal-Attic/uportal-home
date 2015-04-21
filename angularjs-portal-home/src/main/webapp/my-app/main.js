@@ -33,6 +33,8 @@ define([
         'my-app.layout.controllers',
         'my-app.layout.directives',
         'my-app.layout.services',
+        'my-app.layout.static.controllers',
+        'my-app.layout.static.directives',
         'my-app.layout.widget.controllers',
         'my-app.layout.widget.directives',
         'my-app.marketplace.controllers',
