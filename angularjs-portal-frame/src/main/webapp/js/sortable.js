@@ -4,7 +4,7 @@
  @param [ui-sortable] {object} Options to pass to $.fn.sortable() merged onto ui.config
  */
 
-define(['angular'], function(angular) {
+define(['angular', 'jquery-ui'], function(angular) {
   var app = angular.module('ui.sortable', []);
   app
       .value('uiSortableConfig', {})
