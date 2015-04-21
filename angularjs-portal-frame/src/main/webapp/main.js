@@ -20,7 +20,7 @@ require.config({
     },
 
     shim: {
-        'angular'     : { exports: 'angular' },
+        'angular'     : { deps: ['jquery'], exports: 'angular' },
         'config'      : {},
         'ngRoute'     : { deps: ['angular'] },
         'ngSanitize'  : { deps: ['angular'] },

@@ -49,6 +49,7 @@ define([
 
     // TODO: Think of a more extensible approach such that frame and app can each manage their own routing without conflict
     app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+        $locationProvider.html5Mode(true);
         $routeProvider.
             when('/apps', marketplaceRoutes.main).
             when('/apps/details/:fname', marketplaceRoutes.details).
@@ -61,6 +62,7 @@ define([
             when('/widgets', widgetRoute).
             otherwise({ redirectTo : '/list'});
     }]);
+
 
     return app;
 
