@@ -1,0 +1,18 @@
+{
+   "portlet":{
+      "nodeId":"-1",
+      "title":"Help with MyUW",
+      "description":"Links to various resources for finding help with the MyUW-Madison portal.",
+      "url":null,
+      "iconUrl":null,
+      "faIcon":"fa-question",
+      "fname":"myuw-help",
+      "target":null,
+      "widgetURL":null,
+      "widgetType":null,
+      "widgetConfig":null,
+      "staticContent":"\n<div>\n  <ul class='list-of-links'>\n    <li><a href=\"http://hdcs.doit.wisc.edu:9090/webchat/userinfo.jsp?chatID=WXSGLeqHva&workgroup=ads@workgroup.hdcs.doit.wisc.edu\" target='_blank'><i class='fa fa-comment-o fa-fw'></i> Live Chat </a></li>\n    <li><a href=\"/portal/p/feedback\"><i class='fa fa-question-circle fa-fw'></i> Submit a Help Request</a></li>\n    <li><a href=\"https://kb.wisc.edu/myuw/\" target=\"_blank\"><i class='fa fa-list-alt fa-fw'></i> Knowledge Base</a></li>\n    <li><a href='https://kb.wisc.edu/myuw/page.php?id=47710' target='_blank'><i class='fa fa-exclamation-triangle fa-fw'></i> Known Issues</a></li>\n    <li><a href=\"/portal/p/feedback\"><i class='fa fa-bullhorn fa-fw'></i> Feedback</a></li>\n    <li><a href=\"http://helpdesk.wisc.edu/myuw/page.php?id=2843\" target=\"_blank\"><i class='fa fa-key fa-fw'></i> NetID Issues</a></li>\n    <li><a href=\"/portal/p/campus-chat-connections\"><i class='fa fa-comments-o fa-fw'></i> More Live Chat Services</a></li>\n  </ul>\n</div>\n",
+      "pithyStaticContent":null,
+      "altMaxUrl":false
+   }
+}
