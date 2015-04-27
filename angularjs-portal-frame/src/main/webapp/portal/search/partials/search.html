@@ -1,10 +1,10 @@
 <form ng-submit="submit()">
   <div class="input-group portlet-search-bar">
     <input type="search" class="main-search"
-            placeholder="Search MyUW"
+            placeholder="Search uPortal"
             name="initialFilter"
             ng-model="initialFilter"
-            aria-label="Search MyUW"
+            aria-label="Search uPortal"
             focus-me="showSearchFocus"
             ng-show="$storage.typeaheadSearch"
             typeahead="title as match.title for match in filterMatches | limitTo:10"
@@ -15,10 +15,10 @@
             autocomplete="off" >
 
       <input type="search" class="main-search"
-            placeholder="Search MyUW"
+            placeholder="Search uPortal"
             name="initialFilter"
             ng-model="initialFilter"
-            aria-label="Search MyUW"
+            aria-label="Search uPortal"
             focus-me="showSearchFocus"
             ng-hide="$storage.typeaheadSearch"
             autocomplete="off" />

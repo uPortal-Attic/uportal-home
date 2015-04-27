@@ -84,13 +84,13 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         var getUserRating = function(fname) {
-            return $http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/getRating').then(function(result) {
+            return $http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + '/' + fname + '/getRating').then(function(result) {
                 return result.data.rating;
             });
         };
 
         var saveRating = function(fname, rating) {
-            $http.post(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/rating/' + rating.rating , {}, {params: {review : rating.review}}).
+            $http.post(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + '/' + fname + '/rating/' + rating.rating , {}, {params: {review : rating.review}}).
                 success(function(data, status, headers, config){
                     console.log("successfully saved marketplace rating for " + fname + " with data " + rating);
                 }).
