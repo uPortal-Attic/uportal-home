@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US" class="respondr">
 <head>
-  <title>MyUW</title>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -15,10 +14,10 @@
   <!-- <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/> -->
   <link href="css/angular.${project.version}.css" rel="stylesheet" type="text/css"/>
   <link href="my-app/my-app.css" rel="stylesheet" type="text/css"/>
-  <link rel="shortcut icon" href="/portal/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="bower_components/uw-ui-toolkit/dist/img/favicon.ico" type="image/x-icon"/>
 </head>
 
-<body ng-controller="MainController as mainCtrl">
+<body  ng-controller="MainController as mainCtrl">
 <noscript>
     <div class="alert alert-warning alert-dismissible" role="alert" style="margin-bottom:0;">
     <div class="container">
