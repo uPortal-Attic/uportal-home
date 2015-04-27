@@ -16,12 +16,12 @@ define(['angular', 'jquery'], function(angular, $) {
         };
     });
 
-    app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionStorage', '$q', function($http, miscService, mainService, $sessionStorage, $q) {
+    app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionStorage', '$q', 'SERVICE_LOC', function($http, miscService, mainService, $sessionStorage, $q, SERVICE_LOC) {
         var addToHome = function addToHomeFunction(portlet) {
             var fname = portlet.fname;
-            var tabName = "UW Bucky Home";
+            var tabName = SERVICE_LOC.layoutTab;
             return $.ajax({
-                url: "/portal/web/layout?action=addPortlet&fname=" + fname + "&tabName=" + tabName,
+                url: SERVICE_LOC.base + "layout?action=addPortlet&fname=" + fname + "&tabName=" + tabName,
                 type: "POST",
                 data: null,
                 dataType: "json",
@@ -36,6 +36,23 @@ define(['angular', 'jquery'], function(angular, $) {
                     return false;
                 }
             });
+        };
+        
+        var removeFromHome = function removeFromHomeFunction(nodeId, title) {
+            return $.ajax({
+                url: SERVICE_LOC.base + "layout?action=removeElement&elementID=" + nodeId,
+                type: "POST",
+                data: null,
+                dataType: "json",
+                async: true,
+                success: function (request, text){
+                    console.log("removed " + title + ' successfully.');
+                    miscService.pushGAEvent('Layout Modification', 'Remove', title);
+                },
+                error: function(request, text, error) {
+                }
+            });
+            
         };
 
         var checkLayoutCache = function() {
@@ -80,12 +97,12 @@ define(['angular', 'jquery'], function(angular, $) {
                 };
 
                 // no caching...  request from the server
-                return $http.get('/portal/web/layoutDoc?tab=UW Bucky Home').then(successFn, errorFn);
+                return $http.get(SERVICE_LOC.base + SERVICE_LOC.layout).then(successFn, errorFn);
             });
         };
 
         var getApp = function(fname) {
-            return $http.get('/portal/api/portlet/' +fname + '.json').then(
+            return $http.get(SERVICE_LOC.base + 'portlet/' +fname + '.json').then(
                 function(result) {
                     return  result.data;
                 } ,
@@ -97,7 +114,7 @@ define(['angular', 'jquery'], function(angular, $) {
         };
         var moveStuff = function moveStuffFunction(index, length, sourceId, previousNodeId, nextNodeId) {
             var insertNode = function(sourceId, previousNodeId, nextNodeId){
-                var saveOrderURL = "/portal/api/layout?action=movePortletAjax"
+                var saveOrderURL = SERVICE_LOC.base + "layout?action=movePortletAjax"
                     + "&sourceId=" + sourceId
                     + "&previousNodeId=" + previousNodeId
                     + "&nextNodeId=" + nextNodeId;
@@ -121,7 +138,7 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         var getNewStuffFeed = function() {
-            return $http.get('/web/samples/new-stuff.json', {cache : true}).then(
+            return $http.get(SERVICE_LOC.newstuffInfo, {cache : true}).then(
                 function(result) {
                     return  result.data.stuff;
                 } ,
@@ -158,6 +175,7 @@ define(['angular', 'jquery'], function(angular, $) {
             moveStuff : moveStuff,
             getNewStuffFeed : getNewStuffFeed,
             addToHome : addToHome,
+            removeFromHome : removeFromHome,
             getWidgetJson : getWidgetJson
         }
 

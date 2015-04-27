@@ -52,29 +52,22 @@ define(['angular', 'jquery'], function(angular, $) {
                 $location.path(url);
             };
             this.removePortlet = function removePortletFunction(nodeId, title) {
-                $.ajax({
-                    url: "/portal/web/layout?action=removeElement&elementID=" + nodeId,
-                    type: "POST",
-                    data: null,
-                    dataType: "json",
-                    async: true,
-                    success: function (request, text){
-                        $scope.$apply(function(){
-                            var result = $.grep($scope.layout, function(e) { return e.nodeId === nodeId});
-                            var index = $.inArray(result[0], $scope.layout);
-                            //remove
-                            $scope.layout.splice(index,1);
-                            if($sessionStorage.marketplace != null) {
-                                var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === result[0].fname});
-                                if(marketplaceEntries.length > 0) {
-                                    marketplaceEntries[0].hasInLayout = false;
-                                }
+                layoutService.removeFromHome(nodeId, title).success(function(){
+                    $scope.$apply(function(request, text){
+                        var result = $.grep($scope.layout, function(e) { return e.nodeId === nodeId});
+                        var index = $.inArray(result[0], $scope.layout);
+                        //remove
+                        $scope.layout.splice(index,1);
+                        if($sessionStorage.marketplace != null) {
+                            var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === result[0].fname});
+                            if(marketplaceEntries.length > 0) {
+                                marketplaceEntries[0].hasInLayout = false;
                             }
-                        });
-                        miscService.pushGAEvent('Layout Modification', 'Remove', title);
-                    },
-                    error: function(request, text, error) {
-                    }
+                        }
+                    });
+                }).error( 
+                function(request, text, error){
+                    alert('Issue deleting ' + title + ' from your list of favorites, try again later.');
                 });
             };
 
@@ -155,30 +148,22 @@ define(['angular', 'jquery'], function(angular, $) {
                 $location.path(url);
             };
             this.removePortlet = function removePortletFunction(nodeId, title) {
-                $.ajax({
-                    url: "/portal/web/layout?action=removeElement&elementID=" + nodeId,
-                    type: "POST",
-                    data: null,
-                    dataType: "json",
-                    async: true,
-                    success: function (request, text){
-                        $scope.$apply(function(){
-                            var result = $.grep($scope.layout, function(e) { return e.nodeId === nodeId});
-                            var index = $.inArray(result[0], $scope.layout);
-                            //remove
-                            $scope.layout.splice(index,1);
-                            if($sessionStorage.marketplace != null) {
-                                var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === result[0].fname});
-                                if(marketplaceEntries.length > 0) {
-                                    marketplaceEntries[0].hasInLayout = false;
-                                }
+                layoutService.removeFromHome(nodeId, title).success(function(){
+                    $scope.$apply(function(request, text){
+                        var result = $.grep($scope.layout, function(e) { return e.nodeId === nodeId});
+                        var index = $.inArray(result[0], $scope.layout);
+                        //remove
+                        $scope.layout.splice(index,1);
+                        if($sessionStorage.marketplace != null) {
+                            var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === result[0].fname});
+                            if(marketplaceEntries.length > 0) {
+                                marketplaceEntries[0].hasInLayout = false;
                             }
-                        });
-                        miscService.pushGAEvent('Layout Modification', 'Remove', title);
-                    },
-                    error: function(request, text, error) {
-
-                    }
+                        }
+                    });
+                }).error( 
+                function(request, text, error){
+                    alert('Issue deleting ' + title + ' from your list of favorites, try again later.');
                 });
             };
 
