@@ -9,19 +9,19 @@ define(['angular'], function(angular) {
             'widgets' : true
         })
         .constant('SERVICE_LOC', {
-            'sessionInfo' : '/portal/web/session.json',
+            'sessionInfo' : '/uPortal/api/session.json',
             'sidebarInfo' : '/web/samples/sidebar.json',
             'newstuffInfo' : '/web/samples/new-stuff.json',
-            'base'        : '/portal/web/',
-            'layout'      : 'layoutDoc?tab=UW Bucky Home',
-            'layoutTab' : 'UW Bucky Home',
+            'base'        : '/uPortal/api/',
+            'layout' : 'layoutDoc?tab=welcome',
+            'layoutTab' : 'welcome',
             'marketplace' : {
                 'base' : 'marketplace',
                 'entries' : '/entries.json'
             }
         })
         .constant('NAMES', {
-            'title' : 'MyUW'
+            'title' : 'uPortal'
         })
         ;
 

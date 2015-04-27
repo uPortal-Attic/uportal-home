@@ -3,7 +3,7 @@
 define(['angular'], function(angular) {
   var app = angular.module('portal.main.controllers', []);
 
-  app.controller('MainController', ['$localStorage', '$sessionStorage','$scope', function($localStorage, $sessionStorage, $scope) {
+  app.controller('MainController', ['$localStorage', '$sessionStorage','$scope', 'NAMES', function($localStorage, $sessionStorage, $scope, NAMES) {
     var defaults = {
             showSidebar: true,
             sidebarQuicklinks: false,
@@ -19,6 +19,8 @@ define(['angular'], function(angular) {
             useGravatar : false
             };
     $scope.$storage = $localStorage.$default(defaults);
+    
+    $scope.NAMES=NAMES;
 
     $scope.resetLocal = function() {
         $localStorage.$reset(defaults);

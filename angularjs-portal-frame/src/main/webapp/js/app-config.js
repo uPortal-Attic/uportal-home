@@ -11,7 +11,11 @@ define(['angular'], function(angular) {
         .constant('SERVICE_LOC', {
             'sessionInfo' : '/portal/web/session.json',
             'sidebarInfo' : '/web/samples/sidebar.json'
-        });
+        })
+        .constant('NAMES', {
+            'title' : 'MyUW'
+        })
+        ;
 
     return config;
 
