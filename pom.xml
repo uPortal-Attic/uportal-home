@@ -176,7 +176,7 @@
               <contextPath>/web</contextPath>
             </contextHandler>
             <contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
-              <war>${project.basedir}/angularjs-portal-mock-portal/target/mock-portal.war</war>
+              <war>${project.basedir}/angularjs-portal-mock-portal/target/portal.war</war>
               <contextPath>/portal</contextPath>
             </contextHandler>
           </contextHandlers>

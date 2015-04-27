@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal.svg)](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal)
 
+[![alt](https://codenvy.com/factory/resources/factory-white.png)](https://codenvy.com/factory?id=tgb1ssv37wjnblun)
+
 ### What is this?
 This is an angular approach to the dashboard view of uPortal. This dashboard will work along side uPortal, more of a companion app. It utilizes the uPortal rest APIs to collect layout info. It pulls notifications from the notification portlet resource URL.
 
@@ -47,4 +49,8 @@ Read more about that here: http://tomcat.apache.org/maven-plugin-2.0/tomcat7-mav
 
 With this you can run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy` if you have already deployed it once.
 
+### Codenvy Setup
 
++ Create a codenvy account (codenvy.com)
++ Click [![alt](https://codenvy.com/factory/resources/factory-white.png)](https://codenvy.com/factory?id=tgb1ssv37wjnblun) and clone the codenvy project.
++ Run The `Multinode-tc7-j7` runner. (upper right corner). This should be the default runner for the project. (Note that it defaults to the root node, so you have to add in /web or /frame to the URL to get to those sub projects)

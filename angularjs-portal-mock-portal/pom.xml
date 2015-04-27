@@ -12,6 +12,6 @@
   <description>Mock Portal Environment</description>
   
   <build>
-    <finalName>mock-portal</finalName>
+    <finalName>portal</finalName>
   </build>
 </project>
