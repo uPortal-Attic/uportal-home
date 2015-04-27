@@ -23,7 +23,7 @@ fi
   popd
   
 if [ "$1" = "master" ]; then
-  cp angularjs-portal-home/src/main/webapp/js/app-config.js.bak angularjs-portal-home/src/main/webapp/js/app-config.js
+  mv angularjs-portal-home/src/main/webapp/js/app-config.js.bak angularjs-portal-home/src/main/webapp/js/app-config.js
 fi
 
 
