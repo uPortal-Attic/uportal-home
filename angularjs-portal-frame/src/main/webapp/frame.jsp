@@ -31,7 +31,7 @@
 </noscript>
 
   <!-- beta header -->
-  <beta-header></beta-header>
+  <!-- <beta-header></beta-header> -->
   <!-- HEADER -->
   <div class="container-fluid" id="body-background">
     <portal-header></portal-header>
