@@ -90,12 +90,17 @@ define(['angular'], function(angular){
             }
         };
 
-        $scope.content = [];
-        $scope.template =  $scope.portlet.widgetConfig.template;
-        $scope.isEmpty = false;
-        $scope.portlet.widgetData = [];
-        console.log("Config for "+ $scope.portlet.fname + ": " + $scope.portlet.widgetConfig);
-        populateWidgetContent();
+        if($scope.portlet.widgetTemplate) {
+            $scope.content = [];
+            $scope.template =  $scope.portlet.widgetTemplate;
+            $scope.isEmpty = false;
+            $scope.portlet.widgetData = [];
+            console.log("Config for "+ $scope.portlet.fname + ": " + $scope.portlet.widgetConfig);
+            populateWidgetContent();
+        } else {
+            console.error($scope.portlet.fname + " said its a widget, but no template defined.");
+            $scope.isEmpty = true;
+        }
     }]);
 
     return app;
