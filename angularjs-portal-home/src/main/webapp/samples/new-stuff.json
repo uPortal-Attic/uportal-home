@@ -5,8 +5,8 @@
                 "expireYr"  : 2016,
                 "expireMon" : 2,
                 "expireDay" : 20,
-                "title" : "Collapsible Sidebar",
-                "shortDesc" : "Don't see the new sidebar?  Sorry for the glitch!  Refresh the page and it should appear. ",
+                "title" : "AngularJS Portal",
+                "shortDesc" : "Welcome to the alternative home page to uPortal.",
                 "link" : null
               }
             ]

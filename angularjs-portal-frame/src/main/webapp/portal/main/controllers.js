@@ -3,7 +3,7 @@
 define(['angular'], function(angular) {
   var app = angular.module('portal.main.controllers', []);
 
-  app.controller('MainController', ['$localStorage', '$sessionStorage','$scope', function($localStorage, $sessionStorage, $scope) {
+  app.controller('MainController', ['$localStorage', '$sessionStorage','$scope', '$document', 'NAMES', function($localStorage, $sessionStorage, $scope, $document, NAMES) {
     var defaults = {
             showSidebar: true,
             sidebarQuicklinks: false,
@@ -18,8 +18,18 @@ define(['angular'], function(angular) {
             gravatarEmail : null,
             useGravatar : false
             };
-    $scope.$storage = $localStorage.$default(defaults);
-
+    
+    
+    //=====functions ======
+    var init = function(){
+      $scope.$storage = $localStorage.$default(defaults);
+        
+      $scope.NAMES=NAMES;
+        
+      if(NAMES.title) {
+        $document[0].title=NAMES.title;
+      }
+    }
     $scope.resetLocal = function() {
         $localStorage.$reset(defaults);
     };
@@ -31,6 +41,9 @@ define(['angular'], function(angular) {
     $scope.reload = function() {
         location.reload();
     }
+    
+    //run init
+    init();
   } ]);
 
   /* Username */
