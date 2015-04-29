@@ -76,7 +76,7 @@ define(['angular'], function(angular){
                         $scope.content = $scope.portlet.widgetData;
                         if(Array.isArray($scope.content) &&  $scope.content.length == 0) {
                             $scope.isEmpty = true;
-                        } else if($scope.portlet.widgetConfig.evalString
+                        } else if($scope.portlet.widgetConfig && $scope.portlet.widgetConfig.evalString
                             && eval($scope.portlet.widgetConfig.evalString)) {
                             //ideally this would do a check on an embedded object for emptiness
                             //example : '$scope.content.report.length === 0'
