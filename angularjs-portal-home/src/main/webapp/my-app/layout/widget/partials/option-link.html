@@ -6,10 +6,10 @@
     <div ng-if="portlet.widgetData.length == 0">
         loading...
     </div>
-    <div ng-if="config.singleElement && (!portlet.widgetData[config.arrayName] || portlet.widgetData[config.arrayName].length == 0)">
+    <div ng-if="config.singleElement && (!portlet.widgetData[config.arrayName] || portlet.widgetData[config.arrayName].length == 0)" class='center'>
         {{portlet.widgetData[config.display]}}
     </div>
-    <div ng-if="portlet.widgetData && portlet.widgetData[config.arrayName] && portlet.widgetData[config.arrayName].length >= 1">
+    <div ng-if="portlet.widgetData && portlet.widgetData[config.arrayName] && portlet.widgetData[config.arrayName].length >= 1" style='margin-top: -10px;'>
        <select ng-model="portlet.selectedUrl" class='form-control'>
            <option ng-if='config.singleElement' selected="selected" value="{{portlet.widgetData[config.value]}}">{{portlet.widgetData[config.display]}}</option>
            <option ng-repeat='obj in portlet.widgetData[config.arrayName]' value="{{obj[config.value]}}">{{obj[config.display]}}</option>
