@@ -45,18 +45,25 @@ define(['angular'], function(angular){
 
     app.controller('WeatherController', ['$scope', 'layoutService', function($scope, layoutService){
         $scope.weatherData = [];
+        $scope.loading = false;
         var populateWidgetContent = function() {
             if($scope.portlet.widgetURL && $scope.portlet.widgetType) {
+                $scope.loading = true;
                 //fetch portlet widget json
                 $scope.portlet.widgetData = [];
                 layoutService.getWidgetJson($scope.portlet).then(function(data) {
+                    $scope.loading = false;
                     if(data) {
                         console.log(data);
                         $scope.portlet.widgetData = data.weathers;
                         $scope.weatherData = $scope.portlet.widgetData;
                     } else {
+                        $scope.error = true;
                         console.warn("Got nothing back from widget fetch");
                     }
+                }, function(){
+                    $scope.loading = false;
+                    $scope.error = true;
                 });
             }
         };

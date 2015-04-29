@@ -1,23 +1,23 @@
 <div>
 
-    <div ng-if="!weather.location">
-		<div ng-model="noLocations" ng-init="noLocations=true">
-			<i class="fa fa-exclamation-triangle" aria-label='Warning'></i>
-			<div class="warning-message-weather-widget">Hold up! You haven't set any weather locations yet! Launch the full app to select your weather locations.</div>
-		</div>
-		
-		<div ng-if="!noLocations"id="loading">
-    		<loading-gif data-object='weatherData'></loading-gif>
-    	</div>
-	</div>
+    <div ng-if="weatherData && weatherData.length == 0 && !loading && !error">
+        <div>
+            <i class="fa fa-exclamation-triangle" aria-label='Warning'></i>
+            <div class="warning-message-weather-widget">Hold up! You haven't set any weather locations yet! Launch the full app to select your weather locations.</div>
+        </div>
+    </div>
+    
+    <div ng-if="loading" id="loading">
+       <loading-gif data-object='weatherData'></loading-gif>
+   </div>
 
-    <div ng-if="weather.location && weatherData.length == 0">
-	    <i class="fa fa-frown-o" aria-label="Error"></i>
-        <div class="error-message-weather-widget"> Oops! The weather service seems to be down. <a href="http://www.weather.com/weather/today/l/USWI0411:1:US" target="_blank">Try clicking here for Madison weather!</a></div>
-	</div>
-	
+    <div ng-if="error">
+        <i class="fa fa-frown-o" aria-label="Error"></i>
+        <p class="credit"> Oops! The weather service seems to be down. <a href="http://www.weather.com/weather/today/l/USWI0411:1:US" target="_blank">Try clicking here for Madison weather!</a></p>
+    </div>
+    
     <ul class="widget-list">
-        <li ng-repeat="weather in portlet.widgetData | limitTo:2">
+        <li ng-repeat="weather in weatherData | limitTo:2">
           <a href="{{weather.moreInformationLink}}" target='_blank'>
             <p class="bold">{{weather.location.city}}, {{weather.location.stateOrCountry}}
             </p>
@@ -45,4 +45,4 @@
     
     <p class="credit">Weather provided by <a href="http://www.worldweatheronline.com/">World Weather Online</a></p>
 </div>
-<a class="btn btn-default launch-app-button" href="{{::portlet.url}}">Launch Full App</a>
+<a class="btn btn-default launch-app-button" href="{{::portlet.url}}">Launch full app</a>
