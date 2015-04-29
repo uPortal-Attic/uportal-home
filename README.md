@@ -53,4 +53,5 @@ With this you can run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy` if you have
 
 + Create a codenvy account (codenvy.com)
 + Click [![alt](https://codenvy.com/factory/resources/factory-white.png)](https://codenvy.com/factory?id=tgb1ssv37wjnblun) and clone the codenvy project.
++ If the project setup wizard prompts, select a java maven project.
 + Run The `Multinode-tc7-j7` runner. (upper right corner). This should be the default runner for the project. (Note that it defaults to the root node, so you have to add in /web or /frame to the URL to get to those sub projects)
