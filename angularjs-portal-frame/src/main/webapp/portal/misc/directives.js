@@ -8,6 +8,7 @@ define(['angular', 'require'], function(angular, require) {
      * REQUIRED attribute that isn't listed below:
      *   object : this is the scope array we are watching to show/hide gif
      *   empty  : this is the scope boolean flag that you set if the data came back and it was empty
+     *   reuse  : (optional) set to true, it won't destroy the loading gif, just hide it
      *
      */
     app.directive('loadingGif', [function(){
@@ -30,8 +31,10 @@ define(['angular', 'require'], function(angular, require) {
                         elm.show();
                     }else{
                         elm.hide();
-                        elm.css('margin','0')
-                        elm.html(""); //removes content of div, so if it shows again later it doesn't make the page look funky
+                        if(!attrs.reuse) {
+                          elm.css('margin','0')
+                          elm.html(""); //removes content of div, so if it shows again later it doesn't make the page look funky
+                        }
                     }
                 });
             }
