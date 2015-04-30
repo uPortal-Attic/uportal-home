@@ -2,7 +2,7 @@
   <div class="portlet-header">
     <img src="img/stand-back.jpg" alt="Science" height="180px" style="left: 30%; width: inherit;">
     <h1>Beta Settings</h1>
-    <p>Opting in/out of beta features</p> 
+    <p>Opting in/out of beta features</p>
   </div>
   <div class="col-xs-12 no-padding portlet-body">
     <h3 class="home-section-header">Your Options</h3>
@@ -13,10 +13,10 @@
                    <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowSettings, 'btn-default' : !$storage.sidebarShowSettings }" ng-model="$storage.sidebarShowSettings" btn-radio="true">On</label>
                    <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowSettings, 'btn-default' : !$storage.sidebarShowSettings }" ng-model="$storage.sidebarShowSettings" btn-radio="false">Off</label>
                </span>
-               Sidebar Settings 
+               Sidebar Settings
            </h4>
            <small>Shows the settings button to get to this page easier</small>
-           
+
        </li>
        <li class="portlet-container-home beta-card-style">
            <h4>
@@ -26,8 +26,8 @@
                </span>
                Sidebar Quicklinks
            </h4>
-           <small>Shows quicklinks to various campus sites in sidebar</small> 
-           
+           <small>Shows quicklinks to various campus sites in sidebar</small>
+
        </li>
        <li class="portlet-container-home beta-card-style">
          <h4>
@@ -90,7 +90,7 @@
             </div>
             <label class="btn btn-primary" ng-model="$storage.homeImg" btn-radio="'img/terrace.jpg'">Chairs at the Union Terrace</label>
             <label class="btn btn-primary" ng-model="$storage.homeImg" btn-radio="'img/square.jpg'">333 East Campus</label>
-            
+
           </div>
        </li>
        <li class="no-padding portlet-container-home  beta-card-style" style='text-align : center;'>
@@ -101,14 +101,14 @@
              <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowProfile, 'btn-default' : !$storage.sidebarShowProfile }" ng-model="$storage.sidebarShowProfile" btn-radio="true">On</label>
              <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowProfile, 'btn-default' : !$storage.sidebarShowProfile }" ng-model="$storage.sidebarShowProfile" btn-radio="false">Off</label>
            </span>
-           Show profile picture 
+           Show profile picture
          </h5>
          <h5 ng-if='$storage.sidebarShowProfile'>
            <span class="btn-group">
              <label class="btn" ng-class="{'btn-success' : $storage.useGravatar, 'btn-default' : !$storage.useGravatar }" ng-model="$storage.useGravatar" btn-radio="true">Yes</label>
              <label class="btn" ng-class="{'btn-success' : $storage.useGravatar, 'btn-default' : !$storage.useGravatar }" ng-model="$storage.useGravatar" btn-radio="false">No</label>
            </span>
-           Use Gravatar Email 
+           Use Gravatar Email
          </h5>
          <div ng-show="$storage.useGravatar && $storage.sidebarShowProfile">
             <label for="gravatarEmail">Gravatar Email <small ng-show="$storage.useGravatar">Setup gravatar account <a href='https://en.gravatar.com/' target='_blank'>here</a>.</small></label>
@@ -130,10 +130,10 @@
            </div>
            <label class="btn btn-primary" ng-model="$storage.profileImg" btn-radio="'img/terrace.jpg'">Chairs at the Union Terrace</label>
            <label class="btn btn-primary" ng-model="$storage.profileImg" btn-radio="'img/square.jpg'">333 East Campus</label>
-           
+
          </div>
        </li>
-       <li class="portlet-container-home beta-card-style">
+       <li class="portlet-container-home beta-card-style center">
             <h4>Danger Zone</h4>
             <h4>
             <span class="btn-group">
@@ -145,10 +145,22 @@
             </h4>
             <small>Reset to default and clearing the session storage can be nice to clean the slate.</small>
          </li>
-         <li class="portlet-container-home beta-card-style">
-            <h4>Forever Loading Icon</h4>
-            <loading-gif data-object='[]' data-empty='false'></loading-gif>
-            <small>Just a place to have the loading icon load forrrreeeevverrrr</small>
+         <li class="portlet-container-home beta-card-style center" ng-init="dataempty=false;dataempty2=false;obj=[]">
+            <h4>Loading Icon Examples</h4>
+            <small>Loading Icon Usage Examples</small>
+            <div class='fluid-container row'>
+              <div class='col-xs-6'>
+                <h5>One Time Use</h5>
+                <button class='btn btn-flat' ng-click="dataempty2=!dataempty2">Toggle</button>
+                <loading-gif data-object='obj' data-empty='dataempty2'></loading-gif>
+              </div>
+              <div class='col-xs-6'>
+                <h5>Reusable</h5>
+                <button class='btn btn-flat' ng-click="dataempty=!dataempty">Toggle</button>
+                <loading-gif data-object='obj' data-empty='dataempty' data-reuse='true'></loading-gif>
+              </div>
+            </div>
+
          </li>
     </ul>
   </div>
