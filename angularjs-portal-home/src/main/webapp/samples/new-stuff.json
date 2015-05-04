@@ -2,11 +2,11 @@
             [
               { 
                 "id" : 1,
-                "expireYr"  : 2016,
-                "expireMon" : 2,
-                "expireDay" : 20,
-                "title" : "AngularJS Portal",
-                "shortDesc" : "Welcome to the alternative home page to uPortal.",
+                "expireYr"  : 2015,
+                "expireMon" : 5,
+                "expireDay" : 26,
+                "title" : "Widgets",
+                "shortDesc" : "Useful info at a glance: courses, payroll, weather, and more.",
                 "link" : null
               }
             ]
