@@ -2,7 +2,7 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app 
+<web-app
     xmlns="http://java.sun.com/xml/ns/javaee"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
@@ -11,16 +11,19 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  
-  <servlet>
-      <servlet-name>StaticServlet</servlet-name>
-      <jsp-file>/index.jsp</jsp-file>
-  </servlet>
-  
-  <!-- Keep this in sync with angular-page.js -->
-  <servlet-mapping>
-      <servlet-name>StaticServlet</servlet-name>
-      <url-pattern>/settings</url-pattern>
-  </servlet-mapping>
+
+  <!-- Since this is a one-page angular app, let requests that don't map to resources fall back
+       to the app.  This way, we don't need an explicit servlet-mapping for every url pattern
+       already defined for the angular $routeProvider, nor to keep the two mappings in sync.
+       index.jsp will change the response status to 200 to hide this hack from the requester. -->
+  <error-page>
+    <error-code>404</error-code>
+    <location>/index.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>403</error-code>
+    <location>/index.jsp</location>
+  </error-page>
+
 </web-app>
 
