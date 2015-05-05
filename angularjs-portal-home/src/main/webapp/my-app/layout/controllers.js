@@ -213,6 +213,7 @@ define(['angular', 'jquery'], function(angular, $) {
             $scope.switchMode = function(mode) {
                 $localStorage.layoutMode = mode;
                 $location.path('/' + mode);
+                miscService.pushGAEvent('Widgets', 'View', mode);
             };
 
             $scope.modeIs = function(mode) {
