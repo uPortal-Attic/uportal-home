@@ -3,7 +3,7 @@
     <div ng-if="weatherData && weatherData.length == 0 && !loading && !error">
         <div>
             <i class="fa fa-exclamation-triangle" aria-label='Warning'></i>
-            <div class="warning-message-weather-widget">Hold up! You haven't set any weather locations yet! Launch the full app to select your weather locations.</div>
+            <div class="warning-message-weather-widget">Hold up! You haven't set any weather locations yet. Launch the full app to select your weather locations.</div>
         </div>
     </div>
     
@@ -12,7 +12,7 @@
    </div>
 
     <div ng-if="error">
-        <p class='error-message-weather-widget'><i class="fa fa-frown-o" aria-label="Error"></i><br/>Oops! The weather service seems to be down. <a href="http://www.ssec.wisc.edu/localweather/" target="_blank">Try clicking here for Madison weather!</a></p>
+        <p class='error-message-weather-widget'><i class="fa fa-frown-o" aria-label="Error"></i><br/>Oops! The weather service seems to be down. <a href="http://www.ssec.wisc.edu/localweather/" target="_blank">Try clicking here for Madison weather.</a></p>
     </div>
     
     <ul class="widget-list">
