@@ -18,6 +18,23 @@
          "altMaxUrl":false
       },
       {
+         "nodeId":"u23l1n234",
+         "title":"/r/uwmadison",
+         "description":"The UW-Madison subreddit. We do not monitor this feed.",
+         "url":"https://www.reddit.com/r/uwmadison",
+         "iconUrl":null,
+         "faIcon":"fa-reddit",
+         "fname":"uwmadison-sub-reddit",
+         "target": "_blank",
+         "widgetURL": "/web/api/uwmadisonreddit.json",
+         "widgetType":"generic",
+         "widgetTemplate":"<div style='max-height: 210px; overflow-y: scroll' ng-init='lim=5'> <ul class='widget-list' style='padding : 0'> <li ng-repeat='item in content.data.children | limitTo:lim'> <a href='{{item.data.url}}' target='_blank'> <p class='bold'>{{item.data.title}}<span class='right'>score: {{item.data.score}}</span></p> <p>{{item.data.selftext}}</p> </a> </li> <li class='center' ng-hide='content.data.children.length <= lim' ng-click='lim=lim+5'><button class='btn btn-flat center'>Load More</button></li></ul></div><a class='btn btn-default launch-app-button' href='https://www.reddit.com/r/uwmadison' target='_blank'>Launch UW subreddit</a>",
+         "widgetConfig":null,
+         "staticContent":null,
+         "pithyStaticContent":null,
+         "altMaxUrl": true
+      },
+      {
          "nodeId":"u23l1n19",
          "title":"Course Services",
          "description":"Access services including Learn@UW, email class list requests, Registrar's Office forms, Teaching and Learning Excellence, and more.",
@@ -62,7 +79,7 @@
          "target":null,
          "widgetURL":"/portal/p/earnings-statement/max/earningStatements.resource.uP",
          "widgetType":"generic",
-         "widgetTemplate":"\n        <div style='margin : 0 10px 0 10px;'>\n           <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>\n           <ul class='widget-list'><li ng-repeat=\\\"item in content.report |orderBy: ['-paid.substring(6)','-paid.substring(0,2)','-paid.substring(3,5)'] | limitTo:3\\\" class='center'><a href='/portal/p/earnings-statement/max/earning_statement.pdf.resource.uP?pP_docId={{item.docId}}' target='_blank'><i class='fa fa-bank fa-fw'></i> {{item.paid}} Statement</a></li></ul>\n           <div ng-if='isEmpty' style='padding: 10px; font-size: 14px;'><i class='fa fa-exclamation-triangle fa-3x pull-left' style='color: #b70101;'></i><span style='color: #898989;'>We had a problem finding your statements (or you don't have any).</span></div>\n           <div style='background-color: #EAEAEA; border-radius:4px;padding:10px; margin-top:10px;'>\n              <span class='bold display-block left' style='text-align: left; padding-left: 10px; font-size: 14px;'>See all payroll information for more options:</span> \n              <ul style='text-align: left;list-style-type: disc; font-size: 12px;'>\n                 <li>See all paystubs</li>\n                 <li>Tax statements</li>\n                 <li>Update direct deposit</li>\n              </ul>\n           </div>\n        </div>\n        <a class='btn btn-default launch-app-button' href='/portal/p/earnings-statement'>See all payroll information</a>\n        ",
+         "widgetTemplate":"\n        <div style='margin : 0 10px 0 10px;'>\n           <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>\n           <ul class='widget-list'><li ng-repeat=\"item in content.report |orderBy: ['-paid.substring(6)','-paid.substring(0,2)','-paid.substring(3,5)'] | limitTo:3\" class='center'><a href='/portal/p/earnings-statement/max/earning_statement.pdf.resource.uP?pP_docId={{item.docId}}' target='_blank'><i class='fa fa-bank fa-fw'></i> {{item.paid}} Statement</a></li></ul>\n           <div ng-if='isEmpty' style='padding: 10px; font-size: 14px;'><i class='fa fa-exclamation-triangle fa-3x pull-left' style='color: #b70101;'></i><span style='color: #898989;'>We had a problem finding your statements (or you don't have any).</span></div>\n           <div style='background-color: #EAEAEA; border-radius:4px;padding:10px; margin-top:10px;'>\n              <span class='bold display-block left' style='text-align: left; padding-left: 10px; font-size: 14px;'>See all payroll information for more options:</span> \n              <ul style='text-align: left;list-style-type: disc; font-size: 12px;'>\n                 <li>See all paystubs</li>\n                 <li>Tax statements</li>\n                 <li>Update direct deposit</li>\n              </ul>\n           </div>\n        </div>\n        <a class='btn btn-default launch-app-button' href='/portal/p/earnings-statement'>See all payroll information</a>\n        ",
          "widgetConfig":{
             "evalString":"!$scope.content.report || $scope.content.report.length === 0"
          },
