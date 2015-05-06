@@ -18,6 +18,12 @@
 </head>
 
 <body  ng-controller="MainController as mainCtrl">
+<!--[if lt IE 10]>
+<div class="browserupgrade">
+  <span class="fa fa-frown-o"></span>
+  <p>You are using an outdated browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+</div>
+<![endif]-->
 <noscript>
     <div class="alert alert-warning alert-dismissible" role="alert" style="margin-bottom:0;">
     <div class="container">
