@@ -40,3 +40,9 @@ notifications.username=
 notifications.password=
 notifications.attributes=uid
 
+#subreddit feed example
+uwmadisonreddit.uri=https://www.reddit.com/r/uwmadison/hot.json
+uwmadisonreddit.username=
+uwmadisonreddit.password=
+uwmadisonreddit.attributes=
+
