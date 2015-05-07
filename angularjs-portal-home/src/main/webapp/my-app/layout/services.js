@@ -168,6 +168,22 @@ define(['angular', 'jquery'], function(angular, $) {
                 }
             );
         };
+        
+        var getExclusiveMarkup = function(portlet) {
+            return $http.get('/uPortal/p/' + portlet.fname + '/exclusive/render.uP',{ cache : true}).then(
+                    function(result) {
+                        var data = result.data;
+                        if(data) {
+                            portlet.exclusiveContent = data;
+                            console.log(portlet.fname + "'s exclusive data came back with data");
+                        }
+                        return data;
+                    },
+                    function(reason) {
+                        miscService.redirectUser(reason.status, 'exclusive markup for ' + portlet.fname + " failed.");
+                    }
+                );
+        }
 
         return {
             getLayout : getLayout,
@@ -176,7 +192,8 @@ define(['angular', 'jquery'], function(angular, $) {
             getNewStuffFeed : getNewStuffFeed,
             addToHome : addToHome,
             removeFromHome : removeFromHome,
-            getWidgetJson : getWidgetJson
+            getWidgetJson : getWidgetJson,
+            getExclusiveMarkup : getExclusiveMarkup
         }
 
     }]);

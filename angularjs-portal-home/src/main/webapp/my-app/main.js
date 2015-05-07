@@ -6,7 +6,7 @@ define([
     './layout/list/route',
     './notifications/route',
     'portal/settings/route',
-    './layout/static/route',
+    './layout/static/routes',
     './layout/widget/route',
     'portal',
     'app-config',
@@ -26,7 +26,7 @@ define([
     './notifications/controllers',
     './notifications/directives',
     './search/controllers'
-], function(angular, require, featuresRoute, marketplaceRoutes, listRoute, notificationsRoute, settingsRoute, staticRoute, widgetRoute) {
+], function(angular, require, featuresRoute, marketplaceRoutes, listRoute, notificationsRoute, settingsRoute, staticRoutes, widgetRoute) {
 
     var app = angular.module('my-app', [
         'app-config',
@@ -60,7 +60,8 @@ define([
             when('/list', listRoute).
             when('/notifications', notificationsRoute).
             when('/settings', settingsRoute).
-            when('/static/:fname', staticRoute).
+            when('/static/:fname', staticRoutes.staticMax).
+            when('/exclusive/:fname', staticRoutes.exclusiveMax).
             when('/widgets', widgetRoute).
             otherwise({ redirectTo : '/list'});
     }]);
