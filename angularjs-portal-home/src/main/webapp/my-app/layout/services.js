@@ -16,7 +16,7 @@ define(['angular', 'jquery'], function(angular, $) {
         };
     });
 
-    app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionStorage', '$q', 'SERVICE_LOC', function($http, miscService, mainService, $sessionStorage, $q, SERVICE_LOC) {
+    app.factory('layoutService', ['$sce','$http', 'miscService', 'mainService', '$sessionStorage', '$q', 'SERVICE_LOC', function($sce, $http, miscService, mainService, $sessionStorage, $q, SERVICE_LOC) {
         var addToHome = function addToHomeFunction(portlet) {
             var fname = portlet.fname;
             var tabName = SERVICE_LOC.layoutTab;
@@ -174,7 +174,7 @@ define(['angular', 'jquery'], function(angular, $) {
                     function(result) {
                         var data = result.data;
                         if(data) {
-                            portlet.exclusiveContent = data;
+                            portlet.exclusiveContent = $sce.trustAsHtml(data);
                             console.log(portlet.fname + "'s exclusive data came back with data");
                         }
                         return data;
