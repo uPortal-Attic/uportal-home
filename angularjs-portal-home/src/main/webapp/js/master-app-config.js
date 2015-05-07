@@ -12,6 +12,7 @@ define(['angular'], function(angular) {
             'sessionInfo' : '/uPortal/api/session.json',
             'sidebarInfo' : '/web/samples/sidebar.json',
             'newstuffInfo' : '/web/samples/new-stuff.json',
+            'context'     : '/uPortal/',
             'base'        : '/uPortal/api/',
             'layout' : 'layoutDoc?tab=welcome',
             'layoutTab' : 'welcome',

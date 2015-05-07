@@ -170,7 +170,7 @@ define(['angular', 'jquery'], function(angular, $) {
         };
         
         var getExclusiveMarkup = function(portlet) {
-            return $http.get('/uPortal/p/' + portlet.fname + '/exclusive/render.uP',{ cache : true}).then(
+            return $http.get(SERVICE_LOC.context + '/p/' + portlet.fname + '/exclusive/render.uP',{ cache : true}).then(
                     function(result) {
                         var data = result.data;
                         if(data) {
