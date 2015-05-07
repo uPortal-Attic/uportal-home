@@ -30,6 +30,17 @@
 
        </li>
        <li class="portlet-container-home beta-card-style">
+           <h4>
+               <span class="btn-group">
+                   <label class="btn" ng-class="{'btn-success' : $storage.webPortletRender, 'btn-default' : !$storage.webPortletRender, }" ng-model="$storage.webPortletRender" btn-radio="true">On</label>
+                   <label class="btn" ng-class="{'btn-success' : $storage.webPortletRender, 'btn-default' : !$storage.webPortletRender, }" ng-model="$storage.webPortletRender" btn-radio="false">Off</label>
+               </span>
+               /web portlet rendering
+           </h4>
+           <small>Utilizes the /web's exclusive page for rendering the portlets</small>
+
+       </li>
+       <li class="portlet-container-home beta-card-style">
          <h4>
            <span class="btn-group">
              <label class="btn" ng-class="{'btn-success' : $storage.notificationsDemo, 'btn-default' : !$storage.notificationsDemo }" ng-model="$storage.notificationsDemo" btn-radio="true">On</label>
