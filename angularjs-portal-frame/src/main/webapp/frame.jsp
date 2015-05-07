@@ -21,7 +21,7 @@
 <!--[if lt IE 10]>
 <div class="browserupgrade">
   <span class="fa fa-frown-o"></span>
-  <p>You are using an outdated browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <p>Sorry, your browser is out of date and not supported by MyUW. Learn how to upgrade <a href="http://browsehappy.com/">here</a>.</p>
 </div>
 <![endif]-->
 <noscript>
