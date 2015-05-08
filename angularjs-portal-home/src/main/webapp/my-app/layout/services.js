@@ -16,7 +16,7 @@ define(['angular', 'jquery'], function(angular, $) {
         };
     });
 
-    app.factory('layoutService', ['$http', 'miscService', 'mainService', '$sessionStorage', '$q', 'SERVICE_LOC', function($http, miscService, mainService, $sessionStorage, $q, SERVICE_LOC) {
+    app.factory('layoutService', ['$sce','$http', 'miscService', 'mainService', '$sessionStorage', '$q', 'SERVICE_LOC', function($sce, $http, miscService, mainService, $sessionStorage, $q, SERVICE_LOC) {
         var addToHome = function addToHomeFunction(portlet) {
             var fname = portlet.fname;
             var tabName = SERVICE_LOC.layoutTab;
@@ -168,6 +168,22 @@ define(['angular', 'jquery'], function(angular, $) {
                 }
             );
         };
+        
+        var getExclusiveMarkup = function(portlet) {
+            return $http.get(SERVICE_LOC.context + '/p/' + portlet.fname + '/exclusive/render.uP',{ cache : true}).then(
+                    function(result) {
+                        var data = result.data;
+                        if(data) {
+                            portlet.exclusiveContent = $sce.trustAsHtml(data);
+                            console.log(portlet.fname + "'s exclusive data came back with data");
+                        }
+                        return data;
+                    },
+                    function(reason) {
+                        miscService.redirectUser(reason.status, 'exclusive markup for ' + portlet.fname + " failed.");
+                    }
+                );
+        }
 
         return {
             getLayout : getLayout,
@@ -176,7 +192,8 @@ define(['angular', 'jquery'], function(angular, $) {
             getNewStuffFeed : getNewStuffFeed,
             addToHome : addToHome,
             removeFromHome : removeFromHome,
-            getWidgetJson : getWidgetJson
+            getWidgetJson : getWidgetJson,
+            getExclusiveMarkup : getExclusiveMarkup
         }
 
     }]);

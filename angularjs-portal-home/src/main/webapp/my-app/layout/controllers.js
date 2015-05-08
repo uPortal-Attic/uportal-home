@@ -38,7 +38,9 @@ define(['angular', 'jquery'], function(angular, $) {
                 if (portlet.staticContent != null
                     && portlet.altMaxUrl == false) {
                     return "SIMPLE";
-                } else {
+                } else if(portlet.altMaxUrl == false && $localStorage.webPortletRender){
+                    return "EXCLUSIVE";
+                }else {
                     return "NORMAL";
                 }
             };
