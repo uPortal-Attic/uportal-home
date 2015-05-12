@@ -21,7 +21,7 @@
 <!--[if lt IE 10]>
 <div class="browserupgrade">
   <span class="fa fa-frown-o"></span>
-  <p>Sorry, your browser is out of date and not supported by MyUW.<br/>Learn how to upgrade <a href="http://browsehappy.com/">here</a>.</p>
+  <p>Sorry, MyUW beta does not support your browser.<br/><a href="http://browsehappy.com/">Learn how to upgrade your browser.</a><br/>Can't upgrade? <a href="http://my.wisc.edu/portal/Login?profile=default">Switch back to MyUW classic.</a></p>
 </div>
 <![endif]-->
 <noscript>
