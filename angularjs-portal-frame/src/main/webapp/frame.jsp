@@ -21,7 +21,7 @@
 <!--[if lt IE 10]>
 <div class="browserupgrade">
   <span class="fa fa-frown-o"></span>
-  <p>Sorry, MyUW beta does not support your browser.<br/><a href="http://browsehappy.com/">Learn how to upgrade your browser.</a><br/>Can't upgrade? <a href="http://my.wisc.edu/portal/Login?profile=default">Switch back to MyUW classic.</a></p>
+  <p>Sorry, MyUW beta does not support your browser.<br/><a href="https://kb.wisc.edu/myuw/page.php?id=51345">Learn how to upgrade your browser.</a><br/>Can't upgrade? <a href="http://my.wisc.edu/portal/Login?profile=default">Switch back to MyUW classic.</a></p>
 </div>
 <![endif]-->
 <noscript>
