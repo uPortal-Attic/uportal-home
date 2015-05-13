@@ -38,7 +38,9 @@ define(['angular', 'jquery'], function(angular, $) {
                 if (portlet.staticContent != null
                     && portlet.altMaxUrl == false) {
                     return "SIMPLE";
-                } else {
+                } else if(portlet.altMaxUrl == false && $localStorage.webPortletRender){
+                    return "EXCLUSIVE";
+                }else {
                     return "NORMAL";
                 }
             };
@@ -213,6 +215,7 @@ define(['angular', 'jquery'], function(angular, $) {
             $scope.switchMode = function(mode) {
                 $localStorage.layoutMode = mode;
                 $location.path('/' + mode);
+                miscService.pushGAEvent('Widgets', 'View', mode);
             };
 
             $scope.modeIs = function(mode) {

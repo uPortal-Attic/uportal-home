@@ -3,6 +3,58 @@
 define(['angular', 'jquery'], function(angular, $) {
 
     var app = angular.module('my-app.layout.static.controllers', []);
+    
+    app.controller('ExclusiveContentController', ['$modal',
+                                                  '$location',
+                                                  '$sessionStorage',
+                                                  '$routeParams',
+                                                  '$rootScope',
+                                                  '$scope',
+                                                  'layoutService',
+                                                  'miscService',
+                                                  'sharedPortletService',
+                                                  function ($modal,
+                                                            $location,
+                                                            $sessionStorage,
+                                                            $routeParams,
+                                                            $rootScope,
+                                                            $scope,
+                                                            layoutService,
+                                                            miscService,
+                                                            sharedPortletService) {
+        miscService.pushPageview();
+        $scope.portlet = sharedPortletService.getProperty() || {};
+        var that = this;
+        that.getPortlet = function (fname, portlets) {
+            for (var p in portlets) {
+                if (portlets[p].fname == fname) {
+                    return portlets[p];
+                }
+            }
+            return {};
+        };
+        
+        if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== $routeParams.fname) {
+
+            if (typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
+                $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
+            }
+            if (typeof $scope.portlet.fname === 'undefined') {
+                layoutService.getApp($routeParams.fname).then(function (data) {
+                    $scope.portlet = data.portlet;
+                    if (typeof $scope.portlet === 'undefined' ||
+                        typeof $scope.portlet.fname === 'undefined') {
+                        $location.path('/');
+                    } else {
+                        layoutService.getExclusiveMarkup($scope.portlet);
+                    }
+                });
+            } else {
+                layoutService.getExclusiveMarkup($scope.portlet);
+            }
+
+        }
+    }]);
 
     app.controller('StaticContentController', [
         '$modal',
