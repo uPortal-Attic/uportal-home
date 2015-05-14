@@ -17,7 +17,8 @@ define(['angular'], function(angular) {
             layoutMode : 'list', //other option is 'widgets'
             gravatarEmail : null,
             useGravatar : false,
-            webPortletRender : false
+            webPortletRender : false,
+            mobileWidgetToggle : false
             };
     
     

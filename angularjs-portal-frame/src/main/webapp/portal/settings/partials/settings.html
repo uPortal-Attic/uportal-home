@@ -90,6 +90,16 @@
              </h4>
              <small>Show the My Courses, Email, and Calendar example widgets</small>
          </li>
+         <li class="portlet-container-home beta-card-style">
+             <h4>
+            <span class="btn-group">
+              <label class="btn" ng-class="{'btn-success' : $storage.mobileWidgetToggle, 'btn-default' : !$storage.mobileWidgetToggle }" ng-model="$storage.mobileWidgetToggle" btn-radio="true">Show</label>
+              <label class="btn" ng-class="{'btn-success' : $storage.mobileWidgetToggle, 'btn-default' : !$storage.mobileWidgetToggle }" ng-model="$storage.mobileWidgetToggle" btn-radio="false">Hide</label>
+            </span>
+                 Widget Toggle Mobile
+             </h4>
+             <small>Show/Hide widget toggle on small windows (mobile)</small>
+         </li>
     </ul>
     <ul class="col-sm-6" style='padding-top: 1em;'>
         <li class="no-padding portlet-container-home  beta-card-style" style='text-align : center;'>
