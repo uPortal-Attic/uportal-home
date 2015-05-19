@@ -4,7 +4,7 @@
   <groupId>edu.wisc.my.portal.angular</groupId>
   <artifactId>angularjs-portal-parent</artifactId>
   <packaging>pom</packaging>
-  <version>4.1.1.23-SNAPSHOT</version>
+  <version>4.1.1.22</version>
   <name>angularjs-portal</name>
   <description>AngularJS Portal is an alternative front end to uPortal</description>
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
@@ -29,7 +29,7 @@
     <connection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</connection>
     <developerConnection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</developerConnection>
     <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
-    <tag>HEAD</tag>
+    <tag>angularjs-portal-parent-4.1.1.22</tag>
   </scm>
 
   <properties>
