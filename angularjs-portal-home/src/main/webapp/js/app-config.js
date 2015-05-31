@@ -22,7 +22,9 @@ define(['angular'], function(angular) {
             }
         })
         .constant('NAMES', {
-            'title' : 'MyUW'
+            'title' : 'MyUW',
+            'crest' : 'img/uwcrest_web_sm.png',
+            'crestalt' : 'UW Crest'
         })
         ;
 

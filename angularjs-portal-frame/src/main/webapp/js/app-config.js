@@ -13,7 +13,9 @@ define(['angular'], function(angular) {
             'sidebarInfo' : '/web/samples/sidebar.json'
         })
         .constant('NAMES', {
-            'title' : 'MyUW'
+            'title' : 'MyUW',
+            'crest' : 'img/uwcrest_web_sm.png',
+            'crestalt' : 'UW Crest'
         })
         ;
 
