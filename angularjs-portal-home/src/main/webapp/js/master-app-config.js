@@ -22,7 +22,9 @@ define(['angular'], function(angular) {
             }
         })
         .constant('NAMES', {
-            'title' : 'uPortal'
+            'title' : 'uPortal',
+            'crest' : null,
+            'crestalt' : null
         })
         ;
 

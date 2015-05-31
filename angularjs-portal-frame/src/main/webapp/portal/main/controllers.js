@@ -58,8 +58,9 @@ define(['angular'], function(angular) {
   }]);
 
   /* Header */
-  app.controller('HeaderController', ['$scope','$location', function($scope, $location) {
+  app.controller('HeaderController', ['$scope','$location', 'NAMES', function($scope, $location, NAMES) {
     this.navbarCollapsed = true;
+    this.crest = NAMES.crest;
     $scope.showSearch = false;
     $scope.showSearchFocus = false;
 
