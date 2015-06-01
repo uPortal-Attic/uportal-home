@@ -45,7 +45,7 @@
   <!-- 
    | Specify a local property that sets up the logging directory
    +-->
-  <property scope="local" name="LOG_DIR" value="${catalina.base}/logs/${CONTEXT_NAME}" />
+  <property scope="local" name="LOG_DIR" value="./logs/${CONTEXT_NAME}" />
 
     <appender name="LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--See http://logback.qos.ch/manual/appenders.html#RollingFileAppender-->
