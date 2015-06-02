@@ -6,25 +6,28 @@ require.config({
     ],
 
     paths: {
-        'angular'          : "bower_components/angular/angular",
-        'app-config'       : "js/app-config",
-        'jquery'           : "bower_components/jquery/dist/jquery.min",
-        'jquery-ui'        : "bower_components/jquery-ui/jquery-ui.min",
-        'ngRoute'          : "bower_components/angular-route/angular-route.min",
-        'ngSanitize'       : "bower_components/angular-sanitize/angular-sanitize.min",
-        'ngStorage'        : "bower_components/ngstorage/ngStorage.min",
-        'sortable'         : "js/sortable",
-        'ui-bootstrap'     : "js/ui-bootstrap",
-        'ui-gravatar'      : "bower_components/angular-gravatar/build/angular-gravatar"
+        'angular'       : "bower_components/angular/angular",
+        'app-config'    : "js/app-config",
+        'jquery'        : "bower_components/jquery/dist/jquery.min",
+        'jquery-ui'     : "bower_components/jquery-ui/jquery-ui.min",
+        'ngRoute'       : "bower_components/angular-route/angular-route.min",
+        'ngSanitize'    : "bower_components/angular-sanitize/angular-sanitize.min",
+        'ngStorage'     : "bower_components/ngstorage/ngStorage.min",
+        'sortable'      : "js/sortable",
+        'ui-bootstrap'  : "bower_components/angular-bootstrap/ui-bootstrap.min",
+        'ui-gravatar'   : "bower_components/angular-gravatar/build/angular-gravatar",
+        // Use ui-bootstrap instead of bootstrap or uw-ui-toolkit.  See https://angular-ui.github.io/bootstrap/
+        //'uw-ui-toolkit' : "bower_components/uw-ui-toolkit/dist/js/uw-ui-toolkit.min"
     },
 
     shim: {
-        'angular'     : { deps: ['jquery'], exports: 'angular' },
-        'ngRoute'     : { deps: ['angular'] },
-        'ngSanitize'  : { deps: ['angular'] },
-        'ngStorage'   : { deps: ['angular'] },
-        'ui-bootstrap': { deps: ['angular'] },
-        'ui-gravatar' : { deps: ['angular'] }
+        'angular'       : { deps: ['jquery'], exports: 'angular' },
+        'ngRoute'       : { deps: ['angular'] },
+        'ngSanitize'    : { deps: ['angular'] },
+        'ngStorage'     : { deps: ['angular'] },
+        'ui-bootstrap'  : { deps: ['angular'] },
+        'ui-gravatar'   : { deps: ['angular'] },
+        'uw-ui-toolkit' : { deps: ['jquery'] }
     }
 
 });
