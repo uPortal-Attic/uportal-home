@@ -14,7 +14,7 @@ require.config({
         'ngSanitize'    : "bower_components/angular-sanitize/angular-sanitize.min",
         'ngStorage'     : "bower_components/ngstorage/ngStorage.min",
         'sortable'      : "js/sortable",
-        'ui-bootstrap'  : "bower_components/angular-bootstrap/ui-bootstrap.min",
+        'ui-bootstrap'  : "bower_components/angular-bootstrap/ui-bootstrap-tpls.min",
         'ui-gravatar'   : "bower_components/angular-gravatar/build/angular-gravatar",
         // Use ui-bootstrap instead of bootstrap or uw-ui-toolkit.  See https://angular-ui.github.io/bootstrap/
         //'uw-ui-toolkit' : "bower_components/uw-ui-toolkit/dist/js/uw-ui-toolkit.min"
