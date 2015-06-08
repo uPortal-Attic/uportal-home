@@ -24,10 +24,10 @@ This is the MyUW home page. It uses the frame as a base then adds in the layout,
 
 To deploy the home build from the base directory described above. Then `cd ./angularjs-portal-home` and run `mvn tomcat7:redeploy` (assuming you have auto deploy configured).  The home will now be deployed to `/web`.
 
-### Running
-To run simply type 'mvn jetty:run` from the root directory. By default jetty runs on port 8080.
+### Running Mock
+To run simply type `mvn jetty:run` from the root directory. By default jetty runs on port 8080.
 
-### Auto deploy setup
+### Deploying to Local Instance
 We added in support to deploy the artifact to tomcat using maven. To setup add a server to your .m2/settings.xml for tomcat. Example:
 ```xml
 <server>
@@ -37,7 +37,9 @@ We added in support to deploy the artifact to tomcat using maven. To setup add a
 </server>
 
 ```
-The id is important here. Then add that user/pass combo to your $TOMCAT_HOME/conf/tomcat-users.xml. Also be sure you have a role of manager listed. Example:
+The id of `TomcatServer` is important here. Add that user/pass combo to your `$TOMCAT_HOME/conf/tomcat-users.xml`. Also be sure you have a role of manager listed. 
+
+Example:
 ```xml
 <role rolename="manager"/>
 <user username="user" password="password" roles="manager-script"/>
@@ -49,9 +51,13 @@ Read more about that here: http://tomcat.apache.org/maven-plugin-2.0/tomcat7-mav
 
 With this you can run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy` if you have already deployed it once.
 
-### Codenvy Setup
+### Run on Codenvy
 
 + Create a codenvy account (codenvy.com)
 + Click [![alt](https://codenvy.com/factory/resources/factory-white.png)](https://codenvy.com/factory?id=tgb1ssv37wjnblun) and clone the codenvy project.
 + If the project setup wizard prompts, select a java maven project.
 + Run The `Multinode-tc7-j7` runner. (upper right corner). This should be the default runner for the project. (Note that it defaults to the root node, so you have to add in /web or /frame to the URL to get to those sub projects)
+
+### Deploy to Remote Instance
+
+Drop web.war in the tomcat instance that runs uportal and fire it up. Should just work.
