@@ -17,11 +17,18 @@ module.exports = function(config){
         browsers : ['PhantomJS'], // or 'Chrome'
 
         plugins : [
+            'karma-htmlfile-reporter',
             'karma-chrome-launcher',
             'karma-phantomjs-launcher',
             'karma-jasmine',
             'karma-requirejs'
         ],
+ 
+        reporters: ['dots','html'],
+
+        htmlReporter: {
+          outputFile: 'test_out/units.html'
+        },
 
         junitReporter : {
             outputFile: 'test_out/unit.xml',
