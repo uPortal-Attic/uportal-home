@@ -5,16 +5,16 @@
 </div>
 <div>
   <div>
-    <div ng-if="portlet.widgetData.length == 0">
-        loading...
+    <div ng-if="portlet.widgetData.length == 0" class='center'>
+        <loading-gif data-object='portlet.widgetData'></loading-gif>
     </div>
     <div ng-if="config.singleElement && (!portlet.widgetData[config.arrayName] || portlet.widgetData[config.arrayName].length == 0)" class='center'>
-        {{portlet.widgetData[config.display]}}
+        <span title='{{portlet.widgetData[config.display].length > 26 ? portlet.widgetData[config.display] : ""}}'>{{portlet.widgetData[config.display] | trimMiddle:26}}</span>
     </div>
     <div ng-if="portlet.widgetData && portlet.widgetData[config.arrayName] && portlet.widgetData[config.arrayName].length >= 1" style='margin-top: -10px;'>
        <select ng-model="portlet.selectedUrl" class='form-control'>
-           <option ng-if='config.singleElement' selected="selected" value="{{portlet.widgetData[config.value]}}">{{portlet.widgetData[config.display]}}</option>
-           <option ng-repeat='obj in portlet.widgetData[config.arrayName]' value="{{obj[config.value]}}">{{obj[config.display]}}</option>
+           <option ng-if='config.singleElement' selected="selected" value="{{portlet.widgetData[config.value]}}" title='{{portlet.widgetData[config.display].length > 26 ? portlet.widgetData[config.display] : ""}}'>{{portlet.widgetData[config.display] | trimMiddle:26}}</option>
+           <option ng-repeat='obj in portlet.widgetData[config.arrayName]' value="{{obj[config.value]}}" title='{{obj[config.display].length > 26 ? obj[config.display] : ""}}'>{{obj[config.display] | trimMiddle:26}}</option>
        </select>
     </div>
   </div>
