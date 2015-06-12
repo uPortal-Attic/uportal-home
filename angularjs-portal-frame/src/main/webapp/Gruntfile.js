@@ -15,3 +15,4 @@ module.exports = function(grunt) {
   // load the Grunt task
   grunt.loadNpmTasks('grunt-karma');
 };
+

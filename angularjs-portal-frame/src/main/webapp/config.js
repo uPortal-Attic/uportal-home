@@ -11,6 +11,7 @@ define([], function() {
 
     paths: {
         'angular'       : "bower_components/angular/angular",
+        'angular-mocks' : "bower_components/angular-mocks/angular-mocks",
         'app-config'    : "js/app-config",
         'jquery'        : "bower_components/jquery/dist/jquery.min",
         'jquery-ui'     : "bower_components/jquery-ui/jquery-ui.min",
@@ -26,6 +27,7 @@ define([], function() {
 
     shim: {
         'angular'       : { deps: ['jquery'], exports: 'angular' },
+        'angular-mocks' : { deps: ['angular'] },
         'ngRoute'       : { deps: ['angular'] },
         'ngSanitize'    : { deps: ['angular'] },
         'ngStorage'     : { deps: ['angular'] },
@@ -36,4 +38,3 @@ define([], function() {
 
   }
 });
-
