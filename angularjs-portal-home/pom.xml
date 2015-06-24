@@ -35,7 +35,6 @@
     <dependency>
         <groupId>edu.wisc.my.restproxy</groupId>
         <artifactId>json-proxy-service</artifactId>
-        <version>1.0-SNAPSHOT</version>
     </dependency>
     
     <dependency>

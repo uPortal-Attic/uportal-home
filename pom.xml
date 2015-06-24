@@ -57,6 +57,11 @@
 
   <dependencyManagement>
     <dependencies>
+       <dependency>
+        <groupId>edu.wisc.my.restproxy</groupId>
+        <artifactId>json-proxy-service</artifactId>
+        <version>1.0</version>
+      </dependency>
       <dependency>
         <groupId>commons-codec</groupId>
         <artifactId>commons-codec</artifactId>
