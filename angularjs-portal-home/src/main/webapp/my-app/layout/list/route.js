@@ -1,6 +1,10 @@
 define(['require'], function(require){
 
-    return {templateUrl: require.toUrl('./partials/home-list-view.html')}
+    return {
+        name: 'list',
+        url: '/list',
+        templateUrl: require.toUrl('./partials/home-list-view.html')
+    }
 
 });
 
