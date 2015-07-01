@@ -9,10 +9,10 @@ define(['angular', 'jquery', 'portal', 'portal/main/route', 'portal/settings/rou
 
     // Example route configuration
     // TODO: Think of a more extensible approach such that frame and app can each manage their own routing without conflict
-    app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+    app.config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
         $locationProvider.html5Mode(true);
-        $routeProvider.
-            when('/settings', settings).
+        $stateProvider.
+            state('/settings', settings).
             /* when('/notifications', {templateUrl: require.toUrl('./partials/notifications-full.html')}). */
             otherwise(main);
     }]);

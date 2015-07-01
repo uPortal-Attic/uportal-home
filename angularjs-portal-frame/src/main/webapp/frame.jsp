@@ -51,7 +51,7 @@
         <span class="fa fa-bars"></span>
       </div>
       <div id="region-main" class="col-xs-12 my-uw" ng-class="{'col-sm-10 col-sm-offset-2' : $storage.showSidebar, 'col-sm-11 max-view' : !($storage.showSidebar)}">
-        <div ng-view></div>
+        <div ui-view></div>
       </div>
     </div>
   </div>
