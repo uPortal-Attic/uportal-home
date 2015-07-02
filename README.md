@@ -24,7 +24,7 @@ angularjs-portal/angularjs-portal-home/src/main/resources/endpoint.properties
 ```
 
 so that the `/web` war file you are packaging includes an `endpoint.properties` file, so that the
- `/web` Sprint application context can initialize successfully.
+ `/web` Spring application context can initialize successfully.
  
 You do not have to actually set any properties in that properties file to achieve basic 
 workingness ; it might be simplest if you did not.
