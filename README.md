@@ -10,7 +10,28 @@
 This is an angular approach to the dashboard view of uPortal. This dashboard will work along side uPortal, more of a companion app. It utilizes the uPortal rest APIs to collect layout info. It pulls notifications from the notification portlet resource URL.
 
 ### Building
-`mvn package` from the root directory.
+
+First, copy
+
+```
+angularjs-portal/angularjs-portal-home/src/main/resources/endpoint.properties.example
+```
+
+to
+
+```
+angularjs-portal/angularjs-portal-home/src/main/resources/endpoint.properties
+```
+
+so that the `/web` war file you are packaging includes an `endpoint.properties` file, so that the
+ `/web` Sprint application context can initialize successfully.
+ 
+You do not have to actually set any properties in that properties file to achieve basic 
+workingness ; it might be simplest if you did not.
+
+Once the source is ready to build by your having provided a suitable `endpoint.properties`, run
+
+`mvn package` from the root directory to build the war files.
 
 ### Modules
 
