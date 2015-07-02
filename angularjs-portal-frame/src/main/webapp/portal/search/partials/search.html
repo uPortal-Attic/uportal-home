@@ -4,7 +4,7 @@
             placeholder="Search {{NAMES.title}}"
             name="initialFilter"
             ng-model="initialFilter"
-            aria-label="Search"
+            aria-label="Search bar enter the app you are looking for"
             focus-me="showSearchFocus"
             ng-show="$storage.typeaheadSearch"
             typeahead="title as match.title for match in filterMatches | limitTo:10"
@@ -18,14 +18,14 @@
             placeholder="Search {{NAMES.title}}"
             name="initialFilter"
             ng-model="initialFilter"
-            aria-label="Search"
+            aria-label="Search bar enter the app you are looking for"
             focus-me="showSearchFocus"
             ng-hide="$storage.typeaheadSearch"
             autocomplete="off" />
 
 
     <span class="input-group-btn">
-      <button class="btn btn-default btn-search">
+      <button aria-label="Search button" class="btn btn-default btn-search">
         <i class="fa fa-search"></i>
       </button>
     </span>
