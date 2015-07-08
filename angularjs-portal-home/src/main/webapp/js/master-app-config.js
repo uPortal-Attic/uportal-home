@@ -26,6 +26,9 @@ define(['angular'], function(angular) {
             'crest' : null,
             'crestalt' : null
         })
+        .constant('SEARCH',{
+            'isWeb' : true
+        })
         ;
 
     return config;

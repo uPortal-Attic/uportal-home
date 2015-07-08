@@ -26,6 +26,9 @@ define(['angular'], function(angular) {
             'crest' : 'img/uwcrest_web_sm.png',
             'crestalt' : 'UW Crest'
         })
+        .constant('SEARCH',{
+            'isWeb' : true
+        })
         ;
 
     return config;

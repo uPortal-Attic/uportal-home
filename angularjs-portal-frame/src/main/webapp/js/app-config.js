@@ -17,6 +17,10 @@ define(['angular'], function(angular) {
             'crest' : 'img/uwcrest_web_sm.png',
             'crestalt' : 'UW Crest'
         })
+        .constant('SEARCH',{
+            'isWeb' : false,
+            'searchURL' : 'http://localhost:8080/web/apps/search/'
+        })
         ;
 
     return config;
