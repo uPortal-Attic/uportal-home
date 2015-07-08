@@ -31,7 +31,7 @@ workingness ; it might be simplest if you did not.
 
 Once the source is ready to build by your having provided a suitable `endpoint.properties`, run
 
-`mvn package` from the root directory to build the war files.
+`mvn clean package` from the root directory to build the war files.
 
 ### Modules
 
