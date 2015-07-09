@@ -3,7 +3,7 @@
 define(['angular'], function(angular) {
 
   var app = angular.module('portal.search.controllers', []);
-  app.controller('SearchController', [ 'miscService', '$location', '$scope', '$localStorage', function(miscService, $location, $scope, $localStorage) {
+  app.controller('SearchController', [ 'miscService', '$location', '$scope', '$localStorage','SEARCH', function(miscService, $location, $scope, $localStorage, SEARCH) {
       $scope.initialFilter = '';
       $scope.filterMatches = [];
       $scope.portletListLoading = true;
@@ -21,18 +21,28 @@ define(['angular'], function(angular) {
       });
 
       $scope.onSelect = function(portlet) {
+          if(SEARCH.isWeb) {
               $location.path("apps/search/"+ portlet.name);
               $scope.initialFilter = "";
               $scope.showSearch = false;
               $scope.showSearchFocus = false;
+          } else {
+              //frame app redirect
+              window.location = SEARCH.searchURL + portlet.name;
+          }
       };
 
       $scope.submit = function(){
           if($scope.initialFilter != "") {
-            $location.path("apps/search/"+ $scope.initialFilter);
-            $scope.initialFilter = "";
-            $scope.showSearch = false;
-            $scope.showSearchFocus = false;
+            if(SEARCH.isWeb) {
+                $location.path("apps/search/"+ $scope.initialFilter);
+                $scope.initialFilter = "";
+                $scope.showSearch = false;
+                $scope.showSearchFocus = false;
+            } else {
+                //frame app redirect
+                window.location = SEARCH.searchURL + $scope.initialFilter;
+            }
           }
         };
     }]);
