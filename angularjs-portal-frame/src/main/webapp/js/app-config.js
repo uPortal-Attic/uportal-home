@@ -19,7 +19,7 @@ define(['angular'], function(angular) {
         })
         .constant('SEARCH',{
             'isWeb' : false,
-            'searchURL' : 'http://localhost:8080/web/apps/search/'
+            'searchURL' : '/web/apps/search/'
         })
         ;
 
