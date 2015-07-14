@@ -1,22 +1,15 @@
-<div class="row">
-  <h1 class="page-h1">All Notifications</h1>
+<div class="row portlet-frame">
+  <div class="portlet-header">
+    <img class="header-image" ng-src="{{$storage.homeImg}}" alt="UW Campus cover image">
+    <h1>Notifications</h1>
+  </div>
+  <div class="col-xs-12">
+    <ul class="notifications-list" ng-controller="NotificationController as notificationCtrl">
+      <li class="notification-item" ng-repeat="notification in notificationCtrl.notifications"
+          ng-class="notificationCtrl.getClass($index, notificationCtrl.notifications)"
+          ng-click="notificationCtrl.markRead($index, notificationCtrl.notifications)">
+        <a ng-href='{{notification.actionURL}}' target='_blank' aria-label='notification.actionAlt'>{{ notification.title }}</a>
+      </li>
+    </ul>
+  </div>
 </div>
-<ul class="notifications-list" ng-controller="NotificationController as notificationCtrl">
-  <li class="notification-item" ng-repeat="notification in notificationCtrl.notifications_full"
-      ng-class="notificationCtrl.getClass($index, notificationCtrl.notifications)"
-      ng-click="notificationCtrl.markRead($index, notificationCtrl.notifications)">
-
-    {{ notification.title }} ...
-  </li>
-</ul>
-<div class="row">
-  <h1 class="page-h1">Archived</h1>
-</div>
-<ul class="notifications-list" ng-controller="NotificationController as notificationCtrl">
-  <li class="notification-item read" ng-repeat="notification in notificationCtrl.notifications_full"
-      ng-class="notificationCtrl.getClass($index, notificationCtrl.notifications)"
-      ng-click="notificationCtrl.markRead($index, notificationCtrl.notifications)">
-
-    {{ notification.title }} ...
-  </li>
-</ul>
