@@ -1,0 +1,199 @@
+{
+   "groups":[
+      {
+         "entityType":"group",
+         "id":"pags.student",
+         "name":"Student",
+         "creatorId":null,
+         "description":"Users that are students",
+         "principal":{
+            "key":"pags.student",
+            "name":"14.pags.student"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
+         "id":"pags.bucky_theme_users",
+         "name":"Bucky Theme Users",
+         "creatorId":null,
+         "description":"User of theme Bucky",
+         "principal":{
+            "key":"pags.bucky_theme_users",
+            "name":"14.pags.bucky_theme_users"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
+         "id":"pags.uw-madison-student-groups",
+         "name":"UW-Madison - Student Groups",
+         "creatorId":null,
+         "description":"Student Groups from the UW-Madison campus",
+         "principal":{
+            "key":"pags.uw-madison-student-groups",
+            "name":"14.pags.uw-madison-student-groups"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
+         "id":"pags.users-email",
+         "name":"Users - Email",
+         "creatorId":null,
+         "description":"Users with access to WiscMail",
+         "principal":{
+            "key":"pags.users-email",
+            "name":"14.pags.users-email"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
+         "id":"pags.all_users",
+         "name":"All Users (PAGS)",
+         "creatorId":null,
+         "description":"All Portal Users",
+         "principal":{
+            "key":"pags.all_users",
+            "name":"14.pags.all_users"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
+         "id":"pags.users-employee-heritage-questionnaire",
+         "name":"Users - Employee Heritage Questionnaire",
+         "creatorId":null,
+         "description":"Faculty or Staff that need to take the employee heritage questionnaire",
+         "principal":{
+            "key":"pags.users-employee-heritage-questionnaire",
+            "name":"14.pags.users-employee-heritage-questionnaire"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
+         "id":"pags.users-common-scholarship-application-student",
+         "name":"Users - Common Scholarship Application Student",
+         "creatorId":null,
+         "description":"Common Scholarship Application Student",
+         "principal":{
+            "key":"pags.users-common-scholarship-application-student",
+            "name":"14.pags.users-common-scholarship-application-student"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
+         "id":"pags.authenticated-uw-madison",
+         "name":"authenticated-UW-Madison",
+         "creatorId":null,
+         "description":"Users from the UW-Madison campus who are authenticated\n      (not guest).",
+         "principal":{
+            "key":"pags.authenticated-uw-madison",
+            "name":"14.pags.authenticated-uw-madison"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
+         "id":"pags.authenticated_users",
+         "name":"Authenticated Users",
+         "creatorId":null,
+         "description":"All Authenticated Portal Users",
+         "principal":{
+            "key":"pags.authenticated_users",
+            "name":"14.pags.authenticated_users"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
+         "id":"pags.uw-madison",
+         "name":"UW-Madison",
+         "creatorId":null,
+         "description":"User's from the UW-Madison campus",
+         "principal":{
+            "key":"pags.uw-madison",
+            "name":"14.pags.uw-madison"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
+         "id":"local.72",
+         "name":"Students",
+         "creatorId":"system",
+         "description":"All students",
+         "principal":{
+            "key":"local.72",
+            "name":"14.local.72"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
+         "id":"pags.portal-activated",
+         "name":"Portal Activated",
+         "creatorId":null,
+         "description":"Users that are portal activated, parent group of all others derived from UDS LDAP",
+         "principal":{
+            "key":"pags.portal-activated",
+            "name":"14.pags.portal-activated"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
+         "id":"pags.users-calendar",
+         "name":"Users - Calendar",
+         "creatorId":null,
+         "description":"Users with access to WiscCal",
+         "principal":{
+            "key":"pags.users-calendar",
+            "name":"14.pags.users-calendar"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      }
+   ]
+}
