@@ -2,7 +2,7 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app 
+<web-app
     xmlns="http://java.sun.com/xml/ns/javaee"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
@@ -11,16 +11,16 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  
+
   <servlet>
       <servlet-name>StaticServlet</servlet-name>
       <jsp-file>/index.jsp</jsp-file>
   </servlet>
-  
+
   <!-- Keep this in sync with angular-page.js -->
   <servlet-mapping>
       <servlet-name>StaticServlet</servlet-name>
       <url-pattern>/settings</url-pattern>
+      <url-pattern>/notifications</url-pattern>
   </servlet-mapping>
 </web-app>
-

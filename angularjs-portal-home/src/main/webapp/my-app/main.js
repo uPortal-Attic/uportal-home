@@ -23,8 +23,6 @@ define([
     './marketplace/controllers',
     './marketplace/directives',
     './marketplace/services',
-    './notifications/controllers',
-    './notifications/directives',
     './search/controllers'
 ], function(angular, require, featuresRoute, marketplaceRoutes, listRoute, notificationsRoute, settingsRoute, staticRoutes, widgetRoute) {
 
@@ -68,4 +66,3 @@ define([
     return app;
 
 });
-

@@ -12,6 +12,8 @@ define([
     './misc/directives',
     './misc/filters',
     './misc/services',
+    './notifications/controllers',
+    './notifications/directives',
     './notifications/services',
     './search/controllers',
     './search/directives',
