@@ -2,7 +2,7 @@
 
 define(['angular'], function(angular) {
 
-  var app = angular.module('my-app.notifications.controllers ', []);
+  var app = angular.module('portal.notifications.controllers ', []);
 
   app.controller('NotificationController', [ '$http', function($http){
     var store = this;

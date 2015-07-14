@@ -32,6 +32,8 @@ define([
         'portal.misc.directives',
         'portal.misc.filters',
         'portal.misc.services',
+        'portal.notifications.controllers ',
+        'portal.notifications.directives',
         'portal.notifications.services',
         'portal.search.controllers',
         'portal.search.directives',
