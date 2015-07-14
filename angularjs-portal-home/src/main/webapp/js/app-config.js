@@ -19,7 +19,8 @@ define(['angular'], function(angular) {
             'marketplace' : {
                 'base' : 'marketplace',
                 'entries' : '/entries.json'
-            }
+            },
+            'notificationsURL' : '/web/samples/notifications.json'
         })
         .constant('NAMES', {
             'title' : 'MyUW',

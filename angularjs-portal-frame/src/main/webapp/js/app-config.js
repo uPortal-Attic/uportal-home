@@ -10,7 +10,8 @@ define(['angular'], function(angular) {
         })
         .constant('SERVICE_LOC', {
             'sessionInfo' : '/portal/web/session.json',
-            'sidebarInfo' : '/web/samples/sidebar.json'
+            'sidebarInfo' : '/frame/samples/sidebar.json',
+            'notificationsURL' : '/frame/samples/notifications.json'
         })
         .constant('NAMES', {
             'title' : 'MyUW',

@@ -1,0 +1,11 @@
+{"notifications" :  
+    [
+      { 
+        "id"     : 1,
+        "groups" : ["Portal Administrators"],
+        "title"  : "This is an admin notification smoke test",
+        "actionURL" : "http://www.google.com",
+        "actionAlt" : "Google"
+      }
+    ]
+}
