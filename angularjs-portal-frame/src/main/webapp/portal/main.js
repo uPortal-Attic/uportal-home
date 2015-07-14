@@ -2,7 +2,6 @@ define([
     'angular',
     'require',
     'app-config',
-    'ngRoute',
     'ngSanitize',
     'ngStorage',
     './main/controllers',
@@ -22,7 +21,6 @@ define([
 
     var app = angular.module('portal', [
         'app-config',
-        'ngRoute',
         'ngSanitize',
         'ngStorage',
         'portal.main.controllers',

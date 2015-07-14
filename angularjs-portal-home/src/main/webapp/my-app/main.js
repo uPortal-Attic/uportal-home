@@ -10,7 +10,7 @@ define([
     './layout/widget/route',
     'portal',
     'app-config',
-    'ngRoute',
+    'ui-router',
     'ngSanitize',
     'ngStorage',
     './layout/controllers',
@@ -43,29 +43,28 @@ define([
         'my-app.notifications.controllers ',
         'my-app.notifications.directives',
         'my-app.search.controllers',
-        'ngRoute',
+        'ui.router',
         'ngSanitize',
         'ngStorage',
         'portal'
     ]);
 
     // TODO: Think of a more extensible approach such that frame and app can each manage their own routing without conflict
-    app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    app.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
         $locationProvider.html5Mode(true);
-        $routeProvider.
-            when('/apps', marketplaceRoutes.main).
-            when('/apps/details/:fname', marketplaceRoutes.details).
-            when('/apps/search/:initFilter', marketplaceRoutes.main).
-            when('/features', featuresRoute).
-            when('/list', listRoute).
-            when('/notifications', notificationsRoute).
-            when('/settings', settingsRoute).
-            when('/static/:fname', staticRoutes.staticMax).
-            when('/exclusive/:fname', staticRoutes.exclusiveMax).
-            when('/widgets', widgetRoute).
-            otherwise({ redirectTo : '/list'});
+        $stateProvider.
+            state(marketplaceRoutes.main).
+            state(marketplaceRoutes.details).
+            state(marketplaceRoutes.search).
+            state(featuresRoute).
+            state(listRoute).
+            state(notificationsRoute).
+            state(settingsRoute).
+            state(staticRoutes.staticMax).
+            state(staticRoutes.exclusiveMax).
+            state(widgetRoute);
+        $urlRouterProvider.otherwise('/list');
     }]);
-
 
     return app;
 

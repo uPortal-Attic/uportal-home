@@ -5,12 +5,33 @@ define(['angular', 'jquery'], function(angular, $) {
     var app = angular.module('my-app.marketplace.controllers', []);
 
     app.controller('MarketplaceController', [
-        '$sessionStorage', '$modal', '$timeout', '$rootScope', '$window',
-        '$http', '$scope', '$location', '$routeParams', 'marketplaceService',
-        'layoutService','miscService', 'mainService',
-        function($sessionStorage, $modal, $timeout, $rootScope, $window,
-                 $http, $scope, $location, $routeParams, marketplaceService,
-                 layoutService, miscService, mainService) {
+        '$sessionStorage',
+        '$modal',
+        '$timeout',
+        '$rootScope',
+        '$window',
+        '$http',
+        '$scope',
+        '$location',
+        'marketplaceService',
+        'layoutService',
+        'miscService',
+        'mainService',
+        function(
+            $sessionStorage,
+            $modal,
+            $timeout,
+            $rootScope,
+            $window,
+            $http,
+            $scope,
+            $location,
+            marketplaceService,
+            layoutService,
+            miscService,
+            mainService,
+            initFilterParam
+        ) {
 
             //init variables
             var store = this;
@@ -26,8 +47,8 @@ define(['angular', 'jquery'], function(angular, $) {
             //setup search term
             var tempFilterText = '', filterTextTimeout;
             $scope.searchTerm = marketplaceService.getInitialFilter();
-            if($routeParams.initFilter !== null && ($scope.searchTerm === null || $scope.searchTerm === "")) {
-                $scope.searchTerm = $routeParams.initFilter;
+            if(initFilterParam !== null && ($scope.searchTerm === null || $scope.searchTerm === "")) {
+                $scope.searchTerm = initFilterParam;
             } else {
                 marketplaceService.initialFilter("");
             }
@@ -169,13 +190,28 @@ define(['angular', 'jquery'], function(angular, $) {
     });
 
     app.controller('MarketplaceDetailsController', [
-        '$scope', '$location', '$modal', '$routeParams', '$sessionStorage', 'marketplaceService', 'miscService', 'layoutService',
-        function($scope, $location, $modal, $routeParams, $sessionStorage, marketplaceService, miscService, layoutService) {
+        '$scope',
+        '$location',
+        '$modal',
+        '$sessionStorage',
+        'marketplaceService',
+        'miscService',
+        'layoutService',
+        function(
+            $scope,
+            $location,
+            $modal,
+            $sessionStorage,
+            marketplaceService,
+            miscService,
+            layoutService,
+            fnameParam
+        ) {
             miscService.pushPageview();
             marketplaceService.getPortlets().then(function(data) {
                 $scope.portlets = data.portlets;
                 for(var p in $scope.portlets) {
-                    if ($scope.portlets[p].fname == $routeParams.fname) {
+                    if ($scope.portlets[p].fname == fnameParam) {
                         $scope.portlet = $scope.portlets[p];
                     }
                 }

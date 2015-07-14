@@ -7,7 +7,6 @@ define(['angular', 'jquery'], function(angular, $) {
     app.controller('ExclusiveContentController', ['$modal',
                                                   '$location',
                                                   '$sessionStorage',
-                                                  '$routeParams',
                                                   '$rootScope',
                                                   '$scope',
                                                   'layoutService',
@@ -16,12 +15,13 @@ define(['angular', 'jquery'], function(angular, $) {
                                                   function ($modal,
                                                             $location,
                                                             $sessionStorage,
-                                                            $routeParams,
                                                             $rootScope,
                                                             $scope,
                                                             layoutService,
                                                             miscService,
-                                                            sharedPortletService) {
+                                                            sharedPortletService,
+                                                            fnameParam
+                                                  ) {
         miscService.pushPageview();
         $scope.portlet = sharedPortletService.getProperty() || {};
         var that = this;
@@ -34,13 +34,13 @@ define(['angular', 'jquery'], function(angular, $) {
             return {};
         };
         
-        if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== $routeParams.fname) {
+        if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== fnameParam) {
 
             if (typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
-                $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
+                $scope.portlet = that.getPortlet(fnameParam, $rootScope.layout);
             }
             if (typeof $scope.portlet.fname === 'undefined') {
-                layoutService.getApp($routeParams.fname).then(function (data) {
+                layoutService.getApp(fnameParam).then(function (data) {
                     $scope.portlet = data.portlet;
                     if (typeof $scope.portlet === 'undefined' ||
                         typeof $scope.portlet.fname === 'undefined') {
@@ -60,7 +60,6 @@ define(['angular', 'jquery'], function(angular, $) {
         '$modal',
         '$location',
         '$sessionStorage',
-        '$routeParams',
         '$rootScope',
         '$scope',
         'layoutService',
@@ -69,12 +68,13 @@ define(['angular', 'jquery'], function(angular, $) {
         function ($modal,
                   $location,
                   $sessionStorage,
-                  $routeParams,
                   $rootScope,
                   $scope,
                   layoutService,
                   miscService,
-                  sharedPortletService) {
+                  sharedPortletService,
+                  fnameParam
+        ) {
 
             miscService.pushPageview();
             $scope.portlet = sharedPortletService.getProperty() || {};
@@ -88,13 +88,13 @@ define(['angular', 'jquery'], function(angular, $) {
                 return {};
             };
 
-            if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== $routeParams.fname) {
+            if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== fnameParam) {
 
                 if (typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
-                    $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
+                    $scope.portlet = that.getPortlet(fnameParam, $rootScope.layout);
                 }
                 if (typeof $scope.portlet.fname === 'undefined') {
-                    layoutService.getApp($routeParams.fname).then(function (data) {
+                    layoutService.getApp(fnameParam).then(function (data) {
                         $scope.portlet = data.portlet;
                         if (typeof $scope.portlet === 'undefined' ||
                             typeof $scope.portlet.fname === 'undefined') {
@@ -159,13 +159,13 @@ define(['angular', 'jquery'], function(angular, $) {
                     layoutService.getLayout().then(function (data) {
                         $rootScope.layout = data.layout;
                         var portlets = $.grep($rootScope.layout, function (e) {
-                            return e.fname === $routeParams.fname
+                            return e.fname === fnameParam;
                         });
                         $scope.inFavorites = portlets.length > 0; //change scope variable to trigger apply
                     });
                 } else {
                     var portlets = $.grep($rootScope.layout, function (e) {
-                        return e.fname === $routeParams.fname
+                        return e.fname === fnameParam;
                     });
                     ret = portlets.length > 0;
                 }

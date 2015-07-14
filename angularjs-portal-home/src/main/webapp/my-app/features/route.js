@@ -1,6 +1,10 @@
 define(['require'], function(require){
 
-    return {templateUrl: require.toUrl('./partials/features.html')}
+    return {
+        name: 'features',
+        url: '/features',
+        templateUrl: require.toUrl('./partials/features.html')
+    }
 
 });
 
