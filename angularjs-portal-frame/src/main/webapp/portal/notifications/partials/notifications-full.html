@@ -5,9 +5,10 @@
   </div>
   <div class="col-xs-12">
     <ul class="notifications-list" ng-controller="NotificationController as notificationCtrl">
-      <li class="notification-item" ng-repeat="notification in notificationCtrl.notifications"
-          ng-class="notificationCtrl.getClass($index, notificationCtrl.notifications)"
-          ng-click="notificationCtrl.markRead($index, notificationCtrl.notifications)">
+      <!--TODO <li class="notification-item" ng-repeat="notification in notificationCtrl.notifications"
+-          ng-class="notificationCtrl.getClass($index, notificationCtrl.notifications)"
+-          ng-click="notificationCtrl.markRead($index, notificationCtrl.notifications)"> -->
+      <li class="notification-item" ng-repeat="notification in notificationCtrl.notifications">
         <a ng-href='{{notification.actionURL}}' target='_blank' aria-label='notification.actionAlt'>{{ notification.title }}</a>
       </li>
     </ul>
