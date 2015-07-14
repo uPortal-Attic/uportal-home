@@ -27,7 +27,7 @@ define(['angular-mocks', 'portal'], function() {
         
         it("should have one result", function() {
             //setup
-            httpBackend.whenGET("/frame/samples/notifications.json").respond(
+            httpBackend.whenGET(backendURL).respond(
                 {"notifications" :  
                     [
                      { 
