@@ -13,6 +13,13 @@
         "title"  : "This is a student group test for notifications, go learn stuff.",
         "actionURL" : "https://learnuw.wisc.edu/",
         "actionAlt" : "Learn at UW dashboard"
+      },
+      {
+        "id"     : 3,
+        "groups" : ["Users - Student SSN Update","Portal Administrators"],
+        "title"  : "Our records indicate the Social Security Number in your Personal Information is invalid or missing. Please provide your Social Security Number or select to not provide your Social Security Number.",
+        "actionURL" : "/portal/p/my-info-student-center-ssn.ctf1/max/action.uP?pP_action=loginAction",
+        "actionAlt" : "UW-Madison Student Information"
       }
     ]
 }
