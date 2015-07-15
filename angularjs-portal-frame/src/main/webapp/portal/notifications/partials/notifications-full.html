@@ -11,7 +11,7 @@
       <li class="notification-item" ng-repeat="notification in notificationCtrl.notifications">
         <a ng-href='{{notification.actionURL}}' target='_blank' aria-label='{{notification.actionAlt}}'>{{ notification.title }}</a>
       </li>
-      <li  class="notification-item read" ng-if='notificationCtrl.notifications || notificationCtrl.notifications.length === 0'>
+      <li  class="notification-item read" ng-if='!notificationCtrl.notifications || notificationCtrl.notifications.length === 0'>
         You have no notifications at this time.
       </li>
     </ul>

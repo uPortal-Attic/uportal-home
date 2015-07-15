@@ -11,7 +11,7 @@ define(['angular'], function(angular) {
     store.isEmpty = false;
     store.notificationUrl = 'notifications';
 
-    notificationsService.getAllNotifications().then(function(data){
+    notificationsService.getNotificationsByGroups().then(function(data){
       //success state
       store.count = data.length;
       store.isEmpty = (store.count === 0);

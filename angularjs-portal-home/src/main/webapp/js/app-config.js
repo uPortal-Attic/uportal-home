@@ -20,7 +20,8 @@ define(['angular'], function(angular) {
                 'base' : 'marketplace',
                 'entries' : '/entries.json'
             },
-            'notificationsURL' : '/web/samples/notifications.json'
+            'notificationsURL' : '/web/samples/notifications.json',
+            'groupURL' : '/portal/api/groups'
         })
         .constant('NAMES', {
             'title' : 'MyUW',
@@ -35,4 +36,3 @@ define(['angular'], function(angular) {
     return config;
 
 });
-
