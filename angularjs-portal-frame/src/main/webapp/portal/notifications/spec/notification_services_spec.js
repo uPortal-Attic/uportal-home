@@ -18,7 +18,7 @@ define(['angular-mocks', 'portal'], function() {
 
             //setup
             httpBackend.whenGET(backendURL).respond({"notifications" :[]});
-            httpBackend.whenGet(groupURL).respond({"groups" :[]});
+            httpBackend.whenGET(groupURL).respond({"groups" :[]});
             //begin test
             notificationsService.getAllNotifications().then(function(results){
                 expect(results).toBeTruthy();
@@ -29,7 +29,7 @@ define(['angular-mocks', 'portal'], function() {
 
         it("should have one result", function() {
             //setup
-            httpBackend.whenGet(groupURL).respond({"groups" :[]});
+            httpBackend.whenGET(groupURL).respond({"groups" :[]});
             httpBackend.whenGET(backendURL).respond(
                 {"notifications" :
                     [
