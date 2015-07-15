@@ -15,6 +15,11 @@ define(['angular'], function(angular) {
       //success state
       store.count = data.length;
       store.isEmpty = (store.count === 0);
+      if(store.isEmpty) {
+        store.status = "No notifications";
+      } else {
+        store.status = "You have notifications";
+      }
       store.notifications = data;
     }, function(data){
       //error state (logging of error happens at service layer)
