@@ -2,7 +2,7 @@
 
 define(['angular', 'require'], function(angular, require){
 
-    var app = angular.module('my-app.notifications.directives', []);
+    var app = angular.module('portal.notifications.directives', []);
 
     app.directive('notifications', function(){
         return {

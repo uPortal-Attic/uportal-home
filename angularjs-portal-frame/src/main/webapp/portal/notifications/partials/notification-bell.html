@@ -1,0 +1,7 @@
+<div  ng-controller="NotificationController as notificationIconCtrl" ng-if="$storage.notificationsDemo">
+    <a title="click to view notifications" href="{{notificationIconCtrl.notificationUrl}}">
+        <div  class='notification-badge' aria-label='{{notificationIconCtrl.status}}' ng-class='{ "notification-badge-empty" : notificationIconCtrl.isEmpty }'>
+            <i class='fa fa-bell'></i>
+        </div>
+    </a>
+</div>

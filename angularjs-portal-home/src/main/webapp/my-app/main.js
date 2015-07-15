@@ -4,7 +4,7 @@ define([
     './features/route',
     './marketplace/routes',
     './layout/list/route',
-    './notifications/route',
+    'portal/notifications/route',
     'portal/settings/route',
     './layout/static/routes',
     './layout/widget/route',
@@ -23,8 +23,6 @@ define([
     './marketplace/controllers',
     './marketplace/directives',
     './marketplace/services',
-    './notifications/controllers',
-    './notifications/directives',
     './search/controllers'
 ], function(angular, require, featuresRoute, marketplaceRoutes, listRoute, notificationsRoute, settingsRoute, staticRoutes, widgetRoute) {
 
@@ -40,8 +38,6 @@ define([
         'my-app.marketplace.controllers',
         'my-app.marketplace.directives',
         'my-app.marketplace.services',
-        'my-app.notifications.controllers ',
-        'my-app.notifications.directives',
         'my-app.search.controllers',
         'ngRoute',
         'ngSanitize',
@@ -70,4 +66,3 @@ define([
     return app;
 
 });
-

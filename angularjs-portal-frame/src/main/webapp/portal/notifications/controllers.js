@@ -2,27 +2,30 @@
 
 define(['angular'], function(angular) {
 
-  var app = angular.module('my-app.notifications.controllers ', []);
+  var app = angular.module('portal.notifications.controllers ', []);
 
-  app.controller('NotificationController', [ '$http', function($http){
+  app.controller('NotificationController', [ 'notificationsService', function(notificationsService){
     var store = this;
     store.notifications = [];
-    store.notifications_full = [];
     store.count = 0;
-    store.notificationUrl = '/portal/p/notification/';
-    //store.fetchUrl = '/portal/p/notification/normal/GET-NOTIFICATIONS-UNCATEGORIZED.resource.uP';
-    store.fetchUrl = '/web/samples/sample_notification.json';
+    store.isEmpty = false;
+    store.notificationUrl = 'notifications';
 
-    $http
-        .get(store.fetchUrl)
-        .success(function(data) {
-          var theFeed = data.feed;
-          store.count = theFeed.length;
-          store.notifications_full = theFeed;
-          for(var i = 0; i < 3; i++) {
-            store.notifications.push(theFeed[i]);
-          }
-        });
+    notificationsService.getAllNotifications().then(function(data){
+      //success state
+      store.count = data.length;
+      store.isEmpty = (store.count === 0);
+      if(store.isEmpty) {
+        store.status = "No notifications";
+      } else {
+        store.status = "You have notifications";
+      }
+      store.notifications = data;
+    }, function(data){
+      //error state (logging of error happens at service layer)
+      store.count = 0;
+      store.isEmpty = true;
+    });
 
     this.getClass = function getClass(index, notifications) {
       return {
@@ -44,4 +47,3 @@ define(['angular'], function(angular) {
   return app;
 
 });
-
