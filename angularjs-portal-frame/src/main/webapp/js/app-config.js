@@ -11,7 +11,8 @@ define(['angular'], function(angular) {
         .constant('SERVICE_LOC', {
             'sessionInfo' : '/portal/web/session.json',
             'sidebarInfo' : '/frame/samples/sidebar.json',
-            'notificationsURL' : '/frame/samples/notifications.json'
+            'notificationsURL' : '/frame/samples/notifications.json',
+            'groupURL' : '/portal/api/groups'
         })
         .constant('NAMES', {
             'title' : 'MyUW',
@@ -22,9 +23,11 @@ define(['angular'], function(angular) {
             'isWeb' : false,
             'searchURL' : '/web/apps/search/'
         })
-        ;
+        .constant('NOTIFICATION', {
+            'groupFiltering' : true,
+            'notificationFullURL' : 'notifications'
+        });
 
     return config;
 
 });
-

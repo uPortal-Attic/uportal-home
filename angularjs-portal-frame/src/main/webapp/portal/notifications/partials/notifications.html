@@ -1,7 +1,7 @@
 <ul class="notifications-list" ng-controller="NotificationController as notificationCtrl">
-  <li class="notification-item" ng-repeat="notification in notificationCtrl.notifications"
-      ng-class="notificationCtrl.getClass($index, notificationCtrl.notifications)"
-      ng-click="notificationCtrl.markRead($index, notificationCtrl.notifications)">
+  <li class="notification-item" ng-repeat="notification in notifications"
+      ng-class="getClass($index, notifications)"
+      ng-click="markRead($index, notifications)">
 
     {{ notification.title }} ...
   </li>

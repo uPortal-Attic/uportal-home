@@ -1,11 +1,18 @@
-{"notifications" :  
+{"notifications" :
     [
-      { 
+      {
         "id"     : 1,
         "groups" : ["Portal Administrators"],
         "title"  : "This is an admin notification smoke test",
         "actionURL" : "http://www.google.com",
         "actionAlt" : "Google"
+      },
+      {
+        "id"     : 2,
+        "groups" : ["Students"],
+        "title"  : "This is a student group test for notifications, go learn stuff.",
+        "actionURL" : "https://learnuw.wisc.edu/",
+        "actionAlt" : "Learn at UW dashboard"
       }
     ]
 }

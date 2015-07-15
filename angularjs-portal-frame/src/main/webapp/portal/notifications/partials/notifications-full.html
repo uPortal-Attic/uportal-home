@@ -8,10 +8,10 @@
       <!--TODO <li class="notification-item" ng-repeat="notification in notificationCtrl.notifications"
 -          ng-class="notificationCtrl.getClass($index, notificationCtrl.notifications)"
 -          ng-click="notificationCtrl.markRead($index, notificationCtrl.notifications)"> -->
-      <li class="notification-item" ng-repeat="notification in notificationCtrl.notifications">
+      <li class="notification-item" ng-repeat="notification in notifications">
         <a ng-href='{{notification.actionURL}}' target='_blank' aria-label='{{notification.actionAlt}}'>{{ notification.title }}</a>
       </li>
-      <li  class="notification-item read" ng-if='notificationCtrl.notifications || notificationCtrl.notifications.length === 0'>
+      <li  class="notification-item read" ng-if='!notifications || notifications.length === 0'>
         You have no notifications at this time.
       </li>
     </ul>
