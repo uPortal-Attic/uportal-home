@@ -1,7 +1,7 @@
 'use strict';
 define(['angular-mocks', 'portal'], function() {
     describe('NotificationService', function() {
-        var notificationsService, httpBackend, backendURL;
+        var notificationsService, httpBackend, backendURL, groupURL;
 
         beforeEach(function() {
           module('portal');
@@ -11,12 +11,14 @@ define(['angular-mocks', 'portal'], function() {
             notificationsService = _notificationsService_;
             httpBackend = _$httpBackend_;
             backendURL = SERVICE_LOC.notificationsURL;
+            groupURL   = SERVICE_LOC.groupURL;
         }));
 
         it("should return an empty set", function() {
+
             //setup
             httpBackend.whenGET(backendURL).respond({"notifications" :[]});
-            
+            httpBackend.whenGet(groupURL).respond({"groups" :[]});
             //begin test
             notificationsService.getAllNotifications().then(function(results){
                 expect(results).toBeTruthy();
@@ -24,13 +26,14 @@ define(['angular-mocks', 'portal'], function() {
             });
             httpBackend.flush();
         });
-        
+
         it("should have one result", function() {
             //setup
+            httpBackend.whenGet(groupURL).respond({"groups" :[]});
             httpBackend.whenGET(backendURL).respond(
-                {"notifications" :  
+                {"notifications" :
                     [
-                     { 
+                     {
                        "id"     : 1,
                        "groups" : ["Portal Administrators"],
                        "title"  : "This is an admin notification smoke test",
@@ -39,7 +42,7 @@ define(['angular-mocks', 'portal'], function() {
                      }
                    ]
                });
-            
+
             //begin test
             notificationsService.getAllNotifications().then(function(results){
                 expect(results).toBeTruthy();
