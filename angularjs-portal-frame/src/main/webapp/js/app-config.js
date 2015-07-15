@@ -23,7 +23,10 @@ define(['angular'], function(angular) {
             'isWeb' : false,
             'searchURL' : '/web/apps/search/'
         })
-        ;
+        .constant('NOTIFICATION', {
+            'groupFiltering' : true,
+            'notificationFullURL' : 'notifications'
+        });
 
     return config;
 

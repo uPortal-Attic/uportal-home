@@ -31,6 +31,10 @@ define(['angular'], function(angular) {
         .constant('SEARCH',{
             'isWeb' : true
         })
+        .constant('NOTIFICATION', {
+            'groupFiltering' : true,
+            'notificationFullURL' : 'notifications'
+        });
         ;
 
     return config;
