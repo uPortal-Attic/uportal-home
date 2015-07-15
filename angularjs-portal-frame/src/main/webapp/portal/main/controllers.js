@@ -20,14 +20,14 @@ define(['angular'], function(angular) {
             webPortletRender : false,
             mobileWidgetToggle : false
             };
-    
-    
+
+
     //=====functions ======
     var init = function(){
       $scope.$storage = $localStorage.$default(defaults);
-        
+
       $scope.NAMES=NAMES;
-        
+
       if(NAMES.title) {
         $document[0].title=NAMES.title;
       }
@@ -43,15 +43,17 @@ define(['angular'], function(angular) {
     $scope.reload = function() {
         location.reload();
     }
-    
+
     //run init
     init();
   } ]);
 
   /* Username */
-  app.controller('SessionCheckController', [ 'mainService', function(mainService) {
+  app.controller('SessionCheckController', [ 'mainService', 'MISC_URLS', function(mainService, MISC_URLS) {
     var that = this;
     that.user = [];
+    that.feedbackURL = MISC_URLS.feedbackURL;
+    that.back2ClassicURL = MISC_URLS.back2ClassicURL;
     mainService.getUser().then(function(result){
       that.user = result;
     });
@@ -91,4 +93,3 @@ define(['angular'], function(angular) {
   return app;
 
 });
-

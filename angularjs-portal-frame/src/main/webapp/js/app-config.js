@@ -27,6 +27,10 @@ define(['angular'], function(angular) {
         .constant('NOTIFICATION', {
             'groupFiltering' : true,
             'notificationFullURL' : 'notifications'
+        })
+        .constant('MISC_URLS',{
+            'feedbackURL' : 'https://my.wisc.edu/portal/p/feedback',
+            'back2ClassicURL' : null
         });
 
     return config;

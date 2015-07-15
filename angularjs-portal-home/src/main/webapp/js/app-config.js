@@ -35,7 +35,11 @@ define(['angular'], function(angular) {
         .constant('NOTIFICATION', {
             'groupFiltering' : true,
             'notificationFullURL' : 'notifications'
-        });
+        })
+        .constant('MISC_URLS',{
+            'feedbackURL' : '/portal/p/feedback',
+            'back2ClassicURL' : '/portal/Login?profile=default'
+        })
         ;
 
     return config;
