@@ -13,7 +13,7 @@
     </div>
     
     <div class="widget-title">
-      <h4>{{ ::portlet.title }}</h4>
+      <h4 id="appTitle">{{ ::portlet.title }}</h4>
     </div>
   </div>
   
@@ -45,11 +45,11 @@
   </div>
   
   <!-- For basic apps (not a widget, not simple content, no pithy content), show only an icon -->
-  <a ng-if="'NORMAL' === widgetCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
+  <a aria-labelledby="appTitle" ng-if="'NORMAL' === widgetCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
     <div class="widget-icon-container">
       <portlet-icon></portlet-icon>
     </div>
-    <button class="btn btn-default launch-app-button">Launch full app</button>
+    <button aria-labelledby="appTitle" class="btn btn-default launch-app-button">Launch full app</button>
   </a>
   
   <!-- For pithy content, display the pithy content -->
@@ -61,10 +61,10 @@
   </div>
   
   <!-- For simple content portlets, show only an icon -->
-  <a ng-if="'SIMPLE' === widgetCtrl.portletType(portlet)" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="simple-content-container">
+  <a aria-labelledby="appTitle" ng-if="'SIMPLE' === widgetCtrl.portletType(portlet)" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="simple-content-container">
     <div class="widget-icon-container">
       <portlet-icon></portlet-icon>
     </div>
-    <button class="btn btn-default launch-app-button">Launch full app</button>
-  </a>  
+    <button aria-labelledby="appTitle" class="btn btn-default launch-app-button">Launch full app</button>
+  </a>
 </div>
