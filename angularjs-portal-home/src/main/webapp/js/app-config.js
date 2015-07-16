@@ -26,7 +26,8 @@ define(['angular'], function(angular) {
         .constant('NAMES', {
             'title' : 'MyUW',
             'crest' : 'img/uwcrest_web_sm.png',
-            'crestalt' : 'UW Crest'
+            'crestalt' : 'UW Crest',
+            'sublogo' : ''
         })
         .constant('SEARCH',{
             'isWeb' : true
