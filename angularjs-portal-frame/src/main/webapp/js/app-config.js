@@ -30,7 +30,8 @@ define(['angular'], function(angular) {
         })
         .constant('MISC_URLS',{
             'feedbackURL' : 'https://my.wisc.edu/portal/p/feedback',
-            'back2ClassicURL' : null
+            'back2ClassicURL' : null,
+            'whatsNewURL' : null
         });
 
     return config;

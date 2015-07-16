@@ -54,6 +54,8 @@ define(['angular'], function(angular) {
     that.user = [];
     that.feedbackURL = MISC_URLS.feedbackURL;
     that.back2ClassicURL = MISC_URLS.back2ClassicURL;
+    that.whatsNewURL = MISC_URLS.whatsNewURL;
+    
     mainService.getUser().then(function(result){
       that.user = result;
     });
