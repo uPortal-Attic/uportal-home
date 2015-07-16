@@ -1,5 +1,5 @@
 <div class="portlet-list-item" >
-  <h2>
+  <h2 id="appTitle">
     <portlet-icon class='five-px-top-left'></portlet-icon>
     <span class="portlet-title">{{::portlet.title}}</span>
   </h2>
@@ -30,10 +30,10 @@
     </button>
 
     <!-- Launch button with access -->
-    <a class="btn btn-success" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a aria-labelledby="appTitle" class="btn btn-success" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
     <!-- Launch button without access -->
-    <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a aria-labelledby="appTitle" class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
   </div><br>
   <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
@@ -64,10 +64,10 @@
     </button>
 
     <!-- Launch button with access on mobile-->
-    <a class="btn btn-success" href="{{::portlet.maxUrl}}" ng-show="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a aria-labelledby="appTitle" class="btn btn-success" href="{{::portlet.maxUrl}}" ng-show="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
     <!-- Launch button without access on mobile-->
-    <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a aria-labelledby="appTitle" class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
   </div>
 
 
