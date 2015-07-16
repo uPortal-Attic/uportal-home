@@ -62,6 +62,7 @@ define(['angular'], function(angular) {
     this.navbarCollapsed = true;
     this.crest = NAMES.crest;
     this.crestalt = NAMES.crestalt;
+    this.sublogo = NAMES.sublogo;
     $scope.showSearch = false;
     $scope.showSearchFocus = false;
 
