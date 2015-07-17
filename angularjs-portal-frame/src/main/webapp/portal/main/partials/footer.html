@@ -1,12 +1,19 @@
 <footer class="portal-footer-legal" role="contentinfo" ng-controller="SessionCheckController as sessionCheckCtrl">
 	<div class="portal-power">
 		<div id="portalPageFooterLinks">
-			<span>© 2014, Board of Regents of the <a href="http://www.wisconsin.edu/">University of Wisconsin System</a></span>
-			<br>
-			<span><a href="/portal/p/feedback"><span>Feedback</span></a><span> - </span><span>{{sessionCheckCtrl.user.serverName}}</span><span> - </span><span>{{sessionCheckCtrl.user.version}}</span></span>
-			<br>
-			<span>Session Key: </span><span>{{sessionCheckCtrl.user.sessionKey}}</span>
-			<br>
+			<div>
+				<span>© 2014, Board of Regents of the <a href="http://www.wisconsin.edu/">University of Wisconsin System</a></span>
+			</div>
+			<div class='underline'>
+				<a ng-href='{{sessionCheckCtrl.feedbackURL}}'><span>Feedback</span></a>
+				<span>&nbsp;</span>
+				<span ng-if='sessionCheckCtrl.whatsNewURL'><a ng-href='{{sessionCheckCtrl.whatsNewURL}}'>What's New</a></span>
+				<span ng-if='sessionCheckCtrl.whatsNewURL'>&nbsp;</span>
+				<span><a ng-if='sessionCheckCtrl.back2ClassicURL' ng-href='{{sessionCheckCtrl.back2ClassicURL}}'>MyUW Classic</a></span>
+			</div>
+			<div>
+				<span>{{sessionCheckCtrl.user.version}}</span><span> - </span><span>{{sessionCheckCtrl.user.serverName}}</span><span> - </span><span>{{sessionCheckCtrl.user.sessionKey}}</span></span>
+			</div>
 		</div>
 	</div>
 </footer>
