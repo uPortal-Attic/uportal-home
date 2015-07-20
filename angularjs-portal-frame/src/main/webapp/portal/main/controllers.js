@@ -64,7 +64,7 @@ define(['angular','require'], function(angular, require) {
   
   app.controller('WelcomeController', ['$localStorage', '$sessionStorage','$scope', '$document', 'NAMES', '$modal', function($localStorage, $sessionStorage, $scope, $document, NAMES, $modal) {
     $scope.openModal = function() {
-      if ($localStorage.hasSeenWelcome === false) {
+      if (!$localStorage.hasSeenWelcome) {
         $modal.open({
           animation: $scope.animationsEnabled,
           templateUrl: require.toUrl('../../my-app/layout/partials/welcome.html'),
