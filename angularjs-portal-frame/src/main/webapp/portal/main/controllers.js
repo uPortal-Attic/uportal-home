@@ -1,9 +1,9 @@
 'use strict';
 
-define(['angular'], function(angular) {
+define(['angular','require'], function(angular, require) {
   var app = angular.module('portal.main.controllers', []);
 
-  app.controller('MainController', ['$localStorage', '$sessionStorage','$scope', '$document', 'NAMES', 'MISC_URLS', function($localStorage, $sessionStorage, $scope, $document, NAMES, MISC_URLS) {
+  app.controller('MainController', ['$localStorage', '$sessionStorage','$scope', '$document', 'NAMES', 'MISC_URLS', '$modal', function($localStorage, $sessionStorage, $scope, $document, NAMES, MISC_URLS, $modal) {
     var defaults = {
             showSidebar: true,
             sidebarQuicklinks: false,
@@ -17,7 +17,8 @@ define(['angular'], function(angular) {
             gravatarEmail : null,
             useGravatar : false,
             webPortletRender : false,
-            mobileWidgetToggle : false
+            mobileWidgetToggle : false,
+            hasSeenWelcome : false
             };
 
 
@@ -59,6 +60,19 @@ define(['angular'], function(angular) {
     mainService.getUser().then(function(result){
       that.user = result;
     });
+  }]);
+  
+  app.controller('WelcomeController', ['$localStorage', '$sessionStorage','$scope', '$document', 'NAMES', '$modal', function($localStorage, $sessionStorage, $scope, $document, NAMES, $modal) {
+    $scope.openModal = function() {
+      if ($localStorage.hasSeenWelcome === false) {
+        $modal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: require.toUrl('../../my-app/layout/partials/welcome.html'),
+          size: 'lg',
+        });
+        $localStorage.hasSeenWelcome = true;
+      }
+    };
   }]);
 
   /* Header */
