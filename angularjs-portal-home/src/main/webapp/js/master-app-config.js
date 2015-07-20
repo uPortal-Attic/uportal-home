@@ -11,27 +11,38 @@ define(['angular'], function(angular) {
         .constant('SERVICE_LOC', {
             'sessionInfo' : '/uPortal/api/session.json',
             'sidebarInfo' : '/web/samples/sidebar.json',
-            'newstuffInfo' : '/web/samples/new-stuff.json',
+            'newstuffInfo': '/web/samples/new-stuff.json',
             'context'     : '/uPortal/',
             'base'        : '/uPortal/api/',
-            'layout' : 'layoutDoc?tab=welcome',
-            'layoutTab' : 'welcome',
+            'layout'      : 'layoutDoc?tab=Welcome',
+            'layoutTab' : 'Welcome',
             'marketplace' : {
                 'base' : 'marketplace',
                 'entries' : '/entries.json'
-            }
+            },
+            'notificationsURL' : '/web/samples/notifications.json',
+            'groupURL' : '/uPortal/api/groups'
         })
         .constant('NAMES', {
             'title' : 'uPortal',
             'crest' : null,
-            'crestalt' : null
+            'crestalt' : 'Crest',
+            'sublogo' : ''
         })
         .constant('SEARCH',{
             'isWeb' : true
+        })
+        .constant('NOTIFICATION', {
+            'groupFiltering' : true,
+            'notificationFullURL' : 'notifications'
+        })
+        .constant('MISC_URLS',{
+            'feedbackURL' : '/uPortal/p/feedback',
+            'back2ClassicURL' : null,
+            'whatsNewURL' : null
         })
         ;
 
     return config;
 
 });
-
