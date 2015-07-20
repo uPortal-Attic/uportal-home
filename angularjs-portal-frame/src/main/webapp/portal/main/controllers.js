@@ -3,7 +3,7 @@
 define(['angular'], function(angular) {
   var app = angular.module('portal.main.controllers', []);
 
-  app.controller('MainController', ['$localStorage', '$sessionStorage','$scope', '$document', 'NAMES', function($localStorage, $sessionStorage, $scope, $document, NAMES) {
+  app.controller('MainController', ['$localStorage', '$sessionStorage','$scope', '$document', 'NAMES', 'MISC_URLS', function($localStorage, $sessionStorage, $scope, $document, NAMES, MISC_URLS) {
     var defaults = {
             showSidebar: true,
             sidebarQuicklinks: false,
@@ -27,6 +27,7 @@ define(['angular'], function(angular) {
       $scope.$storage = $localStorage.$default(defaults);
 
       $scope.NAMES=NAMES;
+      $scope.classicURL=MISC_URLS.back2ClassicURL;
 
       if(NAMES.title) {
         $document[0].title=NAMES.title;
@@ -55,7 +56,7 @@ define(['angular'], function(angular) {
     that.feedbackURL = MISC_URLS.feedbackURL;
     that.back2ClassicURL = MISC_URLS.back2ClassicURL;
     that.whatsNewURL = MISC_URLS.whatsNewURL;
-    
+
     mainService.getUser().then(function(result){
       that.user = result;
     });
