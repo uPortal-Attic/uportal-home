@@ -18,22 +18,25 @@
 </head>
 
 <body  ng-controller="MainController as mainCtrl">
-<!--[if lt IE 10]>
-<div class="browserupgrade">
-  <span class="fa fa-frown-o"></span>
-  <p>Sorry, MyUW beta does not support your browser.<br/><a href="https://kb.wisc.edu/myuw/page.php?id=51345">Learn how to upgrade your browser.</a><br/>Can't upgrade? <a href="http://my.wisc.edu/portal/Login?profile=default">Switch back to MyUW classic.</a></p>
-</div>
-<![endif]-->
-<noscript>
-    <div class="alert alert-warning alert-dismissible" role="alert" style="margin-bottom:0;">
-    <div class="container">
-      <i class="fa fa-2x fw fa-exclamation-triangle pull-left"></i>
-      <strong>
-        Please <a href="http://enable-javascript.com" target="_blank">enable Javascript</a> to interact with all forms and features on our website.  For further assistance, contact the <a href="https://kb.wisc.edu/helpdesk/" target="_blank">DoIT Help Desk</a>.
-      </strong>
-    </div>
+  <div class='sr-only' ng-if="classicURL">
+    <a ng-href='{{classicURL}}'>Switch back to the classic MyUW</a>
   </div>
-</noscript>
+  <!--[if lt IE 10]>
+  <div class="browserupgrade">
+    <span class="fa fa-frown-o"></span>
+    <p>Sorry, MyUW beta does not support your browser.<br/><a href="https://kb.wisc.edu/myuw/page.php?id=51345">Learn how to upgrade your browser.</a><br/>Can't upgrade? <a href="http://my.wisc.edu/portal/Login?profile=default">Switch back to MyUW classic.</a></p>
+  </div>
+  <![endif]-->
+  <noscript>
+      <div class="alert alert-warning alert-dismissible" role="alert" style="margin-bottom:0;">
+      <div class="container">
+        <i class="fa fa-2x fw fa-exclamation-triangle pull-left"></i>
+        <strong>
+          Please <a href="http://enable-javascript.com" target="_blank">enable Javascript</a> to interact with all forms and features on our website.  For further assistance, contact the <a href="https://kb.wisc.edu/helpdesk/" target="_blank">DoIT Help Desk</a>.
+        </strong>
+      </div>
+    </div>
+  </noscript>
 
   <!-- beta header -->
   <!-- <beta-header></beta-header> -->
