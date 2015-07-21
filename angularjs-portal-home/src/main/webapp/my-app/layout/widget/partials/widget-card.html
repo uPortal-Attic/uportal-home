@@ -16,7 +16,7 @@
       <h4 id="appTitle{{::portlet.title}}" aria-labelledby="appTitle{{::portlet.title}}" tabindex="0">{{ ::portlet.title }}</h4>
     </div>
   </div>
-  <sub hidden="" id="goToApps">go to</sub>
+  <sub class="sr-only" id="goToApps{{::portlet.title}}">go to</sub>
   <!-- For widgets, show fancy markup! -->
   <div ng-if="'WIDGET' === widgetCtrl.portletType(portlet)">
     <div class="portlet-content">
@@ -49,7 +49,7 @@
     <div class="widget-icon-container">
       <portlet-icon></portlet-icon>
     </div>
-    <button aria-labelledby="goToApps appTitle{{::portlet.title}}" class="btn btn-default launch-app-button">Launch full app</button>
+    <button aria-labelledby="goToApps{{::portlet.title}} appTitle{{::portlet.title}}" class="btn btn-default launch-app-button">Launch full app</button>
   </a>
   
   <!-- For pithy content, display the pithy content -->
@@ -65,6 +65,6 @@
     <div class="widget-icon-container">
       <portlet-icon></portlet-icon>
     </div>
-    <button aria-labelledby="goToApps appTitle{{::portlet.title}}" class="btn btn-default launch-app-button">Launch full app</button>
+    <button aria-labelledby="goToApps{{::portlet.title}} appTitle{{::portlet.title}}" class="btn btn-default launch-app-button">Launch full app</button>
   </a>
 </div>
