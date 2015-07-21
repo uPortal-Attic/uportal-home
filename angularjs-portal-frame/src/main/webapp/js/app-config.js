@@ -10,8 +10,8 @@ define(['angular'], function(angular) {
         })
         .constant('SERVICE_LOC', {
             'sessionInfo' : '/portal/web/session.json',
-            'sidebarInfo' : '/frame/samples/sidebar.json',
-            'notificationsURL' : '/frame/samples/notifications.json',
+            'sidebarInfo' : 'samples/sidebar.json',
+            'notificationsURL' : 'samples/notifications.json',
             'groupURL' : '/portal/api/groups'
         })
         .constant('NAMES', {
@@ -25,6 +25,7 @@ define(['angular'], function(angular) {
             'searchURL' : '/web/apps/search/'
         })
         .constant('NOTIFICATION', {
+            'enabled' : false,
             'groupFiltering' : true,
             'notificationFullURL' : 'notifications'
         })

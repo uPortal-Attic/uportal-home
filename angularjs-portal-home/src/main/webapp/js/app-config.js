@@ -33,6 +33,7 @@ define(['angular'], function(angular) {
             'isWeb' : true
         })
         .constant('NOTIFICATION', {
+            'enabled' : true,
             'groupFiltering' : true,
             'notificationFullURL' : 'notifications'
         })
