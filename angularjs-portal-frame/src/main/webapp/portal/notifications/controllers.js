@@ -42,6 +42,7 @@ define(['angular'], function(angular) {
       $scope.count = 0;
       $scope.isEmpty = false;
       $scope.notificationUrl = NOTIFICATION.notificationFullURL;
+      $scope.notificationsEnabled = NOTIFICATION.enabled;
 
       if(NOTIFICATION.groupFiltering) {
         notificationsService.getNotificationsByGroups().then(successFn, errorFn);

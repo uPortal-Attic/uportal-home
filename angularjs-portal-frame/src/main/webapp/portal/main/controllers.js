@@ -11,7 +11,6 @@ define(['angular'], function(angular) {
             homeImg : "img/square.jpg",
             sidebarShowProfile: false,
             profileImg: "img/terrace.jpg",
-            notificationsDemo : false,
             typeaheadSearch: false,
             exampleWidgets: false,
             layoutMode : 'list', //other option is 'widgets'
