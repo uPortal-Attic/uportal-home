@@ -25,7 +25,7 @@
       <h4>{{ ::portlet.title }}</h4>
     </div>
   </a>
-  <a aria-labelledby="appTitle{{::portlet.title}}" ng-if="'SIMPLE' === layoutCtrl.portletType(portlet)" ng-click="layoutCtrl.maxStaticPortlet(portlet)">
+  <a tabindex="0" aria-labelledby="appTitle{{::portlet.title}}" ng-if="'SIMPLE' === layoutCtrl.portletType(portlet)" ng-click="layoutCtrl.maxStaticPortlet(portlet)">
     <div class="icon-container">
       <portlet-icon></portlet-icon>
     </div>
