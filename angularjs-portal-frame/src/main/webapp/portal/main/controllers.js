@@ -62,12 +62,12 @@ define(['angular','require'], function(angular, require) {
     });
   }]);
   
-  app.controller('WelcomeController', ['$localStorage', '$sessionStorage','$scope', '$document', 'NAMES', '$modal', function($localStorage, $sessionStorage, $scope, $document, NAMES, $modal) {
+  app.controller('WelcomeController', ['$localStorage', '$sessionStorage','$scope', '$document', 'APP_FLAGS', '$modal', function($localStorage, $sessionStorage, $scope, $document, APP_FLAGS, $modal) {
     $scope.openModal = function() {
-      if (!$localStorage.hasSeenWelcome) {
+      if (APP_FLAGS.welcome && !$localStorage.hasSeenWelcome) {
         $modal.open({
           animation: $scope.animationsEnabled,
-          templateUrl: require.toUrl('../../my-app/layout/partials/welcome.html'),
+          templateUrl: require.toUrl('./partials/welcome.html'),
           size: 'lg',
         });
         $localStorage.hasSeenWelcome = true;
