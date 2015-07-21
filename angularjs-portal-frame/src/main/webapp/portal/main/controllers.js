@@ -3,7 +3,7 @@
 define(['angular','require'], function(angular, require) {
   var app = angular.module('portal.main.controllers', []);
 
-  app.controller('MainController', ['$localStorage', '$sessionStorage','$scope', '$document', 'NAMES', 'MISC_URLS', '$modal', function($localStorage, $sessionStorage, $scope, $document, NAMES, MISC_URLS, $modal) {
+  app.controller('MainController', ['$localStorage', '$sessionStorage','$scope', '$document', 'NAMES', 'MISC_URLS', function($localStorage, $sessionStorage, $scope, $document, NAMES, MISC_URLS) {
     var defaults = {
             showSidebar: true,
             sidebarQuicklinks: false,
