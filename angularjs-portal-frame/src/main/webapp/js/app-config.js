@@ -7,7 +7,7 @@ define(['angular'], function(angular) {
             'defaultView' : 'list',
             'list' : true,
             'widgets' : true,
-            'welcome' : true
+            'welcome' : false
         })
         .constant('SERVICE_LOC', {
             'sessionInfo' : '/portal/web/session.json',
