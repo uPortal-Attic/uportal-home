@@ -68,8 +68,8 @@ define(['angular','require'], function(angular, require) {
         
         mainService.getWelcome().then(function(data) {
             var welcome = data;
-            if (welcome !== null) {
-                $scope.welcome = welcome.data;
+            if (welcome.data.length > 0) {
+                $scope.welcome = welcome.data[0];
             } else {
                 $scope.welcome = {};//init view
             }
