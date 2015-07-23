@@ -38,6 +38,12 @@ define(['angular', 'require'], function(angular, require) {
           templateUrl : require.toUrl('./partials/beta-header.html')
       }
   });
+  app.directive('welcomeModalTemplate', function() {
+      return {
+          restrict : 'E',
+          templateUrl : require.toUrl('./partials/welcome-modal-template.html')
+      }
+  });
 
   return app;
 

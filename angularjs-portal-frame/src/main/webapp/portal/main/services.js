@@ -7,6 +7,7 @@ define(['angular'], function(angular) {
   app.factory('mainService', ['$http', 'miscService', 'SERVICE_LOC', function($http, miscService, SERVICE_LOC) {
     var prom = $http.get(SERVICE_LOC.sessionInfo, { cache: true});
     var sidebarPromise = $http.get(SERVICE_LOC.sidebarInfo, { cache: true});
+    var welcomePromise = $http.get(SERVICE_LOC.welcomeInfo, { cache: true});
     var userPromise;
 
     var getUser = function() {
@@ -31,10 +32,20 @@ define(['angular'], function(angular) {
             miscService.redirectUser(status, "Get sidebar info");
           });
     };
+    
+    var getWelcome = function() {
+      return welcomePromise.success(
+        function(data, status) { //success function
+          return data.welcome;
+        }).error(function(data, status) { // failure function
+          miscService.redirectUser(status, "Get welcome info");
+        });
+    };
 
     return {
       getUser: getUser,
-      getSidebar : getSidebar
+      getSidebar : getSidebar,
+      getWelcome : getWelcome
     };
 
   }]);

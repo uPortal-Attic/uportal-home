@@ -62,18 +62,54 @@ define(['angular','require'], function(angular, require) {
     });
   }]);
   
-  app.controller('WelcomeController', ['$localStorage', '$sessionStorage','$scope', '$document', 'APP_FLAGS', '$modal', function($localStorage, $sessionStorage, $scope, $document, APP_FLAGS, $modal) {
+  app.controller('WelcomeController', ['$localStorage', '$sessionStorage','$scope', '$document', 'APP_FLAGS', '$modal', 'mainService', '$sanitize', function($localStorage, $sessionStorage, $scope, $document, APP_FLAGS, $modal, mainService, $sanitize) {
     $scope.openModal = function() {
       if (APP_FLAGS.welcome && !$localStorage.hasSeenWelcome) {
-        $modal.open({
-          animation: $scope.animationsEnabled,
-          templateUrl: require.toUrl('./partials/welcome.html'),
-          size: 'lg',
+        
+        mainService.getWelcome().then(function(data) {
+            var welcome = data;
+            if (welcome !== null) {
+                $scope.welcome = welcome.data;
+            } else {
+                $scope.welcome = {};//init view
+            }
+            var today = Date.parse(new Date());
+            var startDate = Date.parse(new Date($scope.welcome.startYear, $scope.welcome.startMonth, $scope.welcome.startDay));
+            console.log(today);
+            console.log(startDate);
+            if (today > startDate) {
+              $modal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: require.toUrl('./partials/welcome-modal-template.html'),
+                size: 'lg',
+                scope: $scope 
+              });
+              $localStorage.hasSeenWelcome = true;
+            }
         });
-        $localStorage.hasSeenWelcome = true;
       }
     };
+    
+    
+    
   }]);
+  
+  app.controller('WelcomeModalController', function ($scope, $modalInstance, $modal, mainService) {
+  
+      mainService.getWelcome().then(function(data) {
+          var welcome = data;
+          if (welcome !== null) {
+              $scope.welcome = welcome;
+          } else {
+              $scope.welcome = {};//init view
+          }
+  
+      });
+  
+      $scope.cancel = function () {
+          $modalInstance.dismiss('cancel');
+      };
+  });
 
   /* Header */
   app.controller('HeaderController', ['$scope','$location', 'NAMES', function($scope, $location, NAMES) {
