@@ -6,11 +6,13 @@ define(['angular'], function(angular) {
             'enableToggle': true,
             'defaultView' : 'list',
             'list' : true,
-            'widgets' : true
+            'widgets' : true,
+            'welcome' : false
         })
         .constant('SERVICE_LOC', {
             'sessionInfo' : '/portal/web/session.json',
             'sidebarInfo' : 'samples/sidebar.json',
+            'welcomeInfo' : 'samples/welcome.json',
             'notificationsURL' : 'samples/notifications.json',
             'groupURL' : '/portal/api/groups'
         })

@@ -1,0 +1,11 @@
+[{ 
+   "id" : 1,
+   "title" : "Welcome to the new MyUW. <span class='hidden-xs'>Here are the basics.</span>",
+   "img" : "img/myuw-welcome.png",
+   "learnMoreURL" : "http://kb.wisc.edu/8943289",
+	 "startYear" : 2015,
+	 "startMonth" : 7,
+	 "startDay" : 11,
+	 "accessibilityText" : "The new MyUW makes it easier to access your content. You can switch between simple icons and more informative widgets using 'Icon View' and 'Widget View' toggles. Each of the icons on the home page links to your MyUW content, and widgets can display a dashboard of information on the home page. If you are having trouble finding what you're looking for, you can use the top search box to search through all of MyUW's content, and save it to your home page from there using the 'Add to Favorites' button.",
+	 "buttonText" : "Continue to MyUW"
+}]

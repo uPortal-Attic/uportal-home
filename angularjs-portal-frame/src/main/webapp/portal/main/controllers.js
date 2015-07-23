@@ -1,6 +1,6 @@
 'use strict';
 
-define(['angular'], function(angular) {
+define(['angular','require'], function(angular, require) {
   var app = angular.module('portal.main.controllers', []);
 
   app.controller('MainController', ['$localStorage', '$sessionStorage','$scope', '$document', 'NAMES', 'MISC_URLS', function($localStorage, $sessionStorage, $scope, $document, NAMES, MISC_URLS) {
@@ -17,7 +17,8 @@ define(['angular'], function(angular) {
             gravatarEmail : null,
             useGravatar : false,
             webPortletRender : false,
-            mobileWidgetToggle : false
+            mobileWidgetToggle : false,
+            hasSeenWelcome : false
             };
 
 
@@ -60,6 +61,53 @@ define(['angular'], function(angular) {
       that.user = result;
     });
   }]);
+  
+  app.controller('WelcomeController', ['$localStorage', '$sessionStorage','$scope', '$document', 'APP_FLAGS', '$modal', 'mainService', '$sanitize', function($localStorage, $sessionStorage, $scope, $document, APP_FLAGS, $modal, mainService, $sanitize) {
+    $scope.openModal = function() {
+      if (APP_FLAGS.welcome && !$localStorage.hasSeenWelcome) {
+        
+        mainService.getWelcome().then(function(data) {
+            var welcome = data;
+            if (welcome.data.length > 0) {
+                $scope.welcome = welcome.data[0];
+            } else {
+                $scope.welcome = {};//init view
+            }
+            var today = Date.parse(new Date());
+            var startDate = Date.parse(new Date($scope.welcome.startYear, $scope.welcome.startMonth, $scope.welcome.startDay));
+            if (today > startDate) {
+              $modal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: require.toUrl('./partials/welcome-modal-template.html'),
+                size: 'lg',
+                scope: $scope 
+              });
+              $localStorage.hasSeenWelcome = true;
+            }
+        });
+      }
+    };
+    
+    
+    
+  }]);
+  
+  app.controller('WelcomeModalController', function ($scope, $modalInstance, $modal, mainService) {
+  
+      mainService.getWelcome().then(function(data) {
+          var welcome = data;
+          if (welcome !== null) {
+              $scope.welcome = welcome;
+          } else {
+              $scope.welcome = {};//init view
+          }
+  
+      });
+  
+      $scope.cancel = function () {
+          $modalInstance.dismiss('cancel');
+      };
+  });
 
   /* Header */
   app.controller('HeaderController', ['$scope','$location', 'NAMES', function($scope, $location, NAMES) {
