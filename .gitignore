@@ -13,3 +13,4 @@ units.html
 catalina.base_IS_UNDEFINED/
 overlays/
 logs/
+.DS_Store

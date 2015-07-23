@@ -75,8 +75,6 @@ define(['angular','require'], function(angular, require) {
             }
             var today = Date.parse(new Date());
             var startDate = Date.parse(new Date($scope.welcome.startYear, $scope.welcome.startMonth, $scope.welcome.startDay));
-            console.log(today);
-            console.log(startDate);
             if (today > startDate) {
               $modal.open({
                 animation: $scope.animationsEnabled,
