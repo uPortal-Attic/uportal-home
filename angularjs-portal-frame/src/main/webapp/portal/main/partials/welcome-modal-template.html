@@ -1,8 +1,8 @@
 <div class="welcome-popup center">
   <h1 ng-bind-html="welcome.title"></h1>
-  <img src="{{ welcome.img }}" class="hidden-xs">
-	<div class="sr-only" tabindex="0" id="welcomeContent" aria-labelledby="welcomeContent">
-		<p>{{ welcome.accessibilityText }}</p>
+  <img src="{{ welcome.img }}" class="hidden-xs" aria-describedby="welcomeContent">
+	<div class="sr-only" tabindex="0">
+		<p id="welcomeContent">{{ welcome.accessibilityText }}</p>
 	</div>
   <!-- <p class="visible-xs-* learn-more">Learn more at the <a href="#">KnowledgeBase.</a></p> -->
   <div>
