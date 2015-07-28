@@ -100,8 +100,10 @@ define(['angular', 'jquery'], function(angular, $) {
             } else {
               successFn =function(data){
                 var portlet = data[0].data.entry;
-                var layout = data[1];
-                processInLayout(portlet, layout);
+                if(portlet) {
+                  var layout = data[1];
+                  processInLayout(portlet, layout);
+                }
                 return portlet;
               };
 
