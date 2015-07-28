@@ -19,8 +19,8 @@ define(['angular'], function(angular) {
             'layout'      : 'layoutDoc?tab=UW Bucky Home',
             'layoutTab' : 'UW Bucky Home',
             'marketplace' : {
-                'base' : 'marketplace',
-                'entries' : '/entries.json'
+                'base' : 'marketplace/',
+                'entries' : 'entries.json'
             },
             'notificationsURL' : '/web/samples/notifications.json',
             'groupURL' : '/portal/api/groups'

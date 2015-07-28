@@ -82,15 +82,46 @@ define(['angular', 'jquery'], function(angular, $) {
             });
 
         };
+        
+        /**
+          returns portlet if one exists in user's marketplace, or goes and gets entry from server
+        **/
+        var getPortlet = function (fname) {
+          var successFn, errorFn, defer;
+          //first check cache, if there use that (it'll be faster)
+          return checkMarketplaceCache().then(function(data){
+            if (data) {
+                defer = $q.defer();
+                //find portlet and resolve with it if exists
+                var portlets = $.grep(data.portlets, function(e) { return e.fname === fname});
+                var portlet = portlets ? portlets[0] : null;
+                defer.resolve(portlet);
+                return defer.promise;
+            } else {
+              successFn =function(data){
+                var portlet = data[0];
+                var layout = data[1];
+                processInLayout(portlet, layout);
+                return portlet;
+              };
+
+              errorFn = function(reason) {
+                miscService.redirectUser(reason.status, 'marketplace entry service call');
+              };
+              
+              return $q.all([$http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + ".json", {cache : true}),layoutService.getLayout()]).then(successFn, errorFn);
+            }
+          });
+        };
 
         var getUserRating = function(fname) {
-            return $http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + '/' + fname + '/getRating').then(function(result) {
+            return $http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/getRating').then(function(result) {
                 return result.data.rating;
             });
         };
 
         var saveRating = function(fname, rating) {
-            $http.post(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + '/' + fname + '/rating/' + rating.rating , {}, {params: {review : rating.review}}).
+            $http.post(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/rating/' + rating.rating , {}, {params: {review : rating.review}}).
                 success(function(data, status, headers, config){
                     console.log("successfully saved marketplace rating for " + fname + " with data " + rating);
                 }).
@@ -100,6 +131,15 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         //private functions
+        
+        var processInLayout = function(portlet, layout) {
+          var inLayout = $.grep(layout, function(e) { return e.fname === portlet.fname}).length;
+          if(inLayout > 0) {
+              portlet.hasInLayout = true;
+          } else {
+              portlet.hasInLayout = false;
+          }
+        }
 
         var postProcessing = function(result, data) {
 
@@ -107,15 +147,11 @@ define(['angular', 'jquery'], function(angular, $) {
 
             var categories = [];
             var layout = data[1].layout;
+            
 
             $.each(result.portlets, function (index, cur){
                 //in layout check
-                var inLayout = $.grep(layout, function(e) { return e.fname === cur.fname}).length;
-                if(inLayout > 0) {
-                    cur.hasInLayout = true;
-                } else {
-                    cur.hasInLayout = false;
-                }
+                processInLayout(cur, layout);
 
                 //categories building
                 var categoriesOfThisPortlet = cur.categories;
@@ -178,9 +214,9 @@ define(['angular', 'jquery'], function(angular, $) {
 
             return matches;
         };
-
         //return list of avaliable functions
         return {
+            getPortlet : getPortlet,
             getPortlets: getPortlets,
             initialFilter: initialFilter,
             getInitialFilter: getInitialFilter,

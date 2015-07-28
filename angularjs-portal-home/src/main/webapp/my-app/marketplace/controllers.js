@@ -171,13 +171,54 @@ define(['angular', 'jquery'], function(angular, $) {
     app.controller('MarketplaceDetailsController', [
         '$scope', '$location', '$modal', '$routeParams', '$sessionStorage', 'marketplaceService', 'miscService', 'layoutService',
         function($scope, $location, $modal, $routeParams, $sessionStorage, marketplaceService, miscService, layoutService) {
+            
+          $scope.addToHome = function addToHomeFunction() {
+              var ret = layoutService.addToHome($scope.portlet);
+              ret.success(function (request, text){
+                  $('.fname-'+fname).html('<i class="fa fa-check"></i> Added Successfully').prop('disabled',true).removeClass('btn-add').addClass('btn-added');
+                  $scope.$apply(function(){
+                      if($sessionStorage.marketplace) {
+                        var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname});
+                        if(marketplaceEntries.length > 0) {
+                            marketplaceEntries[0].hasInLayout = true;
+                        }
+                      }
+                      $rootScope.layout = null; //reset layout due to modifications
+                      $sessionStorage.layout = null;
+                  });
+              })
+                  .error(function(request, text, error) {
+                      $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
+                  });
+          };
+
+          $scope.openRating = function (size, fname, name) {
+              var modalInstance = $modal.open({
+                  templateUrl: 'ratingModal.html',
+                  controller: 'RatingModalController',
+                  size: size,
+                  resolve: {
+                      fname: function(){return fname;},
+                      name: function(){return name;}
+                  }
+              });
+
+              modalInstance.result.then(function (selectedItem) {
+                  $scope.selected = selectedItem;
+              }, function () {
+                  console.log('Modal dismissed at: ' + new Date());
+              });
+          };
+            
+            // init
             miscService.pushPageview();
-            marketplaceService.getPortlets().then(function(data) {
-                $scope.portlets = data.portlets;
-                for(var p in $scope.portlets) {
-                    if ($scope.portlets[p].fname == $routeParams.fname) {
-                        $scope.portlet = $scope.portlets[p];
-                    }
+            marketplaceService.getPortlet($routeParams.fname).then(function(result) {
+                if(!result || !result.data) {
+                  $scope.error = true;
+                  $scope.portlet = null;
+                } else {
+                  $scope.portlet = result.data;
+                  $scope.error = false;
                 }
             });
         }]
