@@ -1,6 +1,17 @@
 <div ng-controller="MarketplaceDetailsController as detailsCtrl" class="portlet-frame col-xs-12 col-md-12 portlet-details-page">
+  <div ng-if='loading' class="row details-header no-margin">
+    <loading-gif data-object='obj' data-empty='!loading'></loading-gif>
+  </div>
   
-  <div class="row details-header no-margin">
+  <div ng-if='error'>
+    <div class="alert alert-danger" role="alert" style='margin: 20px;'>
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      {{errorMessage}}
+    </div>
+  </div>
+  
+  <div class="row details-header no-margin" ng-if='!loading && !error'>
   	<div class="col-xs-12 col-lg-6">
   		<h2>
 		    <portlet-icon></portlet-icon>
@@ -44,7 +55,7 @@
 		   </div>
 		</div>
 	</div>
-	<div class="row no-margin">
+	<div class="row no-margin"  ng-if='!loading && !error'>
 		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item">
 			<h3 class="center">Description</h3>
 			<p class="app-description">{{::portlet.description}}</p>
@@ -86,14 +97,6 @@
 		</div>
 	</div>
   
-  
-
-
-
-  
-
-  
-
 	<div class="portlet-footer left">
 	 	<ul>
 	 		<li><a href="apps"><i class="fa fa-arrow-circle-o-left"></i> Back to Apps</a></li>

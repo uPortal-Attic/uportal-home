@@ -95,7 +95,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 //find portlet and resolve with it if exists
                 var portlets = $.grep(data.portlets, function(e) { return e.fname === fname});
                 var portlet = portlets ? portlets[0] : null;
-                defer.resolve(portlet);
+                defer.resolve({ data : portlet });
                 return defer.promise;
             } else {
               successFn =function(data){
@@ -109,7 +109,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 miscService.redirectUser(reason.status, 'marketplace entry service call');
               };
               
-              return $q.all([$http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + ".json", {cache : true}),layoutService.getLayout()]).then(successFn, errorFn);
+              return $q.all([$http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + SERVICE_LOC.marketplace.entry + fname + ".json", {cache : true}),layoutService.getLayout()]).then(successFn, errorFn);
             }
           });
         };

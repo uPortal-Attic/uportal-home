@@ -169,11 +169,12 @@ define(['angular', 'jquery'], function(angular, $) {
     });
 
     app.controller('MarketplaceDetailsController', [
-        '$scope', '$location', '$modal', '$routeParams', '$sessionStorage', 'marketplaceService', 'miscService', 'layoutService',
-        function($scope, $location, $modal, $routeParams, $sessionStorage, marketplaceService, miscService, layoutService) {
+        '$rootScope', '$scope', '$location', '$modal', '$routeParams', '$sessionStorage', 'marketplaceService', 'miscService', 'layoutService',
+        function($rootScope, $scope, $location, $modal, $routeParams, $sessionStorage, marketplaceService, miscService, layoutService) {
             
           $scope.addToHome = function addToHomeFunction() {
               var ret = layoutService.addToHome($scope.portlet);
+              var fname = $scope.portlet.fname;
               ret.success(function (request, text){
                   $('.fname-'+fname).html('<i class="fa fa-check"></i> Added Successfully').prop('disabled',true).removeClass('btn-add').addClass('btn-added');
                   $scope.$apply(function(){
@@ -188,7 +189,8 @@ define(['angular', 'jquery'], function(angular, $) {
                   });
               })
                   .error(function(request, text, error) {
-                      $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
+                      $scope.error = true;
+                      $scope.errorMessage = 'There was an issue adding to home, please try again later';
                   });
           };
 
@@ -212,7 +214,11 @@ define(['angular', 'jquery'], function(angular, $) {
             
             // init
             miscService.pushPageview();
+            $scope.loading = true;
+            $scope.obj = [];
+            $scope.errorMessage = 'There was an issue loading details, please click back to apps.';
             marketplaceService.getPortlet($routeParams.fname).then(function(result) {
+                $scope.loading = false;
                 if(!result || !result.data) {
                   $scope.error = true;
                   $scope.portlet = null;
@@ -220,6 +226,9 @@ define(['angular', 'jquery'], function(angular, $) {
                   $scope.portlet = result.data;
                   $scope.error = false;
                 }
+            }, function(reason){
+              $scope.loading = false;
+              $scope.error = true;
             });
         }]
     );

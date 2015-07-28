@@ -20,6 +20,7 @@ define(['angular'], function(angular) {
             'layoutTab' : 'UW Bucky Home',
             'marketplace' : {
                 'base' : 'marketplace/',
+                'entry' : 'entry/',
                 'entries' : 'entries.json'
             },
             'notificationsURL' : '/web/samples/notifications.json',
