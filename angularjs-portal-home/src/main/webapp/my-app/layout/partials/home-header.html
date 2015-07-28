@@ -1,6 +1,6 @@
 <div class="portlet-header">
-  <img ng-src="{{$storage.homeImg}}" alt="UW Campus cover image">
-    <h1>{{NAMES.title}} Home</h1>
+  <img ng-src="{{$storage.homeImg}}" alt="Chairs at the Union Terrace">
+    <h1>Home</h1>
     <!-- <p>This is the Angular version of MyUW. Enjoy!</p> -->
     <div ng-controller="NewStuffController as newStuffCtrl">
       <div ng-repeat="stuff in newStuffArray">
@@ -19,20 +19,11 @@
 </div>
 <div class="inner-nav-container">
   <ul class="inner-nav">
-    <li class="active home-title">
-        <a>My Favorites</a>
-    </li>
     <li class="hidden-xs">
-      <a href='apps'
-       aria-label="link to Browse for more apps"
-       tooltip="Browse for more apps"
-       tooltip-trigger="mouseenter"
-       tooltip-placement="top"
-       tooltip-popup-delay="500">
-      <i class='fa fa-plus'></i>
-     </a>
+         <button class="btn btn-primary" onclick="window.location.href='apps'">
+         <span class="fa fa-plus"></span> Add more to home
+        </button>
     </li>
-    <home-toggle></home-toggle>
   </ul>
-  
+
 </div>
