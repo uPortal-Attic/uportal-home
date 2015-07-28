@@ -5,7 +5,7 @@ define(['require'], function(require){
             templateUrl: require.toUrl('./partials/marketplace.html')
         },
         details: {
-            templateUrl: require.toUrl('./partials/marketplace-details.html'), controller:'MarketplaceDetailsController'
+            templateUrl: require.toUrl('./partials/marketplace-details.html')
         }
     }
 

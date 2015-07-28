@@ -1,0 +1,81 @@
+{ "entry" : {
+    "canAdd" : true,
+    "categories" : [ "Academics" ],
+    "description" : "View your current courses and class schedule, and see each course's library materials and online resources, location, time, and contacts. ",
+    "faIcon" : "fa-pencil",
+    "fname" : "MyCourses",
+    "id" : "2397",
+    "keywords" : [ "courses",
+        "class schedule",
+        "schedule",
+        "library material",
+        "online resources",
+        "course info",
+        "Moodle",
+        "Learn@UW",
+        "library reserves"
+      ],
+    "lifecycleState" : "PUBLISHED",
+    "marketplaceScreenshots" : [ { "captions" : [ "View Your Course List" ],
+          "url" : "https://cloud.githubusercontent.com/assets/3534544/3096915/bb91ddee-e5d9-11e3-9226-1633799172c8.png"
+        },
+        { "captions" : [ "View Your Course Schedule in a Grid View" ],
+          "url" : "https://cloud.githubusercontent.com/assets/3534544/3096930/daa60d9a-e5d9-11e3-81a4-41f6e20ef674.png"
+        }
+      ],
+    "maxUrl" : "/portal/p/MyCourses/render.uP",
+    "name" : "My Courses",
+    "portletReleaseNotes" : { "initialReleaseDate" : null,
+        "releaseDate" : { "afterNow" : false,
+            "beforeNow" : true,
+            "centuryOfEra" : 20,
+            "chronology" : { "zone" : { "fixed" : false,
+                    "id" : "America/Chicago",
+                    "uncachedZone" : { "cachable" : true,
+                        "fixed" : false,
+                        "id" : "America/Chicago"
+                      }
+                  } },
+            "dayOfMonth" : 12,
+            "dayOfWeek" : 1,
+            "dayOfYear" : 132,
+            "equalNow" : false,
+            "era" : 1,
+            "hourOfDay" : 12,
+            "millis" : 1399914000000,
+            "millisOfDay" : 43200000,
+            "millisOfSecond" : 0,
+            "minuteOfDay" : 720,
+            "minuteOfHour" : 0,
+            "monthOfYear" : 5,
+            "secondOfDay" : 43200,
+            "secondOfMinute" : 0,
+            "weekOfWeekyear" : 20,
+            "weekyear" : 2014,
+            "year" : 2014,
+            "yearOfCentury" : 14,
+            "yearOfEra" : 2014,
+            "zone" : { "fixed" : false,
+                "id" : "America/Chicago",
+                "uncachedZone" : { "cachable" : true,
+                    "fixed" : false,
+                    "id" : "America/Chicago"
+                  }
+              }
+          },
+        "releaseNotes" : [ "One-stop hub for all your course information",
+            "Printable course and final exam schedules",
+            "Access to your course and schedule history",
+            "Responsive design in mind so it looks great on phones and desktop"
+          ]
+      },
+    "rating" : 4.5,
+    "relatedPortlets" : null,
+    "renderUrl" : "/portal/p/MyCourses/render.uP",
+    "shortUrl" : "http://goo.gl/QGf3oJ",
+    "target" : null,
+    "title" : "My Courses",
+    "type" : "Portlet",
+    "userRated" : 2
+  }
+}
