@@ -13,15 +13,15 @@
 			<div class="col-xs-12 col-lg-6">
 			 	<div class="action-buttons">
 
-			    <!-- Add to Home button with access -->
+			    <!-- Add to home button with access -->
 			    <button class="btn btn-primary fname-{{::portlet.fname}}"
 			            ng-click="marketplaceCtrl.addToHome($index , portlet)"
 			            ng-if="portlet.canAdd && !portlet.hasInLayout"
 			            ng-class="{disabled : portlet.hasInLayout}">
-			      <span class="fa fa-plus"></span> Add to Favorites
+			      <span class="fa fa-plus"></span> Add to home
 			    </button>
 
-			    <!-- Already in Home -->
+			    <!-- Added to home -->
 			    <button class="btn btn-disabled fname-{{::portlet.fname}}"
 			            ng-if="portlet.canAdd && portlet.hasInLayout"
 			            ng-class="{'btn-disabled' : portlet.hasInLayout}"
@@ -29,12 +29,12 @@
 			            popover-trigger="mouseenter"
 			            popover-placement="top"
 			            popover-popup-delay="500">
-			      <i class="fa fa-check"></i> Already in Favorites
+			      <i class="fa fa-check"></i> Added to home
 			    </button>
 
-			    <!-- Add to Home button without access -->
+			    <!-- Add to home button without access -->
 			    <button class="btn btn-disabled" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
-			      <span class="fa fa-plus"></span> Add to Favorites
+			      <span class="fa fa-plus"></span> Add to home
 			    </button>
 
 			    <!-- Launch button with access -->
