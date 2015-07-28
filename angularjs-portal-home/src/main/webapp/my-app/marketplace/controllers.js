@@ -171,7 +171,7 @@ define(['angular', 'jquery'], function(angular, $) {
     app.controller('MarketplaceDetailsController', [
         '$rootScope', '$scope', '$location', '$modal', '$routeParams', '$sessionStorage', 'marketplaceService', 'miscService', 'layoutService',
         function($rootScope, $scope, $location, $modal, $routeParams, $sessionStorage, marketplaceService, miscService, layoutService) {
-            
+
           $scope.addToHome = function addToHomeFunction() {
               var ret = layoutService.addToHome($scope.portlet);
               var fname = $scope.portlet.fname;
@@ -211,7 +211,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   console.log('Modal dismissed at: ' + new Date());
               });
           };
-            
+
             // init
             miscService.pushPageview();
             $scope.loading = true;
@@ -219,11 +219,11 @@ define(['angular', 'jquery'], function(angular, $) {
             $scope.errorMessage = 'There was an issue loading details, please click back to apps.';
             marketplaceService.getPortlet($routeParams.fname).then(function(result) {
                 $scope.loading = false;
-                if(!result || !result.data) {
+                if(!result) {
                   $scope.error = true;
                   $scope.portlet = null;
                 } else {
-                  $scope.portlet = result.data;
+                  $scope.portlet = result;
                   $scope.error = false;
                 }
             }, function(reason){
@@ -236,4 +236,3 @@ define(['angular', 'jquery'], function(angular, $) {
     return app;
 
 });
-

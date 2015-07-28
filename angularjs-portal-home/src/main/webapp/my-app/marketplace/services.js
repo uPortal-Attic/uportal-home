@@ -82,7 +82,7 @@ define(['angular', 'jquery'], function(angular, $) {
             });
 
         };
-        
+
         /**
           returns portlet if one exists in user's marketplace, or goes and gets entry from server
         **/
@@ -95,11 +95,11 @@ define(['angular', 'jquery'], function(angular, $) {
                 //find portlet and resolve with it if exists
                 var portlets = $.grep(data.portlets, function(e) { return e.fname === fname});
                 var portlet = portlets ? portlets[0] : null;
-                defer.resolve({ data : portlet });
+                defer.resolve(portlet);
                 return defer.promise;
             } else {
               successFn =function(data){
-                var portlet = data[0];
+                var portlet = data[0].data.entry;
                 var layout = data[1];
                 processInLayout(portlet, layout);
                 return portlet;
@@ -108,7 +108,7 @@ define(['angular', 'jquery'], function(angular, $) {
               errorFn = function(reason) {
                 miscService.redirectUser(reason.status, 'marketplace entry service call');
               };
-              
+
               return $q.all([$http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + SERVICE_LOC.marketplace.entry + fname + ".json", {cache : true}),layoutService.getLayout()]).then(successFn, errorFn);
             }
           });
@@ -131,7 +131,7 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         //private functions
-        
+
         var processInLayout = function(portlet, layout) {
           var inLayout = $.grep(layout, function(e) { return e.fname === portlet.fname}).length;
           if(inLayout > 0) {
@@ -147,7 +147,7 @@ define(['angular', 'jquery'], function(angular, $) {
 
             var categories = [];
             var layout = data[1].layout;
-            
+
 
             $.each(result.portlets, function (index, cur){
                 //in layout check
@@ -231,4 +231,3 @@ define(['angular', 'jquery'], function(angular, $) {
     return app;
 
 });
-
