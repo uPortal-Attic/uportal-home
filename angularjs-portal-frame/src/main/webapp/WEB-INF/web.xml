@@ -21,6 +21,7 @@
   <servlet-mapping>
       <servlet-name>StaticServlet</servlet-name>
       <url-pattern>/settings</url-pattern>
+      <url-pattern>/material</url-pattern>
       <url-pattern>/notifications</url-pattern>
   </servlet-mapping>
 </web-app>

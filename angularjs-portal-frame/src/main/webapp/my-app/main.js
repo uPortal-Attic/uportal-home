@@ -1,4 +1,4 @@
-define(['angular', 'jquery', 'portal', 'portal/main/route', 'portal/settings/route', 'portal/notifications/route'], function(angular, $, portal, main, settings, notifications) {
+define(['angular', 'jquery', 'portal', 'portal/main/route', 'portal/settings/routes', 'portal/notifications/route'], function(angular, $, portal, main, settings, notifications) {
     /*
      This module intentionally left empty. This file is intended to serve as an extension point
      for My UW Madison 'App' developers that overlay angularjs-portal-frame.
@@ -12,7 +12,8 @@ define(['angular', 'jquery', 'portal', 'portal/main/route', 'portal/settings/rou
     app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $locationProvider.html5Mode(true);
         $routeProvider.
-            when('/settings', settings).
+            when('/settings', settings.settings).
+            when('/material', settings.material).
             when('/notifications', notifications).
             otherwise(main);
     }]);
