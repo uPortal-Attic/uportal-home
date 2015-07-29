@@ -1,5 +1,8 @@
 define([
     'angular',
+    'angular-aria',
+    'angular-animate',
+    'angular-material',
     'require',
     'app-config',
     'ngRoute',
@@ -27,6 +30,7 @@ define([
         'ngRoute',
         'ngSanitize',
         'ngStorage',
+        'ngMaterial',
         'portal.main.controllers',
         'portal.main.directives',
         'portal.main.services',
