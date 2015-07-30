@@ -9,84 +9,68 @@
     <ul class='col-sm-6' style='padding-top: 1em;'>
        <li class="portlet-container-home beta-card-style">
            <h4>
-               <span class="btn-group">
-                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowSettings, 'btn-default' : !$storage.sidebarShowSettings }" ng-model="$storage.sidebarShowSettings" btn-radio="true">On</label>
-                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowSettings, 'btn-default' : !$storage.sidebarShowSettings }" ng-model="$storage.sidebarShowSettings" btn-radio="false">Off</label>
-               </span>
-               Sidebar Settings
+             <md-switch class="md-primary" ng-model="$storage.sidebarShowSettings" aria-label="Show Sidebar Settings">
+              Sidebar Settings
+             </md-switch>
            </h4>
            <small>Shows the settings button to get to this page easier</small>
 
        </li>
        <li class="portlet-container-home beta-card-style">
            <h4>
-               <span class="btn-group">
-                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarQuicklinks, 'btn-default' : !$storage.sidebarQuicklinks, }" ng-model="$storage.sidebarQuicklinks" btn-radio="true">On</label>
-                   <label class="btn" ng-class="{'btn-success' : $storage.sidebarQuicklinks, 'btn-default' : !$storage.sidebarQuicklinks, }" ng-model="$storage.sidebarQuicklinks" btn-radio="false">Off</label>
-               </span>
-               Sidebar Quicklinks
+               <md-switch class="md-primary" ng-model="$storage.sidebarQuicklinks" aria-label="Show Sidebar Quicklinks">
+                 Sidebar Quicklinks
+               </md-switch>
            </h4>
            <small>Shows quicklinks to various campus sites in sidebar</small>
 
        </li>
        <li class="portlet-container-home beta-card-style">
            <h4>
-               <span class="btn-group">
-                   <label class="btn" ng-class="{'btn-success' : $storage.webPortletRender, 'btn-default' : !$storage.webPortletRender, }" ng-model="$storage.webPortletRender" btn-radio="true">On</label>
-                   <label class="btn" ng-class="{'btn-success' : $storage.webPortletRender, 'btn-default' : !$storage.webPortletRender, }" ng-model="$storage.webPortletRender" btn-radio="false">Off</label>
-               </span>
+             <md-switch class="md-primary" ng-model="$storage.webPortletRender" aria-label="Render portlets on /web">
                /web portlet rendering
+             </md-switch>
            </h4>
            <small>Utilizes the /web's exclusive page for rendering the portlets</small>
 
        </li>
        <li class="portlet-container-home beta-card-style">
          <h4>
-           <span class="btn-group">
-             <label class="btn" ng-class="{'btn-success' : $storage.myProfileOption, 'btn-default' : !$storage.myProfileOption }" ng-model="$storage.myProfileOption" btn-radio="true">On</label>
-             <label class="btn" ng-class="{'btn-success' : $storage.myProfileOption, 'btn-default' : !$storage.myProfileOption }" ng-model="$storage.myProfileOption" btn-radio="false">Off</label>
-           </span>
-           My Profile Option in Menu
+           <md-switch class="md-primary" ng-model="$storage.myProfileOption" aria-label="Add My Profile Option in Menu">
+             My Profile Option in Menu
+           </md-switch>
          </h4>
          <small>Enable/Disable the option to jump to my profile in the sidebar</small>
        </li>
        <li class="portlet-container-home beta-card-style">
          <h4>
-           <span class="btn-group">
-             <label class="btn" ng-class="{'btn-success' : $storage.showKeywordsInMarketplace, 'btn-default' : !$storage.showKeywordsInMarketplace }" ng-model="$storage.showKeywordsInMarketplace" btn-radio="true">On</label>
-             <label class="btn" ng-class="{'btn-success' : $storage.showKeywordsInMarketplace, 'btn-default' : !$storage.showKeywordsInMarketplace }" ng-model="$storage.showKeywordsInMarketplace" btn-radio="false">Off</label>
-           </span>
-           Show Keywords in Marketplace
+           <md-switch class="md-primary" ng-model="$storage.showKeywordsInMarketplace" aria-label="Show Keywords in Marketplace">
+             Show Keywords in Marketplace
+           </md-switch>
          </h4>
          <small>Enable/Disable keywords showing up in marketplace details</small>
        </li>
        <li class="portlet-container-home beta-card-style">
             <h4>
-           <span class="btn-group">
-             <label class="btn" ng-class="{'btn-success' : $storage.typeaheadSearch, 'btn-default' : !$storage.typeaheadSearch }" ng-model="$storage.typeaheadSearch" btn-radio="true">On</label>
-             <label class="btn" ng-class="{'btn-success' : $storage.typeaheadSearch, 'btn-default' : !$storage.typeaheadSearch }" ng-model="$storage.typeaheadSearch" btn-radio="false">Off</label>
-           </span>
+              <md-switch class="md-primary" ng-model="$storage.typeaheadSearch" aria-label="Enable typeahead in the portlet search bar">
                 Enable typeahead in the portlet search bar
+              </md-switch>
             </h4>
             <small>Enable/Disable the typeahead in the portlet search bar</small>
         </li>
         <li class="portlet-container-home beta-card-style">
              <h4>
-            <span class="btn-group">
-              <label class="btn" ng-class="{'btn-success' : $storage.exampleWidgets, 'btn-default' : !$storage.exampleWidgets }" ng-model="$storage.exampleWidgets" btn-radio="true">On</label>
-              <label class="btn" ng-class="{'btn-success' : $storage.exampleWidgets, 'btn-default' : !$storage.exampleWidgets }" ng-model="$storage.exampleWidgets" btn-radio="false">Off</label>
-            </span>
+               <md-switch class="md-primary" ng-model="$storage.exampleWidgets" aria-label="Enable Example Widgets">
                  Example Widgets
+               </md-switch>
              </h4>
              <small>Show the My Courses, Email, and Calendar example widgets</small>
          </li>
          <li class="portlet-container-home beta-card-style">
              <h4>
-            <span class="btn-group">
-              <label class="btn" ng-class="{'btn-success' : $storage.mobileWidgetToggle, 'btn-default' : !$storage.mobileWidgetToggle }" ng-model="$storage.mobileWidgetToggle" btn-radio="true">Show</label>
-              <label class="btn" ng-class="{'btn-success' : $storage.mobileWidgetToggle, 'btn-default' : !$storage.mobileWidgetToggle }" ng-model="$storage.mobileWidgetToggle" btn-radio="false">Hide</label>
-            </span>
+               <md-switch class="md-primary" ng-model="$storage.mobileWidgetToggle" aria-label="Enable Widget Toggle on Mobile size screens">
                  Widget Toggle Mobile
+               </md-switch>
              </h4>
              <small>Show/Hide widget toggle on small windows (mobile)</small>
          </li>
@@ -99,27 +83,24 @@
             <div style='padding: 1em;'>
                 <img ng-src="{{$storage.homeImg}}" height='100px'>
             </div>
-            <label class="btn btn-primary" ng-model="$storage.homeImg" btn-radio="'img/terrace.jpg'">Chairs at the Union Terrace</label>
-            <label class="btn btn-primary" ng-model="$storage.homeImg" btn-radio="'img/square.jpg'">333 East Campus</label>
-
+            <md-radio-group ng-model="$storage.homeImg">
+             <md-radio-button value="img/terrace.jpg" class="md-primary"> Chairs at the Union Terrace </md-radio-button>
+             <md-radio-button value="img/square.jpg"> 333 East Campus </md-radio-button>
+           </md-radio-group>
           </div>
        </li>
        <li class="no-padding portlet-container-home  beta-card-style" style='text-align : center;'>
          <h4>Home Profile Image &nbsp;</h4>
          <small>Show a profile image in the sidebar</small>
          <h5>
-           <span class="btn-group">
-             <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowProfile, 'btn-default' : !$storage.sidebarShowProfile }" ng-model="$storage.sidebarShowProfile" btn-radio="true">On</label>
-             <label class="btn" ng-class="{'btn-success' : $storage.sidebarShowProfile, 'btn-default' : !$storage.sidebarShowProfile }" ng-model="$storage.sidebarShowProfile" btn-radio="false">Off</label>
-           </span>
-           Show profile picture
+           <md-switch class="md-primary" ng-model="$storage.sidebarShowProfile" aria-label="Show profile picture">
+             Show profile picture
+           </md-switch>
          </h5>
          <h5 ng-if='$storage.sidebarShowProfile'>
-           <span class="btn-group">
-             <label class="btn" ng-class="{'btn-success' : $storage.useGravatar, 'btn-default' : !$storage.useGravatar }" ng-model="$storage.useGravatar" btn-radio="true">Yes</label>
-             <label class="btn" ng-class="{'btn-success' : $storage.useGravatar, 'btn-default' : !$storage.useGravatar }" ng-model="$storage.useGravatar" btn-radio="false">No</label>
-           </span>
-           Use Gravatar Email
+           <md-switch class="md-primary" ng-model="$storage.useGravatar" aria-label="Use Gravatar Email">
+             Use Gravatar Email
+           </md-switch>
          </h5>
          <div ng-show="$storage.useGravatar && $storage.sidebarShowProfile">
             <label for="gravatarEmail">Gravatar Email <small ng-show="$storage.useGravatar">Setup gravatar account <a href='https://en.gravatar.com/' target='_blank'>here</a>.</small></label>
@@ -127,7 +108,7 @@
                 <div class="form-group">
                     <input type="email" class="form-control" id="gravatarEmail" placeholder="example@wisc.edu" ng-model="$storage.gravatarEmail">
                 </div>
-                <button class='btn btn-primary' ng-click='reload()'>Reload</button>
+                <md-button class='md-raised md-primary md-button md-default-theme' ng-click='reload()'>Reload</md-button>
             </form>
          </div>
          <small ng-if='$storage.sidebarShowProfile && !$storage.useGravatar'>Pick a different profile image for MyUW Home</small>
@@ -139,20 +120,17 @@
              <label for="customProfilePic">Custom URL</label>
              <input type="URL" class="form-control" id="customProfilePic" placeholder="http://grumpycat.com" ng-model="$storage.profileImg">
            </div>
-           <label class="btn btn-primary" ng-model="$storage.profileImg" btn-radio="'img/terrace.jpg'">Chairs at the Union Terrace</label>
-           <label class="btn btn-primary" ng-model="$storage.profileImg" btn-radio="'img/square.jpg'">333 East Campus</label>
-
+           <md-radio-group ng-model="$storage.profileImg">
+            <md-radio-button value="img/terrace.jpg" class="md-primary"> Chairs at the Union Terrace </md-radio-button>
+            <md-radio-button value="img/square.jpg"> 333 East Campus </md-radio-button>
+          </md-radio-group>
          </div>
        </li>
        <li class="portlet-container-home beta-card-style center">
             <h4>Danger Zone</h4>
             <h4>
-            <span class="btn-group">
-              <label class="btn btn-default" ng-click="resetLocal()">Reset Local Storage</label>
-            </span>
-            <span class="btn-group">
-              <label class="btn btn-default" ng-click="clearSession()">Clear Session Storage</label>
-            </span>
+              <md-button class='md-raised md-warn md-button md-default-theme' ng-click="resetLocal()">Reset Local Storage</md-button>
+              <md-button class='md-raised md-warn md-button md-default-theme' ng-click="clearSession()">Clear Session Storage</md-button>
             </h4>
             <small>Reset to default and clearing the session storage can be nice to clean the slate.</small>
          </li>
@@ -162,12 +140,12 @@
             <div class='fluid-container row'>
               <div class='col-xs-6'>
                 <h5>One Time Use</h5>
-                <button class='btn btn-flat' ng-click="dataempty2=!dataempty2">Toggle</button>
+                <md-button class='md-raised md-primary md-button md-default-theme' ng-click="dataempty2=!dataempty2">Toggle</md-button>
                 <loading-gif data-object='obj' data-empty='dataempty2'></loading-gif>
               </div>
               <div class='col-xs-6'>
                 <h5>Reusable</h5>
-                <button class='btn btn-flat' ng-click="dataempty=!dataempty">Toggle</button>
+                <md-button class='md-raised md-primary md-button md-default-theme'  ng-click="dataempty=!dataempty">Toggle</md-button>
                 <loading-gif data-object='obj' data-empty='dataempty' data-reuse='true'></loading-gif>
               </div>
             </div>
