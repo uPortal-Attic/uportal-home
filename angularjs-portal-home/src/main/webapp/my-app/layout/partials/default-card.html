@@ -7,17 +7,17 @@
     tooltip-popup-delay="200"></i>
   </div>
   <div class='widget-remove'>
-    <i title="Remove" class="fa fa-times portlet-options" ng-click="layoutCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
+    <i title="Remove" class="fa fa-times portlet-options" ng-click="layoutCtrl.removePortlet(portlet.nodeId, portlet.title)"><a aria-label="Remove this app symbol" href="#"></a></i>
   </div>
   <a ng-if="'EXCLUSIVE' === layoutCtrl.portletType(portlet)" href="exclusive/{{::portlet.fname}}" target="{{::portlet.target}}">
     <div class="icon-container">
       <portlet-icon></portlet-icon>
     </div>
     <div class="list-item-container">
-      <h4>{{ ::portlet.title }}</h4>
+      <h4 id="appTitle{{::portlet.title}}">{{ ::portlet.title }}</h4>
     </div>
   </a>
-  <a ng-if="'NORMAL' === layoutCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
+  <a aria-labelledby="appTitle{{::portlet.title}}" ng-if="'NORMAL' === layoutCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
     <div class="icon-container">
       <portlet-icon></portlet-icon>
     </div>
@@ -25,7 +25,7 @@
       <h4>{{ ::portlet.title }}</h4>
     </div>
   </a>
-  <a ng-if="'SIMPLE' === layoutCtrl.portletType(portlet)" ng-click="layoutCtrl.maxStaticPortlet(portlet)">
+  <a tabindex="0" aria-labelledby="appTitle{{::portlet.title}}" ng-if="'SIMPLE' === layoutCtrl.portletType(portlet)" ng-click="layoutCtrl.maxStaticPortlet(portlet)">
     <div class="icon-container">
       <portlet-icon></portlet-icon>
     </div>
