@@ -1,8 +1,12 @@
 define(['require'], function(require) {
 
     return {
+      settings : {
         templateUrl: require.toUrl('./partials/settings.html')
-        //controller: "someController"
+      },
+      material : {
+        templateUrl: require.toUrl('./partials/material-demo.html')
+      }
     }
 
 });
