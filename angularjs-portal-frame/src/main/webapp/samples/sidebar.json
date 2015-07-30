@@ -1,7 +1,7 @@
 {"sidebar" :  
             [
                 {"title": "Home", "hyperlink" : "/web", "target" : "", "faIcon" : "fa-home", "displayFlag" : ""},
-                {"title": "Apps", "hyperlink" : "/web/apps", "target" : "", "faIcon" : "fa-star", "displayFlag" : ""},
+                {"title": "Search", "hyperlink" : "/web/apps", "target" : "", "faIcon" : "fa-search", "displayFlag" : ""},
                 {"title": "My Profile", "hyperlink" : "/profile", "target" : "", "faIcon" : "fa-user", "displayFlag" : "myProfileOption"},
                 {"title": "Beta Settings", "hyperlink" : "settings", "target" : "", "faIcon" : "fa-cog", "displayFlag" : "sidebarShowSettings"},
                 {"title": "Help", "hyperlink" : "/web/static/myuw-help", "target" : "", "faIcon" : "fa-question", "displayFlag" : ""},
