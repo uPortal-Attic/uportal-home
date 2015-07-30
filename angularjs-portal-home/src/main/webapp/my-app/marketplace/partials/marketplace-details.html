@@ -2,7 +2,7 @@
   <div ng-if='loading' class="row details-header no-margin">
     <loading-gif data-object='obj' data-empty='!loading'></loading-gif>
   </div>
-  
+
   <div ng-if='error'>
     <div class="alert alert-danger" role="alert" style='margin: 20px;'>
       <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -10,7 +10,7 @@
       {{errorMessage}}
     </div>
   </div>
-  
+
   <div class="row details-header no-margin" ng-if='!loading && !error'>
   	<div class="col-xs-12 col-lg-6">
   		<h2>
@@ -19,7 +19,7 @@
 		  </h2>
 		  <a href="apps" class="back-to-home"><i class="fa fa-arrow-circle-o-left"></i> Back to Apps</a>
   	</div>
-		  
+
 		<div class="col-xs-12 col-lg-6">
 		 	<div class="action-buttons">
 
@@ -28,7 +28,7 @@
 		            ng-click="addToHome()"
 		            ng-if="portlet.canAdd && !portlet.hasInLayout"
 		            ng-class="{disabled : portlet.hasInLayout}">
-		      <span class="fa fa-plus"></span> Add to Favorites
+		      <span class="fa fa-plus"></span> Add to home
 		    </button>
 
 			    <!-- Added to home -->
@@ -96,7 +96,7 @@
 	    </ul>
 		</div>
 	</div>
-  
+
 	<div class="portlet-footer left">
 	 	<ul>
 	 		<li><a href="apps"><i class="fa fa-arrow-circle-o-left"></i> Back to Apps</a></li>
