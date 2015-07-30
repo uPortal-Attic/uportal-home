@@ -9,14 +9,14 @@
       tooltip-popup-delay="200"></i>
     </div>
     <div class='widget-remove'>
-      <i title="Remove" class="fa fa-times portlet-options" ng-click="widgetCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
+      <i title="Remove" class="fa fa-times portlet-options" ng-click="widgetCtrl.removePortlet(portlet.nodeId, portlet.title)"><a aria-label="Remove this app" href="#"></a></i>
     </div>
     
     <div class="widget-title">
-      <h4>{{ ::portlet.title }}</h4>
+      <h4 id="appTitle{{::portlet.title}}" aria-labelledby="appTitle{{::portlet.title}}" tabindex="0">{{ ::portlet.title }}</h4>
     </div>
   </div>
-  
+  <sub class="sr-only" id="goToApps{{::portlet.title}}">go to</sub>
   <!-- For widgets, show fancy markup! -->
   <div ng-if="'WIDGET' === widgetCtrl.portletType(portlet)">
     <div class="portlet-content">
@@ -45,11 +45,11 @@
   </div>
   
   <!-- For basic apps (not a widget, not simple content, no pithy content), show only an icon -->
-  <a ng-if="'NORMAL' === widgetCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
+  <a tabindex="-1" ng-if="'NORMAL' === widgetCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
     <div class="widget-icon-container">
       <portlet-icon></portlet-icon>
     </div>
-    <button class="btn btn-default launch-app-button">Launch full app</button>
+    <button aria-labelledby="goToApps{{::portlet.title}} appTitle{{::portlet.title}}" class="btn btn-default launch-app-button">Launch full app</button>
   </a>
   
   <!-- For pithy content, display the pithy content -->
@@ -61,10 +61,10 @@
   </div>
   
   <!-- For simple content portlets, show only an icon -->
-  <a ng-if="'SIMPLE' === widgetCtrl.portletType(portlet)" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="simple-content-container">
+  <a tabindex="-1" ng-if="'SIMPLE' === widgetCtrl.portletType(portlet)" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="simple-content-container">
     <div class="widget-icon-container">
       <portlet-icon></portlet-icon>
     </div>
-    <button class="btn btn-default launch-app-button">Launch full app</button>
-  </a>  
+    <button aria-labelledby="goToApps{{::portlet.title}} appTitle{{::portlet.title}}" class="btn btn-default launch-app-button">Launch full app</button>
+  </a>
 </div>
