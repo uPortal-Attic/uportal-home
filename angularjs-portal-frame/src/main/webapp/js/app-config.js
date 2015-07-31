@@ -3,10 +3,6 @@ define(['angular'], function(angular) {
     var config = angular.module('app-config', []);
     config
         .constant('APP_FLAGS', {
-            'enableToggle': true,
-            'defaultView' : 'list',
-            'list' : true,
-            'widgets' : true,
             'welcome' : false
         })
         .constant('SERVICE_LOC', {

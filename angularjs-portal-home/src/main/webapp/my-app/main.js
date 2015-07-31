@@ -54,12 +54,12 @@ define([
             when('/apps/details/:fname', marketplaceRoutes.details).
             when('/apps/search/:initFilter', marketplaceRoutes.main).
             when('/features', featuresRoute).
-            when('/list', listRoute).
+            when('/compact', listRoute).
+            when('/expanded', widgetRoute).
             when('/notifications', notificationsRoute).
             when('/settings', settingsRoute).
             when('/static/:fname', staticRoutes.staticMax).
             when('/exclusive/:fname', staticRoutes.exclusiveMax).
-            when('/widgets', widgetRoute).
             otherwise(layoutRoute);
     }]);
 

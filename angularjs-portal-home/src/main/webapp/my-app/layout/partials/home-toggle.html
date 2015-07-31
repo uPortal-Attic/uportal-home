@@ -1,6 +1,6 @@
 <span class="layout-chooser" ng-if="toggle" ng-class="{ 'hidden-xs' : !$storage.mobileWidgetToggle}">
-  <li ng-class="{active : modeIs('list')}">
-    <a  href="javascript:;" ng-click="switchMode('list')"
+  <li ng-class="{active : modeIs('compact')}">
+    <a  href="javascript:;" ng-click="switchMode('compact')"
       tooltip-html-unsafe="Compact"
       tooltip-trigger="mouseenter"
       tooltip-placement="top"
@@ -10,8 +10,8 @@
         <i class="fa fa-th"></i>
     </a>
   </li>
-  <li ng-class="{active : modeIs('widgets')}" >
-    <a href="javascript:;" ng-click="switchMode('widgets')"
+  <li ng-class="{active : modeIs('expanded')}" >
+    <a href="javascript:;" ng-click="switchMode('expanded')"
       tooltip="Expanded"
       tooltip-trigger="mouseenter"
       tooltip-placement="top"
