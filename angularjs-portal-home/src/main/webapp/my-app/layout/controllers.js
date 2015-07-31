@@ -215,6 +215,10 @@ define(['angular', 'jquery'], function(angular, $) {
             return date >= today;
         }
     }]);
+    
+    app.controller('GoToAppsController', ['$location',function($location){
+      this.redirectToApps = function(){$location.path("/apps");};
+    }]);
 
     app.controller('ToggleController',[
         '$localStorage',

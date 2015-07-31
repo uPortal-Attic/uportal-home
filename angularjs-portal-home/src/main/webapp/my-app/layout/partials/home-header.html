@@ -15,18 +15,18 @@
 </div>
 <div class="inner-nav-container">
   <ul class="inner-nav">
-    <li class="active home-title">
-        <a>My Favorites</a>
-    </li>
-    <li class="hidden-xs">
-      <a href='apps'
-       aria-label="link to Browse for more apps"
+    <li ng-controller='GoToAppsController as GoToAppsCtrl'>
+      <button 
+       ng-click='GoToAppsCtrl.redirectToApps()'
+       aria-label="button to Browse for more apps"
        tooltip="Browse for more apps"
        tooltip-trigger="mouseenter"
        tooltip-placement="top"
-       tooltip-popup-delay="500">
-      <i class='fa fa-plus'></i>
-     </a>
+       tooltip-popup-delay="500"
+       class='btn btn-flat to-apps-home-button'
+       style='margin: 4px 10px;'>
+      <i class='fa fa-plus hidden-xs'></i> Add more to home
+    </button>
     </li>
     <home-toggle></home-toggle>
   </ul>
