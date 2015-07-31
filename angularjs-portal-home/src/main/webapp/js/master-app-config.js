@@ -4,9 +4,9 @@ define(['angular'], function(angular) {
     config
         .constant('APP_FLAGS', {
             'enableToggle': true,
-            'defaultView' : 'list',
-            'list' : true,
-            'widgets' : true
+            'defaultView' : 'compact',
+            'compact' : true,
+            'expanded' : true
         })
         .constant('SERVICE_LOC', {
             'sessionInfo' : '/uPortal/api/session.json',
