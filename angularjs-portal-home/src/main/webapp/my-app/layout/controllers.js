@@ -4,6 +4,21 @@ define(['angular', 'jquery'], function(angular, $) {
 
     var app = angular.module('my-app.layout.controllers', []);
 
+    app.controller('DefaultViewController', [
+      '$scope',
+      '$location',
+      '$localStorage',
+      '$sessionStorage',
+      'APP_FLAGS',
+      function($scope, $location, $localStorage, $sessionStorage, APP_FLAGS){
+        $scope.loading = [];
+        if(!APP_FLAGS[$localStorage.layoutMode]) {
+          //layout mode set weird, reset to default
+          $localStorage.layoutMode = APP_FLAGS.defaultView;
+        }
+        $location.path('/' + $localStorage.layoutMode);
+    }]);
+
     app.controller('LayoutController', [
         '$location',
         '$localStorage',
@@ -67,7 +82,7 @@ define(['angular', 'jquery'], function(angular, $) {
                             }
                         }
                     });
-                }).error( 
+                }).error(
                 function(request, text, error){
                     alert('Issue deleting ' + title + ' from your list of favorites, try again later.');
                 });
@@ -163,7 +178,7 @@ define(['angular', 'jquery'], function(angular, $) {
                             }
                         }
                     });
-                }).error( 
+                }).error(
                 function(request, text, error){
                     alert('Issue deleting ' + title + ' from your list of favorites, try again later.');
                 });
@@ -246,4 +261,3 @@ define(['angular', 'jquery'], function(angular, $) {
     return app;
 
 });
-
