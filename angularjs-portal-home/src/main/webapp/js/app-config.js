@@ -4,7 +4,7 @@ define(['angular'], function(angular) {
     config
         .constant('APP_FLAGS', {
             'enableToggle': true,
-            'defaultView' : 'compact',
+            'defaultView' : 'expanded',
             'compact' : true,
             'expanded' : true,
             'welcome' : true
