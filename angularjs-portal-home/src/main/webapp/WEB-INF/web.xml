@@ -77,6 +77,8 @@
       <url-pattern>/exclusive/*</url-pattern>
       <url-pattern>/widgets</url-pattern>
       <url-pattern>/list</url-pattern>
+      <url-pattern>/expanded</url-pattern>
+      <url-pattern>/compact</url-pattern>
     </servlet-mapping>
   
   <welcome-file-list>
