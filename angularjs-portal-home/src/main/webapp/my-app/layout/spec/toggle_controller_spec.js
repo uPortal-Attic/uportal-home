@@ -64,37 +64,37 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
       
       it("should redirect if you go somewhere you are not supposed to be.", function(){
           //setup
-          $location.path('/widgets');
-          $localStorage.layoutMode = 'list';
+          $location.path('/expanded');
+          $localStorage.layoutMode = 'compact';
           //execute init
           controller.init();
           
-          expect($location.url()).toBe('/list');
+          expect($location.url()).toBe('/compact');
       });
       
       it("should redirect you if you switch modes and have a new layoutMode", function() {
         //setup
-        $location.path('/widgets');
+        $location.path('/expanded');
         controller.init();
         
         //switch!
-        scope.switchMode('list');
+        scope.switchMode('compact');
         controller.init();
         
         //validate
-        expect($localStorage.layoutMode).toBe('list');
-        expect($location.url()).toBe('/list');
+        expect($localStorage.layoutMode).toBe('compact');
+        expect($location.url()).toBe('/compact');
       });
       
       it("should only have page hits if it didn't redirect", function() {
         //setup
         gaPageViewHits = 0;
-        $localStorage.layoutMode = 'widgets';
-        $location.path('/list');
+        $localStorage.layoutMode = 'expanded';
+        $location.path('/compact');
         controller.init();
         
         //verify redirect happened
-        expect($location.url()).toBe('/widgets');
+        expect($location.url()).toBe('/expanded');
         controller.init();//fire again due to redirect
         
         expect(gaPageViewHits).toEqual(1);//there can be only one
