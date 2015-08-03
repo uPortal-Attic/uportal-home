@@ -17,7 +17,6 @@ define(['angular','require'], function(angular, require) {
             gravatarEmail : null,
             useGravatar : false,
             webPortletRender : false,
-            mobileWidgetToggle : false,
             hasSeenWelcome : false
             };
 
