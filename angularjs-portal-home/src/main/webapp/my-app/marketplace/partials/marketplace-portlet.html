@@ -13,15 +13,10 @@
       <span class="fa fa-plus"></span>Add to home
     </button>
 
-    <!-- Added to home -->
-    <button class="btn btn-disabled fname-{{::portlet.fname}}"
-            ng-if="portlet.canAdd && portlet.hasInLayout"
-            ng-class="{'btn-disabled' : portlet.hasInLayout}"
-            popover="This app is already in your favorites"
-            popover-trigger="mouseenter"
-            popover-placement="top"
-            popover-popup-delay="500">
-      <i class="fa fa-check"></i>Added to home
+    <!-- Remove from home -->
+    <button class="btn btn-default fname-academic-resources" ng-click="marketplaceCtrl.removeFromHome(portlet.nodeId, portlet.title)" ng-class="{disabled : portlet.hasInLayout}" ng-if="portlet.hasInLayout">
+      <span class="fa fa-times"></span>
+      Remove from home
     </button>
 
     <!-- Add to home button without access -->
@@ -47,8 +42,8 @@
       <a href="apps/details/{{::portlet.fname}}">Details</a>
     </div>
   </div>
-  
-  
+
+
 
   <!-- Action buttons for mobile -->
   <div class="action-buttons-mobile">
