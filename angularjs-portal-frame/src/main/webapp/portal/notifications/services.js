@@ -6,6 +6,14 @@ define(['angular', 'jquery'], function(angular, $) {
 
   app.factory('notificationsService', ['$q','$http', 'miscService', 'SERVICE_LOC', function($q, $http, miscService, SERVICE_LOC) {
       var filteredNotificationPromise;
+      var notificationPromise = $http.get(SERVICE_LOC.notificationsURL, {cache : true}).then(
+                                              function(result) {
+                                                  return  result.data.notifications;
+                                              } ,
+                                              function(reason){
+                                                  miscService.redirectUser(reason.status, 'notifications json feed call');
+                                              }
+                                          );
       var getAllNotifications = function() {
           return notificationPromise;
       };
@@ -40,14 +48,7 @@ define(['angular', 'jquery'], function(angular, $) {
         errorFn = function(reason) {
           miscService.redirectUser(reason.status, 'q for filtered notifications');
         }
-        var notificationPromise = $http.get(SERVICE_LOC.notificationsURL, {cache : true}).then(
-                                                function(result) {
-                                                    return  result.data.notifications;
-                                                } ,
-                                                function(reason){
-                                                    miscService.redirectUser(reason.status, 'notifications json feed call');
-                                                }
-                                            );
+
         var groupPromise = $http.get(SERVICE_LOC.groupURL, {cache : true}).then (function(result){
                                                                 return result.data.groups;
                                                               },function(reason){
