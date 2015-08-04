@@ -60,11 +60,11 @@ define(['angular','require'], function(angular, require) {
       that.user = result;
     });
   }]);
-  
+
   app.controller('WelcomeController', ['$localStorage', '$sessionStorage','$scope', '$document', 'APP_FLAGS', '$modal', 'mainService', '$sanitize', function($localStorage, $sessionStorage, $scope, $document, APP_FLAGS, $modal, mainService, $sanitize) {
-    $scope.openModal = function() {
+    var openModal = function() {
       if (APP_FLAGS.welcome && !$localStorage.hasSeenWelcome) {
-        
+
         mainService.getWelcome().then(function(data) {
             var welcome = data;
             if (welcome.data.length > 0) {
@@ -79,20 +79,19 @@ define(['angular','require'], function(angular, require) {
                 animation: $scope.animationsEnabled,
                 templateUrl: require.toUrl('./partials/welcome-modal-template.html'),
                 size: 'lg',
-                scope: $scope 
+                scope: $scope
               });
               $localStorage.hasSeenWelcome = true;
             }
         });
       }
     };
-    
-    
-    
+
+    openModal();
   }]);
-  
+
   app.controller('WelcomeModalController', function ($scope, $modalInstance, $modal, mainService) {
-  
+
       mainService.getWelcome().then(function(data) {
           var welcome = data;
           if (welcome !== null) {
@@ -100,9 +99,9 @@ define(['angular','require'], function(angular, require) {
           } else {
               $scope.welcome = {};//init view
           }
-  
+
       });
-  
+
       $scope.cancel = function () {
           $modalInstance.dismiss('cancel');
       };
