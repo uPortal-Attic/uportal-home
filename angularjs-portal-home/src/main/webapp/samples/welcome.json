@@ -2,7 +2,7 @@
    "id" : 1,
    "title" : "Welcome to the new MyUW. <span class='hidden-xs'>Here are the basics.</span>",
    "img" : "img/myuw-welcome.png",
-   "learnMoreURL" : "http://kb.wisc.edu/8943289",
+   "learnMoreURL" : null,
 	 "startYear" : 2015,
 	 "startMonth" : 6,
 	 "startDay" : 11,

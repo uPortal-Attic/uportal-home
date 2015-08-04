@@ -4,9 +4,9 @@
 	<div class="sr-only" tabindex="0">
 		<p id="welcomeContent">{{ welcome.accessibilityText }}</p>
 	</div>
-  <!-- <p class="visible-xs-* learn-more">Learn more at the <a href="#">KnowledgeBase.</a></p> -->
+  <p class="visible-xs learn-more" ng-if='welcome.learnMoreURL'>Learn more at the <a ng-href="{{welcome.learnMoreURL}}" target='_blank'>KnowledgeBase.</a></p>
   <div>
     <button class="btn btn-lg btn-primary" ng-click="$dismiss()">{{ welcome.buttonText }}</button>
   </div>
-  <!-- <p class="hidden-xs">Or learn more at the <a href="#">KnowledgeBase.</a></p> -->
+  <p class="hidden-xs" ng-if='welcome.learnMoreURL'>Or learn more at the <a ng-href="{{welcome.learnMoreURL}}" target='_blank'>KnowledgeBase.</a></p>
 </div>
