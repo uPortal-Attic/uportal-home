@@ -78,6 +78,7 @@ define(['angular', 'jquery'], function(angular, $) {
 
             miscService.pushPageview();
             $scope.portlet = sharedPortletService.getProperty() || {};
+            $scope.loading = [];
             var that = this;
             that.getPortlet = function (fname, portlets) {
                 for (var p in portlets) {
@@ -99,6 +100,8 @@ define(['angular', 'jquery'], function(angular, $) {
                         if (typeof $scope.portlet === 'undefined' ||
                             typeof $scope.portlet.fname === 'undefined') {
                             $location.path('/');
+                        } else {
+                          $scope.loading = $scope.portlet; //not []
                         }
                     });
                 }
