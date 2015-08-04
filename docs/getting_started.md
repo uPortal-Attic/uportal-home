@@ -18,7 +18,7 @@ _Why? : The collaboration model for this codebase involves a publicly viewable c
 
 # Have a Git client on your computer
 
-Have a Git client you like. [GitHub's native client][GitHub native client]. [Command line client][Git command line client] if you like. [SourceTree][]. Something built-in to your IDE if you must. Any Git client.
+Have a Git client you like. [GitHub's native client][GitHub native client], which I hear is getting good. [Command line client][Git command line client] if you like. [SourceTree][]. Something built-in to your IDE if you must. Any Git client.
 
 _Why? : You will need a Git client to clone the code to your computer and to craft commits and push changes back up to your fork of the repo on GitHub._
 
