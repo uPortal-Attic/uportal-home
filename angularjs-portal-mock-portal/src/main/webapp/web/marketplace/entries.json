@@ -8808,7 +8808,7 @@
               "lifecycleState" : "PUBLISHED",
               "marketplaceScreenshots" : [  ],
               "maxUrl" : "/portal/p/wiscareers/render.uP",
-              "name" : "WISCareers",
+              "name" : "CareerLocker",
               "portletReleaseNotes" : { "initialReleaseDate" : null,
                   "releaseDate" : null,
                   "releaseNotes" : null
@@ -8818,7 +8818,7 @@
               "renderUrl" : "/portal/p/wiscareers/render.uP",
               "shortUrl" : null,
               "target" : null,
-              "title" : "WISCareers",
+              "title" : "CareerLocker",
               "type" : "Portlet",
               "userRated" : 1
             },
@@ -16400,7 +16400,7 @@
               "lifecycleState" : "PUBLISHED",
               "marketplaceScreenshots" : [  ],
               "maxUrl" : "/portal/p/wiscareers/render.uP",
-              "name" : "WISCareers",
+              "name" : "CareerLocker",
               "portletReleaseNotes" : { "initialReleaseDate" : null,
                   "releaseDate" : null,
                   "releaseNotes" : null
@@ -16410,7 +16410,7 @@
               "renderUrl" : "/portal/p/wiscareers/render.uP",
               "shortUrl" : null,
               "target" : null,
-              "title" : "WISCareers",
+              "title" : "CareerLocker",
               "type" : "Portlet",
               "userRated" : 1
             }
@@ -18388,7 +18388,7 @@
         "lifecycleState" : "PUBLISHED",
         "marketplaceScreenshots" : [  ],
         "maxUrl" : "/portal/p/wiscareers/render.uP",
-        "name" : "WISCareers",
+        "name" : "CareerLocker",
         "portletReleaseNotes" : { "initialReleaseDate" : null,
             "releaseDate" : null,
             "releaseNotes" : null
@@ -18544,7 +18544,7 @@
         "renderUrl" : "/portal/p/wiscareers/render.uP",
         "shortUrl" : null,
         "target" : null,
-        "title" : "WISCareers",
+        "title" : "CareerLocker",
         "type" : "Portlet",
         "userRated" : 1
       },
