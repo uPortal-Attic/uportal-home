@@ -2,7 +2,16 @@
 	<div class="portal-power">
 		<div id="portalPageFooterLinks">
 			<div>
-				<span>© 2014, Board of Regents of the <a href="http://www.wisconsin.edu/" target="_blank">University of Wisconsin System</a></span>
+				<span id="footer_content"></span>
+				<script>
+					var currentTime = new Date();
+					var year = currentTime.getFullYear();
+					var content = "";
+					content =  "© ";
+					content += year;
+					content += ", Board of Regents of the <a href=\"http://www.wisconsin.edu/\" target=\"_blank\">University of Wisconsin System</a>";
+					document.getElementById("footer_content").innerHTML = content;
+				</script>
 			</div>
 			<div class='underline'>
 				<a ng-href='{{sessionCheckCtrl.feedbackURL}}'><span>Feedback</span></a>

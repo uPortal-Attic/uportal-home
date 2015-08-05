@@ -42,6 +42,19 @@ define(['angular', 'jquery'], function(angular, $) {
                 $location.path("apps/" + fname );
             };
 
+            if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
+
+                $rootScope.layout = [];
+                $scope.layoutEmpty = false;
+
+                layoutService.getLayout().then(function(data){
+                    $rootScope.layout = data.layout;
+                    if(data.layout && data.layout.length == 0) {
+                        $scope.layoutEmpty = true;
+                    }
+                });
+            }
+
             this.addToHome = function addToHomeFunction(index, portlet) {
                 var fname = portlet.fname;
                 var ret = layoutService.addToHome(portlet);
@@ -60,6 +73,55 @@ define(['angular', 'jquery'], function(angular, $) {
                         $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
                     });
             };
+
+            this.removeFromHome = function removePortletFunction(nodeId, title) {
+               console.log(nodeId);
+               console.log(title);
+               layoutService.removeFromHome(nodeId, title).success(function(){
+                   console.log('It worked!');
+                   console.log(title);
+                   $scope.$apply(function(request, text){
+                       var result = $.grep($scope.layout, function(e) { return e.nodeId === nodeId});
+                       console.log(result);
+                       var index = $.inArray(result[0], $scope.layout);
+                       //remove
+                       $scope.layout.splice(index,1);
+                       if($sessionStorage.marketplace != null) {
+                           var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === result[0].fname});
+                           console.log('e.fname:');
+                           console.log(e.fname);
+                           console.log('Result[0].fname');
+                           console.log(result[0].fname);
+                           if(marketplaceEntries.length > 0) {
+                               marketplaceEntries[0].hasInLayout = false;
+                           }
+                       }
+                   });
+               }).error(
+               function(request, text, error){
+                   alert('Issue deleting ' + title + ' from your list of favorites, try again later.');
+               });
+            };
+
+            // this.removeFromHome = function removeFromHomeFunction(index, portlet) {
+            //      console.log(index);
+            //      console.log(portlet);
+            //     var ret = layoutService.removeFromHome(portlet);
+            //     ret.success(function(request, text){
+            //         $('.fname-'+fname).html('<i class="fa fa-plus"></i> Removed Successfully').prop('disabled',false).removeClass('btn-removed').addClass('btn-remove');
+            //     $scope.$apply(function(){
+            //             var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname});
+            //             if(marketplaceEntries.length > 0) {
+            //                 marketplaceEntries[0].hasInLayout = false;
+            //             }
+            //             $rootScope.layout = null; //reset layout due to modifications
+            //             $sessionStorage.layout = null;
+            //         });
+            //     })
+            //         .error(function(request, text, error) {
+            //             $('.fname-'+fname).parent().append('<span>Issue removing from home, please try again later</span>');
+            //         });
+            // };
 
             $scope.openRating = function (size, fname, name) {
                 var modalInstance = $modal.open({
