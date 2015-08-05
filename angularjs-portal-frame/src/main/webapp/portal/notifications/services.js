@@ -14,12 +14,6 @@ define(['angular', 'jquery'], function(angular, $) {
                                                   miscService.redirectUser(reason.status, 'notifications json feed call');
                                               }
                                           );
-      var groupPromise = $http.get(SERVICE_LOC.groupURL, {cache : true}).then (
-                                    function(result){
-                                      return result.data.groups;
-                                    },function(reason){
-                                      miscService.redirectUser(reason.status, 'group json feed call');
-                                    });
       var getAllNotifications = function() {
           return notificationPromise;
       };
@@ -55,8 +49,14 @@ define(['angular', 'jquery'], function(angular, $) {
           miscService.redirectUser(reason.status, 'q for filtered notifications');
         }
 
+        var groupPromise = $http.get(SERVICE_LOC.groupURL, {cache : true}).then (function(result){
+                                                                return result.data.groups;
+                                                              },function(reason){
+                                                                miscService.redirectUser(reason.status, 'group json feed call');
+                                                              });
         //setup new q
-        filteredNotificationPromise = $q.all([notificationPromise, groupPromise]).then(successFn, errorFn);
+        filteredNotificationPromise =
+          $q.all([notificationPromise,groupPromise]).then(successFn, errorFn);
 
         return filteredNotificationPromise;
       };

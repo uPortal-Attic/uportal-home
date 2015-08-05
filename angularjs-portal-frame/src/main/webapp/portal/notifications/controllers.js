@@ -44,10 +44,12 @@ define(['angular'], function(angular) {
       $scope.notificationUrl = NOTIFICATION.notificationFullURL;
       $scope.notificationsEnabled = NOTIFICATION.enabled;
 
-      if(NOTIFICATION.groupFiltering) {
-        notificationsService.getNotificationsByGroups().then(successFn, errorFn);
-      } else {
-        notificationsService.getAllNotifications().then(successFn, errorFn);
+      if(NOTIFICATION.enabled) {
+        if(NOTIFICATION.groupFiltering) {
+          notificationsService.getNotificationsByGroups().then(successFn, errorFn);
+        } else {
+          notificationsService.getAllNotifications().then(successFn, errorFn);
+        }
       }
     }
 

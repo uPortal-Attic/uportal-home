@@ -21,7 +21,7 @@
   <div class='sr-only' ng-if="classicURL">
     <a ng-href='{{classicURL}}'>Switch back to the classic MyUW</a>
   </div>
-  <div ng-controller="WelcomeController as welcomeCtrl" ng-init="openModal()">
+  <div ng-controller="WelcomeController as welcomeCtrl">
     <!--[if lt IE 10]>
     <div class="browserupgrade">
       <span class="fa fa-frown-o"></span>
