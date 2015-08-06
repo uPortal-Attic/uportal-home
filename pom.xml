@@ -42,6 +42,14 @@
     <module>angularjs-portal-home</module>
     <module>angularjs-portal-mock-portal</module>
   </modules>
+  
+  <repositories>
+    <repository>
+      <id>central-snapshots</id>
+      <name>Central Snapshots</name>
+      <url>https://oss.sonatype.org/content/groups/public</url>
+    </repository>
+  </repositories>
 
   <distributionManagement>
     <snapshotRepository>
