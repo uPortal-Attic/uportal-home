@@ -44,7 +44,7 @@ This is the MyUW home page. It uses the frame as a base then adds in the layout,
 To deploy the home build from the base directory described above. Then `cd ./angularjs-portal-home` and run `mvn tomcat7:redeploy` (assuming you have auto deploy configured).  The home will now be deployed to `/web`.
 
 ### Running Mock
-To run simply type `mvn jetty:run` from the root directory. By default jetty runs on port 8080.
+To run simply type `mvn clean package && mvn jetty:run` from the root directory. By default jetty runs on port 8080.
 
 ### Deploying to Local Instance
 We added in support to deploy the artifact to tomcat using maven. To setup add a server to your .m2/settings.xml for tomcat. Example:
