@@ -9,6 +9,11 @@
 ### What is this?
 This is an angular approach to the dashboard view of uPortal. This dashboard will work along side uPortal, more of a companion app. It utilizes the uPortal rest APIs to collect layout info. It pulls notifications from the notification portlet resource URL.
 
+#### Resources for understanding what you can do with `angularjs-portal`:
+
+ * [MyUW Introduction YouTube video](https://www.youtube.com/watch?v=4kM9pPnH_hA)
+ * [MyUW KnowledgeBase](https://kb.wisc.edu/myuw/)
+
 ### Building
 
 First, copy
