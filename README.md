@@ -41,9 +41,7 @@ Once the source is ready to build by your having provided a suitable `endpoint.p
 ### Modules
 
 #### Frame
-The frame is your starting point for a new application.  This has the MyUW header and sidebar. It does still rely on /portal to be in the same container for the session information (name, server, etc...).  If you want to run outside the container just remove those two dependencies and fix the URL's in the side-bar-left.html.
-
-To deploy the frame build from the base directory described above. Then `cd ./angularjs-portal-frame` and run `mvn tomcat7:redeploy` (assuming you have auto deploy configured).  The frame will now be deployed to /frame.
+Frame was so cool it was moved to its own project, you can find that [here](https://github.com/UW-Madison-DoIT/uw-frame).
 
 #### Home
 This is the MyUW home page. It uses the frame as a base then adds in the layout, marketplace, and features pages.
@@ -51,7 +49,7 @@ This is the MyUW home page. It uses the frame as a base then adds in the layout,
 To deploy the home build from the base directory described above. Then `cd ./angularjs-portal-home` and run `mvn tomcat7:redeploy` (assuming you have auto deploy configured).  The home will now be deployed to `/web`.
 
 ### Running Mock
-To run simply type `mvn jetty:run` from the root directory. By default jetty runs on port 8080.
+To run simply type `mvn clean package && mvn jetty:run` from the root directory. By default jetty runs on port 8080.
 
 ### Deploying to Local Instance
 We added in support to deploy the artifact to tomcat using maven. To setup add a server to your .m2/settings.xml for tomcat. Example:

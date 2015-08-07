@@ -39,10 +39,17 @@
   </properties>
 
   <modules>
-    <module>angularjs-portal-frame</module>
     <module>angularjs-portal-home</module>
     <module>angularjs-portal-mock-portal</module>
   </modules>
+  
+  <repositories>
+    <repository>
+      <id>central-snapshots</id>
+      <name>Central Snapshots</name>
+      <url>https://oss.sonatype.org/content/groups/public</url>
+    </repository>
+  </repositories>
 
   <distributionManagement>
     <snapshotRepository>
@@ -172,10 +179,6 @@
         <version>9.3.0.M2</version>
         <configuration>
           <contextHandlers>
-            <contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
-              <war>${project.basedir}/angularjs-portal-frame/target/frame.war</war>
-              <contextPath>/frame</contextPath>
-            </contextHandler>
             <contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
               <war>${project.basedir}/angularjs-portal-home/target/web.war</war>
               <contextPath>/web</contextPath>
