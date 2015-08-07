@@ -13,6 +13,9 @@
   <name>angularjs-portal-home</name>
 
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
+  <properties>
+    <webapp.target.directory>${project.build.directory}/${project.build.finalName}</webapp.target.directory>
+  </properties>
 
   <dependencies>
     <!-- overlays -->
@@ -132,6 +135,27 @@
       </resource>
     </resources>
     <plugins>
+      <plugin>
+        <groupId>org.lesscss</groupId>
+        <artifactId>lesscss-maven-plugin</artifactId>
+        <version>1.7.0.1.1</version>
+        <configuration>
+          <sourceDirectory>${project.basedir}/src/main/webapp/css/</sourceDirectory>
+          <outputDirectory>${project.basedir}/src/main/webapp/my-app</outputDirectory>
+          <compress>true</compress>
+          <includes>
+            <include>my-app.less</include>
+          </includes>
+          <outputFileFormat>{fileName}.css</outputFileFormat>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>2.6</version>
