@@ -1,7 +1,7 @@
 <div class="portlet-list-item" >
-  <h2>
+  <h2 tabindex="0" aria-labelledby="portlet.title-{{::portlet.fname}}">
     <portlet-icon class='five-px-top-left'></portlet-icon>
-    <span class="portlet-title">{{::portlet.title}}</span>
+    <span id="portlet.title-{{::portlet.fname}}" class="portlet-title">{{::portlet.title}}</span>
   </h2>
   <div class="action-buttons">
 
@@ -29,8 +29,9 @@
       <span class="fa fa-plus"></span>Add to home
     </button>
 
+    <sub class="sr-only" id="goTo-portlet.title-{{::portlet.fname}}">go to this app</sub>
     <!-- Launch button with access -->
-    <a class="btn btn-success" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a aria-labelledby="goTo-portlet.title-{{::portlet.fname}}" class="btn btn-success" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
     <!-- Launch button without access -->
     <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
@@ -40,15 +41,15 @@
     ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
   </span>
   <span> | <button ng-click="openRating('sm',portlet.fname, portlet.title)" class="btn btn-default">Rate</button></span>
-  <p>{{::portlet.description}}</p>
+  <p tabindex="0" id="portlet.title-{{::portlet.fname}}-Description" aria-describedby="portlet.title-{{::portlet.fname}}-Description">{{::portlet.description}}</p>
   <div class="category-list">
     <a ng-repeat="category in portlet.categories" href="" ng-click="selectFilter('category',category)" class="category-links">{{::category}}</a>
     <div class="portlet-details">
       <a href="apps/details/{{::portlet.fname}}">Details</a>
     </div>
   </div>
-  
-  
+
+
 
   <!-- Action buttons for mobile -->
   <div class="action-buttons-mobile">
