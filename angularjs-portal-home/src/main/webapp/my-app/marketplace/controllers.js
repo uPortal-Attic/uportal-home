@@ -114,6 +114,8 @@ define(['angular', 'jquery'], function(angular, $) {
                     $scope.sortParameter = 'name';
                     $scope.showCategories = true;
                 }
+              
+                miscService.pushGAEvent('Marketplace','Tab Select',filter);
 
             };
             $scope.showAll = false;
