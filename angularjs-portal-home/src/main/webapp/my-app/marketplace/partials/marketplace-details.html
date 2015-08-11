@@ -47,9 +47,8 @@
 			      <span class="fa fa-plus"></span> Add to home
 			    </button>
 
-		    <sub class="sr-only" id="goTo-portlet.title-{{::portlet.fname}}">go to this app</sub>
             <!-- Launch button with access -->
-		    <a aria-labelledby="goTo-portlet.title-{{::portlet.fname}}" class="btn btn-success" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span> Launch</a>
+		    <a aria-label="launch {{::portlet.title}}" class="btn btn-success" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span> Launch</a>
 
 		    <!-- Launch button without access -->
 		    <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
