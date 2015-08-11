@@ -3,10 +3,10 @@
             <h3 tabindex="0" aria-label="Rate {{::name}}" class="modal-title">Rate {{::name}}</h3>
         </div>
         <div class="modal-body center">
-            <div class="help-block" ng-if="rating.previouslyRated">
+            <div tabindex="0" id="Rated-{{::portlet.fname}}-description" aria-labelledby="Rated-{{::portlet.fname}}-description" class="help-block" ng-if="rating.previouslyRated">
                 You have already rated {{::name}}. You may update your rating if you wish.
             </div>
-            <div class="help-block" ng-if="!rating.previouslyRated">
+            <div  tabindex="0" id="NRated-{{::portlet.fname}}-description" aria-labelledby="NRated-{{::portlet.fname}}-description" class="help-block" ng-if="!rating.previouslyRated">
                 You have not yet rated {{::name}}. Share a rating if you wish.
             </div>
             <div class="rating-input">
