@@ -13,9 +13,9 @@
 
   <div class="row details-header no-margin" ng-if='!loading && !error'>
   	<div class="col-xs-12 col-lg-6">
-  		<h2 tabindex="0" aria-labelledby="portlet.title-{{::portlet.fname}}">
+  		<h2 tabindex="0">
 		    <portlet-icon></portlet-icon>
-		    <span id="portlet.title-{{::portlet.fname}}" class="portlet-title">{{::portlet.title}} Details</span>
+		    <span class="portlet-title">{{::portlet.title}} Details</span>
 		  </h2>
 		  <a href="apps" class="back-to-home"><i class="fa fa-arrow-circle-o-left"></i> Back to Search and Browse</a>
   	</div>
@@ -57,24 +57,24 @@
 	</div>
 	<div class="row no-margin"  ng-if='!loading && !error'>
 		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item">
-			<h3 tabindex="0" aria-label="Description" class="center">Description</h3>
-			<p tabindex="0" id="portlet.title-{{::portlet.fname}}-Description" aria-describedby="portlet.title-{{::portlet.fname}}-Description" class="app-description">{{::portlet.description}}</p>
+			<h3 tabindex="0" class="center">Description</h3>
+			<p tabindex="0" class="app-description">{{::portlet.description}}</p>
 		</div>
 		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center rating-div">
-			<h3 tabindex="0" aria-label="Rating">Ratings</h3>
+			<h3 tabindex="0">Ratings</h3>
 			<span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
     ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
   		</span><br>
   		<button ng-click="openRating('sm',portlet.fname, portlet.title)" class="btn btn-default rate-button">Rate</button>
 		</div>
 		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center">
-			<h3 tabindex="0" aria-label="Related Apps">Related Apps</h3>
+			<h3 tabindex="0">Related Apps</h3>
       <ul>
         <li ng-repeat="related in portlet.relatedPortlets"><a href="apps/details/{{ ::related.fname }}">{{ ::related.title }}</a></li>
       </ul>
 		</div>
 		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center">
-			<h3 tabindex="0" aria-label="Categories">Categories</h3>
+			<h3 tabindex="0">Categories</h3>
 			<a ng-repeat="category in portlet.categories" href="" ng-click="selectFilter('category',category)" class="category-links">{{::category}}</a>
 		</div>
 		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center" ng-if="$storage.showKeywordsInMarketplace">
