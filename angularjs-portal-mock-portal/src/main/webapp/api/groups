@@ -2,6 +2,21 @@
    "groups":[
       {
          "entityType":"group",
+         "id":"pags.users-service-activation-required",
+         "name":"Users - Service Activation Required",
+         "creatorId":null,
+         "description":"Users that need to activate services",
+         "principal":{
+            "key":"pags.users-service-activation-required",
+            "name":"12356.pags.users-service-activation-required"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
          "id":"pags.student",
          "name":"Student",
          "creatorId":null,

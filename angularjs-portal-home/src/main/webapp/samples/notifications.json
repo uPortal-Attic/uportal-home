@@ -1,0 +1,25 @@
+{"notifications" :
+    [
+      {
+        "id"     : 1,
+        "groups" : ["Portal Administrators"],
+        "title"  : "This is an admin notification smoke test",
+        "actionURL" : "http://www.google.com",
+        "actionAlt" : "Google"
+      },
+      {
+        "id"     : 2,
+        "groups" : ["Users - Student SSN Update","Portal Administrators"],
+        "title"  : "Our records indicate the Social Security Number in your Personal Information is invalid or missing. Please provide your Social Security Number or select to not provide your Social Security Number.",
+        "actionURL" : "/portal/p/my-info-student-center-ssn.ctf1/max/action.uP?pP_action=loginAction",
+        "actionAlt" : "UW-Madison Student Information"
+      },
+      {
+        "id"     : 3,
+        "groups" : ["Users - Service Activation Required","Portal Administrators"],
+        "title"  : "You need to modify your NetID account to activate essential UW Services.",
+        "actionURL" : "https://www.mynetid.wisc.edu/modify",
+        "actionAlt" : "Activate Services"
+      }
+    ]
+}
