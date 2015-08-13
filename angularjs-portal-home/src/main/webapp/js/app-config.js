@@ -28,6 +28,7 @@ define(['angular'], function(angular) {
         })
         .constant('NAMES', {
             'title' : 'MyUW',
+            'ariaLabelTitle' : 'My U W',
             'crest' : 'img/uwcrest_web_sm.png',
             'crestalt' : 'UW Crest',
             'sublogo' : ''

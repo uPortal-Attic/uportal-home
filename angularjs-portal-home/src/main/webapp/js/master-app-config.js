@@ -25,6 +25,7 @@ define(['angular'], function(angular) {
         })
         .constant('NAMES', {
             'title' : 'uPortal',
+            'ariaLabelTitle' : 'My U W',
             'crest' : null,
             'crestalt' : 'Crest',
             'sublogo' : ''
