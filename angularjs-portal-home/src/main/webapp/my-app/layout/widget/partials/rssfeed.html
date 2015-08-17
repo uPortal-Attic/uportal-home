@@ -8,7 +8,7 @@
         </a>
       </li>
       <li ng-if='config.lim && data.responseData.feed.entries.length > config.lim'>
-        <p>Showing {{config.lim}} out of {{data.responseData.feed.entries.length}}</p>
+        <p title='show more' ng-click='config.lim=5+config.lim'>Showing {{config.lim}} out of {{data.responseData.feed.entries.length}}</p>
       </li>
       <li ng-if='error'>There was an issue loading the information, click Launch full app for more details</li>
    </ul>
