@@ -127,6 +127,22 @@
          "altMaxUrl":false
       },
       {
+         "nodeId":"u23l1n22",
+         "title":"Course Guide Help",
+         "description":"Help that matters mosts",
+         "url":"/web/",
+         "iconUrl":null,
+         "faIcon":"fa-compass",
+         "fname":"CourseGuide-Help",
+         "target":null,
+         "widgetURL": "http://kb.wisc.edu/enrollment/topic_rss.php?cat=52000",
+         "widgetType":"rss",
+         "widgetConfig":null,
+         "staticContent":null,
+         "pithyStaticContent":null,
+         "altMaxUrl":false
+      },
+      {
          "nodeId":"u23l1n11",
          "title":"My Professional Development",
          "description":"View professional development opportunities for faculty and staff on the UW-Madison campus.",

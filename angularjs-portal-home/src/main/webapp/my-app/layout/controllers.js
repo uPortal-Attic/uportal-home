@@ -142,6 +142,8 @@ define(['angular', 'jquery'], function(angular, $) {
                         return "WEATHER";
                     } else if('generic' === portlet.widgetType) {
                         return "GENERIC";
+                    } else if('rss' === portlet.widgetType) {
+                        return "RSS";
                     } else {
                         return "WIDGET";
                     }

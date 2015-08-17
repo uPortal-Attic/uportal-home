@@ -71,7 +71,7 @@ define(['angular'], function(angular){
         populateWidgetContent();
         $scope.details=false;
     }]);
-
+    
     app.controller('GenericWidgetController', ['$scope', 'layoutService', function($scope, layoutService){
         var populateWidgetContent = function() {
             if($scope.portlet.widgetURL && $scope.portlet.widgetType) {
@@ -108,6 +108,24 @@ define(['angular'], function(angular){
             console.error($scope.portlet.fname + " said its a widget, but no template defined.");
             $scope.isEmpty = true;
         }
+    }]);
+    
+    app.controller("RSSWidgetController", ['$scope', 'layoutService', function($scope, layoutService){
+      $scope.loading = true;
+      if($scope.portlet && $scope.portlet.widgetURL && $scope.portlet.widgetType) {
+        layoutService.getRSSJsonified($scope.portlet.widgetURL).then(function(result){
+          $scope.loading = false;
+          $scope.data = result.data;
+        },function(data){
+          $scope.error = true;
+          $scope.isEmpty = true;
+          $scope.loading = false;
+        });
+      } else {
+        $scope.loading = false;
+        $scope.error = true;
+      }
+      
     }]);
 
     return app;

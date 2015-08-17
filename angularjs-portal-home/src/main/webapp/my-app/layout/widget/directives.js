@@ -37,6 +37,17 @@ define(['angular', 'require'], function(angular, require) {
             controller: 'WeatherController'
         }
     });
+    
+    app.directive('rss', function () {
+        return {
+            restrict: 'E',
+            scope: {
+                portlet: '=app',
+                config: '=config'
+            },
+            templateUrl: require.toUrl('./partials/rssfeed.html')
+        }
+    });
 
     app.directive('widgetCard', function(){
         return {
