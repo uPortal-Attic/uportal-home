@@ -118,17 +118,24 @@ define(['angular'], function(angular){
             $scope.config = {};
           }
           $scope.config.lim = 5;
-          layoutService.getRSSJsonified($scope.portlet.widgetURL).then(function(result){
+          var successFn = function(result){
             $scope.loading = false;
             $scope.data = result.data;
             if($scope.data.responseStatus != 200) {
               $scope.error = true;
+            } else if(!$scope.data.responseData 
+              || !$scope.data.responseData.feed 
+              || $scope.data.responseData.feed.entries.length == 0) {
+              $scope.isEmpty = true;
             }
-          },function(data){
+          };
+          var errorFn = function(data){
             $scope.error = true;
             $scope.isEmpty = true;
             $scope.loading = false;
-          });
+          };
+          
+          layoutService.getRSSJsonified($scope.portlet.widgetURL).then(successFn,errorFn);
         } else {
           $scope.loading = false;
           $scope.error = true;

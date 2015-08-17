@@ -11,6 +11,7 @@
         <p title='show more' ng-click='config.lim=5+config.lim'>Showing {{config.lim}} out of {{data.responseData.feed.entries.length}}</p>
       </li>
       <li ng-if='error'>There was an issue loading the information, click Launch full app for more details</li>
+      <li ng-if='isEmpty'>No information at this time.</li>
    </ul>
 </div>
 <a class='btn btn-default launch-app-button ng-scope' ng-href='{{portlet.url}}'>Launch Full App</a>
