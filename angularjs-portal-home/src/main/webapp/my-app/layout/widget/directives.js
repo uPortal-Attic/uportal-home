@@ -38,6 +38,14 @@ define(['angular', 'require'], function(angular, require) {
         }
     });
     
+    /**
+     <rss></rss> is an rss widget card that will show your info in a view
+     app     : A layout portlet object from uPortal
+     config  : A config object with the following options
+               - lim : limit to number shown, default 5
+               - showdate : show the publish date on the right (default false)
+               - showsnippet : show contentSnippit (default false)
+    **/
     app.directive('rss', function () {
         return {
             restrict: 'E',
