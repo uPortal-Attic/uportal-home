@@ -111,20 +111,31 @@ define(['angular'], function(angular){
     }]);
     
     app.controller("RSSWidgetController", ['$scope', 'layoutService', function($scope, layoutService){
-      $scope.loading = true;
-      if($scope.portlet && $scope.portlet.widgetURL && $scope.portlet.widgetType) {
-        layoutService.getRSSJsonified($scope.portlet.widgetURL).then(function(result){
+      var init = function(){
+        $scope.loading = true;
+        if($scope.portlet && $scope.portlet.widgetURL && $scope.portlet.widgetType) {
+          if(!$scope.config) {
+            $scope.config = {};
+          }
+          $scope.config.lim = 5;
+          layoutService.getRSSJsonified($scope.portlet.widgetURL).then(function(result){
+            $scope.loading = false;
+            $scope.data = result.data;
+            if($scope.data.responseStatus != 200) {
+              $scope.error = true;
+            }
+          },function(data){
+            $scope.error = true;
+            $scope.isEmpty = true;
+            $scope.loading = false;
+          });
+        } else {
           $scope.loading = false;
-          $scope.data = result.data;
-        },function(data){
           $scope.error = true;
-          $scope.isEmpty = true;
-          $scope.loading = false;
-        });
-      } else {
-        $scope.loading = false;
-        $scope.error = true;
+        }
       }
+      
+      init();
       
     }]);
 

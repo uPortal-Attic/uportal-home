@@ -1,11 +1,16 @@
 <div ng-controller='RSSWidgetController as RSSWidgetCtrl' style='overflow-y: scroll; max-height: 210px;'>
+  <loading-gif data-object="data" data-empty="isEmpty"></loading-gif>
    <ul class='widget-list'>
-      <li ng-repeat='item in data.responseData.feed.entries | filter:filterText'>
+      <li ng-repeat='item in data.responseData.feed.entries | filter:filterText | limitTo:config.lim'>
         <a ng-href='{{item.link}}' target='_blank'>
           <p class='bold'>{{item.title}}<span class='right' ng-if='config.showdate'>{{item.publishedDate}}</span></p>
           <p ng-if='config.showsnippet'>{{item.contentSnippet}}</p>
         </a>
       </li>
+      <li ng-if='config.lim && data.responseData.feed.entries.length > config.lim'>
+        <p>Showing {{config.lim}} out of {{data.responseData.feed.entries.length}}</p>
+      </li>
+      <li ng-if='error'>There was an issue loading the information, click Launch full app for more details</li>
    </ul>
 </div>
-<a class='btn btn-default launch-app-button ng-scope' href='/portal/p/course-services'>Launch Full App</a>
+<a class='btn btn-default launch-app-button ng-scope' ng-href='{{portlet.url}}'>Launch Full App</a>
