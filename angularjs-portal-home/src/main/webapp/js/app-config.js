@@ -7,12 +7,12 @@ define(['angular'], function(angular) {
             'defaultView' : 'expanded',
             'compact' : true,
             'expanded' : true,
-            'welcome' : true
+            'features' : true
         })
         .constant('SERVICE_LOC', {
             'sessionInfo' : '/portal/web/session.json',
             'sidebarInfo' : '/web/samples/sidebar.json',
-            'welcomeInfo' : '/web/samples/welcome.json',
+            'featuresInfo' : '/web/samples/features.json',
             'newstuffInfo': '/web/samples/new-stuff.json',
             'context'     : '/portal/',
             'base'        : '/portal/web/',
