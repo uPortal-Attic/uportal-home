@@ -38,6 +38,10 @@
     <weather app="portlet" config="portlet.widgetConfig"></weather>
   </div>
   
+  <div ng-if="'RSS' === widgetCtrl.portletType(portlet)">
+    <rss app="portlet" config="portlet.widgetConfig"></rss>
+  </div>
+  
   <div ng-if="'GENERIC' === widgetCtrl.portletType(portlet)">
     <div ng-controller="GenericWidgetController as genericWidgetCtrl">
         <content-item></content-item>

@@ -184,6 +184,10 @@ define(['angular', 'jquery'], function(angular, $) {
                     }
                 );
         }
+        
+        var getRSSJsonified = function(feedURL) {
+          return $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(feedURL));
+        }
 
         return {
             getLayout : getLayout,
@@ -193,7 +197,8 @@ define(['angular', 'jquery'], function(angular, $) {
             addToHome : addToHome,
             removeFromHome : removeFromHome,
             getWidgetJson : getWidgetJson,
-            getExclusiveMarkup : getExclusiveMarkup
+            getExclusiveMarkup : getExclusiveMarkup,
+            getRSSJsonified : getRSSJsonified
         }
 
     }]);
