@@ -17,26 +17,5 @@
 		 "endDay" : 25,
 		 "buttonText" : "Continue to MyUW"
 	 }
-},
-{
-   "id" : 2,
-   "title" : "Welcome to the new Bob Loblaw's Law Blog",
-   "description" : "Bob Loblaw's Law Blog is a new blog in which Bob Loblaw lobs law bombs.",
-   "img" : "http://vignette1.wikia.nocookie.net/arresteddevelopment/images/d/da/3x09_S.O.B.s_(05).png/revision/latest?cb=20130322232649",
-   "learnMoreURL" : null,
-	 "goLiveYear" : 2015,
-	 "goLiveMonth" : 7,
-	 "goLiveDay" : 18,
-	 "popup" : {
-		 "enabled" : true,
-		 "startYear" : 2015,
-		 "startMonth" : 6,
-		 "startDay" : 11,
-		 "endYear" : 2015,
-		 "endMonth" : 10,
-		 "endDay" : 25,
-		 "buttonText" : "Continue to MyUW"
-	 }
-}
-]
+}]
 
