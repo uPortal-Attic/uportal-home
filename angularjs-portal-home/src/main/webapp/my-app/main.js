@@ -24,7 +24,8 @@ define([
     './marketplace/controllers',
     './marketplace/directives',
     './marketplace/services',
-    './search/controllers'
+    './search/controllers',
+    './storage/services'
 ], function(angular, require, marketplaceRoutes, listRoute, notificationsRoute, settingsRoute, featuresRoute, layoutRoute, staticRoutes, widgetRoute) {
 
     var app = angular.module('my-app', [
@@ -40,6 +41,7 @@ define([
         'my-app.marketplace.directives',
         'my-app.marketplace.services',
         'my-app.search.controllers',
+        'my-app.storage.services',
         'ngRoute',
         'ngSanitize',
         'ngStorage',
