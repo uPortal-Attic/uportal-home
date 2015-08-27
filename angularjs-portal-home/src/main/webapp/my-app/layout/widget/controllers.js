@@ -127,7 +127,10 @@ define(['angular'], function(angular){
           if(!$scope.config) {
             $scope.config = {};
           }
-          $scope.config.lim = 5;
+          
+          if(!$scope.config.lim) {
+            $scope.config.lim = 5;
+          }
           var successFn = function(result){
             $scope.loading = false;
             $scope.data = result.data;
