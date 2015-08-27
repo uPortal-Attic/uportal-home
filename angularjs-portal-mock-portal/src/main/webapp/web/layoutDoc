@@ -137,7 +137,7 @@
          "target":null,
          "widgetURL": "http://kb.wisc.edu/enrollment/topic_rss.php?cat=52000",
          "widgetType":"rss",
-         "widgetConfig":null,
+         "widgetConfig": {"lim" : 3},
          "staticContent":null,
          "pithyStaticContent":null,
          "altMaxUrl":false
