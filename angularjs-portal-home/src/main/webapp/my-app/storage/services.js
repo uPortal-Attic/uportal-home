@@ -4,7 +4,7 @@ define(['angular', 'jquery'], function(angular, $) {
 
     var app = angular.module('my-app.storage.services', []);
   
-    app.factory('keyValueService', ['$http', 'miscService', function($http, miscService) {
+    app.factory('keyValueService', ['$http', 'miscService', 'SERVICE_LOC', function($http, miscService,SERVICE_LOC) {
       
       var successFn = function(response) {
         return response.data;
@@ -16,14 +16,14 @@ define(['angular', 'jquery'], function(angular, $) {
       }
       
       var getValue = function(key){
-        return $http.get("/portal/api/keyvalue/getValue",key).then(successFn, errorFn);
+        return $http.get(SERVICE_LOC.kvURL + "getValue",key).then(successFn, errorFn);
       };
       
       var setValue = function(key, value){
         var data = {};
         data.key = key;
         data.value = value;
-        return $http.post("/portal/api/keyvalue/setValue",data).then(successFn, errorFn);
+        return $http.post(SERVICE_LOC.kvURL + "setValue",data).then(successFn, errorFn);
       };
       
       return {
