@@ -16,3 +16,5 @@ logs/
 .DS_Store
 angularjs-portal-home/src/main/webapp/my-app/my-app.css
 .codenvy/project.json
+angularjs-portal-home/.codenvy
+angularjs-portal-mock-portal/.codenvy
