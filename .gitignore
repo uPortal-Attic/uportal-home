@@ -15,4 +15,4 @@ overlays/
 logs/
 .DS_Store
 angularjs-portal-home/src/main/webapp/my-app/my-app.css
-
+.codenvy/project.json
