@@ -1,6 +1,6 @@
 <div class="row portlet-frame">
   <home-header></home-header>
-  <div class="col-xs-12 no-padding portlet-body" ng-controller="WidgetController as widgetCtrl">
+  <div role="main" class="col-xs-12 no-padding portlet-body" ng-controller="WidgetController as widgetCtrl">
     <loading-gif  data-object='layout' data-empty='layoutEmpty'></loading-gif>
     <!-- Widget View -->
     <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list">
@@ -18,7 +18,7 @@
              </div>
              <div class="widget-title">
                <h4>Add to home</h4>
-             </div>  
+             </div>
            </a>
         </div>
        </li>

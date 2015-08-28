@@ -1,5 +1,5 @@
 <div class="row portlet-frame static-content"  ng-controller="StaticContentController as staticContentCtrl">
-  <div class="portlet-header">
+  <div role="banner" class="portlet-header">
     <img class="header-image" ng-src="{{$storage.homeImg}}" alt="UW Campus cover image">
     <h1><span><portlet-icon></portlet-icon> {{::portlet.title }}</span></h1>
     <span class="dropdown" dropdown on-toggle="toggled(open)">
@@ -16,7 +16,7 @@
       </ul>
     </span>
   </div>
-  <div class="col-xs-12 no-padding portlet-body">
+  <div role="main" class="col-xs-12 no-padding portlet-body">
     <loading-gif data-object='loading'></loading-gif>
 	  <div ng-bind-html="::portlet.staticContent" class="up-portlet-content-wrapper" id="content-{{::portlet.nodeId}}">
 	  </div>

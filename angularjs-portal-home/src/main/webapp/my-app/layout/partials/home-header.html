@@ -1,4 +1,4 @@
-<div class="portlet-header">
+<div role="banner" class="portlet-header">
   <img ng-src="{{$storage.homeImg}}" alt="UW Campus cover image">
     <h1>Home</h1>
     <!-- <p>This is the Angular version of MyUW. Enjoy!</p> -->
@@ -16,7 +16,7 @@
 <div class="inner-nav-container">
   <ul class="inner-nav">
     <li ng-controller='GoToAppsController as GoToAppsCtrl'>
-      <button 
+      <button
        ng-click='GoToAppsCtrl.redirectToApps()'
        aria-label="button to browse for more"
        class='btn btn-flat to-apps-home-button'
