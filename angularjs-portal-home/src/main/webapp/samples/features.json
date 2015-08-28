@@ -3,17 +3,17 @@
    "title" : "Welcome to the new MyUW",
 	 "description" : "The new MyUW makes it easier to access your content. You can switch between simple icons and more informative widgets using 'Compact' and 'Expanded' toggles. Each of the icons on the home page links to your MyUW content, and widgets can display a dashboard of information on the home page. If you are having trouble finding what you're looking for, you can use the top search box to search through all of MyUW's content, and save it to your home page from there using the 'Add to home' button.",
    "img" : "img/myuw-welcome.png",
-	 "learnMoreURL" : "http://google.com",
+	 "learnMoreURL" : "https://kb.wisc.edu/myuw/page.php?id=53929",
 	 "goLiveYear" : 2015,
 	 "goLiveMonth" : 6,
 	 "goLiveDay" : 11,
 	 "popup" : {
-		 "enabled" : false,
+		 "enabled" : true,
 		 "startYear" : 2015,
 		 "startMonth" : 7,
 		 "startDay" : 11,
 		 "endYear" : 2015,
-		 "endMonth" : 6,
+		 "endMonth" : 7,
 		 "endDay" : 25,
 		 "buttonText" : "Continue to MyUW"
 	 }
