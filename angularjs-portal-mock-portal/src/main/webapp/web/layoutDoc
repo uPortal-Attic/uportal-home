@@ -1,5 +1,26 @@
 {
    "layout":[
+   
+      {
+		   "nodeId":"n777",
+		   "title":"Weather",
+		   "description":"Access the latest weather conditions and 5-day forecasts for the cities you select.",
+		   "url":"/web/samples/weather.json",
+		   "iconUrl":null,
+		   "faIcon":"fa-sun-o",
+		   "fname":"weather",
+		   "target":null,
+		   "widgetURL":"/web/samples/weather-multiple.json",
+		   "widgetType":"weather",
+		   "widgetTemplate":null,
+		   "widgetConfig":{
+		      "iconPrefix":"/WeatherPortlet/images/accuweather/",
+		      "iconPostfix":".png"
+		   },
+		   "staticContent":null,
+		   "pithyStaticContent":null,
+		   "altMaxUrl":false
+		},
       {
          "nodeId":"u23l1n28",
          "title":"Manager Time and Approval",
