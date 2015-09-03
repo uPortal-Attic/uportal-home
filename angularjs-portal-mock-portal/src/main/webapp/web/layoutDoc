@@ -158,7 +158,7 @@
          "target":null,
          "widgetURL": "http://kb.wisc.edu/enrollment/topic_rss.php?cat=52000",
          "widgetType":"rss",
-         "widgetConfig": {"lim" : 3, "showdate": true, "dateFormat" : "d/M"},
+         "widgetConfig": {"lim" : 3, "showdate": true, "dateFormat" : "M/d"},
          "staticContent":null,
          "pithyStaticContent":null,
          "altMaxUrl":false

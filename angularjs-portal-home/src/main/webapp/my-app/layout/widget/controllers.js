@@ -163,7 +163,12 @@ define(['angular'], function(angular){
   app.controller("RSSWidgetController", ['$scope', 'layoutService', function($scope, layoutService){
       
       $scope.getPrettyDate = function(dateString) {
-        var dte = new Date.parse(item.publishedDate);
+        var dte;
+        if(dateString) {
+            dte = new Date(dateString);
+        } else {
+            dte = null;
+        }
         return dte;
       };
       

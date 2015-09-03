@@ -3,7 +3,7 @@
    <ul class='widget-list'>
       <li ng-repeat='item in data.responseData.feed.entries | filter:filterText | limitTo:config.lim'>
         <a ng-href='{{item.link}}' target='_blank'>
-          <p class='bold'>{{item.title}}<span class='right' ng-if='config.showdate' ng-bind='getPrettyDate(item.publishedDate)'></span></p>
+          <p class='bold'>{{item.title}}<span class='right' ng-if='config.showdate'>{{getPrettyDate(item.publishedDate) | date:config.dateFormat}}</span></p>
           <p ng-if='config.showsnippet'>{{item.contentSnippet}}</p>
         </a>
       </li>
