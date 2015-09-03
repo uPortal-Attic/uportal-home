@@ -98,13 +98,17 @@ define(['angular'], function(angular){
         };
       
         $scope.filteredArray = function (array, objectVar, strings) {
-          return array.filter(function (letter) {
-            for(var i = 0; i < strings.length ; i++) {
-              if(letter[objectVar].indexOf(strings[i]) != -1) {
-                return true;
+          if(array && objectVar && strings) {
+            return array.filter(function (letter) {
+              for(var i = 0; i < strings.length ; i++) {
+                if(letter[objectVar].indexOf(strings[i]) != -1) {
+                  return true;
+                }
               }
-            }
-          });
+            });
+          } else {
+            return [];
+          }
         };
 
         if($scope.portlet.widgetTemplate) {
