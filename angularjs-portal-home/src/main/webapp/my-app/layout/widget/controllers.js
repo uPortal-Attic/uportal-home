@@ -161,43 +161,56 @@ define(['angular'], function(angular){
   }]);
 
   app.controller("RSSWidgetController", ['$scope', 'layoutService', function($scope, layoutService){
-    var init = function(){
-      $scope.loading = true;
-      if($scope.portlet && $scope.portlet.widgetURL && $scope.portlet.widgetType) {
-        if(!$scope.config) {
-          $scope.config = {};
-        }
-
-        if(!$scope.config.lim) {
-          $scope.config.lim = 5;
-        }
-        var successFn = function(result){
-          $scope.loading = false;
-          $scope.data = result.data;
-          if($scope.data.responseStatus != 200) {
-            $scope.error = true;
-          } else if(!$scope.data.responseData 
+      
+      $scope.getPrettyDate = function(dateString) {
+        var dte = new Date.parse(item.publishedDate);
+        return dte;
+      };
+      
+      var init = function(){
+        $scope.loading = true;
+        if($scope.portlet && $scope.portlet.widgetURL && $scope.portlet.widgetType) {
+          if(!$scope.config) {
+            $scope.config = {};
+          }
+          
+          if(!$scope.config.lim) {
+            $scope.config.lim = 5;
+          }
+          
+          if(!$scope.config.showShowing) {
+            //default must be false as falsy is weird
+            $scope.config.showShowing = false;
+          }
+          
+          var successFn = function(result){
+            $scope.loading = false;
+            $scope.data = result.data;
+            if($scope.data.responseStatus != 200) {
+              $scope.error = true;
+            } else if(!$scope.data.responseData 
               || !$scope.data.responseData.feed 
               || $scope.data.responseData.feed.entries.length == 0) {
+              $scope.isEmpty = true;
+            }
+          };
+          var errorFn = function(data){
+            $scope.error = true;
             $scope.isEmpty = true;
-          }
-        };
-        var errorFn = function(data){
-          $scope.error = true;
-          $scope.isEmpty = true;
+            $scope.loading = false;
+          };
+          
+          layoutService.getRSSJsonified($scope.portlet.widgetURL).then(successFn,errorFn);
+        } else {
           $scope.loading = false;
-        };
-
-        layoutService.getRSSJsonified($scope.portlet.widgetURL).then(successFn,errorFn);
-      } else {
-        $scope.loading = false;
-        $scope.error = true;
+          $scope.error = true;
+        }
       }
-    }
+      
+      init();
+      
+    }]);
 
-    init();
-
-  }]);
 
   return app;
 
