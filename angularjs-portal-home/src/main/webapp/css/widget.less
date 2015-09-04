@@ -47,14 +47,27 @@ weather {
     }
   }
   .weather-dropdown{
-    position: absolute;margin-left:200px; margin-top: -42px;
+    position: absolute;
+    margin-top: -40px;
+    right:30px;
     }
   .weather-dropdown a{
-    margin: 0px 5px; color: #b70101;
+    margin: 0px 5px;
+     color: #b70101;
     }
   .weather-clicked{
     color:#b70101;
     }
+  @media (max-width: 1246px){
+    .weather-dropdown{
+      right:20px;
+    }
+  }
+  @media (max-width: 1200px){
+    .weather-dropdown{
+      right:30px;
+    }
+  }
 }
 .widget-content option-link {
   .widget-icon-container i {
