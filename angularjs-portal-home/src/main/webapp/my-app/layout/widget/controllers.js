@@ -42,6 +42,20 @@ define(['angular'], function(angular){
     configInit();
     populateWidgetContent();
   }]);
+      
+        $scope.filteredArray = function (array, objectVar, strings) {
+          if(array && objectVar && strings) {
+            return array.filter(function (letter) {
+              for(var i = 0; i < strings.length ; i++) {
+                if(letter[objectVar].indexOf(strings[i]) != -1) {
+                  return true;
+                }
+              }
+            });
+          } else {
+            return [];
+          }
+        };
 
   app.controller('WeatherController', ['$scope', 'layoutService', function($scope, layoutService){
     $scope.weatherData = [];

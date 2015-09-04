@@ -21,6 +21,23 @@
 		   "pithyStaticContent":null,
 		   "altMaxUrl":false
 		},
+  {  
+         "nodeId":"n2926",
+         "title":"Directory",
+         "description":"Where you can find people or directories.",
+         "url":"http://www.wisc.edu/directories",
+         "iconUrl":null,
+         "faIcon":"fa-users",
+         "fname":"directory",
+         "target":"_blank",
+         "widgetURL":null,
+         "widgetType":"generic",
+         "widgetTemplate":"\n            <div class='widget-body'>\n         <form action='http://www.wisc.edu/directories' target='_blank'>\n            <div class='input-group'><input type='text' name='q' class='form-control' placeholder='Enter a name'><span class='input-group-btn'><button class='btn btn-primary' type='submit'><i class='fa fa-search'></i></button></span></div>\n         </form>\n         <div class='row'>\n            <div class='col-xs-5 col-xs-offset-1 icon-button-div'>\n               <div class='btn btn-primary rounded icon-button'><a href='http://www.wisc.edu/directories' target='_blank'><i class='fa fa-users'></i></a></div>\n               <p>Directory</p>\n            </div>\n            <div class='col-xs-5 icon-button-div'>\n               <div class='btn btn-primary rounded icon-button'><a href='https://apps.mbo.wisc.edu/ds/deptsearch.aspx' target='_blank'><i class='fa fa-sitemap'></i></a></div>\n               <p>Departmental Directory</p>\n            </div>\n         </div>\n      </div>\n      <a class='btn btn-default launch-app-button' href='{{::portlet.url}}' target='{{::portlet.target}}'>Goto Directory</a>\n        ",
+         "widgetConfig":null,
+         "staticContent":"\n            \n                Click <a href=\"http://www.wisc.edu/directories\">here</a> to access the campus directory.\n            \n        ",
+         "pithyStaticContent":null,
+         "altMaxUrl":true
+      },
       {
          "nodeId":"u23l1n28",
          "title":"Manager Time and Approval",
