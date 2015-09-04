@@ -56,23 +56,6 @@
          "altMaxUrl":false
       },
       {
-         "nodeId":"u23l1n234",
-         "title":"/r/uwmadison",
-         "description":"The UW-Madison subreddit. We do not monitor this feed.",
-         "url":"https://www.reddit.com/r/uwmadison",
-         "iconUrl":null,
-         "faIcon":"fa-reddit",
-         "fname":"uwmadison-sub-reddit",
-         "target": "_blank",
-         "widgetURL": "/web/api/uwmadisonreddit.json",
-         "widgetType":"generic",
-         "widgetTemplate":"<div class='scroll-widget' ng-init='lim=2'><loading-gif data-object='content' data-empty='isEmpty'></loading-gif><div ng-if='isEmpty'>Issue loading reddit feed, click launch button to get feed.</div><ul class='widget-list' style='padding : 0'> <li ng-repeat='item in content.data.children | limitTo:lim'> <a href='{{item.data.url}}' target='_blank'> <p class='bold'>{{item.data.title}}<span class='right'>score: {{item.data.score}}</span></p> <p>{{item.data.selftext}}</p> </a> </li> <li class='center' ng-hide='content.data.children.length <= lim' ng-click='lim=lim+5'><button class='btn btn-flat center'>Load More</button></li></ul></div><a class='btn btn-default launch-app-button' href='https://www.reddit.com/r/uwmadison' target='_blank'>Launch UW subreddit</a>",
-         "widgetConfig":null,
-         "staticContent":null,
-         "pithyStaticContent":null,
-         "altMaxUrl": true
-      },
-      {
          "nodeId":"u23l1n19",
          "title":"Course Services",
          "description":"Access services including Learn@UW, email class list requests, Registrar's Office forms, Teaching and Learning Excellence, and more.",
@@ -175,7 +158,7 @@
          "target":null,
          "widgetURL": "http://kb.wisc.edu/enrollment/topic_rss.php?cat=52000",
          "widgetType":"rss",
-         "widgetConfig": {"lim" : 3},
+         "widgetConfig": {"lim" : 3, "showdate": true, "dateFormat" : "M/d"},
          "staticContent":null,
          "pithyStaticContent":null,
          "altMaxUrl":false
