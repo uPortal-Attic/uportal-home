@@ -14,7 +14,7 @@
 		   "widgetType":"weather",
 		   "widgetTemplate":null,
 		   "widgetConfig":{
-		      "iconPrefix":"/WeatherPortlet/images/accuweather/",
+		      "iconPrefix":"https://my-test.doit.wisc.edu/WeatherPortlet/images/accuweather/",
 		      "iconPostfix":".png"
 		   },
 		   "staticContent":null,
