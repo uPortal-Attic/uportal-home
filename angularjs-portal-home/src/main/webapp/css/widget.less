@@ -37,8 +37,9 @@ weather {
     color:#666;
   }
   .credit {
+    position:absolute;
     font-size:9px;
-    text-align:center;
+    right: 0;
     a {
       color:@color1;
       &:hover {
@@ -48,14 +49,12 @@ weather {
   }
   .weather-dropdown{
     position: absolute;
-    margin-top: -40px;
-    right:30px;
+    bottom: 39px;
+    left: 12px;
+    font-size: 10px;
     }
-  .weather-dropdown a{
-    margin: 0px 5px;
-     color: #b70101;
-    }
-  .weather-clicked{
+
+  .weather-not-clicked{
     color:#b70101;
     }
   @media (max-width: 1246px){
