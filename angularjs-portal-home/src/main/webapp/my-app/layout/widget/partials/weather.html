@@ -1,12 +1,10 @@
 
 
 <div class="weather-dropdown">
-  <button class="weather-not-clicked btn btn-default btn-xs active" ng-show="showMetric" href=""
-    ng-click="showMetric=false; changeToF()">&degF</button> 
-  <button class=" btn btn-default btn-xs weather-clicked" ng-show="!showMetric" href="">&degF</button>
-  <button class="btn btn-default btn-xs weather-not-clicked" ng-show="!showMetric" href=""
-    ng-click="showMetric=true; changeToC()">&degC</button>
-  <button class=" btn btn-default btn-xs weather-clicked" ng-show="showMetric" href="">&degC</button>
+  <a class="weather-not-clicked" ng-show="showMetric" href=""
+    ng-click="showMetric=false; changeToF()">Change to &degF</a> 
+  <a class=" weather-not-clicked" ng-show="!showMetric" href=""
+    ng-click="showMetric=true; changeToC()">Change to &degC</a>
 </div>
 
 <div>
@@ -72,7 +70,7 @@
 
 
   <p class="credit">
-    Weather provided by <a href="http://www.worldweatheronline.com/"
+    Powered by <a href="http://www.worldweatheronline.com/"
       target='_blank'>World Weather Online</a>
   </p>
 </div>
