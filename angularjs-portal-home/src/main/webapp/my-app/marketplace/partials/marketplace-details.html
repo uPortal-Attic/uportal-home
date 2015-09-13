@@ -75,7 +75,7 @@
 		</div>
 		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center">
 			<h3 tabindex="0">Categories</h3>
-			<a ng-repeat="category in portlet.categories" href="" ng-click="selectFilter('category',category)" class="category-links">{{::category}}</a>
+			<a ng-repeat="category in portlet.categories" href="apps" ng-click="specifyCategory(category)" class="category-links">{{::category}}</a>
 		</div>
 		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center" ng-if="$storage.showKeywordsInMarketplace">
 			<h3>Keywords</h3>
