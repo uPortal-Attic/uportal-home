@@ -21,6 +21,14 @@
         "title"  : "You need to modify your NetID account to activate essential UW Services.",
         "actionURL" : "https://www.mynetid.wisc.edu/modify",
         "actionAlt" : "Activate Services"
+      },
+      {
+        "id"     : 4,
+        "groups" : ["Facstaff","Portal Administrators"],
+        "title"  : "Employee benefits open enrollment for 2016 starts Oct 5th, 2015 and ends Oct 30th, 2015.",
+        "actionURL" : "http://www.ohr.wisc.edu/benefits/news/index.aspx#benefits-20150909",
+        "actionAlt" : "View news article on HR open enrollment.",
+        "dismissable" : true
       }
     ]
 }
