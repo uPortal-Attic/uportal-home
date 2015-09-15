@@ -25,7 +25,7 @@ define(['angular'], function(angular) {
             },
             'notificationsURL' : '/web/samples/notifications.json',
             'groupURL' : '/portal/api/groups',
-            'kvURL' : '/portal/api/keyvalue/'
+            'kvURL' : '/storage/'
         })
         .constant('NAMES', {
             'title' : 'MyUW',

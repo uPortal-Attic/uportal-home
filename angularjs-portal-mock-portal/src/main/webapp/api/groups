@@ -17,6 +17,21 @@
       },
       {
          "entityType":"group",
+         "id":"pags.Facstaff",
+         "name":"Facstaff",
+         "creatorId":null,
+         "description":"Users that are Facstaff",
+         "principal":{
+            "key":"pags.Facstaff",
+            "name":"15.pags.Facstaff"
+         },
+         "children":[
+
+         ],
+         "childrenInitialized":false
+      },
+      {
+         "entityType":"group",
          "id":"pags.student",
          "name":"Student",
          "creatorId":null,

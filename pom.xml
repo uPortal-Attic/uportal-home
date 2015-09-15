@@ -187,6 +187,10 @@
               <war>${project.basedir}/angularjs-portal-mock-portal/target/portal.war</war>
               <contextPath>/portal</contextPath>
             </contextHandler>
+            <contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
+              <war>${project.basedir}/angularjs-portal-mock-portal/target/portal.war</war>
+              <contextPath>/storage</contextPath>
+            </contextHandler>
           </contextHandlers>
         </configuration>
         <dependencies>
