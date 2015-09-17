@@ -27,6 +27,7 @@ define(['angular', 'jquery'], function(angular, $) {
         '$rootScope',
         'layoutService',
         'miscService',
+        'mainService',
         'sharedPortletService',
         function($location,
                  $localStorage,
@@ -35,6 +36,7 @@ define(['angular', 'jquery'], function(angular, $) {
                  $rootScope,
                  layoutService,
                  miscService,
+                 mainService,
                  sharedPortletService) {
             if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
 
@@ -105,6 +107,17 @@ define(['angular', 'jquery'], function(angular, $) {
                 }
             };
 
+            //Check guestMode
+            var that = this;
+            that.user = [];
+            $scope.notGuestMode = true;
+
+            mainService.getUser().then(function(result){
+              that.user = result;
+              if (that.user.displayName === "Guest")
+                  $scope.notGuestMode = false;
+            });
+
         }]);
 
 
@@ -116,6 +129,7 @@ define(['angular', 'jquery'], function(angular, $) {
         '$rootScope',
         'layoutService',
         'miscService',
+        'mainService',
         'sharedPortletService',
         function($location,
                  $localStorage,
@@ -124,6 +138,7 @@ define(['angular', 'jquery'], function(angular, $) {
                  $rootScope,
                  layoutService,
                  miscService,
+                 mainService,
                  sharedPortletService) {
             if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
 
@@ -202,6 +217,17 @@ define(['angular', 'jquery'], function(angular, $) {
                     }
                 }
             };
+
+            //Check guestMode
+            var that = this;
+            that.user = [];
+            $scope.notGuestMode = true;
+
+            mainService.getUser().then(function(result){
+              that.user = result;
+              if (that.user.displayName === "Guest")
+                  $scope.notGuestMode = false;
+            });
 
         }]);
 
