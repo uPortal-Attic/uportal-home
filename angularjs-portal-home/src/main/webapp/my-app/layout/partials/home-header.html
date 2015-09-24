@@ -17,7 +17,7 @@
   <ul class="inner-nav">
     <li ng-controller='GoToAppsController as GoToAppsCtrl'>
       <button
-       ng-show='notGuestMode'
+       ng-show='!GuestMode'
        ng-click='GoToAppsCtrl.redirectToApps()'
        aria-label="button to browse for more"
        class='btn btn-flat to-apps-home-button'
@@ -25,7 +25,7 @@
       <i class='fa fa-plus hidden-xs'></i> Add more to home
     </button>
      <button
-      ng-show='!notGuestMode' 
+      ng-show='GuestMode'
       class="btn btn-link" style="margin: 4px 10px;">
      <i class="fa"></i>
     </button>
