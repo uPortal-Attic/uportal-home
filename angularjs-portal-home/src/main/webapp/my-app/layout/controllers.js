@@ -221,12 +221,12 @@ define(['angular', 'jquery'], function(angular, $) {
             //Check guestMode
             var that = this;
             that.user = [];
-            $scope.notGuestMode = true;
+            $scope.GuestMode = false;
 
             mainService.getUser().then(function(result){
               that.user = result;
               if (that.user.displayName === "Guest")
-                  $scope.notGuestMode = false;
+                  $scope.GuestMode = true;
             });
 
         }]);
