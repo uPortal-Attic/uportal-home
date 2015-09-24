@@ -93,6 +93,7 @@ define(['angular', 'jquery'], function(angular, $) {
 
                 if (typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
                     $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
+                    $scope.loading = $scope.portlet;
                 }
                 if (typeof $scope.portlet.fname === 'undefined') {
                     layoutService.getApp($routeParams.fname).then(function (data) {
