@@ -4,7 +4,7 @@
   <groupId>edu.wisc.my.portal.angular</groupId>
   <artifactId>angularjs-portal-parent</artifactId>
   <packaging>pom</packaging>
-  <version>4.1.1.28-SNAPSHOT</version>
+  <version>4.1.1.29-SNAPSHOT</version>
   <name>angularjs-portal</name>
   <description>AngularJS Portal is an alternative front end to uPortal</description>
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
@@ -186,6 +186,10 @@
             <contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
               <war>${project.basedir}/angularjs-portal-mock-portal/target/portal.war</war>
               <contextPath>/portal</contextPath>
+            </contextHandler>
+            <contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
+              <war>${project.basedir}/angularjs-portal-mock-portal/target/portal.war</war>
+              <contextPath>/storage</contextPath>
             </contextHandler>
           </contextHandlers>
         </configuration>

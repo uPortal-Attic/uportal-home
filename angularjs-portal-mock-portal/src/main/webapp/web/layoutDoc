@@ -1,5 +1,43 @@
 {
    "layout":[
+      
+      {
+		   "nodeId":"n777",
+		   "title":"Weather",
+		   "description":"Access the latest weather conditions and 5-day forecasts for the cities you select.",
+		   "url":"/web/samples/weather.json",
+		   "iconUrl":null,
+		   "faIcon":"fa-sun-o",
+		   "fname":"weather",
+		   "target":null,
+		   "widgetURL":"/web/samples/weather-multiple.json",
+		   "widgetType":"weather",
+		   "widgetTemplate":null,
+		   "widgetConfig":{
+		      "iconPrefix":"https://raw.githubusercontent.com/Jasig/WeatherPortlet/WeatherPortlet-1.1.3/src/main/webapp/images/accuweather/",
+		      "iconPostfix":".png"
+		   },
+		   "staticContent":null,
+		   "pithyStaticContent":null,
+		   "altMaxUrl":false
+		},
+  {  
+         "nodeId":"n2926",
+         "title":"Directory",
+         "description":"Where you can find people or directories.",
+         "url":"http://www.wisc.edu/directories",
+         "iconUrl":null,
+         "faIcon":"fa-users",
+         "fname":"directory",
+         "target":"_blank",
+         "widgetURL":null,
+         "widgetType":"generic",
+         "widgetTemplate":"\n            <div class='widget-body'>\n         <form action='http://www.wisc.edu/directories' target='_blank'>\n            <div class='input-group'><input type='text' name='q' class='form-control' placeholder='Enter a name'><span class='input-group-btn'><button class='btn btn-primary' type='submit'><i class='fa fa-search'></i></button></span></div>\n         </form>\n         <div class='row'>\n            <div class='col-xs-5 col-xs-offset-1 icon-button-div'>\n               <div class='btn btn-primary rounded icon-button'><a href='http://www.wisc.edu/directories' target='_blank'><i class='fa fa-users'></i></a></div>\n               <p>Directory</p>\n            </div>\n            <div class='col-xs-5 icon-button-div'>\n               <div class='btn btn-primary rounded icon-button'><a href='https://apps.mbo.wisc.edu/ds/deptsearch.aspx' target='_blank'><i class='fa fa-sitemap'></i></a></div>\n               <p>Departmental Directory</p>\n            </div>\n         </div>\n      </div>\n      <a class='btn btn-default launch-app-button' href='{{::portlet.url}}' target='{{::portlet.target}}'>Goto Directory</a>\n        ",
+         "widgetConfig":null,
+         "staticContent":"\n            \n                Click <a href=\"http://www.wisc.edu/directories\">here</a> to access the campus directory.\n            \n        ",
+         "pithyStaticContent":null,
+         "altMaxUrl":true
+      },
       {
          "nodeId":"u23l1n28",
          "title":"Manager Time and Approval",
@@ -18,23 +56,6 @@
          "altMaxUrl":false
       },
       {
-         "nodeId":"u23l1n234",
-         "title":"/r/uwmadison",
-         "description":"The UW-Madison subreddit. We do not monitor this feed.",
-         "url":"https://www.reddit.com/r/uwmadison",
-         "iconUrl":null,
-         "faIcon":"fa-reddit",
-         "fname":"uwmadison-sub-reddit",
-         "target": "_blank",
-         "widgetURL": "/web/api/uwmadisonreddit.json",
-         "widgetType":"generic",
-         "widgetTemplate":"<div class='scroll-widget' ng-init='lim=2'><loading-gif data-object='content' data-empty='isEmpty'></loading-gif><div ng-if='isEmpty'>Issue loading reddit feed, click launch button to get feed.</div><ul class='widget-list' style='padding : 0'> <li ng-repeat='item in content.data.children | limitTo:lim'> <a href='{{item.data.url}}' target='_blank'> <p class='bold'>{{item.data.title}}<span class='right'>score: {{item.data.score}}</span></p> <p>{{item.data.selftext}}</p> </a> </li> <li class='center' ng-hide='content.data.children.length <= lim' ng-click='lim=lim+5'><button class='btn btn-flat center'>Load More</button></li></ul></div><a class='btn btn-default launch-app-button' href='https://www.reddit.com/r/uwmadison' target='_blank'>Launch UW subreddit</a>",
-         "widgetConfig":null,
-         "staticContent":null,
-         "pithyStaticContent":null,
-         "altMaxUrl": true
-      },
-      {
          "nodeId":"u23l1n19",
          "title":"Course Services",
          "description":"Access services including Learn@UW, email class list requests, Registrar's Office forms, Teaching and Learning Excellence, and more.",
@@ -47,7 +68,7 @@
          "widgetType":"generic",
          "widgetTemplate":"\n        <div class='course-services-widget widget-body'>\n           <div class='row'>\n              <div class='col-xs-5 col-xs-offset-1 center' >\n                 <div class='btn btn-primary rounded icon-button text-right'> \n                    <a aria-label='link to Learn@UW' href='https://wwwtest.coursedashboard.learnuw.wisc.edu/'>\n                    <i class='fa fa-at'></i>\n                    </a> \n                 </div>\n                 <p>Learn@UW</p>\n              </div>\n              <div class='col-xs-5 center' >\n                 <div class='btn btn-primary rounded icon-button'> \n                    <a aria-label='link to Classlist' href='https://admin.lists.wisc.edu/classlists'>\n                    <i class='fa fa-envelope-o'></i>\n                    </a> \n                 </div>\n                 <p>Classlist</p>\n              </div>\n           </div>\n           <div class='row'>\n              <div class='col-xs-5 col-xs-offset-1 center' >\n                 <div class='btn btn-primary rounded icon-button'> \n                    <a aria-label='link to Classroom scheduling' href='http://www.registrar.wisc.edu/classroom_scheduling.htm'>\n                    <i class='fa fa-calendar'></i>\n                    </a> \n                 </div>\n                 <p>Classroom Scheduling</p>\n              </div>\n              <div class='col-xs-5 center' >\n                 <div class='btn btn-primary rounded icon-button'> \n                    <a aria-label='link to Grading policy' href='https://registrar.wisc.edu/Grades_and_Grading_%20Policy.htm'>\n                    <i class='fa fa-pencil'></i></a> \n                 </div>\n                 <p>Grading Policy</p>\n              </div>\n           </div>\n        </div>\n        <a class='btn btn-default launch-app-button ng-scope' href='/portal/p/course-services'>See all course services</a>\n            ",
          "widgetConfig":null,
-         "staticContent":"\n<div  data-role='content'>\n<ul data-role='listview'>\n<li><a href='https://admin.lists.wisc.edu/classlists' target='_blank'>Manage EMAIL CLASS LISTS (Classlist Module)</a></li>\n<li><a href='http://www.registrar.wisc.edu/classroom_scheduling.htm' target='_blank'>Classroom scheduling</a></li>\n<li><a href='http://registrar.wisc.edu/grades_and_grading_policy.htm' target='_blank'>Grades and grading policy</a></li>\n<li><a href='http://www.doit.wisc.edu/learnatuw/' target='_blank'>Learn about Learn@UW</a></li>\n<li><a href='http://www.library.wisc.edu/inst-services' target='_blank'>Library Instructional Services for Faculty</a></li>\n<li><a href='http://registrar.wisc.edu/faculty_staff_forms.htm' target='_blank'>Registrar's Office Faculty/Staff Forms</a></li>\n<li><a href='http://registrar.wisc.edu/documents/Official_Programs_of_Study.pdf' target='_blank'>Academic programs listing</a></li>\n<li><a href='https://tle.wisc.edu/' target='_blank'>Teaching and Learning Excellence@UW-Madison</a></li>\n<li><a href='http://registrar.wisc.edu/curricular_toolkit.htm' target='_blank'>Curricular Toolkit</a></li>\n<li><a href='http://learnuw.wisc.edu/' target='_blank'>LEARN@UW COURSES</a></li>\n\n</ul>\n</div>        \n\n",
+         "staticContent":"\n<div  data-role='content'>\n<ul data-role='listview'>\n<li><a href='https://admin.lists.wisc.edu/classlists' target='_blank'>Manage EMAIL CLASS LISTS (Classlist Module)</a></li>\n<li><a href='http://www.registrar.wisc.edu/classroom_scheduling.htm' target='_blank'>Classroom scheduling</a></li>\n<li><a href='http://registrar.wisc.edu/Grades_and_Grading_%20Policy.htm' target='_blank'>Grades and grading policy</a></li>\n<li><a href='http://www.doit.wisc.edu/learnatuw/' target='_blank'>Learn about Learn@UW</a></li>\n<li><a href='http://www.library.wisc.edu/inst-services' target='_blank'>Library Instructional Services for Faculty</a></li>\n<li><a href='http://registrar.wisc.edu/faculty_staff_forms.htm' target='_blank'>Registrar's Office Faculty/Staff Forms</a></li>\n<li><a href='http://registrar.wisc.edu/documents/Official_Programs_of_Study.pdf' target='_blank'>Academic programs listing</a></li>\n<li><a href='https://tle.wisc.edu/' target='_blank'>Teaching and Learning Excellence@UW-Madison</a></li>\n<li><a href='http://registrar.wisc.edu/curricular_toolkit.htm' target='_blank'>Curricular Toolkit</a></li>\n<li><a href='http://learnuw.wisc.edu/' target='_blank'>LEARN@UW COURSES</a></li>\n\n</ul>\n</div>        \n\n",
          "pithyStaticContent":null,
          "altMaxUrl":false
       },
@@ -137,7 +158,7 @@
          "target":null,
          "widgetURL": "http://kb.wisc.edu/enrollment/topic_rss.php?cat=52000",
          "widgetType":"rss",
-         "widgetConfig": {"lim" : 3},
+         "widgetConfig": {"lim" : 3, "showdate": true, "dateFormat" : "M/d"},
          "staticContent":null,
          "pithyStaticContent":null,
          "altMaxUrl":false
