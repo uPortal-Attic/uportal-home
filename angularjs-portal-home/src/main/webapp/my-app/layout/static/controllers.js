@@ -53,7 +53,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 layoutService.getExclusiveMarkup($scope.portlet);
             }
 
-        }
+        } 
     }]);
 
     app.controller('StaticContentController', [
@@ -107,7 +107,10 @@ define(['angular', 'jquery'], function(angular, $) {
                     });
                 }
 
+            } else {
+              $scope.loading = $scope.portlet;
             }
+            
             $scope.openRating = function (size, fname, name) {
                 var modalInstance = $modal.open({
                     templateUrl: 'ratingModal.html',
