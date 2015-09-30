@@ -3,6 +3,8 @@ define(['angular'], function(angular) {
     var config = angular.module('app-config', []);
     config
         .constant('APP_FLAGS', {
+            'showSidebar' : true,
+            'showSearch' : true,
             'enableToggle': true,
             'defaultView' : 'expanded',
             'compact' : true,
