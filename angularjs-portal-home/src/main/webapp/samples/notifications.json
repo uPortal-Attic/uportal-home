@@ -26,8 +26,8 @@
         "id"     : 4,
         "groups" : ["Facstaff","Portal Administrators"],
         "title"  : "UW Employee Annual Benefits Enrollment starts October 5 and ends October 30, 2015.",
-        "actionURL" : "http://www.ohr.wisc.edu/benefits/news/index.aspx#benefits-20150909",
-        "actionAlt" : "View news article about Annual Benefits Enrollment.",
+        "actionURL" : "http://www.ohr.wisc.edu/benefits2016/",
+        "actionAlt" : "Learn more about Annual Benefits Enrollment.",
         "dismissable" : true
       }
     ]
