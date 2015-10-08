@@ -45,7 +45,7 @@
         ng-show="(portlets | filter:searchTermFilter | showCategory:categoryToShow).length > 0">
          <a href="#" ng-click="toggleShowAll()">Show matching MyUW content even though it is not launchable</a>.</li>
       <li>
-        <a href="http://www.wisc.edu/directories/"
+        <a ng-href="http://www.wisc.edu/directories/?q={{searchText}}"
            target="_blank">Search the directory</a> (of people and offices) instead.</li>
       <li>
         <a href="http://www.wisc.edu/search/"
