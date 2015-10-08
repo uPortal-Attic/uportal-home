@@ -39,6 +39,8 @@
     <p>No matching MyUW content.</p>
     <p>Maybe try:</p>
     <ul>
+      <li ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll).length > 0">
+        <a href="#" ng-click="selectFilter('az','')">Show matching content beyond the &quot;{{categoryToShow}}&quot; category</a>.</li>
       <li 
         ng-show="(portlets | filter:searchTermFilter | showCategory:categoryToShow).length > 0">
          <a href="#" ng-click="toggleShowAll()">Show matching MyUW content even though it is not launchable</a>.</li>
