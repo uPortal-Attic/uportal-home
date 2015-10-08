@@ -29,25 +29,28 @@
     </div>
     <a class="btn btn-default launch-app-button" href="{{::portlet.url}}" target="{{::portlet.target}}">Launch full app</a>
   </div>
-  
+
   <div ng-if="'OPTION_LINK' === widgetCtrl.portletType(portlet)">
     <option-link app="portlet" config="portlet.widgetConfig"></option-link>
   </div>
-  
+
   <div ng-if="'WEATHER' === widgetCtrl.portletType(portlet)">
     <weather app="portlet" config="portlet.widgetConfig"></weather>
   </div>
-  
+
   <div ng-if="'RSS' === widgetCtrl.portletType(portlet)">
     <rss app="portlet" config="portlet.widgetConfig"></rss>
   </div>
-  
+
   <div ng-if="'GENERIC' === widgetCtrl.portletType(portlet)">
     <div ng-controller="GenericWidgetController as genericWidgetCtrl">
+        <div ng-if="loading" id="loading">
+            <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>
+        </div>
         <content-item></content-item>
     </div>
   </div>
-  
+
   <!-- For basic apps (not a widget, not simple content, no pithy content), show only an icon -->
   <a tabindex="-1" ng-if="'NORMAL' === widgetCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
     <div class="widget-icon-container">

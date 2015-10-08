@@ -101,30 +101,36 @@ define(['angular'], function(angular){
   }]);
 
   app.controller('GenericWidgetController', ['$scope', 'layoutService', function($scope, layoutService){
-    var populateWidgetContent = function() {
-      if($scope.portlet.widgetURL && $scope.portlet.widgetType) {
-        //fetch portlet widget json
-        layoutService.getWidgetJson($scope.portlet).then(function(data) {
-          if(data) {
-            console.log(data);
-            $scope.portlet.widgetData = data;
-            $scope.content = $scope.portlet.widgetData;
-            if(Array.isArray($scope.content) &&  $scope.content.length == 0) {
-              $scope.isEmpty = true;
-            } else if($scope.portlet.widgetConfig && $scope.portlet.widgetConfig.evalString
-                && eval($scope.portlet.widgetConfig.evalString)) {
-              //ideally this would do a check on an embedded object for emptiness
-              //example : '$scope.content.report.length === 0'
+      $scope.loading = false;
+      var populateWidgetContent = function() {
+        if($scope.portlet.widgetURL && $scope.portlet.widgetType) {
+          $scope.loading = true;
+          //fetch portlet widget json
+          $scope.portlet.widgetData = [];
+          layoutService.getWidgetJson($scope.portlet).then(function(data) {
+            $scope.loading = false;
+            if(data) {
+              console.log(data);
+              $scope.portlet.widgetData = data;
+              $scope.content = $scope.portlet.widgetData;
+              if(Array.isArray($scope.content) &&  $scope.content.length == 0) {
+                $scope.isEmpty = true;
+              } else if($scope.portlet.widgetConfig && $scope.portlet.widgetConfig.evalString
+                  && eval($scope.portlet.widgetConfig.evalString)) {
+                //ideally this would do a check on an embedded object for emptiness
+                //example : '$scope.content.report.length === 0'
+                $scope.isEmpty = true;
+              }
+            } else {
+              console.warn("Got nothing back from widget fetch from " + $scope.portlet.widgetURL);
               $scope.isEmpty = true;
             }
-          } else {
-            console.warn("Got nothing back from widget fetch from " + $scope.portlet.widgetURL);
-            $scope.isEmpty = true;
-          }
-        });
-      }
-    };
-    
+        }, function(){
+            $scope.loading = false;
+          });
+        }
+      };
+
     $scope.filteredArray = function (array, objectVar, strings) {
       if(array && objectVar && strings) {
         return array.filter(function (letter) {
