@@ -32,5 +32,12 @@
             ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"
            >Load More</button>
   </div>
+  
+  <div 
+    ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length == 0" 
+    class="no-results">
+    <p>No matching MyUW content.</p>
+  </div>
+  
   <rating-modal-template></rating-modal-template>
 </div>
