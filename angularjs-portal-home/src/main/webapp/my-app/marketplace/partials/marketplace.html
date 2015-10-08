@@ -39,6 +39,9 @@
     <p>No matching MyUW content.</p>
     <p>Maybe try:</p>
     <ul>
+      <li 
+        ng-show="(portlets | filter:searchTermFilter | showCategory:categoryToShow).length > 0">
+        Some MyUW content that you are not permitted to launch matches your search query. Click the &quot;Show all&quot; checkbox to show these results.</li>
       <li>
         <a href="http://www.wisc.edu/directories/"
            target="_blank">Search the directory</a> (of people and offices) instead.</li>
