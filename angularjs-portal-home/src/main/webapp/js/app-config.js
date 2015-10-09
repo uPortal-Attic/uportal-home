@@ -47,7 +47,8 @@ define(['angular'], function(angular) {
         .constant('MISC_URLS',{
             'feedbackURL' : '/portal/p/feedback',
             'back2ClassicURL' : '/portal/Login?profile=default',
-            'whatsNewURL' : 'https://kb.wisc.edu/myuw/page.php?id=48181'
+            'whatsNewURL' : 'https://kb.wisc.edu/myuw/page.php?id=48181',
+            'helpdeskURL' : 'https://kb.wisc.edu/helpdesk/'
         })
         ;
 
