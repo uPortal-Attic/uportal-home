@@ -124,6 +124,7 @@ define(['angular', 'jquery'], function(angular, $) {
             };
             
             $scope.webSearchUrl = MISC_URLS.webSearchURL;
+            $scope.webSearchDomain = MISC_URLS.webSearchDomain;
             $scope.directorySearchUrl = MISC_URLS.directorySearchURL;
             $scope.kbSearchUrl = MISC_URLS.kbSearchURL;
 
