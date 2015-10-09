@@ -42,7 +42,8 @@ define(['angular'], function(angular) {
             'back2ClassicURL' : null,
             'whatsNewURL' : null,
             'helpdeskURL' : null,
-            'webSearchURL' : null
+            'webSearchURL' : null,
+            'directorySearchURL' : null
         })
         ;
 

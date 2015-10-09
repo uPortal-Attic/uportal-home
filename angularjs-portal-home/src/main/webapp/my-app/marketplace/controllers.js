@@ -124,6 +124,8 @@ define(['angular', 'jquery'], function(angular, $) {
             };
             
             $scope.webSearchUrl = MISC_URLS.webSearchURL;
+            $scope.directorySearchUrl = MISC_URLS.directorySearchURL;
+
             $scope.feedbackUrl = MISC_URLS.feedbackURL;
             $scope.helpdeskUrl = MISC_URLS.helpdeskURL;
 
