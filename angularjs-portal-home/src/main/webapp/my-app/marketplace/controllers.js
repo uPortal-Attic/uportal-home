@@ -7,10 +7,10 @@ define(['angular', 'jquery'], function(angular, $) {
     app.controller('MarketplaceController', [
         '$sessionStorage', '$modal', '$timeout', '$rootScope', '$window',
         '$http', '$scope', '$location', '$routeParams', 'marketplaceService',
-        'layoutService','miscService', 'mainService',
+        'layoutService','miscService', 'mainService', 'MISC_URLS',
         function($sessionStorage, $modal, $timeout, $rootScope, $window,
                  $http, $scope, $location, $routeParams, marketplaceService,
-                 layoutService, miscService, mainService) {
+                 layoutService, miscService, mainService, MISC_URLS) {
 
             //init variables
             var store = this;
