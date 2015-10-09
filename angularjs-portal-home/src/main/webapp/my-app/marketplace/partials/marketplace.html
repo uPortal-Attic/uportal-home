@@ -56,8 +56,8 @@
       <li>
         <a href="https://kb.wisc.edu/helpdesk/"
            target="_blank">Ask the Helpdesk</a> for help.</li>
-      <li>
-        <a href="/portal/p/feedback">Give feedback</a> about search.</li>
+      <li ng-if="feedbackUrl">
+        <a ng-href="{{feedbackUrl}}">Give feedback</a> about search.</li>
     </ul>
   </div>
   

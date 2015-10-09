@@ -122,6 +122,8 @@ define(['angular', 'jquery'], function(angular, $) {
             $scope.toggleShowAll = function() {
                 $scope.showAll = !$scope.showAll;
             };
+            
+            $scope.feedbackUrl = MISC_URLS.feedbackURL;
 
             var initFilter = false;
             //delay on the filter
