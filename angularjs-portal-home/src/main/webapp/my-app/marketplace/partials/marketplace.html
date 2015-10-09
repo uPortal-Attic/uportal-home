@@ -53,8 +53,8 @@
       <li>
         <a ng-href="https://kb.wisc.edu/search.php?q={{searchText}}"
            target="_blank">Search the KnowledgeBase</a> instead.</li>
-      <li>
-        <a href="https://kb.wisc.edu/helpdesk/"
+      <li ng-if="helpdeskUrl">
+        <a ng-href="{{helpdeskUrl}}"
            target="_blank">Ask the Helpdesk</a> for help.</li>
       <li ng-if="feedbackUrl">
         <a ng-href="{{feedbackUrl}}">Give feedback</a> about search.</li>

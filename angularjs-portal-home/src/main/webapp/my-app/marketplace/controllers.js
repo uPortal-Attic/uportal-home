@@ -124,6 +124,7 @@ define(['angular', 'jquery'], function(angular, $) {
             };
             
             $scope.feedbackUrl = MISC_URLS.feedbackURL;
+            $scope.helpdeskUrl = MISC_URLS.helpdeskURL;
 
             var initFilter = false;
             //delay on the filter
