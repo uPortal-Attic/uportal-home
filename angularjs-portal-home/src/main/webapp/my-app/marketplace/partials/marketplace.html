@@ -50,8 +50,8 @@
       <li ng-if="webSearchUrl">
         <a ng-href="{{webSearchUrl}}{{searchText}}"
            target="_blank">Search the wisc.edu domain on the Web</a> instead.</li>
-      <li>
-        <a ng-href="https://kb.wisc.edu/search.php?q={{searchText}}"
+      <li ng-if="kbSearchUrl">
+        <a ng-href="{{kbSearchUrl}}{{searchText}}"
            target="_blank">Search the KnowledgeBase</a> instead.</li>
       <li ng-if="helpdeskUrl">
         <a ng-href="{{helpdeskUrl}}"

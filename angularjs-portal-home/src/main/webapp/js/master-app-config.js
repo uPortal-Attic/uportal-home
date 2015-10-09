@@ -43,7 +43,8 @@ define(['angular'], function(angular) {
             'whatsNewURL' : null,
             'helpdeskURL' : null,
             'webSearchURL' : null,
-            'directorySearchURL' : null
+            'directorySearchURL' : null,
+            'kbSearchURL' : null
         })
         ;
 
