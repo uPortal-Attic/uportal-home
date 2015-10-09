@@ -123,6 +123,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 $scope.showAll = !$scope.showAll;
             };
             
+            $scope.webSearchUrl = MISC_URLS.webSearchURL;
             $scope.feedbackUrl = MISC_URLS.feedbackURL;
             $scope.helpdeskUrl = MISC_URLS.helpdeskURL;
 

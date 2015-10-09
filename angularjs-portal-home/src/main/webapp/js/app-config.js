@@ -48,7 +48,8 @@ define(['angular'], function(angular) {
             'feedbackURL' : '/portal/p/feedback',
             'back2ClassicURL' : '/portal/Login?profile=default',
             'whatsNewURL' : 'https://kb.wisc.edu/myuw/page.php?id=48181',
-            'helpdeskURL' : 'https://kb.wisc.edu/helpdesk/'
+            'helpdeskURL' : 'https://kb.wisc.edu/helpdesk/',
+            'webSearchURL' : 'http://www.wisc.edu/search/?q='
         })
         ;
 

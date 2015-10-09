@@ -41,7 +41,8 @@ define(['angular'], function(angular) {
             'feedbackURL' : '/uPortal/p/feedback',
             'back2ClassicURL' : null,
             'whatsNewURL' : null,
-            'helpdeskURL' : null
+            'helpdeskURL' : null,
+            'webSearchURL' : null
         })
         ;
 
