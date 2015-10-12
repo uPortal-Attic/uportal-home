@@ -7,10 +7,10 @@ define(['angular', 'jquery'], function(angular, $) {
     app.controller('MarketplaceController', [
         '$sessionStorage', '$modal', '$timeout', '$rootScope', '$window',
         '$http', '$scope', '$location', '$routeParams', 'marketplaceService',
-        'layoutService','miscService', 'mainService',
+        'layoutService','miscService', 'mainService', 'MISC_URLS',
         function($sessionStorage, $modal, $timeout, $rootScope, $window,
                  $http, $scope, $location, $routeParams, marketplaceService,
-                 layoutService, miscService, mainService) {
+                 layoutService, miscService, mainService, MISC_URLS) {
 
             //init variables
             var store = this;
@@ -122,6 +122,14 @@ define(['angular', 'jquery'], function(angular, $) {
             $scope.toggleShowAll = function() {
                 $scope.showAll = !$scope.showAll;
             };
+            
+            $scope.webSearchUrl = MISC_URLS.webSearchURL;
+            $scope.webSearchDomain = MISC_URLS.webSearchDomain;
+            $scope.directorySearchUrl = MISC_URLS.directorySearchURL;
+            $scope.kbSearchUrl = MISC_URLS.kbSearchURL;
+
+            $scope.feedbackUrl = MISC_URLS.feedbackURL;
+            $scope.helpdeskUrl = MISC_URLS.helpdeskURL;
 
             var initFilter = false;
             //delay on the filter

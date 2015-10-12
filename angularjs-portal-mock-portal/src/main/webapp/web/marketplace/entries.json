@@ -12189,7 +12189,7 @@
         "type" : "Portlet",
         "userRated" : 0
       },
-      { "canAdd" : true,
+      { "canAdd" : false,
         "categories" : [  ],
         "description" : "Bucky theme instance of configuration and script rendering for Google Analytics.",
         "faIcon" : "fa-bar-chart",
@@ -14243,7 +14243,7 @@
         "type" : "Portlet",
         "userRated" : 0
       },
-      { "canAdd" : true,
+      { "canAdd" : false,
         "categories" : [  ],
         "description" : null,
         "faIcon" : "fa-area-chart",

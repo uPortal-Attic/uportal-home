@@ -15,7 +15,7 @@
   </div>
   <div class="show-all-div">
     <p>Showing {{ (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length }} of {{ portlets.length }} results in {{NAMES.title}}.</p>
-    <div><p><input type="checkbox" ng-click="toggleShowAll()">Show all<span popover="Show all apps, even if I don't have access" popover-append-to-body="true" popover-placement="left" popover-trigger="mouseenter"><i class="fa fa-question-circle" ></i></span></p></input></div>
+    <div><p><input type="checkbox" ng-click="toggleShowAll()" ng-checked="showAll">Show all<span popover="Show all apps, even if I don't have access" popover-append-to-body="true" popover-placement="left" popover-trigger="mouseenter"><i class="fa fa-question-circle" ></i></span></p></input></div>
   </div>
   <div ng-show="showCategories" class="show-categories">
     <p>Categories:</p><a ng-repeat="category in categories" href="" class="category-links" ng-click="selectFilter('category',category)" ng-class="{true: 'selected-category'}[categoryToShow === category]">{{category}}</a>
@@ -32,5 +32,34 @@
             ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"
            >Load More</button>
   </div>
+  
+  <div 
+    ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length == 0" 
+    class="no-results">
+    <p>No matching MyUW content.</p>
+    <p>Maybe try:</p>
+    <ul>
+      <li ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll).length > 0">
+        <a href="#" ng-click="selectFilter('az','')">Show matching content beyond the &quot;{{categoryToShow}}&quot; category</a>.</li>
+      <li 
+        ng-show="(portlets | filter:searchTermFilter | showCategory:categoryToShow).length > 0">
+         <a href="#" ng-click="toggleShowAll()">Show matching MyUW content even though it is not launchable</a>.</li>
+      <li ng-if="directorySearchUrl">
+        <a ng-href="{{directorySearchUrl}}{{searchText}}"
+           target="_blank">Search the directory</a> (of people and offices) instead.</li>
+      <li ng-if="webSearchUrl">
+        <a ng-href="{{webSearchUrl}}{{searchText}}"
+           target="_blank">Search <span ng-if="webSearchDomain">the {{webSearchDomain}} domain on</span> the Web</a> instead.</li>
+      <li ng-if="kbSearchUrl">
+        <a ng-href="{{kbSearchUrl}}{{searchText}}"
+           target="_blank">Search the KnowledgeBase</a> instead.</li>
+      <li ng-if="helpdeskUrl">
+        <a ng-href="{{helpdeskUrl}}"
+           target="_blank">Ask the Helpdesk</a> for help.</li>
+      <li ng-if="feedbackUrl">
+        <a ng-href="{{feedbackUrl}}">Give feedback</a> about search.</li>
+    </ul>
+  </div>
+  
   <rating-modal-template></rating-modal-template>
 </div>

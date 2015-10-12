@@ -47,7 +47,12 @@ define(['angular'], function(angular) {
         .constant('MISC_URLS',{
             'feedbackURL' : '/portal/p/feedback',
             'back2ClassicURL' : '/portal/Login?profile=default',
-            'whatsNewURL' : 'https://kb.wisc.edu/myuw/page.php?id=48181'
+            'whatsNewURL' : 'https://kb.wisc.edu/myuw/page.php?id=48181',
+            'helpdeskURL' : 'https://kb.wisc.edu/helpdesk/',
+            'webSearchURL' : 'http://www.wisc.edu/search/?q=',
+            'webSearchDomain' : "wisc.edu",
+            'directorySearchURL' : 'http://www.wisc.edu/directories/?q=',
+            'kbSearchURL' : 'https://kb.wisc.edu/search.php?q='
         })
         ;
 

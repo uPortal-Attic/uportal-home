@@ -40,7 +40,12 @@ define(['angular'], function(angular) {
         .constant('MISC_URLS',{
             'feedbackURL' : '/uPortal/p/feedback',
             'back2ClassicURL' : null,
-            'whatsNewURL' : null
+            'whatsNewURL' : null,
+            'helpdeskURL' : null,
+            'webSearchURL' : null,
+            'webSearchDomain' = null,
+            'directorySearchURL' : null,
+            'kbSearchURL' : null
         })
         ;
 
