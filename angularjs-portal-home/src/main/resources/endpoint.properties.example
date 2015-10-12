@@ -29,13 +29,13 @@ wiscmaillookup.password=
 wiscmaillookup.attributes=uid
 
 #new stuff feed
-newstuff.uri=http://localhost:8080/web/samples/new-stuff.json
+newstuff.uri=http://localhost:8080/web/dynamicFeeds/new-stuff.json
 newstuff.username=
 newstuff.password=
 newstuff.attributes=uid
 
 #notifications feed
-notifications.uri=http://localhost:8080/web/samples/sample_notification.json
+notifications.uri=http://localhost:8080/web/dynamicFeeds/sample_notification.json
 notifications.username=
 notifications.password=
 notifications.attributes=uid
@@ -45,4 +45,3 @@ uwmadisonreddit.uri=https://www.reddit.com/r/uwmadison/hot.json
 uwmadisonreddit.username=
 uwmadisonreddit.password=
 uwmadisonreddit.attributes=
-
