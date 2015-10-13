@@ -4,6 +4,9 @@ define(['angular', 'jquery'], function(angular, $) {
 
     var app = angular.module('my-app.marketplace.controllers', []);
 
+    var currentPage = 'market';
+    var currentCategory = '';
+
     app.controller('MarketplaceController', [
         '$sessionStorage', '$modal', '$timeout', '$rootScope', '$window',
         '$http', '$scope', '$location', '$routeParams', 'marketplaceService',
@@ -87,16 +90,31 @@ define(['angular', 'jquery'], function(angular, $) {
                 });
             };
 
+            if(currentPage === 'details') {
+                // Empty string indicates no categories, show all portlets
+                $scope.categoryToShow = "";
+                // Default filter is to sort by category for marketplaceDetails back to marketplace
+                $scope.selectedFilter = 'category';
+                // To sort by category, angular will use name to filter
+                $scope.sortParameter = 'name';
+                // Show category selection div by default
+                $scope.showCategories = true;
 
-            // Empty string indicates no categories, show all portlets
-            $scope.categoryToShow = "";
-            // Default filter is to sort by popularity
-            $scope.selectedFilter = 'popular';
-            // To sort by popularity, angular will use portlet.rating to filter
-            $scope.sortParameter = ['-rating','-userRated'];
-            // Hide category selection div by default
-            $scope.showCategories = false;
-
+                currentPage = 'market';
+                if(currentCategory !== '')
+                    $scope.categoryToShow = currentCategory;
+                else
+                    $scope.categoryToShow = '';
+            } else {
+                // Empty string indicates no categories, show all portlets
+                $scope.categoryToShow = "";
+                // Default filter is to sort by popularity
+                $scope.selectedFilter = 'popular';
+                // To sort by popularity, angular will use portlet.rating to filter
+                $scope.sortParameter = ['-rating','-userRated'];
+                // Hide category selection div by default
+                $scope.showCategories = false;
+            }
             $scope.selectFilter = function (filter,category) {
                 $scope.sortParameter = filter;
                 $scope.categoryToShow = category;
@@ -222,6 +240,10 @@ define(['angular', 'jquery'], function(angular, $) {
               });
           };
 
+            $scope.specifyCategory = function(category) {
+                currentCategory=category;
+                currentPage='details';
+            }
             // init
             miscService.pushPageview();
             $scope.loading = true;
