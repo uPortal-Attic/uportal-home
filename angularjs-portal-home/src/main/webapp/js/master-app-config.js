@@ -10,8 +10,8 @@ define(['angular'], function(angular) {
         })
         .constant('SERVICE_LOC', {
             'sessionInfo' : '/uPortal/api/session.json',
-            'sidebarInfo' : '/web/dynamicFeeds/sidebar.json',
-            'newstuffInfo': '/web/dynamicFeeds/new-stuff.json',
+            'sidebarInfo' : '/web/staticFeeds/sidebar.json',
+            'newstuffInfo': '/web/staticFeeds/new-stuff.json',
             'context'     : '/uPortal/',
             'base'        : '/uPortal/api/',
             'layout'      : 'layoutDoc?tab=Welcome',
@@ -20,7 +20,7 @@ define(['angular'], function(angular) {
                 'base' : 'marketplace',
                 'entries' : '/entries.json'
             },
-            'notificationsURL' : '/web/dynamicFeeds/notifications.json',
+            'notificationsURL' : '/web/staticFeeds/notifications.json',
             'groupURL' : '/uPortal/api/groups'
         })
         .constant('NAMES', {

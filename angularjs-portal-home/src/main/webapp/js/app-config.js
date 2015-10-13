@@ -13,9 +13,9 @@ define(['angular'], function(angular) {
         })
         .constant('SERVICE_LOC', {
             'sessionInfo' : '/portal/web/session.json',
-            'sidebarInfo' : '/web/dynamicFeeds/sidebar.json',
-            'featuresInfo' : '/web/dynamicFeeds/features.json',
-            'newstuffInfo': '/web/dynamicFeeds/new-stuff.json',
+            'sidebarInfo' : '/web/staticFeeds/sidebar.json',
+            'featuresInfo' : '/web/staticFeeds/features.json',
+            'newstuffInfo': '/web/staticFeeds/new-stuff.json',
             'context'     : '/portal/',
             'base'        : '/portal/web/',
             'layout'      : 'layoutDoc?tab=UW Bucky Home',
@@ -25,7 +25,7 @@ define(['angular'], function(angular) {
                 'entry' : 'entry/',
                 'entries' : 'entries.json'
             },
-            'notificationsURL' : '/web/dynamicFeeds/notifications.json',
+            'notificationsURL' : '/web/staticFeeds/notifications.json',
             'groupURL' : '/portal/api/groups',
             'kvURL' : '/storage/'
         })
