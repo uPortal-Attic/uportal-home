@@ -34,7 +34,7 @@
   </div>
   
   <div 
-    ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length == 0" 
+    ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length == 0" 
     class="no-results">
     <p>No matching MyUW content.</p>
     <p>Maybe try:</p>
