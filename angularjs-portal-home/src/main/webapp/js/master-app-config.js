@@ -45,7 +45,8 @@ define(['angular'], function(angular) {
             'webSearchURL' : null,
             'webSearchDomain' = null,
             'directorySearchURL' : null,
-            'kbSearchURL' : null
+            'kbSearchURL' : null,
+            'eventsSearchURL' : null
         })
         ;
 
