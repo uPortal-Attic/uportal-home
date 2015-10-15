@@ -52,7 +52,8 @@ define(['angular'], function(angular) {
             'webSearchURL' : 'http://www.wisc.edu/search/?q=',
             'webSearchDomain' : "wisc.edu",
             'directorySearchURL' : 'http://www.wisc.edu/directories/?q=',
-            'kbSearchURL' : 'https://kb.wisc.edu/search.php?q='
+            'kbSearchURL' : 'https://kb.wisc.edu/search.php?q=',
+            'eventsSearchURL' : 'https://today.wisc.edu/events/search?term='
         })
         ;
 

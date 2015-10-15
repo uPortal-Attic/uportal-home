@@ -42,10 +42,11 @@ define(['angular'], function(angular) {
             'back2ClassicURL' : null,
             'whatsNewURL' : null,
             'helpdeskURL' : null,
-            'webSearchURL' : null,
+            'webSearchURL' : 'http://www.google.com/search?q=',
             'webSearchDomain' = null,
             'directorySearchURL' : null,
-            'kbSearchURL' : null
+            'kbSearchURL' : null,
+            'eventsSearchURL' : null
         })
         ;
 
