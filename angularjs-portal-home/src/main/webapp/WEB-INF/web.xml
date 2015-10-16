@@ -68,6 +68,7 @@
     <!-- Keep this in sync with angular-page.js -->
     <servlet-mapping>
       <servlet-name>StaticServlet</servlet-name>
+      <url-pattern>/about</url-pattern>
       <url-pattern>/apps</url-pattern>
       <url-pattern>/apps/*</url-pattern>
       <url-pattern>/features</url-pattern>
