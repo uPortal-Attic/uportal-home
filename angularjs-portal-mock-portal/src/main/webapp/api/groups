@@ -17,13 +17,13 @@
       },
       {
          "entityType":"group",
-         "id":"pags.Facstaff",
-         "name":"Facstaff",
+         "id":"pags.users-with-a-UDDS-number",
+         "name":"users-with-a-UDDS-number",
          "creatorId":null,
-         "description":"Users that are Facstaff",
+         "description":"Users that are users-with-a-UDDS-number",
          "principal":{
-            "key":"pags.Facstaff",
-            "name":"15.pags.Facstaff"
+            "key":"pags.users-with-a-UDDS-number",
+            "name":"15.pags.users-with-a-UDDS-number"
          },
          "children":[
 
