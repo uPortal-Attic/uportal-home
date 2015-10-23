@@ -11,7 +11,7 @@
       {
         "id"     : 2,
         "groups" : ["Users - Student SSN Update","Portal Administrators"],
-        "title"  : "Our records indicate the Social Security Number in your Personal Information is invalid or missing. Please provide your Social Security Number or select to not provide your Social Security Number.",
+        "title"  : "Your Social Security Number (SSN) in the Student Information System is invalid or missing.  Please update your SSN in the Personal Information section in the Student Center.",
         "actionURL" : "/portal/p/my-info-student-center-ssn.ctf1/max/action.uP?pP_action=loginAction",
         "actionAlt" : "UW-Madison Student Information"
       },
