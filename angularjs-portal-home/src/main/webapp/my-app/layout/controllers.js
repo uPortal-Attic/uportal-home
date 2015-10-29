@@ -27,6 +27,7 @@ define(['angular', 'jquery'], function(angular, $) {
         '$rootScope',
         'layoutService',
         'miscService',
+        'mainService',
         'sharedPortletService',
         function($location,
                  $localStorage,
@@ -35,6 +36,7 @@ define(['angular', 'jquery'], function(angular, $) {
                  $rootScope,
                  layoutService,
                  miscService,
+                 mainService,
                  sharedPortletService) {
             if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
 
@@ -105,6 +107,17 @@ define(['angular', 'jquery'], function(angular, $) {
                 }
             };
 
+            //Check guestMode
+            var that = this;
+            that.user = [];
+            $scope.GuestMode = false;
+
+            mainService.getUser().then(function(result){
+              that.user = result;
+              if (that.user.displayName === "Guest")
+                  $scope.GuestMode = true;
+            });
+
         }]);
 
 
@@ -116,6 +129,7 @@ define(['angular', 'jquery'], function(angular, $) {
         '$rootScope',
         'layoutService',
         'miscService',
+        'mainService',
         'sharedPortletService',
         function($location,
                  $localStorage,
@@ -124,6 +138,7 @@ define(['angular', 'jquery'], function(angular, $) {
                  $rootScope,
                  layoutService,
                  miscService,
+                 mainService,
                  sharedPortletService) {
             if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
 
@@ -203,6 +218,17 @@ define(['angular', 'jquery'], function(angular, $) {
                 }
             };
 
+            //Check guestMode
+            var that = this;
+            that.user = [];
+            $scope.GuestMode = false;
+
+            mainService.getUser().then(function(result){
+              that.user = result;
+              if (that.user.displayName === "Guest")
+                  $scope.GuestMode = true;
+            });
+
         }]);
 
     app.controller('NewStuffController', ['$scope', 'layoutService', function ($scope, layoutService){
@@ -217,7 +243,7 @@ define(['angular', 'jquery'], function(angular, $) {
             return date >= today;
         }
     }]);
-    
+
     app.controller('GoToAppsController', ['$location',function($location){
       this.redirectToApps = function(){$location.path("/apps");};
     }]);
