@@ -46,7 +46,9 @@ define(['angular'], function(angular) {
             'webSearchDomain' = null,
             'directorySearchURL' : null,
             'kbSearchURL' : null,
-            'eventsSearchURL' : null
+            'eventsSearchURL' : null,
+            'loginURL' : '/uPortal/Login?profile=bucky',
+            'logoutURL' : '/uPortal/Logout'
         })
         ;
 
