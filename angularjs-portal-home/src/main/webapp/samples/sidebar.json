@@ -1,8 +1,0 @@
-{"sidebar" :  
-            [
-                {"title": "Browse", "hyperlink" : "/web/apps", "target" : "", "faIcon" : "fa-list-ul", "displayFlag" : ""},
-                {"title": "My Profile", "hyperlink" : "/profile", "target" : "", "faIcon" : "fa-user", "displayFlag" : "myProfileOption"},
-                {"title": "Beta Settings", "hyperlink" : "settings", "target" : "", "faIcon" : "fa-cog", "displayFlag" : "sidebarShowSettings"},
-                {"title": "Help", "hyperlink" : "/web/static/myuw-help", "target" : "", "faIcon" : "fa-question", "displayFlag" : ""}
-            ]
-}
