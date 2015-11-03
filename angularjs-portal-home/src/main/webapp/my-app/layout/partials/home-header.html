@@ -1,7 +1,6 @@
-<div role="banner" class="portlet-header">
+<!-- <div role="banner" class="portlet-header">
   <img ng-src="{{$storage.homeImg}}" alt="UW Campus cover image">
     <h1>Home</h1>
-    <!-- <p>This is the Angular version of MyUW. Enjoy!</p> -->
     <div ng-controller="NewStuffController as newStuffCtrl" class='new-stuff'>
       <div ng-repeat="stuff in newStuffArray">
           <div ng-if='newStuffCtrl.show(stuff)'  class="header-opaque new-stuff">
@@ -12,7 +11,13 @@
           </div>
       </div>
     </div>
-</div>
+</div> -->
+
+<portlet-header app-title="Home" 
+                app-image="{{$storage.homeImg}}" 
+                app-collapse='true'>
+</portlet-header>
+
 <div class="inner-nav-container">
   <ul class="inner-nav">
     <li ng-controller='GoToAppsController as GoToAppsCtrl'>
@@ -26,5 +31,4 @@
     </li>
     <home-toggle></home-toggle>
   </ul>
-
 </div>
