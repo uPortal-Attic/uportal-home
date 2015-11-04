@@ -5,21 +5,6 @@ define(['angular'], function(angular){
   var app = angular.module('my-app.layout.widget.controllers', []);
 
   app.controller('ListOfLinksController', ['$scope', 'layoutService', function($scope, layoutService){
-
-    var configInit = function(){
-      if(!$scope.config) {
-        //setting up defaults since config doesn't exist
-        $scope.config = {
-            singleElement : false,
-            arrayName : 'array',
-            value : 'value',
-            display : 'display'
-        };
-      }
-    };
-
-    
-    configInit();
   }]);
   
   app.controller('OptionLinkController', ['$scope', 'layoutService', function($scope, layoutService){
