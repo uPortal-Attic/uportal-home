@@ -38,6 +38,18 @@ define(['angular', 'require'], function(angular, require) {
         }
     });
     
+    app.directive('lol', function () {
+        return {
+            restrict: 'E',
+            scope: {
+                portlet: '=app',
+                config: '=config'
+            },
+            templateUrl: require.toUrl('./partials/lol.html'),
+            controller: 'ListOfLinksController'
+        }
+    });
+    
     /**
      <rss></rss> is an rss widget card that will show your info in a view
      app     : A layout portlet object from uPortal

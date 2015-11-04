@@ -144,6 +144,8 @@ define(['angular', 'jquery'], function(angular, $) {
                         return "GENERIC";
                     } else if('rss' === portlet.widgetType) {
                         return "RSS";
+                    } else if('list-of-links' === portlet.widgetType) {
+                        return "LOL";
                     } else {
                         return "WIDGET";
                     }
