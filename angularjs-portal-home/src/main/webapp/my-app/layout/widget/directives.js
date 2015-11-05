@@ -45,8 +45,7 @@ define(['angular', 'require'], function(angular, require) {
                 portlet: '=app',
                 config: '=config'
             },
-            templateUrl: require.toUrl('./partials/lol.html'),
-            controller: 'ListOfLinksController'
+            templateUrl: require.toUrl('./partials/lol.html')
         }
     });
     

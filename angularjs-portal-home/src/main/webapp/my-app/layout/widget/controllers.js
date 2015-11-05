@@ -3,9 +3,6 @@
 define(['angular'], function(angular){
 
   var app = angular.module('my-app.layout.widget.controllers', []);
-
-  app.controller('ListOfLinksController', ['$scope', 'layoutService', function($scope, layoutService){
-  }]);
   
   app.controller('OptionLinkController', ['$scope', 'layoutService', function($scope, layoutService){
 
