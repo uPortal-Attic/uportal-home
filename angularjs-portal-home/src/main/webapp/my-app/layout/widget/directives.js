@@ -56,7 +56,8 @@ define(['angular', 'require'], function(angular, require) {
                 portlet: '=app',
                 config: '=config'
             },
-            templateUrl: require.toUrl('./partials/search-with-links.html')
+            templateUrl: require.toUrl('./partials/search-with-links.html'),
+            controller: 'SearchWithLinksController'
         }
     });
 

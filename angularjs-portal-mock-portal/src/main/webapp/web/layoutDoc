@@ -2,16 +2,16 @@
    "layout":[
    {
       "nodeId":"u23l1n11",
-      "title":"Search with the Google",
+      "title":"Search with the Bing",
       "description":"Testing out widget template swl.",
-      "url":"www.google.com",
+      "url":"https://www.bing.com/",
       "iconUrl":null,
-      "faIcon":"fa-google",
-      "fname":"google-search",
+      "faIcon":"fa-windows",
+      "fname":"bing-search",
       "target":null,
       "widgetURL":null,
       "widgetType":"search-with-links",
-      "widgetConfig": { "actionURL" : "https://www.google.com", "actionTarget" : "_blank", "actionParameter" : "q", "launchText":"Launch Google","links": [{"title":"Interweb Search", "href":"http://www.google.com", "icon":"fa-search","target":"_blank"}, {"title":"Image Search", "href":"https://www.google.com/imghp", "icon":"fa-camera","target":"_blank"}]},
+      "widgetConfig": { "actionURL" : "https://www.bing.com", "actionTarget" : "_blank", "actionParameter" : "q", "launchText":"Launch Bing","links": [{"title":"Interweb Search", "href":"http://www.bing.com", "icon":"fa-search","target":"_blank"}, {"title":"Image Search", "href":"https://www.bing.com/images", "icon":"fa-camera","target":"_blank"}]},
       "staticContent":null,
       "pithyStaticContent":null,
       "altMaxUrl":false
