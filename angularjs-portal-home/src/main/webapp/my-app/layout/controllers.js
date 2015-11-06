@@ -2,8 +2,6 @@
 
 define(['angular', 'jquery'], function(angular, $) {
 
-    var portletTypeCount = 0;
-
     var app = angular.module('my-app.layout.controllers', []);
 
     app.controller('DefaultViewController', [
@@ -137,7 +135,6 @@ define(['angular', 'jquery'], function(angular, $) {
             }
 
             this.portletType = function portletType(portlet) {
-                console.log("portletType count : " + ++portletTypeCount);
                 if (portlet.widgetType) {
                     if('option-link' === portlet.widgetType) {
                         return "OPTION_LINK";
