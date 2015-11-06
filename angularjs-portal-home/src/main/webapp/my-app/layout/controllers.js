@@ -146,6 +146,8 @@ define(['angular', 'jquery'], function(angular, $) {
                         return "RSS";
                     } else if('list-of-links' === portlet.widgetType) {
                         return "LOL";
+                    } else if ('search-with-links' === portlet.widgetType) {
+                        return "SWL";
                     } else {
                         return "WIDGET";
                     }
