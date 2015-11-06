@@ -37,7 +37,7 @@ define(['angular', 'require'], function(angular, require) {
             controller: 'WeatherController'
         }
     });
-    
+
     app.directive('lol', function () {
         return {
             restrict: 'E',
@@ -48,7 +48,19 @@ define(['angular', 'require'], function(angular, require) {
             templateUrl: require.toUrl('./partials/lol.html')
         }
     });
-    
+
+    app.directive('swl', function () {
+        return {
+            restrict: 'E',
+            scope: {
+                portlet: '=app',
+                config: '=config'
+            },
+            templateUrl: require.toUrl('./partials/search-with-links.html'),
+            controller: 'SearchWithLinksController'
+        }
+    });
+
     /**
      <rss></rss> is an rss widget card that will show your info in a view
      app     : A layout portlet object from uPortal

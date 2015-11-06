@@ -3,7 +3,7 @@
 define(['angular'], function(angular){
 
   var app = angular.module('my-app.layout.widget.controllers', []);
-  
+
   app.controller('OptionLinkController', ['$scope', 'layoutService', function($scope, layoutService){
 
     var configInit = function(){
@@ -144,7 +144,7 @@ define(['angular'], function(angular){
         return [];
       }
     };
-    
+
     if($scope.portlet.widgetTemplate) {
       $scope.content = [];
       $scope.template =  $scope.portlet.widgetTemplate;
@@ -159,7 +159,7 @@ define(['angular'], function(angular){
   }]);
 
   app.controller("RSSWidgetController", ['$scope', 'layoutService', function($scope, layoutService){
-      
+
       $scope.getPrettyDate = function(dateString) {
         var dte;
         if(dateString) {
@@ -169,30 +169,30 @@ define(['angular'], function(angular){
         }
         return dte;
       };
-      
+
       var init = function(){
         $scope.loading = true;
         if($scope.portlet && $scope.portlet.widgetURL && $scope.portlet.widgetType) {
           if(!$scope.config) {
             $scope.config = {};
           }
-          
+
           if(!$scope.config.lim) {
             $scope.config.lim = 5;
           }
-          
+
           if(!$scope.config.showShowing) {
             //default must be false as falsy is weird
             $scope.config.showShowing = false;
           }
-          
+
           var successFn = function(result){
             $scope.loading = false;
             $scope.data = result.data;
             if($scope.data.responseStatus != 200) {
               $scope.error = true;
-            } else if(!$scope.data.responseData 
-              || !$scope.data.responseData.feed 
+            } else if(!$scope.data.responseData
+              || !$scope.data.responseData.feed
               || $scope.data.responseData.feed.entries.length == 0) {
               $scope.isEmpty = true;
             }
@@ -202,18 +202,22 @@ define(['angular'], function(angular){
             $scope.isEmpty = true;
             $scope.loading = false;
           };
-          
+
           layoutService.getRSSJsonified($scope.portlet.widgetURL).then(successFn,errorFn);
         } else {
           $scope.loading = false;
           $scope.error = true;
         }
       }
-      
+
       init();
-      
+
     }]);
 
+    //SearchWithLinksController
+    app.controller("SearchWithLinksController", ['$scope', '$sce', function($scope, $sce){
+      $scope.secureURL = $sce.trustAsResourceUrl($scope.config.actionURL);
+    }]);;
 
   return app;
 
