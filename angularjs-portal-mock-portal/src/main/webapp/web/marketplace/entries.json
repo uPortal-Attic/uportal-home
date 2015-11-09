@@ -2662,7 +2662,15 @@
             "enrollment",
             "staff",
             "faculty",
-            "coverage"
+            "coverage",
+            "benefit",
+            "eBenefits",
+            "benefits enrollment",
+            "open enrollment",
+            "WRS",
+            "work",
+            "OHR",
+            "HRS"           
           ],
         "lifecycleState" : "PUBLISHED",
         "marketplaceScreenshots" : [  ],
