@@ -29,7 +29,7 @@
       <i class='fa fa-plus hidden-xs'></i> Add more to home
     </button>
     </li>
-    <li>
+    <li ng-show='$storage.showFilterOption'>
       <button class="btn btn-flat" ng-click='showHomeFilter=!showHomeFilter' style='margin: 4px 10px;'><i class="fa fa-filter"></i></button>
     </li>
     <home-toggle></home-toggle>
