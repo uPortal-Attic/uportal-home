@@ -1,11 +1,14 @@
 <div class="row portlet-frame">
   <home-header></home-header>
   <div role="main" class="col-xs-12 no-padding portlet-body" ng-controller="WidgetController as widgetCtrl">
+    <div class='row col-xs-12' ng-show='showHomeFilter' style='margin: 5px; margin-left: 0;'>
+      <input ng-model="filterText" placeholder='Filter' class='form-control'>
+    </div>
     <loading-gif  data-object='layout' data-empty='layoutEmpty'></loading-gif>
     <!-- Widget View -->
     <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list">
       <example-widgets ng-if="$storage.exampleWidgets"></example-widgets>
-      <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 no-padding list-container" ng-repeat="portlet in layout">
+      <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 no-padding list-container" ng-repeat="portlet in layout | filter:filterText">
         <widget-card></widget-card>
       </li>
     </ul>

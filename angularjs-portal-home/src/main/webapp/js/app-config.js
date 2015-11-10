@@ -9,7 +9,8 @@ define(['angular'], function(angular) {
             'defaultView' : 'expanded',
             'compact' : true,
             'expanded' : true,
-            'features' : true
+            'features' : true,
+            'isWeb' : true
         })
         .constant('SERVICE_LOC', {
             'aboutURL' : '/portal/web/session.json',
@@ -38,7 +39,7 @@ define(['angular'], function(angular) {
             'sublogo' : ''
         })
         .constant('SEARCH',{
-            'isWeb' : true
+            
         })
         .constant('NOTIFICATION', {
             'enabled' : true,
