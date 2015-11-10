@@ -1,12 +1,30 @@
 <div class="row portlet-frame">
   <div role="banner" class="portlet-header">
     <img src="img/stand-back.jpg" alt="Science" height="180px" style="left: 30%; width: inherit;">
-    <h1>Beta Settings</h1>
-    <p>Opting in/out of beta features</p>
+    <h1>MyUW Alpha Settings</h1>
+    <p>Opting in/out of alpha features</p>
   </div>
   <div role="main" class="col-xs-12 no-padding portlet-body">
     <h3 class="home-section-header">Your Options</h3>
     <ul class='col-sm-6' style='padding-top: 1em;'>
+       <li class="portlet-container-home beta-card-style">
+           <h4>
+               <span class="btn-group">
+                   <label class="btn" ng-class="{'btn-success' : $storage.showMyUWAlphaSidebar, 'btn-default' : !$storage.showMyUWAlphaSidebar }" ng-model="$storage.showMyUWAlphaSidebar" btn-radio="true">On</label>
+                   <label class="btn" ng-class="{'btn-success' : $storage.showMyUWAlphaSidebar, 'btn-default' : !$storage.showMyUWAlphaSidebar }" ng-model="$storage.showMyUWAlphaSidebar" btn-radio="false">Off</label>
+               </span>
+               Show MyUW Alpha in Sidebar
+           </h4>
+           <small>Displays the MyUW Alpha Settings in the sidebar</small>
+
+       </li>
+       <li class="portlet-container-home beta-card-style">
+         <h4>
+           <a href='settings'>
+            Frame Beta Features Page
+           </a>
+         </h4>
+       </li>
        <li class="portlet-container-home beta-card-style">
            <h4>
                <span class="btn-group">
