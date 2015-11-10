@@ -2,12 +2,12 @@
   <home-header></home-header>
   <div role="main" class="col-xs-12 no-padding portlet-body" ng-controller="LayoutController as layoutCtrl">
     <div class='row col-xs-12' ng-show='showHomeFilter' style='margin: 5px; margin-left: 0;'>
-      <input ng-model="searchText" placeholder='Filter' class='form-control'>
+      <input ng-model="filterText" placeholder='Filter' class='form-control'>
     </div>
     <loading-gif data-object='layout' data-empty='layoutEmpty'></loading-gif>
     <!-- List View -->
     <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list">
-       <li class="col-xs-6 col-sm-3 col-md-3 col-lg-2 no-padding list-container" ng-repeat="portlet in layout | filter:searchText">
+       <li class="col-xs-6 col-sm-3 col-md-3 col-lg-2 no-padding list-container" ng-repeat="portlet in layout | filter:filterText">
          <default-card></default-card>
        </li>
     </ul>
