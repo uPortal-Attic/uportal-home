@@ -24,7 +24,7 @@
 	 <div ng-show="config.links.length > 4">
 		 <ul class="widget-list">
 			 <li ng-repeat='item in config.links | limitTo: 7' class="link-icon">
-				 <i class="fa {{item.icon}}"></i><a href="{{item.href}}" target="{{item.target}}">{{item.title}}</a>
+				 <i class="fa {{item.icon}}"></i><a href="{{item.href}}" target="{{item.target}}">{{item.title | truncate:5}}</a>
 			 </li>
 		 </ul>
 	 </div>
