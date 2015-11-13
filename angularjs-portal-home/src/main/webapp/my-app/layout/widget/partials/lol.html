@@ -8,6 +8,7 @@
 		 <div class='col-xs-6 v-center center' ng-repeat='item in config.links'>
 				<circle-button data-href='{{item.href}}' data-target='{{item.target}}' data-fa-icon='{{item.icon}}' data-disabled='false' data-title='{{item.title}}'></circle-button>
      </div>
+		 <p class="bold center additional-text">{{config.additionalText}}</p>
 	 </div>
 	 <div ng-show="config.links.length == 3">
 		 <div ng-repeat="item in config.links">
