@@ -208,7 +208,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   $('.fname-'+fname).html('<i class="fa fa-check"></i> Added Successfully').prop('disabled',true).removeClass('btn-add').addClass('btn-added');
                   $scope.$apply(function(){
                       if($sessionStorage.marketplace) {
-                        var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === portlet.fname});
+                        var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === $scope.portlet.fname});
                         if(marketplaceEntries.length > 0) {
                             marketplaceEntries[0].hasInLayout = true;
                         }
