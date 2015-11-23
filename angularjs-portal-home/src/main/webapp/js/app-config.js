@@ -59,7 +59,43 @@ define(['angular'], function(angular) {
             'loginURL' : '/portal/Login?profile=bucky',
             'logoutURL' : '/portal/Logout'
         })
-        ;
+        .constant('APP_BETA_FEATURES', [
+          {
+            "id" : "sidebarQuicklinks",
+            "title" : "Sidebar Quicklinks",
+            "description" : "Shows quicklinks to various campus sites in sidebar"
+          },
+          {
+            "id" : "webPortletRender",
+            "title" : "/web portlet rendering",
+            "description" : "Renders portlets via /web's exclusive page, but only as launched from compact-mode widgets"
+          },
+          {
+            "id" : "myProfileOption",
+            "title" : "My Profile Option in Menu",
+            "description" : "Enable/Disable the option to jump to my profile in the sidebar"
+          },
+          {
+            "id" : "showKeywordsInMarketplace",
+            "title" : "Show Keywords in Marketplace",
+            "description" : "Enable/Disable keywords showing up in marketplace details"
+          },
+          {
+            "id" : "typeaheadSearch",
+            "title" : "Enable typeahead in the portlet search bar",
+            "description" : "Enable/Disable the typeahead in the portlet search bar (I think this is broken)"
+          },
+          {
+            "id" : "exampleWidgets",
+            "title" : "Example Widgets",
+            "description" : "Show the My Courses, Email, and Calendar example widgets"
+          },
+          {
+            "id" : "showFilterOption",
+            "title" : "Show Filter Option on Home",
+            "description" : "Enables a filter on home to filter ones content down to what want"
+          }
+        ]);
 
     return config;
 
