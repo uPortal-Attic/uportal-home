@@ -4,6 +4,9 @@ define(['require'], function(require){
         main: {
             templateUrl: require.toUrl('./partials/marketplace.html')
         },
+        search: {
+            templateUrl: require.toUrl('./partials/search-results.html')
+        },
         details: {
             templateUrl: require.toUrl('./partials/marketplace-details.html')
         }
