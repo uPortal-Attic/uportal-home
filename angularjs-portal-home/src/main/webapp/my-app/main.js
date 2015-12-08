@@ -53,7 +53,7 @@ define([
         $routeProvider.
             when('/apps', marketplaceRoutes.main).
             when('/apps/details/:fname', marketplaceRoutes.details).
-            when('/apps/search/:initFilter', marketplaceRoutes.main).
+            when('/apps/search/:initFilter', marketplaceRoutes.search).
             when('/compact', listRoute).
             when('/expanded', widgetRoute).
             when('/notifications', notificationsRoute).

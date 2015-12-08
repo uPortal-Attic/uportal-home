@@ -1,0 +1,74 @@
+<div class="row portlet-frame col-xs-12 col-md-12 no-padding search-results" ng-controller="MarketplaceController as marketplaceCtrl">
+	<div class="inner-nav-container">
+		<ul class="inner-nav">
+			<li class="active">
+				<a>All Results ({{ results.length }})</a>
+			</li>
+			<!-- <li>
+				<a>MyUW (# results)</a>
+			</li>
+			<li>
+				<a>Directory (# results)</a>
+			</li>
+			<li>
+				<a>Wisc.edu (# results)</a>
+			</li> -->
+		</ul>
+	</div>
+
+
+  <loading-gif data-object='portlets'></loading-gif>
+  <div ng-repeat="portlet in results = ( portlets | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)" class="result">
+		<h4><a href="{{::portlet.maxUrl}}" target="{{::portlet.target}}">{{ portlet.name }}</a></h4>
+		<p>{{ portlet.description }}</p>
+		<p>
+			<a ng-click="marketplaceCtrl.addToHome($index , portlet)"
+		ng-if="portlet.canAdd && !portlet.hasInLayout" class="add">
+				<i class="fa fa-plus"></i> Add to home
+			</a>
+			<span ng-if="portlet.canAdd && portlet.hasInLayout" class="added">
+				<i class="fa fa-check"></i> Added to home
+			</span>
+			<a href="apps/details/{{::portlet.fname}}">Details</a>
+			<span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
+		</p>
+				
+  </div>
+  <div class="marketplace-load-more">
+    <button class="btn btn-primary btn-lg"
+            ng-click="searchResultLimit = searchResultLimit + 20;"
+            hide-while-loading
+            ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll).length > searchResultLimit"
+           >Load More</button>
+  </div>
+  
+  <div 
+    ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll).length == 0" 
+    class="no-results">
+    <p>No matching MyUW content.</p>
+    <p>Maybe try:</p>
+    <ul>
+      <li 
+        ng-show="(portlets | filter:searchTermFilter).length > 0">
+         <a href="#" ng-click="toggleShowAll()">Show matching MyUW content even though it is not launchable</a>.</li>
+      <li ng-if="directorySearchUrl">
+        <a ng-href="{{directorySearchUrl}}{{searchText}}"
+           target="_blank">Search the directory</a> (of people and offices) instead.</li>
+      <li ng-if="webSearchUrl">
+        <a ng-href="{{webSearchUrl}}{{searchText}}"
+           target="_blank">Search <span ng-if="webSearchDomain">the {{webSearchDomain}} domain on</span> the Web</a> instead.</li>
+      <li ng-if="kbSearchUrl">
+        <a ng-href="{{kbSearchUrl}}{{searchText}}"
+           target="_blank">Search the KnowledgeBase</a> instead.</li>
+      <li ng-if="eventsSearchUrl">
+        <a ng-href="{{eventsSearchUrl}}{{searchText}}"
+          target="_blank">Search for events</a> instead.</li>
+      <li ng-if="helpdeskUrl">
+        <a ng-href="{{helpdeskUrl}}"
+           target="_blank">Ask the Help Desk</a> for help.</li>
+      <li ng-if="feedbackUrl">
+        <a ng-href="{{feedbackUrl}}">Give feedback</a> about search.</li>
+    </ul>
+  </div>
+  
+</div>
