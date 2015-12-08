@@ -1,0 +1,34 @@
+{
+  "name": "web",
+  "version": "4.2.2",
+  "description": "angular my-uw",
+  "scripts": {
+    "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UW-Madison-DoIT/angularjs-portal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UW-Madison-DoIT/angularjs-portal/issues"
+  },
+  "homepage": "https://github.com/UW-Madison-DoIT/angularjs-portal",
+
+  "devDependencies": {
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.12.36",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-coverage": "^0.5.3",
+    "karma-coveralls": "^1.1.2",
+    "karma-html-reporter": "^0.2.4",
+    "karma-htmlfile-reporter": "^0.1.2",
+    "karma-jasmine": "^0.3.5",
+    "karma-jasmine-html-reporter": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-requirejs": "^0.2.2",
+    "phantomjs": "^1.9.17",
+    "requirejs": "^2.1.18"
+  }
+}
