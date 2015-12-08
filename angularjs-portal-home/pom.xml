@@ -5,7 +5,6 @@
     <artifactId>angularjs-portal-parent</artifactId>
     <version>4.2.1.2-SNAPSHOT</version>
   </parent>
-
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>angularjs-portal-home</artifactId>
@@ -23,7 +22,7 @@
       <groupId>edu.wisc.my.apps</groupId>
       <artifactId>uw-frame</artifactId>
       <type>war</type>
-      <version>1.3.4-SNAPSHOT</version>
+      <version>1.4.1-SNAPSHOT</version>
     </dependency>
 
     <!-- Test -->
@@ -39,7 +38,7 @@
         <groupId>edu.wisc.my.restproxy</groupId>
         <artifactId>json-proxy-service</artifactId>
     </dependency>
-    
+
     <dependency>
         <groupId>commons-codec</groupId>
         <artifactId>commons-codec</artifactId>
@@ -211,4 +210,3 @@
   </build>
 
 </project>
-
