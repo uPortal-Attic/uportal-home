@@ -1,17 +1,17 @@
 
 <div ng-controller="MarketplaceController as marketplaceCtrl" class="row portlet-frame marketplace col-xs-12 col-md-12 no-padding">
-  <div role="banner" class="app-header mp-header">
-    <img class="header-image" src="img/terrace.jpg" alt="Chairs at the Union Terrace">
-    <h1>Search<span class='hidden-xs'> and Browse</span> {{NAMES.title}}</h1>
-    <p class="portlet-description"></p>
+  <app-header app-title="Browse {{NAMES.title}}" 
+              app-icon="fa-home">
+  </app-header>
+  <div class="mp-header">
     <span class="fa fa-search mp-search-icon"></span><input type="text" class="marketplace-search" placeholder="What are you looking for?" ng-model="searchText" select-on-page-load aria-label="Search bar enter the app you are looking for">
-    <div class="header-opaque mp-opaque">
-      <ul>
-        <li ng-click="selectFilter('popular','')" ng-class="{true:'selected-filter'}[selectedFilter === 'popular']"><a href="#" aria-label="search from the most popular apps">Most Popular</a></li>
-        <li ng-click="selectFilter('az','')" ng-class="{true: 'selected-filter'}[selectedFilter === 'az']"><a href="#" aria-label="search by alphabetical order">A-Z</a></li>
-        <li ng-click="selectFilter('category','')" ng-class="{true: 'selected-filter'}[selectedFilter === 'category']"><a href="#" aria-label="search by categories">Categories</a></li>
-      </ul>
-    </div>
+  </div>
+  <div class="mp-opaque">
+    <ul>
+      <li ng-click="selectFilter('popular','')" ng-class="{true:'selected-filter'}[selectedFilter === 'popular']"><a href="#" aria-label="search from the most popular apps">Most Popular</a></li>
+      <li ng-click="selectFilter('az','')" ng-class="{true: 'selected-filter'}[selectedFilter === 'az']"><a href="#" aria-label="search by alphabetical order">A-Z</a></li>
+      <li ng-click="selectFilter('category','')" ng-class="{true: 'selected-filter'}[selectedFilter === 'category']"><a href="#" aria-label="search by categories">Categories</a></li>
+    </ul>
   </div>
   <div class="show-all-div">
     <p><span ng-if="portlets.length > 0">Showing {{ (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length }} of {{ portlets.length }} results in {{NAMES.title}}.</span>

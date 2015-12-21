@@ -6,6 +6,9 @@
     <div>
       <a href="javascript:;" ng-click="switchMode('expanded')">Show expanded mode</a>
     </div>
+    <div ng-show='$storage.showFilterOption'>
+      <button class="btn btn-flat" ng-click='showHomeFilter=!showHomeFilter' style='margin: 4px 10px;'><i class="fa fa-filter"></i></button>
+    </div>
   </script>
   <app-header app-title="Home" 
               app-icon="fa-home"
