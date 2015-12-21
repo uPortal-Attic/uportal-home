@@ -57,7 +57,8 @@ define(['angular'], function(angular) {
             'kbSearchURL' : 'https://kb.wisc.edu/search.php?q=',
             'eventsSearchURL' : 'https://today.wisc.edu/events/search?term=',
             'loginURL' : '/portal/Login?profile=bucky',
-            'logoutURL' : '/portal/Logout'
+            'logoutURL' : '/portal/Logout',
+            'rootURL' : '/web'
         })
         .constant('FOOTER_URLS', [
           { "url" : "static/myuw-help",
