@@ -59,21 +59,29 @@ define(['angular'], function(angular) {
             'loginURL' : '/portal/Login?profile=bucky',
             'logoutURL' : '/portal/Logout'
         })
-        .constant('APP_BETA_FEATURES', [
-          {
-            "id" : "sidebarQuicklinks",
-            "title" : "Sidebar Quicklinks",
-            "description" : "Shows quicklinks to various campus sites in sidebar"
+        .constant('FOOTER_URLS', [
+          { "url" : "static/myuw-help",
+            "target" : "_blank",
+            "title" : "Help"
           },
+          { "url" : "https://my.wisc.edu/portal/p/feedback",
+            "target" : "_blank",
+            "title" : "Feedback"
+          },
+          { "url" : "features",
+            "target" : "",
+            "title" : "What's New"
+          },
+          { "url" : "/portal/Login?profile=default",
+            "target" : "",
+            "title" : "Old MyUW"
+          },
+        ])
+        .constant('APP_BETA_FEATURES', [
           {
             "id" : "webPortletRender",
             "title" : "/web portlet rendering",
             "description" : "Renders portlets via /web's exclusive page, but only as launched from compact-mode widgets"
-          },
-          {
-            "id" : "myProfileOption",
-            "title" : "My Profile Option in Menu",
-            "description" : "Enable/Disable the option to jump to my profile in the sidebar"
           },
           {
             "id" : "showKeywordsInMarketplace",
