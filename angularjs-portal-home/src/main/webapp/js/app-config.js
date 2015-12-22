@@ -22,7 +22,6 @@ define(['angular'], function(angular) {
             'base'        : '/portal/web/',
             'layout'      : 'layoutDoc?tab=UW Bucky Home',
             'layoutTab' : 'UW Bucky Home',
-            'addToHomeLink' : '/portal/web/layout?action=addPortlet&tabName=UW%20Bucky%20Home&fname=',
             'marketplace' : {
                 'base' : 'marketplace/',
                 'entry' : 'entry/',

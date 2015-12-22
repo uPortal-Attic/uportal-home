@@ -66,7 +66,6 @@ define(['angular', 'jquery'], function(angular, $) {
         'layoutService',
         'miscService',
         'sharedPortletService',
-        'SERVICE_LOC',
         function ($modal,
                   $location,
                   $sessionStorage,
@@ -75,8 +74,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   $scope,
                   layoutService,
                   miscService,
-                  sharedPortletService,
-                  SERVICE_LOC) {
+                  sharedPortletService) {
 
             miscService.pushPageview();
             $scope.portlet = sharedPortletService.getProperty() || {};
@@ -171,7 +169,6 @@ define(['angular', 'jquery'], function(angular, $) {
                             return e.fname === $routeParams.fname
                         });
                         $scope.inFavorites = portlets.length > 0; //change scope variable to trigger apply
-                        $scope.addToHomeLink = !$scope.inFavorites ? SERVICE_LOC.addToHomeLink + $routeParams.fname : null;
                     });
                 } else {
                     var portlets = $.grep($rootScope.layout, function (e) {
@@ -184,7 +181,6 @@ define(['angular', 'jquery'], function(angular, $) {
             };
 
             $scope.inFavorites = this.inLayout();
-            $scope.addToHomeLink = !$scope.inFavorites ? SERVICE_LOC.addToHomeLink + $routeParams.fname : null;
         }]);
 
     return app;
