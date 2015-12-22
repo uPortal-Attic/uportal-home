@@ -3,7 +3,7 @@
 define(['angular', 'jquery'], function(angular, $) {
 
     var app = angular.module('my-app.layout.static.controllers', []);
-    
+
     app.controller('ExclusiveContentController', ['$modal',
                                                   '$location',
                                                   '$sessionStorage',
@@ -33,7 +33,7 @@ define(['angular', 'jquery'], function(angular, $) {
             }
             return {};
         };
-        
+
         if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== $routeParams.fname) {
 
             if (typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
@@ -53,7 +53,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 layoutService.getExclusiveMarkup($scope.portlet);
             }
 
-        } 
+        }
     }]);
 
     app.controller('StaticContentController', [
@@ -110,7 +110,7 @@ define(['angular', 'jquery'], function(angular, $) {
             } else {
               $scope.loading = $scope.portlet;
             }
-            
+
             $scope.openRating = function (size, fname, name) {
                 var modalInstance = $modal.open({
                     templateUrl: 'ratingModal.html',
@@ -186,4 +186,3 @@ define(['angular', 'jquery'], function(angular, $) {
     return app;
 
 });
-

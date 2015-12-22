@@ -1,21 +1,21 @@
 <div class="row portlet-frame static-content"  ng-controller="ExclusiveContentController as exclusiveContentCtrl">
-  <div role="banner" class="portlet-header">
-    <img class="header-image" ng-src="{{$storage.homeImg}}" alt="UW Campus cover image">
-    <h1><span><portlet-icon></portlet-icon> {{::portlet.title }}</span></h1>
-    <span class="dropdown" dropdown on-toggle="toggled(open)">
-      <a href class="dropdown-toggle" dropdown-toggle>
-        <i class="fa fa-cog"></i>
-      </a>
-      <ul class="dropdown-menu">
-        <li role="presentation" class="fname-{{::portlet.fname}}" ng-class='{hidden : inFavorites}'>
-            <a ng-click="exclusiveContentCtrl.addToHome(portlet)" href='javascript:;'><span>Add to home</span></a>
+  <script type="text/ng-template" id="static-content-options.html">
+    <div ng-controller="StaticContentController as staticContentCtrl">
+      <ul>
+        <li role="presentation" class="fname-{{::portlet.fname}}" ng-hide='inFavorites'>
+            <a ng-click="staticContentCtrl.addToHome(portlet)" href='javascript:;'><span>Add to home</span></a>
         </li>
         <li role="presentation">
             <a ng-click="openRating('sm',portlet.fname, portlet.title)" href='javascript:;'><span>Rate this App</span></a>
         </li>
       </ul>
-    </span>
-  </div>
+    </div>
+  </script>
+
+  <app-header-two-way-bind
+  app-title="portlet.title"
+  app-icon="portlet.faIcon"
+  app-option-template="'static-content-options.html'"></app-header-two-way-bind>
   <div role="main" class="col-xs-12 no-padding portlet-body">
     <div data-loading class='loading-gif abs-bottom-right'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
 	  <div ng-bind-html="portlet.exclusiveContent" class="up-portlet-content-wrapper" id="content-{{::portlet.nodeId}}">
