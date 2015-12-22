@@ -236,6 +236,10 @@ define(['angular', 'jquery'], function(angular, $) {
                               $location,
                               miscService,
                               APP_FLAGS){
+            $scope.MODES = {
+              EXPANDED : "expanded",
+              COMPACT : "compact"
+            }
             //scope functions
             $scope.switchMode = function(mode) {
                 $localStorage.layoutMode = mode;
@@ -250,6 +254,7 @@ define(['angular', 'jquery'], function(angular, $) {
             //local functions
             this.init = function() {
                 $scope.toggle = APP_FLAGS.enableToggle;
+                $scope.$storage = localStorage;
                 if($localStorage.layoutMode
                     && $location.url().indexOf($localStorage.layoutMode) == -1) {
                     //opps, we are in the wrong mode, switch!

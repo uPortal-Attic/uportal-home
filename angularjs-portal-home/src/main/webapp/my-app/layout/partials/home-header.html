@@ -1,39 +1,17 @@
-<div ng-controller="ToggleController">
-  <script type="text/ng-template" id="toggle-modes.html">
-    <div>
-      <a href="javascript:;" ng-click="switchMode('compact')">Show compact mode</a>
+<script type="text/ng-template" id="toggle-modes.html">
+  <div ng-controller="ToggleController">
+    <div ng-if='modeIs(MODES.EXPANDED)'>
+      <a href="javascript:;" ng-click="switchMode(MODES.COMPACT)">Show compact mode</a>
     </div>
-    <div>
-      <a href="javascript:;" ng-click="switchMode('expanded')">Show expanded mode</a>
+    <div ng-if='modeIs(MODES.COMPACT)'>
+      <a href="javascript:;" ng-click="switchMode(MODES.EXPANDED)">Show expanded mode</a>
     </div>
-    <div ng-show='$storage.showFilterOption'>
-      <button class="btn btn-flat" ng-click='showHomeFilter=!showHomeFilter' style='margin: 4px 10px;'><i class="fa fa-filter"></i></button>
-    </div>
-  </script>
-  <app-header app-title="Home" 
-              app-icon="fa-home"
-              app-action-link-url='apps'
-              app-action-link-icon='fa-plus-square'
-              app-action-link-text='Add more to home'
-              app-option-template='toggle-modes.html'>
-  </app-header>
-  
-</div>
-
-<!-- <div class="inner-nav-container">
-  <ul class="inner-nav">
-    <li ng-controller='GoToAppsController as GoToAppsCtrl'>
-      <button
-       ng-click='GoToAppsCtrl.redirectToApps()'
-       aria-label="button to browse for more"
-       class='btn btn-flat to-apps-home-button'
-       style='margin: 4px 10px;'>
-      <i class='fa fa-plus hidden-xs'></i> Add more to home
-    </button>
-    </li>
-    <li ng-show='$storage.showFilterOption'>
-      <button class="btn btn-flat" ng-click='showHomeFilter=!showHomeFilter' style='margin: 4px 10px;'><i class="fa fa-filter"></i></button>
-    </li>
-    <home-toggle></home-toggle>
-  </ul>
-</div> -->
+  </div>
+</script>
+<app-header app-title="Home" 
+            app-icon="fa-home"
+            app-action-link-url='apps'
+            app-action-link-icon='fa-plus-square'
+            app-action-link-text='Add more to home'
+            app-option-template='toggle-modes.html'>
+</app-header>
