@@ -2,9 +2,6 @@
   <script type="text/ng-template" id="static-content-options.html">
     <div ng-controller="StaticContentController as staticContentCtrl">
       <ul>
-        <li role="presentation" class="fname-{{::portlet.fname}}" ng-hide='inFavorites'>
-            <a ng-click="staticContentCtrl.addToHome(portlet)" href='javascript:;'><span>Add to home</span></a>
-        </li>
         <li role="presentation">
             <a ng-click="openRating('sm',portlet.fname, portlet.title)" href='javascript:;'><span>Rate this App</span></a>
         </li>
