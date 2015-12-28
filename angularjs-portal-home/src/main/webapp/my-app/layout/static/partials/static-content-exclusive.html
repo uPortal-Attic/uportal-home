@@ -15,7 +15,10 @@
   <app-header-two-way-bind
   app-title="portlet.title"
   app-icon="portlet.faIcon"
-  app-option-template="'static-content-options.html'"></app-header-two-way-bind>
+  app-option-template="'static-content-options.html'"
+  app-fname='portlet.fname'
+  app-action-link-text="'Add to home'"
+  app-add-to-home='true'></app-header-two-way-bind>
   <div role="main" class="col-xs-12 no-padding portlet-body">
     <div data-loading class='loading-gif abs-bottom-right'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
 	  <div ng-bind-html="portlet.exclusiveContent" class="up-portlet-content-wrapper" id="content-{{::portlet.nodeId}}">
