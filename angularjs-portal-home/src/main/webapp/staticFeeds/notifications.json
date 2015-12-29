@@ -21,6 +21,13 @@
         "title"  : "You need to modify your NetID account to activate essential UW Services.",
         "actionURL" : "https://www.mynetid.wisc.edu/modify",
         "actionAlt" : "Activate Services"
+      },
+      {
+        "id"     : 5,
+        "groups" : ["Madison Snow Emergency"],
+        "title"  : "City of Madison - Declared Snow Emergency",
+        "actionURL" : "http://www.cityofmadison.com/winter/",
+        "actionAlt" : "City Of Madison snow emergency information"
       }
     ]
 }
