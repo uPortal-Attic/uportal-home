@@ -58,7 +58,11 @@ define(['angular'], function(angular) {
             'eventsSearchURL' : 'https://today.wisc.edu/events/search?term=',
             'loginURL' : '/portal/Login?profile=bucky',
             'logoutURL' : '/portal/Logout',
-            'rootURL' : '/web'
+            'rootURL' : '/web',
+            'addToHomeURLS' : {
+              'layoutURL' : '/portal/web/layoutDoc?tab=UW Bucky Home',
+              'addToHomeActionURL' : '/portal/web/layout?tabName=UW Bucky Home&action=addPortlet&fname='
+            }
         })
         .constant('FOOTER_URLS', [
           { "url" : "static/myuw-help",
