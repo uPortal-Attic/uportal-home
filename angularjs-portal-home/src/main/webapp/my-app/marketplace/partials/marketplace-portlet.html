@@ -30,7 +30,8 @@
     </button>
 
     <!-- Launch button with access -->
-    <a aria-label="launch {{::portlet.title}}" class="btn btn-success" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a aria-label="launch {{::portlet.title}}" class="btn btn-success" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd  && (!portlet.portletName || portlet.portletName.indexOf('cms') === -1)"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a aria-label="launch {{::portlet.title}}" class="btn btn-success" href="{{'static/' + portlet.fname}}" target="{{::portlet.target}}" ng-if="portlet.canAdd && portlet.portletName && portlet.portletName.indexOf('cms') != -1"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
     <!-- Launch button without access -->
     <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
@@ -64,7 +65,8 @@
     </button>
 
     <!-- Launch button with access on mobile-->
-    <a class="btn btn-success" href="{{::portlet.maxUrl}}" ng-show="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a aria-label="launch {{::portlet.title}}" class="btn btn-success" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd  && (!portlet.portletName || portlet.portletName.indexOf('cms') === -1)"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+    <a aria-label="launch {{::portlet.title}}" class="btn btn-success" href="{{'static/' + portlet.fname}}" target="{{::portlet.target}}" ng-if="portlet.canAdd && portlet.portletName && portlet.portletName.indexOf('cms') != -1"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
     <!-- Launch button without access on mobile-->
     <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
