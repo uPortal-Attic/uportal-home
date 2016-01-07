@@ -42,8 +42,7 @@ define(['angular', 'jquery'], function(angular, $) {
             //Functions
             
             $scope.isStatic = function(portlet) {
-              return portlet.canAdd //can Add 
-                      && portlet.maxUrl.indexOf('portal') !== -1 //max url is a portal hit
+              return portlet.maxUrl.indexOf('portal') !== -1 //max url is a portal hit
                       && portlet.portletName // there is a portletName
                       && portlet.portletName.indexOf('cms') != -1; //the portlet is static content portlet
             }
