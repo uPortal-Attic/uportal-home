@@ -40,6 +40,13 @@ define(['angular', 'jquery'], function(angular, $) {
             miscService.pushPageview($scope.searchTerm);
 
             //Functions
+            
+            $scope.isStatic = function(portlet) {
+              return portlet.canAdd //can Add 
+                      && portlet.maxUrl.indexOf('portal') !== -1 //max url is a portal hit
+                      && portlet.portletName // there is a portletName
+                      && portlet.portletName.indexOf('cms') != -1; //the portlet is static content portlet
+            }
 
             this.goToDetails = function(){
                 $location.path("apps/" + fname );
