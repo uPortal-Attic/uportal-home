@@ -43,7 +43,7 @@ define(['angular'], function(angular) {
             'whatsNewURL' : null,
             'helpdeskURL' : null,
             'webSearchURL' : 'http://www.google.com/search?q=',
-            'webSearchDomain' = null,
+            'webSearchDomain' : null,
             'directorySearchURL' : null,
             'kbSearchURL' : null,
             'eventsSearchURL' : null,
