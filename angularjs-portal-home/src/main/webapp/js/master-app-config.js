@@ -6,7 +6,8 @@ define(['angular'], function(angular) {
             'enableToggle': true,
             'defaultView' : 'compact',
             'compact' : true,
-            'expanded' : true
+            'expanded' : true,
+            'isWeb' : true
         })
         .constant('SERVICE_LOC', {
             'sessionInfo' : '/uPortal/api/session.json',
@@ -26,7 +27,7 @@ define(['angular'], function(angular) {
         .constant('NAMES', {
             'title' : 'uPortal',
             'ariaLabelTitle' : 'My U W',
-            'crest' : null,
+            'crest' : '/uPortal/favicon.ico',
             'crestalt' : 'Crest',
             'sublogo' : ''
         })
@@ -37,6 +38,12 @@ define(['angular'], function(angular) {
             'groupFiltering' : true,
             'notificationFullURL' : 'notifications'
         })
+        .constant('FOOTER_URLS', [
+          { "url" : "https://www.google.com",
+            "target" : "_blank",
+            "title" : "Example Link to Google"
+          }
+        ])
         .constant('MISC_URLS',{
             'feedbackURL' : '/uPortal/p/feedback',
             'back2ClassicURL' : null,
@@ -47,6 +54,7 @@ define(['angular'], function(angular) {
             'directorySearchURL' : null,
             'kbSearchURL' : null,
             'eventsSearchURL' : null,
+            'rootURL' : '/web',
             'loginURL' : '/uPortal/Login?profile=bucky',
             'logoutURL' : '/uPortal/Logout'
         })
