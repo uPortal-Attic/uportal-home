@@ -12,6 +12,8 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
       var layoutService;
       var miscService;
       var sharedPortletService;
+      var httpBackend;
+      var groupURL;
       
       var q;
       var deferred;
@@ -22,12 +24,13 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
         module('my-app');
       });
       
-      beforeEach(inject(function(_$rootScope_, $controller, _$localStorage_, _$sessionStorage_, $location, $q, _APP_FLAGS_) {
+      beforeEach(inject(function(_$rootScope_, $controller, _$localStorage_, _$sessionStorage_, $location, $q, _APP_FLAGS_, _$httpBackend_, _SERVICE_LOC_) {
         q = $q;
         scope = _$rootScope_.$new();
         rootScope = _$rootScope_;
         $localStorage = _$localStorage_;
         $sessionStorage = _$sessionStorage_;
+        httpBackend = _$httpBackend_;
         layoutService = {
                 'getLayout' : function() {
                      deferred = q.defer();
@@ -40,6 +43,9 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
                     return;
                 }
         };
+        
+        groupURL = _SERVICE_LOC_.groupURL;
+        
         sharedPortletService = {};
         controller = $controller('LayoutController', {'$localStorage' : $localStorage, 
                                                       '$scope': scope,
@@ -62,6 +68,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
       });
       
       it("should set layoutEmpty to true after return empty layout", function() {
+          httpBackend.whenGET(groupURL).respond([]);
           scope.$apply(function(){
               deferred.resolve({"layout" : []});
           });
@@ -69,6 +76,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
       });
       
       it("should set layoutEmpty to false after return non empty layout", function() {
+          httpBackend.whenGET(groupURL).respond([]);
           scope.$apply(function(){
               deferred.resolve({"layout" : [{"fake" : true}]});
           });

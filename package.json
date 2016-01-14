@@ -3,6 +3,7 @@
   "version": "4.2.2",
   "description": "angular my-uw",
   "scripts": {
+    "pretest" : "mvn clean package",
     "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run"
   },
   "repository": {
