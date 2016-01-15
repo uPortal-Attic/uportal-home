@@ -10,7 +10,8 @@ define(['angular'], function(angular) {
             'compact' : true,
             'expanded' : true,
             'features' : true,
-            'isWeb' : true
+            'isWeb' : true,
+            'defaultTheme' : 'group'
         })
         .constant('SERVICE_LOC', {
             'aboutURL' : '/portal/web/session.json',
