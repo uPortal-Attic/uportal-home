@@ -48,7 +48,7 @@ University of Wisconsin styles the portal theme to look similar for a seamless t
 Frame was so cool it moved to [its own project](https://github.com/UW-Madison-DoIT/uw-frame).
 
 + #### Home
-This is the MyUW home page. It uses the frame as a base then adds in the layout, marketplace, and features pages.
+This is the MyUW home page. It uses the frame as a base then adds in the layout, marketplace (app directory), and features pages.
 
 To deploy the home build from the base directory described above. Then `cd ./angularjs-portal-home` and run `mvn tomcat7:redeploy` (assuming you have auto deploy configured).  The home will now be deployed to `/web`.
 
