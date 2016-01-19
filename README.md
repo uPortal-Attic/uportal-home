@@ -45,7 +45,7 @@ University of Wisconsin styles the portal theme to look similar for a seamless t
 ### Modules
 
 + #### Frame
-Frame was so cool it was moved to its own project, you can find that [here](https://github.com/UW-Madison-DoIT/uw-frame).
+Frame was so cool it moved to [its own project](https://github.com/UW-Madison-DoIT/uw-frame).
 
 + #### Home
 This is the MyUW home page. It uses the frame as a base then adds in the layout, marketplace, and features pages.
