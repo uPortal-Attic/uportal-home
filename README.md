@@ -88,4 +88,4 @@ With this you can run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy` if you have
 
 ### Deploy to Remote Instance
 
-Drop angularjs-portal-home/target/web.war in the tomcat instance that runs uportal and fire it up. Should just work.
+Drop angularjs-portal-home/target/web.war in the tomcat instance that runs uPortal and fire it up. Should just work.
