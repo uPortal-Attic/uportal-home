@@ -38,7 +38,7 @@ mvn tomcat7:deploy  #or redeploy depending if this is a consecutive run
 
 Angularjs-portal is a different front end than the one supplied with [Apereo uPortal] (https://github.com/Jasig/uPortal).  
 As of now, portlet rendering still takes place via uPortal's rendering pipeline.
-The [theming] (http://uw-madison-doit.github.io/uw-frame/latest/#/md/theming) comes from the [uw-frame depenency](https://github.com/UW-Madison-DoIT/uw-frame).
+The [theming] (http://uw-madison-doit.github.io/uw-frame/latest/#/md/theming) comes from the [uw-frame dependency](https://github.com/UW-Madison-DoIT/uw-frame).
 
 University of Wisconsin styles the portal theme to look similiar for a seamless transition between this webapp and the portal webapp.
 
