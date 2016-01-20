@@ -8,11 +8,17 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     version="2.5">
   <display-name>AngularJS Home for MyUW Applications</display-name>
+  
+  <context-param>
+        <param-name>contextClass</param-name>
+        <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+    </context-param>
     
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath*:/WEB-INF/context/*.xml</param-value>
     </context-param>
+    
     
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -44,10 +50,27 @@
     </filter>
     
     <servlet>
-        <servlet-name>angularweb-api</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
+      <servlet-name>rest-proxy-api</servlet-name>
+      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+      <init-param>
+        <param-name>contextClass</param-name>
+        <param-value>
+          org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+        </param-value>
+      </init-param>
+      <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+          edu.wisc.my.home.api.RestProxyApplicationConfiguration
+        </param-value>
+      </init-param>
     </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>rest-proxy-api</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
     
     <servlet>
       <servlet-name>StaticServlet</servlet-name>
@@ -59,11 +82,7 @@
        <url-pattern>/*</url-pattern>
        <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
- 
-    <servlet-mapping>
-        <servlet-name>angularweb-api</servlet-name>
-        <url-pattern>/api/*</url-pattern>
-    </servlet-mapping>
+    
     
     <!-- Keep this in sync with angular-page.js -->
     <servlet-mapping>
