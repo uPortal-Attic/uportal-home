@@ -1,4 +1,4 @@
-<div class="row portlet-frame col-xs-12 col-md-12 no-padding search-results" ng-controller="MarketplaceController as marketplaceCtrl">
+<div class="row portlet-frame col-xs-12 col-md-12 no-padding search-results">
 	<div class="inner-nav-container">
 		<ul class="inner-nav">
 			<li class="active">
@@ -22,7 +22,7 @@
 		<h4><a href="{{::portlet.maxUrl}}" target="{{::portlet.target}}">{{ portlet.name }}</a></h4>
 		<p>{{ portlet.description }}</p>
 		<p>
-			<a ng-click="marketplaceCtrl.addToHome($index , portlet)"
+			<a ng-click="addToHome(portlet)"
 		ng-if="portlet.canAdd && !portlet.hasInLayout" class="add">
 				<i class="fa fa-plus"></i> Add to home
 			</a>

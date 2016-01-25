@@ -25,7 +25,7 @@
 
 		    <!-- Add to Home button with access -->
 		    <button class="btn btn-primary fname-{{::portlet.fname}}"
-		            ng-click="addToHome()"
+		            ng-click="addToHome(portlet)"
 		            ng-if="portlet.canAdd && !portlet.hasInLayout"
 		            ng-class="{disabled : portlet.hasInLayout}">
 		      <span class="fa fa-plus"></span> Add to home

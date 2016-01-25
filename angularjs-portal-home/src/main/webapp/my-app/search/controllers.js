@@ -1,8 +1,8 @@
 'use strict';
 
-define(['angular', 'portal/search/controllers'], function(angular) {
+define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'], function(angular) {
 
-    var app = angular.module('my-app.search.controllers', ['portal.search.controllers']);
+    var app = angular.module('my-app.search.controllers', ['portal.search.controllers', 'my-app.marketplace.controllers']);
     app.controller('SearchController', [ 'marketplaceService', '$location', '$scope', '$localStorage', function(marketplaceService, $location, $scope, $localStorage) {
         $scope.initialFilter = '';
         $scope.filterMatches = [];
@@ -40,8 +40,25 @@ define(['angular', 'portal/search/controllers'], function(angular) {
         };
     }]);
     
-    app.controller('SearchResultController', [function() {
-      
+    app.controller('SearchResultController', 
+     ['$scope', '$controller','marketplaceService',
+     function($scope, $controller,marketplaceService) {
+       
+      var base = $controller('marketplaceCommonFunctions', {$scope : $scope});
+
+      var init = function(){
+        $scope.sortParameter = ['-rating','-userRated'];
+        $scope.portlets = [];
+        $scope.searchResultLimit = 20;
+        $scope.showAll = false;
+        base.setupSearchTerm();
+        base.initializeConstants();
+        //get marketplace entries
+        marketplaceService.getPortlets().then(function(data) {
+            $scope.portlets = data.portlets;
+        });
+      };
+      init();
     }]);
 
     return app;
