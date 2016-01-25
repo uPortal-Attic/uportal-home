@@ -10,6 +10,7 @@ define([
     './layout/route',
     './layout/static/routes',
     './layout/widget/route',
+    './search/routes',
     'portal',
     'app-config',
     'ngRoute',
@@ -25,8 +26,9 @@ define([
     './marketplace/controllers',
     './marketplace/directives',
     './marketplace/services',
-    './search/controllers'
-], function(angular, require, marketplaceRoutes, listRoute, notificationsRoute, portalSettingsRoute, featuresRoute, aboutRoute, layoutRoute, staticRoutes, widgetRoute) {
+    './search/controllers',
+    './search/services'
+], function(angular, require, marketplaceRoutes, listRoute, notificationsRoute, portalSettingsRoute, featuresRoute, aboutRoute, layoutRoute, staticRoutes, widgetRoute, searchRoutes) {
 
     var app = angular.module('my-app', [
         'app-config',
@@ -41,6 +43,7 @@ define([
         'my-app.marketplace.directives',
         'my-app.marketplace.services',
         'my-app.search.controllers',
+        'my-app.search.services',
         'ngRoute',
         'ngSanitize',
         'ngStorage',
@@ -53,7 +56,7 @@ define([
         $routeProvider.
             when('/apps', marketplaceRoutes.main).
             when('/apps/details/:fname', marketplaceRoutes.details).
-            when('/apps/search/:initFilter', marketplaceRoutes.search).
+            when('/apps/search/:initFilter', searchRoutes.search).
             when('/compact', listRoute).
             when('/expanded', widgetRoute).
             when('/notifications', notificationsRoute).

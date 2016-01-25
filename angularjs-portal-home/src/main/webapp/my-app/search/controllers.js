@@ -39,6 +39,10 @@ define(['angular', 'portal/search/controllers'], function(angular) {
             }
         };
     }]);
+    
+    app.controller('SearchResultController', [function() {
+      
+    }]);
 
     return app;
 
