@@ -41,10 +41,20 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
     }]);
     
     app.controller('SearchResultController', 
-     ['$scope', '$controller','marketplaceService',
-     function($scope, $controller,marketplaceService) {
-       
+     ['$scope', '$controller','marketplaceService', 'googleCustomSearchService',
+     function($scope, $controller,marketplaceService, googleCustomSearchService) {
       var base = $controller('marketplaceCommonFunctions', {$scope : $scope});
+      
+      var initWiscEduSearch = function(){
+        $scope.googleResults = {};
+        googleCustomSearchService.googleSearch($scope.searchTerm).then(
+          function(results){
+            if(results && results.responseData && results.responseData.results) {
+              $scope.googleResults = results.responseData.results;
+            }
+          }
+        );
+      };
 
       var init = function(){
         $scope.sortParameter = ['-rating','-userRated'];
@@ -59,6 +69,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         });
       };
       init();
+      initWiscEduSearch();
     }]);
 
     return app;
