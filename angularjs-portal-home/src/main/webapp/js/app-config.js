@@ -30,7 +30,8 @@ define(['angular'], function(angular) {
             },
             'notificationsURL' : '/web/staticFeeds/notifications.json',
             'groupURL' : '/portal/api/groups',
-            'kvURL' : '/storage/'
+            'kvURL' : '/storage/',
+            'googleSearchURL' : '/web/staticFeeds/gcs.json'
         })
         .constant('NAMES', {
             'title' : 'MyUW',
