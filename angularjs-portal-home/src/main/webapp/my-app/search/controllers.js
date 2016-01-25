@@ -41,7 +41,32 @@ define(['angular', 'portal/search/controllers'], function(angular) {
     }]);
     
     app.controller('SearchResultController', [function() {
+      //scope functions
+      $scope.searchTermFilter = function(portlet) {
+          return marketplaceService.portletMatchesSearchTerm(portlet, $scope.searchTerm, {
+              searchDescription: true,
+              searchKeywords: true,
+              defaultReturn : true
+          });
+      };
       
+      $scope.toggleShowAll = function() {
+          $scope.showAll = !$scope.showAll;
+      };
+      
+      var init = function(){
+        $scope.sortParameter = ['-rating','-userRated'];
+        $scope.portlets = [];
+        $scope.searchText = $scope.searchTerm;
+        $scope.searchResultLimit = 20;
+        $scope.showAll = false;
+        
+        //get marketplace entries
+        marketplaceService.getPortlets().then(function(data) {
+            $scope.portlets = data.portlets;
+        });
+      };
+      init();
     }]);
 
     return app;
