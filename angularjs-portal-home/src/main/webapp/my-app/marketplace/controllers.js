@@ -6,9 +6,9 @@ define(['angular', 'jquery'], function(angular, $) {
     
     app.controller('marketplaceCommonFunctions', 
       ['layoutService', 'marketplaceService', 'miscService', '$sessionStorage', 
-       '$rootScope', '$scope', '$modal', 
+       '$rootScope', '$scope', '$modal', '$routeParams', '$timeout',
        function(layoutService, marketplaceService, miscService, $sessionStorage, 
-        $rootScope, $scope, $modal){
+        $rootScope, $scope, $modal, $routeParams, $timeout){
       $scope.goToDetails = function(fname){
           $location.path("apps/" + fname );
       };
@@ -88,6 +88,34 @@ define(['angular', 'jquery'], function(angular, $) {
       $scope.toggleShowAll = function() {
           $scope.showAll = !$scope.showAll;
       };
+      
+      this.setupSearchTerm = function() {
+        var tempFilterText = '', filterTextTimeout;
+        $scope.searchTerm = marketplaceService.getInitialFilter();
+        if($routeParams.initFilter !== null && ($scope.searchTerm === null || $scope.searchTerm === "")) {
+            $scope.searchTerm = $routeParams.initFilter;
+        } else {
+            marketplaceService.initialFilter("");
+        }
+        $scope.searchText = $scope.searchTerm;
+        miscService.pushPageview($scope.searchTerm);
+        
+        var initFilter = false;
+        //delay on the filter
+        $scope.$watch('searchText', function (val) {
+            if (filterTextTimeout) $timeout.cancel(filterTextTimeout);
+
+            tempFilterText = val;
+            filterTextTimeout = $timeout(function() {
+                $scope.searchTerm = tempFilterText;
+                if(initFilter && $scope.searchTerm) {
+                    miscService.pushGAEvent('Search','Filter',$scope.searchTerm);
+                } else {
+                    initFilter = true;
+                }
+            }, 250); // delay 250 ms
+        });
+      };
 
     }]);
 
@@ -102,35 +130,7 @@ define(['angular', 'jquery'], function(angular, $) {
                  $http, $scope, $location, $routeParams, $controller, 
                  marketplaceService, layoutService, miscService, mainService, MISC_URLS) {
             
-            $controller('marketplaceCommonFunctions', { $scope : $scope });
-            
-            var setupSearchTerm = function() {
-              var tempFilterText = '', filterTextTimeout;
-              $scope.searchTerm = marketplaceService.getInitialFilter();
-              if($routeParams.initFilter !== null && ($scope.searchTerm === null || $scope.searchTerm === "")) {
-                  $scope.searchTerm = $routeParams.initFilter;
-              } else {
-                  marketplaceService.initialFilter("");
-              }
-              $scope.searchText = $scope.searchTerm;
-              miscService.pushPageview($scope.searchTerm);
-              
-              var initFilter = false;
-              //delay on the filter
-              $scope.$watch('searchText', function (val) {
-                  if (filterTextTimeout) $timeout.cancel(filterTextTimeout);
-
-                  tempFilterText = val;
-                  filterTextTimeout = $timeout(function() {
-                      $scope.searchTerm = tempFilterText;
-                      if(initFilter && $scope.searchTerm) {
-                          miscService.pushGAEvent('Search','Filter',$scope.searchTerm);
-                      } else {
-                          initFilter = true;
-                      }
-                  }, 250); // delay 250 ms
-              });
-            };
+            var base = $controller('marketplaceCommonFunctions', { $scope : $scope });
             
             var init = function(){
               //init variables
@@ -140,7 +140,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   $scope.categories = data.categories;
               });
               
-              setupSearchTerm();
+              base.setupSearchTerm();
               
               //initialize variables
               
