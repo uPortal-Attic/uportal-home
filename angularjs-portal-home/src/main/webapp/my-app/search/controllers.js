@@ -52,7 +52,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         $scope.searchResultLimit = 20;
         $scope.showAll = false;
         base.setupSearchTerm();
-        
+        base.initializeConstants();
         //get marketplace entries
         marketplaceService.getPortlets().then(function(data) {
             $scope.portlets = data.portlets;

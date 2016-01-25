@@ -5,9 +5,9 @@ define(['angular', 'jquery'], function(angular, $) {
     var app = angular.module('my-app.marketplace.controllers', []);
     
     app.controller('marketplaceCommonFunctions', 
-      ['layoutService', 'marketplaceService', 'miscService', '$sessionStorage', 
+      ['layoutService', 'marketplaceService', 'miscService', 'MISC_URLS', '$sessionStorage', 
        '$rootScope', '$scope', '$modal', '$routeParams', '$timeout',
-       function(layoutService, marketplaceService, miscService, $sessionStorage, 
+       function(layoutService, marketplaceService, miscService,MISC_URLS, $sessionStorage, 
         $rootScope, $scope, $modal, $routeParams, $timeout){
       $scope.goToDetails = function(fname){
           $location.path("apps/" + fname );
@@ -116,6 +116,17 @@ define(['angular', 'jquery'], function(angular, $) {
             }, 250); // delay 250 ms
         });
       };
+      
+      this.initializeConstants = function(){
+        //initialize constants
+        $scope.webSearchUrl = MISC_URLS.webSearchURL;
+        $scope.webSearchDomain = MISC_URLS.webSearchDomain;
+        $scope.directorySearchUrl = MISC_URLS.directorySearchURL;
+        $scope.kbSearchUrl = MISC_URLS.kbSearchURL;
+        $scope.eventsSearchUrl = MISC_URLS.eventsSearchURL;
+        $scope.feedbackUrl = MISC_URLS.feedbackURL;
+        $scope.helpdeskUrl = MISC_URLS.helpdeskURL;
+      }
 
     }]);
 
@@ -123,12 +134,8 @@ define(['angular', 'jquery'], function(angular, $) {
     var currentCategory = '';
     
     app.controller('MarketplaceController', [
-        '$sessionStorage', '$modal', '$timeout', '$rootScope', '$window',
-        '$http', '$scope', '$location', '$routeParams','$controller', 'marketplaceService',
-        'layoutService','miscService', 'mainService', 'MISC_URLS',
-        function($sessionStorage, $modal, $timeout, $rootScope, $window,
-                 $http, $scope, $location, $routeParams, $controller, 
-                 marketplaceService, layoutService, miscService, mainService, MISC_URLS) {
+        '$scope', '$controller', 'marketplaceService',
+        function($scope, $controller, marketplaceService) {
             
             var base = $controller('marketplaceCommonFunctions', { $scope : $scope });
             
@@ -172,14 +179,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   $scope.showCategories = false;
               }
               
-              //initialize constants
-              $scope.webSearchUrl = MISC_URLS.webSearchURL;
-              $scope.webSearchDomain = MISC_URLS.webSearchDomain;
-              $scope.directorySearchUrl = MISC_URLS.directorySearchURL;
-              $scope.kbSearchUrl = MISC_URLS.kbSearchURL;
-              $scope.eventsSearchUrl = MISC_URLS.eventsSearchURL;
-              $scope.feedbackUrl = MISC_URLS.feedbackURL;
-              $scope.helpdeskUrl = MISC_URLS.helpdeskURL;
+              base.initializeConstants();
             };
             
             //run functions
@@ -216,8 +216,8 @@ define(['angular', 'jquery'], function(angular, $) {
     });
 
     app.controller('MarketplaceDetailsController', [
-        '$controller', '$rootScope', '$scope', '$location', '$modal', '$routeParams', '$sessionStorage', 'marketplaceService', 'miscService', 'layoutService',
-        function($controller, $rootScope, $scope, $location, $modal, $routeParams, $sessionStorage, marketplaceService, miscService, layoutService) {
+        '$controller', '$scope', 'marketplaceService', 'miscService',
+        function($controller, $scope, marketplaceService, miscService) {
           
           $controller('marketplaceCommonFunctions', { $scope : $scope });
 
