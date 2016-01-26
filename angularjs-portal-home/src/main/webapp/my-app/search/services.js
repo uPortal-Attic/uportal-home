@@ -7,12 +7,12 @@ define(['angular', 'jquery'], function(angular, $) {
     app.factory('googleCustomSearchService', ['$http', 'miscService', 'SERVICE_LOC', function($http, miscService, SERVICE_LOC){
       
       function googleSearch(term) {
-        return $http.get(SERVICE_LOC.googleSearchURL + term).then(
+        return $http.get(SERVICE_LOC.googleSearchURL + "?q=" + term).then(
           function(response){
             return response.data;
           },
           function(response){
-            miscService.redirectUser(response.status, 'marketplace entries call');
+            console.log("error searching the google status: " +  response.status);
           }
         )
       }

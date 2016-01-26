@@ -41,24 +41,44 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
     }]);
     
     app.controller('SearchResultController', 
-     ['$scope', '$controller','marketplaceService',
-     function($scope, $controller,marketplaceService) {
-       
+     ['$scope', '$controller','marketplaceService', 'googleCustomSearchService',
+     function($scope, $controller,marketplaceService, googleCustomSearchService) {
       var base = $controller('marketplaceCommonFunctions', {$scope : $scope});
+      
+      var recalcTotalCount = function(){
+        //all results are set to arrays by the time this is called.
+        $scope.totalCount = $scope.googleResults.length + $scope.myuwResults.length;
+      }
+      
+      var initWiscEduSearch = function(){
+        googleCustomSearchService.googleSearch($scope.searchTerm).then(
+          function(results){
+            if(results && results.responseData && results.responseData.results) {
+              $scope.googleResults = results.responseData.results;
+              $scope.googleResultsEstimatedCount = results.responseData.cursor.estimatedResultCount;
+              recalcTotalCount();
+            }
+          }
+        );
+      };
 
       var init = function(){
         $scope.sortParameter = ['-rating','-userRated'];
-        $scope.portlets = [];
+        $scope.myuwResults = [];
+        $scope.googleResults = [];
+        recalcTotalCount();
         $scope.searchResultLimit = 20;
         $scope.showAll = false;
         base.setupSearchTerm();
         base.initializeConstants();
         //get marketplace entries
         marketplaceService.getPortlets().then(function(data) {
-            $scope.portlets = data.portlets;
+            $scope.myuwResults = data.portlets;
+            recalcTotalCount();
         });
       };
       init();
+      initWiscEduSearch();
     }]);
 
     return app;
