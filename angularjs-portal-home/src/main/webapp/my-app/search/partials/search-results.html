@@ -17,7 +17,7 @@
   </div>
 
   <div id="myuw-results" class='search-results-container' ng-show="myuwFilteredResults.length > 0">
-    <h4>MyUW</h4>
+    <h4 class="header">MyUW</h4>
     <hr>
     <loading-gif data-object='myuwResults'></loading-gif>
     <div ng-repeat="portlet in myuwFilteredResults = (myuwResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)" class="result">
@@ -46,7 +46,7 @@
   </div>
   <!--wisc.edu results-->
   <div id="wisc-edu-results" class='search-results-container'>
-    <h4>Wisc.edu</h4>
+    <h4 class='header'>Wisc.edu</h4>
     <hr>
     <loading-gif data-object='googleResults'></loading-gif>
     <div ng-repeat="item in googleResults" class="result">
@@ -58,7 +58,7 @@
           
     </div>
     <div>
-      <h4><a ng-href="{{webSearchUrl + searchText}}">View More results for {{searchText}} on wisc.edu</a></h4>
+      <h4><a ng-href="{{webSearchUrl + searchText}}">View more results for {{searchText}} on wisc.edu</a></h4>
     </div>
   </div>
 </div>
