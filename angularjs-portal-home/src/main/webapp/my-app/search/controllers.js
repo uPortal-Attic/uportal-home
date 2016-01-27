@@ -44,19 +44,13 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
      ['$scope', '$controller','marketplaceService', 'googleCustomSearchService',
      function($scope, $controller,marketplaceService, googleCustomSearchService) {
       var base = $controller('marketplaceCommonFunctions', {$scope : $scope});
-      
-      var recalcTotalCount = function(){
-        //all results are set to arrays by the time this is called.
-        $scope.totalCount = $scope.googleResultsEstimatedCount.length + $scope.myuwResults.length;
-      }
-      
+
       var initWiscEduSearch = function(){
         googleCustomSearchService.googleSearch($scope.searchTerm).then(
           function(results){
             if(results && results.responseData && results.responseData.results) {
               $scope.googleResults = results.responseData.results;
               $scope.googleResultsEstimatedCount = results.responseData.cursor.estimatedResultCount;
-              recalcTotalCount();
             }
           }
         );
@@ -67,7 +61,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         $scope.myuwResults = [];
         $scope.googleResults = [];
         $scope.googleResultsEstimatedCount = 0;
-        recalcTotalCount();
+        $scope.totalCount = 0;
         $scope.searchResultLimit = 20;
         $scope.showAll = false;
         base.setupSearchTerm();
@@ -75,7 +69,9 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         //get marketplace entries
         marketplaceService.getPortlets().then(function(data) {
             $scope.myuwResults = data.portlets;
-            recalcTotalCount();
+        });
+        $scope.$watchGroup(['googleResultsEstimatedCount','myuwFilteredResults.length'], function(){
+          $scope.totalCount = $scope.googleResultsEstimatedCount + $scope.myuwFilteredResults.length
         });
       };
       init();

@@ -53,7 +53,7 @@
       <h4><a ng-href="{{item.clicktrackUrl}}" target="_blank" ng-bind-html="item.title"></a></h4>
       <p ng-bind-html="item.content"></p>
       <p>
-        <a ng-href="{{item.clicktrackUrl}}">{{item.formattedUrl | limitTo:100}}</a>
+        <a ng-href="{{item.clicktrackUrl}}" ng-bind-html="item.formattedUrl"></a>
       </p>
           
     </div>
