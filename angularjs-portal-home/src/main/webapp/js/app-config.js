@@ -33,7 +33,8 @@ define(['angular'], function(angular) {
             'groupURL' : '/portal/api/groups',
             'kvURL' : '/storage/',
             'googleSearchURL' : '/web/api/wiscedusearch?v=1.0&rsz=10&start=0&cx=001601028090761970182:2g0iwqsnk2m',
-            'loginSilentURL' : '/portal/Login?silent=true'
+            'loginSilentURL' : '/portal/Login?silent=true',
+            'wiscDirectorySearchURL' : '/web/api/wiscdirectory'
         })
         .constant('NAMES', {
             'title' : 'MyUW',

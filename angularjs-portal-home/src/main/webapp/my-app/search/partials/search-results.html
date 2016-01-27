@@ -7,9 +7,9 @@
       <li>
         <a>MyUW ({{myuwFilteredResults.length}})</a>
       </li>
-      <!-- <li>
-        <a>Directory (#)</a>
-      </li> -->
+      <li>
+        <a>Directory ({{wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount}})</a>
+      </li>
       <li>
         <a>Wisc.edu ({{googleResultsEstimatedCount}})</a>
       </li>
@@ -44,6 +44,30 @@
              >Load More MyUW Results</button>
     </div>
   </div>
+  
+  <!--wisc directory results-->
+  <div id="wisc-edu-results" class='search-results-container' ng-show="(wiscDirectoryResults && wiscDirectoryResults.length > 0) || wiscDirectoryTooManyResults">
+    <h4 class='header'>Directory</h4>
+    <hr>
+    <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryTooManyResults'></loading-gif>
+    <div ng-repeat="item in wiscDirectoryResults | limitTo:3" class="result">
+      <h4>{{item.fullName}}</h4>
+      <p>
+        <a ng-repeat="email in item.emails" ng-href="mailto:{{email}}" target="_blank">{{email}}</a>
+        <span ng-if="item.formalName">Also known as {{item.formalName}}</span>
+      </p>
+    </div>
+    <div class="seeMoreResults">
+      <p ng-if="wiscDirectoryResultCount>0">
+        <a href="#">See all {{wiscDirectoryResultCount}} directory results</a>
+      </p>
+      <p ng-if="wiscDirectoryTooManyResults">
+          {{wiscDirectoryErrorMessage}}
+        </p>
+    </div>
+        
+  </div>
+  
   <!--wisc.edu results-->
   <div id="wisc-edu-results" class='search-results-container' ng-show="googleResults && googleResults.length > 0">
     <h4 class='header'>Wisc.edu</h4>

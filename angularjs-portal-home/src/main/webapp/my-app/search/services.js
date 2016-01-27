@@ -33,4 +33,33 @@ define(['angular', 'jquery'], function(angular, $) {
       
     }]);
     
+    app.factory('wiscDirectorySearchService', ['$http', 'miscService', 'SERVICE_LOC', function($http, miscService, SERVICE_LOC){
+        
+        function wiscDirectorySearch(term) {
+          return $http.get(SERVICE_LOC.wiscDirectorySearchURL + "/?name=" + term).then(
+            function(response){
+              return response.data;
+            },
+            function(response){
+              console.log("error searching the wisc diretory: " +  response.status);
+            }
+          );
+        }
+        
+        function wiscDirectorySearchEnabled() {
+          if(SERVICE_LOC.wiscDirectorySearchURL) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        
+        return {
+          wiscDirectorySearch : wiscDirectorySearch,
+          wiscDirectorySearchEnabled : wiscDirectorySearchEnabled
+        };
+        
+        
+      }]);
+    
 });
