@@ -71,7 +71,13 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
             $scope.myuwResults = data.portlets;
         });
         $scope.$watchGroup(['googleResultsEstimatedCount','myuwFilteredResults.length'], function(){
-          $scope.totalCount = $scope.googleResultsEstimatedCount + $scope.myuwFilteredResults.length
+          $scope.totalCount = 0;
+          if($scope.googleResultsEstimatedCount) {
+            $scope.totalCount+= parseInt($scope.googleResultsEstimatedCount);
+          }
+          if($scope.myuwFilteredResults){
+            $scope.totalCount+= parseInt($scope.myuwFilteredResults.length);
+          }
         });
       };
       init();
