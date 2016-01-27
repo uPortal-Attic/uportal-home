@@ -47,7 +47,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
       
       var recalcTotalCount = function(){
         //all results are set to arrays by the time this is called.
-        $scope.totalCount = $scope.googleResults.length + $scope.myuwResults.length;
+        $scope.totalCount = $scope.googleResultsEstimatedCount.length + $scope.myuwResults.length;
       }
       
       var initWiscEduSearch = function(){
@@ -66,6 +66,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         $scope.sortParameter = ['-rating','-userRated'];
         $scope.myuwResults = [];
         $scope.googleResults = [];
+        $scope.googleResultsEstimatedCount = 0;
         recalcTotalCount();
         $scope.searchResultLimit = 20;
         $scope.showAll = false;
@@ -78,7 +79,9 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         });
       };
       init();
-      initWiscEduSearch();
+      if(googleCustomSearchService.googleSearchEnabled()){
+        initWiscEduSearch();
+      }
     }]);
 
     return app;
