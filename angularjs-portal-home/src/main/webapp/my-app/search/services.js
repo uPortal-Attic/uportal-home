@@ -7,7 +7,7 @@ define(['angular', 'jquery'], function(angular, $) {
     app.factory('googleCustomSearchService', ['$http', 'miscService', 'SERVICE_LOC', function($http, miscService, SERVICE_LOC){
       
       function googleSearch(term) {
-        return $http.get(SERVICE_LOC.googleSearchURL + "?q=" + term).then(
+        return $http.get(SERVICE_LOC.googleSearchURL + "&q=" + term).then(
           function(response){
             return response.data;
           },
@@ -17,8 +17,17 @@ define(['angular', 'jquery'], function(angular, $) {
         )
       }
       
+      function googleSearchEnabled() {
+        if(SERVICE_LOC.googleSearchURL) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      
       return {
-        googleSearch : googleSearch
+        googleSearch : googleSearch,
+        googleSearchEnabled : googleSearchEnabled
       };
       
       

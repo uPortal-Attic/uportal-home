@@ -31,7 +31,7 @@ define(['angular'], function(angular) {
             'notificationsURL' : '/web/staticFeeds/notifications.json',
             'groupURL' : '/portal/api/groups',
             'kvURL' : '/storage/',
-            'googleSearchURL' : '/web/staticFeeds/gcs.json'
+            'googleSearchURL' : '/web/staticFeeds/gcs.json?firstVariablemock=true'
         })
         .constant('NAMES', {
             'title' : 'MyUW',
