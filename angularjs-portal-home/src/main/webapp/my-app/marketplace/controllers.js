@@ -98,9 +98,6 @@ define(['angular', 'jquery'], function(angular, $) {
             marketplaceService.initialFilter("");
         }
         $scope.searchText = $scope.searchTerm;
-        //TODO : Needed so search term is published, but don't want double page view...
-        miscService.pushPageview($scope.searchTerm);
-
         var initFilter = false;
         //delay on the filter
         $scope.$watch('searchText', function (val) {
