@@ -45,3 +45,5 @@ uwmadisonreddit.uri=https://www.reddit.com/r/uwmadison/hot.json
 uwmadisonreddit.username=
 uwmadisonreddit.password=
 uwmadisonreddit.attributes=
+
+wiscdirectory.uri=http://www.wisc.edu/directories/json
