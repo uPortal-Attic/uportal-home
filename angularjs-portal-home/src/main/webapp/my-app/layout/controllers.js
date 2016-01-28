@@ -264,9 +264,6 @@ define(['angular', 'jquery'], function(angular, $) {
                         console.log("Something is weird, resetting to default layout view");
                         $scope.switchMode(APP_FLAGS.defaultView);
                     }
-                } else {
-                    //all is well, ga pageview, go
-                    miscService.pushPageview();
                 }
             };
             this.init();

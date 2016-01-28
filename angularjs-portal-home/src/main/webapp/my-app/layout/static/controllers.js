@@ -11,7 +11,6 @@ define(['angular', 'jquery'], function(angular, $) {
                                                   '$rootScope',
                                                   '$scope',
                                                   'layoutService',
-                                                  'miscService',
                                                   'sharedPortletService',
                                                   function ($modal,
                                                             $location,
@@ -20,9 +19,7 @@ define(['angular', 'jquery'], function(angular, $) {
                                                             $rootScope,
                                                             $scope,
                                                             layoutService,
-                                                            miscService,
                                                             sharedPortletService) {
-        miscService.pushPageview();
         $scope.portlet = sharedPortletService.getProperty() || {};
         var that = this;
         that.getPortlet = function (fname, portlets) {
@@ -64,7 +61,6 @@ define(['angular', 'jquery'], function(angular, $) {
         '$rootScope',
         '$scope',
         'layoutService',
-        'miscService',
         'sharedPortletService',
         function ($modal,
                   $location,
@@ -73,10 +69,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   $rootScope,
                   $scope,
                   layoutService,
-                  miscService,
                   sharedPortletService) {
-
-            miscService.pushPageview();
             $scope.portlet = sharedPortletService.getProperty() || {};
             $scope.loading = [];
             var that = this;
