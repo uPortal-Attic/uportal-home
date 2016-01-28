@@ -50,30 +50,32 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           function(results){
             if(results && results.responseData && results.responseData.results) {
               $scope.googleResults = results.responseData.results;
-              $scope.googleResultsEstimatedCount = results.responseData.cursor.estimatedResultCount;
+              if(results.responseData.cursor.estimatedResultCount){
+                $scope.googleResultsEstimatedCount = results.responseData.cursor.estimatedResultCount;
+              }
             }
           }
         );
       };
 
       var initWiscDirectorySearch = function(){
-          wiscDirectorySearchService.wiscDirectorySearch($scope.searchTerm).then(
-            function(results){
-              if(results){
-                if(results.records && results.count) {
-                  $scope.wiscDirectoryResults = results.records;
-                  $scope.wiscDirectoryResultCount = results.count;
+        wiscDirectorySearchService.wiscDirectorySearch($scope.searchTerm).then(
+          function(results){
+            if(results){
+              if(results.records && results.count) {
+                $scope.wiscDirectoryResults = results.records;
+                $scope.wiscDirectoryResultCount = results.count;
+              }
+              if(results.errors && results.errors[0] && results.errors[0].code && results.errors[1] && results.errors[1].error_msg){
+                if(results.errors[0].code == 4){
+                  $scope.wiscDirectoryTooManyResults = true;
                 }
-                if(results.errors && results.errors[0] && results.errors[0].code && results.errors[1] && results.errors[1].error_msg){
-                    if(results.errors[0].code == 4){
-                        $scope.wiscDirectoryTooManyResults = true;
-                    }
-                    $scope.wiscDirectoryErrorMessage= results.errors[1].error_msg;
-                }
+                $scope.wiscDirectoryErrorMessage= results.errors[1].error_msg;
               }
             }
-          );
-        };
+          }
+        );
+      };
 
       var init = function(){
         $scope.sortParameter = ['-rating','-userRated'];
@@ -101,8 +103,8 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
             $scope.totalCount+= parseInt($scope.myuwFilteredResults.length);
           }
           if($scope.wiscDirectoryResultCount){
-              $scope.totalCount+= parseInt($scope.wiscDirectoryResultCount);
-            }
+            $scope.totalCount+= parseInt($scope.wiscDirectoryResultCount);
+          }
         });
       };
       init();
@@ -110,8 +112,8 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         initWiscEduSearch();
       }
       if(wiscDirectorySearchService.wiscDirectorySearchEnabled()){
-          initWiscDirectorySearch();
-        }
+        initWiscDirectorySearch();
+      }
     }]);
 
     return app;
