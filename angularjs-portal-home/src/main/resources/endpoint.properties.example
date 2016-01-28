@@ -47,3 +47,5 @@ uwmadisonreddit.password=
 uwmadisonreddit.attributes=
 
 wiscdirectory.uri=http://www.wisc.edu/directories/json
+
+wiscedusearch.uri=http://ajax.googleapis.com/ajax/services/search/web
