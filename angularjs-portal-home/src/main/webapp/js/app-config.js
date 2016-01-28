@@ -11,7 +11,8 @@ define(['angular'], function(angular) {
             'expanded' : true,
             'features' : true,
             'isWeb' : true,
-            'defaultTheme' : 'group'
+            'defaultTheme' : 'group',
+            'loginOnLoad' : true
         })
         .constant('SERVICE_LOC', {
             'aboutURL' : '/portal/web/session.json',
@@ -31,7 +32,8 @@ define(['angular'], function(angular) {
             'notificationsURL' : '/web/staticFeeds/notifications.json',
             'groupURL' : '/portal/api/groups',
             'kvURL' : '/storage/',
-            'googleSearchURL' : '/web/api/wiscedusearch?v=1.0&rsz=10&start=0&cx=001601028090761970182:2g0iwqsnk2m'
+            'googleSearchURL' : '/web/api/wiscedusearch?v=1.0&rsz=10&start=0&cx=001601028090761970182:2g0iwqsnk2m',
+            'loginSilentURL' : '/portal/Login?silent=true'
         })
         .constant('NAMES', {
             'title' : 'MyUW',
