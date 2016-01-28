@@ -94,7 +94,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         marketplaceService.getPortlets().then(function(data) {
             $scope.myuwResults = data.portlets;
         });
-        $scope.$watchGroup(['googleResultsEstimatedCount','myuwFilteredResults.length'], function(){
+        $scope.$watchGroup(['googleResultsEstimatedCount','myuwFilteredResults.length', 'wiscDirectoryResultCount'], function(){
           $scope.totalCount = 0;
           if($scope.googleResultsEstimatedCount) {
             $scope.totalCount+= parseInt($scope.googleResultsEstimatedCount);

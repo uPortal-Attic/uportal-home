@@ -46,7 +46,7 @@
   </div>
   
   <!--wisc directory results-->
-  <div id="wisc-edu-results" class='search-results-container' ng-show="(wiscDirectoryResults && wiscDirectoryResults.length > 0) || wiscDirectoryTooManyResults">
+  <div id="wisc-directory-results" class='search-results-container' ng-show="(wiscDirectoryResults && wiscDirectoryResults.length > 0) || wiscDirectoryTooManyResults">
     <h4 class='header'>Directory</h4>
     <hr>
     <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryTooManyResults'></loading-gif>
@@ -107,7 +107,6 @@
       <h4><a ng-href="{{webSearchUrl + searchText}}">View more results for {{searchText}} on wisc.edu</a></h4>
     </div>
   </div>
-
   
   <!-- No search results found -->
   <div id="no-results" class="search-results-container" ng-show="totalCount === 0">
@@ -127,4 +126,3 @@
     </p>
   </div>
 </div>
->>>>>>> 3990580... Adds a see more for more details on initial page
