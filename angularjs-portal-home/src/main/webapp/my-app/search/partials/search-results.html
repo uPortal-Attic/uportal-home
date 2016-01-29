@@ -7,9 +7,9 @@
       <li>
         <a>MyUW ({{myuwFilteredResults.length}})</a>
       </li>
-      <!-- <li>
-        <a>Directory (#)</a>
-      </li> -->
+      <li>
+        <a>Directory ({{wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount}})</a>
+      </li>
       <li>
         <a>Wisc.edu ({{googleResultsEstimatedCount}})</a>
       </li>
@@ -44,6 +44,52 @@
              >Load More MyUW Results</button>
     </div>
   </div>
+  
+  <!--wisc directory results-->
+  <div id="wisc-directory-results" class='search-results-container' ng-show="(wiscDirectoryResults && wiscDirectoryResults.length > 0) || wiscDirectoryTooManyResults">
+    <h4 class='header'>Directory</h4>
+    <hr>
+    <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryTooManyResults'></loading-gif>
+    <div ng-repeat="item in wiscDirectoryResults | limitTo:3" class="result">
+      <h4>{{item.fullName}}</h4>
+      <p ng-if="item.formalName">Also known as {{item.formalName}}</p>
+      <p>
+        <a ng-repeat="email in item.emails" ng-href="mailto:{{email}}" target="_blank">{{email}}</a> 
+        <a ng-repeat="phone in item.phones" ng-href="tel:{{phone}}" target="_blank">{{phone}}</a>
+      </p>
+      <div ng-if="showingDetails" class="result">
+        <div ng-if="item.address" class="moreDetails">
+          <p>{{item.address.room}}</p>
+          <p>{{item.address.streetAddress}}</p>
+          <p>{{item.address.cityStateZip}}</p>
+        </div>
+        <div ng-repeat="title in item.titles" class="moreDetails">
+          <p>Title: {{title.title}}</p>
+          <p>Division: {{title.division}}</p>
+          <p>Department: {{title.department}}</p>
+          <p>Unit: {{title.subdepartment}}</p>
+        </div>
+      </div>
+      <div ng-click="showingDetails=!showingDetails">
+        <p>
+          <a href="javascript:;" ng-if="item.titles[0] || item.address">
+            <span ng-if="!showingDetails">See More</span>
+            <span ng-if="showingDetails">See Less</span>
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="seeMoreResults">
+      <p ng-if="wiscDirectoryResultCount>0">
+        <a href="#">See all {{wiscDirectoryResultCount}} directory results</a>
+      </p>
+      <p ng-if="wiscDirectoryErrorMessage">
+          {{wiscDirectoryErrorMessage}}
+        </p>
+    </div>
+        
+  </div>
+  
   <!--wisc.edu results-->
   <div id="wisc-edu-results" class='search-results-container' ng-show="googleResults && googleResults.length > 0">
     <h4 class='header'>Wisc.edu</h4>
@@ -60,5 +106,23 @@
     <div>
       <h4><a ng-href="{{webSearchUrl + searchText}}">View more results for {{searchText}} on wisc.edu</a></h4>
     </div>
+  </div>
+  
+  <!-- No search results found -->
+  <div id="no-results" class="search-results-container" ng-show="totalCount === 0">
+    <p><strong>No matches.</strong></p>
+    <p>Suggestions:</p>
+    <p ng-if="kbSearchUrl">
+      Search the <a ng-href="{{kbSearchUrl}}{{searchText}}" target="_blank">KnowledgeBase</a>
+    </p>
+    <p ng-if="eventsSearchUrl">
+      Look for <a ng-href="{{eventsSearchUrl}}{{searchText}}" target="_blank">events</a>
+    </p>
+    <p ng-if="helpdeskUrl">
+      Get help from the <a ng-href="{{helpdeskUrl}}" target="_blank">Help Desk</a>
+    </p>
+    <p ng-if="feedbackUrl">
+      <a ng-href="{{feedbackUrl}}" target="_blank">Give feedback </a>on MyUW search
+    </p>
   </div>
 </div>
