@@ -214,8 +214,8 @@ define(['angular', 'jquery'], function(angular, $) {
     });
 
     app.controller('MarketplaceDetailsController', [
-        '$controller', '$scope', 'marketplaceService',
-        function($controller, $scope, marketplaceService) {
+        '$controller', '$scope', '$routeParams', 'marketplaceService',
+        function($controller, $scope, $routeParams, marketplaceService) {
 
           $controller('marketplaceCommonFunctions', { $scope : $scope });
 
