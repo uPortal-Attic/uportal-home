@@ -3,22 +3,22 @@
 define(['angular', 'jquery'], function(angular, $) {
 
     var app = angular.module('my-app.marketplace.controllers', []);
-    
-    app.controller('marketplaceCommonFunctions', 
-      ['layoutService', 'marketplaceService', 'miscService', 'MISC_URLS', '$sessionStorage', 
+
+    app.controller('marketplaceCommonFunctions',
+      ['layoutService', 'marketplaceService', 'miscService', 'MISC_URLS', '$sessionStorage',
        '$rootScope', '$scope', '$modal', '$routeParams', '$timeout',
-       function(layoutService, marketplaceService, miscService,MISC_URLS, $sessionStorage, 
+       function(layoutService, marketplaceService, miscService,MISC_URLS, $sessionStorage,
         $rootScope, $scope, $modal, $routeParams, $timeout){
       $scope.goToDetails = function(fname){
           $location.path("apps/" + fname );
       };
-      
+
       $scope.isStatic = function(portlet) {
         return portlet.maxUrl.indexOf('portal') !== -1 //max url is a portal hit
                 && portlet.portletName // there is a portletName
                 && portlet.portletName.indexOf('cms') != -1; //the portlet is static content portlet
       }
-      
+
       $scope.addToHome = function addToHome(portlet) {
           var fname = portlet.fname;
           var ret = layoutService.addToHome(portlet);
@@ -37,7 +37,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
               });
       };
-      
+
       $scope.openRating = function (size, fname, name) {
           var modalInstance = $modal.open({
               templateUrl: 'ratingModal.html',
@@ -54,7 +54,7 @@ define(['angular', 'jquery'], function(angular, $) {
               console.log('Modal dismissed at: ' + new Date());
           });
       };
-      
+
       $scope.searchTermFilter = function(portlet) {
         return marketplaceService.portletMatchesSearchTerm(portlet, $scope.searchTerm, {
             searchDescription: true,
@@ -62,7 +62,7 @@ define(['angular', 'jquery'], function(angular, $) {
             defaultReturn : true
         });
       };
-      
+
       $scope.selectFilter = function (filter,category) {
           $scope.sortParameter = filter;
           $scope.categoryToShow = category;
@@ -80,15 +80,15 @@ define(['angular', 'jquery'], function(angular, $) {
               $scope.sortParameter = 'name';
               $scope.showCategories = true;
           }
-        
+
           miscService.pushGAEvent('Marketplace','Tab Select',filter);
 
       };
-      
+
       $scope.toggleShowAll = function() {
           $scope.showAll = !$scope.showAll;
       };
-      
+
       this.setupSearchTerm = function() {
         var tempFilterText = '', filterTextTimeout;
         $scope.searchTerm = marketplaceService.getInitialFilter();
@@ -98,8 +98,6 @@ define(['angular', 'jquery'], function(angular, $) {
             marketplaceService.initialFilter("");
         }
         $scope.searchText = $scope.searchTerm;
-        miscService.pushPageview($scope.searchTerm);
-        
         var initFilter = false;
         //delay on the filter
         $scope.$watch('searchText', function (val) {
@@ -116,7 +114,7 @@ define(['angular', 'jquery'], function(angular, $) {
             }, 250); // delay 250 ms
         });
       };
-      
+
       this.initializeConstants = function(){
         //initialize constants
         $scope.webSearchUrl = MISC_URLS.webSearchURL;
@@ -132,13 +130,13 @@ define(['angular', 'jquery'], function(angular, $) {
 
     var currentPage = 'market';
     var currentCategory = '';
-    
+
     app.controller('MarketplaceController', [
         '$scope', '$controller', 'marketplaceService',
         function($scope, $controller, marketplaceService) {
-            
+
             var base = $controller('marketplaceCommonFunctions', { $scope : $scope });
-            
+
             var init = function(){
               //init variables
               $scope.portlets = [];
@@ -146,11 +144,11 @@ define(['angular', 'jquery'], function(angular, $) {
                   $scope.portlets = data.portlets;
                   $scope.categories = data.categories;
               });
-              
+
               base.setupSearchTerm();
-              
+
               //initialize variables
-              
+
               $scope.searchResultLimit = 20;
               $scope.showAll = false;
               if(currentPage === 'details') {
@@ -178,10 +176,10 @@ define(['angular', 'jquery'], function(angular, $) {
                   // Hide category selection div by default
                   $scope.showCategories = false;
               }
-              
+
               base.initializeConstants();
             };
-            
+
             //run functions
             init();
         } ]);
@@ -216,9 +214,9 @@ define(['angular', 'jquery'], function(angular, $) {
     });
 
     app.controller('MarketplaceDetailsController', [
-        '$controller', '$scope', 'marketplaceService', 'miscService',
-        function($controller, $scope, marketplaceService, miscService) {
-          
+        '$controller', '$scope', 'marketplaceService',
+        function($controller, $scope, marketplaceService) {
+
           $controller('marketplaceCommonFunctions', { $scope : $scope });
 
           $scope.specifyCategory = function(category) {
@@ -227,7 +225,6 @@ define(['angular', 'jquery'], function(angular, $) {
           }
           // init
           var init = function(){
-            miscService.pushPageview();
             $scope.loading = true;
             $scope.obj = [];
             $scope.errorMessage = 'There was an issue loading details, please click back to apps.';
