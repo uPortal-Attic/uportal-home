@@ -47,9 +47,6 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
 
         groupURL = _SERVICE_LOC_.groupURL;
         loginSilentURL = _SERVICE_LOC_.loginSilentURL;
-        if(loginSilentURL) {
-          httpBackend.whenGET(loginSilentURL).respond({"status" : "success", "username" : "admin"});
-        }
 
         sharedPortletService = {};
         controller = $controller('LayoutController', {'$localStorage' : $localStorage,
@@ -76,6 +73,8 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
 
       it("should set layoutEmpty to true after return empty layout", function() {
           httpBackend.whenGET(groupURL).respond([]);
+          httpBackend.whenGET('/base/my-app/layout/partials/default-view.html').respond("<div></div>");
+          controller.init();
           scope.$apply(function(){
               deferred.resolve({"layout" : []});
           });
@@ -84,6 +83,11 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
 
       it("should set layoutEmpty to false after return non empty layout", function() {
           httpBackend.whenGET(groupURL).respond([]);
+          httpBackend.whenGET('/base/my-app/layout/partials/default-view.html').respond("<div></div>");
+          controller.init();
+          if(loginSilentURL) {
+            httpBackend.whenGET(loginSilentURL).respond({"status" : "success", "username" : "admin"});
+          }
           scope.$apply(function(){
               deferred.resolve({"layout" : [{"fake" : true}]});
           });

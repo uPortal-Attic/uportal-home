@@ -36,19 +36,6 @@ define(['angular', 'jquery'], function(angular, $) {
                  layoutService,
                  miscService,
                  sharedPortletService) {
-            if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
-
-                $rootScope.layout = [];
-                $scope.layoutEmpty = false;
-
-                layoutService.getLayout().then(function(data){
-                    $rootScope.layout = data.layout;
-                    if(data.layout && data.layout.length == 0) {
-                        $scope.layoutEmpty = true;
-                    }
-                });
-            }
-
             this.portletType = function portletType(portlet) {
                 if (portlet.staticContent != null
                     && portlet.altMaxUrl == false) {
@@ -104,6 +91,23 @@ define(['angular', 'jquery'], function(angular, $) {
                     }
                 }
             };
+            
+            this.init = function(){
+              if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
+
+                  $rootScope.layout = [];
+                  $scope.layoutEmpty = false;
+
+                  layoutService.getLayout().then(function(data){
+                      $rootScope.layout = data.layout;
+                      if(data.layout && data.layout.length == 0) {
+                          $scope.layoutEmpty = true;
+                      }
+                  });
+              }
+            };
+            
+            this.init();
 
         }]);
 
