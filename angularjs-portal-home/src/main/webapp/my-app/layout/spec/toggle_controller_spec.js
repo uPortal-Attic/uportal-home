@@ -96,8 +96,6 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
         //verify redirect happened
         expect($location.url()).toBe('/expanded');
         controller.init();//fire again due to redirect
-        
-        expect(gaPageViewHits).toEqual(1);//there can be only one
       });
     });
 });
