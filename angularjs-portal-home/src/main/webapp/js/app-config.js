@@ -12,7 +12,7 @@ define(['angular'], function(angular) {
             'features' : true,
             'isWeb' : true,
             'defaultTheme' : 'group',
-            'loginOnLoad' : true
+            'loginOnLoad' : false
         })
         .constant('SERVICE_LOC', {
             'aboutURL' : '/portal/web/session.json',
