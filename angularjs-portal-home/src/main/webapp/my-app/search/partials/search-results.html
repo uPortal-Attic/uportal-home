@@ -23,7 +23,7 @@
     <hr ng-show="activeFilter == 'all'">
     <loading-gif data-object='myuwResults'></loading-gif>
     <div ng-show="myuwFilteredResults.length == 0" class='no-result'>
-      No MyUW results
+      No MyUW results. <a href="/web/apps">Try browsing instead?</a>
     </div>
     <div ng-repeat="portlet in myuwFilteredResults = (myuwResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)" class="result">
       <h4><a href="{{::portlet.maxUrl}}" target="{{::portlet.target}}">{{ portlet.name }}</a></h4>
