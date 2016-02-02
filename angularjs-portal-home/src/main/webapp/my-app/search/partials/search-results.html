@@ -58,7 +58,9 @@
     <h4 class='header' ng-show="activeFilter == 'all'">Directory</h4>
     <hr>
     <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryResults'></loading-gif>
-    <div ng-show="wiscDirectoryResults.length === 0" class='no-result'>
+    <div ng-show="wiscDirectoryResults.length === 0 
+                  && !wiscDirectoryTooManyResults" 
+         class='no-result'>
       No directory results
     </div>
     <div ng-repeat="item in wiscDirectoryResults | limitTo:3" class="result">
