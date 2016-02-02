@@ -1,16 +1,16 @@
 <div class="row search-results">
   <div class="inner-nav-container">
     <ul class="inner-nav">
-      <li class="active">
+      <li class="active" ng-click="filterTo('all')" id="all-selector">
         <a>All ({{ totalCount }})</a>
       </li>
-      <li>
+      <li ng-click="filterTo('myuw')" id="myuw-selector">
         <a>MyUW ({{myuwFilteredResults.length}})</a>
       </li>
-      <li>
+      <li ng-click="filterTo('directory')" id="directory-selector">
         <a>Directory ({{wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount}})</a>
       </li>
-      <li>
+      <li ng-click="filterTo('google')" id="google-selector">
         <a>Wisc.edu ({{googleResultsEstimatedCount}})</a>
       </li>
     </ul>
