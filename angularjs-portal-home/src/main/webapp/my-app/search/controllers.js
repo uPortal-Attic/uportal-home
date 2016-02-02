@@ -48,6 +48,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
       var initWiscEduSearch = function(){
         googleCustomSearchService.googleSearch($scope.searchTerm).then(
           function(results){
+            $scope.googleSearchLoading = false;
             if(results && results.responseData && results.responseData.results) {
               $scope.googleResults = results.responseData.results;
               if(results.responseData.cursor.estimatedResultCount){
@@ -61,6 +62,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
       var initWiscDirectorySearch = function(){
         wiscDirectorySearchService.wiscDirectorySearch($scope.searchTerm).then(
           function(results){
+            $scope.directorySearchLoading = false;
             if(results){
               if(results.records && results.count) {
                 $scope.wiscDirectoryResults = results.records;
@@ -139,9 +141,11 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
       };
       init();
       if(googleCustomSearchService.googleSearchEnabled()){
+        $scope.googleSearchLoading = true;
         initWiscEduSearch();
       }
       if(wiscDirectorySearchService.wiscDirectorySearchEnabled()){
+        $scope.directorySearchLoading = true;
         initWiscDirectorySearch();
       }
     }]);
@@ -149,4 +153,3 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
     return app;
 
 });
-
