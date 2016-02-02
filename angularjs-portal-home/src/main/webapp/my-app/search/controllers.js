@@ -84,21 +84,25 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           $('#myuw-results').show();
           $('#wisc-directory-results').show();
           $('#wisc-edu-results').show();
+          $scope.activeFilter = "all";
         } else if (filterName == 'myuw') {
           $('#myuw-selector').addClass('active');
           $('#myuw-results').show();
           $('#wisc-directory-results').hide();
           $('#wisc-edu-results').hide();
+          $scope.activeFilter = "myuw";
         } else if (filterName == 'directory') {
           $('#directory-selector').addClass('active');
           $('#wisc-directory-results').show();
           $('#myuw-results').hide();
           $('#wisc-edu-results').hide();
+          $scope.activeFilter = "directory";
         } else if (filterName == 'google') {
           $('#google-selector').addClass('active');
           $('#wisc-edu-results').show();
           $('#myuw-results').hide();
           $('#wisc-directory-results').hide();
+          $scope.activeFilter = "google";
         }
       };
 
@@ -113,6 +117,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         $scope.totalCount = 0;
         $scope.searchResultLimit = 20;
         $scope.showAll = false;
+        $scope.activeFilter = "all";
         base.setupSearchTerm();
         base.initializeConstants();
         //get marketplace entries
