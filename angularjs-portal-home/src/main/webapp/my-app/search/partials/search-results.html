@@ -52,7 +52,7 @@
   <div id="wisc-directory-results" class='search-results-container'>
     <h4 class='header'>Directory</h4>
     <hr>
-    <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryTooManyResults'></loading-gif>
+    <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryResults'></loading-gif>
     <div ng-show="wiscDirectoryResults.length === 0" class='no-result'>
       No directory results
     </div>
@@ -87,7 +87,7 @@
     </div>
     <div class="seeMoreResults">
       <p ng-if="wiscDirectoryResultCount>0">
-        <a href="#">See all {{wiscDirectoryResultCount}} directory results</a>
+        <a ng-href="{{$scope.directorySearchUrl + searchTerm}}">See all {{wiscDirectoryResultCount}} directory results</a>
       </p>
       <p ng-if="wiscDirectoryErrorMessage">
           {{wiscDirectoryErrorMessage}}
