@@ -54,7 +54,7 @@
     <hr>
     <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryResults'></loading-gif>
     <div ng-show="wiscDirectoryResults.length === 0 && !wiscDirectoryTooManyResults" class='no-result'>
-      No directory results
+      No directory results.
     </div>
     <div ng-repeat="item in wiscDirectoryResults | limitTo:wiscDirectoryResultLimit" class="result">
       <h4>{{item.fullName}}</h4>
@@ -102,7 +102,7 @@
     <hr>
     <loading-gif data-object='googleResults'></loading-gif>
     <div ng-show="googleResults.length === 0" class='no-result'>
-      No wisc.edu results
+      No wisc.edu results.
     </div>
     <div ng-repeat="item in googleResults" class="result">
       <h4><a ng-href="{{item.clicktrackUrl}}" target="_blank" ng-bind-html="item.title"></a></h4>
