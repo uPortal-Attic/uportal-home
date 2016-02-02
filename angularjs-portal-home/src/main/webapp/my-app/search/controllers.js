@@ -48,6 +48,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
       var initWiscEduSearch = function(){
         googleCustomSearchService.googleSearch($scope.searchTerm).then(
           function(results){
+            $scope.googleSearchLoading = false;
             if(results && results.responseData && results.responseData.results) {
               $scope.googleResults = results.responseData.results;
               if(results.responseData.cursor.estimatedResultCount){
@@ -61,6 +62,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
       var initWiscDirectorySearch = function(){
         wiscDirectorySearchService.wiscDirectorySearch($scope.searchTerm).then(
           function(results){
+            $scope.directorySearchLoading = false;
             if(results){
               if(results.records && results.count) {
                 $scope.wiscDirectoryResults = results.records;
@@ -84,21 +86,25 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           $('#myuw-results').show();
           $('#wisc-directory-results').show();
           $('#wisc-edu-results').show();
+          $scope.activeFilter = "all";
         } else if (filterName == 'myuw') {
           $('#myuw-selector').addClass('active');
           $('#myuw-results').show();
           $('#wisc-directory-results').hide();
           $('#wisc-edu-results').hide();
+          $scope.activeFilter = "myuw";
         } else if (filterName == 'directory') {
           $('#directory-selector').addClass('active');
           $('#wisc-directory-results').show();
           $('#myuw-results').hide();
           $('#wisc-edu-results').hide();
+          $scope.activeFilter = "directory";
         } else if (filterName == 'google') {
           $('#google-selector').addClass('active');
           $('#wisc-edu-results').show();
           $('#myuw-results').hide();
           $('#wisc-directory-results').hide();
+          $scope.activeFilter = "google";
         }
       };
 
@@ -113,6 +119,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         $scope.totalCount = 0;
         $scope.searchResultLimit = 20;
         $scope.showAll = false;
+        $scope.activeFilter = "all";
         base.setupSearchTerm();
         base.initializeConstants();
         //get marketplace entries
@@ -134,9 +141,11 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
       };
       init();
       if(googleCustomSearchService.googleSearchEnabled()){
+        $scope.googleSearchLoading = true;
         initWiscEduSearch();
       }
       if(wiscDirectorySearchService.wiscDirectorySearchEnabled()){
+        $scope.directorySearchLoading = true;
         initWiscDirectorySearch();
       }
     }]);
@@ -144,4 +153,3 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
     return app;
 
 });
-

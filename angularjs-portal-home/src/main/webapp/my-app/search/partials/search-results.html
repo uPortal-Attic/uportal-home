@@ -5,23 +5,28 @@
         <a>All ({{ totalCount }})</a>
       </li>
       <li ng-click="filterTo('myuw')" id="myuw-selector">
-        <a>MyUW ({{myuwFilteredResults.length}})</a>
+        <a>MyUW <span ng-hide="portletListLoading">({{myuwFilteredResults.length}})</span>
+        <i ng-show="portletListLoading" class="fa fa-spinner fa-pulse"></i></a>
       </li>
       <li ng-click="filterTo('directory')" id="directory-selector">
-        <a>Directory ({{wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount}})</a>
+        <a>Directory <span ng-hide="directorySearchLoading">({{wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount}})</span>
+        <i ng-show="directorySearchLoading" class="fa fa-spinner fa-pulse"></i></a>
       </li>
       <li ng-click="filterTo('google')" id="google-selector">
-        <a>Wisc.edu ({{googleResultsEstimatedCount}})</a>
+        <a>Wisc.edu <span ng-hide="googleSearchLoading">({{googleResultsEstimatedCount}})</span>
+        <i ng-show="googleSearchLoading" class="fa fa-spinner fa-pulse"></i></a>
       </li>
     </ul>
   </div>
 
-  <div id="myuw-results" class='search-results-container'>
-    <h4 class="header">MyUW</h4>
-    <hr>
+  <div id="myuw-results" class='search-results-container'
+    ng-show="myuwFilteredResults.length > 0 
+    || activeFilter == 'myuw' ">
+    <h4 class="header" ng-show="activeFilter == 'all'">MyUW</h4>
+    <hr ng-show="activeFilter == 'all'">
     <loading-gif data-object='myuwResults'></loading-gif>
     <div ng-show="myuwFilteredResults.length == 0" class='no-result'>
-      No MyUW results
+      No MyUW results. <a href="/web/apps">Try browsing instead?</a>
     </div>
     <div ng-repeat="portlet in myuwFilteredResults = (myuwResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)" class="result">
       <h4><a href="{{::portlet.maxUrl}}" target="{{::portlet.target}}">{{ portlet.name }}</a></h4>
@@ -44,17 +49,22 @@
               ng-click="searchResultLimit = searchResultLimit + 20;"
               hide-while-loading
               ng-show="myuwFilteredResults.length > searchResultLimit"
-             >Load More MyUW Results</button>
+             >Load more MyUW results</button>
     </div>
   </div>
 
   <!--wisc directory results-->
-  <div id="wisc-directory-results" class='search-results-container'>
-    <h4 class='header'>Directory</h4>
-    <hr>
+  <div id="wisc-directory-results" class='search-results-container'
+    ng-show="(wiscDirectoryResults && wiscDirectoryResults.length > 0) 
+    || wiscDirectoryTooManyResults 
+    || activeFilter == 'directory'">
+    <h4 class='header' ng-show="activeFilter == 'all'">Directory</h4>
+    <hr ng-show="activeFilter == 'all'">
     <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryResults'></loading-gif>
-    <div ng-show="wiscDirectoryResults.length === 0" class='no-result'>
-      No directory results
+    <div ng-show="wiscDirectoryResults.length === 0 
+                  && !wiscDirectoryTooManyResults" 
+         class='no-result'>
+      No directory results.
     </div>
     <div ng-repeat="item in wiscDirectoryResults | limitTo:3" class="result">
       <h4>{{item.fullName}}</h4>
@@ -79,8 +89,8 @@
       <div ng-click="showingDetails=!showingDetails">
         <p>
           <a href="javascript:;" ng-if="item.titles[0] || item.address">
-            <span ng-if="!showingDetails">See More</span>
-            <span ng-if="showingDetails">See Less</span>
+            <span ng-if="!showingDetails">See more</span>
+            <span ng-if="showingDetails">See less</span>
           </a>
         </p>
       </div>
@@ -97,12 +107,14 @@
   </div>
 
   <!--wisc.edu results-->
-  <div id="wisc-edu-results" class='search-results-container'>
-    <h4 class='header'>Wisc.edu</h4>
-    <hr>
+  <div id="wisc-edu-results" class='search-results-container'
+    ng-show="googleResults && googleResults.length > 0 
+    || activeFilter == 'google'">
+    <h4 class='header' ng-show="activeFilter == 'all'">Wisc.edu</h4>
+    <hr ng-show="activeFilter == 'all'">
     <loading-gif data-object='googleResults'></loading-gif>
     <div ng-show="googleResults.length === 0" class='no-result'>
-      No wisc.edu results
+      No wisc.edu results.
     </div>
     <div ng-repeat="item in googleResults" class="result">
       <h4><a ng-href="{{item.clicktrackUrl}}" target="_blank" ng-bind-html="item.title"></a></h4>
