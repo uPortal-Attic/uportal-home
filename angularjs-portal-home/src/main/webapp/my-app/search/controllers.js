@@ -76,6 +76,31 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           }
         );
       };
+      
+      $scope.filterTo = function(filterName) {
+        $('.search-results .inner-nav li').removeClass('active');
+        if (filterName == 'all') {
+          $('#all-selector').addClass('active');
+          $('#myuw-results').show();
+          $('#wisc-directory-results').show();
+          $('#wisc-edu-results').show();
+        } else if (filterName == 'myuw') {
+          $('#myuw-selector').addClass('active');
+          $('#myuw-results').show();
+          $('#wisc-directory-results').hide();
+          $('#wisc-edu-results').hide();
+        } else if (filterName == 'directory') {
+          $('#directory-selector').addClass('active');
+          $('#wisc-directory-results').show();
+          $('#myuw-results').hide();
+          $('#wisc-edu-results').hide();
+        } else if (filterName == 'google') {
+          $('#google-selector').addClass('active');
+          $('#wisc-edu-results').show();
+          $('#myuw-results').hide();
+          $('#wisc-directory-results').hide();
+        }
+      };
 
       var init = function(){
         $scope.sortParameter = ['-rating','-userRated'];
