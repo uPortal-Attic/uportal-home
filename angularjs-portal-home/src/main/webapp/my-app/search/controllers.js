@@ -79,8 +79,6 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
       
       $scope.filterTo = function(filterName) {
         $('.search-results .inner-nav li').removeClass('active');
-        console.log('working');
-        console.log(filterName);
         if (filterName == 'all') {
           $('#all-selector').addClass('active');
           $('#myuw-results').show();
