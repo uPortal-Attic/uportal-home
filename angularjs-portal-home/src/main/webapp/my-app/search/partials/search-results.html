@@ -20,7 +20,7 @@
     ng-show="myuwFilteredResults.length > 0 
     || activeFilter == 'myuw' ">
     <h4 class="header" ng-show="activeFilter == 'all'">MyUW</h4>
-    <hr>
+    <hr ng-show="activeFilter == 'all'">
     <loading-gif data-object='myuwResults'></loading-gif>
     <div ng-show="myuwFilteredResults.length == 0" class='no-result'>
       No MyUW results
@@ -56,7 +56,7 @@
     || wiscDirectoryTooManyResults 
     || activeFilter == 'directory'">
     <h4 class='header' ng-show="activeFilter == 'all'">Directory</h4>
-    <hr>
+    <hr ng-show="activeFilter == 'all'">
     <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryResults'></loading-gif>
     <div ng-show="wiscDirectoryResults.length === 0 
                   && !wiscDirectoryTooManyResults" 
@@ -108,7 +108,7 @@
     ng-show="googleResults && googleResults.length > 0 
     || activeFilter == 'google'">
     <h4 class='header' ng-show="activeFilter == 'all'">Wisc.edu</h4>
-    <hr>
+    <hr ng-show="activeFilter == 'all'">
     <loading-gif data-object='googleResults'></loading-gif>
     <div ng-show="googleResults.length === 0" class='no-result'>
       No wisc.edu results
