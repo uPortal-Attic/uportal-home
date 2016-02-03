@@ -16,10 +16,13 @@
     </ul>
   </div>
 
-  <div id="myuw-results" class='search-results-container' ng-show="myuwFilteredResults.length > 0">
+  <div id="myuw-results" class='search-results-container'>
     <h4 class="header">MyUW</h4>
     <hr>
     <loading-gif data-object='myuwResults'></loading-gif>
+    <div ng-show="myuwFilteredResults.length == 0" class='no-result'>
+      No MyUW results
+    </div>
     <div ng-repeat="portlet in myuwFilteredResults = (myuwResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)" class="result">
       <h4><a href="{{::portlet.maxUrl}}" target="{{::portlet.target}}">{{ portlet.name }}</a></h4>
       <p>{{ portlet.description }}</p>
@@ -34,7 +37,7 @@
         <a href="apps/details/{{::portlet.fname}}">Details</a>
         <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
       </p>
-          
+
     </div>
     <div class="marketplace-load-more" hide-while-loading ng-show="myuwFilteredResults.length > searchResultLimit">
       <button class="btn btn-primary btn-lg"
@@ -44,17 +47,20 @@
              >Load More MyUW Results</button>
     </div>
   </div>
-  
+
   <!--wisc directory results-->
-  <div id="wisc-directory-results" class='search-results-container' ng-show="(wiscDirectoryResults && wiscDirectoryResults.length > 0) || wiscDirectoryTooManyResults">
+  <div id="wisc-directory-results" class='search-results-container'>
     <h4 class='header'>Directory</h4>
     <hr>
-    <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryTooManyResults'></loading-gif>
+    <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryResults'></loading-gif>
+    <div ng-show="wiscDirectoryResults.length === 0" class='no-result'>
+      No directory results
+    </div>
     <div ng-repeat="item in wiscDirectoryResults | limitTo:3" class="result">
       <h4>{{item.fullName}}</h4>
       <p ng-if="item.formalName">Also known as {{item.formalName}}</p>
       <p>
-        <a ng-repeat="email in item.emails" ng-href="mailto:{{email}}" target="_blank">{{email}}</a> 
+        <a ng-repeat="email in item.emails" ng-href="mailto:{{email}}" target="_blank">{{email}}</a>
         <a ng-repeat="phone in item.phones" ng-href="tel:{{phone}}" target="_blank">{{phone}}</a>
       </p>
       <div ng-if="showingDetails" class="result">
@@ -81,33 +87,36 @@
     </div>
     <div class="seeMoreResults">
       <p ng-if="wiscDirectoryResultCount>0">
-        <a href="#">See all {{wiscDirectoryResultCount}} directory results</a>
+        <a ng-href="{{$scope.directorySearchUrl + searchTerm}}">See all {{wiscDirectoryResultCount}} directory results</a>
       </p>
       <p ng-if="wiscDirectoryErrorMessage">
           {{wiscDirectoryErrorMessage}}
         </p>
     </div>
-        
+
   </div>
-  
+
   <!--wisc.edu results-->
-  <div id="wisc-edu-results" class='search-results-container' ng-show="googleResults && googleResults.length > 0">
+  <div id="wisc-edu-results" class='search-results-container'>
     <h4 class='header'>Wisc.edu</h4>
     <hr>
     <loading-gif data-object='googleResults'></loading-gif>
+    <div ng-show="googleResults.length === 0" class='no-result'>
+      No wisc.edu results
+    </div>
     <div ng-repeat="item in googleResults" class="result">
       <h4><a ng-href="{{item.clicktrackUrl}}" target="_blank" ng-bind-html="item.title"></a></h4>
       <p ng-bind-html="item.content"></p>
       <p>
         <a ng-href="{{item.clicktrackUrl}}" ng-bind-html="item.formattedUrl"></a>
       </p>
-          
+
     </div>
     <div>
       <h4><a ng-href="{{webSearchUrl + searchText}}">View more results for {{searchText}} on wisc.edu</a></h4>
     </div>
   </div>
-  
+
   <!-- No search results found -->
   <div id="no-results" class="search-results-container" ng-show="totalCount === 0">
     <p><strong>No matches.</strong></p>
