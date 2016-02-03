@@ -17,8 +17,10 @@
   </div>
 
   <div id="myuw-results" class='search-results-container'>
-    <h4 class="header">MyUW</h4>
-    <hr>
+    <div id="myuw-results-header">
+      <h4 class="header">MyUW</h4>
+      <hr>
+    </div>
     <loading-gif data-object='myuwResults'></loading-gif>
     <div ng-show="myuwFilteredResults.length == 0" class='no-result'>
       No MyUW results. <a href="apps">Try browsing instead?</a>
@@ -50,8 +52,10 @@
 
   <!--wisc directory results-->
   <div id="wisc-directory-results" class='search-results-container'>
-    <h4 class='header'>Directory</h4>
-    <hr>
+    <div id="wisc-directory-results-header">
+      <h4 class='header'>Directory</h4>
+      <hr>
+    </div>
     <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryResults'></loading-gif>
     <div ng-show="wiscDirectoryResults.length === 0 && !wiscDirectoryTooManyResults" class='no-result'>
       No directory results.
@@ -98,8 +102,10 @@
 
   <!--wisc.edu results-->
   <div id="wisc-edu-results" class='search-results-container'>
-    <h4 class='header'>Wisc.edu</h4>
-    <hr>
+    <div id="wisc-edu-results-header">
+      <h4 class='header'>Wisc.edu</h4>
+      <hr>
+    </div>
     <loading-gif data-object='googleResults' data-empty='googleEmptyResults'></loading-gif>
     <div ng-show="googleResults.length === 0" class='no-result'>
       No wisc.edu results.

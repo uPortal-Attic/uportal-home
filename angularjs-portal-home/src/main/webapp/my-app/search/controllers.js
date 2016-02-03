@@ -84,19 +84,24 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         if (filterName == 'all') {
           $('#all-selector').addClass('active');
           $('#myuw-results').show();
+          $('#myuw-results-header').show();
           $('#wisc-directory-results').show();
+          $('#wisc-directory-results-header').show();
           $('#wisc-edu-results').show();
+          $('#wisc-edu-results-header').show();
           $('#wiscDirectorySeeMoreResults').show();
           initwiscDirectoryResultLimit();
         } else if (filterName == 'myuw') {
           $('#myuw-selector').addClass('active');
           $('#myuw-results').show();
+          $('#myuw-results-header').hide();
           $('#wisc-directory-results').hide();
           $('#wisc-edu-results').hide();
           $('#wiscDirectorySeeMoreResults').hide();
         } else if (filterName == 'directory') {
           $('#directory-selector').addClass('active');
           $('#wisc-directory-results').show();
+          $('#wisc-directory-results-header').hide();
           $('#myuw-results').hide();
           $('#wisc-edu-results').hide();
           $('#wiscDirectorySeeMoreResults').hide();
@@ -104,6 +109,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         } else if (filterName == 'google') {
           $('#google-selector').addClass('active');
           $('#wisc-edu-results').show();
+          $('#wisc-edu-results-header').hide();
           $('#myuw-results').hide();
           $('#wisc-directory-results').hide();
           $('#wiscDirectorySeeMoreResults').hide();
