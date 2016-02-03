@@ -85,6 +85,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           $('#wisc-directory-results').show();
           $('#wisc-edu-results').show();
           $('#wiscDirectorySeeMoreResults').show();
+          initwiscDirectoryResultLimit();
         } else if (filterName == 'myuw') {
           $('#myuw-selector').addClass('active');
           $('#myuw-results').show();
@@ -97,6 +98,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           $('#myuw-results').hide();
           $('#wisc-edu-results').hide();
           $('#wiscDirectorySeeMoreResults').hide();
+          $scope.wiscDirectoryResultLimit = 25;
         } else if (filterName == 'google') {
           $('#google-selector').addClass('active');
           $('#wisc-edu-results').show();
@@ -105,9 +107,14 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           $('#wiscDirectorySeeMoreResults').hide();
         }
       };
+      
+      var initwiscDirectoryResultLimit = function(){
+          $scope.wiscDirectoryResultLimit = 3;
+      }
 
       var init = function(){
         $scope.sortParameter = ['-rating','-userRated'];
+        initwiscDirectoryResultLimit();
         $scope.myuwResults = [];
         $scope.googleResults = [];
         $scope.wiscDirectoryResults = [];

@@ -56,7 +56,7 @@
     <div ng-show="wiscDirectoryResults.length === 0 && !wiscDirectoryTooManyResults" class='no-result'>
       No directory results
     </div>
-    <div ng-repeat="item in wiscDirectoryResults | limitTo:3" class="result">
+    <div ng-repeat="item in wiscDirectoryResults | limitTo:wiscDirectoryResultLimit" class="result">
       <h4>{{item.fullName}}</h4>
       <p ng-if="item.formalName">Also known as {{item.formalName}}</p>
       <p>
@@ -91,7 +91,7 @@
       </p>
       <p ng-if="wiscDirectoryErrorMessage">
           {{wiscDirectoryErrorMessage}}
-      </p>
+        </p>
     </div>
 
   </div>
