@@ -84,21 +84,25 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           $('#myuw-results').show();
           $('#wisc-directory-results').show();
           $('#wisc-edu-results').show();
+          $('#wiscDirectorySeeMoreResults').show();
         } else if (filterName == 'myuw') {
           $('#myuw-selector').addClass('active');
           $('#myuw-results').show();
           $('#wisc-directory-results').hide();
           $('#wisc-edu-results').hide();
+          $('#wiscDirectorySeeMoreResults').hide();
         } else if (filterName == 'directory') {
           $('#directory-selector').addClass('active');
           $('#wisc-directory-results').show();
           $('#myuw-results').hide();
           $('#wisc-edu-results').hide();
+          $('#wiscDirectorySeeMoreResults').hide();
         } else if (filterName == 'google') {
           $('#google-selector').addClass('active');
           $('#wisc-edu-results').show();
           $('#myuw-results').hide();
           $('#wisc-directory-results').hide();
+          $('#wiscDirectorySeeMoreResults').hide();
         }
       };
 
