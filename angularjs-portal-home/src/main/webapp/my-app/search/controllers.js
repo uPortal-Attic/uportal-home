@@ -56,6 +56,10 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
                 $scope.googleEmptyResults = true;
               }
             }
+            $scope.googleResultsLoading = false;
+          },
+          function(results){
+            $scope.googleResultsLoading = false;
           }
         );
       };
@@ -75,6 +79,10 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
                 $scope.wiscDirectoryErrorMessage= results.errors[1].error_msg;
               }
             }
+            $scope.wiscDirectoryResultsLoading = false;
+          },
+          function(results){
+            $scope.wiscDirectoryResultsLoading = false;
           }
         );
       };
@@ -125,7 +133,9 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         initwiscDirectoryResultLimit();
         $scope.myuwResults = [];
         $scope.googleResults = [];
+        $scope.googleResultsLoading = true;
         $scope.wiscDirectoryResults = [];
+        $scope.wiscDirectoryResultsLoading = true;
         $scope.wiscDirectoryResultCount = 0;
         $scope.wiscDirectoryTooManyResults = false;
         $scope.googleResultsEstimatedCount = 0;
