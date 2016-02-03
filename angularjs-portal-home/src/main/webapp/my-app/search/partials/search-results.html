@@ -44,7 +44,7 @@
               ng-click="searchResultLimit = searchResultLimit + 20;"
               hide-while-loading
               ng-show="myuwFilteredResults.length > searchResultLimit"
-             >Load More MyUW Results</button>
+             >Load more MyUW results</button>
     </div>
   </div>
 
@@ -53,10 +53,10 @@
     <h4 class='header'>Directory</h4>
     <hr>
     <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryResults'></loading-gif>
-    <div ng-show="wiscDirectoryResults.length === 0" class='no-result'>
-      No directory results
+    <div ng-show="wiscDirectoryResults.length === 0 && !wiscDirectoryTooManyResults" class='no-result'>
+      No directory results.
     </div>
-    <div ng-repeat="item in wiscDirectoryResults | limitTo:3" class="result">
+    <div ng-repeat="item in wiscDirectoryResults | limitTo:wiscDirectoryResultLimit" class="result">
       <h4>{{item.fullName}}</h4>
       <p ng-if="item.formalName">Also known as {{item.formalName}}</p>
       <p>
@@ -79,15 +79,15 @@
       <div ng-click="showingDetails=!showingDetails">
         <p>
           <a href="javascript:;" ng-if="item.titles[0] || item.address">
-            <span ng-if="!showingDetails">See More</span>
-            <span ng-if="showingDetails">See Less</span>
+            <span ng-if="!showingDetails">See more</span>
+            <span ng-if="showingDetails">See less</span>
           </a>
         </p>
       </div>
     </div>
     <div class="seeMoreResults">
-      <p ng-if="wiscDirectoryResultCount>0">
-        <a ng-href="{{$scope.directorySearchUrl + searchTerm}}">See all {{wiscDirectoryResultCount}} directory results</a>
+      <p ng-if="wiscDirectoryResultCount>0" id="wiscDirectorySeeMoreResults">
+        <a href="javascript:;" ng-click="filterTo('directory')">See all {{wiscDirectoryResultCount}} directory results</a>
       </p>
       <p ng-if="wiscDirectoryErrorMessage">
           {{wiscDirectoryErrorMessage}}
@@ -102,7 +102,7 @@
     <hr>
     <loading-gif data-object='googleResults'></loading-gif>
     <div ng-show="googleResults.length === 0" class='no-result'>
-      No wisc.edu results
+      No wisc.edu results.
     </div>
     <div ng-repeat="item in googleResults" class="result">
       <h4><a ng-href="{{item.clicktrackUrl}}" target="_blank" ng-bind-html="item.title"></a></h4>
