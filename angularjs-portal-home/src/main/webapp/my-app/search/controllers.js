@@ -52,6 +52,8 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
               $scope.googleResults = results.responseData.results;
               if(results.responseData.cursor.estimatedResultCount){
                 $scope.googleResultsEstimatedCount = results.responseData.cursor.estimatedResultCount;
+              }else{
+                $scope.googleEmptyResults = true;
               }
             }
           }
@@ -121,6 +123,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         $scope.wiscDirectoryResultCount = 0;
         $scope.wiscDirectoryTooManyResults = false;
         $scope.googleResultsEstimatedCount = 0;
+        $scope.googleEmptyResults = false;
         $scope.totalCount = 0;
         $scope.searchResultLimit = 20;
         $scope.showAll = false;
