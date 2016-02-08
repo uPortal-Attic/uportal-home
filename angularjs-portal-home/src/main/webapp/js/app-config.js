@@ -16,7 +16,7 @@ define(['angular'], function(angular) {
         })
         .constant('SERVICE_LOC', {
             'aboutURL' : '/portal/web/session.json',
-            'sessionInfo' : '/portal/web/session.json',
+            'sessionInfo' : '/portal/web/guest-session.json',
             'sidebarInfo' : '/web/staticFeeds/sidebar.json',
             'featuresInfo' : '/web/staticFeeds/features.json',
             'newstuffInfo': '/web/staticFeeds/new-stuff.json',
@@ -52,6 +52,7 @@ define(['angular'], function(angular) {
             'notificationFullURL' : 'notifications'
         })
         .constant('MISC_URLS',{
+        	'upBase' : 'https://my.wisc.edu',
             'feedbackURL' : '/portal/p/feedback',
             'back2ClassicURL' : '/portal/Login?profile=default',
             'whatsNewURL' : 'https://kb.wisc.edu/myuw/page.php?id=48181',

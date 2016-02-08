@@ -3,7 +3,7 @@
     <portlet-icon class='five-px-top-left'></portlet-icon>
     <span class="portlet-title">{{::portlet.title}}</span>
   </h2>
-  <div class="action-buttons">
+  <div class="action-buttons" ng-hide="guestMode">
 
     <!-- Add to home button with access -->
     <button class="btn btn-primary fname-{{::portlet.fname}}"
@@ -36,7 +36,14 @@
     <!-- Launch button without access -->
     <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 
-  </div><br>
+  </div>
+  <div class="action-buttons" ng-show="guestMode">
+    <button class="btn btn-flat" ng-click="redirectToLoginEnv()">
+      Login
+    </button>
+  </div>
+  
+  <br>
   <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
     ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
   </span>
