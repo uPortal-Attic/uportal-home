@@ -132,8 +132,8 @@ define(['angular', 'jquery'], function(angular, $) {
     var currentCategory = '';
 
     app.controller('MarketplaceController', [
-        '$scope', '$controller', 'marketplaceService',
-        function($scope, $controller, marketplaceService) {
+        '$rootScope','$scope', '$controller', 'marketplaceService', 'MISC_URLS',
+        function($rootScope, $scope, $controller, marketplaceService, MISC_URLS) {
 
             var base = $controller('marketplaceCommonFunctions', { $scope : $scope });
 
@@ -150,7 +150,8 @@ define(['angular', 'jquery'], function(angular, $) {
               //initialize variables
 
               $scope.searchResultLimit = 20;
-              $scope.showAll = false;
+              $scope.showAll = $rootScope.GuestMode || false;
+              $scope.loginToAuthPage = MISC_URLS.upBase;
               if(currentPage === 'details') {
                   // Empty string indicates no categories, show all portlets
                   $scope.categoryToShow = "";
@@ -214,8 +215,8 @@ define(['angular', 'jquery'], function(angular, $) {
     });
 
     app.controller('MarketplaceDetailsController', [
-        '$controller', '$scope', '$routeParams', 'marketplaceService',
-        function($controller, $scope, $routeParams, marketplaceService) {
+        '$controller', '$scope', '$routeParams', 'marketplaceService', 'MISC_URLS',
+        function($controller, $scope, $routeParams, marketplaceService, MISC_URLS) {
 
           $controller('marketplaceCommonFunctions', { $scope : $scope });
 
@@ -228,6 +229,7 @@ define(['angular', 'jquery'], function(angular, $) {
             $scope.loading = true;
             $scope.obj = [];
             $scope.errorMessage = 'There was an issue loading details, please click back to apps.';
+            $scope.loginToAuthPage = MISC_URLS.upBase;
             marketplaceService.getPortlet($routeParams.fname).then(function(result) {
                 $scope.loading = false;
                 if(!result) {

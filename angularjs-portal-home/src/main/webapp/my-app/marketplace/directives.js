@@ -3,10 +3,10 @@
 define(['angular', 'require'], function(angular, require) {
 
     var app = angular.module('my-app.marketplace.directives', []);
-    app.directive('marketplacePortlet', function() {
+    app.directive('marketplaceEntry', function() {
         return {
             restrict : 'E',
-            templateUrl : require.toUrl('./partials/marketplace-portlet.html')
+            templateUrl : require.toUrl('./partials/marketplace-entry.html')
         }
     });
 
