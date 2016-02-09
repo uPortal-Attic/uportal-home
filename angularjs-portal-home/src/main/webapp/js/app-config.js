@@ -16,7 +16,7 @@ define(['angular'], function(angular) {
         })
         .constant('SERVICE_LOC', {
             'aboutURL' : '/portal/web/session.json',
-            'sessionInfo' : '/portal/web/guest-session.json',
+            'sessionInfo' : '/portal/web/session.json',
             'sidebarInfo' : '/web/staticFeeds/sidebar.json',
             'featuresInfo' : '/web/staticFeeds/features.json',
             'newstuffInfo': '/web/staticFeeds/new-stuff.json',
