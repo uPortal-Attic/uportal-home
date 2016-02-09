@@ -215,8 +215,8 @@ define(['angular', 'jquery'], function(angular, $) {
     });
 
     app.controller('MarketplaceDetailsController', [
-        '$controller', '$scope', '$routeParams', 'marketplaceService',
-        function($controller, $scope, $routeParams, marketplaceService) {
+        '$controller', '$scope', '$routeParams', 'marketplaceService', 'MISC_URLS',
+        function($controller, $scope, $routeParams, marketplaceService, MISC_URLS) {
 
           $controller('marketplaceCommonFunctions', { $scope : $scope });
 
@@ -229,6 +229,7 @@ define(['angular', 'jquery'], function(angular, $) {
             $scope.loading = true;
             $scope.obj = [];
             $scope.errorMessage = 'There was an issue loading details, please click back to apps.';
+            $scope.loginToAuthPage = MISC_URLS.upBase;
             marketplaceService.getPortlet($routeParams.fname).then(function(result) {
                 $scope.loading = false;
                 if(!result) {
