@@ -21,7 +21,7 @@
   	</div>
 
 		<div class="col-xs-12 col-lg-6">
-		 	<div class="action-buttons">
+		 	<div class="action-buttons" ng-hide="GuestMode">
 
 		    <!-- Add to Home button with access -->
 		    <button class="btn btn-primary fname-{{::portlet.fname}}"
@@ -53,6 +53,11 @@
 		    <!-- Launch button without access -->
 		    <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 		   </div>
+       <div class="action-buttons" ng-show="GuestMode">
+         <a class="btn btn-primary" ng-href="{{loginToAuthPage + '/web/apps/details/'+ portlet.fname}}" >
+           Login to use
+         </a>
+       </div>
 		</div>
 	</div>
 	<div class="row no-margin"  ng-if='!loading && !error'>
@@ -65,7 +70,7 @@
 			<span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
     ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
   		</span><br>
-  		<button ng-click="openRating('sm',portlet.fname, portlet.title)" class="btn btn-default rate-button">Rate</button>
+  		<button ng-hide="GuestMode" ng-click="openRating('sm',portlet.fname, portlet.title)" class="btn btn-default rate-button">Rate</button>
 		</div>
 		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center">
 			<h3 tabindex="0">Related Apps</h3>

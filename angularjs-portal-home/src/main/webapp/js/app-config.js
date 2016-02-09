@@ -41,7 +41,8 @@ define(['angular'], function(angular) {
             'ariaLabelTitle' : 'My U W',
             'crest' : 'img/uwcrest_web_sm.png',
             'crestalt' : 'UW Crest',
-            'sublogo' : ''
+            'sublogo' : '',
+            'guestUserName' : 'guest'
         })
         .constant('SEARCH',{
 
@@ -52,7 +53,7 @@ define(['angular'], function(angular) {
             'notificationFullURL' : 'notifications'
         })
         .constant('MISC_URLS',{
-        	'upBase' : 'https://my.wisc.edu',
+            'upBase' : 'https://my.wisc.edu',
             'feedbackURL' : '/portal/p/feedback',
             'back2ClassicURL' : '/portal/Login?profile=default',
             'whatsNewURL' : 'https://kb.wisc.edu/myuw/page.php?id=48181',

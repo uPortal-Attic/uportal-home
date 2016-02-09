@@ -1,6 +1,6 @@
 
 <div ng-controller="MarketplaceController as marketplaceCtrl" class="row portlet-frame marketplace col-xs-12 col-md-12 no-padding">
-  <app-header app-title="Browse {{NAMES.title}}" 
+  <app-header app-title="Browse {{NAMES.title}}"
               app-icon="fa-home">
   </app-header>
   <div class="mp-header">
@@ -16,7 +16,7 @@
   <div class="show-all-div">
     <p><span ng-if="portlets.length > 0">Showing {{ (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length }} of {{ portlets.length }} results in {{NAMES.title}}.</span>
     <span ng-if="portlets.length == 0">Loading...</span></p>
-    <div><p><input type="checkbox" ng-click="toggleShowAll()" ng-checked="showAll">Show all<span popover="Show all apps, even if I don't have access" popover-append-to-body="true" popover-placement="left" popover-trigger="mouseenter"><i class="fa fa-question-circle" ></i></span></p></input></div>
+    <div ng-hide="GuestMode"><p><input type="checkbox" ng-click="toggleShowAll()" ng-checked="showAll">Show all<span popover="Show all apps, even if I don't have access" popover-append-to-body="true" popover-placement="left" popover-trigger="mouseenter"><i class="fa fa-question-circle" ></i></span></p></input></div>
   </div>
   <div ng-show="showCategories" class="show-categories">
     <p>Categories:</p><a ng-repeat="category in categories" href="" class="category-links" ng-click="selectFilter('category',category)" ng-class="{true: 'selected-category'}[categoryToShow === category]">{{category}}</a>
@@ -33,16 +33,16 @@
             ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"
            >Load More</button>
   </div>
-  
-  <div 
-    ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length == 0" 
+
+  <div
+    ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length == 0"
     class="no-results">
     <p>No matching MyUW content.</p>
     <p>Maybe try:</p>
     <ul>
       <li ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll).length > 0">
         <a href="#" ng-click="selectFilter('az','')">Show matching content beyond the &quot;{{categoryToShow}}&quot; category</a>.</li>
-      <li 
+      <li
         ng-show="(portlets | filter:searchTermFilter | showCategory:categoryToShow).length > 0">
          <a href="#" ng-click="toggleShowAll()">Show matching MyUW content even though it is not launchable</a>.</li>
       <li ng-if="directorySearchUrl">
@@ -64,6 +64,6 @@
         <a ng-href="{{feedbackUrl}}">Give feedback</a> about search.</li>
     </ul>
   </div>
-  
+
   <rating-modal-template></rating-modal-template>
 </div>
