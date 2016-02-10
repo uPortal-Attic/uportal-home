@@ -6,10 +6,12 @@
   <div class="marketplace-body">
     <div class="mp-header">
       <div class="browse-help">
-        <p>What are you looking for?</p>
+        <p class="hidden-xs">What are you looking for?</p>
+        <p class="visible-xs"><i class="fa fa-search"></i></p>
       </div>
       <div class="browse-input">
-        <input type="text" class="marketplace-search" placeholder="e.g. Benefits Information" ng-model="searchText" select-on-page-load aria-label="Search bar enter the app you are looking for">
+        <input type="text" class="hidden-xs marketplace-search" placeholder="e.g. Benefits Information" ng-model="searchText" select-on-page-load aria-label="Search bar enter the app you are looking for">
+        <input type="text" class="visible-xs marketplace-search" placeholder="What are you looking for?" ng-model="searchText" select-on-page-load aria-label="Search bar enter the app you are looking for">
       </div>
     </div>
     <div class="mp-opaque">
