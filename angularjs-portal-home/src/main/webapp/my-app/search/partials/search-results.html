@@ -40,7 +40,11 @@
         <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
       </p>
       <p ng-show="GuestMode">
-        <span style='margin-right: 10px;'><a class='btn btn-flat'>Login to use</a></span>
+        <span style='margin-right: 10px;'>
+          <a class="btn btn-flat" ng-href="{{loginToAuthPage + '/web/apps/details/'+ portlet.fname}}" >
+            Login to use
+          </a>
+        </span>
         <span><a href="apps/details/{{::portlet.fname}}">Details</a></span>
         <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
       </p>
