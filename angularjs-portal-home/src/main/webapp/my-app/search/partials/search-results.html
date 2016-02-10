@@ -28,7 +28,7 @@
     <div ng-repeat="portlet in myuwFilteredResults = (myuwResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)" class="result">
       <h4><a href="{{::portlet.maxUrl}}" target="{{::portlet.target}}">{{ portlet.name }}</a></h4>
       <p>{{ portlet.description }}</p>
-      <p>
+      <p ng-hide="GuestMode">
         <a ng-click="addToHome(portlet)"
       ng-if="portlet.canAdd && !portlet.hasInLayout" class="add">
           <i class="fa fa-plus"></i> Add to home
@@ -37,6 +37,11 @@
           <i class="fa fa-check"></i> Added to home
         </span>
         <a href="apps/details/{{::portlet.fname}}">Details</a>
+        <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
+      </p>
+      <p ng-show="GuestMode">
+        <span style='margin-right: 10px;'><a class='btn btn-flat'>Login to use</a></span>
+        <span><a href="apps/details/{{::portlet.fname}}">Details</a></span>
         <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
       </p>
 
