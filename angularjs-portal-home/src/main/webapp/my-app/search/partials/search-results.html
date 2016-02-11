@@ -65,8 +65,8 @@
       <h4 class='header'>Directory</h4>
       <hr>
     </div>
-    <loading-gif data-object='wiscDirectoryResults' data-empty='wiscDirectoryResults'></loading-gif>
-    <div ng-show="wiscDirectoryResults.length === 0 && !wiscDirectoryTooManyResults" class='no-result'>
+    <loading-gif data-object='wiscDirectoryResults' data-empty="wiscDirectoryResultsEmpty"></loading-gif>
+    <div ng-show="wiscDirectoryResultsEmpty && !wiscDirectoryTooManyResults" class='no-result'>
       No directory results.
     </div>
     <div ng-repeat="item in wiscDirectoryResults | limitTo:wiscDirectoryResultLimit" class="result">
@@ -128,7 +128,7 @@
 
     </div>
     <div>
-      <h4><a ng-href="{{webSearchUrl + searchText}}">View more results for {{searchText}} on wisc.edu</a></h4>
+      <h4 ng-hide='googleEmptyResults'><a ng-href="{{webSearchUrl + searchText}}">View more results for {{searchText}} on wisc.edu</a></h4>
     </div>
   </div>
 
