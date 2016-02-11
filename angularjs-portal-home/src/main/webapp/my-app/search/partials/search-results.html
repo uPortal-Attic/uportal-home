@@ -22,7 +22,7 @@
       <hr>
     </div>
     <loading-gif data-object='myuwResults'></loading-gif>
-    <div ng-show="myuwFilteredResults.length == 0" class='no-result'>
+    <div ng-show="myuwResults.length != 0 && myuwFilteredResults.length == 0" class='no-result'>
       No MyUW results. <a href="apps">Try browsing instead?</a>
     </div>
     <div ng-repeat="portlet in myuwFilteredResults = (myuwResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)" class="result">
