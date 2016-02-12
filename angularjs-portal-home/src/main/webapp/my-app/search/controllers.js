@@ -41,8 +41,8 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
     }]);
 
     app.controller('SearchResultController',
-     ['$rootScope', '$scope', '$controller','marketplaceService', 'googleCustomSearchService', 'wiscDirectorySearchService', 'user', 'NAMES',
-     function($rootScope, $scope, $controller,marketplaceService, googleCustomSearchService, wiscDirectorySearchService, user, NAMES) {
+     ['$rootScope', '$scope', '$controller','marketplaceService', 'googleCustomSearchService', 'wiscDirectorySearchService',
+     function($rootScope, $scope, $controller,marketplaceService, googleCustomSearchService, wiscDirectorySearchService) {
       var base = $controller('marketplaceCommonFunctions', {$scope : $scope});
 
       var initWiscEduSearch = function(){
