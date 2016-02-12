@@ -61,12 +61,16 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
       };
 
       var initWiscDirectorySearch = function(){
+        $scope.wiscDirectoryLoading = true;
         wiscDirectorySearchService.wiscDirectorySearch($scope.searchTerm).then(
           function(results){
+            $scope.wiscDirectoryLoading = false;
             if(results){
               if(results.records && results.count) {
                 $scope.wiscDirectoryResults = results.records;
                 $scope.wiscDirectoryResultCount = results.count;
+              } else {
+                $scope.wiscDirectoryResultsEmpty = true;
               }
               if(results.errors && results.errors[0] && results.errors[0].code && results.errors[1] && results.errors[1].error_msg){
                 if(results.errors[0].code == 4){
@@ -75,10 +79,13 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
                 $scope.wiscDirectoryErrorMessage= results.errors[1].error_msg;
               }
             }
+          }, function(){
+            $scope.wiscDirectoryLoading = false;
+            $scope.wiscDirectoryError = true;
           }
         );
       };
-
+      
       $scope.filterTo = function(filterName) {
         $('.search-results .inner-nav li').removeClass('active');
         if (filterName == 'all') {
@@ -115,7 +122,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           $('#wiscDirectorySeeMoreResults').hide();
         }
       };
-
+      
       var initwiscDirectoryResultLimit = function(){
           $scope.wiscDirectoryResultLimit = 3;
       }
@@ -164,3 +171,4 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
     return app;
 
 });
+
