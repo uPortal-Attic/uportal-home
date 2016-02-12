@@ -1,0 +1,90 @@
+{
+   "layout":[
+   {
+      "nodeId":"u23l1n11",
+      "title":"Search with the Bing",
+      "description":"Testing out widget template swl.",
+      "url":"https://www.bing.com/",
+      "iconUrl":null,
+      "faIcon":"fa-windows",
+      "fname":"bing-search",
+      "target":null,
+      "widgetURL":null,
+      "widgetType":"search-with-links",
+      "widgetConfig": { "actionURL" : "https://www.bing.com", "actionTarget" : "_blank", "actionParameter" : "q", "launchText":"Launch Bing","links": [{"title":"Interweb Search", "href":"http://www.bing.com", "icon":"fa-search","target":"_blank"}, {"title":"Image Search", "href":"https://www.bing.com/images", "icon":"fa-camera","target":"_blank"}]},
+      "staticContent":null,
+      "pithyStaticContent":null,
+      "altMaxUrl":false
+   },
+      {
+		   "nodeId":"n777",
+		   "title":"Weather",
+		   "description":"Access the latest weather conditions and 5-day forecasts for the cities you select.",
+		   "url":"/web/staticFeeds/weather.json",
+		   "iconUrl":null,
+		   "faIcon":"fa-sun-o",
+		   "fname":"weather",
+		   "target":null,
+		   "widgetURL":"/web/staticFeeds/weather-multiple.json",
+		   "widgetType":"weather",
+		   "widgetTemplate":null,
+		   "widgetConfig":{
+		      "iconPrefix":"https://raw.githubusercontent.com/Jasig/WeatherPortlet/WeatherPortlet-1.1.3/src/main/webapp/images/accuweather/",
+		      "iconPostfix":".png"
+		   },
+		   "staticContent":null,
+		   "pithyStaticContent":null,
+		   "altMaxUrl":false
+		},
+
+      {
+         "nodeId":"u23l1n15",
+         "title":"Course Guide",
+         "description":"Find courses by title, college, department, school, or instructor.",
+         "url":"/portal/f/u23l1s4/normal/render.uP",
+         "iconUrl":null,
+         "faIcon":"fa-compass",
+         "fname":"CourseGuide-Browse-Courses",
+         "target":null,
+         "widgetURL":null,
+         "widgetType":"generic",
+         "widgetTemplate":"\n        <div>\n           <div class='display-block center' style='max-width: 95%; margin: auto;'>\n              <form class='form-inline' action='/portal/p/CourseGuide-Browse-Courses/detached/action.uP?pCm=view&amp;pP_action=advancedSearch' method='post' target='_blank'>\n                 <div class='input-group'> <input type='text' class='form-control' id='keywordSearch' name='keywordSearch' placeholder='Search for courses'> <span class='input-group-btn'> <button type='submit' class='btn btn-primary' style='margin: 0;'><i class='fa fa-search hidden-xs'></i><span class='visible-xs'>Search</span></button> </span> </div>\n              </form>\n              <div style='background-color: #EAEAEA; border-radius:4px;padding:10px; margin-top:10px;'>\n                 <span class='bold display-block left' style='text-align: left; padding-left: 10px; font-size: 14px;'>Use My Course Guide for more options:</span> \n                 <ul style='text-align: left;list-style-type: disc; font-size: 12px;'>\n                    <li>Search by term</li>\n                    <li>Search by instructor</li>\n                    <li>Browse by subject</li>\n                    <li>Plan your degree</li>\n                 </ul>\n              </div>\n           </div>\n           <a class='btn btn-default launch-app-button ng-scope' href='/portal/p/CourseGuide-Browse-Courses/detached/action.uP?pCm=view&amp;pP_action=advancedSearch' target='_blank'>Go to my course guide</a>\n        </div>\n        ",
+         "widgetConfig":null,
+         "staticContent":null,
+         "pithyStaticContent":null,
+         "altMaxUrl":false
+      },
+      {
+         "nodeId":"u23l1n22",
+         "title":"Course Guide Help",
+         "description":"Help that matters mosts",
+         "url":"/web/",
+         "iconUrl":null,
+         "faIcon":"fa-compass",
+         "fname":"CourseGuide-Help",
+         "target":null,
+         "widgetURL": "http://kb.wisc.edu/enrollment/topic_rss.php?cat=52000",
+         "widgetType":"rss",
+         "widgetConfig": {"lim" : 3, "showdate": true, "dateFormat" : "M/d"},
+         "staticContent":null,
+         "pithyStaticContent":null,
+         "altMaxUrl":false
+      },
+      {
+         "nodeId":"u23l1n22",
+         "title":"Course Guide News",
+         "description":"News that matters mosts",
+         "url":"/web/",
+         "iconUrl":null,
+         "faIcon":"fa-compass",
+         "fname":"CourseGuide-Help",
+         "target":null,
+         "widgetURL": "https://kb.wisc.edu/enrollment/news_rss.php",
+         "widgetType":"rss",
+         "widgetConfig":null,
+         "staticContent":null,
+         "pithyStaticContent":null,
+         "altMaxUrl":false
+      }
+   ]
+}

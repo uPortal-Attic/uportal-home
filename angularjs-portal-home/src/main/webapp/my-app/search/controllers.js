@@ -39,10 +39,10 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
             }
         };
     }]);
-    
-    app.controller('SearchResultController', 
-     ['$scope', '$controller','marketplaceService', 'googleCustomSearchService', 'wiscDirectorySearchService',
-     function($scope, $controller,marketplaceService, googleCustomSearchService, wiscDirectorySearchService) {
+
+    app.controller('SearchResultController',
+     ['$rootScope', '$scope', '$controller','marketplaceService', 'googleCustomSearchService', 'wiscDirectorySearchService', 'user', 'NAMES',
+     function($rootScope, $scope, $controller,marketplaceService, googleCustomSearchService, wiscDirectorySearchService, user, NAMES) {
       var base = $controller('marketplaceCommonFunctions', {$scope : $scope});
 
       var initWiscEduSearch = function(){
@@ -78,7 +78,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           }
         );
       };
-      
+
       $scope.filterTo = function(filterName) {
         $('.search-results .inner-nav li').removeClass('active');
         if (filterName == 'all') {
@@ -115,7 +115,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           $('#wiscDirectorySeeMoreResults').hide();
         }
       };
-      
+
       var initwiscDirectoryResultLimit = function(){
           $scope.wiscDirectoryResultLimit = 3;
       }
@@ -132,7 +132,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         $scope.googleEmptyResults = false;
         $scope.totalCount = 0;
         $scope.searchResultLimit = 20;
-        $scope.showAll = false;
+        $scope.showAll = $rootScope.GuestMode || false;
         base.setupSearchTerm();
         base.initializeConstants();
         //get marketplace entries
@@ -164,4 +164,3 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
     return app;
 
 });
-

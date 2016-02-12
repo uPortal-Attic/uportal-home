@@ -4,7 +4,12 @@ define(['require'], function(require){
         search: {
             templateUrl: require.toUrl('./partials/search-results.html'),
             controller: 'SearchResultController',
-            searchParam: 'initFilter'
+            searchParam: 'initFilter',
+            resolve: {
+            user: function(mainService) {
+              return mainService.getUser();
+            }
+          }
         }
     }
 
