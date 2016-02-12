@@ -5,13 +5,22 @@
         <a>All ({{ totalCount }})</a>
       </li>
       <li ng-click="filterTo('myuw')" id="myuw-selector">
-        <a>MyUW ({{myuwFilteredResults.length}})</a>
+        <a>MyUW 
+          <span ng-hide="portletListLoading">
+            ({{myuwFilteredResults.length}})</span>
+        <i ng-show="portletListLoading" class="fa fa-spinner fa-pulse"></i></a>
       </li>
       <li ng-click="filterTo('directory')" id="directory-selector">
-        <a>Directory ({{wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount}})</a>
+        <a>Directory 
+          <span ng-hide="wiscDirectoryResultsLoading">
+            ({{wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount}})</span>
+          <i ng-show="wiscDirectoryResultsLoading" class="fa fa-spinner fa-pulse"></i></a>
       </li>
       <li ng-click="filterTo('google')" id="google-selector">
-        <a>Wisc.edu ({{googleResultsEstimatedCount}})</a>
+        <a>Wisc.edu 
+          <span ng-hide="googleResultsLoading">
+            ({{googleResultsEstimatedCount}})</span>
+        <i ng-show="googleResultsLoading" class="fa fa-spinner fa-pulse"></i></a>
       </li>
     </ul>
   </div>
