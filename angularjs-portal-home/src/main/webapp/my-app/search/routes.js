@@ -5,7 +5,6 @@ define(['require'], function(require){
             templateUrl: require.toUrl('./partials/search-results.html'),
             controller: 'SearchResultController',
             searchParam: 'initFilter'
-          }
         }
     }
 
