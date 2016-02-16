@@ -2,9 +2,9 @@
 
 <div class="weather-dropdown">
   <a class="weather-not-clicked" ng-show="showMetric" href=""
-    ng-click="showMetric=false; changeToF()">Change to &degF</a> 
+    ng-click="showMetric=false; changePref('F')">Change to &degF</a> 
   <a class=" weather-not-clicked" ng-show="!showMetric" href=""
-    ng-click="showMetric=true; changeToC()">Change to &degC</a>
+    ng-click="showMetric=true; changePref('C')">Change to &degC</a>
 </div>
 
 <div>

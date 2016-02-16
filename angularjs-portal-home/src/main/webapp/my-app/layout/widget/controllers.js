@@ -43,22 +43,38 @@ define(['angular'], function(angular){
     populateWidgetContent();
   }]);
 
-  app.controller('WeatherController', ['$scope', 'layoutService', function($scope, layoutService){
+  app.controller('WeatherController', ['$scope', 'layoutService', 'keyValueService', '$q', function($scope, layoutService, keyValueService, $q){
     $scope.weatherData = [];
     $scope.loading = false;
     $scope.showMetric = false;
     $scope.currentlyImperial = true;
+    $scope.fetchKey="userWeatherPreference";
+    $scope.initialPreference=true;
+
+
     var populateWidgetContent = function() {
       if($scope.portlet.widgetURL && $scope.portlet.widgetType) {
         $scope.loading = true;
         //fetch portlet widget json
         $scope.portlet.widgetData = [];
-        layoutService.getWidgetJson($scope.portlet).then(function(data) {
+        var widgetPromise = layoutService.getWidgetJson($scope.portlet);
+        var preferencePromise = keyValueService.getValue($scope.fetchKey);
+        
+        $q.all([widgetPromise, preferencePromise]).then(function(data) {
           $scope.loading = false;
           if(data) {
             console.log(data);
-            $scope.portlet.widgetData = data.weathers;
+            var allTheWeathers = data[0];
+            var myPref= data[1];
+            var myPreference='F';
+            if(myPref.userWeatherPreference=='C'){
+            	myPreference='C';
+            }
+                        
+            $scope.portlet.widgetData = allTheWeathers.weathers;
             $scope.weatherData = $scope.portlet.widgetData;
+            $scope.changePref(myPreference);
+            
           } else {
             $scope.error = true;
             console.warn("Got nothing back from widget fetch");
@@ -69,6 +85,24 @@ define(['angular'], function(angular){
         });
       }
     };
+    
+    $scope.changePref=function(userPreference){
+    	
+    	if(userPreference==='C'){
+    		$scope.changeToC();
+    		$scope.showMetric=true;
+    	}else{
+    		$scope.changeToF();
+    	}
+    	if($scope.initialPreference){
+    		$scope.initialPreference=false;
+    	}else{
+    		var value = {};
+    		value.userWeatherPreference = userPreference;
+       		keyValueService.setValue($scope.fetchKey, value);
+    	}
+    }
+    
     $scope.changeToC = function(){
       if ($scope.currentlyImperial){
         for (var i = 0; i < $scope.weatherData.length; i++){
