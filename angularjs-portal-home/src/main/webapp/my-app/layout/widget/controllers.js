@@ -48,7 +48,8 @@ define(['angular'], function(angular){
     $scope.loading = false;
     $scope.showMetric = false;
     $scope.currentlyImperial = true;
-    $scope.fetchKey="\"userWeatherPreference\"";
+    $scope.fetchKey="userWeatherPreference";
+    $scope.initialPreference=true;
 
 
     var populateWidgetContent = function() {
@@ -86,17 +87,20 @@ define(['angular'], function(angular){
     };
     
     $scope.changePref=function(userPreference){
-
+    	
     	if(userPreference==='C'){
     		$scope.changeToC();
     		$scope.showMetric=true;
     	}else{
     		$scope.changeToF();
     	}
-
-    	var value = {};
-    	value.userWeatherPreference = userPreference;
-       	keyValueService.setValue($scope.fetchKey, value);
+    	if($scope.initialPreference){
+    		$scope.initialPreference=false;
+    	}else{
+    		var value = {};
+    		value.userWeatherPreference = userPreference;
+       		keyValueService.setValue($scope.fetchKey, value);
+    	}
     }
     
     $scope.changeToC = function(){
