@@ -9,6 +9,9 @@
 .marketplace .btn .fa {
   padding-right:8px;
 }
+.marketplace-body {
+  margin:15px;
+}
 
 .marketplace h2 span.fa {
   width: 38px;
@@ -108,18 +111,37 @@
   color:@white;
   opacity:1.0;
 }
-
+.mp-header {
+  background-color:@white;
+  margin-bottom:15px;
+}
+.browse-help {
+  display: inline-block;
+  float: left;
+  width: 250px;
+  background: #eee;
+  height: 50px;
+  padding: 11px 15px;
+  p {
+    font-weight:200;
+    font-size: 1.4em;
+  }
+}
+.browse-input {
+  display: inline-block;
+  height:50px;
+  width:64%;
+}
 .marketplace-search {
-  width:50%;
-  border:1px solid @grayscale4;
-  border-radius:4px;
+  width:100%;
   position:relative;
-  left:25%;
   font-size:1.8em;
   font-weight:200;
   padding:4px 4px 4px 12px;
-  margin:0px 0px 30px 0px;
+  margin:0px 0px 0px 0px;
   display:block;
+  height:50px;
+  border:0px solid transparent;
 }
 .mp-search-icon {
   position:relative;
@@ -131,7 +153,6 @@
   text-shadow:0px 0px 15px #000;
 }
 .portlet-container {
-  padding-left:5px;
   border-bottom:1px solid #ddd;
 
 }
@@ -139,23 +160,6 @@
   padding:8px 8px 12px;
   min-height:100px;
   background-color:@white;
-}
-
-.portlet_hover {
-  min-height:100px;
-  border-bottom:0px solid #ddd;
-  border-left:5px solid @color1;
-  border-bottom:1px solid #ddd;
-  padding-right:0px;
-  position:relative;
-  padding-left:0px;
-}
-.mp-header {
-  height:100px;
-  background-image: url('../img/terrace.jpg');
-  background-size:100%;
-  box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.4);
-  padding:25px;
 }
 .mp-opaque {
   height:35px;
@@ -172,7 +176,7 @@
       padding:10px 0px;
       text-align:center;
       box-sizing:border-box;
-      :hover {
+      &:hover {
         background-color:rgba(210,210,210,0.5);
         cursor:pointer;
         border-top:3px solid @color1;
@@ -307,6 +311,7 @@ input:focus,span:focus {
    border-bottom:1px solid @grayscale4;
    display:inline-block;
    width:100%;
+   background-color:@white;
    a {
      float:left;
      display:block;
@@ -363,10 +368,12 @@ input:focus,span:focus {
 }
 .no-results {
   padding:10px 15px;
+  background-color:@white;
 }
 .marketplace-load-more {
   text-align:center;
   padding:20px;
+  background-color:@white;
 }
 
 .rating-input span {
@@ -438,5 +445,68 @@ input:focus,span:focus {
   .left {
     text-align: left;
     padding:0px 10px;
+  }
+}
+
+@media (max-width:767px) {
+  .marketplace .action-buttons {
+    display:none;
+  }
+  .portlet-list-item {
+    min-height:90px;
+  }
+  .marketplace-header {
+    height:200px;
+  }
+  .mp-opaque {
+    height:40px;
+  }
+  .portlet-details {
+    float:right;
+    padding:0px 0px 0px 15px;
+    top:10px;
+  }
+  .portlet-title {
+    font-size:1em;
+  }
+  .rating {
+    margin-left:5px;
+  }
+  .container-fluid {
+    height:auto;
+  }
+  .main-search {
+    width:100%;
+    position:relative;
+    display: block;
+    background-color: #fff;
+    font-size: 1.6em;
+    color: #222;
+    float:left;
+    margin:0px 0px 0px 0px;
+  }
+  .btn-search {
+    top:0px;
+  }
+  #load-more {
+    position:relative;
+    margin-right:80px;
+    left:0px;
+  }
+  .mp-header .browse-help {
+    width:auto;
+  }
+  .mp-header .browse-input {
+    .marketplace-search {
+      font-size:1.5em;
+      padding-left:15px;
+    }
+  }
+}
+
+@media (max-width:500px) {
+  .mp-opaque li {
+    font-size:1em;
+    padding:12px 0px;
   }
 }
