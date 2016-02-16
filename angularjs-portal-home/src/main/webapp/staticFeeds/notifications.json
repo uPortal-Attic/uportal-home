@@ -28,6 +28,14 @@
         "title"  : "City of Madison - Declared Snow Emergency",
         "actionURL" : "http://www.cityofmadison.com/winter/",
         "actionAlt" : "City Of Madison snow emergency information"
+      },
+      {
+        "id"     : 6,
+        "groups" : ["Users - Graduating Seniors Without Questionnaire Response",
+                    "Portal Administrators"],
+        "title" : "Please complete the post-graduation plans questionnaire. Your confidential response will be used to improve our academic programs and communicate the accomplishments of UW-Madison graduates.",
+        "actionURL" : "/portal/p/post-graduation-plans",
+        "actionAlt" : "Access the post-graduation plans survey"
       }
     ]
 }
