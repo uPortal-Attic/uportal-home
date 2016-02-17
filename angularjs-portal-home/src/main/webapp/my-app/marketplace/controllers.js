@@ -6,9 +6,9 @@ define(['angular', 'jquery'], function(angular, $) {
 
     app.controller('marketplaceCommonFunctions',
       ['layoutService', 'marketplaceService', 'miscService', 'MISC_URLS', '$sessionStorage',
-       '$rootScope', '$scope', '$modal', '$routeParams', '$timeout',
+       '$localStorage','$rootScope', '$scope', '$modal', '$routeParams', '$timeout',
        function(layoutService, marketplaceService, miscService,MISC_URLS, $sessionStorage,
-        $rootScope, $scope, $modal, $routeParams, $timeout){
+        $localStorage, $rootScope, $scope, $modal, $routeParams, $timeout){
       $scope.goToDetails = function(fname){
           $location.path("apps/" + fname );
       };
@@ -17,6 +17,17 @@ define(['angular', 'jquery'], function(angular, $) {
         return portlet.maxUrl.indexOf('portal') !== -1 //max url is a portal hit
                 && portlet.portletName // there is a portletName
                 && portlet.portletName.indexOf('cms') != -1; //the portlet is static content portlet
+      }
+
+      $scope.getLaunchURL = function(marketplaceEntry) {
+        var layoutObj = marketplaceEntry.layoutObject;
+        if(layoutObj.altMaxUrl == false && (layoutObj.renderOnWeb || $localStorage.webPortletRender)) {
+          return 'exclusive/' + layoutObj.fname;
+        } else if($scope.isStatic(marketplaceEntry)) {
+          return 'static/' + layoutObj.fname;
+        } else {
+          return marketplaceEntry.maxUrl;
+        }
       }
 
       $scope.addToHome = function addToHome(portlet) {
