@@ -70,7 +70,7 @@
     </div>
 
     <!-- For basic apps (not a widget, not simple content, no pithy content), show only an icon -->
-    <a tabindex="-1" ng-switch-when="NORMAL" href="{{::portlet.url}}" target="{{::portlet.target}}">
+    <a tabindex="-1" ng-switch-when="NORMAL" ng-href="{{widgetCtrl.renderURL(portlet)}}" target="{{::portlet.target}}">
       <div class="widget-icon-container">
         <portlet-icon></portlet-icon>
       </div>

@@ -40,9 +40,9 @@ define(['angular', 'jquery'], function(angular, $) {
                 if (portlet.staticContent != null
                     && portlet.altMaxUrl == false) {
                     return "SIMPLE";
-                } else if(portlet.altMaxUrl == false && $localStorage.webPortletRender){
+                } else if(portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)){
                     return "EXCLUSIVE";
-                }else {
+                } else {
                     return "NORMAL";
                 }
             };
@@ -91,7 +91,7 @@ define(['angular', 'jquery'], function(angular, $) {
                     }
                 }
             };
-            
+
             this.init = function(){
               if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
 
@@ -106,7 +106,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   });
               }
             };
-            
+
             this.init();
 
         }]);
@@ -165,6 +165,14 @@ define(['angular', 'jquery'], function(angular, $) {
                     return "NORMAL";
                 }
             };
+
+            this.renderURL = function renderURL(portlet) {
+              if(portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)) {
+                return 'exclusive/' + portlet.fname;
+              } else {
+                return portlet.url;
+              }
+            }
 
             this.maxStaticPortlet = function gotoMaxStaticPortlet(portlet) {
                 sharedPortletService.setProperty(portlet);

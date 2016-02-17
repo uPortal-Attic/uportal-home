@@ -1,0 +1,136 @@
+<style>
+.feedback-portlet{
+  font-size:18px;.
+  font-family: "arial", "helvetica", "sans serif";
+  margin: 10px;
+}
+
+.feedback-portlet .info-area,
+.feedback-portlet .general-help a{
+    background-color:#eee;
+}
+
+.feedback-portlet .btn-share-ideas {
+  font-weight:100;
+  font-size:1.4em;
+  background-color:#b70101;
+  padding:8px 30px;
+  margin:10px 0px;
+  color:#fff !important;
+  border-radius:4px;
+  border:0px solid transparent;
+  box-shadow:0px 5px 0px #600;
+  cursor:pointer;
+  transition:0.1s ease-in-out;
+  position:relative;
+
+}
+.feedback-portlet .btn-share-ideas:hover {
+  transform: translateY(2px);
+  background-color:#900;
+  text-decoration:none;
+  box-shadow:0px 3px 0px #000;
+  transition:0.1s ease-in-out;
+}
+
+.feedback-portlet .general-help {
+  padding:20px;
+  color:#b70101;
+}
+.feedback-portlet .general-help a {
+  padding:12px;
+  margin-bottom:10px;
+  border-radius:4px;
+  display:block;
+}
+.feedback-portlet .general-help a:hover {
+  text-decoration:none;
+  background-color:#ddd;
+}
+.feedback-portlet .general-help i {
+  font-size:1.3em;
+  margin:0px 20px 0px 10px;
+}
+
+.feedback-portlet .general-thanks {
+  border-right:1px solid #b70101;
+  padding:0px 20px;
+  margin-top:20px;
+}
+.feedback-portlet .general-thanks div{
+  height:214px;
+  display:table;
+  text-align:center;
+  width:100%
+}
+.feedback-portlet .general-thanks div p{
+  display:table-cell;
+  vertical-align:middle;
+}
+
+.feedback-portlet h2 {
+  margin:0px 0px 10px;
+  font-size: 1.8em !important;
+  color:#b70101;
+}
+
+.feedback-portlet .general-feedback {
+  border-right:1px solid #b70101;
+  padding:0px 20px;
+  margin-top:20px;
+}
+
+@media (max-width:768px) {
+  .feedback-portlet .btn-share-ideas {
+    padding:6px 12px;
+  }
+}
+
+</style>
+<div class='feedback-portlet'>
+  <div class='container-fluid'>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 general-feedback">
+        <h2 tabindex="0" aria-label="Give feedback">Give feedback</h2>
+        <form method="post" action="/portal/f/u8461l1s4/p/feedback.n143/exclusive/action.uP?pCm=view" onsubmit="browserInfo(this)">
+            <input type="hidden" name="name" value="name" />
+            <input type="hidden" name="netid" value="fds" />
+            <input type="hidden" name="phoneNumber" value="608/456-4567" />
+            <input type="hidden" name="emailAddress" value="example@example.com" />
+            <input type="hidden" name="referrer" value="https://test.my.wisc.edu/web/exclusive/feedback" />
+            <p>
+            <input type="hidden" name="subject" value="UW Feedback" />
+            </font>
+            <textarea aria-label="Give feedback text edited box" wrap="physical" rows="8" style='width: 100%;' class='form-control' name="details"></textarea>
+            </p>
+
+            <input type="hidden" name="userAgent" />
+            <input type="hidden" name="browserName" />
+            <input type="hidden" name="browserVersion" />
+            <input type="hidden" name="platform" />
+            <p>
+                Your name will be submitted with your feedback.
+            </p>
+            <p>
+            <input aria-label="send button" type="submit" value="Send" class='btn btn-primary btn-share-ideas' />
+            </p>
+        </form>
+      </div>
+      <div class="col-xs-12 col-sm-6 general-help">
+        <h2>Get help</h2>
+<a href='/portal/p/campus-chat-connections'><i class="fa fa-comments-o"></i>Live chat</a>
+<a href='http://helpdesk.doit.wisc.edu/page.php?id=1' target='_blank'><i class="fa fa-phone"></i>Call us</a>
+<a href='https://kb.wisc.edu/myuw/' target='_blank'><i class="fa fa-question"></i>How-to info</a>
+</div>
+    </div>
+  </div>
+</div>
+
+<script language="JavaScript">
+ function browserInfo(form) {
+ form.browserName.value=navigator.appName;
+ form.browserVersion.value=navigator.appVersion;
+ form.platform.value=navigator.platform;
+ form.userAgent.value=navigator.userAgent;
+ }
+</script>
