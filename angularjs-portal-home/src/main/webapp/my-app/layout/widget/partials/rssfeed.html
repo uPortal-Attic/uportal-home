@@ -8,7 +8,7 @@
         </a>
       </li>
       <li ng-if='config.showShowing && config.lim && data.responseData.feed.entries.length > config.lim'>
-        <p>Showing {{config.lim}} out of {{data.responseData.feed.entries.length}}</p>
+        <span class='center'><p class='bold'>Showing {{config.lim}} of {{data.responseData.feed.entries.length}}</p></span>
       </li>
       <li ng-if='error'>There was an issue loading the information, click Launch full app for more details</li>
       <li ng-if='isEmpty'>No information at this time.</li>
