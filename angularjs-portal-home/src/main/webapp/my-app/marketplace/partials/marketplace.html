@@ -14,17 +14,12 @@
         <input type="text" class="visible-xs marketplace-search" placeholder="What are you looking for?" ng-model="searchText" select-on-page-load aria-label="Search bar enter the app you are looking for">
       </div>
     </div>
-    <div class="mp-opaque">
-      <ul>
-        <li ng-click="selectFilter('popular','')" ng-class="{true:'selected-filter'}[selectedFilter === 'popular']"><a href="#" aria-label="search from the most popular apps">Most Popular</a></li>
-        <li ng-click="selectFilter('az','')" ng-class="{true: 'selected-filter'}[selectedFilter === 'az']"><a href="#" aria-label="search by alphabetical order">A-Z</a></li>
-        <li ng-click="selectFilter('category','')" ng-class="{true: 'selected-filter'}[selectedFilter === 'category']"><a href="#" aria-label="search by categories">Categories</a></li>
+    <div class="inner-nav-container">
+      <ul class="inner-nav">
+        <li ng-click="selectFilter('popular','')" ng-class="{true:'active'}[selectedFilter === 'popular']"><a href="#" aria-label="Sort by popularity">Most Popular</a></li>
+        <li ng-click="selectFilter('az','')" ng-class="{true: 'active'}[selectedFilter === 'az']"><a href="#" aria-label="Sort by alphabetical order">A-Z</a></li>
+        <li ng-click="selectFilter('category','')" ng-class="{true: 'active'}[selectedFilter === 'category']"><a href="#" aria-label="Filter by categories">Categories</a></li>
       </ul>
-    </div>
-    <div class="show-all-div">
-      <p><span ng-if="portlets.length > 0">Showing {{ (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length }} of {{ portlets.length }} results in {{NAMES.title}}.</span>
-      <span ng-if="portlets.length == 0">Loading...</span></p>
-      <div ng-hide="GuestMode"><p><input type="checkbox" ng-click="toggleShowAll()" ng-checked="showAll">Show all<span popover="Show all apps, even if I don't have access" popover-append-to-body="true" popover-placement="left" popover-trigger="mouseenter"><i class="fa fa-question-circle" ></i></span></p></input></div>
     </div>
     <div ng-show="showCategories" class="show-categories">
       <p>Categories:</p><a ng-repeat="category in categories" href="" class="category-links" ng-click="selectFilter('category',category)" ng-class="{true: 'selected-category'}[categoryToShow === category]">{{category}}</a>
