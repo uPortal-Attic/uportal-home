@@ -26,7 +26,7 @@
       No MyUW results. <a href="apps">Try browsing instead?</a>
     </div>
     <div ng-repeat="portlet in myuwFilteredResults = (myuwResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)" class="result">
-      <h4><a ng-href="{{getLaunchURL(portlet)}}" target="{{::portlet.target}}">{{ portlet.name }} <i ng-if='GuestMode && !portlet.canAdd' class="fa fa-external-link"></i></a> <small ng-if='GuestMode && !portlet.canAdd'>(login to use)</small></h4>
+      <h4><a ng-href="{{getLaunchURL(portlet)}}" target="{{::portlet.target}}">{{ portlet.name }}</a> <small ng-if='GuestMode && !portlet.canAdd'>(login to use)</small></h4>
       <p>{{ portlet.description }}</p>
       <p>
         <a ng-click="addToHome(portlet)"
