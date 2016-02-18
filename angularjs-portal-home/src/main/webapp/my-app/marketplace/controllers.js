@@ -21,7 +21,11 @@ define(['angular', 'jquery'], function(angular, $) {
 
       $scope.getLaunchURL = function(marketplaceEntry) {
         var layoutObj = marketplaceEntry.layoutObject;
-        if(layoutObj.altMaxUrl == false && (layoutObj.renderOnWeb || $localStorage.webPortletRender)) {
+        if($rootScope.GuestMode && !marketplaceEntry.canAdd) {
+          return $scope.loginToAuthPage + '/web/apps/details/'+ marketplaceEntry.fname
+        } else if (!marketplaceEntry.canAdd) {
+          return; //they can't add aka render so don't give them a URL
+        } else if(layoutObj.altMaxUrl == false && (layoutObj.renderOnWeb || $localStorage.webPortletRender)) {
           return 'exclusive/' + layoutObj.fname;
         } else if($scope.isStatic(marketplaceEntry)) {
           return 'static/' + layoutObj.fname;

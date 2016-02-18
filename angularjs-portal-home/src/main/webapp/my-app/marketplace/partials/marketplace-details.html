@@ -53,9 +53,11 @@
 		    <!-- Launch button without access -->
 		    <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 		   </div>
+       <!--GuestMode buttons-->
        <div class="action-buttons" ng-show="GuestMode">
-         <a class="btn btn-outline" ng-href="{{loginToAuthPage + '/web/apps/details/'+ portlet.fname}}" >
-           Login to use
+         <a class="btn btn-outline" ng-href="{{getLaunchURL(portlet)}}" >
+           <span ng-if='portlet.canAdd'>Launch</span>
+           <span ng-if='!portlet.canAdd'>Login to use</span>
          </a>
        </div>
 		</div>
