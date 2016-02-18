@@ -225,20 +225,20 @@ define(['angular'], function(angular){
               $scope.data = result.data;
 
               if($scope.data.responseStatus != 200) {
-        	  $scope.error = true;
-        	  $scope.loading = false;
+                 $scope.error = true;
+                 $scope.loading = false;
               } else {
-        	  if(!$scope.data.responseData
-        		  || !$scope.data.responseData.feed
-        		  || $scope.data.responseData.feed.entries.length == 0) {
-        	      $scope.isEmpty = true;
-        	      $scope.loading = false;
-        	      $scope.error = true;
-        	  }else{
-        	      if($scope.data.responseData.feed.entries.length > $scope.config.lim){
-        		  $scope.config.showShowing = true;
-        	      }
-        	  }
+                      if(!$scope.data.responseData
+                          || !$scope.data.responseData.feed
+                          || $scope.data.responseData.feed.entries.length == 0) {
+                             $scope.isEmpty = true;
+                             $scope.loading = false;
+                             $scope.error = true;
+                      }else{
+                       if($scope.data.responseData.feed.entries.length > $scope.config.lim){
+                          $scope.config.showShowing = true;
+                      }
+               }
               }
           };
           
@@ -247,7 +247,6 @@ define(['angular'], function(angular){
             $scope.isEmpty = true;
             $scope.loading = false;
           };
-        
           layoutService.getRSSJsonified($scope.portlet.widgetURL).then(successFn,errorFn);
         }
       }
