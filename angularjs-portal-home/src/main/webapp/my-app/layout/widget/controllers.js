@@ -221,26 +221,33 @@ define(['angular'], function(angular){
           }
 
           var successFn = function(result){
-            $scope.loading = false;
-            $scope.data = result.data;
-            if($scope.data.responseStatus != 200) {
-              $scope.error = true;
-            } else if(!$scope.data.responseData
-              || !$scope.data.responseData.feed
-              || $scope.data.responseData.feed.entries.length == 0) {
-              $scope.isEmpty = true;
-            }
+              $scope.loading = false;
+              $scope.data = result.data;
+
+              if($scope.data.responseStatus != 200) {
+                 $scope.error = true;
+                 $scope.loading = false;
+              } else {
+                      if(!$scope.data.responseData
+                          || !$scope.data.responseData.feed
+                          || $scope.data.responseData.feed.entries.length == 0) {
+                             $scope.isEmpty = true;
+                             $scope.loading = false;
+                             $scope.error = true;
+                      }else{
+                       if($scope.data.responseData.feed.entries.length > $scope.config.lim){
+                          $scope.config.showShowing = true;
+                      }
+               }
+              }
           };
-          var errorFn = function(data){
+          
+         var errorFn = function(data){
             $scope.error = true;
             $scope.isEmpty = true;
             $scope.loading = false;
           };
-
           layoutService.getRSSJsonified($scope.portlet.widgetURL).then(successFn,errorFn);
-        } else {
-          $scope.loading = false;
-          $scope.error = true;
         }
       }
 
