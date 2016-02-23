@@ -41,8 +41,8 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
     }]);
 
     app.controller('SearchResultController',
-     ['$rootScope', '$scope', '$controller','marketplaceService', 'googleCustomSearchService', 'wiscDirectorySearchService',
-     function($rootScope, $scope, $controller,marketplaceService, googleCustomSearchService, wiscDirectorySearchService) {
+     ['$location', '$rootScope', '$scope', '$controller','marketplaceService', 'googleCustomSearchService', 'wiscDirectorySearchService',
+     function($location, $rootScope, $scope, $controller,marketplaceService, googleCustomSearchService, wiscDirectorySearchService) {
       var base = $controller('marketplaceCommonFunctions', {$scope : $scope});
 
       var initWiscEduSearch = function(){
@@ -85,7 +85,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           }
         );
       };
-      
+
       $scope.filterTo = function(filterName) {
         $('.search-results .inner-nav li').removeClass('active');
         if (filterName == 'all') {
@@ -122,7 +122,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           $('#wiscDirectorySeeMoreResults').hide();
         }
       };
-      
+
       var initwiscDirectoryResultLimit = function(){
           $scope.wiscDirectoryResultLimit = 3;
       }
@@ -141,6 +141,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         $scope.searchResultLimit = 20;
         $scope.showAll = $rootScope.GuestMode || false;
         base.setupSearchTerm();
+        $rootScope.portalSearchTerm = $scope.searchTerm; //in case the search field is not set for whatever reason, reset it
         base.initializeConstants();
         //get marketplace entries
         marketplaceService.getPortlets().then(function(data) {
@@ -171,4 +172,3 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
     return app;
 
 });
-

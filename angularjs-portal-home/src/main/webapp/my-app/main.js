@@ -55,6 +55,7 @@ define([
         $locationProvider.html5Mode(true);
         $routeProvider.
             when('/apps', marketplaceRoutes.main).
+            when('/apps/browse/:initFilter', marketplaceRoutes.main).
             when('/apps/details/:fname', marketplaceRoutes.details).
             when('/apps/search/:initFilter', searchRoutes.search).
             when('/compact', listRoute).

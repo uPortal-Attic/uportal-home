@@ -8,6 +8,8 @@ define(['angular', 'jquery'], function(angular, $) {
         var marketplacePromise;
         //local variables
         var filter = "";
+        var fromSearchTerm = "";
+        var fromSearchOrBrowse = "";
 
         //public functions
 
@@ -18,6 +20,20 @@ define(['angular', 'jquery'], function(angular, $) {
         var getInitialFilter = function(){
             return filter;
         };
+
+        /**
+         * Sets the information about where they came from
+         */
+        var setFromInfo = function(searchOrBrowse, term) {
+          fromSearchTerm = term;
+          fromSearchOrBrowse = searchOrBrowse;
+        }
+        /**
+         * Gets the information about where they came from
+         */
+        var getFromInfo = function() {
+          return {term: fromSearchTerm, searchOrBrowse : fromSearchOrBrowse};
+        }
 
         var checkMarketplaceCache = function() {
             var userPromise = mainService.getUser();
@@ -225,7 +241,9 @@ define(['angular', 'jquery'], function(angular, $) {
             getUserRating : getUserRating,
             saveRating : saveRating,
             filterPortletsBySearchTerm: filterPortletsBySearchTerm,
-            portletMatchesSearchTerm: portletMatchesSearchTerm
+            portletMatchesSearchTerm: portletMatchesSearchTerm,
+            setFromInfo : setFromInfo,
+            getFromInfo : getFromInfo
         };
 
     }]);
