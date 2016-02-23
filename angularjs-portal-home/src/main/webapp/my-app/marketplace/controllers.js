@@ -11,7 +11,7 @@ define(['angular', 'jquery'], function(angular, $) {
         $localStorage, $rootScope, $scope, $modal, $routeParams, $timeout, $location){
 
       $scope.navToDetails = function(marktetplaceEntry, location) {
-        marketplaceService.setFromInfo("Browse", $scope.searchTerm);
+        marketplaceService.setFromInfo(location, $scope.searchTerm);
         $location.path("apps/details/"+ marktetplaceEntry.fname);
       };
 
