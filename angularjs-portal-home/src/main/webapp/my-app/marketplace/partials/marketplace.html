@@ -22,7 +22,7 @@
       </ul>
     </div>
     <div ng-show="showCategories" class="show-categories">
-      <p>Categories:</p><a ng-repeat="category in categories" href="" class="category-links" ng-click="selectFilter('category',category)" ng-class="{true: 'selected-category'}[categoryToShow === category]">{{category}}</a>
+      <p>Categories:</p><a ng-repeat="category in categories" href="" class="btn btn-outline btn-sm category-links" ng-click="selectFilter('category',category)" ng-class="{true: 'selected-category'}[categoryToShow === category]">{{category}}</a>
     </div>
 
     <loading-gif data-object='portlets'></loading-gif>

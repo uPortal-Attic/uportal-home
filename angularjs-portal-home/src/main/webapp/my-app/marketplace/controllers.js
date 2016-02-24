@@ -6,11 +6,13 @@ define(['angular', 'jquery'], function(angular, $) {
 
     app.controller('marketplaceCommonFunctions',
       ['layoutService', 'marketplaceService', 'miscService', 'MISC_URLS', '$sessionStorage',
-       '$localStorage','$rootScope', '$scope', '$modal', '$routeParams', '$timeout',
+       '$localStorage','$rootScope', '$scope', '$modal', '$routeParams', '$timeout', '$location',
        function(layoutService, marketplaceService, miscService,MISC_URLS, $sessionStorage,
-        $localStorage, $rootScope, $scope, $modal, $routeParams, $timeout){
-      $scope.goToDetails = function(fname){
-          $location.path("apps/" + fname );
+        $localStorage, $rootScope, $scope, $modal, $routeParams, $timeout, $location){
+
+      $scope.navToDetails = function(marktetplaceEntry, location) {
+        marketplaceService.setFromInfo(location, $scope.searchTerm);
+        $location.path("apps/details/"+ marktetplaceEntry.fname);
       };
 
       $scope.isStatic = function(portlet) {
@@ -239,9 +241,33 @@ define(['angular', 'jquery'], function(angular, $) {
               currentCategory=category;
               currentPage='details';
           }
+
+          var figureOutBackStuff = function() {
+            var fromInfo = marketplaceService.getFromInfo();
+            if(fromInfo.term) {
+              //from somewhere
+              if("Search" === fromInfo.searchOrBrowse && fromInfo.term) {
+                //if from search and term is populated, return to search
+                $scope.backText = "Search Results for " + fromInfo.term;
+                $scope.backURL = "apps/search/" + fromInfo.term;
+              } else {
+                //assuming from browse
+                $scope.backText = "Browse";
+                $scope.backURL = "apps/browse/" + fromInfo.term;
+              }
+
+              //reset services
+              marketplaceService.setFromInfo(undefined,undefined);
+            } else {
+              //direct hit, will go back to browse
+              $scope.backURL="apps";
+              $scope.backText="Browse";
+            }
+          }
           // init
-          var init = function(){
+          var init = function() {
             $scope.loading = true;
+            figureOutBackStuff();
             $scope.obj = [];
             $scope.errorMessage = 'There was an issue loading details, please click back to apps.';
             marketplaceService.getPortlet($routeParams.fname).then(function(result) {

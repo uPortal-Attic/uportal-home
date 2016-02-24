@@ -38,7 +38,7 @@
               class="added">
           <i class="fa fa-check"></i> Added to home
         </span>
-        <a href="apps/details/{{::portlet.fname}}">Details</a>
+        <button class='btn btn-link' style='padding:0;' title='See more about {{portlet.name}}' ng-click='navToDetails(portlet, "Search")'>Details</button>
         <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
       </p>
     </div>

@@ -50,11 +50,19 @@
   </span>
   <span ng-hide="GuestMode"> | <button ng-click="openRating('sm',portlet.fname, portlet.title)" class="btn btn-default">Rate</button></span>
   <p tabindex="0">{{::portlet.description}}</p>
-  <div class="category-list">
-    <a ng-repeat="category in portlet.categories" href="" ng-click="selectFilter('category',category)" class="category-links">{{::category}}</a>
-    <div class="portlet-details">
-      <a href="apps/details/{{::portlet.fname}}">Details</a>
+  <div class="category-list container-fluid row">
+    <div class="col-xs-8">
+      <a ng-repeat="category in portlet.categories"
+         href=""
+         ng-click="selectFilter('category',category)"
+         class="btn btn-outline btn-sm category-links">
+          {{::category}}
+       </a>
     </div>
+    <div class="col-xs-4">
+      <a title='See more about {{portlet.name}}' ng-click='navToDetails(portlet, "Browse")' class="btn btn-outline btn-sm pull-right">Details</a>
+    </div>
+
   </div>
 
 
