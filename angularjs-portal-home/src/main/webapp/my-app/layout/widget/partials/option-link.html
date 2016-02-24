@@ -1,10 +1,9 @@
 <div class="widget-icon-container">
   <div class="option-link-icon">
-    <portlet-icon></portlet-icon>
+    <a href="{{portlet.selectedUrl}}" target="_blank"><portlet-icon></portlet-icon></a>
   </div>
 </div>
 <div>
-  <div>
     <div ng-if="portlet.widgetData.length == 0" class='center'>
         <loading-gif data-object='portlet.widgetData'></loading-gif>
     </div>
@@ -17,6 +16,5 @@
            <option ng-repeat='obj in portlet.widgetData[config.arrayName]' value="{{obj[config.value]}}" title='{{obj[config.display].length > 26 ? obj[config.display] : ""}}'>{{obj[config.display] | trimMiddle:26}}</option>
        </select>
     </div>
-  </div>
 </div>
 <a class="btn btn-default launch-app-button" href="{{portlet.selectedUrl}}" target="_blank">Launch {{portlet.title}}</a>
