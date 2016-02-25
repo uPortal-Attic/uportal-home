@@ -8,10 +8,10 @@
     </div>
   </div>
 </script>
-<app-header app-title="Home" 
-            app-icon="fa-home"
-            app-action-link-url='apps'
-            app-action-link-icon='fa-plus-square'
-            app-action-link-text='Add more to home'
-            app-option-template='toggle-modes.html'>
-</app-header>
+<app-header-two-way-bind app-title="'Home'"
+            app-icon="'fa-home'"
+            app-action-link-url="'apps'"
+            app-action-link-icon="GuestMode ? 'fa-globe' : 'fa-plus-square'"
+            app-action-link-text="GuestMode ? 'Browse MyUW' : 'Add more to home'"
+            app-option-template="'toggle-modes.html'">
+</app-header-two-way-bind>

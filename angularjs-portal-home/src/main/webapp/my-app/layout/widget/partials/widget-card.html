@@ -8,7 +8,7 @@
       tooltip-placement="top"
       tooltip-popup-delay="200"></i>
     </div>
-    <div class='widget-remove'>
+    <div class='widget-remove' ng-hide='GuestMode'>
       <i title="Remove" class="fa fa-times portlet-options" ng-click="widgetCtrl.removePortlet(portlet.nodeId, portlet.title)"><a aria-label="Remove this app" href="#"></a></i>
     </div>
 
