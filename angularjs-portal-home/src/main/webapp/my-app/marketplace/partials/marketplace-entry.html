@@ -38,9 +38,9 @@
   </div>
   <!--GuestMode buttons-->
   <div class="action-buttons" ng-show="GuestMode">
-    <a class="btn btn-outline" ng-href="{{getLaunchURL(portlet)}}" >
-      <span ng-if='portlet.canAdd'>Launch</span>
-      <span ng-if='!portlet.canAdd'>Login to use</span>
+    <a class="btn btn-outline" style='margin-right: 15px' ng-href="{{getLaunchURL(portlet)}}" >
+      <span ng-if='portlet.hasInLayout'>Launch</span>
+      <span ng-if='!portlet.hasInLayout'>Login</span>
     </a>
   </div>
 
