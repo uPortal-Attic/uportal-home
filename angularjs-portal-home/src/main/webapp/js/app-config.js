@@ -2,23 +2,21 @@ define(['angular'], function(angular) {
 
     var config = angular.module('app-config', []);
     config
-        .constant('APP_FLAGS', {
+        .value('APP_FLAGS', {
             'showSidebar' : true,
             'showSearch' : true,
             'enableToggle': true,
             'defaultView' : 'expanded',
             'compact' : true,
             'expanded' : true,
-            'features' : true,
             'isWeb' : true,
             'defaultTheme' : 'group',
             'loginOnLoad' : false
         })
-        .constant('SERVICE_LOC', {
+        .value('SERVICE_LOC', {
             'aboutURL' : '/portal/web/session.json',
             'sessionInfo' : '/portal/web/session.json',
             'sidebarInfo' : '/web/staticFeeds/sidebar.json',
-            'featuresInfo' : '/web/staticFeeds/features.json',
             'newstuffInfo': '/web/staticFeeds/new-stuff.json',
             'context'     : '/portal/',
             'base'        : '/portal/web/',
@@ -36,7 +34,7 @@ define(['angular'], function(angular) {
             'loginSilentURL' : '/portal/Login?silent=true',
             'wiscDirectorySearchURL' : '/web/api/wiscdirectory'
         })
-        .constant('NAMES', {
+        .value('NAMES', {
             'title' : 'MyUW',
             'ariaLabelTitle' : 'My U W',
             'crest' : 'img/uwcrest_web_sm.png',
@@ -44,16 +42,21 @@ define(['angular'], function(angular) {
             'sublogo' : '',
             'guestUserName' : 'guest'
         })
-        .constant('SEARCH',{
+        .value('SEARCH',{
 
         })
-        .constant('NOTIFICATION', {
+        .value('FEATURES', {
+            'enabled' : false,
+            'groupFiltering' : false,
+            'serviceURL' : 'staticFeeds/features.json'
+        })
+        .value('NOTIFICATION', {
             'enabled' : true,
             'groupFiltering' : true,
             'notificationFullURL' : 'notifications'
         })
-        .constant('MISC_URLS',{
-            'upBase' : 'https://my.wisc.edu',
+        .value('MISC_URLS',{
+            'myuwHome' : 'https://my.wisc.edu',
             'feedbackURL' : '/portal/p/feedback',
             'back2ClassicURL' : '/portal/Login?profile=default',
             'whatsNewURL' : 'https://kb.wisc.edu/myuw/page.php?id=48181',
@@ -71,7 +74,7 @@ define(['angular'], function(angular) {
               'addToHomeActionURL' : '/portal/web/layout?tabName=UW Bucky Home&action=addPortlet&fname='
             }
         })
-        .constant('FOOTER_URLS', [
+        .value('FOOTER_URLS', [
           { "url" : "static/myuw-help",
             "target" : "_blank",
             "title" : "Help"
@@ -89,7 +92,7 @@ define(['angular'], function(angular) {
             "title" : "Old MyUW"
           },
         ])
-        .constant('APP_BETA_FEATURES', [
+        .value('APP_BETA_FEATURES', [
           {
             "id" : "webPortletRender",
             "title" : "/web portlet rendering",
