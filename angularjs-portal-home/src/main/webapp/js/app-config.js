@@ -92,6 +92,12 @@ define(['angular'], function(angular) {
             "title" : "Old MyUW"
           },
         ])
+        .value('SEARCH_URLS', [
+          {
+            "group" : "UW-Madison",
+            "directorySearchURL" : "/web/api/wiscdirectory"
+          }
+        ])
         .value('APP_BETA_FEATURES', [
           {
             "id" : "webPortletRender",

@@ -33,25 +33,92 @@ define(['angular', 'jquery'], function(angular, $) {
       
     }]);
     
-    app.factory('wiscDirectorySearchService', ['$http', 'miscService', 'SERVICE_LOC', function($http, miscService, SERVICE_LOC){
+    app.factory('wiscDirectorySearchService', [
+         '$http', '$sessionStorage', '$q', 'PortalGroupService', 'SEARCH_URLS', 'filterFilter', 'miscService', 'SERVICE_LOC', 
+         function($http, $sessionStorage, $q, PortalGroupService, SEARCH_URLS, filterFilter, miscService, SERVICE_LOC){
+        
+        var directoryUrlPromise;
+        var directorySearchEnabledPromise;
         
         function wiscDirectorySearch(term) {
-          return $http.get(SERVICE_LOC.wiscDirectorySearchURL + "/?name=" + term).then(
-            function(response){
-              return response.data;
-            },
-            function(response){
-              console.log("error searching the wisc diretory: " +  response.status);
+          return getDirectorySearchURL().then(function(result){
+            return $http.get(result + "/?name=" + term).then(
+              function(response){
+                return response.data;
+              },
+              function(response){
+                console.log("error searching the wisc diretory: " +  response.status);
+              }
+            );
+          });
+        };
+        
+        /**
+         * Returns promise that will return true or false if there exists
+         * a directorySearchURL for any of the users groups
+         */
+        function wiscDirectorySearchEnabled() {
+            var successFn, errorFn;
+            
+            if(directorySearchEnabledPromise){
+              return directorySearchEnabledPromise;
             }
-          );
+            
+            successFn = function(directoryURL){
+              if(directoryURL){
+                return true;
+              }else{
+                return false;
+              }
+            }
+            
+            errorFn = function(response){
+              console.log("error determing if directory search is enabled: " +  response.status);
+              return false;
+            }
+            
+            directorySearchEnabledPromise = getDirectorySearchURL().then(successFn, errorFn);
+            return directorySearchEnabledPromise;
         }
         
-        function wiscDirectorySearchEnabled() {
-          if(SERVICE_LOC.wiscDirectorySearchURL) {
-            return true;
-          } else {
-            return false;
+        /**
+         * Returns a promise that will return a directorySearchURL if any exist
+         * for a users group or null if one does not exists.
+         */
+        function getDirectorySearchURL() {
+          var successFn, errorFn;
+          
+          if(directoryUrlPromise){
+            return directoryUrlPromise;
           }
+          
+          successFn = function(result){
+            if($sessionStorage.search && $sessionStorage.search.directorySearchURL){
+              return $sessionStorage.search.directorySearchURL;
+            }
+            
+            for(var i = 0; i < SEARCH_URLS.length; i++){
+              var searchURLS = SEARCH_URLS[i];
+              var searchGroup = searchURLS.group;
+              var filterTest = filterFilter(result, {name: searchGroup});
+              if(filterTest && filterTest.length >0){
+                $sessionStorage.search = searchURLS;
+                break;
+              }
+            }
+            if($sessionStorage.search && $sessionStorage.search.directorySearchURL){
+              return $sessionStorage.search.directorySearchURL;
+            }
+            return null;
+          };
+          
+          errorFn = function(reason){
+            miscService.redirectUser(reason.status, 'search directory url call');
+          }
+          
+          directoryUrlPromise = PortalGroupService.getGroups().then(successFn, errorFn);
+          
+          return directoryUrlPromise;
         }
         
         return {
