@@ -33,21 +33,21 @@ define(['angular', 'jquery'], function(angular, $) {
       
     }]);
     
-    app.factory('wiscDirectorySearchService', [
+    app.factory('directorySearchService', [
          '$http', '$sessionStorage', '$q', 'PortalGroupService', 'SEARCH_URLS', 'filterFilter', 'miscService', 'SERVICE_LOC', 
          function($http, $sessionStorage, $q, PortalGroupService, SEARCH_URLS, filterFilter, miscService, SERVICE_LOC){
         
         var directoryUrlPromise;
         var directorySearchEnabledPromise;
         
-        function wiscDirectorySearch(term) {
+        function directorySearch(term) {
           return getDirectorySearchURL().then(function(result){
             return $http.get(result + "/?name=" + term).then(
               function(response){
                 return response.data;
               },
               function(response){
-                console.log("error searching the wisc diretory: " +  response.status);
+                console.log("error searching the directory: " +  response.status);
               }
             );
           });
@@ -57,7 +57,7 @@ define(['angular', 'jquery'], function(angular, $) {
          * Returns promise that will return true or false if there exists
          * a directorySearchURL for any of the users groups
          */
-        function wiscDirectorySearchEnabled() {
+        function directorySearchEnabled() {
             var successFn, errorFn;
             
             if(directorySearchEnabledPromise){
@@ -122,8 +122,8 @@ define(['angular', 'jquery'], function(angular, $) {
         }
         
         return {
-          wiscDirectorySearch : wiscDirectorySearch,
-          wiscDirectorySearchEnabled : wiscDirectorySearchEnabled
+          directorySearch : directorySearch,
+          directorySearchEnabled : directorySearchEnabled
         };
         
         
