@@ -34,22 +34,28 @@ define(['angular', 'jquery'], function(angular, $) {
     }]);
     
     app.factory('directorySearchService', [
-         '$http', '$sessionStorage', '$q', 'PortalGroupService', 'SEARCH', 'filterFilter', 'miscService', 
-         function($http, $sessionStorage, $q, PortalGroupService, SEARCH, filterFilter, miscService){
+         '$http', '$sessionStorage', '$q', 'PortalGroupService', 'SEARCH_URLS', 'filterFilter', 'miscService', 
+         function($http, $sessionStorage, $q, PortalGroupService, SEARCH_URLS, filterFilter, miscService){
         
         var directoryUrlPromise;
         var directorySearchEnabledPromise;
         
         function directorySearch(term) {
-          return getDirectorySearchURL().then(function(result){
-            return $http.get(result + "/?name=" + term).then(
-              function(response){
-                return response.data;
-              },
-              function(response){
-                console.log("error searching the directory: " +  response.status);
+          return getDirectorySearchURL().then(function(searchDirectoryURL){
+            return $q(function(resolve, reject){
+              if(searchDirectoryURL){
+                return $http.get(searchDirectoryURL + "/?name=" + term).then(
+                  function(response){
+                    return resolve(response.data);
+                  },
+                  function(response){
+                    return reject("error searching the directory: " +  response.status);
+                  }
+                );
+              }else{
+                return reject("User has no group for directory search");
               }
-            );
+            })
           });
         };
         
@@ -97,8 +103,8 @@ define(['angular', 'jquery'], function(angular, $) {
               return $sessionStorage.search.directorySearchURL;
             }
             
-            for(var i = 0; i < SEARCH.length; i++){
-              var searchURLS = SEARCH[i];
+            for(var i = 0; i < SEARCH_URLS.length; i++){
+              var searchURLS = SEARCH_URLS[i];
               var searchGroup = searchURLS.group;
               var filterTest = filterFilter(result, {name: searchGroup});
               if(filterTest && filterTest.length >0){
