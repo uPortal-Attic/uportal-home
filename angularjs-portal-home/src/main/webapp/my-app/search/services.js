@@ -34,8 +34,8 @@ define(['angular', 'jquery'], function(angular, $) {
     }]);
     
     app.factory('directorySearchService', [
-         '$http', '$sessionStorage', '$q', 'PortalGroupService', 'SEARCH_URLS', 'filterFilter', 'miscService', 'SERVICE_LOC', 
-         function($http, $sessionStorage, $q, PortalGroupService, SEARCH_URLS, filterFilter, miscService, SERVICE_LOC){
+         '$http', '$sessionStorage', '$q', 'PortalGroupService', 'SEARCH', 'filterFilter', 'miscService', 
+         function($http, $sessionStorage, $q, PortalGroupService, SEARCH, filterFilter, miscService){
         
         var directoryUrlPromise;
         var directorySearchEnabledPromise;
@@ -97,8 +97,8 @@ define(['angular', 'jquery'], function(angular, $) {
               return $sessionStorage.search.directorySearchURL;
             }
             
-            for(var i = 0; i < SEARCH_URLS.length; i++){
-              var searchURLS = SEARCH_URLS[i];
+            for(var i = 0; i < SEARCH.length; i++){
+              var searchURLS = SEARCH[i];
               var searchGroup = searchURLS.group;
               var filterTest = filterFilter(result, {name: searchGroup});
               if(filterTest && filterTest.length >0){
