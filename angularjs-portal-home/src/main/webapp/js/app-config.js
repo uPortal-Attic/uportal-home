@@ -91,7 +91,7 @@ define(['angular'], function(angular) {
             "title" : "Old MyUW"
           },
         ])
-        .value('SEARCH_CONFIG_URLS', [
+        .value('SEARCH_URLS', [
           {
             "group" : "UW-Madison",
             "directorySearchURL" : "/web/api/wiscdirectory"
