@@ -41,8 +41,8 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
     }]);
 
     app.controller('SearchResultController',
-     ['$location', '$rootScope', '$scope', '$controller','marketplaceService', 'googleCustomSearchService', 'wiscDirectorySearchService','PortalSearchService',
-     function($location, $rootScope, $scope, $controller,marketplaceService, googleCustomSearchService, wiscDirectorySearchService, PortalSearchService) {
+     ['$location', '$rootScope', '$scope', '$controller','marketplaceService', 'googleCustomSearchService', 'directorySearchService','PortalSearchService',
+     function($location, $rootScope, $scope, $controller,marketplaceService, googleCustomSearchService, directorySearchService, PortalSearchService) {
       var base = $controller('marketplaceCommonFunctions', {$scope : $scope});
 
       var initWiscEduSearch = function(){
@@ -60,9 +60,9 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         );
       };
 
-      var initWiscDirectorySearch = function(){
+      var initDirectorySearch = function(){
         $scope.wiscDirectoryLoading = true;
-        wiscDirectorySearchService.wiscDirectorySearch($scope.searchTerm).then(
+        directorySearchService.directorySearch($scope.searchTerm).then(
           function(results){
             $scope.wiscDirectoryLoading = false;
             if(results){
@@ -132,6 +132,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         initwiscDirectoryResultLimit();
         $scope.myuwResults = [];
         $scope.googleResults = [];
+        $scope.directoryEnabled = false;
         $scope.wiscDirectoryResults = [];
         $scope.wiscDirectoryResultCount = 0;
         $scope.wiscDirectoryTooManyResults = false;
@@ -164,9 +165,13 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
       if(googleCustomSearchService.googleSearchEnabled()){
         initWiscEduSearch();
       }
-      if(wiscDirectorySearchService.wiscDirectorySearchEnabled()){
-        initWiscDirectorySearch();
-      }
+      directorySearchService.directorySearchEnabled().then(function(directoryEnabled){
+          $scope.directoryEnabled = directoryEnabled;
+          if(directoryEnabled){
+              initDirectorySearch();
+          }
+      });
+      
     }]);
 
     return app;

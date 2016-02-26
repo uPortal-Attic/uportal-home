@@ -7,7 +7,7 @@
       <li ng-click="filterTo('myuw')" id="myuw-selector">
         <a>MyUW ({{myuwFilteredResults.length}})</a>
       </li>
-      <li ng-click="filterTo('directory')" id="directory-selector">
+      <li ng-show="directoryEnabled" ng-click="filterTo('directory')" id="directory-selector">
         <a>Directory ({{wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount}})</a>
       </li>
       <li ng-click="filterTo('google')" id="google-selector">
@@ -52,7 +52,7 @@
   </div>
 
   <!--wisc directory results-->
-  <div id="wisc-directory-results" class='search-results-container'>
+  <div ng-show="directoryEnabled" id="wisc-directory-results" class='search-results-container'>
     <div id="wisc-directory-results-header">
       <h4 class='header'>Directory</h4>
       <hr>
