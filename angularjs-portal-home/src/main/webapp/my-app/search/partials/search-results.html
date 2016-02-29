@@ -1,5 +1,5 @@
 <div class="row search-results">
-  <div class="inner-nav-container">
+  <div ng-show="googleSearchEnabled || directoryEnabled" class="inner-nav-container">
     <ul class="inner-nav">
       <li class="active" ng-click="filterTo('all')" id="all-selector">
         <a>All ({{ totalCount }})</a>
@@ -10,7 +10,7 @@
       <li ng-show="directoryEnabled" ng-click="filterTo('directory')" id="directory-selector">
         <a>Directory ({{wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount}})</a>
       </li>
-      <li ng-click="filterTo('google')" id="google-selector">
+      <li ng-show="googleSearchEnabled" ng-click="filterTo('google')" id="google-selector">
         <a>Wisc.edu ({{googleResultsEstimatedCount}})</a>
       </li>
     </ul>
@@ -102,7 +102,7 @@
   </div>
 
   <!--wisc.edu results-->
-  <div id="wisc-edu-results" class='search-results-container'>
+  <div ng-show="googleSearchEnabled" id="wisc-edu-results" class='search-results-container'>
     <div id="wisc-edu-results-header">
       <h4 class='header'>Wisc.edu</h4>
       <hr>

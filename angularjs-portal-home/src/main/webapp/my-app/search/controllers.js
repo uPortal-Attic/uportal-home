@@ -136,6 +136,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         $scope.wiscDirectoryResults = [];
         $scope.wiscDirectoryResultCount = 0;
         $scope.wiscDirectoryTooManyResults = false;
+        $scope.googleSearchEnabled = false;
         $scope.googleResultsEstimatedCount = 0;
         $scope.googleEmptyResults = false;
         $scope.totalCount = 0;
@@ -162,9 +163,13 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         });
       };
       init();
-      if(googleCustomSearchService.googleSearchEnabled()){
-        initWiscEduSearch();
-      }
+      
+      googleCustomSearchService.googleSearchEnabled().then(function(googleSearchEnabled){
+          $scope.googleSearchEnabled = googleSearchEnabled;
+          if(googleSearchEnabled){
+              initWiscEduSearch();
+          }
+      });
       directorySearchService.directorySearchEnabled().then(function(directoryEnabled){
           $scope.directoryEnabled = directoryEnabled;
           if(directoryEnabled){
