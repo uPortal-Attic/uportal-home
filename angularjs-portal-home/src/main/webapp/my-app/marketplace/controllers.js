@@ -132,8 +132,11 @@ define(['angular', 'jquery'], function(angular, $) {
 
       this.initializeConstants = function(){
         //initialize constants
-        googleCustomSearchService.getWebSearchURL().then(function(webSearchURL){
+        googleCustomSearchService.getPublicWebSearchURL().then(function(webSearchURL){
             $scope.webSearchUrl = webSearchURL;
+        });
+        googleCustomSearchService.getDomainResultsLabel().then(function(domainResultsLabel){
+            $scope.domainResultsLabel = domainResultsLabel;
         });
         $scope.webSearchDomain = MISC_URLS.webSearchDomain;
         $scope.directorySearchUrl = MISC_URLS.directorySearchURL;

@@ -10,17 +10,38 @@ define(['angular', 'jquery'], function(angular, $) {
       var googleSearchURLPromise;
       var googleSearchEnabledPromise;
       var webSearchURLPromise;
+      var domainResultsLabelPromise;
+      
+      function getDomainResultsLabel(){
+        var successFn, errorFn;
+        if(domainResultsLabelPromise){
+          return domainResultsLabelPromise;
+        }
+        successFn = function(groups){
+          return miscSearchService.getSearchURLS(groups).then(function(result){
+            if(result && result.domainResultsLabel){
+              return result.domainResultsLabel;
+            }
+            else{
+              return null;
+            }
+          })
+        };
+        errorFn = function(reason){
+          miscService.redirectUser(reason.status, 'Could not get appropriate domain results label');
+        }
+        domainResultsLabelPromise = PortalGroupService.getGroups().then(successFn, errorFn);
+        return domainResultsLabelPromise;
+      }
       
       /**
        * Returns a public web search url. Useful for 'See more results here'
        */
-      function getWebSearchURL(){
+      function getPublicWebSearchURL(){
           var successFn, errorFn;
-          
           if(webSearchURLPromise){
             return webSearchURLPromise;
           }
-          
           successFn = function(groups){
             return miscSearchService.getSearchURLS(groups).then(function(result){
               if(result && result.webSearchURL){
@@ -31,13 +52,10 @@ define(['angular', 'jquery'], function(angular, $) {
               }
             })
           };
-          
           errorFn = function(reason){
-            miscService.redirectUser(reason.status, 'Could not get appropriate google search url');
+            miscService.redirectUser(reason.status, 'Could not get appropriate public web search url');
           }
-          
           webSearchURLPromise = PortalGroupService.getGroups().then(successFn, errorFn);
-          
           return webSearchURLPromise;
       }
       
@@ -139,19 +157,20 @@ define(['angular', 'jquery'], function(angular, $) {
       return {
         googleSearch : googleSearch,
         googleSearchEnabled : googleSearchEnabled,
-        getWebSearchURL : getWebSearchURL
+        getPublicWebSearchURL : getPublicWebSearchURL,
+        getDomainResultsLabel : getDomainResultsLabel
       };
     }]);
     
-    app.factory('miscSearchService', ['$q', '$sessionStorage', 'filterFilter', 'SEARCH_CONFIG_URLS', function($q, $sessionStorage, filterFilter, SEARCH_CONFIG_URLS){
+    app.factory('miscSearchService', ['$q', '$sessionStorage', 'filterFilter', 'SEARCH_CONFIG', function($q, $sessionStorage, filterFilter, SEARCH_CONFIG){
 
       function getSearchURLS(groups){
         return $q(function(resolve, reject) {
           if($sessionStorage.search){
             resolve($sessionStorage.search);
           }
-          for(var i = 0; i < SEARCH_CONFIG_URLS.length; i++){
-            var searchURLS = SEARCH_CONFIG_URLS[i];
+          for(var i = 0; i < SEARCH_CONFIG.length; i++){
+            var searchURLS = SEARCH_CONFIG[i];
             var searchGroup = searchURLS.group;
             var filterTest = filterFilter(groups, {name: searchGroup});
             if(filterTest && filterTest.length >0){
