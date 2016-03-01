@@ -47,13 +47,14 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
 
       var initWiscEduSearch = function(){
         googleCustomSearchService.googleSearch($scope.searchTerm).then(
-          function(results){
-            if(results && results.responseData && results.responseData.results) {
-              $scope.googleResults = results.responseData.results;
-              if(results.responseData.cursor.estimatedResultCount){
-                $scope.googleResultsEstimatedCount = results.responseData.cursor.estimatedResultCount;
-              }else{
-                $scope.googleEmptyResults = true;
+          function(data){
+            if(data && data.results) {
+              $scope.googleResults = data.results;
+              if(data.estimatedResultCount){
+                $scope.googleResultsEstimatedCount = data.estimatedResultCount;
+              }
+              if(!data.estimatedResultCount || data.estimatedResultCount == 0){
+                  $scope.googleEmptyResults = true;
               }
             }
           }

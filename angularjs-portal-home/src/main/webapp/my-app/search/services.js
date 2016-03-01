@@ -9,6 +9,37 @@ define(['angular', 'jquery'], function(angular, $) {
         
       var googleSearchURLPromise;
       var googleSearchEnabledPromise;
+      var webSearchURLPromise;
+      
+      /**
+       * Returns a public web search url. Useful for 'See more results here'
+       */
+      function getWebSearchURL(){
+          var successFn, errorFn;
+          
+          if(webSearchURLPromise){
+            return webSearchURLPromise;
+          }
+          
+          successFn = function(groups){
+            return miscSearchService.getSearchURLS(groups).then(function(result){
+              if(result && result.webSearchURL){
+                return result.webSearchURL;
+              }
+              else{
+                return null;
+              }
+            })
+          };
+          
+          errorFn = function(reason){
+            miscService.redirectUser(reason.status, 'Could not get appropriate google search url');
+          }
+          
+          webSearchURLPromise = PortalGroupService.getGroups().then(successFn, errorFn);
+          
+          return webSearchURLPromise;
+      }
       
       function googleSearch(term) {
         return getGoogleSearchURL().then(function(googleSearchURL){
@@ -16,16 +47,33 @@ define(['angular', 'jquery'], function(angular, $) {
             if(googleSearchURL){
               return $http.get(googleSearchURL + "&q=" + term).then(
                 function(response){
-                  return resolve(response.data);
-                },
-                function(response){
-                  return reject("error searching the google status: " +  response.status);
+                  var data = {
+                    results : null,
+                    estimatedResultCount : null
+                  };
+                  //Standardize data
+                  if(response.data){
+                    //Find the results
+                    if(response.data.results){ //uwrf
+                        data.results = response.data.results;
+                    }else if(response.data.responseData && response.data.responseData.results){ //uwmad
+                        data.results = response.data.responseData.results;
+                    }
+                    //Find the estimated count
+                    if(response.data.cursor && response.data.cursor.estimatedResultCount){ //uwrf
+                        data.estimatedResultCount = response.data.cursor.estimatedResultCount;
+                    }else if(response.data.responseData && response.data.responseData.cursor && response.data.responseData.cursor.estimatedResultCount){ //uwmad
+                        data.estimatedResultCount = response.data.responseData.cursor.estimatedResultCount;
+                    }
+                  
+                  }
+                  resolve(data);
                 }
               );
             }else{
-              return reject("User has no group for google URL search");
+              reject("User has no group for google URL search");
             }
-          })
+          });
         });
       };
       
@@ -90,7 +138,8 @@ define(['angular', 'jquery'], function(angular, $) {
       
       return {
         googleSearch : googleSearch,
-        googleSearchEnabled : googleSearchEnabled
+        googleSearchEnabled : googleSearchEnabled,
+        getWebSearchURL : getWebSearchURL
       };
     }]);
     

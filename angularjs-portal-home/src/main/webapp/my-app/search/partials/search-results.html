@@ -120,7 +120,7 @@
 
     </div>
     <div>
-      <h4 ng-hide='googleEmptyResults'><a ng-href="{{webSearchUrl + searchText}}">View more results for {{searchText}} on wisc.edu</a></h4>
+      <h4 ng-if="webSearchUrl && !googleEmptyResults"><a ng-href="{{webSearchUrl + searchText}}">View more results for {{searchText}} on wisc.edu</a></h4>
     </div>
   </div>
 

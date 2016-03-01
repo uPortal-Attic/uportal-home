@@ -5,9 +5,9 @@ define(['angular', 'jquery'], function(angular, $) {
     var app = angular.module('my-app.marketplace.controllers', []);
 
     app.controller('marketplaceCommonFunctions',
-      ['layoutService', 'marketplaceService', 'miscService', 'MISC_URLS', '$sessionStorage',
+      ['googleCustomSearchService', 'layoutService', 'marketplaceService', 'miscService', 'MISC_URLS', '$sessionStorage',
        '$localStorage','$rootScope', '$scope', '$modal', '$routeParams', '$timeout', '$location',
-       function(layoutService, marketplaceService, miscService,MISC_URLS, $sessionStorage,
+       function(googleCustomSearchService, layoutService, marketplaceService, miscService,MISC_URLS, $sessionStorage,
         $localStorage, $rootScope, $scope, $modal, $routeParams, $timeout, $location){
 
       $scope.navToDetails = function(marktetplaceEntry, location) {
@@ -132,7 +132,9 @@ define(['angular', 'jquery'], function(angular, $) {
 
       this.initializeConstants = function(){
         //initialize constants
-        $scope.webSearchUrl = MISC_URLS.webSearchURL;
+        googleCustomSearchService.getWebSearchURL().then(function(webSearchURL){
+            $scope.webSearchUrl = webSearchURL;
+        });
         $scope.webSearchDomain = MISC_URLS.webSearchDomain;
         $scope.directorySearchUrl = MISC_URLS.directorySearchURL;
         $scope.kbSearchUrl = MISC_URLS.kbSearchURL;
