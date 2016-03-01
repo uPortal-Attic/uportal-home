@@ -6,9 +6,9 @@ define(['angular', 'jquery'], function(angular, $) {
 
     app.controller('marketplaceCommonFunctions',
       ['googleCustomSearchService', 'layoutService', 'marketplaceService', 'miscService', 'MISC_URLS', '$sessionStorage',
-       '$localStorage','$rootScope', '$scope', '$modal', '$routeParams', '$timeout', '$location',
+       '$localStorage','$rootScope', '$scope', '$uibModal', '$routeParams', '$timeout', '$location',
        function(googleCustomSearchService, layoutService, marketplaceService, miscService,MISC_URLS, $sessionStorage,
-        $localStorage, $rootScope, $scope, $modal, $routeParams, $timeout, $location){
+        $localStorage, $rootScope, $scope, $uibModal, $routeParams, $timeout, $location){
 
       $scope.navToDetails = function(marktetplaceEntry, location) {
         marketplaceService.setFromInfo(location, $scope.searchTerm);
@@ -54,7 +54,7 @@ define(['angular', 'jquery'], function(angular, $) {
       };
 
       $scope.openRating = function (size, fname, name) {
-          var modalInstance = $modal.open({
+          var modalInstance = $uibModal.open({
               templateUrl: 'ratingModal.html',
               controller: 'RatingModalController',
               size: size,
@@ -205,7 +205,7 @@ define(['angular', 'jquery'], function(angular, $) {
             init();
         } ]);
 
-    app.controller('RatingModalController', function ($scope, $modalInstance, marketplaceService, fname, name) {
+    app.controller('RatingModalController', function ($scope, $uibModalInstance, marketplaceService, fname, name) {
 
         $scope.fname = fname;
         $scope.name = name;
@@ -226,11 +226,11 @@ define(['angular', 'jquery'], function(angular, $) {
         $scope.ok = function () {
             $scope.thanks = true;
             marketplaceService.saveRating($scope.fname, $scope.rating);
-            $modalInstance.close();
+            $uibModalInstance.close();
         };
 
         $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
+            $uibModalInstance.dismiss('cancel');
         };
     });
 

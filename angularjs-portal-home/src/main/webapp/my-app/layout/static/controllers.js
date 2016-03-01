@@ -4,7 +4,7 @@ define(['angular', 'jquery'], function(angular, $) {
 
     var app = angular.module('my-app.layout.static.controllers', []);
 
-    app.controller('ExclusiveContentController', ['$modal',
+    app.controller('ExclusiveContentController', ['$uibmodal',
                                                   '$location',
                                                   '$sessionStorage',
                                                   '$routeParams',
@@ -12,7 +12,7 @@ define(['angular', 'jquery'], function(angular, $) {
                                                   '$scope',
                                                   'layoutService',
                                                   'sharedPortletService',
-                                                  function ($modal,
+                                                  function ($uibModal,
                                                             $location,
                                                             $sessionStorage,
                                                             $routeParams,
@@ -54,7 +54,7 @@ define(['angular', 'jquery'], function(angular, $) {
     }]);
 
     app.controller('StaticContentController', [
-        '$modal',
+        '$uibModal',
         '$location',
         '$sessionStorage',
         '$routeParams',
@@ -62,7 +62,7 @@ define(['angular', 'jquery'], function(angular, $) {
         '$scope',
         'layoutService',
         'sharedPortletService',
-        function ($modal,
+        function ($uibModal,
                   $location,
                   $sessionStorage,
                   $routeParams,
@@ -105,7 +105,7 @@ define(['angular', 'jquery'], function(angular, $) {
             }
 
             $scope.openRating = function (size, fname, name) {
-                var modalInstance = $modal.open({
+                var modalInstance = $uibModal.open({
                     templateUrl: 'ratingModal.html',
                     controller: 'RatingModalController',
                     size: size,

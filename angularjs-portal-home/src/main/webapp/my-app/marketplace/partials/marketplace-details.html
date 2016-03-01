@@ -35,7 +35,7 @@
 			    <button class="btn btn-disabled fname-{{::portlet.fname}}"
 			            ng-if="portlet.canAdd && portlet.hasInLayout"
 			            ng-class="{'btn-disabled' : portlet.hasInLayout}"
-			            popover="This app is already in your favorites"
+			            uib-popover="This app is already in your favorites"
 			            popover-trigger="mouseenter"
 			            popover-placement="top"
 			            popover-popup-delay="500">
@@ -43,7 +43,7 @@
 			    </button>
 
 			    <!-- Add to home button without access -->
-			    <button class="btn btn-disabled" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
+			    <button class="btn btn-disabled" ng-hide="portlet.canAdd" uib-popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
 			      <span class="fa fa-plus"></span> Add to home
 			    </button>
 
@@ -51,7 +51,7 @@
 		    <a aria-label="launch {{::portlet.title}}" class="btn btn-success" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span> Launch</a>
 
 		    <!-- Launch button without access -->
-		    <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+		    <a class="btn btn-disabled" href ng-hide="portlet.canAdd" uib-popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
 		   </div>
        <!--GuestMode buttons-->
        <div class="action-buttons" ng-show="GuestMode">
@@ -69,7 +69,7 @@
 		</div>
 		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center rating-div">
 			<h3 tabindex="0">Ratings</h3>
-			<span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
+			<span><uib-rating ng-model="portlet.rating" readonly="true" class="rating"></uib-rating>
     ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
   		</span><br>
   		<button ng-hide="GuestMode" ng-click="openRating('sm',portlet.fname, portlet.title)" class="btn btn-default rate-button">Rate</button>
