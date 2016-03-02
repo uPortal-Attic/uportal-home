@@ -162,7 +162,59 @@ define(['angular', 'jquery'], function(angular, $) {
       };
     }]);
     
-    app.factory('miscSearchService', ['$q', '$sessionStorage', 'filterFilter', 'SEARCH_CONFIG', function($q, $sessionStorage, filterFilter, SEARCH_CONFIG){
+    app.factory('miscSearchService', ['$q', '$sessionStorage', 'PortalGroupService', 'filterFilter', 'SEARCH_CONFIG', 
+                                      function($q, $sessionStorage, PortalGroupService, filterFilter, SEARCH_CONFIG){
+      
+      function getKBSearchURL(){
+        return PortalGroupService.getGroups().then(
+          function(groups){
+            return getSearchURLS(groups).then(
+              function(result){
+                if(result && result.kbSearchURL){
+                  return result.kbSearchURL;
+                }
+                else{
+                  return null;
+                }
+              }
+            );
+          }
+        );
+      }
+      
+      function getEventSearchURL(){
+        return PortalGroupService.getGroups().then(
+          function(groups){
+            return getSearchURLS(groups).then(
+              function(result){
+                if(result && result.eventsSearchURL){
+                  return result.eventsSearchURL;
+                }
+                else{
+                  return null;
+                }
+              }
+            );
+          }
+        );
+      }
+      
+      function getHelpDeskHelpURL(){
+        return PortalGroupService.getGroups().then(
+          function(groups){
+            return getSearchURLS(groups).then(
+              function(result){
+                if(result && result.helpdeskURL){
+                  return result.helpdeskURL;
+                }
+                else{
+                  return null;
+                }
+              }
+            );
+          }
+        );
+      }
 
       function getSearchURLS(groups){
         return $q(function(resolve, reject) {
@@ -183,7 +235,10 @@ define(['angular', 'jquery'], function(angular, $) {
       }
       
       return {
-          getSearchURLS: getSearchURLS
+          getSearchURLS: getSearchURLS,
+          getKBSearchURL: getKBSearchURL,
+          getEventSearchURL : getEventSearchURL,
+          getHelpDeskHelpURL : getHelpDeskHelpURL
       };
     }]);
     

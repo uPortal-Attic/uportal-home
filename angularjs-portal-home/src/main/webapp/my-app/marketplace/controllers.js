@@ -5,9 +5,9 @@ define(['angular', 'jquery'], function(angular, $) {
     var app = angular.module('my-app.marketplace.controllers', []);
 
     app.controller('marketplaceCommonFunctions',
-      ['googleCustomSearchService', 'layoutService', 'marketplaceService', 'miscService', 'MISC_URLS', '$sessionStorage',
+      ['googleCustomSearchService', 'miscSearchService', 'layoutService', 'marketplaceService', 'miscService', 'MISC_URLS', '$sessionStorage',
        '$localStorage','$rootScope', '$scope', '$modal', '$routeParams', '$timeout', '$location',
-       function(googleCustomSearchService, layoutService, marketplaceService, miscService,MISC_URLS, $sessionStorage,
+       function(googleCustomSearchService, miscSearchService, layoutService, marketplaceService, miscService,MISC_URLS, $sessionStorage,
         $localStorage, $rootScope, $scope, $modal, $routeParams, $timeout, $location){
 
       $scope.navToDetails = function(marktetplaceEntry, location) {
@@ -138,12 +138,17 @@ define(['angular', 'jquery'], function(angular, $) {
         googleCustomSearchService.getDomainResultsLabel().then(function(domainResultsLabel){
             $scope.domainResultsLabel = domainResultsLabel;
         });
-        $scope.webSearchDomain = MISC_URLS.webSearchDomain;
+        miscSearchService.getKBSearchURL().then(function(kbSearchURL){
+            $scope.kbSearchUrl = kbSearchURL;
+        });
+        miscSearchService.getEventSearchURL().then(function(eventsSearchURL){
+            $scope.eventsSearchUrl = eventsSearchURL;
+        });
+        miscSearchService.getHelpDeskHelpURL().then(function(helpdeskURL){
+            $scope.helpdeskUrl = helpdeskURL;
+        });
         $scope.directorySearchUrl = MISC_URLS.directorySearchURL;
-        $scope.kbSearchUrl = MISC_URLS.kbSearchURL;
-        $scope.eventsSearchUrl = MISC_URLS.eventsSearchURL;
         $scope.feedbackUrl = MISC_URLS.feedbackURL;
-        $scope.helpdeskUrl = MISC_URLS.helpdeskURL;
         $scope.loginToAuthPage = MISC_URLS.myuwHome;
       }
 
