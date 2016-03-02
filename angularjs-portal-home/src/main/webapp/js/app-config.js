@@ -58,11 +58,8 @@ define(['angular'], function(angular) {
             'feedbackURL' : '/portal/p/feedback',
             'back2ClassicURL' : '/portal/Login?profile=default',
             'whatsNewURL' : 'https://kb.wisc.edu/myuw/page.php?id=48181',
-            'helpdeskURL' : 'https://kb.wisc.edu/helpdesk/',
             'webSearchDomain' : "wisc.edu",
             'directorySearchURL' : 'http://www.wisc.edu/directories/?q=',
-            'kbSearchURL' : 'https://kb.wisc.edu/search.php?q=',
-            'eventsSearchURL' : 'https://today.wisc.edu/events/search?term=',
             'loginURL' : '/portal/Login?profile=bucky',
             'logoutURL' : '/portal/Logout',
             'rootURL' : '/web',
@@ -95,7 +92,10 @@ define(['angular'], function(angular) {
             "directorySearchURL" : "/web/api/wiscdirectory",
             "googleSearchURL" : "/web/api/wiscedusearch?v=1.0&rsz=10&start=0&cx=001601028090761970182:2g0iwqsnk2m",
             "webSearchURL" : "http://www.wisc.edu/search/?q=",
-            "domainResultsLabel" : "Wisc.edu"
+            "domainResultsLabel" : "Wisc.edu",
+            'kbSearchURL' : 'https://kb.wisc.edu/search.php?q=',
+            'eventsSearchURL' : 'https://today.wisc.edu/events/search?term=',
+            'helpdeskURL' : 'https://kb.wisc.edu/helpdesk/'
           },
           {
             "group" : "UW System-River Falls",
