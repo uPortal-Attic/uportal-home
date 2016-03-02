@@ -39,7 +39,7 @@
           <i class="fa fa-check"></i> Added to home
         </span>
         <button class='btn btn-link' style='padding:0;' title='See more about {{portlet.name}}' ng-click='navToDetails(portlet, "Search")'>Details</button>
-        <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
+        <span><uib-rating ng-model="portlet.rating" read-only="true" class="rating"></uib-rating></span>
       </p>
     </div>
     <div class="marketplace-load-more" hide-while-loading ng-show="myuwFilteredResults.length > searchResultLimit">
