@@ -47,13 +47,14 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
 
       var initWiscEduSearch = function(){
         googleCustomSearchService.googleSearch($scope.searchTerm).then(
-          function(results){
-            if(results && results.responseData && results.responseData.results) {
-              $scope.googleResults = results.responseData.results;
-              if(results.responseData.cursor.estimatedResultCount){
-                $scope.googleResultsEstimatedCount = results.responseData.cursor.estimatedResultCount;
-              }else{
-                $scope.googleEmptyResults = true;
+          function(data){
+            if(data && data.results) {
+              $scope.googleResults = data.results;
+              if(data.estimatedResultCount){
+                $scope.googleResultsEstimatedCount = data.estimatedResultCount;
+              }
+              if(!data.estimatedResultCount || data.estimatedResultCount == 0){
+                  $scope.googleEmptyResults = true;
               }
             }
           }
@@ -136,6 +137,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         $scope.wiscDirectoryResults = [];
         $scope.wiscDirectoryResultCount = 0;
         $scope.wiscDirectoryTooManyResults = false;
+        $scope.googleSearchEnabled = false;
         $scope.googleResultsEstimatedCount = 0;
         $scope.googleEmptyResults = false;
         $scope.totalCount = 0;
@@ -162,9 +164,13 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         });
       };
       init();
-      if(googleCustomSearchService.googleSearchEnabled()){
-        initWiscEduSearch();
-      }
+      
+      googleCustomSearchService.googleSearchEnabled().then(function(googleSearchEnabled){
+          $scope.googleSearchEnabled = googleSearchEnabled;
+          if(googleSearchEnabled){
+              initWiscEduSearch();
+          }
+      });
       directorySearchService.directorySearchEnabled().then(function(directoryEnabled){
           $scope.directoryEnabled = directoryEnabled;
           if(directoryEnabled){

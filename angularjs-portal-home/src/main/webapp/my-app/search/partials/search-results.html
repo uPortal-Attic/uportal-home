@@ -1,5 +1,5 @@
 <div class="row search-results">
-  <div class="inner-nav-container">
+  <div ng-show="googleSearchEnabled || directoryEnabled" class="inner-nav-container">
     <ul class="inner-nav">
       <li class="active" ng-click="filterTo('all')" id="all-selector">
         <a>All ({{ totalCount }})</a>
@@ -10,8 +10,8 @@
       <li ng-show="directoryEnabled" ng-click="filterTo('directory')" id="directory-selector">
         <a>Directory ({{wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount}})</a>
       </li>
-      <li ng-click="filterTo('google')" id="google-selector">
-        <a>Wisc.edu ({{googleResultsEstimatedCount}})</a>
+      <li ng-show="googleSearchEnabled" ng-click="filterTo('google')" id="google-selector">
+        <a>{{domainResultsLabel}} ({{googleResultsEstimatedCount}})</a>
       </li>
     </ul>
   </div>
@@ -101,15 +101,15 @@
 
   </div>
 
-  <!--wisc.edu results-->
-  <div id="wisc-edu-results" class='search-results-container'>
+  <!--Campus Domain results-->
+  <div ng-show="googleSearchEnabled" id="wisc-edu-results" class='search-results-container'>
     <div id="wisc-edu-results-header">
-      <h4 class='header'>Wisc.edu</h4>
+      <h4 class='header'>{{domainResultsLabel}}</h4>
       <hr>
     </div>
     <loading-gif data-object='googleResults' data-empty='googleEmptyResults'></loading-gif>
     <div ng-show="googleResults.length === 0" class='no-result'>
-      No wisc.edu results.
+      No {{domainResultsLabel}} results.
     </div>
     <div ng-repeat="item in googleResults" class="result">
       <h4><a ng-href="{{item.clicktrackUrl}}" target="_blank" ng-bind-html="item.title"></a></h4>
@@ -120,7 +120,7 @@
 
     </div>
     <div>
-      <h4 ng-hide='googleEmptyResults'><a ng-href="{{webSearchUrl + searchText}}">View more results for {{searchText}} on wisc.edu</a></h4>
+      <h4 ng-if="webSearchUrl && !googleEmptyResults"><a ng-href="{{webSearchUrl + searchText}}">View more results for {{searchText}} on {{domainResultsLabel}}</a></h4>
     </div>
   </div>
 
