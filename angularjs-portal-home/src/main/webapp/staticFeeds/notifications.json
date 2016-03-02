@@ -6,28 +6,32 @@
         "title"  : "This is an admin notification smoke test",
         "actionURL" : "http://www.google.com",
         "actionAlt" : "Google",
-        "dismissable" : true
+        "dismissable" : true,
+        "priority": false
       },
       {
         "id"     : 2,
         "groups" : ["Users - Student SSN Update","Portal Administrators"],
         "title"  : "Your Social Security Number (SSN) in the Student Information System is invalid or missing.  Please update your SSN in the Personal Information section in the Student Center.",
         "actionURL" : "/portal/p/my-info-student-center-ssn.ctf1/max/action.uP?pP_action=loginAction",
-        "actionAlt" : "UW-Madison Student Information"
+        "actionAlt" : "UW-Madison Student Information",
+        "priority": true
       },
       {
         "id"     : 3,
         "groups" : ["Users - Service Activation Required","Portal Administrators"],
         "title"  : "You need to modify your NetID account to activate essential UW Services.",
         "actionURL" : "https://www.mynetid.wisc.edu/modify",
-        "actionAlt" : "Activate Services"
+        "actionAlt" : "Activate Services",
+        "priority": true
       },
       {
         "id"     : 5,
         "groups" : ["Madison Snow Emergency"],
         "title"  : "City of Madison - Declared Snow Emergency",
         "actionURL" : "http://www.cityofmadison.com/winter/",
-        "actionAlt" : "City Of Madison snow emergency information"
+        "actionAlt" : "City Of Madison snow emergency information",
+        "priority": false
       },
       {
         "id"     : 6,
@@ -35,7 +39,8 @@
                     "Portal Administrators"],
         "title" : "Please complete the post-graduation plans questionnaire. Your confidential response will be used to improve our academic programs and communicate the accomplishments of UW-Madison graduates.",
         "actionURL" : "/portal/p/post-graduation-plans",
-        "actionAlt" : "Access the post-graduation plans survey"
+        "actionAlt" : "Access the post-graduation plans survey",
+        "priority": false
       }
     ]
 }
