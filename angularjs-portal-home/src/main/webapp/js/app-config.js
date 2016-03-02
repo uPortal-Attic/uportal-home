@@ -58,8 +58,6 @@ define(['angular'], function(angular) {
             'feedbackURL' : '/portal/p/feedback',
             'back2ClassicURL' : '/portal/Login?profile=default',
             'whatsNewURL' : 'https://kb.wisc.edu/myuw/page.php?id=48181',
-            'webSearchDomain' : "wisc.edu",
-            'directorySearchURL' : 'http://www.wisc.edu/directories/?q=',
             'loginURL' : '/portal/Login?profile=bucky',
             'logoutURL' : '/portal/Logout',
             'rootURL' : '/web',

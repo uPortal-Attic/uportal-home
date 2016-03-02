@@ -53,7 +53,7 @@
              target="_blank">Search the directory</a> (of people and offices) instead.</li>
         <li ng-if="webSearchUrl">
           <a ng-href="{{webSearchUrl}}{{searchText}}"
-             target="_blank">Search <span ng-if="webSearchDomain">the {{webSearchDomain}} domain on</span> the Web</a> instead.</li>
+             target="_blank">Search <span ng-if="domainResultsLabel">the {{domainResultsLabel}} domain on</span> the Web</a> instead.</li>
         <li ng-if="kbSearchUrl">
           <a ng-href="{{kbSearchUrl}}{{searchText}}"
              target="_blank">Search the KnowledgeBase</a> instead.</li>

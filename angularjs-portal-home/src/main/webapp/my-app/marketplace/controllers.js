@@ -147,7 +147,6 @@ define(['angular', 'jquery'], function(angular, $) {
         miscSearchService.getHelpDeskHelpURL().then(function(helpdeskURL){
             $scope.helpdeskUrl = helpdeskURL;
         });
-        $scope.webSearchDomain = MISC_URLS.webSearchDomain;
         $scope.directorySearchUrl = MISC_URLS.directorySearchURL;
         $scope.feedbackUrl = MISC_URLS.feedbackURL;
         $scope.loginToAuthPage = MISC_URLS.myuwHome;
