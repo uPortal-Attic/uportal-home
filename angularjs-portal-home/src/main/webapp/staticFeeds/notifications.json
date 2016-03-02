@@ -23,7 +23,7 @@
         "title"  : "You need to modify your NetID account to activate essential UW Services.",
         "actionURL" : "https://www.mynetid.wisc.edu/modify",
         "actionAlt" : "Activate Services",
-        "priority": true
+        "priority": false
       },
       {
         "id"     : 5,
