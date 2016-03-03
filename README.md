@@ -7,6 +7,7 @@ This is an Angular approach to the dashboard view of uPortal. This dashboard wil
 
 #### Resources for understanding what you can do with `angularjs-portal`:
 
+ * [MyUW Overview slide deck][]
  * [MyUW Introduction YouTube video](https://www.youtube.com/watch?v=4kM9pPnH_hA)
  * [MyUW KnowledgeBase](https://kb.wisc.edu/myuw/)
 
@@ -89,3 +90,5 @@ With this you can run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy` if you have
 ### Deploy to Remote Instance
 
 Drop angularjs-portal-home/target/web.war in the Tomcat instance that runs uPortal and fire it up. Should just work.
+
+[MyUW Overview slide deck]: http://go.wisc.edu/qwg5r1
