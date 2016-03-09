@@ -17,7 +17,7 @@
   app-action-link-text="'Add to home'"
   app-add-to-home='true'></app-header-two-way-bind>
   <div role="main" class="white-page portlet-body">
-    <div data-loading class='loading-gif abs-bottom-right'><img src="img/ajax-loader.gif" alt="Loading content, please wait"></div>
+    <loading-gif  data-object='loading' data-empty='empty'></loading-gif>
 	  <div ng-bind-html="portlet.exclusiveContent" class="up-portlet-content-wrapper" id="content-{{::portlet.nodeId}}">
 	  </div>
   </div>
