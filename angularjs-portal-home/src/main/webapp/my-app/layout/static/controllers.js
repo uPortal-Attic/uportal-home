@@ -25,10 +25,16 @@ define(['angular', 'jquery'], function(angular, $) {
         that.getPortlet = function (fname, portlets) {
             for (var p in portlets) {
                 if (portlets[p].fname == fname) {
-                    return portlets[p];
+                  return portlets[p];
                 }
             }
             return {};
+        };
+
+        var endFn = function(){
+          $scope.loading = false;
+          $scope.empty = $scope.portlet.exclusiveContent
+                          && $scope.portlet.exclusiveContent.length > 0 ? false : true;
         };
 
         if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== $routeParams.fname) {
@@ -43,11 +49,12 @@ define(['angular', 'jquery'], function(angular, $) {
                         typeof $scope.portlet.fname === 'undefined') {
                         $location.path('/');
                     } else {
-                        layoutService.getExclusiveMarkup($scope.portlet);
+                        $scope.loading = true;
+                        layoutService.getExclusiveMarkup($scope.portlet).then(endFn,endFn);
                     }
                 });
             } else {
-                layoutService.getExclusiveMarkup($scope.portlet);
+                layoutService.getExclusiveMarkup($scope.portlet).then(endFn,endFn);
             }
 
         }
