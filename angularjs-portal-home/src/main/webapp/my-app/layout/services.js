@@ -169,36 +169,27 @@ define(['angular', 'jquery'], function(angular, $) {
             );
         };
         
-        var attemptExclusiveCall = function(portlet, returnMe){
-            
+        
+        var getExclusiveMarkup = function(portlet) {
             return $http.get(SERVICE_LOC.context + '/p/' + portlet.fname + '/exclusive/render.uP',{ cache : true}).then(
                     function(result) {
-                        returnMe = result.data;
+                        var data = result.data;
                         if(data) {
                             portlet.exclusiveContent = $sce.trustAsHtml(data);
                             console.log(portlet.fname + "'s exclusive data came back with data");
+                        }else{
+                            portlet.exclusiveContent="<font color=\"red\">An error occured retrieving your data. This service is unavailable at this time.</font>";
                         }
+                        
                         return data;
                     },
                     function(reason) {
-                        return returnMe;
+                        miscService.redirectUser(reason.status, 'exclusive markup for ' + portlet.fname + " failed.");
                     }
                 );
         }
- 
-        var getExclusiveMarkup = function(portlet) {
-            
-            var returnMe=-1;
-            var data = attemptExclusiveCall(portlet, returnMe);
-            if(returnMe===-1){
-        	portlet.exclusiveContent="<font color=\"red\">An error occured retrieving your data. This service is unavailable at this time.</font>";
-            }
-            
-            return data;
-
-        }
         
-        var getRSSJsonified = function(feedURL) {
+          var getRSSJsonified = function(feedURL) {
           return $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(feedURL));
         }
 
