@@ -169,10 +169,11 @@ define(['angular', 'jquery'], function(angular, $) {
             );
         };
         
-        var getExclusiveMarkup = function(portlet) {
+        var attemptExclusiveCall = function(portlet, returnMe){
+            
             return $http.get(SERVICE_LOC.context + '/p/' + portlet.fname + '/exclusive/render.uP',{ cache : true}).then(
                     function(result) {
-                        var data = result.data;
+                        returnMe = result.data;
                         if(data) {
                             portlet.exclusiveContent = $sce.trustAsHtml(data);
                             console.log(portlet.fname + "'s exclusive data came back with data");
@@ -180,9 +181,21 @@ define(['angular', 'jquery'], function(angular, $) {
                         return data;
                     },
                     function(reason) {
-                        miscService.redirectUser(reason.status, 'exclusive markup for ' + portlet.fname + " failed.");
+                        return returnMe;
                     }
                 );
+        }
+ 
+        var getExclusiveMarkup = function(portlet) {
+            
+            var returnMe=-1;
+            var data = attemptExclusiveCall(portlet, returnMe);
+            if(returnMe===-1){
+        	portlet.exclusiveContent="<font color=\"red\">An error occured retrieving your data. This service is unavailable at this time.</font>";
+            }
+            
+            return data;
+
         }
         
         var getRSSJsonified = function(feedURL) {
