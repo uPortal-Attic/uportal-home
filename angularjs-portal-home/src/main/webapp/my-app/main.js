@@ -13,6 +13,7 @@ define([
     './search/routes',
     'portal',
     'app-config',
+    '../js/web-config',
     'ngRoute',
     'ngSanitize',
     'ngStorage',
@@ -32,6 +33,7 @@ define([
 
     var app = angular.module('my-app', [
         'app-config',
+        'web-config',
         'my-app.layout.controllers',
         'my-app.layout.directives',
         'my-app.layout.services',
