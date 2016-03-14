@@ -27,6 +27,7 @@
        <div class="col-sm-6">
         <div class='config'>
          <h3>Smart Widget Configuration</h3>
+         <p>It is highly recommended that you read the documentation on widgets located <a href='http://uw-madison-doit.github.io/uw-frame/latest/#/md/widgets' target='_blank'>here</a>.</p>
          <form>
            <div class="form-group">
              <label for="title">Title</label>
@@ -48,20 +49,27 @@
              <label for="starter-template">Choose a starter template</label>
              <select id='starter-template' ng-model='storage.starterTemplate' ng-change='changeTemplate()'
                      ng-options="starterTemplate.title for starterTemplate in storage.starterTemplates"></select>
+             <span>or select 'Custom' to make your own.</span>
            </div>
-           <div class="form-group">
-             <label for="template">Template*</label>
+           <div class="form-group" ng-if="portlet.type === 'WIDGET_CREATOR'">
+             <label for="template">HTML Template *</label>
              <textarea class="form-control" rows="3"  ng-model="storage.portlet.widgetTemplate" id='template'></textarea>
            </div>
+           <div class="form-group" ng-if='portlet.jsonSample'>
+             <label for="content">JSON Example * **<span style='color : red;'>{{errorJSON}}</span></label>
+             <textarea class="form-control" rows="3"  ng-model="storage.content" id='content'></textarea>
+           </div>
            <div class="form-group">
-             <label for="content">JSON Example* <span style='color : red;'>{{errorJSON}}</span></label>
-             <textarea class="form-control" rows="2"  ng-model="storage.content" id='content'></textarea>
+             <label for="config">Widget Configuration * ***<span style='color : red;'>{{errorConfigJSON}}</span></label>
+             <textarea class="form-control" rows="3"  ng-model="storage.widgetConfig" id='config'></textarea>
            </div>
          </form>
          <div class='config center'>
             <button ng-click='reload()' class='btn btn-primary' style='margin : 5px;'>Refresh*</button><button class='btn btn-neutral' ng-click='clear()'>Clear</button>
          </div>
          <p>* : Changes to these fields requires you to click the refresh button to see the changes in the preview</p>
+         <p>** : This is normally result from the widgetURL. This result is dumped into the '$scope.content' variable.</p>
+         <p>*** : read more about this <a href='http://uw-madison-doit.github.io/uw-frame/latest/#/md/widgets' target='_blank'>here</a></p>
          </div>
        </div>
        <div class="col-sm-6">

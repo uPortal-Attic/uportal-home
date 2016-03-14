@@ -262,16 +262,6 @@ define(['angular'], function(angular){
 
     //widget creator
     app.controller("GenericWidgetController",['$http', '$scope', '$route', '$localStorage', function($http, $scope, $route, $localStorage){
-      $localStorage.widgetCreator = $localStorage.widgetCreator || {};
-      $scope.storage = $localStorage.widgetCreator; //makes the widget creator stuff contained
-
-      //mock the widget controller
-      $scope.widgetCtrl = {
-                            portletType : function(){
-                              return 'WIDGET_CREATOR';
-                            }
-                          };
-
       //general functions
       var validJSON = function isValidJson(json) {
         try {
@@ -282,15 +272,9 @@ define(['angular'], function(angular){
         }
       }
 
-
       var init = function(){
         $scope.storage.isEmpty = false;
-        $scope.storage.portlet = {
-          title : "My Portlet",
-          description : "This super cool portlet can change lives.",
-          widgetType: 'generic'
-        };
-        $scope.storage.starterTemplates = [];
+        $scope.storage.portlet = {};
         $scope.storage.inited = true;
         $scope.portlet = $scope.storage.portlet;
       };
@@ -306,16 +290,14 @@ define(['angular'], function(angular){
           $scope.isEmpty = true;
           $scope.errorJSON = $scope.storage.content ? "JSON NOT VALID" : "";
         }
+        if($scope.storage.widgetConfig && validJSON($scope.storage.widgetConfig)) {
+          $scope.portlet.widgetConfig = JSON.parse($scope.storage.widgetConfig);
+        } else {
+          $scope.errorConfigJSON = $scope.storage.widgetConfig ? "JSON NOT VALID" : "";
+        }
 
         $scope.template = $scope.portlet.widgetTemplate;
-      }
 
-
-      if(!$scope.storage.inited) {
-        init();
-        retInit();
-      } else {
-        retInit();
       }
 
       $scope.reload = function(){
@@ -330,16 +312,66 @@ define(['angular'], function(angular){
       }
 
       $scope.changeTemplate = function() {
-        // if($scope.storage.starterTemplate.template) {
-        //   $scope.storage.template = $scope.storage.starterTemplate.template;
-        // } else if($scope.storage.starterTemplate.templateURL){
-        //   $http.get("templates/"+$scope.storage.starterTemplate.templateURL).then(function(result){
-        //     $scope.storage.template = result.data;
-        //   });
-        // }
-        // $scope.storage.content = $scope.storage.starterTemplate.contentIsJSON ? JSON.stringify($scope.storage.starterTemplate.content) : $scope.storage.starterTemplate.content;
-        // $scope.storage.title= $scope.storage.starterTemplate.title;
+        $scope.storage.content = $scope.storage.starterTemplate.contentIsJSON ? JSON.stringify($scope.storage.starterTemplate.content) : $scope.storage.starterTemplate.content;
+        $scope.storage.portlet = $scope.storage.starterTemplate;
+        $scope.storage.widgetConfig = JSON.stringify($scope.storage.starterTemplate.widgetConfig);
+        $scope.reload();
       }
+
+      var initialize = function(){
+        $localStorage.widgetCreator = $localStorage.widgetCreator || {};
+        $scope.storage = $localStorage.widgetCreator; //makes the widget creator stuff contained
+
+        //mock the widget controller
+        $scope.widgetCtrl = {
+                              portletType : function(portlet){
+                                if(portlet.type) {
+                                  return portlet.type;
+                                }
+                                return 'WIDGET_CREATOR';
+                              }
+                            };
+        if(!$scope.storage.inited) {
+          init();
+          retInit();
+        } else {
+          retInit();
+        }
+        $scope.storage.starterTemplates = [
+          {
+            type : 'LOL',
+            title : 'List of Links',
+            jsonSample : false,
+            widgetConfig : {
+                         "launchText":"Launch the Full App",
+                         "additionalText":"Additional Text",
+                         "links":[
+                            {
+                               "title":"The Google",
+                               "href":"http://www.google.com",
+                               "icon":"fa-google",
+                               "target":"_blank"
+                            },
+                            {
+                               "title":"Bing",
+                               "href":"http://www.bing.com",
+                               "icon":"fa-bed",
+                               "target":"_blank"
+                            }
+                         ]
+                      },
+            description : 'A simple list of links'
+          },
+          {
+            type : "WIDGET_CREATOR",
+            title : "Custom",
+            description : "This super cool portlet can change lives.",
+            widgetConfig : {},
+            jsonSample : {}
+          }
+        ];
+      }
+      initialize();
     }]);
 
   return app;
