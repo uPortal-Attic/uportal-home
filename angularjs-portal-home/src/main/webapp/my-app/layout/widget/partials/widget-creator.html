@@ -48,7 +48,7 @@
            <div class="choose-template">
              <label for="starter-template">Choose a starter template</label>
              <select id='starter-template' ng-model='storage.starterTemplate' ng-change='changeTemplate()'
-                     ng-options="starterTemplate.title for starterTemplate in storage.starterTemplates"></select>
+                     ng-options="starterTemplate.title for starterTemplate in storage.starterTemplates track by starterTemplate.id"></select>
              <span>or select 'Custom' to make your own.</span>
            </div>
            <div class="form-group" ng-if="portlet.type === 'WIDGET_CREATOR'">

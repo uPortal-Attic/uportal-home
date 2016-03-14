@@ -274,7 +274,7 @@ define(['angular'], function(angular){
 
       var init = function(){
         $scope.storage.isEmpty = false;
-        $scope.storage.portlet = {};
+        $scope.storage.portlet = $scope.storage.starterTemplates[0];
         $scope.storage.inited = true;
         $scope.portlet = $scope.storage.portlet;
       };
@@ -339,6 +339,16 @@ define(['angular'], function(angular){
         }
         $scope.storage.starterTemplates = [
           {
+            id: 4,
+            type : "WIDGET_CREATOR",
+            title : "Custom",
+            hasWidgetURL : false,
+            description : "This super cool portlet can change lives.",
+            widgetConfig : {},
+            jsonSample : {}
+          },
+          {
+            id: 1,
             type : 'SWL',
             widgetType : 'search-with-links',
             title: 'Search with Links',
@@ -366,6 +376,7 @@ define(['angular'], function(angular){
             hasWidgetURL : false
           },
           {
+            id: 2,
             type : 'RSS',
             widgetType : 'rss',
             title: 'RSS Widget',
@@ -375,6 +386,7 @@ define(['angular'], function(angular){
             widgetURL : ""
           },
           {
+            id: 3,
             type : 'LOL',
             title : 'List of Links',
             jsonSample : false,
@@ -398,14 +410,6 @@ define(['angular'], function(angular){
                          ]
                       },
             description : 'A simple list of links'
-          },
-          {
-            type : "WIDGET_CREATOR",
-            title : "Custom",
-            hasWidgetURL : false,
-            description : "This super cool portlet can change lives.",
-            widgetConfig : {},
-            jsonSample : {}
           }
         ];
       }
