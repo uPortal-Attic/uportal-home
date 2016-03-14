@@ -1,0 +1,77 @@
+<!--
+
+    Copyright 2012, Board of Regents of the University of
+    Wisconsin System. See the NOTICE file distributed with
+    this work for additional information regarding copyright
+    ownership. Board of Regents of the University of Wisconsin
+    System licenses this file to you under the Apache License,
+    Version 2.0 (the "License"); you may not use this file
+    except in compliance with the License. You may obtain a
+    copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on
+    an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied. See the License for the
+    specific language governing permissions and limitations
+    under the License.
+
+-->
+<div class="portlet-frame">
+	<portlet-header app-title="Widget Creator" app-image="img/square.jpg" app-description="Fill out the form, see your widget, copy/paste into entity file, done."></portlet-header>
+
+	<div class="portlet-body tile-list" style='padding: 10px;'>
+     <div class="row"  ng-controller="GenericWidgetController as genericWidgetCtrl">
+       <div class="col-sm-6">
+        <div class='config'>
+         <h3>Smart Widget Configuration</h3>
+         <form>
+           <div class="form-group">
+             <label for="title">Title</label>
+             <input type="input" class="form-control" id="title" placeholder="Enter title" ng-model="storage.portlet.title">
+           </div>
+           <div class="form-group">
+             <label for="desc">Description</label>
+             <input type="input" class="form-control" id="desc" placeholder="Enter description" ng-model="storage.portlet.description">
+           </div>
+         </form>
+         <form>
+           <div class="form-group">
+             <label for="evalString">Check for Empty evalString *</label>
+             <input type="input" class="form-control" id="evalString" placeholder="Enter Eval string to check for empty" ng-model="storage.evalString">
+           </div>
+         </form>
+         <form>
+           <div class="choose-template">
+             <label for="starter-template">Choose a starter template</label>
+             <select id='starter-template' ng-model='storage.starterTemplate' ng-change='changeTemplate()'
+                     ng-options="starterTemplate.title for starterTemplate in storage.starterTemplates"></select>
+           </div>
+           <div class="form-group">
+             <label for="template">Template*</label>
+             <textarea class="form-control" rows="3"  ng-model="storage.portlet.widgetTemplate" id='template'></textarea>
+           </div>
+           <div class="form-group">
+             <label for="content">JSON Example* <span style='color : red;'>{{errorJSON}}</span></label>
+             <textarea class="form-control" rows="2"  ng-model="storage.content" id='content'></textarea>
+           </div>
+         </form>
+         <div class='config center'>
+            <button ng-click='reload()' class='btn btn-primary' style='margin : 5px;'>Refresh*</button><button class='btn btn-neutral' ng-click='clear()'>Clear</button>
+         </div>
+         <p>* : Changes to these fields requires you to click the refresh button to see the changes in the preview</p>
+         </div>
+       </div>
+       <div class="col-sm-6">
+         <div class='config center'>
+            <button ng-click='reload()' class='btn btn-primary' style='margin : 5px;'>Refresh*</button><button class='btn btn-neutral' ng-click='clear()'>Clear</button>
+         </div>
+         <div class="list-container no-padding output">
+           <widget-card></widget-card>
+         </div>
+       </div>
+     </div>
+   </div>
+</div>

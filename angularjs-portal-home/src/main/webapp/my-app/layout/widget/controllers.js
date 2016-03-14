@@ -59,7 +59,7 @@ define(['angular'], function(angular){
         $scope.portlet.widgetData = [];
         var widgetPromise = layoutService.getWidgetJson($scope.portlet);
         var preferencePromise = keyValueService.getValue($scope.fetchKey);
-        
+
         $q.all([widgetPromise, preferencePromise]).then(function(data) {
           $scope.loading = false;
           if(data) {
@@ -70,11 +70,11 @@ define(['angular'], function(angular){
             if(myPref.userWeatherPreference=='C'){
             	myPreference='C';
             }
-                        
+
             $scope.portlet.widgetData = allTheWeathers.weathers;
             $scope.weatherData = $scope.portlet.widgetData;
             $scope.changePref(myPreference);
-            
+
           } else {
             $scope.error = true;
             console.warn("Got nothing back from widget fetch");
@@ -85,9 +85,9 @@ define(['angular'], function(angular){
         });
       }
     };
-    
+
     $scope.changePref=function(userPreference){
-    	
+
     	if(userPreference==='C'){
     		$scope.changeToC();
     		$scope.showMetric=true;
@@ -102,7 +102,7 @@ define(['angular'], function(angular){
        		keyValueService.setValue($scope.fetchKey, value);
     	}
     }
-    
+
     $scope.changeToC = function(){
       if ($scope.currentlyImperial){
         for (var i = 0; i < $scope.weatherData.length; i++){
@@ -241,7 +241,7 @@ define(['angular'], function(angular){
                }
               }
           };
-          
+
          var errorFn = function(data){
             $scope.error = true;
             $scope.isEmpty = true;
@@ -258,7 +258,89 @@ define(['angular'], function(angular){
     //SearchWithLinksController
     app.controller("SearchWithLinksController", ['$scope', '$sce', function($scope, $sce){
       $scope.secureURL = $sce.trustAsResourceUrl($scope.config.actionURL);
-    }]);;
+    }]);
+
+    //widget creator
+    app.controller("GenericWidgetController",['$http', '$scope', '$route', '$localStorage', function($http, $scope, $route, $localStorage){
+      $localStorage.widgetCreator = $localStorage.widgetCreator || {};
+      $scope.storage = $localStorage.widgetCreator; //makes the widget creator stuff contained
+
+      //mock the widget controller
+      $scope.widgetCtrl = {
+                            portletType : function(){
+                              return 'WIDGET_CREATOR';
+                            }
+                          };
+
+      //general functions
+      var validJSON = function isValidJson(json) {
+        try {
+            JSON.parse(json);
+            return true;
+        } catch (e) {
+            return false;
+        }
+      }
+
+
+      var init = function(){
+        $scope.storage.isEmpty = false;
+        $scope.storage.portlet = {
+          title : "My Portlet",
+          description : "This super cool portlet can change lives.",
+          widgetType: 'generic'
+        };
+        $scope.storage.starterTemplates = [];
+        $scope.storage.inited = true;
+        $scope.portlet = $scope.storage.portlet;
+      };
+
+      var retInit = function() {
+        $scope.portlet = $scope.storage.portlet;
+        $scope.isEmpty = $scope.storage.isEmpty;
+        if($scope.storage.content && validJSON($scope.storage.content)) {
+          $scope.content = JSON.parse($scope.storage.content);
+          $scope.isEmpty = $scope.storage.evalString ? eval($scope.storage.evalString) : false;
+        } else {
+          $scope.content = {}
+          $scope.isEmpty = true;
+          $scope.errorJSON = $scope.storage.content ? "JSON NOT VALID" : "";
+        }
+
+        $scope.template = $scope.portlet.widgetTemplate;
+      }
+
+
+      if(!$scope.storage.inited) {
+        init();
+        retInit();
+      } else {
+        retInit();
+      }
+
+      $scope.reload = function(){
+        $route.reload();
+      };
+
+      $scope.clear = function() {
+          if(confirm("Are you sure, all your config will be cleared")) {
+              init();
+              $route.reload();
+          }
+      }
+
+      $scope.changeTemplate = function() {
+        // if($scope.storage.starterTemplate.template) {
+        //   $scope.storage.template = $scope.storage.starterTemplate.template;
+        // } else if($scope.storage.starterTemplate.templateURL){
+        //   $http.get("templates/"+$scope.storage.starterTemplate.templateURL).then(function(result){
+        //     $scope.storage.template = result.data;
+        //   });
+        // }
+        // $scope.storage.content = $scope.storage.starterTemplate.contentIsJSON ? JSON.stringify($scope.storage.starterTemplate.content) : $scope.storage.starterTemplate.content;
+        // $scope.storage.title= $scope.storage.starterTemplate.title;
+      }
+    }]);
 
   return app;
 
