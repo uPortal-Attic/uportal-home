@@ -339,6 +339,33 @@ define(['angular'], function(angular){
         }
         $scope.storage.starterTemplates = [
           {
+            type : 'SWL',
+            widgetType : 'search-with-links',
+            title: 'Search with Links',
+            jsonSample: false,
+            widgetConfig : {
+              "actionURL": "https://rprg.wisc.edu/search/",
+              "actionTarget": "_blank",
+              "actionParameter": "q",
+              "launchText": "Go to resource guide",
+              "links": [
+                {
+                  "title": "Get started",
+                  "href": "https://rprg.wisc.edu/phases/initiate/",
+                  "icon": "fa-map-o",
+                  "target": "_blank"
+                },
+                {
+                  "title": "Resources",
+                  "href": "https://rprg.wisc.edu/category/resource/",
+                  "icon": "fa-th-list",
+                  "target": "_blank"
+                }
+              ]
+            },
+            hasWidgetURL : false
+          },
+          {
             type : 'RSS',
             widgetType : 'rss',
             title: 'RSS Widget',
