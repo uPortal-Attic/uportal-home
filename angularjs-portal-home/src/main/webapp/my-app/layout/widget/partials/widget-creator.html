@@ -63,6 +63,10 @@
              <label for="config">Widget Configuration * ***<span style='color : red;'>{{errorConfigJSON}}</span></label>
              <textarea class="form-control" rows="3"  ng-model="storage.widgetConfig" id='config'></textarea>
            </div>
+           <div class="form-group" ng-if='portlet.hasWidgetURL'>
+             <label for="widgetURL">Widget URL *</label>
+             <input class="form-control" type='URL' ng-model="storage.portlet.widgetURL" id='widgetURL'></textarea>
+           </div>
          </form>
          <div class='config center'>
             <button ng-click='reload()' class='btn btn-primary' style='margin : 5px;'>Refresh*</button><button class='btn btn-neutral' ng-click='clear()'>Clear</button>

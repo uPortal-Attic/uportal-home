@@ -339,9 +339,19 @@ define(['angular'], function(angular){
         }
         $scope.storage.starterTemplates = [
           {
+            type : 'RSS',
+            widgetType : 'rss',
+            title: 'RSS Widget',
+            jsonSample: false,
+            widgetConfig : {lim : 6, showsnippet: true, showdate: true, dateFormat: 'mm-DD-YYYY', showShowing: true},
+            hasWidgetURL : true,
+            widgetURL : ""
+          },
+          {
             type : 'LOL',
             title : 'List of Links',
             jsonSample : false,
+            hasWidgetURL : false,
             widgetConfig : {
                          "launchText":"Launch the Full App",
                          "additionalText":"Additional Text",
@@ -365,6 +375,7 @@ define(['angular'], function(angular){
           {
             type : "WIDGET_CREATOR",
             title : "Custom",
+            hasWidgetURL : false,
             description : "This super cool portlet can change lives.",
             widgetConfig : {},
             jsonSample : {}
