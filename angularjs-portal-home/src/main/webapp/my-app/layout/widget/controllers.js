@@ -261,7 +261,7 @@ define(['angular'], function(angular){
     }]);
 
     //widget creator
-    app.controller("WidgetCreatorController",['$http', '$scope', '$route', '$localStorage', function($http, $scope, $route, $localStorage){
+    app.controller("WidgetCreatorController",['$scope', '$route', '$localStorage', function($scope, $route, $localStorage){
       //general functions
       var validJSON = function isValidJson(json) {
         try {
