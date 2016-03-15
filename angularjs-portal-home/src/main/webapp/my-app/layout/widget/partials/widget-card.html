@@ -69,6 +69,15 @@
       </div>
     </div>
 
+    <div ng-switch-when="WIDGET_CREATOR">
+      <div>
+          <div ng-if="loading" id="loading">
+              <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>
+          </div>
+          <content-item ng-if="!loading"></content-item>
+      </div>
+    </div>
+
     <!-- For basic apps (not a widget, not simple content, no pithy content), show only an icon -->
     <a tabindex="-1" ng-switch-when="NORMAL" ng-href="{{widgetCtrl.renderURL(portlet)}}" target="{{::portlet.target}}">
       <div class="widget-icon-container">

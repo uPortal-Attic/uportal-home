@@ -59,7 +59,7 @@ define(['angular'], function(angular){
         $scope.portlet.widgetData = [];
         var widgetPromise = layoutService.getWidgetJson($scope.portlet);
         var preferencePromise = keyValueService.getValue($scope.fetchKey);
-        
+
         $q.all([widgetPromise, preferencePromise]).then(function(data) {
           $scope.loading = false;
           if(data) {
@@ -70,11 +70,11 @@ define(['angular'], function(angular){
             if(myPref.userWeatherPreference=='C'){
             	myPreference='C';
             }
-                        
+
             $scope.portlet.widgetData = allTheWeathers.weathers;
             $scope.weatherData = $scope.portlet.widgetData;
             $scope.changePref(myPreference);
-            
+
           } else {
             $scope.error = true;
             console.warn("Got nothing back from widget fetch");
@@ -85,9 +85,9 @@ define(['angular'], function(angular){
         });
       }
     };
-    
+
     $scope.changePref=function(userPreference){
-    	
+
     	if(userPreference==='C'){
     		$scope.changeToC();
     		$scope.showMetric=true;
@@ -102,7 +102,7 @@ define(['angular'], function(angular){
        		keyValueService.setValue($scope.fetchKey, value);
     	}
     }
-    
+
     $scope.changeToC = function(){
       if ($scope.currentlyImperial){
         for (var i = 0; i < $scope.weatherData.length; i++){
@@ -240,7 +240,7 @@ define(['angular'], function(angular){
                }
               }
           };
-          
+
          var errorFn = function(data){
             $scope.error = true;
             $scope.isEmpty = true;
@@ -257,7 +257,163 @@ define(['angular'], function(angular){
     //SearchWithLinksController
     app.controller("SearchWithLinksController", ['$scope', '$sce', function($scope, $sce){
       $scope.secureURL = $sce.trustAsResourceUrl($scope.config.actionURL);
-    }]);;
+    }]);
+
+    //widget creator
+    app.controller("WidgetCreatorController",['$scope', '$route', '$localStorage', function($scope, $route, $localStorage){
+      //general functions
+      var validJSON = function isValidJson(json) {
+        try {
+            JSON.parse(json);
+            return true;
+        } catch (e) {
+            return false;
+        }
+      }
+
+      var init = function(){
+        $scope.storage.isEmpty = false;
+        $scope.storage.portlet = $scope.storage.starterTemplates[0];
+        $scope.storage.inited = true;
+        $scope.portlet = $scope.storage.portlet;
+      };
+
+      var retInit = function() {
+        $scope.portlet = $scope.storage.portlet;
+        $scope.isEmpty = $scope.storage.isEmpty;
+        if($scope.storage.content && validJSON($scope.storage.content)) {
+          $scope.content = JSON.parse($scope.storage.content);
+          $scope.isEmpty = $scope.storage.evalString ? eval($scope.storage.evalString) : false;
+        } else {
+          $scope.content = {}
+          $scope.isEmpty = true;
+          $scope.errorJSON = $scope.storage.content ? "JSON NOT VALID" : "";
+        }
+        if($scope.storage.widgetConfig && validJSON($scope.storage.widgetConfig)) {
+          $scope.portlet.widgetConfig = JSON.parse($scope.storage.widgetConfig);
+        } else {
+          $scope.errorConfigJSON = $scope.storage.widgetConfig ? "JSON NOT VALID" : "";
+        }
+
+        $scope.template = $scope.portlet.widgetTemplate;
+
+      }
+
+      $scope.reload = function(){
+        $route.reload();
+      };
+
+      $scope.clear = function() {
+          if(confirm("Are you sure, all your config will be cleared")) {
+              init();
+              $route.reload();
+          }
+      }
+
+      $scope.changeTemplate = function() {
+        $scope.storage.content = $scope.storage.starterTemplate.contentIsJSON ? JSON.stringify($scope.storage.starterTemplate.content) : $scope.storage.starterTemplate.content;
+        $scope.storage.portlet = $scope.storage.starterTemplate;
+        $scope.storage.widgetConfig = JSON.stringify($scope.storage.starterTemplate.widgetConfig);
+        $scope.reload();
+      }
+
+      var initialize = function(){
+        $localStorage.widgetCreator = $localStorage.widgetCreator || {};
+        $scope.storage = $localStorage.widgetCreator; //makes the widget creator stuff contained
+
+        //mock the widget controller
+        $scope.widgetCtrl = {
+                              portletType : function(portlet){
+                                if(portlet.type) {
+                                  return portlet.type;
+                                }
+                                return 'WIDGET_CREATOR';
+                              }
+                            };
+        if(!$scope.storage.inited) {
+          init();
+          retInit();
+        } else {
+          retInit();
+        }
+        $scope.storage.starterTemplates = [
+          {
+            id: 4,
+            type : "WIDGET_CREATOR",
+            title : "Custom",
+            hasWidgetURL : false,
+            description : "This super cool portlet can change lives.",
+            widgetConfig : {},
+            jsonSample : {}
+          },
+          {
+            id: 1,
+            type : 'SWL',
+            widgetType : 'search-with-links',
+            title: 'Search with Links',
+            jsonSample: false,
+            widgetConfig : {
+              "actionURL": "https://rprg.wisc.edu/search/",
+              "actionTarget": "_blank",
+              "actionParameter": "q",
+              "launchText": "Go to resource guide",
+              "links": [
+                {
+                  "title": "Get started",
+                  "href": "https://rprg.wisc.edu/phases/initiate/",
+                  "icon": "fa-map-o",
+                  "target": "_blank"
+                },
+                {
+                  "title": "Resources",
+                  "href": "https://rprg.wisc.edu/category/resource/",
+                  "icon": "fa-th-list",
+                  "target": "_blank"
+                }
+              ]
+            },
+            hasWidgetURL : false
+          },
+          {
+            id: 2,
+            type : 'RSS',
+            widgetType : 'rss',
+            title: 'RSS Widget',
+            jsonSample: false,
+            widgetConfig : {lim : 6, showsnippet: true, showdate: true, dateFormat: 'mm-DD-YYYY', showShowing: true},
+            hasWidgetURL : true,
+            widgetURL : ""
+          },
+          {
+            id: 3,
+            type : 'LOL',
+            title : 'List of Links',
+            jsonSample : false,
+            hasWidgetURL : false,
+            widgetConfig : {
+                         "launchText":"Launch the Full App",
+                         "additionalText":"Additional Text",
+                         "links":[
+                            {
+                               "title":"The Google",
+                               "href":"http://www.google.com",
+                               "icon":"fa-google",
+                               "target":"_blank"
+                            },
+                            {
+                               "title":"Bing",
+                               "href":"http://www.bing.com",
+                               "icon":"fa-bed",
+                               "target":"_blank"
+                            }
+                         ]
+                      },
+            description : 'A simple list of links'
+          }
+        ];
+      }
+      initialize();
+    }]);
 
   return app;
 
