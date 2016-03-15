@@ -144,7 +144,6 @@ define(['angular'], function(angular){
           layoutService.getWidgetJson($scope.portlet).then(function(data) {
             $scope.loading = false;
             if(data) {
-              console.log(data);
               $scope.portlet.widgetData = data;
               $scope.content = $scope.portlet.widgetData;
               if(Array.isArray($scope.content) &&  $scope.content.length == 0) {
