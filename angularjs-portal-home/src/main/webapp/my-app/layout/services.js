@@ -178,7 +178,7 @@ define(['angular', 'jquery'], function(angular, $) {
                             portlet.exclusiveContent = $sce.trustAsHtml(data);
                             console.log(portlet.fname + "'s exclusive data came back with data");
                         }else{
-                            portlet.exclusiveContent="<font color=\"red\">An error occured retrieving your data. This service is unavailable at this time.</font>";
+                            portlet.exclusiveContent="<font color=\"red\">An error occured retrieving your data. This service is unavailable at this time. Please check back later.</font>";
                         }
                         
                         return data;
