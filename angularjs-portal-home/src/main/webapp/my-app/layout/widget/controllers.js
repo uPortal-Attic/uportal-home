@@ -330,12 +330,6 @@ define(['angular'], function(angular){
                                 return 'WIDGET_CREATOR';
                               }
                             };
-        if(!$scope.storage.inited) {
-          init();
-          retInit();
-        } else {
-          retInit();
-        }
         $scope.storage.starterTemplates = [
           {
             id: 4,
@@ -411,6 +405,13 @@ define(['angular'], function(angular){
             description : 'A simple list of links'
           }
         ];
+
+        if(!$scope.storage.inited) {
+          init();
+          retInit();
+        } else {
+          retInit();
+        }
       }
       initialize();
     }]);
