@@ -41,6 +41,15 @@
         "actionURL" : "/portal/p/post-graduation-plans",
         "actionAlt" : "Access the post-graduation plans survey",
         "priority": false
-      }
+      },
+      {
+        "id"     : 7,
+        "groups" : ["Portal Administrators"],
+        "title"  : "User impersonation is currently bugged such that it does not work to impersonate users under HTML Responsive Design Profile aka Bucky aka New MyUW.  Impersonating other profiles will still work.",
+        "actionURL" : "https://jira.doit.wisc.edu/jira/browse/MUMUP-2454",
+        "actionAlt" : "MUMUP-2454 tracks the actual impersonation bug.",
+        "dismissable" : false,
+        "priority": true
+      },
     ]
 }
