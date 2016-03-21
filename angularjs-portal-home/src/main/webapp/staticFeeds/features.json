@@ -32,14 +32,14 @@
     "isBuckyAnnouncement" : true,
     "buckyAnnouncement" : {
       "shortTitle" : "Try the new MyUW search",
-      "shoreDesc" : "Now search across MyUW, Wisc.edu, and the campus directory.",
+      "shortDesc" : "Now search across MyUW, Wisc.edu, and the campus directory.",
       "endDate": 1456812000000
     }
   },
   {
     "id": 3,
     "title": "March Madness Widgets",
-    "description": "The MyUW team is rolling out some new features. To keep with our \"being timely\" goal we now have a way of consuming RSS feeds and displaying them as widgets. In honor of March Madness we have added two new sport feeds. Search for sports in the search bar and add the new widgets today!",
+    "description": "The MyUW team is rolling out some new features. To keep with our being timely goal we now have a way of consuming RSS feeds and displaying them as widgets. In honor of March Madness we have added two new sport feeds. Search for sports in the search bar and add the new widgets today!",
     "img": "img/sports-widgets.png",
     "learnMoreURL": "",
     "goLiveYear": 2016,
@@ -49,7 +49,7 @@
     "isBuckyAnnouncement" : true,
     "buckyAnnouncement" : {
       "shortTitle" : "March Madness Widgets",
-      "shoreDesc" : "If you want to follow NCAA tournaments search for sports in MyUW.",
+      "shortDesc" : "If you want to follow NCAA tournaments search for sports in MyUW.",
       "endDate": 1459486800000
     }
   }
