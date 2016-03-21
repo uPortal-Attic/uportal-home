@@ -15,6 +15,9 @@ define(['angular'], function(angular) {
             'defaultTheme' : 'group',
             'debug' : true
           },
+          'FEATURES' : {
+            enabled: true
+          },
           'SERVICE_LOC' : {
             'aboutURL' : '/portal/web/session.json',
             'sessionInfo' : '/portal/web/session.json',
