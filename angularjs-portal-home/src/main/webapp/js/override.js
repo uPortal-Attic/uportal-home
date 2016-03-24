@@ -68,7 +68,7 @@ define(['angular'], function(angular) {
             {
               "id" : "webPortletRender",
               "title" : "/web portlet rendering",
-              "description" : "Renders portlets via /web's exclusive page, but only as launched from compact-mode widgets"
+              "description" : "Renders portlets via /web's exclusive page, but not as launched from expanded widgets."
             },
             {
               "id" : "showKeywordsInMarketplace",
