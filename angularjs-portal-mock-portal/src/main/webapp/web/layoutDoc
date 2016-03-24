@@ -252,18 +252,18 @@
       },
       {
          "nodeId":"n53",
-         "title":"News About MyUW",
-         "description":"News about MyUW.",
+         "title":"UW Badger News",
+         "description":"UW Badger News",
          "url":"/portal/f/u47l1s4/normal/render.uP",
          "iconUrl":null,
          "faIcon":"fa-newspaper-o",
-         "fname":"myuw-news",
+         "fname":"badger-news",
          "target":null,
-         "widgetURL":"http://www.doit.wisc.edu/cat/myuw/feed/?limit=3",
+         "widgetURL":"http://www.uwbadgers.com/rss.aspx",
          "widgetType":"rss",
          "widgetTemplate":null,
          "widgetConfig":{
-            "lim":6
+            "lim":5
          },
          "staticContent":null,
          "pithyStaticContent":null,
