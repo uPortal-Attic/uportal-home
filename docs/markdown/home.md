@@ -1,6 +1,6 @@
 ### AngularJS-Portal Documentation
 
-Thanks for visiting the documentation for [angularjs-portal](https://github.com/UW-Madison-DoIT/angularjs-portal). This documentation describes the features and implementation details of the angularjs-portal project, the new home of MyUW. angularjs-portal is based on uw-frame, if you want to learn about that I suggest looking at [that docs page](http://uw-madison-doit.github.io/uw-frame/).
+This documentation describes the features and implementation details of [`angularjs-portal`](https://github.com/UW-Madison-DoIT/angularjs-portal), the new home of [MyUW](https://it.wisc.edu/services/myuw/). `angularjs-portal` is based on [`uw-frame`](https://github.com/UW-Madison-DoIT/uw-frame) (which has [its own documentation](http://uw-madison-doit.github.io/uw-frame/)).
 
 #### Home Page Features
 
