@@ -68,7 +68,6 @@ define(['angular', 'require'], function(angular, require) {
                - lim : limit to number shown, default 5
                - showdate : show the publish date on the right (default false)
                - dateFormat : The date format, see https://docs.angularjs.org/api/ng/filter/date
-               - showsnippet : show contentSnippit (default false)
                - showShowing : show the Showing x of y (default false)
     **/
     app.directive('rss', function () {

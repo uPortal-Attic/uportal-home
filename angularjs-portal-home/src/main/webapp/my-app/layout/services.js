@@ -37,7 +37,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 }
             });
         };
-        
+
         var removeFromHome = function removeFromHomeFunction(nodeId, title) {
             return $.ajax({
                 url: SERVICE_LOC.base + "layout?action=removeElement&elementID=" + nodeId,
@@ -52,7 +52,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 error: function(request, text, error) {
                 }
             });
-            
+
         };
 
         var checkLayoutCache = function() {
@@ -168,8 +168,8 @@ define(['angular', 'jquery'], function(angular, $) {
                 }
             );
         };
-        
-        
+
+
         var getExclusiveMarkup = function(portlet) {
             return $http.get(SERVICE_LOC.context + '/p/' + portlet.fname + '/exclusive/render.uP',{ cache : true}).then(
                     function(result) {
@@ -180,7 +180,7 @@ define(['angular', 'jquery'], function(angular, $) {
                         }else{
                             portlet.exclusiveContent="<div class=\"alert alert-danger\" role=\"alert\">This service is unavailable right now. Please check back later.</div>";
                         }
-                        
+
                         return data;
                     },
                     function(reason) {
@@ -188,9 +188,9 @@ define(['angular', 'jquery'], function(angular, $) {
                     }
                 );
         }
-        
+
           var getRSSJsonified = function(feedURL) {
-          return $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(feedURL));
+          return $http.get('api/rss2json?rss_url=' + feedURL);
         }
 
         return {
