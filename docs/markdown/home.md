@@ -6,7 +6,8 @@ This documentation describes the features and implementation details of [`angula
 
 + [Expanded Mode](#/md/expanded) - This is the home screen in expanded mode with widgets.
 + [Compact Mode](#/md/compact) - This mode is more compact, made for mobile view and minimalists.
-+ [Widget Creator](https://tools.my.wisc.edu/widget-creator/#/default) - This tool helps you see your content before we add it to MyUW.
+
+Developers can rapidly prototype widgets using the [Widget Creator](https://tools.my.wisc.edu/widget-creator/#/default).
 
 #### Marketplace Features
 + Filtering by category
