@@ -16,10 +16,11 @@ The home page renders widgets in either of two user-selectable modes:
 Developers can rapidly prototype widgets using the [Widget Creator](https://tools.my.wisc.edu/widget-creator/#/default).
 
 #### Marketplace Features
-+ Filtering by category
-+ Details page
-+ Deep Linking
-+
+
++ Sort by rating or alphabetically
++ Filter by category
++ View details about an app, with the details pages deep-linkable
++ Launch the app, including launching directly a portal-external URL for the app where configured.
 
 #### Search Features
 + App entries from uPortal
