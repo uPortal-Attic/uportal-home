@@ -1,8 +1,8 @@
-### AngularJS-Portal Documentation
+# AngularJS-Portal Documentation
 
 This documentation describes the features and implementation details of [`angularjs-portal`](https://github.com/UW-Madison-DoIT/angularjs-portal), the new home of [MyUW](https://it.wisc.edu/services/myuw/). `angularjs-portal` is based on [`uw-frame`](https://github.com/UW-Madison-DoIT/uw-frame) (which has [its own documentation](http://uw-madison-doit.github.io/uw-frame/)).
 
-#### Home Page Features
+## Home Page Features
 
 The home page presents widgets in a remembered order. Logged in users can add to, remove from, and re-order this list.
 
@@ -15,14 +15,14 @@ The home page renders widgets in either of two user-selectable modes:
 
 Developers can rapidly prototype widgets using the [Widget Creator](https://tools.my.wisc.edu/widget-creator/#/default).
 
-#### Marketplace Features
+## Marketplace Features
 
 + Sort by rating or alphabetically
 + Filter by category
 + View details about an app, with the details pages deep-linkable
 + Launch the app, including launching directly a portal-external URL for the app where configured.
 
-#### Search Features
+## Search Features
 
 See [search documentation](#/md/search).
 
@@ -32,6 +32,6 @@ Search over:
 + (optional) the web, using Google Custom Search integration
 + (optional) a directory of people, using directory search integration.
 
-#### Integration with uPortal
+## Integration with uPortal
 + Overview
 + Customizations/Setup
