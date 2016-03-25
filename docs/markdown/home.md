@@ -23,9 +23,14 @@ Developers can rapidly prototype widgets using the [Widget Creator](https://tool
 + Launch the app, including launching directly a portal-external URL for the app where configured.
 
 #### Search Features
-+ App entries from uPortal
-+ Google Custom Search formats
-+ Directory search results
+
+See [search documentation](#/md/search).
+
+Search over:
+
++ App directory entries
++ (optional) the web, using Google Custom Search integration
++ (optional) a directory of people, using directory search integration.
 
 #### Integration with uPortal
 + Overview
