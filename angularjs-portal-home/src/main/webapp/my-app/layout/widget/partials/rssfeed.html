@@ -6,11 +6,11 @@
           <p class='bold'>{{item.title | limitTo:config.titleLim}}<span ng-if='item.title.length > config.titleLim'>...</span><span class='right' ng-if='config.showdate'>{{getPrettyDate(item.pubDate) | date:config.dateFormat}}</span></p>
         </a>
       </li>
-      <li ng-if='config.showShowing && config.lim && data.items.length > config.lim'>
+      <li ng-if='config.showShowing && config.lim && data.items.length > config.lim' class='no-highlight'>
         <span class='center'><p class='bold'>Showing {{config.lim}} of {{data.items.length}}</p></span>
       </li>
-      <li ng-if='error'>There was an issue loading the information, click Launch full app for more details</li>
-      <li ng-if='isEmpty'>No information at this time.</li>
+      <li ng-if='error' class='no-highlight'>There was an issue loading the information, click see all for more details</li>
+      <li ng-if='isEmpty' class='no-highlight'>No information at this time.</li>
    </ul>
 </div>
 <a class='btn btn-default launch-app-button ng-scope' ng-href='{{portlet.url}}'>See all</a>
