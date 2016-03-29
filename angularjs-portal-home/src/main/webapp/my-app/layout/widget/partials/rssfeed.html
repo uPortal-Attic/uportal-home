@@ -1,9 +1,14 @@
-<div ng-controller='RSSWidgetController as RSSWidgetCtrl' style='overflow-y: hidden; max-height: 210px;'>
+<div ng-controller='RSSWidgetController as RSSWidgetCtrl' class='rss'>
   <loading-gif data-object="data" data-empty="isEmpty"></loading-gif>
    <ul class='widget-list'>
       <li ng-repeat='item in data.items | filter:filterText | limitTo:config.lim'>
-        <a ng-href='{{item.link}}' target='_blank'>
-          <p class='bold'>{{item.title | limitTo:config.titleLim}}<span ng-if='item.title.length > config.titleLim'>...</span><span class='right' ng-if='config.showdate'>{{getPrettyDate(item.pubDate) | date:config.dateFormat}}</span></p>
+        <a class='full-width' ng-href='{{item.link}}' target='_blank'>
+          <div class='headline bold'>
+            {{item.title | limitTo:config.titleLim}}<span ng-if='item.title.length > config.titleLim'>...</span>
+          </div>
+          <div class='date bold'>
+            <span ng-if='config.showdate'>{{getPrettyDate(item.pubDate) | date:config.dateFormat}}</span>
+          </div>
         </a>
       </li>
       <li ng-if='config.showShowing && config.lim && data.items.length > config.lim' class='no-highlight'>
