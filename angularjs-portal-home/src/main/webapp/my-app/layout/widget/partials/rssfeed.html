@@ -4,7 +4,7 @@
       <li ng-repeat='item in data.items | filter:filterText | limitTo:config.lim'>
         <a class='full-width' ng-href='{{item.link}}' target='_blank'>
           <div class='headline bold'>
-            {{item.title | limitTo:config.titleLim}}<span ng-if='item.title.length > config.titleLim'>...</span>
+            {{item.title | truncate:config.titleLim}}
           </div>
           <div class='date bold'>
             <span ng-if='config.showdate'>{{getPrettyDate(item.pubDate) | date:config.dateFormat}}</span>
