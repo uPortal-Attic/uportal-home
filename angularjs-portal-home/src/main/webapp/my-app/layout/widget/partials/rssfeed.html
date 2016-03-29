@@ -1,16 +1,21 @@
-<div ng-controller='RSSWidgetController as RSSWidgetCtrl' style='overflow-y: hidden; max-height: 210px;'>
+<div ng-controller='RSSWidgetController as RSSWidgetCtrl' class='rss'>
   <loading-gif data-object="data" data-empty="isEmpty"></loading-gif>
    <ul class='widget-list'>
       <li ng-repeat='item in data.items | filter:filterText | limitTo:config.lim'>
-        <a ng-href='{{item.link}}' target='_blank'>
-          <p class='bold'>{{item.title | limitTo:config.titleLim}}<span ng-if='item.title.length > config.titleLim'>...</span><span class='right' ng-if='config.showdate'>{{getPrettyDate(item.pubDate) | date:config.dateFormat}}</span></p>
+        <a class='full-width' ng-href='{{item.link}}' target='_blank'>
+          <div class='headline bold'>
+            {{item.title | truncate:config.titleLim}}
+          </div>
+          <div class='date bold'>
+            <span ng-if='config.showdate'>{{getPrettyDate(item.pubDate) | date:config.dateFormat}}</span>
+          </div>
         </a>
       </li>
-      <li ng-if='config.showShowing && config.lim && data.items.length > config.lim'>
+      <li ng-if='config.showShowing && config.lim && data.items.length > config.lim' class='no-highlight'>
         <span class='center'><p class='bold'>Showing {{config.lim}} of {{data.items.length}}</p></span>
       </li>
-      <li ng-if='error'>There was an issue loading the information, click Launch full app for more details</li>
-      <li ng-if='isEmpty'>No information at this time.</li>
+      <li ng-if='error' class='no-highlight'>There was an issue loading the information, click see all for more details</li>
+      <li ng-if='isEmpty' class='no-highlight'>No information at this time.</li>
    </ul>
 </div>
 <a class='btn btn-default launch-app-button ng-scope' ng-href='{{portlet.url}}'>See all</a>
