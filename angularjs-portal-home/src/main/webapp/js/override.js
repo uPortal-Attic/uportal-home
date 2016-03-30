@@ -50,7 +50,6 @@ define(['angular'], function(angular) {
               'groupFiltering' : true
           },
           'MISC_URLS' : {
-            'back2ClassicURL' : '/portal/Login?profile=default',
             'feedbackURL' : '/portal/p/feedback',
             'whatsNewURL' : 'https://kb.wisc.edu/myuw/page.php?id=48181'
           },
@@ -58,10 +57,6 @@ define(['angular'], function(angular) {
             { "url" : "features",
               "target" : "",
               "title" : "What's New"
-            },
-            { "url" : "/portal/Login?profile=default",
-              "target" : "",
-              "title" : "Old MyUW"
             }
           ],
           'APP_BETA_FEATURES' : [
