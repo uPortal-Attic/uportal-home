@@ -1,6 +1,50 @@
 {
   "portlets": [
     {
+        "canAdd": true,
+        "layoutObject": {
+        "nodeId": "-1",
+        "title": "Wiscard Balance",
+        "description": "See your wiscard balance, make a deposit, or request money.",
+        "url": "https://online.wiscard.wisc.edu/login.php?cid=120",
+        "iconUrl": null,
+        "faIcon": "fa-credit-card-alt",
+        "fname": "wiscard-balance",
+        "target": "_blank",
+        "widgetURL": "/web/api/wiscard",
+        "widgetType": "generic",
+        "widgetTemplate": "\n          <div class='widget-body'>\n            <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>\n            <div ng-if=\"content && (content.data | filter: account=103).length > 0\"  class='center' style='padding:20px;'>\n              <span style='font-size: 35px; color:#b70101'> {{ (content.data | filter: account=103)[0].balance | currency:\"$\":2}}</span>\n            </div>\n            <div ng-if='isEmpty' style='padding: 20px; font-size: 14px;'>\n              <i class='fa fa-exclamation-triangle fa-3x pull-left' style='color: #b70101;'></i>\n              <span>Balance unavailable, please try again later</span>\n            </div>\n            <div class=\"center\">\n              <i class=\"fa fa-credit-card-alt fa-5x\" style=\"color: #cbcbcb;\"></i>\n            </div>\n          </div>\n          <a class='btn btn-default launch-app-button' href='https://online.wiscard.wisc.edu/login.php?cid=120'>Manage my Wiscard</a>\n        ",
+        "widgetConfig": {
+        "evalString": "!$scope.content.data || ($scope.content.data | filter: account=103).length  === 0"
+        },
+        "staticContent": "\n        \n          <a href=\"https://online.wiscard.wisc.edu/login.php?cid=120\">Access your Wiscard account.</a>\n        \n      ",
+        "pithyStaticContent": null,
+        "altMaxUrl": true,
+        "renderOnWeb": false
+        },
+        "fname": "wiscard-balance",
+        "lifecycleState": "PUBLISHED",
+        "rating": 0,
+        "relatedPortlets": [],
+        "renderUrl": "https://online.wiscard.wisc.edu/login.php?cid=120",
+        "portletWebAppName": "/SimpleContentPortlet",
+        "faIcon": "fa-credit-card-alt",
+        "maxUrl": "https://online.wiscard.wisc.edu/login.php?cid=120",
+        "portletReleaseNotes": {},
+        "shortUrl": null,
+        "userRated": 0,
+        "marketplaceScreenshots": [],
+        "title": "Wiscard Balance",
+        "portletName": "cms",
+        "categories": [],
+        "keywords": [],
+        "description": "See your wiscard balance, make a deposit, or request money.",
+        "name": "Wiscard Balance",
+        "id": "5996",
+        "type": "Portlet",
+        "target": "_blank"
+    },
+    {
       "canAdd": false,
       "layoutObject": {
         "nodeId": "-1",
