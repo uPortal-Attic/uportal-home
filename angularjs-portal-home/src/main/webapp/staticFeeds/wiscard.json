@@ -1,0 +1,100 @@
+{
+"code": 1,
+"status": 200,
+"data": [
+{
+"account": "13",
+"name": "Print Account",
+"balance": 0,
+"credit": 0,
+"active": 1
+},
+{
+"account": "103",
+"name": "Wiscard Account",
+"balance": 22,
+"credit": 0,
+"active": 1
+},
+{
+"account": 11,
+"name": "Campus Cash",
+"active": 0
+},
+{
+"account": 12,
+"name": "2012-13 Housing Food",
+"active": 0
+},
+{
+"account": 14,
+"name": "Union Copy",
+"active": 0
+},
+{
+"account": 15,
+"name": "Red Union Guest",
+"active": 0
+},
+{
+"account": 16,
+"name": "UW Colleges Meal Plan",
+"active": 0
+},
+{
+"account": 17,
+"name": "Housing Conference Laundry",
+"active": 0
+},
+{
+"account": 18,
+"name": "Housing Guest Card",
+"active": 0
+},
+{
+"account": 19,
+"name": "Housing Res Life-Admin",
+"active": 0
+},
+{
+"account": 20,
+"name": "Housing Laundry Maintenance",
+"active": 0
+},
+{
+"account": 21,
+"name": "Housing Conference Food",
+"active": 0
+},
+{
+"account": 23,
+"name": "Union Test Account",
+"active": 0
+},
+{
+"account": 91,
+"name": "Union Gift Card",
+"active": 0
+},
+{
+"account": 111,
+"name": "Blue Union Guest",
+"active": 0
+},
+{
+"account": 1,
+"name": "Union Meal",
+"active": 0
+},
+{
+"account": 81,
+"name": "2013-14 Housing Food",
+"active": 0
+},
+{
+"account": 102,
+"name": "Babcock Gift Card",
+"active": 0
+}
+]
+}

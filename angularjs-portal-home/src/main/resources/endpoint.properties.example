@@ -53,3 +53,7 @@ wiscedusearch.uri=http://ajax.googleapis.com/ajax/services/search/web
 uwrfsearch.uri=https://www.googleapis.com/customsearch/v1element
 
 rss2json.uri=https://rss2json.com/api.json
+
+#wiscard feed
+wiscard.uri=http://localhost:8080/web/staticFeeds/wiscard.json
+
