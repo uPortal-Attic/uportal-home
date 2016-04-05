@@ -10,9 +10,40 @@ This reduces noise and opportunity cost of adding content to the portal. Content
 
 ### Names
 
-* name
-* title
 * fname
+#### `title` and `name`
+
+Applications directory entries track two names for each app. Usually these names are the same.
+
+```xml
+<portlet-definition ...>
+  <title>Preferred Name Administration</title>
+  <name>Preferred Name Administration</name>
+  ...
+```
+
+Sometimes they are different.
+
+```xml
+<portlet-definition ...>
+  <title>HR, Payroll and Benefits News</title>
+  <name>UW System HR, Payroll and Benefits News</name>
+  ...
+```
+
+The difference is that `title` will display to end users as
+
+ * the name of the app when browsing the app directory
+ * the name of the app when viewing the details page for the app
+ * the title on the widget tile, if the user adds the app to their home
+ * the title when rendering the app, if the app is a portlet
+
+whereas `name` will display to end users as
+
+ * the name of the app in search results
+
+and to administrators in the `Portlet Administration` tooling.
+
 
 ### Description
 
