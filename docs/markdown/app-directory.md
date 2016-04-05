@@ -64,6 +64,33 @@ See also [KB article on referencing content in MyUW][].
 
 ### Description
 
+Beyond the names and URL path identifier, application directory entries in MyUW have several fields that inform the directory entry presentation.
+
+#### Description
+
+Description text displays 
+
+ * as the description of the search result item in the search results display
+ * as the description of the item in the browse view on the directory of apps
+ * as the tooltip upon hovering on the (i) icon on the app's widget
+ * on the app's details page
+
+#### Icon
+
+App directory entries optionally have an icon.
+
+#### Categories
+
+Each app can be in zero or more categories. Categories can also contain other categories.
+
+Categories are an available filter for browsing the directory of apps and users can jump to that filter with a category selected from 
+
+Categories drive the random selection of "related apps" shown in the app directory entry details page.
+
+Permissions can be granted over whole categories of apps, and historically were, but MyUW is evolving to stop doing this and instead grant permissions directly on individual app directory entries.
+
+
+
  * Icon
  * Description
  * Categories
