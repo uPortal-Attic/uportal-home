@@ -10,7 +10,6 @@ This reduces noise and opportunity cost of adding content to the portal. Content
 
 ### Names
 
-* fname
 #### `title` and `name`
 
 Applications directory entries track two names for each app. Usually these names are the same.
@@ -44,6 +43,24 @@ whereas `name` will display to end users as
 
 and to administrators in the `Portlet Administration` tooling.
 
+#### `fname`
+
+The functional name ("fname") is a short human-readable string uniquely identifying the content, used in URLs addressing the content.
+
+```xml
+<portlet-definition ... >
+  <fname>uw-system-hr-payroll-benefits-news</fname>
+  ...
+```
+
+ * `/web/exclusive/{fname}` will render the content. (Currently not all portlet content works well rendered in this way, but that should be fixed soon.)
+ * `/web/apps/details/{fname}` will render the details page about the content.
+
+Historically (and technically, currently) `/portal/p/{fname}` would render the content, if the content is a portlet, but this uses the old rendering pipeline that should soon be fully replaced by rendering in the new `/web/exclusive/{fname}` way.
+
+Technically all application directory entries are portlets, so technically the URL to render the content will work for all directory entries -- but for frame-based apps, the `/{frame-based-app-context-name}` path (e.g., `https://my.wisc.edu/AdvisingGateway`) will provide a better experience when directing users to the app.
+
+See also [KB article on referencing content in MyUW][].
 
 ### Description
 
@@ -107,3 +124,12 @@ Users with `MANAGE` permission over an app directory entry can exercise the JSON
 Currently, the AngularJS-portal app directory *is* the uPortal portlet registry.
 
 This means that the app directory can be viewed and edited via the Portlet Manager tooling in uPortal and that app directory entries are uPortal "entities" bulk loaded via entity import.
+
+## See also
+
+Application directory entries are currently uPortal `portlet-definition` entities.
+
+ * [XSD for `portlet-definition` XML][]
+
+[KB article on referencing content in MyUW]: https://kb.wisc.edu/myuw/page.php?id=52650
+[XSD for `portlet-definition` XML]: https://github.com/Jasig/uPortal/tree/master/uportal-war/src/main/resources/xsd/io/portlet-definition
