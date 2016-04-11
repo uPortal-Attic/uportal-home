@@ -95,7 +95,11 @@ These can be any of the [Font Awesome icons][].
 
 Each app can be in zero or more categories. Categories can also contain other categories.
 
-Categories are an available filter for browsing the directory of apps and users can jump to that filter with a category selected from 
+```xml
+<category>Personal Information</category>
+```
+
+Categories are an available filter for browsing the directory of apps and users can jump to that filter with a category selected from the details page of an app.
 
 Categories drive the random selection of "related apps" shown in the app directory entry details page.
 
