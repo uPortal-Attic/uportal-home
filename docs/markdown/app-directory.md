@@ -8,7 +8,9 @@ This reduces noise and opportunity cost of adding content to the portal. Content
 
 ## Anatomy of a directory entry
 
-### Names
+Technical, app directory entries *are* uPortal portlet registry entries, and so can be modeled and imported using uPortal `portlet-definition` "entities". The XML snippets in this documentation hint as to how this is done.
+
+### Naming the content
 
 #### `title` and `name`
 
@@ -62,7 +64,7 @@ Technically all application directory entries are portlets, so technically the U
 
 See also [KB article on referencing content in MyUW][].
 
-### Description
+### Describing the content
 
 Beyond the names and URL path identifier, application directory entries in MyUW have several fields that inform the directory entry presentation.
 
