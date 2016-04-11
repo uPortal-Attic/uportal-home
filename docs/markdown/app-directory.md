@@ -136,6 +136,17 @@ Screenshots should be managed in the [MyUW images GitLab repo][MyUWImages GitLab
 
 Optionally an application directory entry can specify an "alternative" URL. This is alternative to using the JSR-286 Portlet associated with the app directory entry.
 
+```xml
+<parameter>
+  <name>alternativeMaximizedLink</name>
+  <value>https://uwmadison.box.com</value>
+</parameter>
+<parameter>
+  <name>target</name>
+  <value>_blank</value>
+</parameter>
+```
+
 Where the external URL is specified, AngularJS-portal will prefer "Launch"ing to the external URL rather than launching to the internal portlet.
 
 ### Permissions
