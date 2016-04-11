@@ -85,6 +85,12 @@ Description text displays
 
 App directory entries optionally have an icon.
 
+```xml
+<parameter><name>faIcon</name><value>fa-user</value></parameter>
+```
+
+These can be any of the [Font Awesome icons][].
+
 #### Categories
 
 Each app can be in zero or more categories. Categories can also contain other categories.
@@ -166,3 +172,4 @@ Application directory entries are currently uPortal `portlet-definition` entitie
 
 [KB article on referencing content in MyUW]: https://kb.wisc.edu/myuw/page.php?id=52650
 [XSD for `portlet-definition` XML]: https://github.com/Jasig/uPortal/tree/master/uportal-war/src/main/resources/xsd/io/portlet-definition
+[Font Awesome icons]: https://fortawesome.github.io/Font-Awesome/icons/
