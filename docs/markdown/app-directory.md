@@ -55,10 +55,10 @@ The functional name ("fname") is a short human-readable string uniquely identify
   ...
 ```
 
- * `/web/exclusive/{fname}` will render the content. (Currently not all portlet content works well rendered in this way, but that should be fixed soon.)
+ * `/web/exclusive/{fname}` will render the content. (Currently not all portlet content works well rendered in this way, but that should be fixed someday.)
  * `/web/apps/details/{fname}` will render the details page about the content.
 
-Historically (and technically, currently) `/portal/p/{fname}` would render the content, if the content is a portlet, but this uses the old rendering pipeline that should soon be fully replaced by rendering in the new `/web/exclusive/{fname}` way.
+Historically (and technically, currently) `/portal/p/{fname}` would render the content, if the content is a portlet, but this uses the old rendering pipeline that should eventually be replaced by rendering in the new `/web/exclusive/{fname}` way.
 
 Technically all application directory entries are portlets, so technically the URL to render the content will work for all directory entries -- but for frame-based apps, the `/{frame-based-app-context-name}` path (e.g., `https://my.wisc.edu/AdvisingGateway`) will provide a better experience when directing users to the app.
 
