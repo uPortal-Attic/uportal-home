@@ -15,7 +15,9 @@ The home page renders widgets in either of two user-selectable modes:
 
 Developers can rapidly prototype widgets using the [Widget Creator](https://tools.my.wisc.edu/widget-creator/#/default).
 
-## Marketplace Features
+## App Directory Features
+
+See [app directory documentation](#/md/app-directory).
 
 + Sort by rating or alphabetically
 + Filter by category
