@@ -157,11 +157,33 @@ There are three kinds of permissions one can have over an entry in the app direc
 
 `SUBSCRIBE` is granted in a `portlet-definition` entity file via `<group>` elements.
 
+```xml
+<group>Users - Box</group>
+```
+
 `BROWSE` is intended to grant permission to *know about* the application, to see its application directory entry.
 
 `BROWSE` is granted in a `portlet-definition entity file via `<permission>` elements.
 
-`MANAGE` is a powerful administrative permission intended to grant ability to administer the app. Users with `MANAGE` permission over an app and access to the `Portlet Administration` app in MyUW can edit the `portlet-definition`s for apps they manage. 
+```xml
+<permissions>
+  <permission system="UP_PORTLET_SUBSCRIBE" activity="BROWSE">
+    <group>Everyone</group>
+  </permission>
+</permissions>
+```
+
+`MANAGE` is a powerful administrative permission intended to grant ability to administer the app. Users with `MANAGE` permission over an app and access to the `Portlet Administration` app in MyUW can edit the `portlet-definition`s for apps they manage.  Users with `MANAGE` permission can also view the raw ratings and reviews for an app (rather than only the aggregated average rating).
+
+```xml
+<permissions>
+  <permission system="UP_PORTLET_SUBSCRIBE" activity="MANAGE">
+    <group>Duly Authorized University Staff</group>
+  </permission>
+</permissions>
+```
+
+The groups referenced, as implemented for UW-Madison, are often ultimately [Manifest][] groups.
 
 ### Optional widget
 
@@ -209,3 +231,4 @@ Application directory entries are currently uPortal `portlet-definition` entitie
 [XSD for `portlet-definition` XML]: https://github.com/Jasig/uPortal/tree/master/uportal-war/src/main/resources/xsd/io/portlet-definition
 [Font Awesome icons]: https://fortawesome.github.io/Font-Awesome/icons/
 [MyUWImages GitLab repo]: https://git.doit.wisc.edu/myuw/MyUWImages
+[Manifest]: https://it.wisc.edu/services/manifest/
