@@ -70,6 +70,10 @@ Beyond the names and URL path identifier, application directory entries in MyUW 
 
 #### Description
 
+```xml    
+<desc>View and update your personal information, including your primary/legal name, office and home addresses.</desc>
+```
+
 Description text displays 
 
  * as the description of the search result item in the search results display
