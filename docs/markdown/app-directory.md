@@ -105,12 +105,32 @@ Categories drive the random selection of "related apps" shown in the app directo
 
 Permissions can be granted over whole categories of apps, and historically were, but MyUW is evolving to stop doing this and instead grant permissions directly on individual app directory entries.
 
+#### Screenshots
 
+Optionally, application directory entries can include screenshots.
 
- * Icon
- * Description
- * Categories
- * Screenshots
+```xml
+<portlet-preference>
+  <name>screen_shot1</name>
+  <value>/images/screenshotImages/my-courses/courseList.png</value>
+</portlet-preference>
+<portlet-preference>
+  <name>screen_shot1_caption</name>
+  <value>View your course list.</value>
+</portlet-preference>
+<portlet-preference>
+  <name>screen_shot2</name>
+  <value>/images/screenshotImages/my-courses/courseGrid.png</value>
+</portlet-preference>
+<portlet-preference>
+  <name>screen_shot2_caption</name>
+  <value>View your course schedule in a grid view.</value>
+</portlet-preference>
+```
+
+Screenshot captions should be sentence-cased. Sentences, even.
+
+Screenshots should be managed in the [MyUW images GitLab repo][MyUWImages GitLab repo], with the significant advantage that (tagged releases of) this repo are deployed alongside MyUW and so have availability with MyUW, reducing the chance of a marred app details page experience when an externally referenced image is unavailable. 
 
 ### Optional external URL
 
@@ -177,3 +197,4 @@ Application directory entries are currently uPortal `portlet-definition` entitie
 [KB article on referencing content in MyUW]: https://kb.wisc.edu/myuw/page.php?id=52650
 [XSD for `portlet-definition` XML]: https://github.com/Jasig/uPortal/tree/master/uportal-war/src/main/resources/xsd/io/portlet-definition
 [Font Awesome icons]: https://fortawesome.github.io/Font-Awesome/icons/
+[MyUWImages GitLab repo]: https://git.doit.wisc.edu/myuw/MyUWImages
