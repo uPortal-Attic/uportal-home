@@ -195,7 +195,16 @@ See [documentation about expanded widgets](#/md/expanded).
 
 App directory "search" is really filtering, and currently filters over the name, description, and keywords.
 
-Keywords are not displayed in the user interface to typical users (though there is a beta settings flag to display them).
+```xml
+<portlet-preference>
+  <name>keywords</name>
+  <value>dropbox</value>
+  <value>UW Box</value>
+  <value>drop box</value>
+</portlet-preference>
+```
+
+Keywords are not displayed in the user interface to typical users (though there is a beta settings flag to display them, e.g. for troubleshooting purposes).
 
 So keywords end up being a way to increase search matching for content without expanding the description. Typical typoes might also be modeled as keywords so that these will match the content.
 
