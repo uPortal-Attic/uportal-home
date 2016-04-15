@@ -377,7 +377,7 @@ define(['angular'], function(angular){
             widgetType : 'rss',
             title: 'RSS Widget',
             jsonSample: false,
-            widgetConfig : {lim : 6, showdate: true, titleLim: 40 , dateFormat: 'MM-dd-yyyy', showShowing: true},
+            widgetConfig : {lim : 6, target : '' ,showdate: true, titleLim: 40 , dateFormat: 'MM-dd-yyyy', showShowing: true},
             hasWidgetURL : true,
             widgetURL : ""
           },
