@@ -1,30 +1,34 @@
 [
   {
-   "id" : 1,
-   "title" : "Welcome to the new MyUW",
-	 "description" : "The new MyUW makes it easier to access your content. You can switch between simple icons and more informative widgets using 'Compact' and 'Expanded' toggles. Each of the icons on the home page links to your MyUW content, and widgets can display a dashboard of information on the home page. If you are having trouble finding what you're looking for, you can use the top search box to search through all of MyUW's content, and save it to your home page from there using the 'Add to home' button.",
-   "img" : "img/myuw-welcome.png",
-	 "learnMoreURL" : "https://kb.wisc.edu/myuw/page.php?id=53929",
-	 "goLiveYear" : 2015,
-	 "goLiveMonth" : 6,
-	 "goLiveDay" : 11,
-	 "popup" : {
-		 "enabled" : true,
-		 "startYear" : 2015,
-		 "startMonth" : 7,
-		 "startDay" : 11,
-		 "endYear" : 2015,
-		 "endMonth" : 7,
-		 "endDay" : 25,
-		 "buttonText" : "Continue to MyUW"
-	   }
-   },
-   {
+  "id": 1,
+  "title": "Welcome to the new MyUW",
+  "description": "The new MyUW makes it easier to access your content. You can switch between simple icons and more informative widgets using 'Compact' and 'Expanded' toggles. Each of the icons on the home page links to your MyUW content, and widgets can display a dashboard of information on the home page. If you are having trouble finding what you're looking for, you can use the top search box to search through all of MyUW's content, and save it to your home page from there using the 'Add to home' button.",
+  "img": "img/myuw-welcome.png",
+  "learnMoreURL": "https://kb.wisc.edu/myuw/page.php?id=53929",
+  "groups" : "UW-Madison",
+  "goLiveYear": 2015,
+  "goLiveMonth": 6,
+  "goLiveDay": 11,
+  "isPopup" : true,
+  "isBuckyAnnouncement" : false,
+  "popup": {
+    "enabled": true,
+    "startYear": 2015,
+    "startMonth": 7,
+    "startDay": 11,
+    "endYear": 2016,
+    "endMonth": 7,
+    "endDay": 25,
+    "buttonText": "Continue to MyUW"
+    }
+  },
+  {
     "id": 2,
     "title": "A new and improved search",
     "description": "Search more places. In addition to searching MyUW, now you can find people in the campus directory, and search the entire Wisc.edu website. Quickly find what you’re looking for. The new streamlined search results page has a familiar and straightforward look, with tabs to narrow your search to what you need.",
     "img": "img/search-demo.png",
     "learnMoreURL": "",
+    "groups" : "UW-Madison",
     "goLiveYear": 2016,
     "goLiveMonth": 1,
     "goLiveDay": 6,
@@ -32,7 +36,7 @@
     "isBuckyAnnouncement" : true,
     "buckyAnnouncement" : {
       "shortTitle" : "Try the new MyUW search",
-      "shortDesc" : "Now search across MyUW, Wisc.edu, and the campus directory.",
+      "shoreDesc" : "Now search across MyUW, Wisc.edu, and the campus directory.",
       "endDate": 1456812000000
     }
   },
@@ -42,6 +46,7 @@
     "description": "The MyUW team is rolling out some new features. To keep with our being timely goal we now have a way of consuming RSS feeds and displaying them as widgets. In honor of March Madness we have added two new sport feeds. Search for sports in the search bar and add the new widgets today!",
     "img": "img/sports-widgets.png",
     "learnMoreURL": "",
+    "groups" : "UW-Madison",
     "goLiveYear": 2016,
     "goLiveMonth": 1,
     "goLiveDay": 6,
