@@ -13,7 +13,8 @@ define(['angular'], function(angular) {
             'expanded' : true,
             'isWeb' : true,
             'defaultTheme' : 'group',
-            'debug' : true
+            'debug' : true,
+            'showUserSettingsPage' : true
           },
           'FEATURES' : {
             enabled: true
