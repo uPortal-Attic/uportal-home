@@ -51,6 +51,15 @@
         "actionAlt" : "Access the list of available WRS Statements",
         "dismissable" : true,
         "priority": false
+      },
+      {
+        "id"     : 8,
+        "groups" : ["Email"],
+        "title" : "Email message - project overlay for details",
+        "actionURL" : "project overlay for details",
+        "actionAlt" : "project overlay for details",
+        "dismissable" : true,
+        "priority": false
       }
     ]
 }
