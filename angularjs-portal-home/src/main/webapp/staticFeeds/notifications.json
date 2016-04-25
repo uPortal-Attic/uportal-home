@@ -50,6 +50,16 @@
         "actionAlt" : "project overlay for details",
         "dismissable" : true,
         "priority": false
+      },
+      {
+        "id"     : 9,
+        "groups" : ["Facstaff",
+                    "Facstaff - Former Appointment"],
+        "title" : "2015 WRS Statements of Benefits are posted. Check if you have one.",
+        "actionURL" : "/portal/p/university-staff-benefits-statement",
+        "actionAlt" : "Access available WRS Statements.",
+        "dismissable" : true,
+        "priority": false
       }
     ]
 }
