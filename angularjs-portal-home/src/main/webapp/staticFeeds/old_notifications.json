@@ -7,6 +7,16 @@
         "actionURL" : "http://www.ohr.wisc.edu/benefits2016/",
         "actionAlt" : "Learn more about Annual Benefits Enrollment.",
         "dismissable" : true
+      },
+      {
+        "id"     : 7,
+        "groups" : ["Facstaff",
+                    "Facstaff - Former Appointment"],
+        "title" : "2015 WRS Statements of Benefits are posted. Check if you have one.",
+        "actionURL" : "/portal/p/university-staff-benefits-statement",
+        "actionAlt" : "Access the list of available WRS Statements",
+        "dismissable" : true,
+        "priority": false
       }
     ]
 }
