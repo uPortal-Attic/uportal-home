@@ -92,7 +92,7 @@
       <url-pattern>/apps/*</url-pattern>
       <url-pattern>/features</url-pattern>
       <url-pattern>/settings/*</url-pattern>
-      <url-pattern>user-settings</url-pattern>
+      <url-pattern>/user-settings</url-pattern>
       <url-pattern>/notifications</url-pattern>
       <url-pattern>/static/*</url-pattern>
       <url-pattern>/exclusive/*</url-pattern>
