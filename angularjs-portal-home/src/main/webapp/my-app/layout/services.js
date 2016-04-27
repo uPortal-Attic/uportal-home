@@ -180,11 +180,15 @@ define(['angular', 'jquery'], function(angular, $) {
                         }else{
                             portlet.exclusiveContent="<div class=\"alert alert-danger\" role=\"alert\">This service is unavailable right now. Please check back later.</div>";
                         }
-
+                        
                         return data;
                     },
                     function(reason) {
-                        miscService.redirectUser(reason.status, 'exclusive markup for ' + portlet.fname + " failed.");
+                        if(reason.status===403){
+                            portlet.exclusiveContent="<div class=\"row\">  <div class=\"col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 main-content\">    <p><strong>Sorry, you're not authorized to access this.</p>    <br><br>    <div class=\"center\"><i class='fa fa-exclamation-triangle fa-5x'></i></div>    <p>If you're here by accident, head back to your My-UW <a href='/web'>homepage</a>.</p>    <p>For help with authorization, contact the DoIT <a href=\"https://kb.wisc.edu/helpdesk\"></a>Help Desk</a>.</p>  </div></div>";
+                        }else{
+                           miscService.redirectUser(reason.status, 'exclusive markup for ' + portlet.fname + " failed.");
+                       }
                     }
                 );
         }
