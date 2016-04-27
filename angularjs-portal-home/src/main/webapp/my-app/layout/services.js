@@ -185,7 +185,7 @@ define(['angular', 'jquery'], function(angular, $) {
                     },
                     function(reason) {
                         if(reason.status===403){
-                            portlet.exclusiveContent="<div class=\"row\">  <div class=\"col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 main-content\">    <p><strong>Sorry, you're not authorized to access this.</p>    <br><br>    <div class=\"center\"><i class='fa fa-exclamation-triangle fa-5x'></i></div>    <p>If you're here by accident, head back to your My-UW <a href='/web'>homepage</a>.</p>    <p>For help with authorization, contact the DoIT <a href=\"https://kb.wisc.edu/helpdesk\"></a>Help Desk</a>.</p>  </div></div>";
+                            portlet.exclusiveContent="<p><strong>Sorry, you're not authorized to access this.</p>    <br><br>    <div class=\"center\"><i class='fa fa-exclamation-triangle fa-5x'></i></div>    <p>If you're here by accident, head back to your My-UW <a href='/web'>homepage</a>.</p>    <p>For help with authorization, contact the <a href=\"https://kb.wisc.edu/helpdesk\">DoIT Help Desk</a>.</p>";
                         }else{
                            miscService.redirectUser(reason.status, 'exclusive markup for ' + portlet.fname + " failed.");
                        }
