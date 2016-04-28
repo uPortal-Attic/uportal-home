@@ -2,6 +2,7 @@
 
 define(['angular', 'jquery'], function(angular, $) {
     var app = angular.module('my-app.layout.services', []);
+    var accessDeniedTemplate="<p><strong>Sorry, you're not authorized to access this.</p>    <br><br>    <div class=\"center\"><i class='fa fa-exclamation-triangle fa-5x'></i></div>    <p>If you're here by accident, head back to your My-UW <a href='/web'>homepage</a>.</p>    <p>For help with authorization, contact the <a href=\"https://kb.wisc.edu/helpdesk\">DoIT Help Desk</a>.</p>";
 
     app.factory('sharedPortletService', function () {
         var property = {};
@@ -104,11 +105,14 @@ define(['angular', 'jquery'], function(angular, $) {
         var getApp = function(fname) {
             return $http.get(SERVICE_LOC.base + 'portlet/' +fname + '.json').then(
                 function(result) {
-                    return  result.data;
+                    return  result;
                 } ,
                 function(reason){
                     miscService.redirectUser(reason.status, 'getApp call');
-                    return reason.data;
+                    if(reason.status === 403) {
+                      reason.deniedTemplate = accessDeniedTemplate;
+                    }
+                    return reason;
                 }
             );
         };
@@ -180,12 +184,12 @@ define(['angular', 'jquery'], function(angular, $) {
                         }else{
                             portlet.exclusiveContent="<div class=\"alert alert-danger\" role=\"alert\">This service is unavailable right now. Please check back later.</div>";
                         }
-                        
+
                         return data;
                     },
                     function(reason) {
                         if(reason.status===403){
-                            portlet.exclusiveContent="<p><strong>Sorry, you're not authorized to access this.</p>    <br><br>    <div class=\"center\"><i class='fa fa-exclamation-triangle fa-5x'></i></div>    <p>If you're here by accident, head back to your My-UW <a href='/web'>homepage</a>.</p>    <p>For help with authorization, contact the <a href=\"https://kb.wisc.edu/helpdesk\">DoIT Help Desk</a>.</p>";
+                            portlet.exclusiveContent=accessDeniedTemplate;
                         }else{
                            miscService.redirectUser(reason.status, 'exclusive markup for ' + portlet.fname + " failed.");
                        }

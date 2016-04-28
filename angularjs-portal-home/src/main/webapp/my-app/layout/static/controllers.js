@@ -37,14 +37,15 @@ define(['angular', 'jquery'], function(angular, $) {
                           && $scope.portlet.exclusiveContent.length > 0 ? false : true;
         };
 
-        
+
         if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== $routeParams.fname) {
 
             if (typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
                 $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
             }
             if (typeof $scope.portlet.fname === 'undefined') {
-                layoutService.getApp($routeParams.fname).then(function (data) {
+                layoutService.getApp($routeParams.fname).then(function (result) {
+                    var data = result.data;
                     $scope.portlet = data.portlet;
                     if (typeof $scope.portlet === 'undefined' ||
                         typeof $scope.portlet.fname === 'undefined') {
@@ -97,10 +98,17 @@ define(['angular', 'jquery'], function(angular, $) {
                     $scope.loading = $scope.portlet;
                 }
                 if (typeof $scope.portlet.fname === 'undefined') {
-                    layoutService.getApp($routeParams.fname).then(function (data) {
+                    layoutService.getApp($routeParams.fname).then(function (result) {
+                        var data = result.data;
                         $scope.portlet = data.portlet;
                         if (typeof $scope.portlet === 'undefined' ||
                             typeof $scope.portlet.fname === 'undefined') {
+                            if(result.status === 403) {
+                              $scope.portlet = {};
+                              $scope.portlet.title = 'Access Denied';
+                              $scope.portlet.faIcon = 'fa-exclamation-triangle';
+                              $scope.exclusiveContent = result.deniedTemplate;
+                            }
                             $location.path('/');
                         } else {
                           $scope.loading = $scope.portlet; //not []
