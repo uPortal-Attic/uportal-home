@@ -55,7 +55,7 @@ define(['angular', 'jquery'], function(angular, $) {
                           $scope.portlet = {};
                           $scope.portlet.title = 'Access Denied';
                           $scope.portlet.faIcon = 'fa-exclamation-triangle';
-                          $scope.exclusiveContent = result.deniedTemplate;
+                          $scope.portlet.exclusiveContent = result.deniedTemplate;
                         } else {
                           $location.path('/');
                         }
@@ -118,7 +118,7 @@ define(['angular', 'jquery'], function(angular, $) {
                               $scope.portlet = {};
                               $scope.portlet.title = 'Access Denied';
                               $scope.portlet.faIcon = 'fa-exclamation-triangle';
-                              $scope.exclusiveContent = result.deniedTemplate;
+                              $scope.portlet.exclusiveContent = result.deniedTemplate;
                             } else {
                               $location.path('/');
                             }
