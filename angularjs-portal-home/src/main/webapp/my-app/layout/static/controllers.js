@@ -50,7 +50,7 @@ define(['angular', 'jquery'], function(angular, $) {
                     if (typeof $scope.portlet === 'undefined' ||
                         typeof $scope.portlet.fname === 'undefined') {
                         if(result.status === 403) {
-                          $scope.loading = false;
+                          $scope.loading = true;
                           $scope.empty = false;
                           $scope.portlet = {};
                           $scope.portlet.title = 'Access Denied';
@@ -113,7 +113,7 @@ define(['angular', 'jquery'], function(angular, $) {
                         if (typeof $scope.portlet === 'undefined' ||
                             typeof $scope.portlet.fname === 'undefined') {
                             if(result.status === 403) {
-                              $scope.loading = false;
+                              $scope.loading = true;
                               $scope.empty = false;
                               $scope.portlet = {};
                               $scope.portlet.title = 'Access Denied';
