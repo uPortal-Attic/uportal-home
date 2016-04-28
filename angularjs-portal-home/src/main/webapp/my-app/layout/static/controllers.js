@@ -49,7 +49,14 @@ define(['angular', 'jquery'], function(angular, $) {
                     $scope.portlet = data.portlet;
                     if (typeof $scope.portlet === 'undefined' ||
                         typeof $scope.portlet.fname === 'undefined') {
-                        $location.path('/');
+                        if(result.status === 403) {
+                          $scope.portlet = {};
+                          $scope.portlet.title = 'Access Denied';
+                          $scope.portlet.faIcon = 'fa-exclamation-triangle';
+                          $scope.exclusiveContent = result.deniedTemplate;
+                        } else {
+                          $location.path('/');
+                        }
                     } else {
                         $scope.loading = true;
                         layoutService.getExclusiveMarkup($scope.portlet).then(endFn,endFn);
@@ -108,8 +115,10 @@ define(['angular', 'jquery'], function(angular, $) {
                               $scope.portlet.title = 'Access Denied';
                               $scope.portlet.faIcon = 'fa-exclamation-triangle';
                               $scope.exclusiveContent = result.deniedTemplate;
+                            } else {
+                              $location.path('/');
                             }
-                            $location.path('/');
+
                         } else {
                           $scope.loading = $scope.portlet; //not []
                         }
