@@ -37,6 +37,7 @@ define(['angular', 'jquery'], function(angular, $) {
                           && $scope.portlet.exclusiveContent.length > 0 ? false : true;
         };
 
+        
         if (typeof $scope.portlet.fname === 'undefined' || $scope.portlet.fname !== $routeParams.fname) {
 
             if (typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
