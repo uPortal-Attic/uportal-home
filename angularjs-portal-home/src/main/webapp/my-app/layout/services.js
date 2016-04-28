@@ -110,7 +110,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 function(reason){
                     miscService.redirectUser(reason.status, 'getApp call');
                     if(reason.status === 403) {
-                      reason.deniedTemplate = accessDeniedTemplate;
+                      reason.deniedTemplate = $sce.trustAsHtml(accessDeniedTemplate);
                     }
                     return reason;
                 }
@@ -189,7 +189,7 @@ define(['angular', 'jquery'], function(angular, $) {
                     },
                     function(reason) {
                         if(reason.status===403){
-                            portlet.exclusiveContent=accessDeniedTemplate;
+                            portlet.exclusiveContent=$sce.trustAsHtml(accessDeniedTemplate);
                         }else{
                            miscService.redirectUser(reason.status, 'exclusive markup for ' + portlet.fname + " failed.");
                        }

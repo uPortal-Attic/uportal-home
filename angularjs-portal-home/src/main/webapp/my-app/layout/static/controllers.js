@@ -50,6 +50,8 @@ define(['angular', 'jquery'], function(angular, $) {
                     if (typeof $scope.portlet === 'undefined' ||
                         typeof $scope.portlet.fname === 'undefined') {
                         if(result.status === 403) {
+                          $scope.loading = false;
+                          $scope.empty = false;
                           $scope.portlet = {};
                           $scope.portlet.title = 'Access Denied';
                           $scope.portlet.faIcon = 'fa-exclamation-triangle';
@@ -111,6 +113,8 @@ define(['angular', 'jquery'], function(angular, $) {
                         if (typeof $scope.portlet === 'undefined' ||
                             typeof $scope.portlet.fname === 'undefined') {
                             if(result.status === 403) {
+                              $scope.loading = false;
+                              $scope.empty = false;
                               $scope.portlet = {};
                               $scope.portlet.title = 'Access Denied';
                               $scope.portlet.faIcon = 'fa-exclamation-triangle';
