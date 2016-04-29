@@ -32,7 +32,7 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         var endFn = function(){
-          $scope.loading = false;
+          $scope.loaded = true;
           $scope.empty = $scope.portlet.exclusiveContent
                           && $scope.portlet.exclusiveContent.length > 0 ? false : true;
         };
@@ -50,7 +50,7 @@ define(['angular', 'jquery'], function(angular, $) {
                     if (typeof $scope.portlet === 'undefined' ||
                         typeof $scope.portlet.fname === 'undefined') {
                         if(result.status === 403) {
-                          $scope.loading = true;
+                          $scope.loaded = true;
                           $scope.empty = false;
                           $scope.portlet = {};
                           $scope.portlet.title = 'Access Denied';
@@ -60,7 +60,7 @@ define(['angular', 'jquery'], function(angular, $) {
                           $location.path('/');
                         }
                     } else {
-                        $scope.loading = true;
+                        $scope.loaded = true;
                         layoutService.getExclusiveMarkup($scope.portlet).then(endFn,endFn);
                     }
                 });
@@ -89,7 +89,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   layoutService,
                   sharedPortletService) {
             $scope.portlet = sharedPortletService.getProperty() || {};
-            $scope.loading = [];
+            $scope.loaded = false;
             var that = this;
             that.getPortlet = function (fname, portlets) {
                 for (var p in portlets) {
@@ -104,7 +104,7 @@ define(['angular', 'jquery'], function(angular, $) {
 
                 if (typeof $rootScope.layout !== 'undefined' && $rootScope.layout != null) {
                     $scope.portlet = that.getPortlet($routeParams.fname, $rootScope.layout);
-                    $scope.loading = $scope.portlet;
+                    $scope.loaded = true;
                 }
                 if (typeof $scope.portlet.fname === 'undefined') {
                     layoutService.getApp($routeParams.fname).then(function (result) {
@@ -113,7 +113,7 @@ define(['angular', 'jquery'], function(angular, $) {
                         if (typeof $scope.portlet === 'undefined' ||
                             typeof $scope.portlet.fname === 'undefined') {
                             if(result.status === 403) {
-                              $scope.loading = true;
+                              $scope.loaded = true;
                               $scope.empty = false;
                               $scope.portlet = {};
                               $scope.portlet.title = 'Access Denied';
@@ -124,13 +124,13 @@ define(['angular', 'jquery'], function(angular, $) {
                             }
 
                         } else {
-                          $scope.loading = $scope.portlet; //not []
+                          $scope.loaded = true;
                         }
                     });
                 }
 
             } else {
-              $scope.loading = $scope.portlet;
+              $scope.loaded = true;
             }
 
             $scope.openRating = function (size, fname, name) {
