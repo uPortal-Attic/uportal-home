@@ -57,5 +57,23 @@
       "shortDesc" : "If you want to follow NCAA tournaments search for sports in MyUW.",
       "endDate": 1459486800000
     }
+  },
+  {
+    "id": 4,
+    "title": "Wiscard Widget",
+    "description": "MyUW is making your campus life more manageable, one widget at a time. Now you can easily manage your Wiscard account on the go. The new interactive Wiscard widget displays your up-to-date balance and makes it easier for you to add money to your account or report a lost or stolen card. Simply search for \"Wiscard\" and add the interactive widget today!",
+    "img": "img/wiscardWidgets.png",
+    "learnMoreURL": "",
+    "groups" : "UW-Madison",
+    "goLiveYear": 2016,
+    "goLiveMonth": 4,
+    "goLiveDay": 27,
+    "isPopup" : false,
+    "isBuckyAnnouncement" : true,
+    "buckyAnnouncement" : {
+      "shortTitle" : "Wiscard Widget",
+      "shortDesc" : "View your Wiscard account balance, add money to your account, or report a stolen card.",
+      "endDate": 1475253340000
+    }
   }
 ]
