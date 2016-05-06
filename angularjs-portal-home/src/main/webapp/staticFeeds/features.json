@@ -62,7 +62,7 @@
     "id": 4,
     "title": "Wiscard Widget",
     "description": "MyUW is making your campus life more manageable, one widget at a time. Now you can easily manage your Wiscard account on the go. The new interactive Wiscard widget displays your up-to-date balance and makes it easier for you to add money to your account or report a lost or stolen card. Simply search for \"Wiscard\" and add the interactive widget today!",
-    "img": "img/wiscardWidgets.png",
+    "img": "img/wiscardWidget.png",
     "learnMoreURL": "",
     "groups" : "UW-Madison",
     "goLiveYear": 2016,
