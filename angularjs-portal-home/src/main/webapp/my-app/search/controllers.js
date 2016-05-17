@@ -49,7 +49,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         googleCustomSearchService.googleSearch($scope.searchTerm).then(
           function(data){
             if(data && data.results) {
-              $scope.googleResults = data.results.results;
+              $scope.googleResults = data.results;
               if(data.estimatedResultCount){
                 $scope.googleResultsEstimatedCount = data.estimatedResultCount;
               }
