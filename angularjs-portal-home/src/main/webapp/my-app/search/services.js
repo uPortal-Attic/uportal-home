@@ -63,28 +63,30 @@ define(['angular', 'jquery'], function(angular, $) {
         return getGoogleSearchURL().then(function(googleSearchURL){
           return $q(function(resolve, reject){
             if(googleSearchURL){
+                
               return $http.get(googleSearchURL + term).then(
                 function(response){
                   var data = {
                     results : null,
                     estimatedResultCount : null
                   };
-                  
+                  if(response.data){
+                      var cleaned = jsonClean(response.data);
+                      data.results=JSON.parse(cleaned);
+                  }
                   //Standardize data
                   if(response.data){
                     //Find the results
                     if(response.data.results){ //uwrf
                         data.results = response.data.results;
-                    }else { //uwmad
-                        data.results = response.data;
-                        var cleaned = jsonClean(data.results);
-                        data=JSON.parse(cleaned);
+//                    }else { //uwmad
+//                        data.results = response.data;
                     }
-                    
-                    
                     //Find the estimated count
                     if(response.data.cursor && response.data.cursor.estimatedResultCount){ //uwrf
                         data.estimatedResultCount = response.data.cursor.estimatedResultCount;
+//                    }else if(response.data.responseData && response.data.responseData.cursor && response.data.responseData.cursor.estimatedResultCount){ //uwmad
+//                        data.estimatedResultCount = response.data.responseData.cursor.estimatedResultCount;
                     }else if(data.results.cursor){
                 	data.estimatedResultCount = data.results.cursor.estimatedResultCount;
                     }
@@ -100,9 +102,7 @@ define(['angular', 'jquery'], function(angular, $) {
         });
       };
       
-/*! Code ripped from https://github.com/getify/JSON.minify
- *      Function bas JSON.minify()
- *
+      /*! JSON.minify()
 	v0.1 (c) Kyle Simpson
 	MIT License
 */
