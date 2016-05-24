@@ -48,7 +48,7 @@ uwmadisonreddit.attributes=
 
 wiscdirectory.uri=http://www.wisc.edu/directories/json
 
-wiscedusearch.uri=http://ajax.googleapis.com/ajax/services/search/web
+wiscedusearch.uri=https://www.googleapis.com/customsearch/v1element
 
 uwrfsearch.uri=https://www.googleapis.com/customsearch/v1element
 
