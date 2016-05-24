@@ -5,7 +5,7 @@ define(['angular'], function(angular) {
       {
         "group" : "UW-Madison",
         "directorySearchURL" : "/web/api/wiscdirectory",
-        "googleSearchURL" : "/web/api/wiscedusearch?v=1.0&rsz=10&start=0&cx=001601028090761970182:2g0iwqsnk2m",
+        "googleSearchURL" : "/web/api/wiscedusearch?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=10&num=10&sig=b16e3ffbc96e4526fdc0cc8394bf713a&cx=001601028090761970182:uu2tbvfp4za&alt=json",
         "webSearchURL" : "http://www.wisc.edu/search/?q=",
         "domainResultsLabel" : "Wisc.edu",
         'kbSearchURL' : 'https://kb.wisc.edu/search.php?q=',
