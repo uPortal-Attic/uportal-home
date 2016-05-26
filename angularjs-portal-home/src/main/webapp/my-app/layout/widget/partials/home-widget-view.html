@@ -1,8 +1,10 @@
 <div class="row portlet-frame">
   <home-header></home-header>
   <div role="main" class="col-xs-12 portlet-body" ng-controller="WidgetController as widgetCtrl">
-    <div class='row col-xs-12' ng-show='showHomeFilter' style='margin: 5px; margin-left: 0;'>
-      <input ng-model="filterText" placeholder='Filter' class='form-control'>
+    <div ng-show='$storage.showFilterOption' style='margin: 15px auto; max-width: 1200px;'>
+      <div class='col-xs-12' style='margin: 0; padding: 5px;'>
+        <input ng-model="filterText" placeholder='Filter items on your home screen' class='form-control'>
+      </div>
     </div>
     <loading-gif  data-object='layout' data-empty='layoutEmpty'></loading-gif>
     <!-- Widget View -->
