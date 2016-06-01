@@ -341,7 +341,8 @@ define(['angular'], function(angular){
             hasWidgetURL : false,
             description : "This super cool portlet can change lives.",
             widgetConfig : {},
-            jsonSample : {}
+            jsonSample : {},
+            url: 'www.example.com'
           },
           {
             id: 1,
@@ -349,6 +350,7 @@ define(['angular'], function(angular){
             widgetType : 'search-with-links',
             title: 'Search with Links',
             jsonSample: false,
+            url: 'www.example.com',
             widgetConfig : {
               "actionURL": "https://rprg.wisc.edu/search/",
               "actionTarget": "_blank",
@@ -373,6 +375,7 @@ define(['angular'], function(angular){
           },
           {
             id: 2,
+            url: 'www.example.com',
             type : 'RSS',
             widgetType : 'rss',
             title: 'RSS Widget',
@@ -383,6 +386,7 @@ define(['angular'], function(angular){
           },
           {
             id: 3,
+            url: 'www.example.com',
             type : 'LOL',
             title : 'List of Links',
             jsonSample : false,

@@ -30,4 +30,4 @@
 		 </ul>
 	 </div>
 </div>
-<a class="btn btn-default launch-app-button" href="{{portlet.url}}" target="_blank">{{config.launchText}}</a>
+<a ng-if='config.launchText && portlet.url' class="btn btn-default launch-app-button" href="{{portlet.url}}" target="_blank">{{config.launchText}}</a>
