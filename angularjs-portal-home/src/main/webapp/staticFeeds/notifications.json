@@ -59,6 +59,15 @@
         "actionAlt" : "Access available WRS Statements.",
         "dismissable" : true,
         "priority": false
+      },
+      {
+        "id"     : 10,
+        "groups" : ["System Portal Ineligible"],
+        "title" : "Your account is not allowed to use MyUW System. For assistance, contact the Help Desk.",
+        "actionURL" : "https://kb.wisc.edu/page.php?id=15303",
+        "actionAlt" : "Retrieve help with your inelgibility.",
+        "dismissable" : false,
+        "priority": true
       }
     ]
 }
