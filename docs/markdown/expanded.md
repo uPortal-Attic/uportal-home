@@ -45,6 +45,8 @@ Sample code for entity file:
 
 ```
 
+For the `list-of-links` widget type specifically, `launchText` is optional; omitting `launchText` suppresses the launch button at the bottom of the list-of-links widget. This is appropriate when there's nothing more to launch, that is, when the list-of-links widget simply presents all the intended links and that's all there is to it.
+
 ### Search with Links
 Display a search bar and two links.
 
