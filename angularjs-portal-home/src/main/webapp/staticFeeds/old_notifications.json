@@ -1,22 +1,12 @@
 {"notifications" :
     [
       {
-        "id"     : 4,
-        "groups" : ["Facstaff","Portal Administrators"],
-        "title"  : "UW Employee Annual Benefits Enrollment starts October 5 and ends October 30, 2015.",
-        "actionURL" : "http://www.ohr.wisc.edu/benefits2016/",
-        "actionAlt" : "Learn more about Annual Benefits Enrollment.",
-        "dismissable" : true
-      },
-      {
-        "id"     : 7,
-        "groups" : ["Facstaff",
-                    "Facstaff - Former Appointment"],
-        "title" : "2015 WRS Statements of Benefits are posted. Check if you have one.",
-        "actionURL" : "/portal/p/university-staff-benefits-statement",
-        "actionAlt" : "Access the list of available WRS Statements",
-        "dismissable" : true,
-        "priority": false
+        "id"     : 2,
+        "groups" : ["Everyone"],
+        "title"  : "Hamburglar loose on campus, panic ensues",
+        "actionURL" : "/some/place/internal/to/apps",
+        "actionAlt" : "Hamburgerler loose on campus",
+        "priority": true
       }
     ]
 }
