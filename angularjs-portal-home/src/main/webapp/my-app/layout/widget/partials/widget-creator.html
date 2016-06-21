@@ -27,7 +27,7 @@
        <div class="col-sm-6">
         <div class='config'>
          <h3>Smart Widget Configuration</h3>
-         <p>It is highly recommended that you read the documentation on widgets located <a href='http://uw-madison-doit.github.io/uw-frame/latest/#/md/widgets' target='_blank'>here</a>.</p>
+         <p>It is highly recommended that you read the documentation on widgets located <a href='http://uw-madison-doit.github.io/angularjs-portal/latest/#/md/expanded' target='_blank'>here</a>.</p>
          <form>
            <div class="form-group">
              <label for="title">Title</label>
@@ -39,15 +39,12 @@
            </div>
          </form>
          <form>
-           <div class="form-group">
-             <label for="evalString">Check for Empty evalString *</label>
-             <input type="input" class="form-control" id="evalString" placeholder="Enter Eval string to check for empty" ng-model="storage.evalString">
-           </div>
-         </form>
-         <form>
            <div class="choose-template">
              <label for="starter-template">Choose a starter template</label>
-             <select id='starter-template' ng-model='storage.starterTemplate' ng-change='changeTemplate()'
+             <select id='starter-template'
+                     class='form-control'
+                     ng-model='storage.starterTemplate'
+                     ng-change='changeTemplate()'
                      ng-options="starterTemplate.title for starterTemplate in storage.starterTemplates track by starterTemplate.id"></select>
              <span>or select 'Custom' to make your own.</span>
            </div>
@@ -56,7 +53,7 @@
              <textarea class="form-control" rows="3"  ng-model="storage.portlet.widgetTemplate" id='template'></textarea>
            </div>
            <div class="form-group" ng-if='portlet.jsonSample'>
-             <label for="content">JSON Example * **<span style='color : red;'>{{errorJSON}}</span></label>
+             <label for="content">widget URL JSON Sample * **<span style='color : red;'>{{errorJSON}}</span></label>
              <textarea class="form-control" rows="3"  ng-model="storage.content" id='content'></textarea>
            </div>
            <div class="form-group">
@@ -73,7 +70,7 @@
          </div>
          <p>* : Changes to these fields requires you to click the refresh button to see the changes in the preview</p>
          <p>** : This is normally result from the widgetURL. This result is dumped into the '$scope.content' variable.</p>
-         <p>*** : read more about this <a href='http://uw-madison-doit.github.io/uw-frame/latest/#/md/widgets' target='_blank'>here</a></p>
+         <p>*** : read more about this <a href='http://uw-madison-doit.github.io/angularjs-portal/latest/#/md/expanded' target='_blank'>here</a></p>
          </div>
        </div>
        <div class="col-sm-4">
