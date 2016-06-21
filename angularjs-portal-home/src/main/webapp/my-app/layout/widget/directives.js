@@ -125,16 +125,12 @@ define(['angular', 'require'], function(angular, require) {
                 $scope.portlet = data.portlet;
                 if (typeof $scope.portlet === 'undefined' ||
                     typeof $scope.portlet.fname === 'undefined') {
-                    if(result.status === 403) {
-                      $scope.loaded = true;
-                      $scope.empty = false;
-                      $scope.portlet = {};
-                      $scope.portlet.title = 'Access Denied';
-                      $scope.portlet.faIcon = 'fa-exclamation-triangle';
-                      $scope.portlet.exclusiveContent = result.deniedTemplate;
-                    } else {
-                      $location.path('/');
-                    }
+                    $scope.loaded = true;
+                    $scope.empty = false;
+                    $scope.portlet = {};
+                    $scope.portlet.title = 'Widget Missing';
+                    $scope.portlet.faIcon = 'fa-exclamation-triangle';
+                    $scope.portlet.exclusiveContent = result.deniedTemplate;
                 } else {
                     $scope.loaded = true;
                 }
