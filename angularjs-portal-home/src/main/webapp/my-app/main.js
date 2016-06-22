@@ -68,6 +68,7 @@ define([
             when('/features', featuresRoute).
             when('/static/:fname', staticRoutes.staticMax).
             when('/exclusive/:fname', staticRoutes.exclusiveMax).
+            when('/widget/:fname', widgetRoutes.widgetFullScreen).
             when('/about', aboutRoute).
             when('/widget-creator', widgetRoutes.widgetCreator).
             otherwise(layoutRoute);

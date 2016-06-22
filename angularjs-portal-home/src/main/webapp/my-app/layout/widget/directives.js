@@ -81,11 +81,65 @@ define(['angular', 'require'], function(angular, require) {
         }
     });
 
+    /**
+      Just the widget Card, gets the portlet from the scope.
+      Object must be in the portlet
+    **/
     app.directive('widgetCard', function(){
         return {
             restrict : 'E',
             templateUrl : require.toUrl('./partials/widget-card.html')
         }
+    });
+
+    /**
+      * Independent widget that does everything
+      * fname : the fname of the object you wish to display
+      */
+    app.component('widget', {
+      bindings : {
+        fname : '<'
+      },
+      templateUrl: require.toUrl('./partials/single-widget-component.html'),
+      controllerAs: 'widgetCtrl',
+      controller: function($scope,
+                           $controller,
+                           $location,
+                           layoutService) {
+        var that = this;
+        $scope.portlet = { title: 'loading...'};
+        $scope.removable = false;
+        this.$onInit = function() {
+          var base = $controller('BaseWidgetFunctionsController', { $scope : $scope, childController : that });
+        }
+
+        this.$onChanges = function(changesObj) {
+          if(changesObj
+              && changesObj.fname
+              && changesObj.fname.currentValue
+              && changesObj.fname.currentValue
+                  !== changesObj.fname.previousValue) {
+            var fname = changesObj.fname.currentValue;
+            layoutService.getApp(fname).then(function (result) {
+                var data = result.data;
+                $scope.portlet = data.portlet;
+                if (typeof $scope.portlet === 'undefined' ||
+                    typeof $scope.portlet.fname === 'undefined') {
+                    $scope.loaded = true;
+                    $scope.empty = false;
+                    $scope.portlet = {};
+                    $scope.portlet.title = 'Widget Missing';
+                    $scope.portlet.faIcon = 'fa-exclamation-triangle';
+                    $scope.portlet.exclusiveContent = result.deniedTemplate;
+                } else {
+                    $scope.loaded = true;
+                }
+            });
+          }
+        }
+
+
+      }
     });
 
     return app;

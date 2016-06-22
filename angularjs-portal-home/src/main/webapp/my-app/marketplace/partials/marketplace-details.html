@@ -62,7 +62,7 @@
        </div>
 		</div>
 	</div>
-	<div class="row no-margin"  ng-if='!loading && !error'>
+	<div class="row no-margin details-header"  ng-if='!loading && !error'>
 		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item">
 			<h3 tabindex="0" class="center">Description</h3>
 			<p tabindex="0" class="app-description">{{::portlet.description}}</p>
@@ -103,6 +103,13 @@
 	    </ul>
 		</div>
 	</div>
+
+  <div class='preview'>
+    <h2>Widget Preview</h2>
+    <div class='middle'>
+      <widget fname="portlet.fname"></widget>
+    </div>
+  </div>
 
 	<div class="portlet-footer left">
 	 	<ul>

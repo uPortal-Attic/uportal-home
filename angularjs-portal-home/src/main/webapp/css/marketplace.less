@@ -438,6 +438,16 @@ input:focus,span:focus {
     text-align: left;
     padding:0px 10px;
   }
+
+  .preview {
+    h2 {
+      text-align: center;
+    }
+    .middle {
+      width : 315px;
+      margin: auto;
+    }
+  }
 }
 
 @media (max-width:767px) {
@@ -500,5 +510,15 @@ input:focus,span:focus {
   .mp-opaque li {
     font-size:1em;
     padding:12px 0px;
+  }
+
+  .portlet-details-page .preview {
+    .middle {
+      width : 100%;
+
+      .fixed-width-widget {
+        width: inherit;
+      }
+    }
   }
 }
