@@ -1,9 +1,9 @@
 {
   "name": "web",
-  "version": "4.2.2",
+  "version": "5.0.0",
   "description": "angular my-uw",
   "scripts": {
-    "pretest" : "mvn clean package",
+    "pretest": "mvn clean package",
     "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run"
   },
   "repository": {
@@ -16,7 +16,6 @@
     "url": "https://github.com/UW-Madison-DoIT/angularjs-portal/issues"
   },
   "homepage": "https://github.com/UW-Madison-DoIT/angularjs-portal",
-
   "devDependencies": {
     "jasmine-core": "^2.3.4",
     "karma": "^0.12.36",
