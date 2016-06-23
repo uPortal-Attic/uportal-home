@@ -2,6 +2,12 @@
 
 This documentation describes the features and implementation details of [`angularjs-portal`](https://github.com/UW-Madison-DoIT/angularjs-portal), the new home of [MyUW](https://it.wisc.edu/services/myuw/). `angularjs-portal` is based on [`uw-frame`](https://github.com/UW-Madison-DoIT/uw-frame) (which has [its own documentation](http://uw-madison-doit.github.io/uw-frame/)).
 
+## Email lists
+
+AngularJS-portal is an optional add-on for Apereo uPortal. As such it is appropriate to discuss developing AngularJS-portal on [uportal-dev@][] and adopting AngularJS-portal on [uportal-user@][].
+
+AngularJS-portal is a project of MyUW. As such it is appropriate do discuss all things AngularJS-portal in the [MyUW Developers Google Group][].
+
 ## Home Page Features
 
 The home page presents widgets in a remembered order. Logged in users can add to, remove from, and re-order this list.
@@ -37,3 +43,7 @@ Search over:
 ## Integration with uPortal
 + Overview
 + Customizations/Setup
+
+[MyUW Developers Google Group]: https://groups.google.com/forum/#!forum/myuw-developers
+[uportal-dev@]: https://groups.google.com/a/apereo.org/forum/#!forum/uportal-dev
+[uportal-user@]: https://groups.google.com/a/apereo.org/forum/#!forum/uportal-user
