@@ -3,7 +3,7 @@
   <parent>
     <groupId>edu.wisc.my.portal.angular</groupId>
     <artifactId>angularjs-portal-parent</artifactId>
-    <version>5.0.2</version>
+    <version>5.0.3-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -22,7 +22,7 @@
       <groupId>edu.wisc.my.apps</groupId>
       <artifactId>uw-frame</artifactId>
       <type>war</type>
-      <version>2.4.1</version>
+      <version>2.4.2-SNAPSHOT</version>
     </dependency>
 
     <!-- Test -->
