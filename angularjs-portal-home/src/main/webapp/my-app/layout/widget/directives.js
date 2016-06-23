@@ -108,7 +108,7 @@ define(['angular', 'require'], function(angular, require) {
                            layoutService) {
         var that = this;
         $scope.portlet = { title: 'loading...'};
-        $scope.removable = false;
+        $scope.cantRemove = true;
         this.$onInit = function() {
           var base = $controller('BaseWidgetFunctionsController', { $scope : $scope, childController : that });
         }
