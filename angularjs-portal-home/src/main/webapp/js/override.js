@@ -54,12 +54,6 @@ define(['angular'], function(angular) {
             'feedbackURL' : '/portal/p/feedback',
             'whatsNewURL' : 'https://kb.wisc.edu/myuw/page.php?id=48181'
           },
-          'FOOTER_URLS' : [
-            { "url" : "features",
-              "target" : "",
-              "title" : "What's New"
-            }
-          ],
           'APP_BETA_FEATURES' : [
             {
               "id" : "webPortletRender",
@@ -70,11 +64,6 @@ define(['angular'], function(angular) {
               "id" : "showKeywordsInMarketplace",
               "title" : "Show Keywords in Marketplace",
               "description" : "Enable/Disable keywords showing up in marketplace details"
-            },
-            {
-              "id" : "typeaheadSearch",
-              "title" : "Enable typeahead in the portlet search bar",
-              "description" : "Enable/Disable the typeahead in the portlet search bar (I think this is broken)"
             },
             {
               "id" : "exampleWidgets",
