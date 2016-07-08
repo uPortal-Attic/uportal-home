@@ -217,8 +217,12 @@ define(['angular', 'jquery'], function(angular, $) {
         function init() {
           if(typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
             $rootScope.layout = [];
+            $scope.layoutEmpty = false;
             layoutService.getLayout().then(function(data){
               $rootScope.layout = data.layout;
+              if(data.layout && data.layout.length == 0) {
+                  $scope.layoutEmpty = true;
+              }
               });
            }
          }
