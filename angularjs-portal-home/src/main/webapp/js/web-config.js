@@ -20,6 +20,11 @@ define(['angular'], function(angular) {
         "domainResultsLabel" : "UWRF.edu",
         'eventsSearchURL' : "https://events.uwrf.edu?q=",
         'helpdeskURL' : "https://technology.uwrf.edu/TDClient/Home/"
+      },
+      {
+        "group" : "UW System-Platteville",
+        'kbSearchURL' : 'https://kb.uwplatt.edu/search.php?q=',
+        'helpdeskURL' : 'https://kb.wisc.edu/helpdesk/'
       }
     ])
     return config;
