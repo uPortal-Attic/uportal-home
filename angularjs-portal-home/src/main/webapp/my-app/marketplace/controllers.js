@@ -19,7 +19,7 @@ define(['angular', 'jquery'], function(angular, $) {
         return portlet.maxUrl.indexOf('portal') !== -1 //max url is a portal hit
                 && portlet.portletName // there is a portletName
                 && portlet.portletName.indexOf('cms') != -1; //the portlet is static content portlet
-      }
+      };
 
       $scope.getLaunchURL = function(marketplaceEntry) {
         var layoutObj = marketplaceEntry.layoutObject;
@@ -32,7 +32,7 @@ define(['angular', 'jquery'], function(angular, $) {
         } else {
           return marketplaceEntry.maxUrl;
         }
-      }
+      };
 
       $scope.addToHome = function addToHome(portlet) {
           var fname = portlet.fname;
@@ -248,7 +248,7 @@ define(['angular', 'jquery'], function(angular, $) {
           $scope.specifyCategory = function(category) {
               currentCategory=category;
               currentPage='details';
-          }
+          };
 
           var figureOutBackStuff = function() {
             var fromInfo = marketplaceService.getFromInfo();

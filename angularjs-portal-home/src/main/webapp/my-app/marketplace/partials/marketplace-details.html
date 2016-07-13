@@ -1,4 +1,5 @@
-<div ng-controller="MarketplaceDetailsController as detailsCtrl" class="portlet-frame col-xs-12 col-md-12 portlet-details-page">
+<div ng-controller="MarketplaceDetailsController as detailsCtrl" class="portlet-frame portlet-details-page" flex="100">
+  <md-card>
   <div ng-if='loading' class="row details-header no-margin">
     <loading-gif data-object='obj' data-empty='!loading'></loading-gif>
   </div>
@@ -10,111 +11,90 @@
       {{errorMessage}}
     </div>
   </div>
+  <!-- DETAILS HEADER -->
 
-  <div class="row details-header no-margin" ng-if='!loading && !error'>
-  	<div class="col-xs-12 col-lg-6">
-  		<h2 tabindex="0">
-		    <portlet-icon></portlet-icon>
-		    <span class="portlet-title">{{::portlet.title}} Details</span>
-		  </h2>
-		  <a ng-href="{{backURL}}" class="back-to-home"><i class="fa fa-arrow-circle-o-left"></i> Back to {{backText}}</a>
-  	</div>
+  <md-card-header tabindex="0" layout="row" class="no-margin" ng-if='!loading && !error'>
+      <md-card-avatar layout="row" layout-align="start center">
+          <portlet-icon class="md-headline"></portlet-icon>
+      </md-card-avatar>
+      <md-card-header-text layout="row" layout-align-gt-xs="start center" layout-align-xs="space-between center">
+          <span class="md-headline" flex-gt-xs="80" flex-xs="90">{{::portlet.title}}</span>
+          <md-button ng-href="{{backURL}}" class="back-to-home md-primary" flex-gt-xs="20" flex-xs="10">
+              <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+              <span hide-xs>Back to {{backText}}</span>
+          </md-button>
+      </md-card-header-text>
+  </md-card-header>
 
-		<div class="col-xs-12 col-lg-6">
-		 	<div class="action-buttons" ng-hide="GuestMode">
+    <!-- BEGIN APP PREVIEW AND DETAILS -->
+	<div layout-sm="column" layout-gt-sm="row" class="no-margin"  ng-if='!loading && !error'>
+        <!-- WIDGET PREVIEW -->
+        <div class="preview" flex-xs="100" flex-gt-xs="30">
+            <div class="middle">
+                <widget fname="portlet.fname"></widget>
+            </div>
+            <md-button class="md-raised md-primary fname-{{::portlet.fname}}"
+                       ng-click="addToHome(portlet)"
+                       ng-if="portlet.canAdd && !portlet.hasInLayout"
+                       ng-class="{disabled : portlet.hasInLayout}">
+                Add to home
+            </md-button>
+        </div>
 
-		    <!-- Add to Home button with access -->
-		    <button class="btn btn-primary fname-{{::portlet.fname}}"
-		            ng-click="addToHome(portlet)"
-		            ng-if="portlet.canAdd && !portlet.hasInLayout"
-		            ng-class="{disabled : portlet.hasInLayout}">
-		      <span class="fa fa-plus"></span> Add to home
-		    </button>
-
-			    <!-- Added to home -->
-			    <button class="btn btn-disabled fname-{{::portlet.fname}}"
-			            ng-if="portlet.canAdd && portlet.hasInLayout"
-			            ng-class="{'btn-disabled' : portlet.hasInLayout}"
-			            popover="This app is already in your favorites"
-			            popover-trigger="mouseenter"
-			            popover-placement="top"
-			            popover-popup-delay="500">
-			      <i class="fa fa-check"></i> Added to home
-			    </button>
-
-			    <!-- Add to home button without access -->
-			    <button class="btn btn-disabled" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
-			      <span class="fa fa-plus"></span> Add to home
-			    </button>
-
-            <!-- Launch button with access -->
-		    <a aria-label="launch {{::portlet.title}}" class="btn btn-success" href="{{::portlet.maxUrl}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span> Launch</a>
-
-		    <!-- Launch button without access -->
-		    <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
-		   </div>
-       <!--GuestMode buttons-->
-       <div class="action-buttons" ng-show="GuestMode">
-         <a class="btn btn-outline" ng-href="{{getLaunchURL(portlet)}}" >
-           <span ng-if='portlet.hasInLayout'>Launch</span>
-           <span ng-if='!portlet.hasInLayout'>Login</span>
-         </a>
-       </div>
-		</div>
-	</div>
-	<div class="row no-margin details-header"  ng-if='!loading && !error'>
-		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item">
-			<h3 tabindex="0" class="center">Description</h3>
-			<p tabindex="0" class="app-description">{{::portlet.description}}</p>
-		</div>
-		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center rating-div">
-			<h3 tabindex="0">Ratings</h3>
-			<span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
-    ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
-  		</span><br>
-  		<button ng-hide="GuestMode" ng-click="openRating('sm',portlet.fname, portlet.title)" class="btn btn-default rate-button">Rate</button>
-		</div>
-		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center">
-			<h3 tabindex="0">Related Apps</h3>
-      <ul>
-        <li ng-repeat="related in portlet.relatedPortlets"><a href="apps/details/{{ ::related.fname }}">{{ ::related.title }}</a></li>
-      </ul>
-		</div>
-		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center">
-			<h3 tabindex="0">Categories</h3>
-			<a ng-repeat="category in portlet.categories" href="apps" ng-click="specifyCategory(category)" class="btn btn-outline btn-sm category-links">{{::category}}</a>
-		</div>
-		<div class="col-xs-12 col-sm-4 col-lg-3 desc-item center" ng-if="$storage.showKeywordsInMarketplace">
-			<h3>Keywords</h3>
-	    <ul>
-	      <li ng-repeat="keyword in portlet.keywords | orderBy:'toLowerCase()'  track by $index"><a href='apps/search/{{ ::keyword }}'>{{ ::keyword }}</a></li>
-	    </ul>
-		</div>
-		<div class="col-xs-12 col-lg-9 desc-item screenshots portlet-screenshots" ng-if="portlet.marketplaceScreenshots.length != 0">
-			<h3>Screenshots</h3>
-	    <ul class="enlarge">
-	      <li ng-repeat="screenshot in portlet.marketplaceScreenshots">
-	        <img ng-src="{{ ::screenshot.url }}" width ="250px" alt="{{ ::screenshot.captions }}">
-	        <span>
-	        	<img ng-src="{{ ::screenshot.url }}" alt="{{ ::screenshot.captions }}">
-	        	<p ng-repeat="caption in screenshot.captions">{{ ::caption }}</p>
-	        </span>
-	      </li>
-	    </ul>
-		</div>
+        <!-- APP DETAILS -->
+        <div layout="column" flex-xs="100" flex-gt-xs="70">
+            <div class="desc-item">
+                <h3 tabindex="0" class="md-title">Description</h3>
+                <p tabindex="0" class="app-description">{{::portlet.description}}</p>
+            </div>
+            <div class="desc-item">
+                <h3 tabindex="0" class="md-title">Ratings</h3>
+			    <span>
+                    <rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
+                    ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
+  		        </span>
+                <br>
+                <md-button ng-hide="GuestMode" ng-click="openRating('sm',portlet.fname, portlet.title)" class="md-raised rate-button">Rate</md-button>
+            </div>
+            <div class="desc-item">
+                <h3 tabindex="0" class="md-title">Related Apps</h3>
+                <ul>
+                    <li ng-repeat="related in portlet.relatedPortlets"><a href="apps/details/{{ ::related.fname }}">{{ ::related.title }}</a></li>
+                </ul>
+            </div>
+            <div class="desc-item">
+                <h3 tabindex="0" class="md-title">Categories</h3>
+                <md-button ng-repeat="category in portlet.categories"
+                           ng-href="apps" ng-click="specifyCategory(category)"
+                           class="md-raised category-links">{{::category}}
+                </md-button>
+            </div>
+            <div class="desc-item" ng-if="portlet.marketplaceScreenshots.length != 0">
+                <h3 tabindex="0" class="md-title">Screenshots</h3>
+                <ul class="enlarge">
+                    <li ng-repeat="screenshot in portlet.marketplaceScreenshots">
+                        <img ng-src="{{ ::screenshot.url }}" width ="250px" alt="{{ ::screenshot.captions }}">
+	                    <span>
+	        	        <img ng-src="{{ ::screenshot.url }}" alt="{{ ::screenshot.captions }}">
+	        	        <p ng-repeat="caption in screenshot.captions">{{ ::caption }}</p>
+	                    </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="desc-item" ng-if="$storage.showKeywordsInMarketplace">
+                <h3 tabindex="0" class="md-title">Keywords</h3>
+                <ul>
+                    <li ng-repeat="keyword in portlet.keywords | orderBy:'toLowerCase()'  track by $index"><a href='apps/search/{{ ::keyword }}'>{{ ::keyword }}</a></li>
+                </ul>
+            </div>
+        </div>
 	</div>
 
-  <div class='preview'>
-    <h2>Widget Preview</h2>
-    <div class='middle'>
-      <widget fname="portlet.fname"></widget>
-    </div>
-  </div>
-
-	<div class="portlet-footer left">
-	 	<ul>
-	 		<li><a ng-href="{{backURL}}"><i class="fa fa-arrow-circle-o-left"></i> Back to {{backText}}</a></li>
-	 	</ul>
+	<div class="portlet-footer" layout="row" layout-align="start center">
+        <md-card-actions>
+            <md-button ng-href="{{backURL}}"><i class="fa fa-arrow-circle-o-left"></i> Back to {{backText}}</md-button>
+        </md-card-actions>
 	</div>
 	<rating-modal-template></rating-modal-template>
+  </md-card>
 </div>

@@ -173,7 +173,7 @@
         cursor:pointer;
         border-top:3px solid @color1;
         border-bottom:none;
-        padding:7px 0px;
+        padding:7px 0;
       }
     }
   }
@@ -186,7 +186,7 @@
 #browse-by:hover {
   cursor:default;
   border-top:none;
-  padding:10px 0px;
+  padding:10px 0;
 }
 
 .loading-gif {
@@ -195,10 +195,10 @@
 .portlet-details {
   position:relative;
   float:right;
-  top:0px;
+  top:0;
 }
 .portlet-details-div {
-  margin:0px;
+  margin:0;
   margin-top:20px;
   margin-bottom:20px;
   h3 {
@@ -373,48 +373,47 @@ input:focus,span:focus {
     cursor: pointer;
 }
 .portlet-details-page {
-  padding-bottom:0px;
-  background: white;
+  padding-bottom:0;
   .portlet-title {
     padding-left:5px;
   }
+  > md-card {
+    margin: 15px;
+  }
+  .md-button {
+    margin: 6px 0;
+  }
   h2 {
-    margin:0px 0px 10px;
+    margin:0 0 10px;
     padding-top:10px;
   }
-  .details-header {
-    padding:10px 5px;
-    border-bottom: 1px solid @color1;
-    .back-to-home {
-      color:#999;
-      &:hover {
-        color:#666;
-        text-decoration: none;
-      }
+  .back-to-home {
+    color: #999;
+    &:hover {
+      color:#666;
+      text-decoration: none;
     }
   }
   .desc-item.rating-div {
     padding-top:10px;
   }
   .rating {
-    margin-left:0px;
+    margin-left:0;
   }
   .rate-button {
     padding-left:40px;
     padding-right:40px;
   }
   .desc-item {
-    border-right:1px solid #ccc;
-    margin:20px 0px 10px;
+    border-bottom:2px solid #ccc;
+    margin:10px 0;
     padding:5px 20px;
-    min-height:200px;
     h3 {
       margin:5px auto 15px;
-      font-size:18px;
     }
     ul {
-      margin:0px;
-      padding:0px;
+      margin:0;
+      padding:0;
     }
     .screenshot h3 {
       margin:5px 20px 15px;
@@ -422,7 +421,7 @@ input:focus,span:focus {
   }
   .portlet-footer {
     background-color:#ddd;
-    border-top:0px solid transparent;
+    border-top:0 solid transparent;
     a {
       color:#555;
       &:hover {
@@ -436,16 +435,28 @@ input:focus,span:focus {
   }
   .left {
     text-align: left;
-    padding:0px 10px;
+    padding:0 10px;
   }
 
   .preview {
+    padding: 15px;
     h2 {
       text-align: center;
     }
     .middle {
+      max-width: 100%;
       width : 315px;
       margin: auto;
+      .fixed-width-widget {
+        max-width: 100%;
+        .widget-frame {
+          margin: 0;
+        }
+      }
+    }
+    button.md-raised {
+      margin: 8px 0;
+      width: 100%;
     }
   }
 }
@@ -465,7 +476,7 @@ input:focus,span:focus {
   }
   .portlet-details {
     float:right;
-    padding:0px 0px 0px 15px;
+    padding:0 0 0 15px;
     top:10px;
   }
   .portlet-title {
@@ -485,15 +496,15 @@ input:focus,span:focus {
     font-size: 1.6em;
     color: #222;
     float:left;
-    margin:0px 0px 0px 0px;
+    margin: 0;
   }
   .btn-search {
-    top:0px;
+    top:0;
   }
   #load-more {
     position:relative;
     margin-right:80px;
-    left:0px;
+    left:0;
   }
   .mp-header .browse-help {
     width:auto;
@@ -509,15 +520,33 @@ input:focus,span:focus {
 @media (max-width:500px) {
   .mp-opaque li {
     font-size:1em;
-    padding:12px 0px;
+    padding:12px 0;
   }
 
-  .portlet-details-page .preview {
-    .middle {
-      width : 100%;
+  .portlet-details-page {
+    > md-card {
+      margin: 0;
+    }
+    .back-to-home {
+      min-width: 36px;
+      text-align: right;
+      .fa {
+        font-size: 28px;
+      }
+    }
+    .md-headline {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+    .preview {
+      padding-bottom: 15px;
+      border-bottom: 2px solid #ccc;
+      .middle {
+        width : 100%;
 
-      .fixed-width-widget {
-        width: inherit;
+        .fixed-width-widget {
+          width: inherit;
+        }
       }
     }
   }
