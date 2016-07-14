@@ -1,74 +1,62 @@
 /* Marketplace Styling */
+@import "variables";
 
 .marketplace h2 {
-  padding:0px 5px 2px 0px;
-  margin:0px;
-  display:inline;
+  padding: 0 5px 2px 0;
+  margin: 0;
+  display: inline;
 }
 
 .marketplace .btn .fa {
-  padding-right:8px;
+  padding-right: 8px;
 }
 .marketplace-body {
-  margin:15px;
+  margin: 15px;
 }
 
 .marketplace h2 span.fa {
   width: 38px;
   height: 38px;
   font-size: 0.7em;
-  margin: 4px 0px 0px 10px;
+  margin: 4px 0 0 10px;
   position: relative;
   border-radius: 50%;
   border: 1px solid #333;
   text-align: center;
-  padding: 8px 0px 0px 0px;
+  padding: 8px 0 0 0;
   opacity: 1.0;
-  color:#333;
-  position:relative;
-  top:8px;
+  color: #333;
+  top: 8px;
 }
 .marketplace h2 span.portlet-title {
-  position:relative;
-  top:2px;
-  border:none;
-  font-size:0.85em;
+  position: relative;
+  top: 2px;
+  border: none;
+  font-size: 0.85em;
 }
 
 .portlet-list-item p {
-  padding:5px;
+  padding: 5px;
 }
 
 .action-buttons {
-  background-color:none;
-  text-shadow:none;
-  float:right;
+  background-color: transparent;
+  text-shadow: none;
+  float: right;
 }
 .action-buttons-mobile {
   display:none;
 }
-.btn-add {
-  border:none;
-  background-color:@color1;
-  color:@white;
-  text-shadow:none;
-  margin:5px 8px 0px 0px;
-  z-index:100;
-}
 
-.btn-add:hover {
-  background-color:#900;
-  color:@white;
-}
 .btn-added {
-  margin:5px 8px 0px 0px;
+  margin:5px 8px 0 0;
 }
 .btn-launch {
   border:none;
   background-color:#5cb85c;
   color:@white;
   text-shadow:none;
-  margin:5px 8px 0px 0px;
+  margin:5px 8px 0 0;
   z-index:100;
 }
 .btn-launch:hover {
@@ -130,10 +118,10 @@
   font-size:1.8em;
   font-weight:200;
   padding:4px 4px 4px 12px;
-  margin:0px 0px 0px 0px;
+  margin:0 0 0 0;
   display:block;
   height:50px;
-  border:0px solid transparent;
+  border:0 solid transparent;
 }
 .mp-search-icon {
   position:relative;
@@ -142,7 +130,7 @@
   padding-right:8px;
   display:inline-block;
   color:@white;
-  text-shadow:0px 0px 15px #000;
+  text-shadow:0 0 15px #000;
 }
 .portlet-container {
   border-bottom:1px solid #ddd;
@@ -164,8 +152,8 @@
       width:33.333%;
       border-right:1px solid @grayscale4;
       border-bottom:1px solid @grayscale4;
-      border-top:0px solid @grayscale4;
-      padding:10px 0px;
+      border-top:0 solid @grayscale4;
+      padding:10px 0;
       text-align:center;
       box-sizing:border-box;
       &:hover {
@@ -202,29 +190,29 @@
   margin-top:20px;
   margin-bottom:20px;
   h3 {
-    padding:5px 0px 3px 15px;
-    margin:0px;
+    padding:5px 0 3px 15px;
+    margin:0;
     font-size:1.5em;
   }
 }
 .related-portlets {
-  margin:0px;
-  padding:0px;
+  margin:0;
+  padding:0;
   display:inline-block;
   ul {
-    margin:0px;
-    padding:3px 0px 0px 20px;
+    margin:0;
+    padding:3px 0 0 20px;
   }
 }
 .portlet-screenshots {
-  margin:0px;
-  padding:0px;
+  margin:0;
+  padding:0;
   display:inline-block;
   border-left:1px solid #ddd;
 
   ul {
-    margin:0px;
-    padding:0px 0px 0px 20px;
+    margin:0;
+    padding:0 0 0 20px;
   }
 
   ul.enlarge{
@@ -315,7 +303,7 @@ input:focus,span:focus {
   p {
     float:left;
     display:block;
-    padding:5px 10px 0px 10px;
+    padding:5px 10px 0 10px;
     margin:0;
   }
 }
@@ -324,7 +312,7 @@ input:focus,span:focus {
   cursor:pointer;
   border-top:3px solid @color1;
   border-bottom:none;
-  padding:7px 0px;
+  padding:7px 0;
   font-weight:500;
 }
 .selected-category {
@@ -372,6 +360,9 @@ input:focus,span:focus {
     font-size: 1.5em;
     cursor: pointer;
 }
+/*--------------*/
+/* DETAILS PAGE */
+/*--------------*/
 .portlet-details-page {
   padding-bottom:0;
   .portlet-title {
@@ -379,9 +370,21 @@ input:focus,span:focus {
   }
   > md-card {
     margin: 15px;
+    > md-card-header {
+        md-card-avatar {
+          portlet-icon {
+            margin: 0 auto;
+          }
+        }
+        .md-button {
+          margin: 0;
+        }
+    }
   }
-  .md-button {
-    margin: 6px 0;
+  a.md-button {
+    &:hover {
+      text-decoration: none;
+    }
   }
   h2 {
     margin:0 0 10px;
@@ -391,7 +394,9 @@ input:focus,span:focus {
     color: #999;
     &:hover {
       color:#666;
-      text-decoration: none;
+    }
+    > .fa {
+      margin-right: 6px;
     }
   }
   .desc-item.rating-div {
@@ -400,14 +405,10 @@ input:focus,span:focus {
   .rating {
     margin-left:0;
   }
-  .rate-button {
-    padding-left:40px;
-    padding-right:40px;
-  }
   .desc-item {
     border-bottom:2px solid #ccc;
-    margin:10px 0;
-    padding:5px 20px;
+    margin: 0 16px;
+    padding: 16px 0;
     h3 {
       margin:5px auto 15px;
     }
@@ -415,13 +416,20 @@ input:focus,span:focus {
       margin:0;
       padding:0;
     }
+    p {
+      margin-bottom: 0;
+    }
     .screenshot h3 {
       margin:5px 20px 15px;
+    }
+    .md-button:first-child {
+      margin-left: 0;
     }
   }
   .portlet-footer {
     background-color:#ddd;
     border-top:0 solid transparent;
+    padding: 0 16px;
     a {
       color:#555;
       &:hover {
@@ -444,19 +452,28 @@ input:focus,span:focus {
       text-align: center;
     }
     .middle {
-      max-width: 100%;
       width : 315px;
       margin: auto;
       .fixed-width-widget {
-        max-width: 100%;
         .widget-frame {
           margin: 0;
+          .launch-app-button {
+            text-transform: uppercase;
+            transition: @button-transition;
+            &:hover {
+              background: #777777;
+              transform: initial;
+            }
+          }
         }
       }
     }
-    button.md-raised {
+    button.md-raised.fixed-width {
       margin: 8px 0;
-      width: 100%;
+      width: 315px;
+      &:hover {
+        background: #920000;
+      }
     }
   }
 }
@@ -526,6 +543,9 @@ input:focus,span:focus {
   .portlet-details-page {
     > md-card {
       margin: 0;
+      > md-card-header {
+        padding-bottom: 0;
+      }
     }
     .back-to-home {
       min-width: 36px;
@@ -543,10 +563,12 @@ input:focus,span:focus {
       border-bottom: 2px solid #ccc;
       .middle {
         width : 100%;
-
         .fixed-width-widget {
           width: inherit;
         }
+      }
+      button.md-raised.fixed-width {
+        width: 100%;
       }
     }
   }

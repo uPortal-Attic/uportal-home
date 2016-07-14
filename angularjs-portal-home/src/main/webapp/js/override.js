@@ -1,6 +1,6 @@
 define(['angular'], function(angular) {
 
-  /*Keep in sync with docs/mardown/configuration.md*/
+  /*Keep in sync with docs/markdown/configuration.md*/
 
     var config = angular.module('override', []);
     config
@@ -76,7 +76,7 @@ define(['angular'], function(angular) {
               "description" : "Enables a filter on home to filter ones content down to what want"
             }
           ]
-        })
+        });
 
     return config;
 

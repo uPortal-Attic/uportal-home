@@ -26,6 +26,6 @@ define(['angular'], function(angular) {
         'kbSearchURL' : 'https://kb.uwplatt.edu/search.php?q=',
         'helpdeskURL' : 'https://kb.wisc.edu/helpdesk/'
       }
-    ])
+    ]);
     return config;
 });

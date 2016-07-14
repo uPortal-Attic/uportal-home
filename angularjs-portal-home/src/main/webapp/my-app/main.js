@@ -29,7 +29,8 @@ define([
     './marketplace/services',
     './search/controllers',
     './search/services'
-], function(angular, require, marketplaceRoutes, listRoute, notificationsRoute, portalSettingsRoutes, featuresRoute, aboutRoute, layoutRoute, staticRoutes, widgetRoutes, searchRoutes) {
+], function(angular, require, marketplaceRoutes, listRoute, notificationsRoute, portalSettingsRoutes,
+			featuresRoute, aboutRoute, layoutRoute, staticRoutes, widgetRoutes, searchRoutes) {
 
     var app = angular.module('my-app', [
         'app-config',
