@@ -82,13 +82,13 @@
 }
 .category-links {
   background-color:@white;
-  color:@accent;
-  border-color: @accent;
+  color:@categoryBlue;
+  border-color: @categoryBlue;
   margin: 10px 3px;
 }
 .category-links:hover {
   text-decoration:none;
-  background-color:@accent;
+  background-color:@categoryBlue;
   color:@white;
   opacity:1.0;
 }
@@ -314,7 +314,7 @@ input:focus,span:focus {
   font-weight:500;
 }
 .selected-category {
-  background-color:@accent;
+  background-color:@categoryBlue;
   color:@white;
   opacity:1.0;
 }
@@ -379,9 +379,6 @@ input:focus,span:focus {
         }
     }
   }
-  a {
-    color: @primary;
-  }
   a.md-button {
     &:hover {
       text-decoration: none;
@@ -425,10 +422,10 @@ input:focus,span:focus {
     a.md-accent.md-raised {
       &.category-links {
         background-color: @white;
-        color: @accent;
+        color: @categoryBlue;
         margin: 6px 8px;
         &:hover {
-          background-color: @accent;
+          background-color: @categoryBlue;
           color: @white;
         }
       }
@@ -479,9 +476,6 @@ input:focus,span:focus {
     button.md-raised.fixed-width {
       margin: 8px 0;
       width: 315px;
-      &:hover {
-        background: @primaryDarkened20;
-      }
     }
   }
 }
