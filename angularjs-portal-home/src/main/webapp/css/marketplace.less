@@ -21,11 +21,11 @@
   margin: 4px 0 0 10px;
   position: relative;
   border-radius: 50%;
-  border: 1px solid #333;
+  border: 1px solid @grayscale10;
   text-align: center;
   padding: 8px 0 0 0;
   opacity: 1.0;
-  color: #333;
+  color: @grayscale10;
   top: 8px;
 }
 .marketplace h2 span.portlet-title {
@@ -82,13 +82,13 @@
 }
 .category-links {
   background-color:@white;
-  color:#066999;
-  border-color: #066999;
+  color:@accent;
+  border-color: @accent;
   margin: 10px 3px;
 }
 .category-links:hover {
   text-decoration:none;
-  background-color:#066999;
+  background-color:@accent;
   color:@white;
   opacity:1.0;
 }
@@ -99,7 +99,7 @@
 .browse-help {
   display: inline-block;
   float: left;
-  background: #eee;
+  background: @grayscale2;
   height: 50px;
   padding: 11px 15px;
   p {
@@ -130,10 +130,10 @@
   padding-right:8px;
   display:inline-block;
   color:@white;
-  text-shadow:0 0 15px #000;
+  text-shadow:0 0 15px @black;
 }
 .portlet-container {
-  border-bottom:1px solid #ddd;
+  border-bottom:1px solid @grayscale3;
 
 }
 .portlet-list-item {
@@ -186,9 +186,7 @@
   top:0;
 }
 .portlet-details-div {
-  margin:0;
-  margin-top:20px;
-  margin-bottom:20px;
+  margin: 20px 0;
   h3 {
     padding:5px 0 3px 15px;
     margin:0;
@@ -208,7 +206,7 @@
   margin:0;
   padding:0;
   display:inline-block;
-  border-left:1px solid #ddd;
+  border-left:1px solid @grayscale3;
 
   ul {
     margin:0;
@@ -235,10 +233,10 @@
   	position:fixed;
     left:9000px;
   	padding: 10px 10px 5px 10px;
-  	background:#333;
+  	background:@grayscale10;
   	font-size:.9em;
   	text-align: center;
-  	color: #ccc;
+  	color: @grayscale4;
   	border-radius: 4px;
     p {
       margin:5px;
@@ -273,7 +271,7 @@
     margin:5px;
     border-style: solid;
     border-width: 1px;
-    border-color: #dddddd;
+    border-color: @grayscale3;
   }
 
   img {
@@ -316,7 +314,7 @@ input:focus,span:focus {
   font-weight:500;
 }
 .selected-category {
-  background-color:#066999;
+  background-color:@accent;
   color:@white;
   opacity:1.0;
 }
@@ -391,10 +389,6 @@ input:focus,span:focus {
     padding-top:10px;
   }
   .back-to-home {
-    color: #999;
-    &:hover {
-      color:#666;
-    }
     > .fa {
       margin-right: 6px;
     }
@@ -406,7 +400,7 @@ input:focus,span:focus {
     margin-left:0;
   }
   .desc-item {
-    border-bottom:2px solid #ccc;
+    border-bottom:2px solid @grayscale4;
     margin: 0 16px;
     padding: 16px 0;
     h3 {
@@ -425,15 +419,26 @@ input:focus,span:focus {
     .md-button:first-child {
       margin-left: 0;
     }
+    a.md-accent.md-raised {
+      &.category-links {
+        background-color: @white;
+        color: @accent;
+        margin: 6px 8px;
+        &:hover {
+          background-color: @accent;
+          color: @white;
+        }
+      }
+    }
   }
   .portlet-footer {
-    background-color:#ddd;
+    background-color:@grayscale3;
     border-top:0 solid transparent;
     padding: 0 16px;
     a {
-      color:#555;
+      color:@grayscale8;
       &:hover {
-        color:#222;
+        color:@grayscale11;
         text-decoration:none;
       }
     }
@@ -461,7 +466,7 @@ input:focus,span:focus {
             text-transform: uppercase;
             transition: @button-transition;
             &:hover {
-              background: #777777;
+              background: @grayscale8;
               transform: initial;
             }
           }
@@ -472,12 +477,15 @@ input:focus,span:focus {
       margin: 8px 0;
       width: 315px;
       &:hover {
-        background: #920000;
+        background: @primaryDarkened20;
       }
     }
   }
 }
 
+/*--------------------------*/
+/* SMALL AND MEDIUM SCREENS */
+/*--------------------------*/
 @media (max-width:767px) {
   .marketplace .action-buttons {
     display:none;
@@ -509,9 +517,9 @@ input:focus,span:focus {
     width:100%;
     position:relative;
     display: block;
-    background-color: #ddd;
+    background-color: @grayscale3;
     font-size: 1.6em;
-    color: #222;
+    color: @grayscale11;
     float:left;
     margin: 0;
   }
@@ -534,6 +542,9 @@ input:focus,span:focus {
   }
 }
 
+/*--------------------*/
+/* SMALL SCREENS ONLY */
+/*--------------------*/
 @media (max-width:500px) {
   .mp-opaque li {
     font-size:1em;
@@ -560,7 +571,7 @@ input:focus,span:focus {
     }
     .preview {
       padding-bottom: 15px;
-      border-bottom: 2px solid #ccc;
+      border-bottom: 2px solid @grayscale4;
       .middle {
         width : 100%;
         .fixed-width-widget {

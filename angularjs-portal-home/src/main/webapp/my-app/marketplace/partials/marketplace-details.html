@@ -57,7 +57,8 @@
                             ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
                         </span>
                         <br>
-                        <md-button ng-hide="GuestMode" ng-click="openRating('sm',portlet.fname, portlet.title)" class="md-raised rate-button">Rate</md-button>
+                        <md-button ng-hide="GuestMode" ng-click="openRating('sm',portlet.fname, portlet.title)"
+                                   class="md-raised rate-button">Rate</md-button>
                     </div>
                     <div class="desc-item">
                         <h3 tabindex="0" class="md-title">Related Apps</h3>
@@ -65,11 +66,11 @@
                             <li ng-repeat="related in portlet.relatedPortlets"><a href="apps/details/{{ ::related.fname }}">{{ ::related.title }}</a></li>
                         </ul>
                     </div>
-                    <div class="desc-item">
+                    <div class="desc-item" layout="row">
                         <h3 tabindex="0" class="md-title">Categories</h3>
                         <md-button ng-repeat="category in portlet.categories"
                                    ng-href="apps" ng-click="specifyCategory(category)"
-                                   class="md-raised md-default category-links">{{::category}}
+                                   class="md-raised md-accent category-links">{{::category}}
                         </md-button>
                     </div>
                     <div class="desc-item" ng-if="portlet.marketplaceScreenshots.length != 0">
