@@ -51,6 +51,7 @@ wiscdirectory.uri=http://www.wisc.edu/directories/json
 wiscedusearch.uri=https://www.googleapis.com/customsearch/v1element
 
 uwrfsearch.uri=https://www.googleapis.com/customsearch/v1element
+uwplattsearch.uri=https://www.googleapis.com/customsearch/v1element
 
 rss2json.uri=https://rss2json.com/api.json
 
