@@ -66,12 +66,14 @@
                             <li ng-repeat="related in portlet.relatedPortlets"><a href="apps/details/{{ ::related.fname }}">{{ ::related.title }}</a></li>
                         </ul>
                     </div>
-                    <div class="desc-item" layout="row">
+                    <div class="desc-item">
                         <h3 tabindex="0" class="md-title">Categories</h3>
-                        <md-button ng-repeat="category in portlet.categories"
-                                   ng-href="apps" ng-click="specifyCategory(category)"
-                                   class="md-raised md-accent category-links">{{::category}}
-                        </md-button>
+                        <div layout="row">
+                            <md-button ng-repeat="category in portlet.categories"
+                                       ng-href="apps" ng-click="specifyCategory(category)"
+                                       class="md-raised md-accent category-links">{{::category}}
+                            </md-button>
+                        </div>
                     </div>
                     <div class="desc-item" ng-if="portlet.marketplaceScreenshots.length != 0">
                         <h3 tabindex="0" class="md-title">Screenshots</h3>
