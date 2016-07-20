@@ -2,14 +2,13 @@
 @import "variables";
 
 .marketplace h2 {
-  padding: 0 5px 2px 0;
-  margin: 0;
-  display: inline;
+  margin: 0 0 5px;
 }
 
 .marketplace .btn .fa {
   padding-right: 8px;
 }
+
 .marketplace-body {
   margin: 15px;
   md-tabs.md-uw-madison-theme md-tabs-wrapper {
@@ -19,11 +18,32 @@
     p {
       margin-bottom: 0;
     }
+    .marketplace-entry {
+      padding: 12px 22px;
+    }
     .rating {
       margin-left: 0;
     }
+    /* TODO: Change default my-uw CSS to add underline to links that are :not(.md-button) */
+    a.md-button:hover {
+      text-decoration: none;
+    }
+  }
+  .mp-mobile-buttons {
+    width: 100%;
+  }
+  .mp-mobile-details {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    min-width: 70px;
+  }
+  .mp-entry-title-row {
+    margin-bottom: 8px;
   }
 }
+
 
 .marketplace h2 span.fa {
   width: 38px;
@@ -40,9 +60,7 @@
   top: 8px;
 }
 .marketplace h2 span.portlet-title {
-  position: relative;
-  top: 2px;
-  border: none;
+  padding-left: 10px;
   font-size: 0.85em;
 }
 
@@ -91,19 +109,24 @@
 .category-list {
   min-height:20px;
 }
+
 .category-links {
   background-color:@white;
   color:@categoryBlue;
   border-color: @categoryBlue;
   margin: 10px 3px;
   transition: @button-transition;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:hover {
+    text-decoration:none;
+    background-color:@categoryBlue;
+    color:@white;
+    opacity:1.0;
+  }
 }
-.category-links:hover {
-  text-decoration:none;
-  background-color:@categoryBlue;
-  color:@white;
-  opacity:1.0;
-}
+
 .mp-header {
   background-color:@white;
   margin-bottom:15px;
@@ -364,6 +387,7 @@ input:focus,span:focus {
 .marketplace-load-more {
   text-align:center;
   background-color:@white;
+  padding: 8px 16px;
 }
 
 .rating-input span {

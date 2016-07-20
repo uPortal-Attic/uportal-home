@@ -18,11 +18,11 @@
 		<md-tabs md-dynamic-height md-border-bottom>
 			<md-tab label="Most Popular" md-on-select="selectFilter('popular','')" aria-label="Sort by popularity">
 				<md-content>
-					<loading-gif data-object='portlets'></loading-gif>
 					<div class="portlet-container"
 					     ng-repeat="portlet in portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:['-rating','-userRated'] | limitTo:searchResultLimit"
 					     ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false"
-					     ng-click="showDetails = !showDetails">
+					     ng-click="showDetails = !showDetails"
+					     ng-cloak>
 						<marketplace-entry ng-cloak></marketplace-entry>
 					</div>
 					<marketplace-load-more ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"></marketplace-load-more>
@@ -31,11 +31,11 @@
 			</md-tab>
 			<md-tab label="A-Z" md-on-select="selectFilter('az','')" aria-label="Sort by alphabetical order">
 				<md-content ng-cloak>
-					<loading-gif data-object='portlets'></loading-gif>
 					<div class="portlet-container"
 					     ng-repeat="portlet in portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:'name' | limitTo:searchResultLimit"
 					     ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false"
-					     ng-click="showDetails = !showDetails">
+					     ng-click="showDetails = !showDetails"
+					     ng-cloak>
 						<marketplace-entry ng-cloak></marketplace-entry>
 					</div>
 					<marketplace-load-more ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"></marketplace-load-more>
@@ -47,11 +47,11 @@
 					<div class="show-categories">
 						<p>Categories:</p><a ng-repeat="category in categories" href="" class="btn btn-outline btn-sm category-links" ng-click="selectFilter('category',category)" ng-class="{true: 'selected-category'}[categoryToShow === category]">{{category}}</a>
 					</div>
-					<loading-gif data-object='portlets'></loading-gif>
 					<div class="portlet-container"
 					     ng-repeat="portlet in portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:'name' | limitTo:searchResultLimit"
 					     ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false"
-					     ng-click="showDetails = !showDetails">
+					     ng-click="showDetails = !showDetails"
+					     ng-cloak>
 						<marketplace-entry ng-cloak></marketplace-entry>
 					</div>
 					<div class="marketplace-load-more">
@@ -66,6 +66,8 @@
 				</md-content>
 			</md-tab>
 		</md-tabs>
+
+	  <loading-gif data-object='portlets'></loading-gif>
 
 		<!-- CHANGE INNER NAV TO MATERIAL TABS -->
 	  <rating-modal-template></rating-modal-template>

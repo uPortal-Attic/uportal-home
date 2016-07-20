@@ -1,10 +1,13 @@
-<div layout-padding>
+<div class="marketplace-entry">
 	<!-- APP TITLE AND ACTION BUTTONS ROW -->
-	<div layout="row" layout-align="space-between center">
-		<h2 tabindex="0" class="md-headline">
-			<portlet-icon class='five-px-top-left'></portlet-icon>
+	<div class="mp-entry-title-row" layout="row" layout-align="space-between center" layout-align-xs="space-between start">
+		<h2 tabindex="0" class="md-headline" layout="row" layout-align="start center">
+			<portlet-icon></portlet-icon>
 			<span class="portlet-title">{{::portlet.title}}</span>
 		</h2>
+		<md-button aria-label="view details of this app" class="md-accent mp-mobile-details" ng-click="navToDetails(portlet, 'Browse')" hide-gt-xs>
+			Details
+		</md-button>
 		<div class="action-buttons" ng-hide="GuestMode" hide-xs layout="row">
 			<!-- Add to home button with access -->
 			<md-button class="md-default  fname-{{::portlet.fname}}"
@@ -43,13 +46,6 @@
 			</md-button>
 		</div>
 
-		<!-- DETAILS BUTTON MOBILE -->
-		<div class="action-buttons" hide-gt-xs layout="row">
-			<md-button class="md-accent" ng-click="navToDetails(portlet, 'Browse')">
-				Details
-			</md-button>
-		</div>
-
 		<!--GuestMode buttons-->
 		<div class="action-buttons" ng-show="GuestMode">
 			<a class="btn btn-outline" style='margin-right: 15px' ng-href="{{getLaunchURL(portlet)}}" >
@@ -59,7 +55,7 @@
 		</div>
 	</div>
 
-  <!-- RATING ROW -->
+  <!-- RATINGS ROW -->
 	<p>
 		<rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
 		( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
@@ -68,13 +64,13 @@
 	<!-- DESCRIPTION AND DETAILS ROW -->
 	<div layout="row" layout-align="start center">
 		<span tabindex="0">{{::portlet.description}}</span>
-		<md-button class="md-accent" ng-click="navToDetails(portlet, 'Browse')">
+		<md-button class="md-accent" ng-click="navToDetails(portlet, 'Browse')" hide-xs>
 			Details
 		</md-button>
 	</div>
 
-	<!-- CATEGORIES AND DETAILS BUTTON ROW -->
-	<div layout="row" class="category-list container-fluid">
+	<!-- CATEGORIES ROW -->
+	<div layout="row" class="category-list" ng-if="portlet.categories.length > 0">
 		<a ng-repeat="category in portlet.categories"
 		   ng-if="portlet.categories.length > 0"
 		   ng-click="selectFilter('category',category)"
@@ -84,7 +80,7 @@
 	</div>
 
   <!-- Action buttons for mobile -->
-  <div hide-gt-xs layout="row" layout-align="start center">
+  <div hide-gt-xs layout="row">
     <div ng-show="GuestMode">
       <div>
         <a class="btn btn-outline" ng-href="{{loginToAuthPage + '/web/apps/details/'+ portlet.fname}}" >
@@ -92,9 +88,9 @@
         </a>
       </div>
     </div>
-    <div ng-hide="GuestMode" layout="row">
+    <div ng-hide="GuestMode" layout="row" layout-align="end center" class="mp-mobile-buttons">
       <!-- Add to home button with access on mobile-->
-      <md-button class=" md-default fname-{{::portlet.fname}}" ng-click="addToHome(portlet)" ng-show="portlet.canAdd">
+      <md-button class="md-default fname-{{::portlet.fname}}" ng-click="addToHome(portlet)" ng-show="portlet.canAdd">
         <span class="fa fa-plus"></span> Add to home
       </md-button>
 
@@ -105,7 +101,7 @@
       </md-button>
 
       <!-- Launch button with access on mobile-->
-      <md-button class=" md-primary" aria-label="launch {{::portlet.title}}" ng-href="{{getLaunchURL(portlet)}}"
+      <md-button class="md-primary" aria-label="launch {{::portlet.title}}" ng-href="{{getLaunchURL(portlet)}}"
                  target="{{::portlet.target}}" ng-if="portlet.canAdd">
 	      <span class="fa fa-arrow-circle-o-right"></span> Launch
       </md-button>
