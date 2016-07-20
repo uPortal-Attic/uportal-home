@@ -65,8 +65,8 @@
 		( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
 	</p>
 
-	<!-- DESCRIPTION ROW -->
-	<div layout="row" layout-align="start center">
+	<!-- DESCRIPTION AND DETAILS ROW -->
+	<div layout="column" layout-align="center start">
 		<span tabindex="0">{{::portlet.description}}</span>
 		<md-button class="md-accent" ng-click="navToDetails(portlet, 'Browse')">
 			Details
