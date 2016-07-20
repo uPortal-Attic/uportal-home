@@ -12,6 +12,17 @@
 }
 .marketplace-body {
   margin: 15px;
+  md-tabs.md-uw-madison-theme md-tabs-wrapper {
+    background: @white;
+  }
+  marketplace-entry {
+    p {
+      margin-bottom: 0;
+    }
+    .rating {
+      margin-left: 0;
+    }
+  }
 }
 
 .marketplace h2 span.fa {
@@ -85,6 +96,7 @@
   color:@categoryBlue;
   border-color: @categoryBlue;
   margin: 10px 3px;
+  transition: @button-transition;
 }
 .category-links:hover {
   text-decoration:none;
@@ -294,6 +306,7 @@ input:focus,span:focus {
      float:left;
      display:block;
      margin:3px;
+     transition: @button-transition;
    }
   a:hover {
     cursor:pointer;
@@ -350,7 +363,6 @@ input:focus,span:focus {
 }
 .marketplace-load-more {
   text-align:center;
-  padding:20px;
   background-color:@white;
 }
 

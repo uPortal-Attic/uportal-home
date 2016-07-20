@@ -271,7 +271,7 @@ define(['angular', 'jquery'], function(angular, $) {
               $scope.backURL="apps";
               $scope.backText="Browse";
             }
-          }
+          };
           // init
           var init = function() {
             $scope.loading = true;

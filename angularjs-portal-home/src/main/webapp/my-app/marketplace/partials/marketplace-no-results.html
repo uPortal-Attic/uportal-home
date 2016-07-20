@@ -1,0 +1,28 @@
+<div class="no-results">
+	<p>No matching MyUW content.</p>
+	<p>Maybe try:</p>
+	<ul>
+		<li ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll).length > 0">
+			<a href="#" ng-click="selectFilter('az','')">Show matching content beyond the &quot;{{categoryToShow}}&quot; category</a>.</li>
+		<li ng-show="(portlets | filter:searchTermFilter | showCategory:categoryToShow).length > 0">
+			<a href="#" ng-click="toggleShowAll()">Show matching MyUW content even though it is not launchable</a>.</li>
+		<li ng-if="directorySearchUrl">
+			<a ng-href="{{directorySearchUrl}}{{searchText}}" target="_blank">Search the directory </a> (of people and offices) instead.
+		</li>
+		<li ng-if="webSearchUrl">
+			<a ng-href="{{webSearchUrl}}{{searchText}}" target="_blank">Search <span ng-if="domainResultsLabel">the {{domainResultsLabel}} domain on</span> the Web</a> instead.
+		</li>
+		<li ng-if="kbSearchUrl">
+			<a ng-href="{{kbSearchUrl}}{{searchText}}" target="_blank">Search the KnowledgeBase</a> instead.
+		</li>
+		<li ng-if="eventsSearchUrl">
+			<a ng-href="{{eventsSearchUrl}}{{searchText}}" target="_blank">Search for events</a> instead.
+		</li>
+		<li ng-if="helpdeskUrl">
+			<a ng-href="{{helpdeskUrl}}" target="_blank">Ask the Help Desk</a> for help.
+		</li>
+		<li ng-if="feedbackUrl">
+			<a ng-href="{{feedbackUrl}}">Give feedback</a> about search.
+		</li>
+	</ul>
+</div>
