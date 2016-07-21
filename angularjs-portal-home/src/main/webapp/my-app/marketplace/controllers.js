@@ -174,7 +174,6 @@ define(['angular', 'jquery'], function(angular, $) {
               //init variables
               $scope.portlets = [];
               marketplaceService.getPortlets().then(function(data) {
-				  console.log(data.portlets);
                   $scope.portlets = data.portlets;
                   $scope.categories = data.categories;
               });
