@@ -5,69 +5,65 @@
   </app-header>
   <div class="marketplace-body">
     <div class="mp-header">
-      <div class="browse-help">
-        <p class="hidden-xs">What are you looking for?</p>
-        <p class="visible-xs"><i class="fa fa-search"></i></p>
-      </div>
-      <div class="browse-input">
-        <input type="text" class="hidden-xs marketplace-search" placeholder="e.g. Benefits Information" ng-model="searchText" select-on-page-load aria-label="Search bar enter the app you are looking for">
-        <input type="text" class="visible-xs marketplace-search" placeholder="What are you looking for?" ng-model="searchText" select-on-page-load aria-label="Search bar enter the app you are looking for">
-      </div>
+      <!--<div class="browse-help">-->
+        <!--<p class="hidden-xs">What are you looking for?</p>-->
+        <!--<p class="visible-xs"><i class="fa fa-search"></i></p>-->
+      <!--</div>-->
+	    <md-input-container class="md-block browse-input">
+		    <!-- Use floating label instead of placeholder -->
+		    <label hide>What are you looking for?</label>
+		    <md-icon><i class="fa fa-search"></i></md-icon>
+		    <input type="text"
+		           class="marketplace-search"
+		           placeholder="What are you looking for?"
+		           ng-model="searchText"
+		           select-on-page-load
+		           aria-label="search bar: enter the app you are looking for">
+	    </md-input-container>
     </div>
 
-		<md-tabs md-dynamic-height md-border-bottom>
-			<md-tab label="Most Popular" md-on-select="selectFilter('popular','')" aria-label="Sort by popularity">
-				<md-content>
-					<div class="portlet-container"
-					     ng-repeat="portlet in portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:['-rating','-userRated'] | limitTo:searchResultLimit"
-					     ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false"
-					     ng-click="showDetails = !showDetails"
-					     ng-cloak>
-						<marketplace-entry ng-cloak></marketplace-entry>
-					</div>
-					<marketplace-load-more ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"></marketplace-load-more>
-					<marketplace-no-results ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length == 0"></marketplace-no-results>
-				</md-content>
-			</md-tab>
-			<md-tab label="A-Z" md-on-select="selectFilter('az','')" aria-label="Sort by alphabetical order">
-				<md-content ng-cloak>
-					<div class="portlet-container"
-					     ng-repeat="portlet in portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:'name' | limitTo:searchResultLimit"
-					     ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false"
-					     ng-click="showDetails = !showDetails"
-					     ng-cloak>
-						<marketplace-entry ng-cloak></marketplace-entry>
-					</div>
-					<marketplace-load-more ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"></marketplace-load-more>
-					<marketplace-no-results ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length == 0"></marketplace-no-results>
-				</md-content>
-			</md-tab>
-			<md-tab label="Categories" md-on-select="selectFilter('category','')" aria-label="Filter by categories">
-				<md-content ng-cloak>
-					<div class="show-categories">
-						<p>Categories:</p><a ng-repeat="category in categories" href="" class="btn btn-outline btn-sm category-links" ng-click="selectFilter('category',category)" ng-class="{true: 'selected-category'}[categoryToShow === category]">{{category}}</a>
-					</div>
-					<div class="portlet-container"
-					     ng-repeat="portlet in portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:'name' | limitTo:searchResultLimit"
-					     ng-class="{portlet_hover: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false"
-					     ng-click="showDetails = !showDetails"
-					     ng-cloak>
-						<marketplace-entry ng-cloak></marketplace-entry>
-					</div>
-					<div class="marketplace-load-more">
-						<button class="btn btn-primary btn-lg"
-						        ng-click="searchResultLimit = searchResultLimit + 20;"
-						        hide-while-loading
-						        ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"
-										>Load More</button>
-					</div>
-					<marketplace-load-more ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"></marketplace-load-more>
-					<marketplace-no-results ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length == 0"></marketplace-no-results>
-				</md-content>
-			</md-tab>
-		</md-tabs>
+	  <div class="mp-tabs-container">
+		  <div class="mp-prev-button" ng-click="slideTabs('left')">
+			  <i class="fa fa-chevron-left"></i>
+		  </div>
+		  <div class="mp-next-button" ng-click="slideTabs('right')">
+			  <i class="fa fa-chevron-right"></i>
+		  </div>
+		  <div class="mp-tabs-canvas">
+			  <ul class="mp-tabs" ng-class="{true:'slide-right'}[tabsPosition === 'end']">
+				  <li class="mp-tab md-ink-ripple" ng-click="selectFilter('popular','')" ng-class="{true:'active'}[selectedFilter === 'popular']">
+					  <span aria-label="Sort by popularity">Most Popular</span>
+					  <div class="mp-tabs-slide"></div>
+				  </li>
+				  <li class="mp-tab md-ink-ripple" ng-click="selectFilter('az','')" ng-class="{true: 'active'}[selectedFilter === 'az']">
+					  <span aria-label="Sort by alphabetical order">A-Z</span>
+					  <div class="mp-tabs-slide"></div>
+				  </li>
+				  <li class="mp-tab md-ink-ripple" ng-click="selectFilter('category','')" ng-class="{true: 'active'}[selectedFilter === 'category']">
+					  <span aria-label="Filter by categories">Categories</span>
+					  <div class="mp-tabs-slide"></div>
+				  </li>
+			  </ul>
+		  </div>
+	  </div>
+
+	  <div ng-show="showCategories" class="show-categories">
+		  <a ng-repeat="category in categories" href="" class="btn btn-outline btn-sm category-links" ng-click="selectFilter('category',category)" ng-class="{true: 'selected-category'}[categoryToShow === category]">{{category}}</a>
+	  </div>
 
 	  <loading-gif data-object='portlets'></loading-gif>
+
+	  <div class="portlet-container"
+	       ng-repeat="portlet in portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:sortParameter | limitTo:searchResultLimit"
+	       ng-class="{portlet_hover: hover}"
+	       ng-mouseenter="hover = true"
+	       ng-mouseleave="hover = false"
+	       ng-click="showDetails = !showDetails">
+		  <marketplace-entry></marketplace-entry>
+	  </div>
+
+	  <marketplace-load-more ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length != 0"></marketplace-load-more>
+	  <marketplace-no-results ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length == 0"></marketplace-no-results>
 
 		<!-- CHANGE INNER NAV TO MATERIAL TABS -->
 	  <rating-modal-template></rating-modal-template>

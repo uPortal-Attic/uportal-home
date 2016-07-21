@@ -1,68 +1,235 @@
 /* Marketplace Styling */
 @import "variables";
 
-.marketplace h2 {
-  margin: 0 0 5px;
-}
-
-.marketplace .btn .fa {
-  padding-right: 8px;
-}
-
-.marketplace-body {
-  margin: 15px;
-  md-tabs.md-uw-madison-theme md-tabs-wrapper {
-    background: @white;
+.marketplace {
+  h2 {
+    margin: 0 0 5px;
+    span {
+      &.fa {
+        width: 38px;
+        height: 38px;
+        font-size: 0.7em;
+        margin: 4px 0 0 10px;
+        position: relative;
+        border-radius: 50%;
+        border: 1px solid @grayscale10;
+        text-align: center;
+        padding: 8px 0 0 0;
+        opacity: 1.0;
+        color: @grayscale10;
+        top: 8px;
+      }
+      &.portlet-title {
+        padding-left: 10px;
+        font-size: 0.85em;
+      }
+    }
   }
-  marketplace-entry {
-    p {
-      margin-bottom: 0;
+  .btn {
+    .fa {
+      padding-right: 8px;
     }
-    .marketplace-entry {
-      padding: 12px 22px;
+  }
+
+  /* MARKETPLACE BODY */
+  .marketplace-body {
+    md-tabs.md-uw-madison-theme md-tabs-wrapper {
+      background: @white;
     }
-    .rating {
+    marketplace-entry {
+      p {
+        margin-bottom: 0;
+      }
+      .marketplace-entry {
+        padding: 12px 22px;
+        background: @white;
+      }
+      .rating {
+        margin-left: 0;
+      }
+      /* TODO: Change default my-uw CSS to add underline to links that are :not(.md-button) */
+      a.md-button:hover {
+        text-decoration: none;
+      }
+    }
+    .mp-mobile-buttons {
+      width: 100%;
+    }
+    .mp-mobile-details {
       margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+      min-width: 70px;
     }
-    /* TODO: Change default my-uw CSS to add underline to links that are :not(.md-button) */
-    a.md-button:hover {
-      text-decoration: none;
+    .mp-entry-title-row {
+      margin-bottom: 8px;
+    }
+    @media (min-width:600px) {
+      margin: 15px;
     }
   }
-  .mp-mobile-buttons {
-    width: 100%;
+
+  /* MARKETPLACE HEADER */
+  .mp-header {
+    md-input-container.browse-input {
+      margin: 0;
+      padding: 0 0 0 50px;
+      height: 50px;
+      > md-icon.material-icons {
+        height: 50px;
+        width: 50px;
+        top: 0;
+        left: 0;
+        background: @grayscale2;
+        > .fa-search {
+          font-size: 20px;
+          padding: 15px;
+        }
+      }
+    }
+    ::-webkit-input-placeholder {
+      color: @tabs-inactive;
+      font-size:0.8em;
+      font-weight:200;
+      line-height:1.8em;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+      color: @tabs-inactive;
+      font-size:1em;
+      font-weight:200;
+    }
+    ::-moz-placeholder {  /* Firefox 19+ */
+      color: @tabs-inactive;
+      font-size:1em;
+      font-weight:200;
+    }
+    :-ms-input-placeholder {
+      color: @tabs-inactive;
+      font-size:1em;
+      font-weight:200;
+    }
   }
-  .mp-mobile-details {
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    min-width: 70px;
+
+  /* MARKETPLACE TABS */
+  .mp-tabs-container {
+    position: relative;
+    width: auto;
+    background: @white;
+    border-bottom: 1px solid @tabs-border;
+    .mp-prev-button, .mp-next-button {
+      display: none;
+      height: 100%;
+      width: 32px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      line-height: 1em;
+      z-index: 2;
+      cursor: pointer;
+      font-size: 16px;
+      transition: @all-transition;
+      > .fa {
+        line-height: 48px;
+        display: block;
+        text-align: center;
+        font-size: 12px;
+        color: @tabs-inactive;
+      }
+      @media (max-width: 375px) {
+        display: block;
+      }
+    }
+    .mp-prev-button {
+      left: 0;
+    }
+    .mp-next-button {
+      right: 0;
+    }
+    .mp-tabs-canvas {
+      display: block;
+      position: relative;
+      margin: 0;
+      height: 48px;
+      width: 100%;
+      ul.mp-tabs {
+        margin: 0;
+        transform: translate3d(0, 0, 0);
+        li.mp-tab {
+          display: inline-block;
+          font-size: 14px;
+          text-align: center;
+          line-height: 24px;
+          padding: 12px 24px;
+          transition: background-color .35s cubic-bezier(.35,0,.25,1);
+          cursor: pointer;
+          white-space: nowrap;
+          position: relative;
+          text-transform: uppercase;
+          float: left;
+          font-weight: 500;
+          box-sizing: border-box;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: @tabs-inactive;
+          .mp-tabs-slide {
+            background: @color1;
+            height: 2px;
+            width: 100%;
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            transition: @tabs-slide-transition;
+          }
+          &.active {
+            cursor: default;
+            color: @color1;
+            .mp-tabs-slide {
+              bottom: 0;
+            }
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+        /* TABS (XS-ONLY) */
+        @media (max-width: 375px) {
+          position: absolute;
+          display: flex;
+          height: 48px;
+          transition: transform .5s cubic-bezier(.35,0,.25,1);
+          &.slide-right {
+            transform: translate3d(-60vw, 0, 0);
+          }
+        }
+      }
+      /* TABS CANVAS (XS-ONLY) */
+      @media (max-width: 375px) {
+        margin: 0 32px;
+        overflow: hidden;
+      }
+    }
   }
-  .mp-entry-title-row {
-    margin-bottom: 8px;
+  /* MARKETPLACE NO RESULTS */
+  .mp-no-results {
+    padding:10px 15px;
+    background-color:@white;
+    .mp-no-results-container {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+      .mp-bucky-sad {
+        display: block;
+        margin: 0 auto 8px;
+      }
+      .mp-no-results-list {
+        text-align: left;
+      }
+    }
   }
+  /* MARKETPLACE LOAD MORE */
 }
 
-
-.marketplace h2 span.fa {
-  width: 38px;
-  height: 38px;
-  font-size: 0.7em;
-  margin: 4px 0 0 10px;
-  position: relative;
-  border-radius: 50%;
-  border: 1px solid @grayscale10;
-  text-align: center;
-  padding: 8px 0 0 0;
-  opacity: 1.0;
-  color: @grayscale10;
-  top: 8px;
-}
-.marketplace h2 span.portlet-title {
-  padding-left: 10px;
-  font-size: 0.85em;
-}
 
 .portlet-list-item p {
   padding: 5px;
@@ -141,11 +308,6 @@
     font-weight:200;
     font-size: 1.4em;
   }
-}
-.browse-input {
-  display: inline-block;
-  height:50px;
-  width:64%;
 }
 .marketplace-search {
   width:100%;
@@ -380,10 +542,7 @@ input:focus,span:focus {
     }
   }
 }
-.no-results {
-  padding:10px 15px;
-  background-color:@white;
-}
+
 .marketplace-load-more {
   text-align:center;
   background-color:@white;

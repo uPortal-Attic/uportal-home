@@ -100,6 +100,13 @@ define(['angular', 'jquery'], function(angular, $) {
 
       };
 
+	  $scope.slideTabs = function(direction) {
+		  $scope.tabsPosition = 'start';
+		  if (direction === 'right') {
+			  $scope.tabsPosition = 'end';
+		  }
+	  };
+
       $scope.toggleShowAll = function() {
           $scope.showAll = !$scope.showAll;
       };
@@ -167,6 +174,7 @@ define(['angular', 'jquery'], function(angular, $) {
               //init variables
               $scope.portlets = [];
               marketplaceService.getPortlets().then(function(data) {
+				  console.log(data.portlets);
                   $scope.portlets = data.portlets;
                   $scope.categories = data.categories;
               });
