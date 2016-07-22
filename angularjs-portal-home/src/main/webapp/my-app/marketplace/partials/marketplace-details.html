@@ -38,7 +38,7 @@
                 <md-button class="md-raised md-primary fixed-width fname-{{::portlet.fname}}"
                            ng-click="addToHome(portlet)"
                            ng-if="portlet.canAdd && !portlet.hasInLayout"
-                           ng-class="{disabled : portlet.hasInLayout}">
+                           ng-disabled="portlet.hasInLayout">
                     Add to home
                 </md-button>
             </div>

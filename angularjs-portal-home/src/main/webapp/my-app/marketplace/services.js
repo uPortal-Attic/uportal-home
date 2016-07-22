@@ -27,13 +27,13 @@ define(['angular', 'jquery'], function(angular, $) {
         var setFromInfo = function(searchOrBrowse, term) {
           fromSearchTerm = term;
           fromSearchOrBrowse = searchOrBrowse;
-        }
+        };
         /**
          * Gets the information about where they came from
          */
         var getFromInfo = function() {
           return {term: fromSearchTerm, searchOrBrowse : fromSearchOrBrowse};
-        }
+        };
 
         var checkMarketplaceCache = function() {
             var userPromise = mainService.getUser();
@@ -152,12 +152,12 @@ define(['angular', 'jquery'], function(angular, $) {
 
         var processInLayout = function(portlet, layout) {
           var inLayout = $.grep(layout, function(e) { return e.fname === portlet.fname}).length;
-          if(inLayout > 0) {
+          if (inLayout > 0) {
               portlet.hasInLayout = true;
           } else {
               portlet.hasInLayout = false;
           }
-        }
+        };
 
         var postProcessing = function(result, data) {
 

@@ -1,99 +1,118 @@
-<div class="portlet-list-item" >
-  <h2 tabindex="0">
-    <portlet-icon class='five-px-top-left'></portlet-icon>
-    <span class="portlet-title">{{::portlet.title}}</span>
-  </h2>
-  <div class="action-buttons" ng-hide="GuestMode">
+<div class="marketplace-entry">
+	<!-- APP TITLE AND ACTION BUTTONS ROW -->
+	<div class="mp-entry-title-row" layout="row" layout-align="space-between center" layout-align-xs="space-between start">
+		<h2 tabindex="0" class="md-headline" layout="row" layout-align="start center">
+			<portlet-icon></portlet-icon>
+			<span class="portlet-title">{{::portlet.title}}</span>
+		</h2>
+		<md-button aria-label="view details of this app" class="md-accent mp-mobile-details" ng-click="navToDetails(portlet, 'Browse')" hide-gt-xs>
+			Details
+		</md-button>
+		<div ng-hide="GuestMode" hide-xs layout="row">
+			<!-- Add to home button with access -->
+			<md-button class="md-default  fname-{{::portlet.fname}}"
+			           ng-click="addToHome(portlet)"
+			           ng-if="portlet.canAdd && !portlet.hasInLayout">
+				<span class="fa fa-plus"></span> Add to home
+			</md-button>
 
-    <!-- Add to home button with access -->
-    <button class="btn btn-primary fname-{{::portlet.fname}}"
-            ng-click="addToHome(portlet)"
-            ng-if="portlet.canAdd && !portlet.hasInLayout"
-            ng-class="{disabled : portlet.hasInLayout}">
-      <span class="fa fa-plus"></span>Add to home
-    </button>
+			<!-- Added to home -->
+			<md-button class="fname-{{::portlet.fname}}"
+			           ng-disabled="true"
+			           ng-if="portlet.canAdd && portlet.hasInLayout"
+			           popover="This app is already in your favorites"
+			           popover-trigger="mouseenter"
+			           popover-placement="left"
+			           popover-popup-delay="500">
+				<i class="fa fa-check"></i> Added to home
+			</md-button>
 
-    <!-- Added to home -->
-    <button class="btn btn-disabled fname-{{::portlet.fname}}"
-            ng-if="portlet.canAdd && portlet.hasInLayout"
-            ng-class="{'btn-disabled' : portlet.hasInLayout}"
-            popover="This app is already in your favorites"
-            popover-trigger="mouseenter"
-            popover-placement="top"
-            popover-popup-delay="500">
-      <i class="fa fa-check"></i>Added to home
-    </button>
+			<!-- Add to home button without access -->
+			<md-button ng-disabled="true" ng-hide="portlet.canAdd" popover="You do not have access to this app"
+			           popover-trigger="mouseenter" popover-placement="left" popover-popup-delay="500">
+				<span class="fa fa-plus"></span> Add to home
+			</md-button>
 
-    <!-- Add to home button without access -->
-    <button class="btn btn-disabled" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
-      <span class="fa fa-plus"></span>Add to home
-    </button>
+			<!-- Launch button with access -->
+			<md-button class="md-primary" aria-label="launch {{::portlet.title}}" ng-href="{{getLaunchURL(portlet)}}"
+			           target="{{::portlet.target}}" ng-if="portlet.canAdd">
+				<span class="fa fa-arrow-circle-o-right"></span> Launch
+			</md-button>
 
-    <!-- Launch button with access -->
-    <a aria-label="launch {{::portlet.title}}" class="btn btn-success" href="{{getLaunchURL(portlet)}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+			<!-- Launch button without access -->
+			<md-button ng-disabled="true" ng-hide="portlet.canAdd" popover="You do not have access to this app"
+			           popover-trigger="mouseenter" popover-placement="left" popover-popup-delay="500">
+				<span class="fa fa-arrow-circle-o-right"></span> Launch
+			</md-button>
+		</div>
 
-    <!-- Launch button without access -->
-    <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+		<!--GuestMode buttons-->
+		<div ng-show="GuestMode" hide-xs layout="row">
+			<md-button class="md-primary" ng-href="{{getLaunchURL(portlet)}}"
+			           aria-label="Launch" ng-if='portlet.hasInLayout'>
+				Launch
+			</md-button>
+			<md-button class="md-primary" ng-href="{{getLaunchURL(portlet)}}"
+			           aria-label="Login" ng-if='!portlet.hasInLayout'>
+				Login
+			</md-button>
+		</div>
+	</div>
 
-  </div>
-  <!--GuestMode buttons-->
-  <div class="action-buttons" ng-show="GuestMode">
-    <a class="btn btn-outline" style='margin-right: 15px' ng-href="{{getLaunchURL(portlet)}}" >
-      <span ng-if='portlet.hasInLayout'>Launch</span>
-      <span ng-if='!portlet.hasInLayout'>Login</span>
-    </a>
-  </div>
+  <!-- RATINGS ROW -->
+	<p>
+		<rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
+		( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
+	</p>
 
-  <br>
-  <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
-    ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
-  </span>
-  <span ng-hide="GuestMode"> | <button ng-click="openRating('sm',portlet.fname, portlet.title)" class="btn btn-default">Rate</button></span>
-  <p tabindex="0">{{::portlet.description}}</p>
-  <div class="category-list container-fluid row">
-    <div class="col-xs-8">
-      <a ng-repeat="category in portlet.categories"
-         href=""
-         ng-click="selectFilter('category',category)"
-         class="btn btn-outline btn-sm category-links">
-          {{::category}}
-       </a>
-    </div>
-    <div class="col-xs-4">
-      <a title='See more about {{portlet.name}}' ng-click='navToDetails(portlet, "Browse")' class="btn btn-outline btn-sm pull-right">Details</a>
-    </div>
+	<!-- DESCRIPTION AND DETAILS ROW -->
+	<div layout="row" layout-align="start center">
+		<span tabindex="0">{{::portlet.description}}</span>
+		<md-button class="md-accent" ng-click="navToDetails(portlet, 'Browse')" hide-xs>
+			Details
+		</md-button>
+	</div>
 
-  </div>
-
-
+	<!-- CATEGORIES ROW -->
+	<div layout="row" class="category-list" ng-if="portlet.categories.length > 0">
+		<a ng-repeat="category in portlet.categories"
+		   ng-if="portlet.categories.length > 0"
+		   ng-click="selectFilter('category',category)"
+		   class="btn btn-outline btn-sm category-links">
+			{{::category}}
+		</a>
+	</div>
 
   <!-- Action buttons for mobile -->
-  <div class="visible-xs text-center">
-    <div ng-show="GuestMode">
-      <div>
-        <a class="btn btn-outline" ng-href="{{loginToAuthPage + '/web/apps/details/'+ portlet.fname}}" >
-          Login to use
-        </a>
-      </div>
+  <div hide-gt-xs layout="row">
+    <div ng-show="GuestMode" layout="row" layout-align="end center" class="mp-mobile-buttons">
+      <md-button class="md-primary" ng-href="{{loginToAuthPage + '/web/apps/details/'+ portlet.fname}}">
+	      Log in
+      </md-button>
     </div>
-    <div ng-hide="GuestMode">
+    <div ng-hide="GuestMode" layout="row" layout-align="end center" class="mp-mobile-buttons">
       <!-- Add to home button with access on mobile-->
-      <button class="btn btn-primary fname-{{::portlet.fname}}" ng-click="addToHome(portlet)" ng-show="portlet.canAdd">
-        <span class="fa fa-plus"></span>Add to home
-      </button>
+      <md-button class="md-default fname-{{::portlet.fname}}" ng-click="addToHome(portlet)" ng-show="portlet.canAdd">
+        <span class="fa fa-plus"></span> Add to home
+      </md-button>
 
       <!-- Add to home button without access on mobile-->
-      <button class="btn btn-disabled" ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500">
-        <span class="fa fa-plus"></span>Add to home
-      </button>
+      <md-button ng-disabled="true" ng-hide="portlet.canAdd" popover="You do not have access to this app"
+                 popover-trigger="mouseenter" popover-placement="left" popover-popup-delay="500">
+        <span class="fa fa-plus"></span> Add to home
+      </md-button>
 
       <!-- Launch button with access on mobile-->
-      <a aria-label="launch {{::portlet.title}}" class="btn btn-success" ng-href="{{getLaunchURL(portlet)}}" target="{{::portlet.target}}" ng-if="portlet.canAdd"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+      <md-button class="md-primary" aria-label="launch {{::portlet.title}}" ng-href="{{getLaunchURL(portlet)}}"
+                 target="{{::portlet.target}}" ng-if="portlet.canAdd">
+	      <span class="fa fa-arrow-circle-o-right"></span> Launch
+      </md-button>
 
       <!-- Launch button without access on mobile-->
-      <a class="btn btn-disabled" href ng-hide="portlet.canAdd" popover="You do not have access to this app" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="500"><span class="fa fa-arrow-circle-o-right"></span>Launch</a>
+      <md-button ng-disabled="true" href ng-hide="portlet.canAdd" popover="You do not have access to this app"
+                 popover-trigger="mouseenter" popover-placement="left" popover-popup-delay="500">
+	      <span class="fa fa-arrow-circle-o-right"></span> Launch
+      </md-button>
     </div>
   </div>
-
-
 </div>

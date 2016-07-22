@@ -100,6 +100,13 @@ define(['angular', 'jquery'], function(angular, $) {
 
       };
 
+	  $scope.slideTabs = function(direction) {
+		  $scope.tabsPosition = 'start';
+		  if (direction === 'right') {
+			  $scope.tabsPosition = 'end';
+		  }
+	  };
+
       $scope.toggleShowAll = function() {
           $scope.showAll = !$scope.showAll;
       };
@@ -271,7 +278,7 @@ define(['angular', 'jquery'], function(angular, $) {
               $scope.backURL="apps";
               $scope.backText="Browse";
             }
-          }
+          };
           // init
           var init = function() {
             $scope.loading = true;

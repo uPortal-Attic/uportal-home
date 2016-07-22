@@ -1,0 +1,35 @@
+<div class="mp-no-results">
+	<div class="mp-no-results-container">
+		<img class="mp-sad-bucky" src="img/bucky-sad.png">
+		<p class="md-title">No matching MyUW content.</p>
+		<div class="mp-no-results-list">
+			<p>Please try again or consider one of the following options:</p>
+			<ul>
+				<li ng-show="(portlets | filter:searchTermFilter | showApplicable:showAll).length > 0">
+					<a href="#" ng-click="selectFilter('az','')">Show matching content beyond the &quot;{{categoryToShow}}&quot; category</a>.
+				</li>
+				<li ng-show="(portlets | filter:searchTermFilter | showCategory:categoryToShow).length > 0">
+					<a href="#" ng-click="toggleShowAll()">Show matching MyUW content even if it cannot be launched</a>.
+				</li>
+				<li ng-if="directorySearchUrl">
+					<a ng-href="{{directorySearchUrl}}{{searchText}}" target="_blank">Search the  directory of people and offices</a>
+				</li>
+				<li ng-if="webSearchUrl">
+					<a ng-href="{{webSearchUrl}}{{searchText}}" target="_blank">Search the <span ng-if="domainResultsLabel">{{domainResultsLabel}}</span> domain</a>
+				</li>
+				<li ng-if="kbSearchUrl">
+					<a ng-href="{{kbSearchUrl}}{{searchText}}" target="_blank">Search the KnowledgeBase</a>
+				</li>
+				<li ng-if="eventsSearchUrl">
+					<a ng-href="{{eventsSearchUrl}}{{searchText}}" target="_blank">Search for Events</a>
+				</li>
+				<li ng-if="helpdeskUrl">
+					<a ng-href="{{helpdeskUrl}}" target="_blank">Ask the Help Desk</a>
+				</li>
+				<li ng-if="feedbackUrl">
+					<a ng-href="{{feedbackUrl}}">Provide feedback about search</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
