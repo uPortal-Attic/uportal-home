@@ -47,6 +47,8 @@ Sample code for entity file:
 
 For the `list-of-links` widget type specifically, `launchText` is optional; omitting `launchText` suppresses the launch button at the bottom of the list-of-links widget. This is appropriate when there's nothing more to launch, that is, when the list-of-links widget simply presents all the intended links and that's all there is to it.
 
+One-link list-of-links widgets are often better modeled as no widget at all, simply using the name and `alternativeMaximizedLink` of [the app directory entry](#/md/app-directory) to represent the link. This provides a more usable click surface, a simpler and cleaner user experience, and achieves better consistency with other just-a-link widgets in MyUW.
+
 ### Search with Links
 Display a search bar and two links.
 
