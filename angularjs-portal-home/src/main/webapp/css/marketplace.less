@@ -33,9 +33,6 @@
 
   /* MARKETPLACE BODY */
   .marketplace-body {
-    md-tabs.md-uw-madison-theme md-tabs-wrapper {
-      background: @white;
-    }
     marketplace-entry {
       p {
         margin-bottom: 0;
@@ -50,6 +47,9 @@
       /* TODO: Change default my-uw CSS to add underline to links that are :not(.md-button) */
       a.md-button:hover {
         text-decoration: none;
+      }
+      &:hover {
+        cursor: default;
       }
     }
     .mp-mobile-buttons {
@@ -72,6 +72,8 @@
 
   /* MARKETPLACE HEADER */
   .mp-header {
+    background: @white;
+    margin-bottom: 15px;
     md-input-container.browse-input {
       margin: 0;
       padding: 0 0 0 50px;
@@ -227,77 +229,60 @@
       }
     }
   }
-  /* MARKETPLACE LOAD MORE */
+  /* CATEGORY LINKS */
+  .category-links {
+    background-color:@white;
+    color:@categoryBlue;
+    border-color: @categoryBlue;
+    margin: 10px 3px;
+    transition: @button-transition;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:hover {
+      text-decoration:none;
+      background-color:@categoryBlue;
+      color:@white;
+      opacity:1.0;
+    }
+  }
+
 }
 
-
+/* POSSIBLY UNUSED? */
 .portlet-list-item p {
   padding: 5px;
 }
+//.btn-added {
+//  margin:5px 8px 0 0;
+//}
+//.btn-launch {
+//  border:none;
+//  background-color:#5cb85c;
+//  color:@white;
+//  text-shadow:none;
+//  margin:5px 8px 0 0;
+//  z-index:100;
+//}
+//.btn-launch:hover {
+//  background-color:#449d44;
+//  border:none;
+//  color:@white;
+//}
+//.disabled {
+//  border:1px solid @grayscale7;
+//  background-color:@white;
+//  color:@grayscale7;
+//  cursor:default !important;
+//  pointer-events:auto !important;
+//}
+//.disabled:hover {
+//  border:1px solid @grayscale7;
+//  background-color:@white;
+//  color:@grayscale7;
+//  cursor:default !important;
+//}
 
-.action-buttons {
-  background-color: transparent;
-  text-shadow: none;
-  float: right;
-}
-.action-buttons-mobile {
-  display:none;
-}
-
-.btn-added {
-  margin:5px 8px 0 0;
-}
-.btn-launch {
-  border:none;
-  background-color:#5cb85c;
-  color:@white;
-  text-shadow:none;
-  margin:5px 8px 0 0;
-  z-index:100;
-}
-.btn-launch:hover {
-  background-color:#449d44;
-  border:none;
-  color:@white;
-}
-.disabled {
-  border:1px solid @grayscale7;
-  background-color:@white;
-  color:@grayscale7;
-  cursor:default !important;
-  pointer-events:auto !important;
-}
-.disabled:hover {
-  border:1px solid @grayscale7;
-  background-color:@white;
-  color:@grayscale7;
-  cursor:default !important;
-}
-.category-list {
-  min-height:20px;
-}
-
-.category-links {
-  background-color:@white;
-  color:@categoryBlue;
-  border-color: @categoryBlue;
-  margin: 10px 3px;
-  transition: @button-transition;
-  &:first-child {
-    margin-left: 0;
-  }
-  &:hover {
-    text-decoration:none;
-    background-color:@categoryBlue;
-    color:@white;
-    opacity:1.0;
-  }
-}
-
-.mp-header {
-  background-color:@white;
-  margin-bottom:15px;
-}
 .browse-help {
   display: inline-block;
   float: left;
