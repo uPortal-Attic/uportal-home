@@ -34,7 +34,7 @@ define(['angular'], function(angular) {
                 'entries' : 'entries.json'
             },
             'notificationsURL' : '/web/staticFeeds/notifications.json',
-            'groupURL' : '/uPortal/api/groups'
+            'groupURL' : '/uPortal/api/groups',
             'kvURL' : null,
             'loginSilentURL' : '/uPortal/Login?silent=true'
           },
