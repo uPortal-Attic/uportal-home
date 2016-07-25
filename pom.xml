@@ -17,14 +17,14 @@
         <name>My UW Dev Team</name>
     </developer>
   </developers>
-  
+
   <licenses>
     <license>
       <name>The Apache License, Version 2.0</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
-  
+
   <scm>
     <connection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</connection>
     <developerConnection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</developerConnection>
@@ -42,7 +42,7 @@
     <module>angularjs-portal-home</module>
     <module>angularjs-portal-mock-portal</module>
   </modules>
-  
+
   <repositories>
     <repository>
       <id>central-snapshots</id>
@@ -180,7 +180,7 @@
             </contextHandler>
             <contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
               <war>${project.basedir}/angularjs-portal-mock-portal/target/portal.war</war>
-              <contextPath>/portal</contextPath>
+              <contextPath>/uPortal</contextPath>
             </contextHandler>
             <contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
               <war>${project.basedir}/angularjs-portal-mock-portal/target/portal.war</war>
@@ -272,4 +272,3 @@
   </profiles>
 
 </project>
-
