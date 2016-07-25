@@ -20,7 +20,7 @@ define(['angular'], function(angular) {
             enabled: true
           },
           'SERVICE_LOC' : {
-            'aboutURL' : '/portal/web/session.json',
+            'aboutURL' : '/uPortal/web/session.json',
             'sessionInfo' : '/uPortal/api/session.json',
             'sidebarInfo' : '/web/staticFeeds/sidebar.json',
             'newstuffInfo': '/web/staticFeeds/new-stuff.json',
