@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [ "$1" = "master" ]; then
-  cp angularjs-portal-home/src/main/webapp/js/app-config.js angularjs-portal-home/src/main/webapp/js/app-config.js.bak
-  cp angularjs-portal-home/src/main/webapp/js/master-app-config.js angularjs-portal-home/src/main/webapp/js/app-config.js
+  cp angularjs-portal-home/src/main/webapp/js/override.js angularjs-portal-home/src/main/webapp/js/override.js.bak
+  cp angularjs-portal-home/src/main/webapp/js/master-override.js angularjs-portal-home/src/main/webapp/js/override.js
 
   mvn -Djava.awt.headless=true clean install
 else
@@ -20,13 +20,13 @@ fi
   popd
 
 if [ "$1" = "master" ]; then
-  mv angularjs-portal-home/src/main/webapp/js/app-config.js.bak angularjs-portal-home/src/main/webapp/js/app-config.js
+  mv angularjs-portal-home/src/main/webapp/js/override.js.bak angularjs-portal-home/src/main/webapp/js/override.js
 fi
 
 
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
- notify-send "build complete for angular"
+ notify-send "Build complete for angularjs-portal"
 elif [[ "$unamestr" == 'Darwin' ]]; then
- osascript -e 'display notification "angularJSportal build.sh finished" with title "Angular portal deployed" sound name "Hero"'
+ osascript -e 'display notification "angularJS-portal build.sh finished" with title "Angular portal deployed" sound name "Hero"'
 fi
