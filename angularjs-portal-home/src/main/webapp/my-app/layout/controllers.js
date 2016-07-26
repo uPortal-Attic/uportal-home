@@ -142,13 +142,20 @@ define(['angular', 'jquery'], function(angular, $) {
                } else if('rss' === portlet.widgetType) {
                    return "RSS";
                } else if('list-of-links' === portlet.widgetType) {
-                   return "LOL";
+				   if (portlet.widgetConfig.links.length != 1) {
+					   return "LOL";
+				   } else if (portlet.widgetConfig.links.length === 1 && portlet.altMaxUrl) {
+					   // If list of links has only one link and if it is the same as the portlet URL, display the
+					   // normal portlet view
+					   if (portlet.widgetConfig.links[0].href === portlet.url) {
+						   return "NORMAL";
+					   }
+				   }
                } else if ('search-with-links' === portlet.widgetType) {
                    return "SWL";
                } else {
                    return "WIDGET";
                }
-
            }else if(portlet.pithyStaticContent != null) {
                return "PITHY";
            } else if (portlet.staticContent != null
@@ -165,7 +172,7 @@ define(['angular', 'jquery'], function(angular, $) {
          } else {
            return portlet.url;
          }
-       }
+       };
 
        childController.maxStaticPortlet = function gotoMaxStaticPortlet(portlet) {
            sharedPortletService.setProperty(portlet);
