@@ -142,14 +142,14 @@ define(['angular', 'jquery'], function(angular, $) {
                } else if('rss' === portlet.widgetType) {
                    return "RSS";
                } else if('list-of-links' === portlet.widgetType) {
-				   if (portlet.widgetConfig.links.length != 1) {
-					   return "LOL";
-				   } else if (portlet.widgetConfig.links.length === 1 && portlet.altMaxUrl) {
+				   if (portlet.widgetConfig.links.length === 1 && portlet.altMaxUrl) {
 					   // If list of links has only one link and if it is the same as the portlet URL, display the
 					   // normal portlet view
 					   if (portlet.widgetConfig.links[0].href === portlet.url) {
 						   return "NORMAL";
 					   }
+				   } else {
+					   return "LOL";
 				   }
                } else if ('search-with-links' === portlet.widgetType) {
                    return "SWL";
