@@ -20,12 +20,12 @@ define(['angular'], function(angular) {
             enabled: true
           },
           'SERVICE_LOC' : {
-            'aboutURL' : '/portal/web/session.json',
-            'sessionInfo' : '/portal/web/session.json',
+            'aboutURL' : '/portal/api/session.json',
+            'sessionInfo' : '/portal/api/session.json',
             'sidebarInfo' : '/web/staticFeeds/sidebar.json',
             'newstuffInfo': '/web/staticFeeds/new-stuff.json',
             'context'     : '/portal/',
-            'base'        : '/portal/web/',
+            'base'        : '/portal/api/',
             'layout'      : 'layoutDoc?tab=UW Bucky Home',
             'layoutTab' : 'UW Bucky Home',
             'marketplace' : {
