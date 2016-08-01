@@ -1,5 +1,5 @@
 <md-card class="widget-frame" id="portlet-id-{{portlet.nodeId}}">
-  <md-card-header>
+  <md-card-header class="widget-header">
     <!-- Widget Chrome -->
     <div class='widget-info'>
       <i title="Info" class="fa fa-info-circle"
@@ -16,7 +16,7 @@
       <span class='md-title' style='text-align: center;' id="appTitle_portlet.title-{{portlet.nodeId}}" aria-labelledby="appTitle_portlet.title-{{portlet.nodeId}}" tabindex="0">{{portlet.title }}</span>
     </md-card-header-text>
   </md-card-header>
-  <md-card-content style='padding: 0 !important;'>
+  <md-card-content class="widget-content">
     <sub class="sr-only" id="goToApps-{{portlet.nodeId}}">go to</sub>
     <!-- For widgets, show fancy markup! -->
     <div ng-if="'WIDGET' === widgetCtrl.portletType(portlet)">
