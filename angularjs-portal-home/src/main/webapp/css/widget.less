@@ -1,6 +1,5 @@
 widget-card {
   .widget-header {
-    padding: 8px;
     .md-title {
       font-size: 18px;
       font-weight: 200;
@@ -12,6 +11,12 @@ widget-card {
     margin-bottom: 36px;
     .bold {
       font-weight: 500;
+    }
+    .widget-type-container {
+      height: 196px;
+      .widget-icon-container {
+        height: 100%;
+      }
     }
   }
 }
@@ -148,8 +153,13 @@ weather {
   }
 }
 
-.widget-frame .widget-icon-container .option-link-icon i {
-  padding:30px 15px 10px;
+.widget-frame .widget-icon-container {
+  i {
+    padding: 0 0 30px;
+  }
+  .option-link-icon i {
+    padding:30px 15px 10px;
+  }
 }
 
 .scroll-widget {
