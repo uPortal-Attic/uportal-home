@@ -13,6 +13,7 @@
 		           class="mp-search"
 		           placeholder="What are you looking for?"
 		           ng-model="searchText"
+               ng-change="searchResultLimit=20"
 		           select-on-page-load
 		           aria-label="search bar: enter the app you are looking for">
 	    </md-input-container>
@@ -58,7 +59,7 @@
 		  <marketplace-entry></marketplace-entry>
 	  </div>
 
-	  <marketplace-load-more ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length != 0"></marketplace-load-more>
+	  <marketplace-load-more ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"></marketplace-load-more>
 	  <marketplace-no-results ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length == 0"></marketplace-no-results>
 
 		<!-- CHANGE INNER NAV TO MATERIAL TABS -->
