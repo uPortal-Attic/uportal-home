@@ -66,6 +66,11 @@ define(['angular'], function(angular) {
               "description" : "Enable/Disable keywords showing up in marketplace details"
             },
             {
+              "id" : "linkRatingsApi",
+              "title" : "Link ratings API",
+              "description" : "Links the ratings JSON API from the ratings count in the details page for each app. Actual access to this JSON API depends upon MANAGE permissions; this setting just includes the hyperlink in the UI for convenience."
+            },
+            {
               "id" : "exampleWidgets",
               "title" : "Example Widgets",
               "description" : "Show the My Courses, Email, and Calendar example widgets"
