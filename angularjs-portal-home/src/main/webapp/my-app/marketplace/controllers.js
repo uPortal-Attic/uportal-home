@@ -289,6 +289,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
               templateUrl: require.toUrl('./partials/rating-review-admin.html'),
               parent: angular.element(document.body),
               scope: $scope,
+              preserveScope : true,
               clickOutsideToClose:true,
               fullscreen: false
             })
