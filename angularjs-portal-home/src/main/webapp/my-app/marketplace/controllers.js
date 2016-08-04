@@ -248,7 +248,9 @@ define(['angular', 'jquery'], function(angular, $) {
 
     app.controller('MarketplaceDetailsController', [
         '$controller', '$scope', '$routeParams', 'marketplaceService',
-        function($controller, $scope, $routeParams, marketplaceService) {
+        'SERVICE_LOC',
+        function($controller, $scope, $routeParams, marketplaceService,
+                 SERVICE_LOC) {
 
           $controller('marketplaceCommonFunctions', { $scope : $scope });
 
@@ -256,6 +258,8 @@ define(['angular', 'jquery'], function(angular, $) {
               currentCategory=category;
               currentPage='details';
           };
+          
+          $scope.ratingPrefix = SERVICE_LOC.base + SERVICE_LOC.marketplace.base;
 
           var figureOutBackStuff = function() {
             var fromInfo = marketplaceService.getFromInfo();
