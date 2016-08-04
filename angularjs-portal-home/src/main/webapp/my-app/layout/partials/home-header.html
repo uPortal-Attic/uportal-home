@@ -1,10 +1,10 @@
 <script type="text/ng-template" id="toggle-modes.html">
   <div ng-controller="ToggleController">
     <md-menu-item ng-if='modeIs(MODES.EXPANDED)'>
-      <md-button class="md-accent" href="javascript:;" ng-click="switchMode(MODES.COMPACT)">Show Compact Mode</md-button>
+      <md-button class="md-accent" ng-click="switchMode(MODES.COMPACT)">Show Compact Mode</md-button>
     </md-menu-item>
     <md-menu-item ng-if='modeIs(MODES.COMPACT)'>
-      <md-button class="md-accent" href="javascript:;" ng-click="switchMode(MODES.EXPANDED)">Show Expanded Mode</md-button>
+      <md-button class="md-accent" ng-click="switchMode(MODES.EXPANDED)">Show Expanded Mode</md-button>
     </md-menu-item>
   </div>
 </script>
