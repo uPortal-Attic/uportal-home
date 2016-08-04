@@ -259,7 +259,6 @@ define(['angular', 'jquery'], function(angular, $) {
               currentPage='details';
           };
           
-          $scope.ratingPrefix = SERVICE_LOC.base + SERVICE_LOC.marketplace.base;
 
           var figureOutBackStuff = function() {
             var fromInfo = marketplaceService.getFromInfo();
@@ -288,6 +287,8 @@ define(['angular', 'jquery'], function(angular, $) {
             $scope.loading = true;
             figureOutBackStuff();
             $scope.obj = [];
+            $scope.ratingPrefix = SERVICE_LOC.base + 
+              SERVICE_LOC.marketplace.base;
             $scope.errorMessage = 'There was an issue loading details, please click back to apps.';
             marketplaceService.getPortlet($routeParams.fname).then(function(result) {
                 $scope.loading = false;
