@@ -1,0 +1,22 @@
+<md-content style="background-color: #fff;">
+  <div ng-if='!ratings || ratings.length === 0'>
+    No ratings or reviews for this app.
+  </div>
+  <md-list flex>
+    <md-subheader style="background-color: #ccc;"><h3>Totals</h3></md-subheader>
+    <md-list-item class="md-4-line"ng-click="null">
+      <div class="md-list-item-text" layout="column">
+        <h4>Total Ratings: {{ratings.length}}</h4>
+        <h4>Average Rating : {{average}}</h4>
+        <h4>With Reviews : {{totalReviews}}</h4>
+      </div>
+    </md-list-item>
+    <md-subheader style="background-color: #ccc;"><h3>Individual Ratings/Reviews</h3></md-subheader>
+    <md-list-item class="md-4-line" ng-repeat="rating in ratings" ng-click="null">
+      <div class="md-list-item-text" layout="column">
+        <h4><rating ng-model="rating.rating" readonly="true" class="rating"></rating></h4>
+        <p>{{rating.review}} <span ng-if="!rating.review" style='font-style: italic;'>No review given</span></p>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-content>

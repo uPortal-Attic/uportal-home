@@ -1,6 +1,6 @@
 'use strict';
 
-define(['angular', 'jquery'], function(angular, $) {
+define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
     var app = angular.module('my-app.marketplace.controllers', []);
 
@@ -247,9 +247,9 @@ define(['angular', 'jquery'], function(angular, $) {
     });
 
     app.controller('MarketplaceDetailsController', [
-        '$controller', '$scope', '$routeParams', 'marketplaceService',
+        '$controller', '$scope', '$routeParams', '$mdDialog', 'marketplaceService',
         'SERVICE_LOC',
-        function($controller, $scope, $routeParams, marketplaceService,
+        function($controller, $scope, $routeParams, $mdDialog, marketplaceService,
                  SERVICE_LOC) {
 
           $controller('marketplaceCommonFunctions', { $scope : $scope });
@@ -258,7 +258,7 @@ define(['angular', 'jquery'], function(angular, $) {
               currentCategory=category;
               currentPage='details';
           };
-          
+
 
           var figureOutBackStuff = function() {
             var fromInfo = marketplaceService.getFromInfo();
@@ -282,12 +282,24 @@ define(['angular', 'jquery'], function(angular, $) {
               $scope.backText="Browse";
             }
           };
+
+          $scope.clickRatingReviewAdmin = function() {
+            $mdDialog.show({
+              controller: 'MarketplaceRatingReviewAdminController',
+              templateUrl: require.toUrl('./partials/rating-review-admin.html'),
+              parent: angular.element(document.body),
+              scope: $scope,
+              clickOutsideToClose:true,
+              fullscreen: false
+            })
+          }
+
           // init
           var init = function() {
             $scope.loading = true;
             figureOutBackStuff();
             $scope.obj = [];
-            $scope.ratingPrefix = SERVICE_LOC.base + 
+            $scope.ratingPrefix = SERVICE_LOC.base +
               SERVICE_LOC.marketplace.base;
             $scope.errorMessage = 'There was an issue loading details, please click back to apps.';
             marketplaceService.getPortlet($routeParams.fname).then(function(result) {
@@ -307,6 +319,31 @@ define(['angular', 'jquery'], function(angular, $) {
           init();
         }]
     );
+
+    app.controller('MarketplaceRatingReviewAdminController', [
+        '$scope', 'marketplaceService',
+        function($scope, marketplaceService) {
+          var init = function(){
+            $scope.ratings = [];
+            marketplaceService.getAllRatings($scope.portlet.fname).then(function(ratings){
+              if(!ratings){
+                return;
+              }
+              $scope.ratings = ratings;
+              $scope.average =0;
+              $scope.totalReviews = 0;
+              angular.forEach(ratings, function(value, key){
+                $scope.average+= value.rating;
+                if(value.review) {
+                  $scope.totalReviews += 1;
+                }
+              });
+              $scope.average = Math.round($scope.average / ratings.length);
+            })
+          };
+
+          init();
+         }]);
 
     return app;
 
