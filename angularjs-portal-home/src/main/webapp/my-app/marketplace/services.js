@@ -232,6 +232,13 @@ define(['angular', 'jquery'], function(angular, $) {
 
             return matches;
         };
+
+        var getAllRatings = function(fname) {
+          return $http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/ratings').then(function(result) {
+              return result.data.ratings;
+          });
+        }
+
         //return list of avaliable functions
         return {
             getPortlet : getPortlet,
@@ -240,6 +247,7 @@ define(['angular', 'jquery'], function(angular, $) {
             getInitialFilter: getInitialFilter,
             getUserRating : getUserRating,
             saveRating : saveRating,
+            getAllRatings : getAllRatings,
             filterPortletsBySearchTerm: filterPortletsBySearchTerm,
             portletMatchesSearchTerm: portletMatchesSearchTerm,
             setFromInfo : setFromInfo,

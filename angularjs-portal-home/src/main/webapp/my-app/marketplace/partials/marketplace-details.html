@@ -54,9 +54,9 @@
                         <h3 tabindex="0" class="md-title">Ratings</h3>
                         <span ng-if="$storage.linkRatingsApi">
                             <rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
-                            
-                            ( <a ng-href="{{ratingPrefix}}{{portlet.fname}}/ratings">{{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span></a> )
-                            
+
+                            ( <md-button ng-click="clickRatingReviewAdmin()">{{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span></md-button> )
+
                         </span>
                         <span ng-if="!$storage.linkRatingsApi">
                             <rating ng-model="portlet.rating" readonly="true" class="rating"></rating>
