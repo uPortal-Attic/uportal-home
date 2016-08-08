@@ -12,7 +12,7 @@ define(['angular'], function(angular) {
             'compact' : true,
             'expanded' : true,
             'isWeb' : true,
-            'defaultTheme' : 'group',
+            'defaultTheme' : 0,
             'debug' : true,
             'showUserSettingsPage' : true
           },
@@ -26,8 +26,8 @@ define(['angular'], function(angular) {
             'newstuffInfo': '/web/staticFeeds/new-stuff.json',
             'context'     : '/uPortal/',
             'base'        : '/uPortal/api/',
-            'layout'      : 'layoutDoc?tab=UW Bucky Home',
-            'layoutTab' : 'UW Bucky Home',
+            'layout'      : 'layoutDoc?tab=Welcome',
+            'layoutTab' : 'Welcome',
             'marketplace' : {
                 'base' : 'marketplace/',
                 'entry' : 'entry/',
