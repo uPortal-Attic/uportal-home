@@ -64,7 +64,6 @@ define(['angular', 'jquery'], function(angular, $) {
                         var index = $.inArray(result[0], $scope.layout);
                         //remove
                         $scope.layout.splice(index,1);
-                        $mdToast.show($mdToast.simple().textContent(title + " removed.").hideDelay(3000));
                         if($sessionStorage.marketplace != null) {
                             var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) { return e.fname === result[0].fname});
                             if(marketplaceEntries.length > 0) {
