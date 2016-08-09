@@ -286,39 +286,43 @@ define(['angular', 'jquery'], function(angular, $) {
                               $location,
                               miscService,
                               APP_FLAGS){
-            $scope.MODES = {
-              EXPANDED : "expanded",
-              COMPACT : "compact"
+
+        // scope functions
+        $scope.switchMode = function(mode) {
+          $localStorage.layoutMode = mode;
+          $location.path('/' + mode);
+          miscService.pushGAEvent('Widgets', 'View', mode);
+        };
+
+        // event handler for mode toggle
+        $scope.toggleMode = function(expandedMode) {
+          $scope.expandedMode = expandedMode;
+          var mode = expandedMode ? 'expanded' : 'compact';
+          $scope.switchMode(mode);
+        };
+
+        this.init = function() {
+          $scope.toggle = APP_FLAGS.enableToggle;
+          $scope.$storage = localStorage;
+
+          if ($localStorage.layoutMode) {
+            // Determine whether the layout is expanded or compact mode
+            $scope.expandedMode = $localStorage.layoutMode === 'expanded';
+            // Ensure we're at the correct mode & url
+            if ($location.url().indexOf($localStorage.layoutMode) == -1) {
+              // Oops, we are in the wrong mode, switch!
+              // Check to make sure that mode is active
+              if(APP_FLAGS[$localStorage.layoutMode]) {
+                $location.path('/' + $localStorage.layoutMode);
+              } else {
+                console.log("Something is weird, resetting to default layout view");
+                $scope.switchMode(APP_FLAGS.defaultView);
+              }
             }
-            //scope functions
-            $scope.switchMode = function(mode) {
-                $localStorage.layoutMode = mode;
-                $location.path('/' + mode);
-                miscService.pushGAEvent('Widgets', 'View', mode);
-            };
-
-            $scope.modeIs = function(mode) {
-                return $localStorage.layoutMode === mode;
-            };
-
-            //local functions
-            this.init = function() {
-                $scope.toggle = APP_FLAGS.enableToggle;
-                $scope.$storage = localStorage;
-                if($localStorage.layoutMode
-                    && $location.url().indexOf($localStorage.layoutMode) == -1) {
-                    //opps, we are in the wrong mode, switch!
-                    if(APP_FLAGS[$localStorage.layoutMode]) { //check to make sure that mode is active
-                        $location.path('/' + $localStorage.layoutMode);
-                    } else {
-                        console.log("Something is weird, resetting to default layout view");
-                        $scope.switchMode(APP_FLAGS.defaultView);
-                    }
-                }
-            };
-            this.init();
-        }
-    ]);
+          }
+        };
+        this.init();
+    }]);
 
     return app;
 

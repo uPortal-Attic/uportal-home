@@ -1,17 +1,16 @@
 <script type="text/ng-template" id="toggle-modes.html">
   <div ng-controller="ToggleController">
-    <md-menu-item ng-if='modeIs(MODES.EXPANDED)'>
-      <md-button class="md-accent" ng-click="switchMode(MODES.COMPACT)">Show Compact Mode</md-button>
-    </md-menu-item>
-    <md-menu-item ng-if='modeIs(MODES.COMPACT)'>
-      <md-button class="md-accent" ng-click="switchMode(MODES.EXPANDED)">Show Expanded Mode</md-button>
-    </md-menu-item>
+    <md-switch class="md-accent md-hue-2 app-header-toggle" ng-model="expandedMode" aria-label="Toggle expanded widget layout" ng-change="toggleMode(expandedMode)">
+      <span hide-sm hide-xs>Show expanded mode</span>
+      <span hide-gt-sm>Show Expanded</span>
+    </md-switch>
   </div>
 </script>
 <app-header-two-way-bind app-title="'Home'"
-            app-icon="'fa-home'"
-            app-action-link-url="'apps'"
-            app-action-link-icon="GuestMode ? 'fa-globe' : 'fa-plus-square'"
-            app-action-link-text="GuestMode ? 'Browse MyUW' : 'Add more to home'"
-            app-option-template="'toggle-modes.html'">
+                         app-icon="'fa-home'"
+                         app-action-link-url="'apps'"
+                         app-action-link-icon="GuestMode ? 'fa-globe' : 'fa-plus-square'"
+                         app-action-link-text="GuestMode ? 'Browse MyUW' : 'Add more to home'"
+                         app-single-option="true"
+                         app-option-template="'toggle-modes.html'">
 </app-header-two-way-bind>

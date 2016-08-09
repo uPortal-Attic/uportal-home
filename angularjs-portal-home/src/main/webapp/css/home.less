@@ -164,6 +164,16 @@ div.table-cell {
 
 }
 
+// MyUW Overrides
+md-switch.app-header-toggle {
+  text-transform: none;
+  margin: 0 12px;
+  line-height: 36px;
+  min-height: 36px;
+  &:last-of-type {
+    margin: 0 0 0 12px;
+  }
+}
 
 // List View
 
@@ -180,16 +190,10 @@ div.table-cell {
     height:100%;
     box-shadow:0px 2px 0px #ddd;
     border-radius:4px;
+    transition: @button-transition;
     &:hover {
       background-color:#f8f8f8;
-      color:@color1;
       box-shadow:0px 3px 0px #ddd;
-      h4 {
-        color:@color1;
-      }
-      i {
-        color:@color1;
-      }
     }
   }
   h4 {
