@@ -8,9 +8,9 @@ default-card portlet-icon img {
 }
 
 .widget-remove {
-  top: 0px;
+  top: 0;
   position: absolute;
-  right:0px;
+  right:0;
 }
 
 .add-more {
@@ -39,7 +39,7 @@ default-card portlet-icon img {
 }
 .portlet-div:hover {
   background-color:#f3f3f3;
-  padding-left:0px;
+  padding-left:0;
   border-left:5px solid @color1;
   z-index:100;
 }
@@ -58,11 +58,11 @@ default-card portlet-icon img {
   color:#333;
 }
 .widget-content {
-  padding:0px 12px 0px 12px;
+  padding:0 12px 0 12px;
   height:80px;
 }
 .portlet-title {
-  margin: 0px;
+  margin: 0;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   padding:6px 30px 5px 12px;
@@ -82,12 +82,12 @@ default-card portlet-icon img {
 .portlet-title > div {
   float: right;
   display: inline;
-  padding:0px;
+  padding:0;
 }
 .home-section-header {
   padding:10px 12px;
-  margin:0px;
-  margin-bottom:0px;
+  margin:0;
+  margin-bottom:0;
   color:#333;
   border-bottom:1px solid @color3;
   display:table;
@@ -100,7 +100,7 @@ default-card portlet-icon img {
 }
 .portlet-title div {
   position: relative;
-  top: 0px;
+  top: 0;
 }
 div.table {
   display : table;
@@ -112,7 +112,7 @@ div.table-cell {
   vertical-align : middle;
 }
 .ui-sortable-helper {
-  box-shadow:0px 0px 25px #ccc;
+  box-shadow:0 0 25px #ccc;
   -ms-transform: rotate(3deg); /* IE 9 */
   -webkit-transform: rotate(3deg); /* Chrome, Safari, Opera */
   transform: rotate(3deg);
@@ -135,13 +135,13 @@ div.table-cell {
 .tile-list {
   list-style-type: none;
   margin: 15px auto;
-  padding: 0px;
+  padding: 0;
   max-width:1200px;
 }
 
 // View Toggle
 .home-title {
-  padding:0px 0px 0px 15px;
+  padding:0 0 0 15px;
 
 }
 .inner-nav-container .inner-nav li.home-title {
@@ -149,7 +149,7 @@ div.table-cell {
   a {
     color:#555;
     font-weight:400;
-    border-right:0px solid transparent;
+    border-right:0 solid transparent;
     &:hover {
       cursor:default;
     }
@@ -185,22 +185,25 @@ md-switch.app-header-toggle {
   height:150px;
   color:#333;
   text-align:center;
+  &:hover {
+    cursor: pointer;
+  }
   a {
     display:block;
     height:100%;
-    box-shadow:0px 2px 0px #ddd;
+    box-shadow:0 2px 0 #ddd;
     border-radius:4px;
     transition: @button-transition;
     &:hover {
       background-color:#f8f8f8;
-      box-shadow:0px 3px 0px #ddd;
+      box-shadow:0 3px 0 #ddd;
     }
   }
   h4 {
     font-size:1.2em;
-    margin:0px;
+    margin:0;
     color:#333;
-    padding:0px 5px;
+    padding:0 5px;
   }
   div {
     display:inline-block;
@@ -237,7 +240,8 @@ md-switch.app-header-toggle {
     border:1px solid #f8f8f8;
   }
   a {
-    box-shadow:0px 0px 0px transparent;
+    transition: @button-transition;
+    box-shadow:0 0 0 transparent;
   }
 }
 .new-stuff p {
@@ -278,7 +282,7 @@ md-switch.app-header-toggle {
   font: bold 15px Sans-Serif;
   color: white;
   text-align: center;
-  text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+  text-shadow: rgba(255,255,255,0.5) 0 1px 0;
   -webkit-transform: rotate(45deg);
   -moz-transform:    rotate(45deg);
   -ms-transform:     rotate(45deg);
@@ -294,9 +298,9 @@ md-switch.app-header-toggle {
   background-image:    -moz-linear-gradient(top, @demo-color, @demo-color-darker);
   background-image:     -ms-linear-gradient(top, @demo-color, @demo-color-darker);
   background-image:      -o-linear-gradient(top, @demo-color, @demo-color-darker);
-  -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
-  -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
-  box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0 0 3px rgba(0,0,0,0.3);
+  box-shadow:         0 0 3px rgba(0,0,0,0.3);
   z-index:999;
 }
 
@@ -311,7 +315,7 @@ md-switch.app-header-toggle {
   z-index:9000;
   span {
     font-size:50px;
-    margin:30px 0px 10px;
+    margin:30px 0 10px;
   }
   a {
     color:@color1;
