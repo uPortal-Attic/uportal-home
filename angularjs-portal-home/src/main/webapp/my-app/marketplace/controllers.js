@@ -27,7 +27,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           return $scope.loginToAuthPage + '/web/apps/details/'+ marketplaceEntry.fname
         } else if(layoutObj.altMaxUrl == false && (layoutObj.renderOnWeb || $localStorage.webPortletRender)) {
           return 'exclusive/' + layoutObj.fname;
-        } else if($scope.isStatic(marketplaceEntry)) {
+        } else if(layoutObj.altMaxUrl == false && $scope.isStatic(marketplaceEntry)) {
           return 'static/' + layoutObj.fname;
         } else {
           return marketplaceEntry.maxUrl;
