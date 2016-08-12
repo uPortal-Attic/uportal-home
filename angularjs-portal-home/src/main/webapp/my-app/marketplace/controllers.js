@@ -6,10 +6,12 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
     app.controller('marketplaceCommonFunctions',
       ['googleCustomSearchService', 'miscSearchService', 'layoutService', 'marketplaceService', 'miscService', 'MISC_URLS', '$sessionStorage',
-       '$localStorage','$rootScope', '$scope', '$modal', '$routeParams', '$timeout', '$location',
+       '$localStorage','$rootScope', '$scope', '$modal','$mdPanel', '$routeParams', '$timeout', '$location',
        function(googleCustomSearchService, miscSearchService, layoutService, marketplaceService, miscService,MISC_URLS, $sessionStorage,
-        $localStorage, $rootScope, $scope, $modal, $routeParams, $timeout, $location){
+        $localStorage, $rootScope, $scope, $modal, $mdPanel, $routeParams, $timeout, $location){
 
+	  this._mdPanel = $mdPanel;	  
+	  
       $scope.navToDetails = function(marktetplaceEntry, location) {
         marketplaceService.setFromInfo(location, $scope.searchTerm);
         $location.path("apps/details/"+ marktetplaceEntry.fname);
@@ -53,6 +55,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
               });
       };
 
+      
       $scope.openRating = function (size, fname, name) {
           var modalInstance = $modal.open({
               templateUrl: 'ratingModal.html',
@@ -259,7 +262,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
               currentPage='details';
           };
 
-
           var figureOutBackStuff = function() {
             var fromInfo = marketplaceService.getFromInfo();
             if(fromInfo.term) {
@@ -282,6 +284,20 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
               $scope.backText="Browse";
             }
           };
+          
+          
+          $scope.clickRatingReviewDetails = function() {
+               $mdDialog.show({
+        	  controller: 'MarketplaceRatingsModalController',
+                  templateUrl: require.toUrl('./partials/rating-review.html'),
+                  parent: angular.element(document.body),
+                  scope: $scope,
+                  preserveScope : true,
+                  clickOutsideToClose:true,
+                  fname : $scope.portal.fname,
+                  fullscreen: false
+              })
+          }
 
           $scope.clickRatingReviewAdmin = function() {
             $mdDialog.show({
@@ -321,6 +337,37 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         }]
     );
 
+    app.controller('MarketplaceRatingsModalController', [
+        '$scope', 'marketplaceService', '$mdPanel',
+        function($scope, marketplaceService, $mdPanel){
+            
+            var init = function(){
+        	marketplaceService.getUserRating($scope.portlet.fname).then(function(data) {
+                    var rating = data;
+                    if (rating !== null) {
+                        $scope.rating = rating;
+                        $scope.rating.previouslyRated=true;
+                    } else {
+                        $scope.rating = {"rating" : 0 , "review" : "", "previouslyRated": false};//init view
+                    }
+
+                });
+            };
+                        
+            init();
+
+            $scope.ok = function () {
+                $scope.thanks = true;
+                marketplaceService.saveRating($scope.fname, $scope.rating);
+                $mdPanel.close();
+            };
+
+            $scope.cancel = function () {
+                $mdPanel.close();
+            };
+            
+        }]);
+    
     app.controller('MarketplaceRatingReviewAdminController', [
         '$scope', 'marketplaceService',
         function($scope, marketplaceService) {
