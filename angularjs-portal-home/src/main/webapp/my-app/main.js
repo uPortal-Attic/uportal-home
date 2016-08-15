@@ -27,6 +27,8 @@ define([
     './marketplace/controllers',
     './marketplace/directives',
     './marketplace/services',
+    './rating/components',
+    './rating/controllers',
     './search/controllers',
     './search/services'
 ], function(angular, require, marketplaceRoutes, listRoute, notificationsRoute, portalSettingsRoutes,
@@ -45,6 +47,8 @@ define([
         'my-app.marketplace.controllers',
         'my-app.marketplace.directives',
         'my-app.marketplace.services',
+        'my-app.rating.components',
+        'my-app.rating.controllers',
         'my-app.search.controllers',
         'my-app.search.services',
         'ngRoute',

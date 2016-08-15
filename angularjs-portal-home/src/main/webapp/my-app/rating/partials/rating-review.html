@@ -9,7 +9,10 @@
     </div>
   </md-toolbar>
   <md-dialog-content>
-    <div class="md-dialog-content">
+    <div ng-if='loading' class="md-dialog-content">
+      <loading-gif></loading-gif>
+    </div>
+    <div class="md-dialog-content" ng-if='!loading'>
       <div tabindex="0" id="Rated-{{::portlet.fname}}-description" aria-labelledby="Rated-{{::portlet.fname}}-description" class="help-block" ng-if="rating.previouslyRated">
           You have already rated {{::portlet.title}} as a {{rating.rating}}. You may update your rating if you wish.
       </div>
@@ -29,13 +32,13 @@
         </md-input-container>
       </div>
       <div>
-        <md-input-container>
+        <md-input-container class="md-block">
           <label>Tell us more (optional)</label>
-          <textarea aria-label="Tell us more (optional) text edited box" ng-maxlength="160" rows="3" ng-model="rating.review"></textarea>
+          <textarea aria-label="Tell us more (optional) text edited box" md-maxlength="160" rows="5" md-select-on-focus ng-model="rating.review"></textarea>
         </md-input-container>
       </div>
+      <div ng-if='error' class='md-warn'>{{error}}</div>
     </div>
-    <div class="help-block" ng-if="thanks">Thanks!</div>
   </md-dialog-content>
   <md-dialog-actions layout="row">
        <md-button md-autofocus class="md-accent" ng-click="cancel()">Close</md-button>

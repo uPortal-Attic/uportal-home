@@ -4,16 +4,14 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
     var app = angular.module('my-app.layout.static.controllers', []);
 
-    app.controller('ExclusiveContentController', ['$mdDialog',
-                                                  '$location',
+    app.controller('ExclusiveContentController', ['$location',
                                                   '$sessionStorage',
                                                   '$routeParams',
                                                   '$rootScope',
                                                   '$scope',
                                                   'layoutService',
                                                   'sharedPortletService',
-                                                  function ($mdDialog,
-                                                            $location,
+                                                  function ($location,
                                                             $sessionStorage,
                                                             $routeParams,
                                                             $rootScope,
@@ -72,7 +70,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
     }]);
 
     app.controller('StaticContentController', [
-        '$mdDialog',
         '$location',
         '$sessionStorage',
         '$routeParams',
@@ -80,8 +77,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         '$scope',
         'layoutService',
         'sharedPortletService',
-        function ($mdDialog,
-                  $location,
+        function ($location,
                   $sessionStorage,
                   $routeParams,
                   $rootScope,
@@ -132,19 +128,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
             } else {
               $scope.loaded = true;
             }
-
-            $scope.openRating = function (size, fname, name) {
-              $mdDialog.show({
-                  controller: 'MarketplaceRatingsModalController',
-                  templateUrl: require.toUrl('../../marketplace/partials/rating-review.html'),
-                  parent: angular.element(document.body),
-                  scope: $scope,
-                  preserveScope : true,
-                  clickOutsideToClose:true,
-                  fname : fname,
-                  fullscreen: false
-              });
-            };
 
             this.addToHome = function (portlet) {
                 var ret = layoutService.addToHome(portlet);

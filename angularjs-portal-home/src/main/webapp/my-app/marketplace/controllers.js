@@ -236,19 +236,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
             }
           };
 
-
-          $scope.clickRatingReviewDetails = function() {
-            $mdDialog.show({
-      	        controller: 'MarketplaceRatingsModalController',
-                templateUrl: require.toUrl('./partials/rating-review.html'),
-                parent: angular.element(document.body),
-                scope: $scope,
-                preserveScope : true,
-                clickOutsideToClose:true,
-                fullscreen: false
-            });
-          }
-
           $scope.clickRatingReviewAdmin = function() {
             $mdDialog.show({
               controller: 'MarketplaceRatingReviewAdminController',
@@ -286,41 +273,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           init();
         }]
     );
-
-    app.controller('MarketplaceRatingsModalController', [
-        '$scope', 'marketplaceService', '$mdDialog',
-        function($scope, marketplaceService, $mdDialog){
-
-            var init = function(){
-        	    marketplaceService.getUserRating($scope.portlet.fname)
-                .then(function(data) {
-                  var rating = data;
-                  if (rating !== null) {
-                      $scope.rating = rating;
-                      $scope.rating.previouslyRated=true;
-                  } else {
-                      $scope.rating = {
-                                       "rating" : 0,
-                                       "review" : "",
-                                       "previouslyRated": false
-                                      };
-                  }
-                });
-            };
-
-            init();
-
-            $scope.ok = function () {
-              $scope.thanks = true;
-              marketplaceService.saveRating($scope.fname, $scope.rating);
-              $mdDialog.hide();
-            };
-
-            $scope.cancel = function () {
-              $mdDialog.cancel();
-            };
-
-        }]);
 
     app.controller('MarketplaceRatingReviewAdminController', [
         '$scope', 'marketplaceService',

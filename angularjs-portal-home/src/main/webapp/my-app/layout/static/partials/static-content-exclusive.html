@@ -1,7 +1,7 @@
 <div class="row portlet-frame static-content"  ng-controller="ExclusiveContentController as exclusiveContentCtrl">
   <script type="text/ng-template" id="static-content-options.html">
     <div ng-controller="StaticContentController as staticContentCtrl">
-      <md-button ng-click="openRating('sm',portlet.fname, portlet.title)"><span>Rate {{portlet.title}}</span></md-button>
+      <rating-button ng-hide="GuestMode" portlet='portlet' button-text="Rate {{portlet.title}}"></rating-button>
     </div>
   </script>
 
