@@ -13,10 +13,10 @@
       <loading-gif></loading-gif>
     </div>
     <div class="md-dialog-content" ng-if='!loading'>
-      <div tabindex="0" id="Rated-{{::portlet.fname}}-description" aria-labelledby="Rated-{{::portlet.fname}}-description" class="help-block" ng-if="rating.previouslyRated">
+      <div tabindex="0" class="help-block" ng-if="rating.previouslyRated">
           You have already rated {{::portlet.title}} as a {{rating.rating}}. You may update your rating if you wish.
       </div>
-      <div  tabindex="0" id="NRated-{{::portlet.fname}}-description" aria-labelledby="NRated-{{::portlet.fname}}-description" class="help-block" ng-if="!rating.previouslyRated">
+      <div  tabindex="0" class="help-block" ng-if="!rating.previouslyRated">
           You have not yet rated {{::portlet.title}}. Share a rating if you wish.
       </div>
       <div>
