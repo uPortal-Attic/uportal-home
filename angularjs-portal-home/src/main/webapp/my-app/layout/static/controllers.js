@@ -1,10 +1,10 @@
 'use strict';
 
-define(['angular', 'jquery'], function(angular, $) {
+define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
     var app = angular.module('my-app.layout.static.controllers', []);
 
-    app.controller('ExclusiveContentController', ['$modal',
+    app.controller('ExclusiveContentController', ['$mdDialog',
                                                   '$location',
                                                   '$sessionStorage',
                                                   '$routeParams',
@@ -12,7 +12,7 @@ define(['angular', 'jquery'], function(angular, $) {
                                                   '$scope',
                                                   'layoutService',
                                                   'sharedPortletService',
-                                                  function ($modal,
+                                                  function ($mdDialog,
                                                             $location,
                                                             $sessionStorage,
                                                             $routeParams,
@@ -72,7 +72,7 @@ define(['angular', 'jquery'], function(angular, $) {
     }]);
 
     app.controller('StaticContentController', [
-        '$modal',
+        '$mdDialog',
         '$location',
         '$sessionStorage',
         '$routeParams',
@@ -80,7 +80,7 @@ define(['angular', 'jquery'], function(angular, $) {
         '$scope',
         'layoutService',
         'sharedPortletService',
-        function ($modal,
+        function ($mdDialog,
                   $location,
                   $sessionStorage,
                   $routeParams,
@@ -134,25 +134,16 @@ define(['angular', 'jquery'], function(angular, $) {
             }
 
             $scope.openRating = function (size, fname, name) {
-                var modalInstance = $modal.open({
-                    templateUrl: 'ratingModal.html',
-                    controller: 'RatingModalController',
-                    size: size,
-                    resolve: {
-                        fname: function () {
-                            return fname;
-                        },
-                        name: function () {
-                            return name;
-                        }
-                    }
-                });
-
-                modalInstance.result.then(function (selectedItem) {
-                    $scope.selected = selectedItem;
-                }, function () {
-                    console.log('Modal dismissed at: ' + new Date());
-                });
+              $mdDialog.show({
+                  controller: 'MarketplaceRatingsModalController',
+                  templateUrl: require.toUrl('../../marketplace/partials/rating-review.html'),
+                  parent: angular.element(document.body),
+                  scope: $scope,
+                  preserveScope : true,
+                  clickOutsideToClose:true,
+                  fname : fname,
+                  fullscreen: false
+              });
             };
 
             this.addToHome = function (portlet) {

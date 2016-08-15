@@ -1,11 +1,7 @@
 <div class="row portlet-frame static-content"  ng-controller="StaticContentController as staticContentCtrl">
   <script type="text/ng-template" id="static-content-options.html">
     <div ng-controller="StaticContentController as staticContentCtrl">
-      <ul>
-        <li role="presentation">
-            <a ng-click="openRating('sm',portlet.fname, portlet.title)" href='javascript:;'><span>Rate this App</span></a>
-        </li>
-      </ul>
+      <md-button ng-click="openRating('sm',portlet.fname, portlet.title)"><span>Rate {{portlet.title}}</span></md-button>
     </div>
   </script>
 

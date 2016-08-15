@@ -245,7 +245,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
                 scope: $scope,
                 preserveScope : true,
                 clickOutsideToClose:true,
-                fname : $scope.portal.fname,
                 fullscreen: false
             });
           }
