@@ -6,12 +6,10 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
     app.controller('marketplaceCommonFunctions',
       ['googleCustomSearchService', 'miscSearchService', 'layoutService', 'marketplaceService', 'miscService', 'MISC_URLS', '$sessionStorage',
-       '$localStorage','$rootScope', '$scope', '$modal','$mdPanel', '$routeParams', '$timeout', '$location',
+       '$localStorage','$rootScope', '$scope', '$routeParams', '$timeout', '$location',
        function(googleCustomSearchService, miscSearchService, layoutService, marketplaceService, miscService,MISC_URLS, $sessionStorage,
-        $localStorage, $rootScope, $scope, $modal, $mdPanel, $routeParams, $timeout, $location){
+        $localStorage, $rootScope, $scope, $routeParams, $timeout, $location){
 
-	  this._mdPanel = $mdPanel;	  
-	  
       $scope.navToDetails = function(marktetplaceEntry, location) {
         marketplaceService.setFromInfo(location, $scope.searchTerm);
         $location.path("apps/details/"+ marktetplaceEntry.fname);
@@ -53,24 +51,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
               .error(function(request, text, error) {
                   $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
               });
-      };
-
-      
-      $scope.openRating = function (size, fname, name) {
-          var modalInstance = $modal.open({
-              templateUrl: 'ratingModal.html',
-              controller: 'RatingModalController',
-              size: size,
-              resolve: {
-                  fname: function(){return fname;},
-                  name: function(){return name;}
-              }
-          });
-          modalInstance.result.then(function (selectedItem) {
-              $scope.selected = selectedItem;
-          }, function () {
-              console.log('Modal dismissed at: ' + new Date());
-          });
       };
 
       $scope.searchTermFilter = function(portlet) {
@@ -220,35 +200,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
             init();
         } ]);
 
-    app.controller('RatingModalController', function ($scope, $modalInstance, marketplaceService, fname, name) {
-
-        $scope.fname = fname;
-        $scope.name = name;
-        $scope.rating = {};
-        $scope.thanks = false;
-
-        marketplaceService.getUserRating(fname).then(function(data) {
-            var rating = data;
-            if (rating !== null) {
-                $scope.rating = rating;
-                $scope.rating.previouslyRated=true;
-            } else {
-                $scope.rating = {"rating" : 0 , "review" : "", "previouslyRated": false};//init view
-            }
-
-        });
-
-        $scope.ok = function () {
-            $scope.thanks = true;
-            marketplaceService.saveRating($scope.fname, $scope.rating);
-            $modalInstance.close();
-        };
-
-        $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
-        };
-    });
-
     app.controller('MarketplaceDetailsController', [
         '$controller', '$scope', '$routeParams', '$mdDialog', 'marketplaceService',
         'SERVICE_LOC',
@@ -284,19 +235,19 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
               $scope.backText="Browse";
             }
           };
-          
-          
+
+
           $scope.clickRatingReviewDetails = function() {
-               $mdDialog.show({
-        	  controller: 'MarketplaceRatingsModalController',
-                  templateUrl: require.toUrl('./partials/rating-review.html'),
-                  parent: angular.element(document.body),
-                  scope: $scope,
-                  preserveScope : true,
-                  clickOutsideToClose:true,
-                  fname : $scope.portal.fname,
-                  fullscreen: false
-              })
+            $mdDialog.show({
+      	        controller: 'MarketplaceRatingsModalController',
+                templateUrl: require.toUrl('./partials/rating-review.html'),
+                parent: angular.element(document.body),
+                scope: $scope,
+                preserveScope : true,
+                clickOutsideToClose:true,
+                fname : $scope.portal.fname,
+                fullscreen: false
+            });
           }
 
           $scope.clickRatingReviewAdmin = function() {
@@ -308,7 +259,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
               preserveScope : true,
               clickOutsideToClose:true,
               fullscreen: false
-            })
+            });
           }
 
           // init
@@ -338,36 +289,40 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
     );
 
     app.controller('MarketplaceRatingsModalController', [
-        '$scope', 'marketplaceService', '$mdPanel',
-        function($scope, marketplaceService, $mdPanel){
-            
-            var init = function(){
-        	marketplaceService.getUserRating($scope.portlet.fname).then(function(data) {
-                    var rating = data;
-                    if (rating !== null) {
-                        $scope.rating = rating;
-                        $scope.rating.previouslyRated=true;
-                    } else {
-                        $scope.rating = {"rating" : 0 , "review" : "", "previouslyRated": false};//init view
-                    }
+        '$scope', 'marketplaceService', '$mdDialog',
+        function($scope, marketplaceService, $mdDialog){
 
+            var init = function(){
+        	    marketplaceService.getUserRating($scope.portlet.fname)
+                .then(function(data) {
+                  var rating = data;
+                  if (rating !== null) {
+                      $scope.rating = rating;
+                      $scope.rating.previouslyRated=true;
+                  } else {
+                      $scope.rating = {
+                                       "rating" : 0,
+                                       "review" : "",
+                                       "previouslyRated": false
+                                      };
+                  }
                 });
             };
-                        
+
             init();
 
             $scope.ok = function () {
-                $scope.thanks = true;
-                marketplaceService.saveRating($scope.fname, $scope.rating);
-                $mdPanel.close();
+              $scope.thanks = true;
+              marketplaceService.saveRating($scope.fname, $scope.rating);
+              $mdDialog.hide();
             };
 
             $scope.cancel = function () {
-                $mdPanel.close();
+              $mdDialog.cancel();
             };
-            
+
         }]);
-    
+
     app.controller('MarketplaceRatingReviewAdminController', [
         '$scope', 'marketplaceService',
         function($scope, marketplaceService) {
