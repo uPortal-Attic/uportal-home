@@ -10,28 +10,20 @@ define(['angular', 'require'], function(angular, require) {
         }
     });
 
-    app.directive('ratingModalTemplate', function() {
-        return {
-            restrict : 'E',
-            templateUrl : require.toUrl('./partials/rating-modal-template.html')
-        }
-    });
+  app.directive('marketplaceNoResults', function() {
+    return {
+      restrict : 'E',
+      templateUrl : require.toUrl('./partials/marketplace-no-results.html')
+    }
+  });
 
-	app.directive('marketplaceNoResults', function() {
-		return {
-			restrict : 'E',
-			templateUrl : require.toUrl('./partials/marketplace-no-results.html')
-		}
-	});
-
-	app.directive('marketplaceLoadMore', function() {
-		return {
-			restrict : 'E',
-			templateUrl : require.toUrl('./partials/marketplace-load-more.html')
-		}
-	});
+  app.directive('marketplaceLoadMore', function() {
+    return {
+      restrict : 'E',
+      templateUrl : require.toUrl('./partials/marketplace-load-more.html')
+    }
+  });
 
     return app;
 
 });
-
