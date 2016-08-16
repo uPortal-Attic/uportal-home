@@ -1,19 +1,17 @@
 'use strict';
 
-define(['angular', 'jquery'], function(angular, $) {
+define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
     var app = angular.module('my-app.layout.static.controllers', []);
 
-    app.controller('ExclusiveContentController', ['$modal',
-                                                  '$location',
+    app.controller('ExclusiveContentController', ['$location',
                                                   '$sessionStorage',
                                                   '$routeParams',
                                                   '$rootScope',
                                                   '$scope',
                                                   'layoutService',
                                                   'sharedPortletService',
-                                                  function ($modal,
-                                                            $location,
+                                                  function ($location,
                                                             $sessionStorage,
                                                             $routeParams,
                                                             $rootScope,
@@ -72,7 +70,6 @@ define(['angular', 'jquery'], function(angular, $) {
     }]);
 
     app.controller('StaticContentController', [
-        '$modal',
         '$location',
         '$sessionStorage',
         '$routeParams',
@@ -80,8 +77,7 @@ define(['angular', 'jquery'], function(angular, $) {
         '$scope',
         'layoutService',
         'sharedPortletService',
-        function ($modal,
-                  $location,
+        function ($location,
                   $sessionStorage,
                   $routeParams,
                   $rootScope,
@@ -132,28 +128,6 @@ define(['angular', 'jquery'], function(angular, $) {
             } else {
               $scope.loaded = true;
             }
-
-            $scope.openRating = function (size, fname, name) {
-                var modalInstance = $modal.open({
-                    templateUrl: 'ratingModal.html',
-                    controller: 'RatingModalController',
-                    size: size,
-                    resolve: {
-                        fname: function () {
-                            return fname;
-                        },
-                        name: function () {
-                            return name;
-                        }
-                    }
-                });
-
-                modalInstance.result.then(function (selectedItem) {
-                    $scope.selected = selectedItem;
-                }, function () {
-                    console.log('Modal dismissed at: ' + new Date());
-                });
-            };
 
             this.addToHome = function (portlet) {
                 var ret = layoutService.addToHome(portlet);

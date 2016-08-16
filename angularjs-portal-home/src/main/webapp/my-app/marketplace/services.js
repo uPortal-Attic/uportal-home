@@ -4,7 +4,7 @@ define(['angular', 'jquery'], function(angular, $) {
 
     var app = angular.module('my-app.marketplace.services', []);
 
-    app.factory('marketplaceService', ['$q', '$http','$sessionStorage', 'layoutService', 'miscService', 'mainService', 'SERVICE_LOC', function($q, $http, $sessionStorage, layoutService, miscService, mainService, SERVICE_LOC) {
+    app.factory('marketplaceService', ['$q', '$http','$sessionStorage', 'layoutService', 'miscService', 'mainService', 'SERVICE_LOC', 'APP_FLAGS', function($q, $http, $sessionStorage, layoutService, miscService, mainService, SERVICE_LOC, APP_FLAGS) {
         var marketplacePromise;
         //local variables
         var filter = "";
@@ -139,12 +139,18 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         var saveRating = function(fname, rating) {
-            $http.post(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/rating/' + rating.rating , {}, {params: {review : rating.review}}).
+            return $http.post(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/rating/' + rating.rating , {}, {params: {review : rating.review}}).
                 success(function(data, status, headers, config){
+                  if(APP_FLAGS.debug) {
                     console.log("successfully saved marketplace rating for " + fname + " with data " + rating);
+                  }
+                  return data;
                 }).
                 error(function(data, status, headers, config){
+                  if(APP_FLAGS.debug) {
                     console.error("Failed to save marketplace rating for " + fname + " with data " + rating);
+                  }
+                  return data;
                 });
         };
 
