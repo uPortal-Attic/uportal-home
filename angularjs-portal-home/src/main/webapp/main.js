@@ -4,7 +4,6 @@ require(['./config'], function(config) {
     require.config(config);
 
     require(['angular', 'jquery', 'my-app'], function(angular, $) {
-      //var myApp = angular.module("my-app", []);
       //attempting to replicate what they did in
       //https://blog.mariusschulz.com/2014/10/22/asynchronously-bootstrapping-angularjs-applications-with-server-side-data
       doLogin().then(bootstrapApplication)
