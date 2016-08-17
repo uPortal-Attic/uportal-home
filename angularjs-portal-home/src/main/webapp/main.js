@@ -7,7 +7,11 @@ require(['./config'], function(config) {
       //var myApp = angular.module("my-app", []);
       //attempting to replicate what they did in
       //https://blog.mariusschulz.com/2014/10/22/asynchronously-bootstrapping-angularjs-applications-with-server-side-data
-      doLogin().then(bootstrapApplication);
+      doLogin().then(bootstrapApplication)
+       .catch(function(){
+         $('#loading-splash').html('<b style="padding: 10px;">An error has occured during loading, please try refreshing the page. If the issue persists please contact the helpdesk.</b>');
+         console.error("Issue logging in.");
+       });
 
       //Bootstrap the application like normal now
       function bootstrapApplication(){
@@ -50,12 +54,6 @@ require(['./config'], function(config) {
               }
 
             }
-          },
-          function(reason){
-            //something bad happened
-            $('#loading-splash').html('<b>An error has occured during loading, please try refreshing the page. If the issue persists please contact the helpdesk.</b>');
-            console.error("Issue logging in.");
-            return "Issue with login";
           });
         } else {
           //the cache is still valid with a valid session, carry on
