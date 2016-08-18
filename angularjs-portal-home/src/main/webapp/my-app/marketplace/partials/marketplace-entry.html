@@ -34,7 +34,7 @@
 			</md-button>
 
 			<!-- Launch button with access -->
-			<md-button class="md-primary" aria-label="launch {{::portlet.title}}" ng-href="{{getLaunchURL(portlet)}}"
+			<md-button class="md-accent md-raised" aria-label="launch {{::portlet.title}}" ng-href="{{getLaunchURL(portlet)}}"
 			           target="{{::portlet.target}}" ng-if="portlet.canAdd">
 				<span class="fa fa-arrow-circle-o-right"></span> Launch
 			</md-button>
@@ -48,11 +48,11 @@
 
 		<!--GuestMode buttons-->
 		<div ng-show="GuestMode" hide-xs layout="row">
-			<md-button class="md-primary" ng-href="{{getLaunchURL(portlet)}}"
+			<md-button class="md-accent md-raised" ng-href="{{getLaunchURL(portlet)}}"
 			           aria-label="Launch" ng-if='portlet.hasInLayout'>
 				Launch
 			</md-button>
-			<md-button class="md-primary" ng-href="{{getLaunchURL(portlet)}}"
+			<md-button class="md-accent" ng-href="{{getLaunchURL(portlet)}}"
 			           aria-label="Login" ng-if='!portlet.hasInLayout'>
 				Login
 			</md-button>
@@ -68,7 +68,7 @@
 	<!-- DESCRIPTION AND DETAILS ROW -->
 	<div layout="row" layout-align="start center">
 		<span tabindex="0">{{::portlet.description}}</span>
-		<md-button class="md-accent" ng-click="navToDetails(portlet, 'Browse')" hide-xs>
+		<md-button class="md-primary" ng-click="navToDetails(portlet, 'Browse')" hide-xs>
 			Details
 		</md-button>
 	</div>
