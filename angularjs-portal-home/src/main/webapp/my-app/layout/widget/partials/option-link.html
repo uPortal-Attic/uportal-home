@@ -19,4 +19,9 @@
       </div>
   </div>
 </div>
-<a class="btn btn-default launch-app-button" href="{{portlet.selectedUrl}}" target="_blank">Launch {{portlet.title}}</a>
+<a class="btn btn-default launch-app-button"
+   href="{{portlet.selectedUrl}}"
+   target="_blank">
+   <span ng-if='config.launchText'>{{config.launchText}}</span>
+   <span ng-if='!config.launchText'>Launch {{portlet.title}}</span>
+</a>
