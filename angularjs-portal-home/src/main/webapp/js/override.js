@@ -36,7 +36,7 @@ define(['angular'], function(angular) {
             'notificationsURL' : '/web/staticFeeds/notifications.json',
             'groupURL' : '/portal/api/groups',
             'kvURL' : '/storage',
-            'loginSilentURL' : '/portal/Login?silent=true'
+            'loginSilentURL' : '/portal/Login?silent=true&profile=bucky'
           },
           'NAMES' : {
               'title' : 'MyUW',
