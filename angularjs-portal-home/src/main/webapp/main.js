@@ -1,10 +1,10 @@
 'use strict';
-require(['./config'], function(config) {
+require(['./config', './js/login-config'], function(config, loginConfig) {
 
     require.config(config);
 
     require(['angular', 'jquery', 'my-app'], function(angular, $) {
-      //attempting to replicate what they did in
+      //Idea taken from
       //https://blog.mariusschulz.com/2014/10/22/asynchronously-bootstrapping-angularjs-applications-with-server-side-data
       doLogin().then(bootstrapApplication)
        .catch(function(){
@@ -37,10 +37,10 @@ require(['./config'], function(config) {
         var $rootScope = initInjector.get('$rootScope');
 
         //login stuff
-        if(!lastLoginValid($sessionStorage)) {
+        if(loginConfig.loginURL && !lastLoginValid($sessionStorage)) {
           //assume not valid, go get a username and bootstrap the user
           var $http = initInjector.get("$http");
-          return $http.get("/portal/Login?silent=true&profile=bucky").then(function(response){
+          return $http.get(loginConfig.loginURL).then(function(response){
             if("success" === response.data.status) {
               //store some meta data for caching reason
               if(!$sessionStorage.portal){
@@ -57,7 +57,9 @@ require(['./config'], function(config) {
         } else {
           //the cache is still valid with a valid session, carry on
           var $q = initInjector.get('$q');
-          return $q.resolve("Login cache still valid from previous login");
+          return $q.resolve(loginConfig.loginURL
+            ? "Login cache still valid from previous login"
+            : "Silent login not configured.");
         }
       }
     });
