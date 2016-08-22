@@ -4,7 +4,7 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
     require.config(config);
 
     require(['angular', 'jquery', 'my-app'], function(angular, $) {
-      //attempting to replicate what they did in
+      //Idea taken from
       //https://blog.mariusschulz.com/2014/10/22/asynchronously-bootstrapping-angularjs-applications-with-server-side-data
       doLogin().then(bootstrapApplication)
        .catch(function(){
