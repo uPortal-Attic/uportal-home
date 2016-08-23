@@ -28,17 +28,23 @@
       </div>
       <div class="mp-tabs-canvas">
         <ul class="mp-tabs" ng-class="{true:'slide-right'}[tabsPosition === 'end']">
-          <li class="mp-tab md-ink-ripple" ng-click="selectFilter('popular','')" ng-class="{true:'active'}[selectedFilter === 'popular']">
+          <li class="mp-tab md-ink-ripple" ng-click="selectFilter('popular','')"
+              ng-class="{true:'active'}[selectedFilter === 'popular']"
+              ng-style="selectedFilter === 'popular' && {color: primaryColorRgb}">
             <span aria-label="Sort by popularity">Most Popular</span>
-            <div class="mp-tabs-slide"></div>
+            <div class="mp-tabs-slide" ng-style="{background: primaryColorRgb}"></div>
           </li>
-          <li class="mp-tab md-ink-ripple" ng-click="selectFilter('az','')" ng-class="{true: 'active'}[selectedFilter === 'az']">
+          <li class="mp-tab md-ink-ripple" ng-click="selectFilter('az','')"
+              ng-class="{true: 'active'}[selectedFilter === 'az']"
+              ng-style="selectedFilter === 'az' && {color: primaryColorRgb}">
             <span aria-label="Sort by alphabetical order">A-Z</span>
-            <div class="mp-tabs-slide"></div>
+            <div class="mp-tabs-slide" ng-style="{background: primaryColorRgb}"></div>
           </li>
-          <li class="mp-tab md-ink-ripple" ng-click="selectFilter('category','')" ng-class="{true: 'active'}[selectedFilter === 'category']">
+          <li class="mp-tab md-ink-ripple" ng-click="selectFilter('category','')"
+              ng-class="{true: 'active'}[selectedFilter === 'category']"
+              ng-style="selectedFilter === 'category' && {color: primaryColorRgb}">
             <span aria-label="Filter by categories">Categories</span>
-            <div class="mp-tabs-slide"></div>
+            <div class="mp-tabs-slide" ng-style="{background: primaryColorRgb}"></div>
           </li>
         </ul>
       </div>
