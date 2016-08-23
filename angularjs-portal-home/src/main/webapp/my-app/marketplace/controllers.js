@@ -12,9 +12,9 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       var currentThemePrimary = $sessionStorage.portal.theme.materialTheme ? $sessionStorage.portal.theme.materialTheme.primary['500'] : {value: ['0', '0', '0']};
       $scope.primaryColorRgb = 'rgb('+ currentThemePrimary.value[0] + ',' + currentThemePrimary.value[1] + ',' + currentThemePrimary.value[2] + ')';
 
-      $scope.navToDetails = function(marktetplaceEntry, location) {
+      $scope.navToDetails = function(marketplaceEntry, location) {
         marketplaceService.setFromInfo(location, $scope.searchTerm);
-        $location.path("apps/details/"+ marktetplaceEntry.fname);
+        $location.path("apps/details/"+ marketplaceEntry.fname);
       };
 
       $scope.isStatic = function(portlet) {
