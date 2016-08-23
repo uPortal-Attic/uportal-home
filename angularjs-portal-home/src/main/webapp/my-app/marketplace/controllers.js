@@ -9,7 +9,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
     function(googleCustomSearchService, miscSearchService, layoutService, marketplaceService, miscService, MISC_URLS, $sessionStorage,
              $localStorage, $rootScope, $scope, $routeParams, $timeout, $location) {
 
-      var currentThemePrimary = $sessionStorage.portal.theme.materialTheme.primary['500'];
+      var currentThemePrimary = $sessionStorage.portal.theme.materialTheme ? $sessionStorage.portal.theme.materialTheme.primary['500'] : {value: ['0', '0', '0']};
       $scope.primaryColorRgb = 'rgb('+ currentThemePrimary.value[0] + ',' + currentThemePrimary.value[1] + ',' + currentThemePrimary.value[2] + ')';
 
       $scope.navToDetails = function(marktetplaceEntry, location) {
