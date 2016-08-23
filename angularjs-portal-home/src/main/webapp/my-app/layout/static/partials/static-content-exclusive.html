@@ -1,11 +1,7 @@
 <div class="row portlet-frame static-content"  ng-controller="ExclusiveContentController as exclusiveContentCtrl">
   <script type="text/ng-template" id="static-content-options.html">
     <div ng-controller="StaticContentController as staticContentCtrl">
-      <ul>
-        <li role="presentation">
-            <a ng-click="openRating('sm',portlet.fname, portlet.title)" href='javascript:;'><span>Rate this App</span></a>
-        </li>
-      </ul>
+      <rating-button ng-hide="GuestMode" portlet='portlet' button-text="Rate {{portlet.title}}"></rating-button>
     </div>
   </script>
 
@@ -18,8 +14,7 @@
   app-add-to-home='true'></app-header-two-way-bind>
   <div role="main" class="white-page portlet-body">
     <loading-gif  data-object='loaded' data-empty='empty'></loading-gif>
-	  <div ng-bind-html="portlet.exclusiveContent" class="up-portlet-content-wrapper" id="content-{{::portlet.nodeId}}">
-	  </div>
+    <div ng-bind-html="portlet.exclusiveContent" class="up-portlet-content-wrapper" id="content-{{::portlet.nodeId}}">
+    </div>
   </div>
-  <rating-modal-template></rating-modal-template>
 </div>

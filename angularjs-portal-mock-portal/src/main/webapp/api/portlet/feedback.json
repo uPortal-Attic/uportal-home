@@ -1,0 +1,17 @@
+{
+   "portlet":{
+      "nodeId":"-1",
+      "title":"Feedback",
+      "description":"So what you think?",
+      "url":null,
+      "iconUrl":null,
+      "faIcon":"fa-question",
+      "fname":"feedback",
+      "target":null,
+      "widgetURL":null,
+      "widgetType":null,
+      "widgetConfig":null,
+      "pithyStaticContent":null,
+      "altMaxUrl":false
+   }
+}

@@ -32,18 +32,19 @@ Sometimes they are different.
   ...
 ```
 
-The difference is that `title` will display to end users as
+The difference is `title` displays to end users whereas `name` displays in certain administrative tooling. This allows multiple apps with the same user-facing title but different names, implementing a single concept with multiple entries for different audiences.
+
+`title` will display to end users as
 
  * the name of the app when browsing the app directory
+ * the name of the app in search results
  * the name of the app when viewing the details page for the app
  * the title on the widget tile, if the user adds the app to their home
  * the title when rendering the app, if the app is a portlet
+ 
+whereas `name` will not display to end users.
 
-whereas `name` will display to end users as
-
- * the name of the app in search results
-
-and to administrators in the `Portlet Administration` tooling.
+`name` will display to administrators in the `Portlet Administration` tooling.
 
 #### `fname`
 

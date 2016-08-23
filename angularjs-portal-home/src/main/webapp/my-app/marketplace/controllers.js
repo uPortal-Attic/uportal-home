@@ -5,16 +5,16 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
   var app = angular.module('my-app.marketplace.controllers', []);
 
   app.controller('marketplaceCommonFunctions', ['googleCustomSearchService', 'miscSearchService', 'layoutService', 'marketplaceService',
-    'miscService', 'MISC_URLS', '$sessionStorage', '$localStorage','$rootScope', '$scope', '$modal', '$routeParams', '$timeout', '$location',
+    'miscService', 'MISC_URLS', '$sessionStorage', '$localStorage','$rootScope', '$scope', '$routeParams', '$timeout', '$location',
     function(googleCustomSearchService, miscSearchService, layoutService, marketplaceService, miscService, MISC_URLS, $sessionStorage,
-             $localStorage, $rootScope, $scope, $modal, $routeParams, $timeout, $location) {
+             $localStorage, $rootScope, $scope, $routeParams, $timeout, $location) {
 
       var currentThemePrimary = $sessionStorage.portal.theme.materialTheme.primary['500'];
       $scope.primaryColorRgb = 'rgb('+ currentThemePrimary.value[0] + ',' + currentThemePrimary.value[1] + ',' + currentThemePrimary.value[2] + ')';
 
-      $scope.navToDetails = function(marketplaceEntry, location) {
+      $scope.navToDetails = function(marktetplaceEntry, location) {
         marketplaceService.setFromInfo(location, $scope.searchTerm);
-        $location.path("apps/details/"+ marketplaceEntry.fname);
+        $location.path("apps/details/"+ marktetplaceEntry.fname);
       };
 
       $scope.isStatic = function(portlet) {
@@ -29,7 +29,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           return $scope.loginToAuthPage + '/web/apps/details/'+ marketplaceEntry.fname
         } else if(layoutObj.altMaxUrl == false && (layoutObj.renderOnWeb || $localStorage.webPortletRender)) {
           return 'exclusive/' + layoutObj.fname;
-        } else if($scope.isStatic(marketplaceEntry)) {
+        } else if(layoutObj.altMaxUrl == false && $scope.isStatic(marketplaceEntry)) {
           return 'static/' + layoutObj.fname;
         } else {
           return marketplaceEntry.maxUrl;
@@ -53,23 +53,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           .error(function(request, text, error) {
             $('.fname-'+fname).parent().append('<span>Issue adding to home, please try again later</span>');
           });
-      };
-
-      $scope.openRating = function (size, fname, name) {
-        var modalInstance = $modal.open({
-          templateUrl: 'ratingModal.html',
-          controller: 'RatingModalController',
-          size: size,
-          resolve: {
-            fname: function(){return fname;},
-            name: function(){return name;}
-          }
-        });
-        modalInstance.result.then(function (selectedItem) {
-          $scope.selected = selectedItem;
-        }, function () {
-          console.log('Modal dismissed at: ' + new Date());
-        });
       };
 
       $scope.searchTermFilter = function(portlet) {
@@ -139,7 +122,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         });
       };
 
-      this.initializeConstants = function(){
+      this.initializeConstants = function() {
         //initialize constants
         googleCustomSearchService.getPublicWebSearchURL().then(function(webSearchURL){
           $scope.webSearchUrl = webSearchURL;
@@ -160,8 +143,8 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $scope.feedbackUrl = MISC_URLS.feedbackURL;
         $scope.loginToAuthPage = MISC_URLS.myuwHome;
       }
-
-    }]);
+    }
+  ]);
 
   var currentPage = 'market';
   var currentCategory = '';
@@ -219,35 +202,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       init();
     } ]);
 
-  app.controller('RatingModalController', function ($scope, $modalInstance, marketplaceService, fname, name) {
-
-    $scope.fname = fname;
-    $scope.name = name;
-    $scope.rating = {};
-    $scope.thanks = false;
-
-    marketplaceService.getUserRating(fname).then(function(data) {
-      var rating = data;
-      if (rating !== null) {
-        $scope.rating = rating;
-        $scope.rating.previouslyRated=true;
-      } else {
-        $scope.rating = {"rating" : 0 , "review" : "", "previouslyRated": false};//init view
-      }
-
-    });
-
-    $scope.ok = function () {
-      $scope.thanks = true;
-      marketplaceService.saveRating($scope.fname, $scope.rating);
-      $modalInstance.close();
-    };
-
-    $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
-    };
-  });
-
   app.controller('MarketplaceDetailsController', [
       '$controller', '$scope', '$routeParams', '$mdDialog', 'marketplaceService',
       'SERVICE_LOC',
@@ -260,7 +214,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           currentCategory=category;
           currentPage='details';
         };
-
 
         var figureOutBackStuff = function() {
           var fromInfo = marketplaceService.getFromInfo();
@@ -294,7 +247,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
             preserveScope : true,
             clickOutsideToClose:true,
             fullscreen: false
-          })
+          });
         };
 
         // init

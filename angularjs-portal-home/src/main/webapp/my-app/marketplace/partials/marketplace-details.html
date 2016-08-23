@@ -63,8 +63,7 @@
                             ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
                         </span>
                         <br>
-                        <md-button ng-hide="GuestMode" ng-click="openRating('sm',portlet.fname, portlet.title)"
-                                   class="md-raised rate-button">Rate</md-button>
+                        <rating-button ng-hide="GuestMode" portlet='portlet' button-text="Rate" button-classes="md-raised"></rating-button>
                     </div>
                     <div class="desc-item">
                         <h3 tabindex="0" class="md-title">Related Apps</h3>
@@ -107,6 +106,5 @@
         <div class="portlet-footer" layout="row" layout-align="start center">
             <md-button ng-href="{{backURL}}"><i class="fa fa-arrow-circle-o-left"></i> Back to {{backText}}</md-button>
         </div>
-	    <rating-modal-template></rating-modal-template>
   </md-card>
 </div>

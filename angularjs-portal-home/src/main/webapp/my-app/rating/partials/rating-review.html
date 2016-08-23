@@ -1,0 +1,47 @@
+<md-dialog style='background: #fff;'>
+  <md-toolbar class='md-primary'>
+    <div class="md-toolbar-tools">
+      <h2>Rate {{::portlet.title}}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <i class='fa fa-times' aria-label="Close dialog"></i>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div ng-if='loading' class="md-dialog-content">
+      <loading-gif></loading-gif>
+    </div>
+    <div class="md-dialog-content" ng-if='!loading'>
+      <div tabindex="0" class="help-block" ng-if="rating.previouslyRated">
+          You have already rated {{::portlet.title}} as a {{rating.rating}}. You may update your rating if you wish.
+      </div>
+      <div  tabindex="0" class="help-block" ng-if="!rating.previouslyRated">
+          You have not yet rated {{::portlet.title}}. Share a rating if you wish.
+      </div>
+      <div>
+        <md-input-container>
+          <label>Rating</label>
+          <md-select ng-model="rating.rating" placeholder="Select a rating (required)" required>
+            <md-option ng-value="1">1 (lowest)</md-option>
+            <md-option ng-value="2">2</md-option>
+            <md-option ng-value="3">3</md-option>
+            <md-option ng-value="4">4</md-option>
+            <md-option ng-value="5">5 (highest)</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+      <div>
+        <md-input-container class="md-block">
+          <label>Tell us more (optional)</label>
+          <textarea aria-label="Tell us more (optional) text edited box" md-maxlength="160" rows="5" md-select-on-focus ng-model="rating.review"></textarea>
+        </md-input-container>
+      </div>
+      <div ng-if='error' class='md-warn'>{{error}}</div>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions layout="row">
+       <md-button md-autofocus class="md-accent" ng-click="cancel()">Close</md-button>
+       <md-button md-autofocus class="md-primary" ng-click="ok()" ng-disabled="!rating.rating">Save and Close</md-button>
+  </md-dialog-actions>
+</md-dialog>

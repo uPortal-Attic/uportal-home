@@ -43,6 +43,7 @@ Search over:
 ## Integration with uPortal
 + Overview
 + Customizations/Setup
++ [Silent Login Configuration](#/md/silent-login) - Configure angularjs-portal to do a login before bootstrapping angular.
 
 [MyUW Developers Google Group]: https://groups.google.com/forum/#!forum/myuw-developers
 [uportal-dev@]: https://groups.google.com/a/apereo.org/forum/#!forum/uportal-dev

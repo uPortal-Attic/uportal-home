@@ -18,4 +18,9 @@
       <li ng-if='isEmpty' class='no-highlight'>No information at this time.</li>
    </ul>
 </div>
-<a target='{{config.target}}' class='btn btn-default launch-app-button ng-scope' ng-href='{{portlet.url}}'>See all</a>
+<a target='{{config.target}}'
+   class='btn btn-default launch-app-button ng-scope'
+   ng-href='{{portlet.url}}'>
+   <span ng-if='config.launchText'>{{config.launchText}}</span>
+   <span ng-if='!config.launchText'>See all</span>
+</a>
