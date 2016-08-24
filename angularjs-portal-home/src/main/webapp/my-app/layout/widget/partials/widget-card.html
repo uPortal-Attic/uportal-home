@@ -84,7 +84,10 @@
         <div class="widget-icon-container" layout="column" layout-align="center center">
           <portlet-icon></portlet-icon>
         </div>
-        <button aria-labelledby="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}" class="btn btn-default launch-app-button">Launch full app</button>
+        <button aria-labelledby="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}" class="btn btn-default launch-app-button">
+          <span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>
+          <span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>
+        </button>
       </a>
 
       <!-- For simple content portlets, show only an icon -->

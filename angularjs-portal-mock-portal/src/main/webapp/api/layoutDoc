@@ -172,7 +172,9 @@
          "widgetURL":null,
          "widgetType":null,
          "widgetTemplate":null,
-         "widgetConfig":null,
+         "widgetConfig": {
+            "launchText" : "Free Your Mind"
+         },
          "staticContent":"\n            \n                Click <a href=\"https://wwwtest.coursedashboard.learnuw.wisc.edu/\">here</a> to access Learn@UW.\n            \n\t\t",
          "pithyStaticContent":null,
          "altMaxUrl":true,
