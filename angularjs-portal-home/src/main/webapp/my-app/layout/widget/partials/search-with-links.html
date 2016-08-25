@@ -1,18 +1,23 @@
-<div class='widget-body'>
+<div class="widget-body">
   <form action='{{secureURL}}' target='{{config.actionTarget}}'>
-     <div class='input-group'><input type='text' name='{{config.actionParameter}}' class='form-control' placeholder='{{config.searchPlaceholder}}'><span class='input-group-btn'><button class='btn btn-primary' type='submit'><i class='fa fa-search'></i></button></span></div>
+    <md-input-container class="md-block" md-no-float>
+      <input type="text" name="{{config.actionParameter}}" placeholder="{{config.searchPlaceholder}}">
+      <md-button type="submit" class="md-primary md-icon-button">
+        <i class="fa fa-search"></i>
+      </md-button>
+    </md-input-container>
   </form>
    <!-- Links -->
-   <div class='row'>
-     <div ng-show="config.links.length == 1">
-  		 <div class='col-xs-6 col-xs-offset-3 center' ng-repeat='item in config.links'>
-  				<circle-button data-href='{{item.href}}' data-target='{{item.target}}' data-fa-icon='{{item.icon}}' data-disabled='false' data-title='{{item.title}}' data-trunclen='24'></circle-button>
-       </div>
-  	 </div>
-  	 <div ng-show="config.links.length == 2">
-  		 <div class='col-xs-6 center' ng-repeat='item in config.links'>
-  				<circle-button data-href='{{item.href}}' data-target='{{item.target}}' data-fa-icon='{{item.icon}}' data-disabled='false' data-title='{{item.title}}' data-trunclen='24'></circle-button>
-       </div>
+   <div layout="row">
+     <div class="search-with-links__{{config.links.length}}">
+       <circle-button ng-repeat="item in config.links"
+                      data-href="{{item.href}}"
+                      data-target="{{item.target}}"
+                      data-fa-icon="{{item.icon}}"
+                      data-disabled="false"
+                      data-title="{{item.title}}"
+                      data-trunclen="24">
+       </circle-button>
   	 </div>
    </div>
 </div>
