@@ -66,6 +66,34 @@ option-link {
   }
 }
 
+/* RSS FEED WIDGET */
+rss {
+  .rss {
+    overflow-y: hidden;
+    height: 194px;
+    .widget-list {
+      max-height: 194px;
+      li a {
+        div {
+          display: inline-block;
+        }
+        div.headline {
+          width: 80%;
+          font-size: 12px;
+        }
+        div.headline.nodate {
+          width: 100%;
+        }
+        div.date {
+          width: 18%;
+          font-size: 10px;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+}
+
 weather {
   .forecast .day {
       text-align: center;
@@ -202,27 +230,6 @@ weather {
 .scroll-widget {
   max-height: 210px;
   overflow-y: scroll;
-}
-
-.rss {
-  overflow-y: hidden; max-height: 210px;
-  .widget-list li a {
-    div {
-      display: inline-block;
-    }
-    div.headline {
-      width: 80%;
-      font-size: 12px;
-    }
-    div.headline.nodate {
-      width: 100%;
-    }
-    div.date {
-      width: 18%;
-      font-size: 10px;
-      vertical-align: top;
-    }
-  }
 }
 
 .fixed-width-widget {
