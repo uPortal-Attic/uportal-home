@@ -110,6 +110,27 @@ swl {
   }
 }
 
+/* NORMAL WIDGETS */
+.normal-widget {
+  height: 194px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  .widget-icon-container {
+    padding-top: 40px;
+  }
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+/* GENERIC WIDGETS */
+.generic-widget {
+  height: 194px;
+}
+
+/* WEATHER WIDGET */
 weather {
   .forecast .day {
       text-align: center;
@@ -181,12 +202,6 @@ weather {
   }
 }
 
-.widget-frame {
-  .widget-body {
-    padding:0px 8px;
-  }
-}
-
 .list-content .widget-info,
 .widget-frame .widget-info, {
   position: absolute;
@@ -234,12 +249,6 @@ weather {
         color:#666;
       }
     }
-  }
-}
-
-.widget-frame .widget-icon-container {
-  i {
-    padding: 0 0 30px;
   }
 }
 

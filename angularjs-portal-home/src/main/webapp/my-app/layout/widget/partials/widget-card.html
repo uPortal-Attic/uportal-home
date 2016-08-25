@@ -62,10 +62,10 @@
         <div class="portlet-content">
            <div ng-bind-html="portlet.pithyStaticContent"></div>
         </div>
-        <a class="btn btn-default launch-app-button" href="{{portlet.url}}" target="{{portlet.target}}">Launch full app</a>
+        <a class="launch-app-button" href="{{portlet.url}}" target="{{portlet.target}}">Launch full app</a>
       </div>
 
-      <div ng-switch-when="GENERIC">
+      <div ng-switch-when="GENERIC" class="generic-widget">
         <div ng-controller="GenericWidgetController as genericWidgetCtrl">
             <div ng-if="loading" id="loading">
                 <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>
@@ -84,22 +84,22 @@
       </div>
 
       <!-- For basic apps (not a widget, not simple content, no pithy content), show only an icon -->
-      <a tabindex="-1" ng-switch-when="NORMAL" ng-href="{{widgetCtrl.renderURL(portlet)}}" target="{{portlet.target}}">
+      <a tabindex="-1" ng-switch-when="NORMAL" ng-href="{{widgetCtrl.renderURL(portlet)}}" target="{{portlet.target}}" class="normal-widget">
         <div class="widget-icon-container" layout="column" layout-align="center center">
           <portlet-icon></portlet-icon>
         </div>
-        <button aria-labelledby="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}" class="btn btn-default launch-app-button">
+        <button aria-label="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}" class="launch-app-button">
           <span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>
           <span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>
         </button>
       </a>
 
       <!-- For simple content portlets, show only an icon -->
-      <a tabindex="-1" ng-switch-when="SIMPLE" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="simple-content-container">
+      <a tabindex="-1" ng-switch-when="SIMPLE" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="normal-widget">
         <div class="widget-icon-container" layout="column" layout-align="center center">
           <portlet-icon></portlet-icon>
         </div>
-        <button aria-labelledby="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}" class="btn btn-default launch-app-button">
+        <button aria-label="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}" class="launch-app-button">
           <span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>
           <span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>
         </button>
