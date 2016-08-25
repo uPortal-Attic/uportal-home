@@ -21,11 +21,23 @@
       </span>
     </div>
     <!-- IF MORE THAN ONE ELEMENT -->
-    <div ng-if="portlet.widgetData && portlet.widgetData[config.arrayName] && portlet.widgetData[config.arrayName].length >= 1" style='margin-top: -10px;'>
-      <select ng-model="portlet.selectedUrl" class='form-control'>
-        <option ng-if='config.singleElement' selected="selected" value="{{portlet.widgetData[config.value]}}" title='{{portlet.widgetData[config.display].length > 26 ? portlet.widgetData[config.display] : ""}}'>{{portlet.widgetData[config.display] | trimMiddle:26}}</option>
-        <option ng-repeat='obj in portlet.widgetData[config.arrayName]' value="{{obj[config.value]}}" title='{{obj[config.display].length > 26 ? obj[config.display] : ""}}'>{{obj[config.display] | trimMiddle:26}}</option>
-      </select>
+    <div ng-if="portlet.widgetData && portlet.widgetData[config.arrayName] && portlet.widgetData[config.arrayName].length >= 1">
+      <md-input-container>
+        <md-select ng-model="portlet.selectedUrl" class="md-accent">
+          <md-option ng-if="config.singleElement" selected="selected"
+                     class="md-default"
+                     value="{{portlet.widgetData[config.value]}}"
+                     title='{{portlet.widgetData[config.display].length > 26 ? portlet.widgetData[config.display] : ""}}'>
+            {{portlet.widgetData[config.display] | trimMiddle:26}}
+          </md-option>
+          <md-option ng-repeat="obj in portlet.widgetData[config.arrayName]"
+                     class="md-default"
+                     value="{{obj[config.value]}}"
+                     title="{{obj[config.display].length > 26 ? obj[config.display] : ''}}">
+            {{obj[config.display] | trimMiddle:26}}
+          </md-option>
+        </md-select>
+      </md-input-container>
     </div>
   </div>
 </div>
