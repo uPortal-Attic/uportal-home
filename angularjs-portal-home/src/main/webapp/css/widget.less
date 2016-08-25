@@ -96,12 +96,26 @@ rss {
 
 /* SEARCH WITH LINKS */
 swl {
+  md-input-container {
+    margin-top: 0;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    .md-button {
+      margin: 0;
+      padding: 0;
+    }
+  }
   div[class^="search-with-links__"] {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: baseline;
     align-content: center;
+    width: 100%;
     circle-button {
       width: 120px;
       height: 88px;
