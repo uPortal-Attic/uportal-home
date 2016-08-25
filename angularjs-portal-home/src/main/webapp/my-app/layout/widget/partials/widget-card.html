@@ -1,4 +1,6 @@
 <md-card class="widget-frame" id="portlet-id-{{portlet.nodeId}}">
+
+  <!-- HEADER -->
   <md-card-header class="widget-header">
     <!-- Widget Chrome -->
     <div class='widget-info'>
@@ -16,6 +18,8 @@
       <span class='md-title' style='text-align: center;' id="appTitle_portlet.title-{{portlet.nodeId}}" aria-labelledby="appTitle_portlet.title-{{portlet.nodeId}}" tabindex="0">{{portlet.title }}</span>
     </md-card-header-text>
   </md-card-header>
+
+  <!-- BODY -->
   <md-card-content class="widget-content">
     <sub class="sr-only" id="goToApps-{{portlet.nodeId}}">go to</sub>
     <!-- For widgets, show fancy markup! -->
@@ -103,4 +107,5 @@
 
     </div>
   </md-card-content>
+  
 </md-card>
