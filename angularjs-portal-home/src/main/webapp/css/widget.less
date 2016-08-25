@@ -44,6 +44,25 @@ lol {
   }
 }
 
+/* OPTION LINK */
+option-link {
+  .widget-option-link {
+    height: 196px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    .option-link-icon {
+      margin-bottom: 16px;
+      i {
+        color: @grayscale10;
+        font-size: 70px;
+      }
+    }
+  }
+}
+
 weather {
   .forecast .day {
       text-align: center;
@@ -114,11 +133,6 @@ weather {
     }
   }
 }
-.widget-content option-link {
-  .widget-icon-container i {
-    padding:40px 10px 5px 10px;
-  }
-}
 
 .widget-frame {
   .widget-body {
@@ -179,9 +193,6 @@ weather {
 .widget-frame .widget-icon-container {
   i {
     padding: 0 0 30px;
-  }
-  .option-link-icon i {
-    padding:30px 15px 10px;
   }
 }
 
