@@ -41,7 +41,8 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
           //assume not valid, go get a username and bootstrap the user
           var $http = initInjector.get("$http");
           return $http.get(loginConfig.loginURL).then(function(response){
-            if("success" === response.data.status) {
+            if("success" === response.data.status
+            || response.data.username === 'guest') {
               //store some meta data for caching reason
               if(!$sessionStorage.portal){
                 $sessionStorage.portal = {};
@@ -51,7 +52,6 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
               if (response.data.username === 'guest') {
                 $rootScope.GuestMode = true;
               }
-
             }
           });
         } else {
