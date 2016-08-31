@@ -181,7 +181,8 @@ define(['angular', 'jquery'], function(angular, $) {
                 var categoriesOfThisPortlet = cur.categories;
 
                 $.each(categoriesOfThisPortlet, function(index, category){
-                    if ($.inArray(category, categories) == -1) {
+                    
+                    if ($.inArray(category, categories) == -1  && cur.canAdd == true) {
                         categories.push(category);
                     }
                 });
