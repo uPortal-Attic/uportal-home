@@ -200,6 +200,28 @@
           </dependency>
         </dependencies>
       </plugin>
+      <plugin>
+         <groupId>org.codehaus.mojo</groupId>
+         <artifactId>exec-maven-plugin</artifactId>
+         <version>1.3.2</version>
+         <executions>
+           <execution>
+           <phase>package</phase>
+           <goals>
+            <goal>exec</goal>
+           </goals>
+           </execution>
+         </executions>
+         <configuration>
+           <executable>node</executable>
+           <arguments>
+            <argument>../../../../node_modules/requirejs/bin/r.js</argument>
+            <argument>-o</argument>
+            <argument>build.js</argument>
+           </arguments>
+           <workingDirectory>src/main/webapp</workingDirectory>
+         </configuration>
+      </plugin>
     </plugins>
   </build>
 
