@@ -173,6 +173,23 @@ By doing just this we were able to generate:
 
 ![https://cloud.githubusercontent.com/assets/3534544/6626304/a82c9e2e-c8c3-11e4-9bf0-acdc0fbdd2f5.png](https://cloud.githubusercontent.com/assets/3534544/6626304/a82c9e2e-c8c3-11e4-9bf0-acdc0fbdd2f5.png)
 
+## Other Configuration
+
+If you provide a `widgetConfig` with any widget type with a value for `'launchText'` it will replace the text of the launch button with that text value. Even for non-widgets.
+
+Example:
+
+```html
+<portlet-preference>
+    <name>widgetConfig</name>
+    <value><![CDATA[{
+      'launchText' : 'See all the Weather'
+    }]]></value>
+</portlet-preference>
+```
+
+Read more about the launch button text guidance [here](#/md/widget-launch-button).
+
 ## Build Your Own Widget Right Now with Widget Creator
 
 We have developed a widget creator so people can get hands on with developing their content. If you have questions about the widget creator please feel free to open a github issue. You can see a live version of the widget creator [here](https://public.test.my.wisc.edu/web/widget-creator)
