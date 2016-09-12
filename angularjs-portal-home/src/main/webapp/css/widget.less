@@ -1,29 +1,160 @@
-widget-card {
-  .widget-header {
-    height: 20%;
-    line-height: 1.1;
-    align-items: center;
-    .md-title {
-      font-size: 18px;
-      font-weight: 200;
-    }
-  }
-  .widget-content {
-    height: 80%;
+/* LIST OF LINKS */
+lol {
+  .list-of-links {
+    height: 194px;
     padding: 0;
-    margin-bottom: 36px;
-    .bold {
-      font-weight: 500;
-    }
-    .widget-type-container {
-      height: 196px;
-      .widget-icon-container {
-        height: 100%;
+    div[class^="list-of-links__"] {
+      height: 194px;
+      overflow: hidden;
+      display: flex;
+      flex-flow: row wrap;
+      &.list-of-links__1 {
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+      }
+      &.list-of-links__2 {
+        justify-content: space-around;
+        align-items: baseline;
+        align-content: center;
+        padding: 40px 0;
+      }
+      &.list-of-links__3 {
+        justify-content: space-around;
+        align-items: baseline;
+        align-content: space-around;
+      }
+      &.list-of-links__4 {
+        justify-content: space-around;
+        align-items: baseline;
+        align-content: flex-start;
+      }
+      &.list-of-links__long {
+        justify-content: space-around;
+        .widget-list a:hover {
+          cursor: pointer;
+        }
+      }
+      circle-button {
+        width: 120px;
+        height: 88px;
+        text-align: center;
       }
     }
   }
 }
 
+/* OPTION LINK */
+option-link {
+  .widget-option-link {
+    height: 196px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    .option-link-icon {
+      margin-bottom: 16px;
+      i {
+        color: @grayscale10;
+        font-size: 70px;
+      }
+    }
+    md-input-container {
+      margin: 0 0 18px 0;
+    }
+  }
+}
+
+/* RSS FEED WIDGET */
+rss {
+  .rss {
+    overflow-y: hidden;
+    height: 194px;
+    .widget-list {
+      max-height: 194px;
+      li a {
+        div {
+          display: inline-block;
+        }
+        div.headline {
+          width: 80%;
+          font-size: 12px;
+        }
+        div.headline.nodate {
+          width: 100%;
+        }
+        div.date {
+          width: 18%;
+          font-size: 10px;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+}
+
+/* SEARCH WITH LINKS */
+swl {
+  md-input-container {
+    margin-top: 0;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    .md-button {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  div[class^="search-with-links__"] {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    align-content: center;
+    width: 100%;
+    circle-button {
+      width: 120px;
+      height: 88px;
+      text-align: center;
+    }
+  }
+}
+
+/* NORMAL WIDGETS */
+.normal-widget {
+  height: 194px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  .widget-icon-container {
+    padding-top: 40px;
+  }
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+/* GENERIC WIDGETS */
+.generic-widget {
+  height: 194px;
+  md-input-container {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+  }
+}
+
+/* WEATHER WIDGET */
 weather {
   .forecast .day {
       text-align: center;
@@ -94,17 +225,6 @@ weather {
     }
   }
 }
-.widget-content option-link {
-  .widget-icon-container i {
-    padding:40px 10px 5px 10px;
-  }
-}
-
-.widget-frame {
-  .widget-body {
-    padding:0px 8px;
-  }
-}
 
 .list-content .widget-info,
 .widget-frame .widget-info, {
@@ -156,60 +276,9 @@ weather {
   }
 }
 
-.widget-frame .widget-icon-container {
-  i {
-    padding: 0 0 30px;
-  }
-  .option-link-icon i {
-    padding:30px 15px 10px;
-  }
-}
-
 .scroll-widget {
   max-height: 210px;
   overflow-y: scroll;
-}
-.lol {
-  .v-center {
-    position:relative;
-    top:40px;
-  }
-  .link-icon {
-    font-weight:600;
-  }
-  .link-icon i {
-    color:@color1;
-    padding-right:10px;
-  }
-  .col-xs-6 {
-    height:95px;
-    padding:0 !important;
-  }
-  .additional-text {
-    position:relative;
-    top:70px;
-  }
-}
-
-.rss {
-  overflow-y: hidden; max-height: 210px;
-  .widget-list li a {
-    div {
-      display: inline-block;
-    }
-    div.headline {
-      width: 80%;
-      font-size: 12px;
-    }
-    div.headline.nodate {
-      width: 100%;
-    }
-    div.date {
-      width: 18%;
-      font-size: 10px;
-      vertical-align: top;
-    }
-  }
 }
 
 .fixed-width-widget {

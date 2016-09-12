@@ -3,7 +3,7 @@
    <ul class='widget-list'>
       <li ng-repeat='item in data.items | filter:filterText | limitTo:config.lim'>
         <a class='full-width' ng-href='{{item.link}}' target='_blank'>
-          <div class='headline bold' ng-class="{ 'nodate' :  !config.showdate }">
+          <div class='headline' ng-class="{ 'nodate' :  !config.showdate }">
             {{item.title | truncate:config.titleLim}}
           </div>
           <div class='date bold' ng-if='config.showdate'>
@@ -12,14 +12,14 @@
         </a>
       </li>
       <li ng-if='config.showShowing && config.lim && data.items.length > config.lim' class='no-highlight'>
-        <span class='center'><p class='bold'>Showing {{config.lim}} of {{data.items.length}}</p></span>
+        <p class='center'>Showing {{config.lim}} of {{data.items.length}}</p>
       </li>
       <li ng-if='error' class='no-highlight'>There was an issue loading the information, click see all for more details</li>
       <li ng-if='isEmpty' class='no-highlight'>No information at this time.</li>
    </ul>
 </div>
 <a target='{{config.target}}'
-   class='btn btn-default launch-app-button ng-scope'
+   class='launch-app-button ng-scope'
    ng-href='{{portlet.url}}'>
    <span ng-if='config.launchText'>{{config.launchText}}</span>
    <span ng-if='!config.launchText'>See all</span>
