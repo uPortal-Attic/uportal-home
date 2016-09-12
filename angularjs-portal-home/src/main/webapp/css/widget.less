@@ -226,6 +226,44 @@ weather {
   }
 }
 
+/* WIDGET CREATOR */
+.widget-creator {
+  .portlet-body {
+    padding: 10px;
+    .container__select-template {
+      padding-bottom: 20px;
+    }
+    widget-card {
+      width: 300px;
+    }
+    .help-notes p {
+      color: #999;
+      font-size: 12px;
+      margin-bottom: 0;
+    }
+    textarea {
+      padding: 10px 14px;
+      overflow-y: scroll;
+    }
+  }
+  ::-webkit-input-placeholder {
+    color: @grayscale6;
+    font-size: 12px;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: @grayscale6;
+    font-size: 12px;
+  }
+  ::-moz-placeholder {  /* Firefox 19+ */
+    color: @grayscale6;
+    font-size: 12px;
+  }
+  :-ms-input-placeholder {
+    color: @grayscale6;
+    font-size: 12px;
+  }
+}
+
 .list-content .widget-info,
 .widget-frame .widget-info, {
   position: absolute;

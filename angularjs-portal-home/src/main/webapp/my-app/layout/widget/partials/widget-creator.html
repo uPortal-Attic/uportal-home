@@ -19,66 +19,75 @@
     under the License.
 
 -->
-<div class="portlet-frame">
+<div class="portlet-frame widget-creator">
 	<app-header app-title="Widget Creator" app-image="img/square.jpg" app-description="Fill out the form, see your widget, copy/paste into entity file, done."></app-header>
-
-	<div class="portlet-body tile-list" style='padding: 10px;'>
-     <div class="row"  ng-controller="WidgetCreatorController as widgetCreatorCtrl">
-       <div class="col-sm-6">
-        <div class='config'>
-         <h3>Smart Widget Configuration</h3>
-         <p>It is highly recommended that you read the documentation on widgets located <a href='http://uw-madison-doit.github.io/angularjs-portal/latest/#/md/expanded' target='_blank'>here</a>.</p>
-         <form>
-           <div class="form-group">
-             <label for="title">Title</label>
-             <input type="input" class="form-control" id="title" placeholder="Enter title" ng-model="storage.portlet.title">
+	<div class="portlet-body tile-list">
+     <div layout-gt-sm="row" layout-sm="column"  ng-controller="WidgetCreatorController as widgetCreatorCtrl">
+       <!-- WIDGET CONFIGURATION FORM -->
+       <md-card flex-gt-sm="60" class="config" layout-padding>
+          <md-card-title>
+            <md-card-title-text>
+              <h1>Smart Widget Configuration</h1>
+              <p>It is highly recommended that you read the documentation on widgets located <a href='http://uw-madison-doit.github.io/angularjs-portal/latest/#/md/expanded' target='_blank'>here</a>.</p>
+            </md-card-title-text>
+          </md-card-title>
+         <md-card-content>
+             <form name="widgetConfiguration">
+               <div layout="column" class="container__select-template">
+                 <h4 id="select-template-label">Choose a starter template</h4>
+                 <span>or select 'Custom' to make your own.</span>
+                 <select id='starter-template'
+                         class="form-control"
+                         aria-label="select a starter template"
+                         ng-model='storage.starterTemplate'
+                         ng-change='changeTemplate()'
+                         ng-options="starterTemplate.title for starterTemplate in storage.starterTemplates track by starterTemplate.id">
+                 </select>
+               </div>
+               <md-input-container class="md-block md-accent">
+                 <label for="title">Title</label>
+                 <input type="input" id="title" placeholder="Enter title" ng-model="storage.portlet.title">
+               </md-input-container>
+               <md-input-container class="md-block md-accent">
+                 <label for="desc">Description</label>
+                 <input type="input" id="desc"placeholder="Enter description" ng-model="storage.portlet.description">
+               </md-input-container>
+               <md-input-container class="md-block md-accent" ng-if="portlet.type === 'WIDGET_CREATOR'">
+                 <label for="template">HTML template *</label>
+                 <textarea ng-model="storage.portlet.widgetTemplate" id='template' rows="5" md-select-on-focus></textarea>
+               </md-input-container>
+               <md-input-container class="md-block md-accent" ng-if='portlet.jsonSample'>
+                 <label for="content">Widget URL JSON sample * **<span style='color : red;'>{{errorJSON}}</span></label>
+                 <textarea ng-model="storage.content" id='content' rows="5" md-select-on-focus></textarea>
+               </md-input-container>
+               <md-input-container class="md-block md-accent">
+                 <label for="config">Widget configuration * ***<span style='color : red;'>{{errorConfigJSON}}</span></label>
+                 <textarea ng-model="storage.widgetConfig" id='config' rows="5" md-select-on-focus></textarea>
+               </md-input-container>
+               <md-input-container class="md-block md-accent" ng-if='portlet.hasWidgetURL'>
+                 <label for="widgetURL">Widget URL *</label>
+                 <input type='URL' ng-model="storage.portlet.widgetURL" id='widgetURL'></textarea>
+               </md-input-container>
+             </form>
+           <div class="config" layout="row" layout-align="start center">
+             <md-button class='md-accent md-raised' ng-click='clear()'>Clear</md-button>
+             <md-button ng-click='reload()' class='md-primary md-raised'>Update</md-button>
            </div>
-           <div class="form-group">
-             <label for="desc">Description</label>
-             <input type="input" class="form-control" id="desc" placeholder="Enter description" ng-model="storage.portlet.description">
+           <div class="help-notes" layout="column" layout-padding>
+             <p>* Changes to these fields requires you to click the refresh button to see the changes in the preview</p>
+             <p>** This is normally result from the widgetURL. This result is dumped into the '$scope.content' variable.</p>
+             <p>*** Read more about this <a href='http://uw-madison-doit.github.io/angularjs-portal/latest/#/md/expanded' target='_blank'>here</a></p>
            </div>
-         </form>
-         <form>
-           <div class="choose-template">
-             <label for="starter-template">Choose a starter template</label>
-             <select id='starter-template'
-                     class='form-control'
-                     ng-model='storage.starterTemplate'
-                     ng-change='changeTemplate()'
-                     ng-options="starterTemplate.title for starterTemplate in storage.starterTemplates track by starterTemplate.id"></select>
-             <span>or select 'Custom' to make your own.</span>
-           </div>
-           <div class="form-group" ng-if="portlet.type === 'WIDGET_CREATOR'">
-             <label for="template">HTML Template *</label>
-             <textarea class="form-control" rows="3"  ng-model="storage.portlet.widgetTemplate" id='template'></textarea>
-           </div>
-           <div class="form-group" ng-if='portlet.jsonSample'>
-             <label for="content">widget URL JSON Sample * **<span style='color : red;'>{{errorJSON}}</span></label>
-             <textarea class="form-control" rows="3"  ng-model="storage.content" id='content'></textarea>
-           </div>
-           <div class="form-group">
-             <label for="config">Widget Configuration * ***<span style='color : red;'>{{errorConfigJSON}}</span></label>
-             <textarea class="form-control" rows="3"  ng-model="storage.widgetConfig" id='config'></textarea>
-           </div>
-           <div class="form-group" ng-if='portlet.hasWidgetURL'>
-             <label for="widgetURL">Widget URL *</label>
-             <input class="form-control" type='URL' ng-model="storage.portlet.widgetURL" id='widgetURL'></textarea>
-           </div>
-         </form>
-         <div class='config center'>
-            <button ng-click='reload()' class='btn btn-primary' style='margin : 5px;'>Refresh*</button><button class='btn btn-neutral' ng-click='clear()'>Clear</button>
-         </div>
-         <p>* : Changes to these fields requires you to click the refresh button to see the changes in the preview</p>
-         <p>** : This is normally result from the widgetURL. This result is dumped into the '$scope.content' variable.</p>
-         <p>*** : read more about this <a href='http://uw-madison-doit.github.io/angularjs-portal/latest/#/md/expanded' target='_blank'>here</a></p>
-         </div>
-       </div>
-       <div class="col-sm-4">
-         <div class='config center'>
-            <button ng-click='reload()' class='btn btn-primary' style='margin : 5px;'>Refresh*</button><button class='btn btn-neutral' ng-click='clear()'>Clear</button>
-         </div>
-         <div class="list-container no-padding output">
+         </md-card-content>
+       </md-card>
+       <!-- WIDGET PREVIEW -->
+       <div flex-gt-sm="40">
+         <div class="list-container no-padding output" layout="row" layout-align="center center">
            <widget-card></widget-card>
+         </div>
+         <div class='config' layout="row" layout-align="center center">
+           <md-button class='md-accent md-raised' ng-click='clear()'>Clear</md-button>
+           <md-button ng-click='reload()' class='md-primary md-raised'>Update</md-button>
          </div>
        </div>
      </div>
