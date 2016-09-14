@@ -6,12 +6,12 @@
   "linked" : [
     {
       "system" : "wiscmail",
-      "uri" : "https://wiscmail.wisc.edu/login",
+      "uri" : "https://wiscmail.wisc.edu/login/wiscmail-ex@wisc.edu",
       "email" : "wiscmail-ex@wisc.edu"
     },
     {
-      "system" : "wiscmail",
-      "uri" : "https://wiscmail.wisc.edu/login",
+      "system" : "wiscmail2",
+      "uri" : "https://wiscmail.wisc.edu/login/reallylongnamethatextendspastthethresholdsowehavetoaddafilter@wisc.edu",
       "email" : "reallylongnamethatextendspastthethresholdsowehavetoaddafilter@wisc.edu"
     },
     {
