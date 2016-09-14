@@ -7,14 +7,16 @@ define(['angular', 'jquery'], function(angular, $) {
     app.controller('DefaultViewController', [
       '$scope',
       '$location',
+      '$mdMedia',
       '$localStorage',
       '$sessionStorage',
       'APP_FLAGS',
-      function($scope, $location, $localStorage, $sessionStorage, APP_FLAGS){
+      function($scope, $location, $mdMedia, $localStorage, $sessionStorage, APP_FLAGS){
         $scope.loading = [];
         if(!APP_FLAGS[$localStorage.layoutMode]) {
           //layout mode set weird, reset to default
-          $localStorage.layoutMode = APP_FLAGS.defaultView;
+          var defaultView = ($mdMedia('xs') && APP_FLAGS.compact) ? 'compact' : APP_FLAGS.defaultView;
+          $localStorage.layoutMode = defaultView;
         }
         $location.path('/' + $localStorage.layoutMode);
     }]);
