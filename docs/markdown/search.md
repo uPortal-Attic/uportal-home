@@ -51,8 +51,8 @@ Search is configured in `web-config.js`:
 .value('SEARCH_CONFIG', [
   {
     "group" : "UW-Madison",
-    "directorySearchURL" : "/web/api/wiscdirectory",
-    "googleSearchURL" : "/web/api/wiscedusearch?v=1.0&rsz=10&start=0&cx=02:22m",
+    "directorySearchURL" : "/web/api/proxy/wiscdirectory",
+    "googleSearchURL" : "/web/api/proxy/wiscedusearch?v=1.0&rsz=10&start=0&cx=02:22m",
     "webSearchURL" : "http://www.wisc.edu/search/?q=",
     "domainResultsLabel" : "Wisc.edu",
     "kbSearchURL" : "https://kb.wisc.edu/search.php?q=",
@@ -61,7 +61,7 @@ Search is configured in `web-config.js`:
   },
   {
     "group" : "UW System-River Falls",
-    "googleSearchURL" : "/web/api/uwrfsearch?key=A&rsz=10&num=10&hl=en&prettyPrint=false&source=gcsc&gss=.com&sig=41&cx=06:88&googlehost=www.google.com&nocache=11&",
+    "googleSearchURL" : "/web/api/proxy/uwrfsearch?key=A&rsz=10&num=10&hl=en&prettyPrint=false&source=gcsc&gss=.com&sig=41&cx=06:88&googlehost=www.google.com&nocache=11&",
     "webSearchURL" : "https://www.uwrf.edu/AboutUs/SearchResults.cfm?q=",
     "domainResultsLabel" : "UWRF.edu",
     "helpdeskURL" : "https://kb.wisc.edu/helpdesk/"
@@ -70,7 +70,7 @@ Search is configured in `web-config.js`:
     "group" : "Everyone",
     "helpdeskURL" : "https://kb.wisc.edu/helpdesk/"
   }
-  
+
 ])
 ...
 ```
@@ -80,19 +80,18 @@ You declare one or more search configurations.  A search configuration has a `gr
 Within each search configuration, you can set:
 
  * `group` (required) : A user must be a member of this group for the search configuration to apply. (Use `Everyone` to match, well, everyone.)
- 
+
 Directory searching (optional):
 
  * `directorySearchURL`: JSON web service for directory search results (TODO: say something more useful about this)
- 
+
 Web searching (optional; declare all or none):
  * `googleSearchURL` : JSON web service for Web search.
  * `webSearchURL` : human-facing URL for launching the search query into a full Web search experience. Search query will be appended.
  * `domainResultsLabel` : Your Web search doesn't search the whole Web. That's what the browser address bar is for, after all. So what does it search? This label characterizes that for the user.
- 
+
 Zero-results search recovery (individually optional):
 
  * `kbSearchURL` : Human-facing URL for launching a knowledge base search, shown only as a zero-results search recovery option. Search query will be appended.
  * `eventsSearchURL` : Human-facing URL for launching an events search, shown only as a zero-results search recovery option. Search query will be appended.
  * `helpdeskURL` : Human-facing URL for launching help desk website, shown only as a zero-results search recovery option.
- 
