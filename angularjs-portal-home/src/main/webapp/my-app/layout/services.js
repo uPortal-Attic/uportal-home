@@ -198,7 +198,7 @@ define(['angular', 'jquery'], function(angular, $) {
         }
 
           var getRSSJsonified = function(feedURL) {
-          return $http.get('api/rss2json?rss_url=' + feedURL);
+          return $http.get('api/proxy/rss2json?rss_url=' + feedURL);
         }
 
         return {

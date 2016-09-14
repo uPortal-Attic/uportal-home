@@ -11,11 +11,10 @@
    "target":null,
    "widgetURL":"/web/api/report",
    "widgetType":"generic",
-   "widgetTemplate":"<div style=\"padding: 5px;overflow-y: scroll;    padding: 5px;    max-height: 230px;    overflow-x: hidden;\">   <ul> <li ng-repeat=\"item in content\" style='text-align: center'>   <strong>{{item.key}} <hr></strong>   <ul><li ng-repeat=\"(code, dte) in item.lastResultMap\">    <strong>{{code}}</strong> : {{dte | date:'medium' }}</li></ul>   </li>   </ul>   </div>   ",
+   "widgetTemplate":"   <md-content flex layout-padding  style='overflow-y: scroll; overflow-x: hidden; max-height: 228px;'>           <md-list flex>           <span ng-repeat=\"item in content\">             <md-subheader class='md-no-sticky'>{{item.key}}</md-subheader>             <md-list-item ng-repeat=\"(code, dte) in item.lastResultMap\">               <strong>{{code}}</strong> : {{dte | date:'medium' }}             </md-list-item>           </span>           </md-list>         </md-content>   ",
    "widgetConfig":{
    },
    "staticContent":null,
-   "pithyStaticContent":"\n        <div>\n        <p><a class=\"btn btn-default\"\n  href=\"https://wiscmail.wisc.edu/login/\" target=\"_blank\"\n  title=\"Launch email and calendar\">Launch email and calendar</a></p>\n        </div>\n        ",
    "altMaxUrl":false,
    "renderOnWeb":false
 },
@@ -38,7 +37,6 @@
             "singleElement":true
          },
          "staticContent":null,
-         "pithyStaticContent":"\n        <div>\n        <p><a class=\"btn btn-default\"\n  href=\"https://wiscmail.wisc.edu/login/\" target=\"_blank\"\n  title=\"Launch email and calendar\">Launch email and calendar</a></p>\n        </div>\n        ",
          "altMaxUrl":false,
          "renderOnWeb":false
       },
