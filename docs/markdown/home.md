@@ -14,7 +14,7 @@ This documentation describes the features and implementation details of [`angula
     
 + [Preset and custom widget types](#/md/widgets): Developers can rapidly prototype widgets using the [Widget Creator](https://tools.my.wisc.edu/widget-creator/#/default).
 
-### [App directory]((#/md/app-directory))
+### [App directory](#/md/app-directory)
 
 + Browse a marketplace of apps
 + Sort alphabetically or by rating
