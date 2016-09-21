@@ -12,7 +12,11 @@ This documentation describes the features and implementation details of [`angula
     - [Expanded mode](#/md/expanded): Widgets are larger and may present dynamic content. Widgets with no dynamic content present their icon as a big click surface.
     - [Compact mode](#/md/compact): Widgets are smaller and are all simply big click surfaces. Useful for mobile viewing and attractive to minimalists.
     
-+ [Preset and custom widget types](#/md/widgets): Developers can rapidly prototype widgets using the [Widget Creator](https://tools.my.wisc.edu/widget-creator/#/default).
++ [Preset and custom widget types](#/md/widgets)
++ Configurable launch text for widgets ([see best practices guidance here](#/md/widget-launch-button))
++ [Widget creator](https://public.my.wisc.edu/web/widget-creator): For rapidly prototyping widgets
+
+
 
 ### [App directory](#/md/app-directory)
 
