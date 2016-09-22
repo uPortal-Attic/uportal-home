@@ -1,7 +1,7 @@
 ## Features
 
 ### Home page
----
+
 #### Persistent layout of widgets:
 + The home page presents widgets in a remembered order. Logged in users can add to, remove from, and re-order this list.
 + Under the hood, the home page layout is implemented using uPortal's `DLM` as a personalized layout fragment, so MyUW delivers (and updates) a 
@@ -16,7 +16,7 @@ default set and ordering of home page content that is filtered to the viewing us
 + [Widget creator](https://public.my.wisc.edu/web/widget-creator): For rapidly prototyping widgets
 
 ### [App directory](#/md/app-directory)
----
+
 + Browse a marketplace of apps
 + Sort alphabetically or by rating
 + Filter by category
@@ -24,7 +24,7 @@ default set and ordering of home page content that is filtered to the viewing us
 + Launch the app (including directly launching a portal-external URL for the app when configured)
 
 ### [Search](#/md/search)
----
+
 
 AngularJS-portal's search can be used to search:
 
