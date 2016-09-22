@@ -1,9 +1,9 @@
-Compact mode is the simple interface for MyUW. This really tailors to the minimalist and mobile devices.
+Compact mode is a simple, minimalist interface for MyUW. This mode caters to small screens and users who want to see many widgets at once.
 
-![Compact Details](http://goo.gl/sERQJO)
+![compact mode widgets](../img/compact-mode.png)
 
-The compact widget shown above consists of:
-+ i (info) : The description of the app on hover
-+ x (delete) : How you delete it from your home page
-+ fa-icon : The icon is a font awesome icon for the app
-+ title : The title of the application, e.g.: email
+The compact widgets pictured above consist of the following:
++ Info icon (displayed on hover): Shows the app description for the selected widget
++ Delete icon (displayed on hover): Removes the widget from the user's layout
++ App icon: A large icon that represents the app's main purpose or function
++ Title: The title of the application (e.g. Email)
