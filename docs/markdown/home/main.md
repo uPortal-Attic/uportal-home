@@ -12,23 +12,15 @@ default set and ordering of home page content that is filtered to the viewing us
 + [Expanded mode](#/md/expanded)
 + [Compact mode](#/md/compact)
     
+#### More cool stuff:
 + [Preset and custom widget types](#/md/widgets)
 + [Configurable launch text for widgets](#/md/widget-launch-button)
 + [Widget creator](https://public.my.wisc.edu/web/widget-creator)
 
 ### [App directory](#/md/app-directory)
 
-+ Browse a marketplace of apps
-+ Sort alphabetically or by rating
-+ Filter by category
-+ View details about an app on its deep-linkable details page
-+ Launch the app (including directly launching a portal-external URL for the app when configured)
+Browse a marketplace of apps, sort them alphabetically or by rating, filter them by category. You can also directyly launch the app or view the details about an app on its deep-linkable details page.
 
 ### [Search](#/md/search)
 
-
-AngularJS-portal's search can be used to search:
-
-+ App directory entries
-+ (optional) The web, using Google Custom Search integration
-+ (optional) A directory of people, using directory search integration
+Search app directory entries, the web (with Google Custom Search integration, or a directory of people (with directory search integration).
