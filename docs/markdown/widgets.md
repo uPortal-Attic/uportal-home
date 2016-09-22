@@ -15,7 +15,7 @@ Follow these steps for each of the widget types described in this doc:
 
 ### List of links
 
-![list of links widget](./img/list-of-links)
+![list of links widget](../img/list-of-links)
 
 ```
 <name>widgetType</name>
@@ -68,7 +68,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 
 ### Search with links
 
-![search with links widget](./img/search-with-links)
+![search with links widget](../img/search-with-links)
 
 ```
 <name>widgetType</name>
@@ -116,7 +116,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 
 ### RSS widget
 
-![rss widget](./img/rss)
+![rss widget](../img/rss)
 
 ```
 <name>widgetType</name>
