@@ -7,11 +7,11 @@
         All&nbsp;&nbsp;<span class="badge">{{ totalCount }}</span>
       </md-tab-label>
       <md-tab-body>
-        <md-content layout-padding>
+        <md-content>
           <!-- MyUW results -->
           <div class='search-results-container'>
-            <h4 class="header">MyUW</h4>
-            <hr>
+            <h4 class="md-subhead">MyUW</h4>
+            
             <loading-gif data-object='myuwResults'></loading-gif>
             <div ng-show="myuwResults.length != 0 && myuwFilteredResults.length == 0" class='no-result'>
               No MyUW results. <a href="apps">Try browsing instead?</a>
@@ -31,13 +31,13 @@
                 <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
               </p>
             </div>
-            <marketplace-load-more ng-show="myuwFilteredResults.length > searchResultLimit"></marketplace-load-more>
+            <marketplace-load-more layout="row" layout-align="center center" ng-show="myuwFilteredResults.length > searchResultLimit"></marketplace-load-more>
           </div>
 
           <!-- Wisc directory results-->
           <div ng-show="directoryEnabled" class="search-results-container">
-            <h4 class='header'>Directory</h4>
-            <hr>
+            <h4 class="md-subhead">Directory</h4>
+            
             <loading-gif data-object='wiscDirectoryResults' data-empty="wiscDirectoryResultsEmpty"></loading-gif>
             <div ng-show="wiscDirectoryResultsEmpty && !wiscDirectoryTooManyResults" class='no-result'>
               No directory results.
@@ -72,7 +72,7 @@
               </div>
             </div>
             <div class="seeMoreResults">
-              <p ng-if="wiscDirectoryResultCount>wiscDirectoryResultLimit" id="wiscDirectorySeeMoreResults">
+              <p ng-if="wiscDirectoryResultCount>wiscDirectoryResultLimit">
                 <a href="" ng-click="filterTo('directory')">See all {{wiscDirectoryResultCount}} directory results</a>
               </p>
               <p ng-if="wiscDirectoryErrorMessage">
@@ -83,8 +83,8 @@
 
           <!--Campus domain results-->
           <div ng-show="googleSearchEnabled" class="search-results-container">
-            <h4 class='header'>{{domainResultsLabel}}</h4>
-            <hr>
+            <h4 class="md-subhead">{{domainResultsLabel}}</h4>
+
             <loading-gif data-object='googleResults' data-empty='googleEmptyResults'></loading-gif>
             <div ng-show="googleResults.length === 0" class='no-result'>
               No {{domainResultsLabel}} results.
@@ -95,10 +95,11 @@
               <p>
                 <a ng-href="{{item.clicktrackUrl}}" ng-bind-html="item.formattedUrl"></a>
               </p>
-
             </div>
-            <div>
-              <h4 ng-if="webSearchUrl && !googleEmptyResults"><a ng-href="{{webSearchUrl + searchText}}" target="_blank">View more results for {{searchText}} on {{domainResultsLabel}}</a></h4>
+            <div layout="row" layout-align="center center" layout-padding>
+              <md-button ng-if="webSearchUrl && !googleEmptyResults" class="md-primary md-raised" ng-href="{{webSearchUrl + searchText}}" aria-label="view more results for {{searchText}} on {{domainResultsLabel}}">
+                <i class="fa fa-external-link"></i> View more results
+              </md-button>
             </div>
           </div>
 
@@ -129,11 +130,11 @@
         MyUW&nbsp;&nbsp;<span class="badge">{{ myuwFilteredResults.length }}</span>
       </md-tab-label>
       <md-tab-body>
-        <md-content layout-padding>
+        <md-content>
           <!-- MyUW results -->
           <div class='search-results-container'>
-            <h4 class="header">MyUW</h4>
-            <hr>
+            <h4 class="md-subhead">MyUW</h4>
+            
             <loading-gif data-object='myuwResults'></loading-gif>
             <div ng-show="myuwResults.length != 0 && myuwFilteredResults.length == 0" class='no-result'>
               No MyUW results. <a href="apps">Try browsing instead?</a>
@@ -153,7 +154,7 @@
                 <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
               </p>
             </div>
-            <marketplace-load-more ng-show="myuwFilteredResults.length > searchResultLimit"></marketplace-load-more>
+            <marketplace-load-more layout="row" layout-align="center center" ng-show="myuwFilteredResults.length > searchResultLimit"></marketplace-load-more>
           </div>
         </md-content>
       </md-tab-body>
@@ -165,11 +166,11 @@
         Directory&nbsp;&nbsp;<span class="badge">{{ wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount }}</span>
       </md-tab-label>
       <md-tab-body>
-        <md-content layout-padding>
+        <md-content>
           <!-- Wisc directory results-->
           <div ng-show="directoryEnabled" class="search-results-container">
-            <h4 class='header'>Directory</h4>
-            <hr>
+            <h4 class="md-subhead">Directory</h4>
+            
             <loading-gif data-object='wiscDirectoryResults' data-empty="wiscDirectoryResultsEmpty"></loading-gif>
             <div ng-show="wiscDirectoryResultsEmpty && !wiscDirectoryTooManyResults" class='no-result'>
               No directory results.
@@ -204,7 +205,7 @@
               </div>
             </div>
             <div class="seeMoreResults">
-              <p ng-if="wiscDirectoryResultCount>wiscDirectoryResultLimit" id="wiscDirectorySeeMoreResults">
+              <p ng-if="wiscDirectoryResultCount>wiscDirectoryResultLimit">
                 <a href="" ng-click="filterTo('directory')">See all {{wiscDirectoryResultCount}} directory results</a>
               </p>
               <p ng-if="wiscDirectoryErrorMessage">
@@ -222,11 +223,11 @@
         {{domainResultsLabel}}&nbsp;&nbsp;<span class="badge">{{ googleResultsEstimatedCount }}</span>
       </md-tab-label>
       <md-tab-body>
-        <md-content layout-padding>
+        <md-content>
           <!--Campus domain results-->
           <div ng-show="googleSearchEnabled" class="search-results-container">
-            <h4 class='header'>{{domainResultsLabel}}</h4>
-            <hr>
+            <h4 class="md-subhead">{{domainResultsLabel}}</h4>
+            
             <loading-gif data-object='googleResults' data-empty='googleEmptyResults'></loading-gif>
             <div ng-show="googleResults.length === 0" class='no-result'>
               No {{domainResultsLabel}} results.
@@ -237,10 +238,11 @@
               <p>
                 <a ng-href="{{item.clicktrackUrl}}" ng-bind-html="item.formattedUrl"></a>
               </p>
-
             </div>
-            <div>
-              <h4 ng-if="webSearchUrl && !googleEmptyResults"><a ng-href="{{webSearchUrl + searchText}}" target="_blank">View more results for {{searchText}} on {{domainResultsLabel}}</a></h4>
+            <div layout="row" layout-align="center center" layout-padding>
+              <md-button ng-if="webSearchUrl && !googleEmptyResults" class="md-primary md-raised" ng-href="{{webSearchUrl + searchText}}" aria-label="view more results for {{searchText}} on {{domainResultsLabel}}">
+                <i class="fa fa-external-link"></i> View more results
+              </md-button>
             </div>
           </div>
         </md-content>
