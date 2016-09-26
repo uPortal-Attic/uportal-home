@@ -23,11 +23,11 @@
               <p>
                 <md-button ng-click="addToHome(portlet)"
                    ng-if="portlet.canAdd && !portlet.hasInLayout && !GuestMode"
-                   class="md-primary add">
+                   class="md-primary add" aria-label="add {{ portlet.title }} to home">
                   <i class="fa fa-plus"></i> Add to home
                 </md-button>
                 <span ng-if="portlet.canAdd && portlet.hasInLayout && !GuestMode" class="added"><i class="fa fa-check"></i> Added to home</span>
-                <md-button class="md-default" title='See more about {{portlet.title}}' ng-click='navToDetails(portlet, "Search")'>Details</md-button>
+                <md-button class="md-default" aria-label="See more about {{portlet.title}}" ng-click='navToDetails(portlet, "Search")'>Details</md-button>
                 <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
               </p>
             </div>
@@ -146,11 +146,11 @@
               <p>
                 <md-button ng-click="addToHome(portlet)"
                            ng-if="portlet.canAdd && !portlet.hasInLayout && !GuestMode"
-                           class="md-primary add">
+                           class="md-primary add" aria-label="add {{ portlet.title }} to home">
                   <i class="fa fa-plus"></i> Add to home
                 </md-button>
                 <span ng-if="portlet.canAdd && portlet.hasInLayout && !GuestMode" class="added"><i class="fa fa-check"></i> Added to home</span>
-                <md-button class="md-default" title='See more about {{portlet.title}}' ng-click='navToDetails(portlet, "Search")'>Details</md-button>
+                <md-` class="md-default" aria-label="See more about {{portlet.title}}" ng-click='navToDetails(portlet, "Search")'>Details</md-button>
                 <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
               </p>
             </div>
