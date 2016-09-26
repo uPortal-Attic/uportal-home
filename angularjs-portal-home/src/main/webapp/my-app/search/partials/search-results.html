@@ -10,8 +10,10 @@
         <md-content>
           <!-- MyUW results -->
           <div class='search-results-container'>
-            <h4 class="md-subhead">MyUW</h4>
-            
+            <h4 class="md-subhead">
+              <div class="subhead-border" ng-style="{background: primaryColorRgb}"></div>
+              MyUW
+            </h4>
             <loading-gif data-object='myuwResults'></loading-gif>
             <div ng-show="myuwResults.length != 0 && myuwFilteredResults.length == 0" class='no-result'>
               No MyUW results. <a href="apps">Try browsing instead?</a>
@@ -36,7 +38,10 @@
 
           <!-- Wisc directory results-->
           <div ng-show="directoryEnabled" class="search-results-container">
-            <h4 class="md-subhead">Directory</h4>
+            <h4 class="md-subhead">
+              <div class="subhead-border" ng-style="{background: primaryColorRgb}"></div>
+              Directory
+            </h4>
             
             <loading-gif data-object='wiscDirectoryResults' data-empty="wiscDirectoryResultsEmpty"></loading-gif>
             <div ng-show="wiscDirectoryResultsEmpty && !wiscDirectoryTooManyResults" class='no-result'>
@@ -83,7 +88,10 @@
 
           <!--Campus domain results-->
           <div ng-show="googleSearchEnabled" class="search-results-container">
-            <h4 class="md-subhead">{{domainResultsLabel}}</h4>
+            <h4 class="md-subhead">
+              <div class="subhead-border" ng-style="{background: primaryColorRgb}"></div>
+              {{domainResultsLabel}}
+            </h4>
 
             <loading-gif data-object='googleResults' data-empty='googleEmptyResults'></loading-gif>
             <div ng-show="googleResults.length === 0" class='no-result'>
@@ -133,7 +141,10 @@
         <md-content>
           <!-- MyUW results -->
           <div class='search-results-container'>
-            <h4 class="md-subhead">MyUW</h4>
+            <h4 class="md-subhead">
+              <div class="subhead-border" ng-style="{background: primaryColorRgb}"></div>
+              MyUW
+            </h4>
             
             <loading-gif data-object='myuwResults'></loading-gif>
             <div ng-show="myuwResults.length != 0 && myuwFilteredResults.length == 0" class='no-result'>
@@ -169,7 +180,10 @@
         <md-content>
           <!-- Wisc directory results-->
           <div ng-show="directoryEnabled" class="search-results-container">
-            <h4 class="md-subhead">Directory</h4>
+            <h4 class="md-subhead">
+              <div class="subhead-border" ng-style="{background: primaryColorRgb}"></div>
+              Directory
+            </h4>
             
             <loading-gif data-object='wiscDirectoryResults' data-empty="wiscDirectoryResultsEmpty"></loading-gif>
             <div ng-show="wiscDirectoryResultsEmpty && !wiscDirectoryTooManyResults" class='no-result'>
@@ -226,7 +240,10 @@
         <md-content>
           <!--Campus domain results-->
           <div ng-show="googleSearchEnabled" class="search-results-container">
-            <h4 class="md-subhead">{{domainResultsLabel}}</h4>
+            <h4 class="md-subhead">
+              <div class="subhead-border" ng-style="{background: primaryColorRgb}"></div>
+              {{domainResultsLabel}}
+            </h4>
             
             <loading-gif data-object='googleResults' data-empty='googleEmptyResults'></loading-gif>
             <div ng-show="googleResults.length === 0" class='no-result'>
