@@ -1,7 +1,6 @@
 .search-results {
   background-color: @white;
-  background-color: #fff;
-  margin:15px;
+  margin: 15px;
   padding: 3px 0 0;
   .no-result {
     padding: 10px 0 5px;
@@ -9,11 +8,7 @@
   hr {
     margin: 0;
   }
-  .inner-nav-container .inner-nav li {
-    &:focus {
-      outline:0;
-    }
-  }
+
   h4.header, .seeMoreResults {
     margin: 10px 0 5px;
   }
@@ -26,26 +21,29 @@
   .result {
     padding: 5px 0 5px;
     h4 {
-      font-weight:400;
-      margin-bottom:0px;
+      font-weight: 400;
+      margin-bottom: 0;
     }
     p {
-      margin:0px;
+      margin: 0;
       b {
         font-weight: 600;
       }
     }
-    a.add {
-      margin-right:15px;
+    .md-button.add {
+      margin-left: 0;
       &:hover {
-        cursor:pointer;
+        cursor: pointer;
       }
     }
     .added {
-      margin-right:15px;
+      margin-right: 15px;
     }
     .rating {
-      margin-left:20px;
+      margin-left: 20px;
     }
+  }
+  .md-tab {
+    text-transform: none;
   }
 }

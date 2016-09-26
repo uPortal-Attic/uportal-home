@@ -1,144 +1,250 @@
-<div class="row search-results">
-  <div ng-show="googleSearchEnabled || directoryEnabled" class="inner-nav-container">
-    <ul class="inner-nav">
-      <li class="active" ng-click="filterTo('all')" id="all-selector">
-        <a>All ({{ totalCount }})</a>
-      </li>
-      <li ng-click="filterTo('myuw')" id="myuw-selector">
-        <a>MyUW ({{myuwFilteredResults.length}})</a>
-      </li>
-      <li ng-show="directoryEnabled" ng-click="filterTo('directory')" id="directory-selector">
-        <a>Directory ({{wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount}})</a>
-      </li>
-      <li ng-show="googleSearchEnabled" ng-click="filterTo('google')" id="google-selector">
-        <a>{{domainResultsLabel}} ({{googleResultsEstimatedCount}})</a>
-      </li>
-    </ul>
-  </div>
+<md-content class="search-results">
+  <md-tabs md-dynamic-height md-border-bottom ng-show="googleSearchEnabled || directoryEnabled">
 
-  <div id="myuw-results" class='search-results-container'>
-    <div id="myuw-results-header">
-      <h4 class="header">MyUW</h4>
-      <hr>
-    </div>
-    <loading-gif data-object='myuwResults'></loading-gif>
-    <div ng-show="myuwResults.length != 0 && myuwFilteredResults.length == 0" class='no-result'>
-      No MyUW results. <a href="apps">Try browsing instead?</a>
-    </div>
-    <div ng-repeat="portlet in myuwFilteredResults = (myuwResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)" class="result">
-      <h4><a ng-href="{{getLaunchURL(portlet)}}" target="{{::portlet.target}}">{{ portlet.title }}</a> <small ng-if='GuestMode && !portlet.canAdd'>(login to use)</small></h4>
-      <p>{{ portlet.description }}</p>
-      <p>
-        <a ng-click="addToHome(portlet)"
-           ng-if="portlet.canAdd && !portlet.hasInLayout && !GuestMode"
-           class="add">
-          <i class="fa fa-plus"></i> Add to home
-        </a>
-        <span ng-if="portlet.canAdd && portlet.hasInLayout && !GuestMode"
-              class="added">
-          <i class="fa fa-check"></i> Added to home
-        </span>
-        <button class='btn btn-link' style='padding:0;' title='See more about {{portlet.title}}' ng-click='navToDetails(portlet, "Search")'>Details</button>
-        <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
-      </p>
-    </div>
-    <div class="marketplace-load-more" hide-while-loading ng-show="myuwFilteredResults.length > searchResultLimit">
-      <button class="btn btn-primary btn-lg"
-              ng-click="searchResultLimit = searchResultLimit + 20;"
-              hide-while-loading
-              ng-show="myuwFilteredResults.length > searchResultLimit"
-             >Load more MyUW results</button>
-    </div>
-  </div>
+    <!-- ALL RESULTS -->
+    <md-tab ng-click="filterTo('all')">
+      <md-tab-label>
+        All&nbsp;&nbsp;<span class="badge">{{ totalCount }}</span>
+      </md-tab-label>
+      <md-tab-body>
+        <md-content layout-padding>
+          <!-- MyUW results -->
+          <div class='search-results-container'>
+            <h4 class="header">MyUW</h4>
+            <hr>
+            <loading-gif data-object='myuwResults'></loading-gif>
+            <div ng-show="myuwResults.length != 0 && myuwFilteredResults.length == 0" class='no-result'>
+              No MyUW results. <a href="apps">Try browsing instead?</a>
+            </div>
+            <div ng-repeat="portlet in myuwFilteredResults = (myuwResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)"
+                 class="result">
+              <h4><a ng-href="{{getLaunchURL(portlet)}}" target="{{::portlet.target}}">{{ portlet.title }}</a> <small ng-if='GuestMode && !portlet.canAdd'>(login to use)</small></h4>
+              <p>{{ portlet.description }}</p>
+              <p>
+                <md-button ng-click="addToHome(portlet)"
+                   ng-if="portlet.canAdd && !portlet.hasInLayout && !GuestMode"
+                   class="md-primary add">
+                  <i class="fa fa-plus"></i> Add to home
+                </md-button>
+                <span ng-if="portlet.canAdd && portlet.hasInLayout && !GuestMode" class="added"><i class="fa fa-check"></i> Added to home</span>
+                <md-button class="md-default" title='See more about {{portlet.title}}' ng-click='navToDetails(portlet, "Search")'>Details</md-button>
+                <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
+              </p>
+            </div>
+            <marketplace-load-more ng-show="myuwFilteredResults.length > searchResultLimit"></marketplace-load-more>
+          </div>
 
-  <!--wisc directory results-->
-  <div ng-show="directoryEnabled" id="wisc-directory-results" class='search-results-container'>
-    <div id="wisc-directory-results-header">
-      <h4 class='header'>Directory</h4>
-      <hr>
-    </div>
-    <loading-gif data-object='wiscDirectoryResults' data-empty="wiscDirectoryResultsEmpty"></loading-gif>
-    <div ng-show="wiscDirectoryResultsEmpty && !wiscDirectoryTooManyResults" class='no-result'>
-      No directory results.
-    </div>
-    <div ng-repeat="item in wiscDirectoryResults | limitTo:wiscDirectoryResultLimit" class="result">
-      <h4>{{item.fullName}}</h4>
-      <p ng-if="item.formalName">Also known as {{item.formalName}}</p>
-      <p>
-        <a ng-repeat="email in item.emails" ng-href="mailto:{{email}}" target="_blank">{{email}}</a>
-        <a ng-repeat="phone in item.phones" ng-href="tel:{{phone}}" target="_blank">{{phone}}</a>
-      </p>
-      <div ng-if="showingDetails" class="result">
-        <div ng-if="item.address" class="moreDetails">
-          <p>{{item.address.room}}</p>
-          <p>{{item.address.streetAddress}}</p>
-          <p>{{item.address.cityStateZip}}</p>
-        </div>
-        <div ng-repeat="title in item.titles" class="moreDetails">
-          <p>Title: {{title.title}}</p>
-          <p>Division: {{title.division}}</p>
-          <p>Department: {{title.department}}</p>
-          <p>Unit: {{title.subdepartment}}</p>
-        </div>
-      </div>
-      <div ng-click="showingDetails=!showingDetails">
-        <p>
-          <a href="javascript:;" ng-if="item.titles[0] || item.address">
-            <span ng-if="!showingDetails">See more</span>
-            <span ng-if="showingDetails">See less</span>
-          </a>
-        </p>
-      </div>
-    </div>
-    <div class="seeMoreResults">
-      <p ng-if="wiscDirectoryResultCount>wiscDirectoryResultLimit" id="wiscDirectorySeeMoreResults">
-        <a href="javascript:;" ng-click="filterTo('directory')">See all {{wiscDirectoryResultCount}} directory results</a>
-      </p>
-      <p ng-if="wiscDirectoryErrorMessage">
-          {{wiscDirectoryErrorMessage}}
-        </p>
-    </div>
+          <!-- Wisc directory results-->
+          <div ng-show="directoryEnabled" class="search-results-container">
+            <h4 class='header'>Directory</h4>
+            <hr>
+            <loading-gif data-object='wiscDirectoryResults' data-empty="wiscDirectoryResultsEmpty"></loading-gif>
+            <div ng-show="wiscDirectoryResultsEmpty && !wiscDirectoryTooManyResults" class='no-result'>
+              No directory results.
+            </div>
+            <div ng-repeat="item in wiscDirectoryResults | limitTo:wiscDirectoryResultLimit" class="result">
+              <h4>{{item.fullName}}</h4>
+              <p ng-if="item.formalName">Also known as {{item.formalName}}</p>
+              <p>
+                <a ng-repeat="email in item.emails" ng-href="mailto:{{email}}" target="_blank">{{email}}</a>
+                <a ng-repeat="phone in item.phones" ng-href="tel:{{phone}}" target="_blank">{{phone}}</a>
+              </p>
+              <div ng-if="showingDetails" class="result">
+                <div ng-if="item.address" class="moreDetails">
+                  <p>{{item.address.room}}</p>
+                  <p>{{item.address.streetAddress}}</p>
+                  <p>{{item.address.cityStateZip}}</p>
+                </div>
+                <div ng-repeat="title in item.titles" class="moreDetails">
+                  <p>Title: {{title.title}}</p>
+                  <p>Division: {{title.division}}</p>
+                  <p>Department: {{title.department}}</p>
+                  <p>Unit: {{title.subdepartment}}</p>
+                </div>
+              </div>
+              <div ng-click="showingDetails=!showingDetails">
+                <p>
+                  <a href="" ng-if="item.titles[0] || item.address">
+                    <span ng-if="!showingDetails">See more</span>
+                    <span ng-if="showingDetails">See less</span>
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div class="seeMoreResults">
+              <p ng-if="wiscDirectoryResultCount>wiscDirectoryResultLimit" id="wiscDirectorySeeMoreResults">
+                <a href="" ng-click="filterTo('directory')">See all {{wiscDirectoryResultCount}} directory results</a>
+              </p>
+              <p ng-if="wiscDirectoryErrorMessage">
+                {{wiscDirectoryErrorMessage}}
+              </p>
+            </div>
+          </div>
 
-  </div>
+          <!--Campus domain results-->
+          <div ng-show="googleSearchEnabled" class="search-results-container">
+            <h4 class='header'>{{domainResultsLabel}}</h4>
+            <hr>
+            <loading-gif data-object='googleResults' data-empty='googleEmptyResults'></loading-gif>
+            <div ng-show="googleResults.length === 0" class='no-result'>
+              No {{domainResultsLabel}} results.
+            </div>
+            <div ng-repeat="item in googleResults" class="result">
+              <h4><a ng-href="{{item.clicktrackUrl}}" target="_blank" ng-bind-html="item.title"></a></h4>
+              <p ng-bind-html="item.content"></p>
+              <p>
+                <a ng-href="{{item.clicktrackUrl}}" ng-bind-html="item.formattedUrl"></a>
+              </p>
 
-  <!--Campus Domain results-->
-  <div ng-show="googleSearchEnabled" id="wisc-edu-results" class='search-results-container'>
-    <div id="wisc-edu-results-header">
-      <h4 class='header'>{{domainResultsLabel}}</h4>
-      <hr>
-    </div>
-    <loading-gif data-object='googleResults' data-empty='googleEmptyResults'></loading-gif>
-    <div ng-show="googleResults.length === 0" class='no-result'>
-      No {{domainResultsLabel}} results.
-    </div>
-    <div ng-repeat="item in googleResults" class="result">
-      <h4><a ng-href="{{item.clicktrackUrl}}" target="_blank" ng-bind-html="item.title"></a></h4>
-      <p ng-bind-html="item.content"></p>
-      <p>
-        <a ng-href="{{item.clicktrackUrl}}" ng-bind-html="item.formattedUrl"></a>
-      </p>
+            </div>
+            <div>
+              <h4 ng-if="webSearchUrl && !googleEmptyResults"><a ng-href="{{webSearchUrl + searchText}}" target="_blank">View more results for {{searchText}} on {{domainResultsLabel}}</a></h4>
+            </div>
+          </div>
 
-    </div>
-    <div>
-      <h4 ng-if="webSearchUrl && !googleEmptyResults"><a ng-href="{{webSearchUrl + searchText}}" target="_blank">View more results for {{searchText}} on {{domainResultsLabel}}</a></h4>
-    </div>
-  </div>
+          <!-- No search results found -->
+          <div id="no-results" class="search-results-container" ng-show="totalCount === 0">
+            <p><strong>No matches.</strong></p>
+            <p>Suggestions:</p>
+            <p ng-if="kbSearchUrl">
+              Search the <a ng-href="{{kbSearchUrl}}{{searchText}}" target="_blank">KnowledgeBase</a>
+            </p>
+            <p ng-if="eventsSearchUrl">
+              Look for <a ng-href="{{eventsSearchUrl}}{{searchText}}" target="_blank">events</a>
+            </p>
+            <p ng-if="helpdeskUrl">
+              Get help from the <a ng-href="{{helpdeskUrl}}" target="_blank">Help Desk</a>
+            </p>
+            <p ng-if="feedbackUrl">
+              <a ng-href="{{feedbackUrl}}" target="_blank">Give feedback </a>on MyUW search
+            </p>
+          </div>
+        </md-content>
+      </md-tab-body>
+    </md-tab>
 
-  <!-- No search results found -->
-  <div id="no-results" class="search-results-container" ng-show="totalCount === 0">
-    <p><strong>No matches.</strong></p>
-    <p>Suggestions:</p>
-    <p ng-if="kbSearchUrl">
-      Search the <a ng-href="{{kbSearchUrl}}{{searchText}}" target="_blank">KnowledgeBase</a>
-    </p>
-    <p ng-if="eventsSearchUrl">
-      Look for <a ng-href="{{eventsSearchUrl}}{{searchText}}" target="_blank">events</a>
-    </p>
-    <p ng-if="helpdeskUrl">
-      Get help from the <a ng-href="{{helpdeskUrl}}" target="_blank">Help Desk</a>
-    </p>
-    <p ng-if="feedbackUrl">
-      <a ng-href="{{feedbackUrl}}" target="_blank">Give feedback </a>on MyUW search
-    </p>
-  </div>
-</div>
+    <!-- MyUW RESULTS ONLY -->
+    <md-tab ng-click="filterTo('myuw')">
+      <md-tab-label>
+        MyUW&nbsp;&nbsp;<span class="badge">{{ myuwFilteredResults.length }}</span>
+      </md-tab-label>
+      <md-tab-body>
+        <md-content layout-padding>
+          <!-- MyUW results -->
+          <div class='search-results-container'>
+            <h4 class="header">MyUW</h4>
+            <hr>
+            <loading-gif data-object='myuwResults'></loading-gif>
+            <div ng-show="myuwResults.length != 0 && myuwFilteredResults.length == 0" class='no-result'>
+              No MyUW results. <a href="apps">Try browsing instead?</a>
+            </div>
+            <div ng-repeat="portlet in myuwFilteredResults = (myuwResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)"
+                 class="result">
+              <h4><a ng-href="{{getLaunchURL(portlet)}}" target="{{::portlet.target}}">{{ portlet.title }}</a> <small ng-if='GuestMode && !portlet.canAdd'>(login to use)</small></h4>
+              <p>{{ portlet.description }}</p>
+              <p>
+                <md-button ng-click="addToHome(portlet)"
+                           ng-if="portlet.canAdd && !portlet.hasInLayout && !GuestMode"
+                           class="md-primary add">
+                  <i class="fa fa-plus"></i> Add to home
+                </md-button>
+                <span ng-if="portlet.canAdd && portlet.hasInLayout && !GuestMode" class="added"><i class="fa fa-check"></i> Added to home</span>
+                <md-button class="md-default" title='See more about {{portlet.title}}' ng-click='navToDetails(portlet, "Search")'>Details</md-button>
+                <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
+              </p>
+            </div>
+            <marketplace-load-more ng-show="myuwFilteredResults.length > searchResultLimit"></marketplace-load-more>
+          </div>
+        </md-content>
+      </md-tab-body>
+    </md-tab>
+
+    <!-- DIRECTORY RESULTS ONLY -->
+    <md-tab ng-show="directoryEnabled" ng-click="filterTo('directory')">
+      <md-tab-label>
+        Directory&nbsp;&nbsp;<span class="badge">{{ wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount }}</span>
+      </md-tab-label>
+      <md-tab-body>
+        <md-content layout-padding>
+          <!-- Wisc directory results-->
+          <div ng-show="directoryEnabled" class="search-results-container">
+            <h4 class='header'>Directory</h4>
+            <hr>
+            <loading-gif data-object='wiscDirectoryResults' data-empty="wiscDirectoryResultsEmpty"></loading-gif>
+            <div ng-show="wiscDirectoryResultsEmpty && !wiscDirectoryTooManyResults" class='no-result'>
+              No directory results.
+            </div>
+            <div ng-repeat="item in wiscDirectoryResults | limitTo:wiscDirectoryResultLimit" class="result">
+              <h4>{{item.fullName}}</h4>
+              <p ng-if="item.formalName">Also known as {{item.formalName}}</p>
+              <p>
+                <a ng-repeat="email in item.emails" ng-href="mailto:{{email}}" target="_blank">{{email}}</a>
+                <a ng-repeat="phone in item.phones" ng-href="tel:{{phone}}" target="_blank">{{phone}}</a>
+              </p>
+              <div ng-if="showingDetails" class="result">
+                <div ng-if="item.address" class="moreDetails">
+                  <p>{{item.address.room}}</p>
+                  <p>{{item.address.streetAddress}}</p>
+                  <p>{{item.address.cityStateZip}}</p>
+                </div>
+                <div ng-repeat="title in item.titles" class="moreDetails">
+                  <p>Title: {{title.title}}</p>
+                  <p>Division: {{title.division}}</p>
+                  <p>Department: {{title.department}}</p>
+                  <p>Unit: {{title.subdepartment}}</p>
+                </div>
+              </div>
+              <div ng-click="showingDetails=!showingDetails">
+                <p>
+                  <a href="" ng-if="item.titles[0] || item.address">
+                    <span ng-if="!showingDetails">See more</span>
+                    <span ng-if="showingDetails">See less</span>
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div class="seeMoreResults">
+              <p ng-if="wiscDirectoryResultCount>wiscDirectoryResultLimit" id="wiscDirectorySeeMoreResults">
+                <a href="" ng-click="filterTo('directory')">See all {{wiscDirectoryResultCount}} directory results</a>
+              </p>
+              <p ng-if="wiscDirectoryErrorMessage">
+                {{wiscDirectoryErrorMessage}}
+              </p>
+            </div>
+          </div>
+        </md-content>
+      </md-tab-body>
+    </md-tab>
+
+    <!-- GOOGLE CUSTOM SEARCH RESULTS ONLY -->
+    <md-tab ng-show="googleSearchEnabled" ng-click="filterTo('google')">
+      <md-tab-label>
+        {{domainResultsLabel}}&nbsp;&nbsp;<span class="badge">{{ googleResultsEstimatedCount }}</span>
+      </md-tab-label>
+      <md-tab-body>
+        <md-content layout-padding>
+          <!--Campus domain results-->
+          <div ng-show="googleSearchEnabled" class="search-results-container">
+            <h4 class='header'>{{domainResultsLabel}}</h4>
+            <hr>
+            <loading-gif data-object='googleResults' data-empty='googleEmptyResults'></loading-gif>
+            <div ng-show="googleResults.length === 0" class='no-result'>
+              No {{domainResultsLabel}} results.
+            </div>
+            <div ng-repeat="item in googleResults" class="result">
+              <h4><a ng-href="{{item.clicktrackUrl}}" target="_blank" ng-bind-html="item.title"></a></h4>
+              <p ng-bind-html="item.content"></p>
+              <p>
+                <a ng-href="{{item.clicktrackUrl}}" ng-bind-html="item.formattedUrl"></a>
+              </p>
+
+            </div>
+            <div>
+              <h4 ng-if="webSearchUrl && !googleEmptyResults"><a ng-href="{{webSearchUrl + searchText}}" target="_blank">View more results for {{searchText}} on {{domainResultsLabel}}</a></h4>
+            </div>
+          </div>
+        </md-content>
+      </md-tab-body>
+    </md-tab>
+  </md-tabs>
+</md-content>
