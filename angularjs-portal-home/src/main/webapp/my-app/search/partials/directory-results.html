@@ -1,0 +1,46 @@
+<h4 class="md-subhead">
+  <div class="subhead-border" ng-style="{background: primaryColorRgb}"></div>
+  Directory
+</h4>
+
+<loading-gif data-object='wiscDirectoryResults' data-empty="wiscDirectoryResultsEmpty"></loading-gif>
+<div ng-show="wiscDirectoryResultsEmpty && !wiscDirectoryTooManyResults" class='no-result'>
+  No directory results.
+</div>
+<div class="result" ng-repeat="item in wiscDirectoryResults | limitTo:wiscDirectoryResultLimit">
+  <h4>{{item.fullName}}</h4>
+  <p ng-if="item.formalName">Also known as {{item.formalName}}</p>
+  <p>
+    <a ng-repeat="email in item.emails" ng-href="mailto:{{email}}" target="_blank">{{email}}</a>
+    <a ng-repeat="phone in item.phones" ng-href="tel:{{phone}}" target="_blank">{{phone}}</a>
+  </p>
+  <div ng-if="showingDetails" class="result">
+    <div ng-if="item.address" class="moreDetails">
+      <p>{{item.address.room}}</p>
+      <p>{{item.address.streetAddress}}</p>
+      <p>{{item.address.cityStateZip}}</p>
+    </div>
+    <div ng-repeat="title in item.titles" class="moreDetails">
+      <p>Title: {{title.title}}</p>
+      <p>Division: {{title.division}}</p>
+      <p>Department: {{title.department}}</p>
+      <p>Unit: {{title.subdepartment}}</p>
+    </div>
+  </div>
+  <div ng-click="showingDetails=!showingDetails">
+    <p>
+      <a href="" ng-if="item.titles[0] || item.address">
+        <span ng-if="!showingDetails">See more</span>
+        <span ng-if="showingDetails">See less</span>
+      </a>
+    </p>
+  </div>
+</div>
+<div class="seeMoreResults">
+  <p ng-if="wiscDirectoryResultCount>wiscDirectoryResultLimit">
+    <a href="" ng-click="filterTo('directory')">See all {{wiscDirectoryResultCount}} directory results</a>
+  </p>
+  <p ng-if="wiscDirectoryErrorMessage">
+    {{wiscDirectoryErrorMessage}}
+  </p>
+</div>

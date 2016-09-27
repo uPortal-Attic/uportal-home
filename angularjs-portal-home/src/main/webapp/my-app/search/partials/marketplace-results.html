@@ -1,0 +1,23 @@
+<h4 class="md-subhead">
+  <div class="subhead-border" ng-style="{background: primaryColorRgb}"></div>
+  MyUW
+</h4>
+<loading-gif data-object='myuwResults'></loading-gif>
+<div ng-show="myuwResults.length != 0 && myuwFilteredResults.length == 0" class='no-result'>
+  No MyUW results. <a href="apps">Try browsing instead?</a>
+</div>
+<div class="result" ng-repeat="portlet in myuwFilteredResults = (myuwResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)">
+  <h4><a ng-href="{{getLaunchURL(portlet)}}" target="{{::portlet.target}}">{{ portlet.title }}</a> <small ng-if='GuestMode && !portlet.canAdd'>(login to use)</small></h4>
+  <p>{{ portlet.description }}</p>
+  <p>
+    <md-button ng-click="addToHome(portlet)"
+               ng-if="portlet.canAdd && !portlet.hasInLayout && !GuestMode"
+               class="md-primary add" aria-label="add {{ portlet.title }} to home">
+      <i class="fa fa-plus"></i> Add to home
+    </md-button>
+    <span ng-if="portlet.canAdd && portlet.hasInLayout && !GuestMode" class="added"><i class="fa fa-check"></i> Added to home</span>
+    <md-button class="md-default" aria-label="See more about {{portlet.title}}" ng-click='navToDetails(portlet, "Search")'>Details</md-button>
+    <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
+  </p>
+</div>
+<marketplace-load-more layout="row" layout-align="center center" ng-show="myuwResults.length > searchResultLimit"></marketplace-load-more>

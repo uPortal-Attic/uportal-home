@@ -30,6 +30,7 @@ define([
     './rating/components',
     './rating/controllers',
     './search/controllers',
+    './search/directives',
     './search/services'
 ], function(angular, require, marketplaceRoutes, listRoute, notificationsRoute, portalSettingsRoutes,
 			featuresRoute, aboutRoute, layoutRoute, staticRoutes, widgetRoutes, searchRoutes) {
@@ -50,6 +51,7 @@ define([
         'my-app.rating.components',
         'my-app.rating.controllers',
         'my-app.search.controllers',
+        'my-app.search.directives',
         'my-app.search.services',
         'ngRoute',
         'ngSanitize',
