@@ -19,7 +19,6 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
                 $scope.filterMatches = [];
                 return;
             }
-
             $scope.filterMatches = marketplaceService.filterPortletsBySearchTerm($scope.portlets, newVal);
         });
 
@@ -87,46 +86,9 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         );
       };
 
-      $scope.filterTo = function(filterName) {
-        $('.search-results .inner-nav li').removeClass('active');
-        if (filterName == 'all') {
-          $('#all-selector').addClass('active');
-          $('#myuw-results').show();
-          $('#myuw-results-header').show();
-          $('#wisc-directory-results').show();
-          $('#wisc-directory-results-header').show();
-          $('#wisc-edu-results').show();
-          $('#wisc-edu-results-header').show();
-          $('#wiscDirectorySeeMoreResults').show();
-          initwiscDirectoryResultLimit();
-        } else if (filterName == 'myuw') {
-          $('#myuw-selector').addClass('active');
-          $('#myuw-results').show();
-          $('#myuw-results-header').hide();
-          $('#wisc-directory-results').hide();
-          $('#wisc-edu-results').hide();
-          $('#wiscDirectorySeeMoreResults').hide();
-        } else if (filterName == 'directory') {
-          $('#directory-selector').addClass('active');
-          $('#wisc-directory-results').show();
-          $('#wisc-directory-results-header').hide();
-          $('#myuw-results').hide();
-          $('#wisc-edu-results').hide();
-          $('#wiscDirectorySeeMoreResults').hide();
-          $scope.wiscDirectoryResultLimit = 25;
-        } else if (filterName == 'google') {
-          $('#google-selector').addClass('active');
-          $('#wisc-edu-results').show();
-          $('#wisc-edu-results-header').hide();
-          $('#myuw-results').hide();
-          $('#wisc-directory-results').hide();
-          $('#wiscDirectorySeeMoreResults').hide();
-        }
-      };
-
       var initwiscDirectoryResultLimit = function(){
           $scope.wiscDirectoryResultLimit = 3;
-      }
+      };
 
       var init = function(){
         $scope.sortParameter = ['-rating','-userRated'];

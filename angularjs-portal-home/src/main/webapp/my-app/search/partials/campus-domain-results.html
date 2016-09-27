@@ -1,0 +1,21 @@
+<h4 class="md-subhead">
+  <div class="subhead-border" ng-style="{background: primaryColorRgb}"></div>
+  {{domainResultsLabel}}
+</h4>
+
+<loading-gif data-object='googleResults' data-empty='googleEmptyResults'></loading-gif>
+<div ng-show="googleResults.length === 0" class='no-result'>
+  No {{domainResultsLabel}} results.
+</div>
+<div ng-repeat="item in googleResults" class="result">
+  <h4><a ng-href="{{item.clicktrackUrl}}" target="_blank" ng-bind-html="item.title"></a></h4>
+  <p ng-bind-html="item.content"></p>
+  <p>
+    <a ng-href="{{item.clicktrackUrl}}" ng-bind-html="item.formattedUrl"></a>
+  </p>
+</div>
+<div layout="row" layout-align="center center" layout-padding>
+  <md-button ng-if="webSearchUrl && !googleEmptyResults" class="md-primary md-raised" ng-href="{{webSearchUrl + searchText}}" aria-label="view more results for {{searchText}} on {{domainResultsLabel}}">
+    <i class="fa fa-external-link"></i> View more results
+  </md-button>
+</div>
