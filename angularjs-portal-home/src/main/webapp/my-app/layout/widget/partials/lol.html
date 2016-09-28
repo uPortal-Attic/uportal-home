@@ -27,9 +27,8 @@
 </div>
 
 <!-- LAUNCH BUTTON -->
-<a ng-if='config.launchText && portlet.url'
-   class="launch-app-button"
-   ng-href="portlet.url"
-   target="_blank">
-  {{config.launchText}}
-</a>
+  <launch-button ng-if='config.launchText && portlet.url'
+                 data-href="{{portlet.url}}"
+                 data-target="{{portlet.target}}"
+                 data-button-text="{{config.launchText}}"
+                 data-aria-label="{{'launch ' + config.launchText}}"></launch-button>
