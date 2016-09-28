@@ -1,6 +1,15 @@
  
 ## Widget types
 
+MyUW widgets are designed to be flexible - users can accomplish or access a single task or piece of information, or they can access 
+a collection of related things that will help them accomplish their task. Widgets can:
+
+* Provide users with real-time, continuous info about their account (e.g. list of pay statements in the Payroll Information widget, Wiscard balance in the Wiscard widget)
+* Provide users with a snapshot of information that may impact their decision to take an action (e.g. adding money to my Wiscard)
+* Support periodic user action (e.g. viewing pay statements)
+* Allow users to quickly access pieces of the app to complete key or regular tasks (e.g. Course Services, My Professional Development, Course Guide)
+* Provide users with at-a-glance information that represents the main use for the widget (e.g. Weather)
+
 The following widget types are available and one of the should (hopefully) meet your needs. They are all intended to 
 save developers the time and effort required to make a custom widget.
 
@@ -15,7 +24,7 @@ Follow these steps for each of the widget types described in this doc:
 
 ### List of links
 
-![list of links widget](../img/list-of-links.png)
+![list of links widget](./img/list-of-links.png)
 
 ```
 <name>widgetType</name>
@@ -68,7 +77,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 
 ### Search with links
 
-![search with links widget](../img/search-with-links.png)
+![search with links widget](./img/search-with-links.png)
 
 ```
 <name>widgetType</name>
@@ -116,7 +125,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 
 ### RSS widget
 
-![rss widget](../img/rss.png)
+![rss widget](./img/rss.png)
 
 ```
 <name>widgetType</name>
