@@ -84,26 +84,30 @@
       </div>
 
       <!-- For basic apps (not a widget, not simple content, no pithy content), show only an icon -->
-      <a tabindex="-1" ng-switch-when="NORMAL" ng-href="{{widgetCtrl.renderURL(portlet)}}" target="{{portlet.target}}" class="normal-widget">
-        <div class="widget-icon-container" layout="column" layout-align="center center">
-          <portlet-icon></portlet-icon>
-        </div>
+      <div ng-switch-when="NORMAL">
+        <a tabindex="-1" ng-href="{{widgetCtrl.renderURL(portlet)}}" target="{{portlet.target}}" class="normal-widget">
+          <div class="widget-icon-container" layout="column" layout-align="center center">
+            <portlet-icon></portlet-icon>
+          </div>
+        </a>
         <button aria-labelledby="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}" class="launch-app-button">
           <span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>
           <span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>
         </button>
-      </a>
+      </div>
 
       <!-- For simple content portlets, show only an icon -->
-      <a tabindex="-1" ng-switch-when="SIMPLE" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="normal-widget">
-        <div class="widget-icon-container" layout="column" layout-align="center center">
-          <portlet-icon></portlet-icon>
-        </div>
+      <div ng-switch-when="SIMPLE">
+        <a tabindex="-1" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="normal-widget">
+          <div class="widget-icon-container" layout="column" layout-align="center center">
+            <portlet-icon></portlet-icon>
+          </div>
+        </a>
         <button aria-labelledby="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}" class="launch-app-button">
           <span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>
           <span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>
         </button>
-      </a>
+      </div>
 
     </div>
   </md-card-content>
