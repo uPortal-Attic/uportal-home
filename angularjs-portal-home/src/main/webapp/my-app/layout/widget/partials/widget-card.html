@@ -1,4 +1,4 @@
-<md-card class="widget-frame" id="portlet-id-{{portlet.nodeId}}">
+<md-card class="widget-frame" id="portlet-id-{{portlet.nodeId}}" aria-label="{{ portlet.title }} widget">
 
   <!-- HEADER -->
   <md-card-header class="widget-header">
@@ -15,7 +15,7 @@
     </div>
 
     <md-card-header-text>
-      <span class='md-title' style='text-align: center;' id="appTitle_portlet.title-{{portlet.nodeId}}" aria-labelledby="appTitle_portlet.title-{{portlet.nodeId}}" tabindex="0">{{portlet.title }}</span>
+      <span class='md-title' style='text-align: center;' id="appTitle_portlet.title-{{portlet.nodeId}}" aria-labelledby="appTitle_portlet.title-{{portlet.nodeId}}" tabindex="0">{{ portlet.title }}</span>
     </md-card-header-text>
   </md-card-header>
 
