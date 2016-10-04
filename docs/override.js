@@ -16,6 +16,18 @@ define(['angular'], function(angular) {
           'MISC_URLS' : {
             'rootURL' : '#/',
             'loginURL' : 'https://github.com/UW-Madison-DoIT/angularjs-portal'
+          },
+          'SERVICE_LOC' : {
+            'notificationsURL' : null,
+            'kvURL' : null,
+            'groupURL' : null,
+            'loginSilentURL' : null
+          },
+          'NOTIFICATION' : {
+            enabled : false
+          },
+          'FEATURES' : {
+            enabled: false
           }
         })
 
