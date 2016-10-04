@@ -1,7 +1,7 @@
-Expanded mode (also referred to as widget mode) is a new method of displaying important content to users about your application. Use it to display 
+Expanded mode (also referred to as widget mode) is a new method of displaying important content to users about your application. Use it to display
 the most important information, which can be user specific.
 
-![expanded mode widgets](../img/expanded-mode.png)
+![expanded mode widgets](./img/expanded-mode.png)
 
 There are a number of different [widget types](#/md/widgets) pictured in the image above, but all of them contain the following features/information:
 * Configurable title text

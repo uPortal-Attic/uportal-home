@@ -6,7 +6,10 @@
     "pretest": "mvn clean package",
     "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run",
 	"prestart": "mvn package",
-	"start": "mvn jetty:run"
+	"start": "mvn jetty:run",
+  "predocs" : "./build-docs-local.sh",
+  "docs" : "cd doc_target/gh-pages/ && http-server",
+  "update-docs" : "./update-docs.sh"
   },
   "repository": {
     "type": "git",
