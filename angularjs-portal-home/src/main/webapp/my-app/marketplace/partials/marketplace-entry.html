@@ -75,12 +75,14 @@
 
 	<!-- CATEGORIES ROW -->
 	<div layout="row" class="category-list" ng-if="portlet.categories.length > 0">
-		<a ng-repeat="category in portlet.categories"
-		   ng-if="portlet.categories.length > 0"
-		   ng-click="selectFilter('category',category)"
-		   class="btn btn-outline btn-sm category-links">
-			{{::category}}
-		</a>
+    <md-chips ng-if="portlet.categories.length > 0"
+              ng-model="portlet.categories"
+              readonly="true"
+              md-removable="false">
+      <md-chip-template>
+        <a ng-click="selectFilter('category', $chip)">{{ $chip }}</a>
+      </md-chip-template>
+    </md-chips>
 	</div>
 
   <!-- Action buttons for mobile -->

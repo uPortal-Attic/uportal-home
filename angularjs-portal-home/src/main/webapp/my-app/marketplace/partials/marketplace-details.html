@@ -72,13 +72,15 @@
                         </ul>
                     </div>
                     <div class="desc-item">
-                        <h3 tabindex="0" class="md-title">Categories</h3>
-                        <div layout="row">
-                            <md-button ng-repeat="category in portlet.categories"
-                                       ng-href="apps" ng-click="specifyCategory(category)"
-                                       class="md-raised md-accent category-links">{{::category}}
-                            </md-button>
-                        </div>
+                      <h3 tabindex="0" class="md-title">Categories</h3>
+                      <md-chips ng-if="portlet.categories.length > 0"
+                                ng-model="portlet.categories"
+                                readonly="true"
+                                md-removable="false">
+                        <md-chip-template>
+                          <a ng-href="apps" ng-click="specifyCategory($chip)">{{ $chip }}</a>
+                        </md-chip-template>
+                      </md-chips>
                     </div>
                     <div class="desc-item" ng-if="portlet.marketplaceScreenshots.length != 0">
                         <h3 tabindex="0" class="md-title">Screenshots</h3>

@@ -52,7 +52,6 @@
         .rating {
           margin-left: 0;
         }
-        /* TODO: Change default my-uw CSS to add underline to links that are :not(.md-button) */
         a.md-button:hover {
           text-decoration: none;
         }
@@ -81,6 +80,11 @@
     }
     .loading-gif {
       text-align: center;
+    }
+    .show-categories {
+      padding:10px;
+      display:inline-block;
+      background-color:@white;
     }
     @media (min-width:600px) {
       margin: 15px;
@@ -267,53 +271,6 @@
       }
     }
   }
-  /* MARKETPLACE CATEGORIES */
-  .category-links {
-    background-color:@white;
-    color:@categoryBlue;
-    border-color: @categoryBlue;
-    margin: 3px;
-    transition: @button-transition;
-    &:first-child {
-      margin-left: 0;
-    }
-    &:hover {
-      text-decoration:none;
-      background-color:@categoryBlue;
-      color:@white;
-      opacity:1.0;
-    }
-  }
-  .show-categories {
-    padding:10px;
-    border-bottom:1px solid @grayscale4;
-    display:inline-block;
-    width:100%;
-    background-color:@white;
-    .category-links:first-child {
-      margin-left: 3px;
-    }
-    a {
-      float:left;
-      display:block;
-      margin:3px;
-      transition: @button-transition;
-    }
-    a:hover {
-      cursor:pointer;
-    }
-    p {
-      float:left;
-      display:block;
-      padding:5px 10px 0 10px;
-      margin:0;
-    }
-    .selected-category {
-      background-color:@categoryBlue;
-      color:@white;
-      opacity:1.0;
-    }
-  }
 }
 
 /*--------------*/
@@ -383,10 +340,10 @@
     a.md-accent.md-raised {
       &.category-links {
         background-color: @white;
-        color: @categoryBlue;
+        color: @category-blue;
         margin: 6px 8px;
         &:hover {
-          background-color: @categoryBlue;
+          background-color: @category-blue;
           color: @white;
         }
       }
@@ -529,6 +486,31 @@
       }
       button.md-raised.fixed-width {
         width: 100%;
+      }
+    }
+  }
+}
+
+/*-------------------*/
+/* MARKETPLACE CHIPS */
+/*-------------------*/
+.marketplace, .portlet-details-page {
+  .md-chips {
+    box-shadow: none;
+    .md-chip {
+      transition: @button-transition;
+      a:not(.md-button):not(.btn):not(.launch-app-button) {
+        color: rgb(66,66,66);
+        display: block;
+        &.selected-category {
+          color: @category-blue;
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      &:hover {
+        background: rgb(193,193,193);
       }
     }
   }
