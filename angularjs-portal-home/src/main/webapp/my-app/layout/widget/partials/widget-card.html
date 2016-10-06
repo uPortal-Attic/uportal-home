@@ -3,16 +3,18 @@
   <!-- HEADER -->
   <md-card-header class="widget-header">
     <!-- Widget Chrome -->
-    <div class='widget-info'>
-      <i title="Info" class="fa fa-info-circle"
-      tooltip="{{portlet.description}}"
-      tooltip-trigger="mouseenter"
-      tooltip-placement="top"
-      tooltip-popup-delay="200"></i>
-    </div>
-    <div class='widget-remove' ng-hide='GuestMode || cantRemove'>
-      <i title="Remove" class="fa fa-times portlet-options" ng-click="widgetCtrl.removePortlet(portlet.nodeId, portlet.title)"><a aria-label="Remove this app" href="#"></a></i>
-    </div>
+    <md-button class="widget-action widget-info md-icon-button" aria-label="see a brief description of this app">
+      <md-tooltip md-direction="top" class="widget-action-tooltip">
+        {{portlet.description}}
+      </md-tooltip>
+      <md-icon>info</md-icon>
+    </md-button>
+    <md-button class="widget-action widget-remove md-icon-button"
+               aria-label="remove this widget from your home screen"
+               ng-click="widgetCtrl.removePortlet(portlet.nodeId, portlet.title)"
+               ng-hide="GuestMode || cantRemove">
+      <md-icon>close</md-icon>
+    </md-button>
 
     <md-card-header-text>
       <span class='md-title' style='text-align: center;' id="appTitle_portlet.title-{{portlet.nodeId}}" aria-labelledby="appTitle_portlet.title-{{portlet.nodeId}}" tabindex="0">{{ portlet.title }}</span>
