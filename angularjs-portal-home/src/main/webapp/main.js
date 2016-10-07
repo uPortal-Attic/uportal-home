@@ -55,7 +55,6 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
               //for some really weird reason the $sessionStorage here isn't being
               //persisted to real session storage, so we have to do it manually.
               $sessionStorage.$apply();
-              }
             }
           });
         } else {
