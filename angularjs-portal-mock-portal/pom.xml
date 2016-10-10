@@ -3,7 +3,7 @@
   <parent>
     <groupId>edu.wisc.my.portal.angular</groupId>
     <artifactId>angularjs-portal-parent</artifactId>
-    <version>5.4.0</version>
+    <version>5.4.1-SNAPSHOT</version>
   </parent>
   
   <artifactId>angularjs-portal-mock-portal</artifactId>
