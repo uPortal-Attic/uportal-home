@@ -10,7 +10,7 @@
       <md-icon>info</md-icon>
     </md-button>
     <md-button class="widget-action widget-remove md-icon-button"
-               aria-label="remove this widget from your home screen"
+               aria-label="remove {{ portlet.title }} widget from your home screen"
                ng-click="widgetCtrl.removePortlet(portlet.nodeId, portlet.title)"
                ng-hide="GuestMode || cantRemove">
       <md-icon>close</md-icon>
