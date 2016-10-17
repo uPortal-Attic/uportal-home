@@ -87,12 +87,12 @@
 
       <!-- For basic apps (not a widget, not simple content, no pithy content), show only an icon -->
       <div ng-switch-when="NORMAL">
-        <a tabindex="-1" ng-href="{{widgetCtrl.renderURL(portlet)}}" target="{{portlet.target}}" class="normal-widget">
+        <a tabindex="-1" ng-href="widgetCtrl.renderURL(portlet)" target="{{portlet.target}}" class="normal-widget">
           <div class="widget-icon-container" layout="column" layout-align="center center">
             <portlet-icon></portlet-icon>
           </div>
         </a>
-        <button aria-labelledby="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}" class="launch-app-button">
+        <button aria-labelledby="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}" class="launch-app-button" ng-href="widgetCtrl.renderURL(portlet)">
           <span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>
           <span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>
         </button>
@@ -105,7 +105,7 @@
             <portlet-icon></portlet-icon>
           </div>
         </a>
-        <button aria-labelledby="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}" class="launch-app-button">
+        <button aria-labelledby="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}" class="launch-app-button"  ng-click="widgetCtrl.maxStaticPortlet(portlet)">
           <span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>
           <span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>
         </button>
