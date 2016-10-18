@@ -1,5 +1,5 @@
 <md-content class="search-results">
-  <md-tabs md-dynamic-height md-border-bottom ng-show="googleSearchEnabled || directoryEnabled">
+  <md-tabs md-dynamic-height md-border-bottom >
 
     <!-- ALL RESULTS -->
     <md-tab>
@@ -24,7 +24,7 @@
           </div>
 
           <!-- No search results found -->
-          <div id="no-results" class="search-results-container" ng-show="totalCount === 0">
+          <div id="no-results" class="search-results-container search-results" ng-show="totalCount === 0">
             <p><strong>No matches.</strong></p>
             <p>Suggestions:</p>
             <p ng-if="kbSearchUrl">
@@ -45,7 +45,7 @@
     </md-tab>
 
     <!-- MyUW RESULTS ONLY -->
-    <md-tab>
+    <md-tab ng-if="googleSearchEnabled || directoryEnabled">
       <md-tab-label>
         MyUW&nbsp;&nbsp;<span class="badge">{{ myuwFilteredResults.length }}</span>
       </md-tab-label>
@@ -60,7 +60,7 @@
     </md-tab>
 
     <!-- DIRECTORY RESULTS ONLY -->
-    <md-tab ng-show="directoryEnabled">
+    <md-tab ng-if="directoryEnabled">
       <md-tab-label>
         Directory&nbsp;&nbsp;<span class="badge">{{ wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount }}</span>
       </md-tab-label>
@@ -75,7 +75,7 @@
     </md-tab>
 
     <!-- GOOGLE CUSTOM SEARCH RESULTS ONLY -->
-    <md-tab ng-show="googleSearchEnabled">
+    <md-tab ng-if="googleSearchEnabled">
       <md-tab-label>
         {{domainResultsLabel}}&nbsp;&nbsp;<span class="badge">{{ googleResultsEstimatedCount }}</span>
       </md-tab-label>
