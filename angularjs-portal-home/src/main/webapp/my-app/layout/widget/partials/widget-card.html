@@ -95,7 +95,7 @@
         <launch-button data-href="{{ widgetCtrl.renderURL(portlet) }}"
                        data-target="_blank"
                        data-button-text="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch full app' }}"
-                       data-aria-label="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}">
+                       data-aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch full app' }}">
         </launch-button>
       </div>
 
