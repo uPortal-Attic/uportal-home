@@ -10,12 +10,12 @@
   <!-- OPTION-LINK TEXT/CONTROLS -->
   <div class="option-link-controls">
     <!-- LOADING GIF IF EMPTY -->
-    <div ng-if="portlet.widgetData.length == 0" class="center">
+    <div ng-if="portlet.widgetData.length == 0" layout="row" layout-align="center center">
       <loading-gif data-object='portlet.widgetData'></loading-gif>
     </div>
     <!-- IF ONE ELEMENT -->
     <div ng-if="config.singleElement && (!portlet.widgetData[config.arrayName] || portlet.widgetData[config.arrayName].length == 0)"
-         class="center">
+         layout="row" layout-align="center center">
       <span title='{{portlet.widgetData[config.display].length > 26 ? portlet.widgetData[config.display] : ""}}'>
         {{portlet.widgetData[config.display] | trimMiddle:26}}
       </span>

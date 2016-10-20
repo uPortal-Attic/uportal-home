@@ -12,7 +12,7 @@
         </a>
       </li>
       <li ng-if='config.showShowing && config.lim && data.items.length > config.lim' class='no-highlight'>
-        <p class='center'>Showing {{config.lim}} of {{data.items.length}}</p>
+        <p>Showing {{config.lim}} of {{data.items.length}}</p>
       </li>
       <li ng-if='error' class='no-highlight'>There was an issue loading the information, click see all for more details</li>
       <li ng-if='isEmpty' class='no-highlight'>No information at this time.</li>
