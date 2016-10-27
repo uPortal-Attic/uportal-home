@@ -3,7 +3,9 @@
   {{domainResultsLabel}}
 </h4>
 
-<loading-gif data-object='googleResults' data-empty='googleEmptyResults'></loading-gif>
+<div layout="row" layout-align="center center">
+  <loading-gif data-object='googleResults' data-empty='googleEmptyResults'></loading-gif>
+</div>
 <div ng-show="googleResults.length === 0" class='no-result'>
   No {{domainResultsLabel}} results.
 </div>

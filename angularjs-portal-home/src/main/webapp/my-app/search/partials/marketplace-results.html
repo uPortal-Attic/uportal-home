@@ -2,7 +2,9 @@
   <div class="subhead-border" ng-style="{background: primaryColorRgb}"></div>
   MyUW
 </h4>
-<loading-gif data-object='myuwResults'></loading-gif>
+<div layout="row" layout-align="center center">
+  <loading-gif data-object='myuwResults'></loading-gif>
+</div>
 <div ng-show="myuwResults.length != 0 && myuwFilteredResults.length == 0" class='no-result'>
   No MyUW results. <a href="apps">Try browsing instead?</a>
 </div>

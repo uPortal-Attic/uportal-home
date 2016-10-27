@@ -59,7 +59,7 @@
       </md-chip-template>
     </md-chips>
 
-    <loading-gif data-object='portlets'></loading-gif>
+    <loading-gif data-object='portlets' layout="row" layout-align="center center"></loading-gif>
 
     <div class="portlet-container"
          ng-repeat="portlet in portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:sortParameter | limitTo:searchResultLimit"
