@@ -37,7 +37,7 @@
     "buckyAnnouncement" : {
       "shortTitle" : "Try the new MyUW search",
       "shoreDesc" : "Now search across MyUW, Wisc.edu, and the campus directory.",
-      "endDate": 1456812000000
+      "endDate": "2016-03-01"
     }
   },
   {
@@ -55,7 +55,7 @@
     "buckyAnnouncement" : {
       "shortTitle" : "March Madness Widgets",
       "shortDesc" : "If you want to follow NCAA tournaments search for sports in MyUW.",
-      "endDate": 1459486800000
+      "endDate": "2016-04-01"
     }
   },
   {
@@ -73,7 +73,7 @@
     "buckyAnnouncement" : {
       "shortTitle" : "Wiscard Widget",
       "shortDesc" : "View your Wiscard account balance, add money to your account, or report a stolen card.",
-      "endDate": 1475253340000
+      "endDate": "2016-09-30"
     }
   }
 ]
