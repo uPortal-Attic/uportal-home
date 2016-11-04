@@ -10,7 +10,7 @@
   No {{domainResultsLabel}} results.
 </div>
 <div ng-repeat="item in googleResults" class="result">
-  <h4><a ng-href="{{item.clicktrackUrl}}" target="_blank" ng-bind-html="item.title"></a></h4>
+  <h4><a ng-href="{{item.clicktrackUrl}}" target="_blank" rel="noopener noreferrer" ng-bind-html="item.title"></a></h4>
   <p ng-bind-html="item.content"></p>
   <p>
     <a ng-href="{{item.clicktrackUrl}}" ng-bind-html="item.formattedUrl"></a>

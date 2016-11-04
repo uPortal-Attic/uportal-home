@@ -361,13 +361,15 @@ define(['angular'], function(angular){
                   "title": "Get started",
                   "href": "https://rprg.wisc.edu/phases/initiate/",
                   "icon": "fa-map-o",
-                  "target": "_blank"
+                  "target": "_blank",
+                  "rel":"noopener noreferrer"
                 },
                 {
                   "title": "Resources",
                   "href": "https://rprg.wisc.edu/category/resource/",
                   "icon": "fa-th-list",
-                  "target": "_blank"
+                  "target": "_blank",
+                  "rel":"noopener noreferrer"
                 }
               ]
             },
@@ -399,13 +401,15 @@ define(['angular'], function(angular){
                                "title":"The Google",
                                "href":"http://www.google.com",
                                "icon":"fa-google",
-                               "target":"_blank"
+                               "target":"_blank",
+                               "rel":"noopener noreferrer"
                             },
                             {
                                "title":"Bing",
                                "href":"http://www.bing.com",
                                "icon":"fa-bed",
-                               "target":"_blank"
+                               "target":"_blank",
+                               "rel":"noopener noreferrer"
                             }
                          ]
                       },

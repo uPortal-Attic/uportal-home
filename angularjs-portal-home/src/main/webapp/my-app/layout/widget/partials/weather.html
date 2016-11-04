@@ -26,14 +26,14 @@
     <p class='error-message-weather-widget'>
       <i class="fa fa-frown-o" aria-label="Error"></i><br />Oops! The
       weather service seems to be down. <a
-        href="http://www.ssec.wisc.edu/localweather/" target="_blank">Try
+        href="http://www.ssec.wisc.edu/localweather/" target="_blank" rel="noopener noreferrer">Try
         clicking here for Madison weather.</a>
     </p>
   </div>
 
   <ul class="widget-list">
     <li ng-repeat="weather in weatherData | limitTo:2"><a
-      href="{{weather.moreInformationLink}}" target='_blank'>
+      href="{{weather.moreInformationLink}}" target='_blank' rel='noopener noreferrer'>
         <p class="bold">{{weather.location.city}},
           {{weather.location.stateOrCountry}}</p>
         <div>
@@ -71,7 +71,7 @@
 
   <p class="credit">
     Powered by <a href="http://www.worldweatheronline.com/"
-      target='_blank'>World Weather Online</a>
+      target='_blank' rel='noopener noreferrer'>World Weather Online</a>
   </p>
 </div>
 <a class="btn btn-default launch-app-button" href="{{::portlet.url}}"

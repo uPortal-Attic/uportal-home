@@ -13,8 +13,8 @@
   <h4>{{item.fullName}}</h4>
   <p ng-if="item.formalName">Also known as {{item.formalName}}</p>
   <p>
-    <a ng-repeat="email in item.emails" ng-href="mailto:{{email}}" target="_blank">{{email}}</a>
-    <a ng-repeat="phone in item.phones" ng-href="tel:{{phone}}" target="_blank">{{phone}}</a>
+    <a ng-repeat="email in item.emails" ng-href="mailto:{{email}}" target="_blank" rel="noopener noreferrer">{{email}}</a>
+    <a ng-repeat="phone in item.phones" ng-href="tel:{{phone}}" target="_blank" rel="noopener noreferrer">{{phone}}</a>
   </p>
   <div ng-if="showingDetails" class="result">
     <div ng-if="item.address" class="moreDetails">
