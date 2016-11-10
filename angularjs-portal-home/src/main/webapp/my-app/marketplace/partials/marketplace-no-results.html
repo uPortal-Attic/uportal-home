@@ -12,19 +12,19 @@
 					<a href="#" ng-click="toggleShowAll()">Show matching MyUW content even if it cannot be launched</a>.
 				</li>
 				<li ng-if="directorySearchUrl">
-					<a ng-href="{{directorySearchUrl}}{{searchText}}" target="_blank">Search the  directory of people and offices</a>
+					<a ng-href="{{directorySearchUrl}}{{searchText}}" target="_blank" rel="noopener noreferrer">Search the  directory of people and offices</a>
 				</li>
 				<li ng-if="webSearchUrl">
-					<a ng-href="{{webSearchUrl}}{{searchText}}" target="_blank">Search the <span ng-if="domainResultsLabel">{{domainResultsLabel}}</span> domain</a>
+					<a ng-href="{{webSearchUrl}}{{searchText}}" target="_blank" rel="noopener noreferrer">Search the <span ng-if="domainResultsLabel">{{domainResultsLabel}}</span> domain</a>
 				</li>
 				<li ng-if="kbSearchUrl">
-					<a ng-href="{{kbSearchUrl}}{{searchText}}" target="_blank">Search the KnowledgeBase</a>
+					<a ng-href="{{kbSearchUrl}}{{searchText}}" target="_blank" rel="noopener noreferrer">Search the KnowledgeBase</a>
 				</li>
 				<li ng-if="eventsSearchUrl">
-					<a ng-href="{{eventsSearchUrl}}{{searchText}}" target="_blank">Search for Events</a>
+					<a ng-href="{{eventsSearchUrl}}{{searchText}}" target="_blank" rel="noopener noreferrer">Search for Events</a>
 				</li>
 				<li ng-if="helpdeskUrl">
-					<a ng-href="{{helpdeskUrl}}" target="_blank">Ask the Help Desk</a>
+					<a ng-href="{{helpdeskUrl}}" target="_blank" rel="noopener noreferrer">Ask the Help Desk</a>
 				</li>
 				<li ng-if="feedbackUrl">
 					<a ng-href="{{feedbackUrl}}">Provide feedback about search</a>

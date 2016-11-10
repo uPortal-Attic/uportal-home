@@ -2,7 +2,7 @@
 
   <!-- OPTION-LINK ICON -->
   <div class="option-link-icon">
-    <a href="{{portlet.selectedUrl}}" target="_blank">
+    <a href="{{portlet.selectedUrl}}" target="_blank" rel="noopener noreferrer">
       <portlet-icon></portlet-icon>
     </a>
   </div>
@@ -45,7 +45,7 @@
 <!-- LAUNCH BUTTON -->
 <a class="launch-app-button"
    ng-href="{{portlet.selectedUrl}}"
-   target="_blank">
+   target="_blank" rel="noopener noreferrer">
    <span ng-if='config.launchText'>{{config.launchText}}</span>
    <span ng-if='!config.launchText'>Launch {{portlet.title}}</span>
 </a>
