@@ -60,6 +60,18 @@ define(['angular', 'require'], function(angular, require) {
             controller: 'SearchWithLinksController'
         }
     });
+    
+    app.directive('ltiLaunch', function(){
+      return {
+        restrict: 'E',
+        scope: {
+            portlet: '=app',
+            config: '=config'
+        },
+        templateUrl: require.toUrl('./partials/lti-launch.html'),
+        controller: 'LTILaunchController'
+      }
+    });
 
     /**
      <rss></rss> is an rss widget card that will show your info in a view

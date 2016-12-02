@@ -148,6 +148,8 @@ define(['angular', 'jquery'], function(angular, $) {
 				   }
                } else if ('search-with-links' === portlet.widgetType) {
                    return "SWL";
+               } else if ('lti-launch' === portlet.widgetType){
+                 return "LTI_LAUNCH";
                } else {
                    return "WIDGET";
                }

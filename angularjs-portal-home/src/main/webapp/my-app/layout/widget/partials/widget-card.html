@@ -58,6 +58,10 @@
       <div ng-switch-when="SWL">
         <swl app="portlet" config="portlet.widgetConfig"></swl>
       </div>
+      
+      <div ng-switch-when="LTI_LAUNCH">
+        <lti-launch app="portlet" config="portlet.widgetConfig"></lti-launch>
+      </div>
 
       <!-- For pithy content, display the pithy content -->
       <div ng-switch-when="PITHY">
