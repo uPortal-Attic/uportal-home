@@ -21,4 +21,4 @@ Use the following Google Groups to discuss AngularJS-portal:
 [uportal-user@]: https://groups.google.com/a/apereo.org/forum/#!forum/uportal-user
 
 [MyUW service page]: https://it.wisc.edu/services/myuw/
-[EDUCAUSE 2016 presentation]: https://events.educause.edu/annual-conference/agenda/beyond-portals-a-nextgeneration-actionoriented-service-delivery-platform-for-rich-campus-applications
+[EDUCAUSE 2016 presentation]: https://goo.gl/AdFXF2
