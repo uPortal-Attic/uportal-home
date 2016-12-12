@@ -36,7 +36,7 @@
          </div>
          <div ng-bind-html="portlet.widgetContent"></div>
       </div>
-      <a class="launch-app-button" href="{{portlet.url}}" target="{{portlet.target}}">Launch full app</a>
+      <a class="launch-app-button" ng-href="{{ portlet.url }}" target="{{ portlet.target }}">Launch full app</a>
     </div>
 
     <div ng-switch="widgetCtrl.portletType(portlet)" class="widget-type-container">
