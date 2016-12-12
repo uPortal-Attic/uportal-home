@@ -98,7 +98,7 @@
                        data-target="_blank"
                        data-rel="noopener noreferrer"
                        data-button-text="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch full app' }}"
-                       data-aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch full app' }}">
+                       data-aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch ' + portlet.title }}">
         </launch-button>
       </div>
 
@@ -109,7 +109,7 @@
             <portlet-icon></portlet-icon>
           </div>
         </a>
-        <button aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch full app' }}" class="launch-app-button"  ng-click="widgetCtrl.maxStaticPortlet(portlet)">
+        <button aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch ' + portlet.title }}" class="launch-app-button"  ng-click="widgetCtrl.maxStaticPortlet(portlet)">
           <span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>
           <span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>
         </button>
