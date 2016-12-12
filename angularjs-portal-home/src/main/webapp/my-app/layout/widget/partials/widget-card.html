@@ -3,7 +3,7 @@
   <!-- HEADER -->
   <md-card-header class="widget-header">
     <!-- Widget Chrome -->
-    <md-button class="widget-action widget-info md-icon-button" aria-label="see a brief description of {{ portlet.title }}">
+    <md-button class="widget-action widget-info md-icon-button" aria-label="Description: {{ portlet.description }}" role="tooltip">
       <md-tooltip md-direction="top" class="widget-action-tooltip">
         {{ portlet.description }}
       </md-tooltip>
@@ -17,7 +17,7 @@
     </md-button>
 
     <md-card-header-text>
-      <span class="md-title" style="text-align: center;" id="appTitle_portlet.title-{{portlet.nodeId}}" tabindex="0">
+      <span class="md-title" style="text-align: center;" aria-label="{{ portlet.title }}" tabindex="0">
 	      {{ portlet.title }}
       </span>
     </md-card-header-text>
