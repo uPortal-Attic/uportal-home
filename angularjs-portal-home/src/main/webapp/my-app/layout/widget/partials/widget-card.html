@@ -3,9 +3,9 @@
   <!-- HEADER -->
   <md-card-header class="widget-header">
     <!-- Widget Chrome -->
-    <md-button class="widget-action widget-info md-icon-button" aria-label="see a brief description of this app">
+    <md-button class="widget-action widget-info md-icon-button" aria-label="see a brief description of {{ portlet.title }}">
       <md-tooltip md-direction="top" class="widget-action-tooltip">
-        {{portlet.description}}
+        {{ portlet.description }}
       </md-tooltip>
       <md-icon>info</md-icon>
     </md-button>
@@ -17,7 +17,9 @@
     </md-button>
 
     <md-card-header-text>
-      <span class='md-title' style='text-align: center;' id="appTitle_portlet.title-{{portlet.nodeId}}" aria-labelledby="appTitle_portlet.title-{{portlet.nodeId}}" tabindex="0">{{ portlet.title }}</span>
+      <span class="md-title" style="text-align: center;" id="appTitle_portlet.title-{{portlet.nodeId}}" tabindex="0">
+	      {{ portlet.title }}
+      </span>
     </md-card-header-text>
   </md-card-header>
 
@@ -107,7 +109,7 @@
             <portlet-icon></portlet-icon>
           </div>
         </a>
-        <button aria-labelledby="goToApps-{{portlet.nodeId}} appTitle_portlet.title-{{portlet.nodeId}}" class="launch-app-button"  ng-click="widgetCtrl.maxStaticPortlet(portlet)">
+        <button aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch full app' }}" class="launch-app-button"  ng-click="widgetCtrl.maxStaticPortlet(portlet)">
           <span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>
           <span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>
         </button>
