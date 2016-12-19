@@ -144,17 +144,17 @@ This provides a more usable click surface, a simpler and cleaner user experience
 </portlet-preference>
 <portlet-preference>
     <name>widgetURL</name>
-    <value>http://www.ncaa.com/news/ncaa/d1/rss.xml</value>
+    <value>/rss-to-json/rssTransform/prop/campus-news</value>
 </portlet-preference>
 <portlet-preference>
     <name>widgetConfig</name>
     <value>
-    	<![CDATA[{
-    		"lim": 4,
-    		"showdate": true,
-    		"dateFormat": "MM-dd-yyyy",
-    		"showShowing": true
-    	}]]>
+      <![CDATA[{
+        "lim": 4,
+        "showdate": true,
+        "dateFormat": "MM-dd-yyyy",
+        "showShowing": true
+      }]]>
     </value>
 </portlet-preference>
 ```
@@ -162,7 +162,9 @@ This provides a more usable click surface, a simpler and cleaner user experience
 #### Additional information
 
 Note the addition required value in the entity file:
-* `widgetUrl`: The URL of the rss feed you want to display
+* `widgetUrl`: The URL of the *JSON representation of the* RSS feed you want to display
+
+The [rssToJson][] microservice is a fine way to convert desired RSS feeds into the required JSON representation.
 
 ### Custom widgets
 Using a JSON service is a great way to have user-focused content in your widgets. Here are the steps you have to take to create your custom JSON-backed widget:
@@ -255,3 +257,4 @@ Example:
 Read more about the [launch button text guidance](#/md/widget-launch-button).
 
 
+[rssToJson]: https://github.com/UW-Madison-DoIT/rssToJson

@@ -198,7 +198,16 @@ define(['angular', 'jquery'], function(angular, $) {
         }
 
           var getRSSJsonified = function(feedURL) {
-          return $http.get('api/proxy/rss2json?rss_url=' + feedURL);
+            // This is a hack. 
+            // It would be maybe healthier to enhance RSS widget to
+            // support
+            // 1. configure explicitly with URL that generates the JSON
+            // 2. configure with pithy key to feed ( campus_news )
+            // 3. configure explicitly with RSS URL and automatically
+            //    run that through an RSS to JSON converter.
+            // Whereas this hack repurposes existing configuration for (3)
+            // to do (1).
+          return $http.get(feedURL);
         }
 
         return {
