@@ -149,12 +149,12 @@ This provides a more usable click surface, a simpler and cleaner user experience
 <portlet-preference>
     <name>widgetConfig</name>
     <value>
-    	<![CDATA[{
-    		"lim": 4,
-    		"showdate": true,
-    		"dateFormat": "MM-dd-yyyy",
-    		"showShowing": true
-    	}]]>
+      <![CDATA[{
+        "lim": 4,
+        "showdate": true,
+        "dateFormat": "MM-dd-yyyy",
+        "showShowing": true
+      }]]>
     </value>
 </portlet-preference>
 ```
