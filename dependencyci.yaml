@@ -1,0 +1,8 @@
+platform:
+  Maven:
+    "jstl:jstl":
+      tests:
+        unlicensed: skip
+    "javax.servlet:servlet-api":
+      tests:
+        unlicensed: skip
