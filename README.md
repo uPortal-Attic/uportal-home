@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/UW-Madison-DoIT/angularjs-portal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/UW-Madison-DoIT/angularjs-portal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) 
 [![Build Status](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal.svg)](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal) 
-[![Coverage Status](https://coveralls.io/repos/UW-Madison-DoIT/angularjs-portal/badge.svg?branch=master&service=github)](https://coveralls.io/github/UW-Madison-DoIT/angularjs-portal?branch=master) 
+[![Coverage Status](https://coveralls.io/repos/UW-Madison-DoIT/angularjs-portal/badge.svg?branch=master&service=github)](https://coveralls.io/github/UW-Madison-DoIT/angularjs-portal?branch=master)  [![Code Climate](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal/badges/gpa.svg)](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal) [![codeclimate.com Issue Count](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal/badges/issue_count.svg)](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal)
 [![alt](https://codenvy.com/factory/resources/factory-white.png)](https://codenvy.com/factory?id=tgb1ssv37wjnblun)
 
 ### What is this?
