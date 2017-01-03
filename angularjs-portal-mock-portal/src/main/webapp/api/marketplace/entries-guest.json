@@ -4959,10 +4959,7 @@
             "undergraduate",
             "catalog",
             "requirements",
-            "certificates",
-            "add program",
-            "change program",
-            "discontinue program"
+            "certificates"
           ],
           "fname": "academic-resources",
           "description": "Links to academic resources including undergraduate and graduate catalogs, academic calendar, and more.",
