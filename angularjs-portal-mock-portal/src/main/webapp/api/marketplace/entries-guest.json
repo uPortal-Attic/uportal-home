@@ -10240,7 +10240,10 @@
             "undergraduate",
             "catalog",
             "requirements",
-            "certificates"
+            "certificates",
+            "add program",
+            "change program",
+            "discontinue program"
           ],
           "fname": "academic-resources",
           "description": "Links to academic resources including undergraduate and graduate catalogs, academic calendar, and more.",
@@ -17747,7 +17750,10 @@
             "undergraduate",
             "catalog",
             "requirements",
-            "certificates"
+            "certificates",
+            "add program",
+            "change program",
+            "discontinue program"
           ],
           "fname": "academic-resources",
           "description": "Links to academic resources including undergraduate and graduate catalogs, academic calendar, and more.",
@@ -19518,7 +19524,10 @@
         "undergraduate",
         "catalog",
         "requirements",
-        "certificates"
+        "certificates",
+        "add program",
+        "change program",
+        "discontinue program"
       ],
       "fname": "academic-resources",
       "description": "Links to academic resources including undergraduate and graduate catalogs, academic calendar, and more.",
@@ -23565,7 +23574,10 @@
             "undergraduate",
             "catalog",
             "requirements",
-            "certificates"
+            "certificates",
+            "add program",
+            "change program",
+            "discontinue program"
           ],
           "fname": "academic-resources",
           "description": "Links to academic resources including undergraduate and graduate catalogs, academic calendar, and more.",
