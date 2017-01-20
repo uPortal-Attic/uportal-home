@@ -42,6 +42,23 @@ define(['angular'], function(angular){
     configInit();
     populateWidgetContent();
   }]);
+  
+  app.controller('LTILaunchController', ['$scope', 'layoutService', 'keyValueService', '$q', '$sce', function($scope, layoutService, keyValueService, $q, $sce){
+    $scope.loading = false;
+    var init = function(){
+      $scope.loading = true;
+      layoutService.getWidgetJson($scope.portlet).then(function(data) {
+          $scope.loading = false;
+          if(data) {
+            $scope.formInputs = data.formInputs;
+            $scope.formAction = $sce.trustAsResourceUrl(data.action);
+          }
+      }, function(){
+          $scope.loading = false;
+      });
+    }
+    init();
+  }]);
 
   app.controller('WeatherController', ['$scope', 'layoutService', 'keyValueService', '$q', function($scope, layoutService, keyValueService, $q){
     $scope.weatherData = [];
