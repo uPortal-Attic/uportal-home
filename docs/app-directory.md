@@ -190,7 +190,7 @@ The groups referenced, as implemented for UW-Madison, are often ultimately [Mani
 
 Optionally, an app directory entry can have an associated widget, either a configuration of a widget type or an entirely custom widget.
 
-See [documentation about expanded widgets](#/md/expanded).
+See [documentation about expanded widgets](expanded.md).
 
 ### Keywords
 
@@ -209,7 +209,7 @@ Keywords are not displayed in the user interface to typical users (though there 
 
 So keywords end up being a way to increase search matching for content without expanding the description. Typical typoes might also be modeled as keywords so that these will match the content.
 
-See [documentation about search](#/md/search).
+See [documentation about search](search.md).
 
 ### Comments
 
