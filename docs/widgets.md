@@ -243,9 +243,10 @@ If you provide a `widgetConfig` with any widget type with a value for `launchTex
 launch button with the provided value, even for non-widgets.
 
 #### Maintenance mode
-If your widget/application depends on a service that is currently experiencing and outage or planned maintenance, you can
+If your widget/application depends on a service that is currently experiencing an outage or planned maintenance, you can
 add the `maintenanceMode` attribute to your `widgetConfig` with a value of "true." Widgets in maintenance mode will display
-a message communicating that the app is unavailable and the widget will be disabled (unclickable).
+a message communicating that the app is unavailable and the widget will be disabled (unclickable). To turn maintenance mode off,
+simply set the attributes value to "false" or remove it from your `widgetConfig` altogether.
 
 Example:
 
