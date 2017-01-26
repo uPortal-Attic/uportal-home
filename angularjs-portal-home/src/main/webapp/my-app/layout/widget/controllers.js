@@ -289,7 +289,7 @@ define(['angular'], function(angular){
         } catch (e) {
             return false;
         }
-      }
+      };
 
       var init = function(){
         $scope.storage.isEmpty = false;
@@ -305,7 +305,7 @@ define(['angular'], function(angular){
           $scope.content = JSON.parse($scope.storage.content);
           $scope.isEmpty = $scope.storage.evalString ? eval($scope.storage.evalString) : false;
         } else {
-          $scope.content = {}
+          $scope.content = {};
           $scope.isEmpty = true;
           $scope.errorJSON = $scope.storage.content ? "JSON NOT VALID" : "";
         }
@@ -317,7 +317,7 @@ define(['angular'], function(angular){
 
         $scope.template = $scope.portlet.widgetTemplate;
 
-      }
+      };
 
       $scope.reload = function(){
         $route.reload();
@@ -328,14 +328,14 @@ define(['angular'], function(angular){
               init();
               $route.reload();
           }
-      }
+      };
 
       $scope.changeTemplate = function() {
         $scope.storage.content = $scope.storage.starterTemplate.contentIsJSON ? JSON.stringify($scope.storage.starterTemplate.content) : $scope.storage.starterTemplate.content;
         $scope.storage.portlet = $scope.storage.starterTemplate;
         $scope.storage.widgetConfig = JSON.stringify($scope.storage.starterTemplate.widgetConfig);
         $scope.reload();
-      }
+      };
 
       var initialize = function(){
         $localStorage.widgetCreator = $localStorage.widgetCreator || {};
@@ -343,13 +343,13 @@ define(['angular'], function(angular){
 
         //mock the widget controller
         $scope.widgetCtrl = {
-                              portletType : function(portlet){
-                                if(portlet.type) {
-                                  return portlet.type;
-                                }
-                                return 'WIDGET_CREATOR';
-                              }
-                            };
+					portletType : function(portlet){
+						if(portlet.type) {
+							return portlet.type;
+						}
+						return 'WIDGET_CREATOR';
+					}
+				};
         $scope.storage.starterTemplates = [
           {
             id: 4,
@@ -381,14 +381,15 @@ define(['angular'], function(angular){
                   "target": "_blank",
                   "rel":"noopener noreferrer"
                 },
-                {
-                  "title": "Resources",
-                  "href": "https://rprg.wisc.edu/category/resource/",
-                  "icon": "fa-th-list",
-                  "target": "_blank",
-                  "rel":"noopener noreferrer"
-                }
-              ]
+								{
+									"title": "Resources",
+									"href": "https://rprg.wisc.edu/category/resource/",
+									"icon": "fa-th-list",
+									"target": "_blank",
+									"rel": "noopener noreferrer"
+								}
+              ],
+							"maintenanceMode": false
             },
             hasWidgetURL : false
           },
@@ -399,7 +400,7 @@ define(['angular'], function(angular){
             widgetType : 'rss',
             title: 'RSS Widget',
             jsonSample: false,
-            widgetConfig : {lim : 6, target : '' ,showdate: true, titleLim: 40 , dateFormat: 'MM-dd-yyyy', showShowing: true},
+            widgetConfig : {lim : 6, target : '' ,showdate: true, titleLim: 40 , dateFormat: 'MM-dd-yyyy', showShowing: true, maintenanceMode: false},
             hasWidgetURL : true,
             widgetURL : ""
           },
@@ -411,25 +412,26 @@ define(['angular'], function(angular){
             jsonSample : false,
             hasWidgetURL : false,
             widgetConfig : {
-                         "launchText":"Launch the Full App",
-                         "additionalText":"Additional Text",
-                         "links":[
-                            {
-                               "title":"The Google",
-                               "href":"http://www.google.com",
-                               "icon":"fa-google",
-                               "target":"_blank",
-                               "rel":"noopener noreferrer"
-                            },
-                            {
-                               "title":"Bing",
-                               "href":"http://www.bing.com",
-                               "icon":"fa-bed",
-                               "target":"_blank",
-                               "rel":"noopener noreferrer"
-                            }
-                         ]
-                      },
+							"launchText":"Launch the Full App",
+							"additionalText":"Additional Text",
+							"links":[
+								{
+									"title":"The Google",
+									"href":"http://www.google.com",
+									"icon":"fa-google",
+									"target":"_blank",
+									"rel":"noopener noreferrer"
+								},
+								{
+									"title":"Bing",
+									"href":"http://www.bing.com",
+									"icon":"fa-bed",
+									"target":"_blank",
+									"rel":"noopener noreferrer"
+								}
+							],
+							"maintenanceMode": false
+						},
             description : 'A simple list of links'
           }
         ];
@@ -440,7 +442,7 @@ define(['angular'], function(angular){
         } else {
           retInit();
         }
-      }
+      };
       initialize();
     }]);
 
