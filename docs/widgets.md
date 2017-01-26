@@ -238,8 +238,15 @@ By doing just this we were able to generate:
 
 ## Other Configuration
 
+### Launch button text
 If you provide a `widgetConfig` with any widget type with a value for `launchText`, it will replace the text of the 
 launch button with the provided value, even for non-widgets.
+
+### Maintenance mode
+If your widget/application depends on a service that is currently experiencing an outage or planned maintenance, you can
+add the `maintenanceMode` attribute to your `widgetConfig` with a value of "true." Widgets in maintenance mode will display
+a message communicating that the app is unavailable and the widget will be disabled (unclickable). To turn maintenance mode off,
+simply set the attributes value to "false" or remove it from your `widgetConfig` altogether.
 
 Example:
 
@@ -248,7 +255,8 @@ Example:
     <name>widgetConfig</name>
     <value>
     	<![CDATA[{
-      		'launchText' : 'See all the Weather'
+      		'launchText' : 'See all the Weather',
+      		'maintenanceMode' : true
     	}]]>
     </value>
 </portlet-preference>
