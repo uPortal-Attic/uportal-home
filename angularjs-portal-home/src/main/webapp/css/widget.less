@@ -282,3 +282,32 @@ weather {
   width : 315px;
   margin : auto;
 }
+
+/* MAINTENANCE MODE */
+.widget-frame {
+  .overlay__maintenance-mode {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	z-index: 99;
+	border-radius: 3px;
+	.maintenance-content {
+	  text-align: center;
+	  font-weight: bold;
+	  padding: 10px;
+	  background: #fff;
+	  margin: 66px 10px 0 10px;
+	  display: block;
+	  border-radius: 3px;
+	  p {
+		margin-bottom: 0;
+		.material-icons {
+		  height: 40px;
+		  width: 40px;
+		  font-size: 40px;
+		}
+	  }
+	}
+  }
+}
