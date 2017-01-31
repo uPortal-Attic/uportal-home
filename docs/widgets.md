@@ -1,7 +1,9 @@
-## Widget types
+# Widget types
 
 MyUW widgets are designed to be flexible - users can accomplish or access a single task or piece of information, or they can access
 a collection of related things that will help them accomplish their task.
+
+## About widget types generally
 
 Widgets can:
 
@@ -11,14 +13,14 @@ Widgets can:
 * Allow users to quickly access pieces of the app to complete key or regular tasks (e.g. Course Services, My Professional Development, Course Guide)
 * Provide users with at-a-glance information that represents the main use for the widget (e.g. Weather)
 
-#### Advantages of widget types over custom widgets
+### Advantages of widget types over custom widgets
 
 + It is less development effort to compose configuration and data for an existing widget type than to develop a novel widget.
 + Widget types are maintained as part of the angularjs-portal product, so usages of these types will less often need developer attention to keep them looking up-to-date and working well.
 + Widget types separate configuration (widgetConfig) and data (backing JSON web service) from the implementation of the markup for the widget (widget type).
 + Widget types are more amenable to automated unit testing than are ad-hoc custom widgets.
 
-#### How to use
+### How to use
 
 Follow these steps for each of the widget types described in this doc:
 
@@ -26,6 +28,11 @@ Follow these steps for each of the widget types described in this doc:
 2. Add the appropriate `widgetType` value to your app's entity file (see widget type's sample code)
 3. Add a `widgetConfig` to your app's entity file (see widget type's sample code)
 
+## The specific available widget types
+
++ List of links
++ Search with links
++ RSS widget
 
 ### List of links
 
@@ -173,10 +180,10 @@ Note the addition required value in the entity file:
 
 The [rssToJson][] microservice is a fine way to convert desired RSS feeds into the required JSON representation.
 
-### Custom widgets
+## Custom widgets
 Using a JSON service is a great way to have user-focused content in your widgets. Here are the steps you have to take to create your custom JSON-backed widget:
 
-#### 1. widgetURL
+### 1. widgetURL
 This is where we will get the data from (in a JSON format). If your JSON feed lives outside of the portal, you will need to setup
 a rest proxy for that. Please contact the MyUW team for details and assistance.
 
@@ -189,7 +196,7 @@ a rest proxy for that. Please contact the MyUW team for details and assistance.
 
 When your widget is rendered, this service is called via a `GET`. The returned content is stored in the scope variable `content`.
 
-#### 2. widgetType
+### 2. widgetType
 Setting this to `generic` will enable you to provide your own template. Be sure to evaluate the out of the box widget types
 before creating your own (documentation on those above).
 
@@ -200,7 +207,7 @@ before creating your own (documentation on those above).
 </portlet-preference>
 ```
 
-#### 3. widgetTemplate
+### 3. widgetTemplate
 This is where the template goes. We suggest using a CDATA tag here.
 
 ```xml
@@ -235,7 +242,7 @@ This is where the template goes. We suggest using a CDATA tag here.
 </portlet-preference>
 ```
 
-#### 4. widgetConfig
+### 4. widgetConfig
 
 The widget config is a JSON object. Please note it has to be valid JSON. We used the <![CDATA[]]> tag so we didn't have to encode everything.
 
