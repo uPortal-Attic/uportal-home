@@ -10,7 +10,7 @@ For example, clicking on the main button of a widget could:
 
 ## The launch-button directive
 
-All uw-frame apps have access to the `<launch-button>` directive, which you can use by copying the following code into your widget's template:
+All widgets have access to the `<launch-button>` directive:
 
 ```html
 <launch-button
@@ -22,7 +22,7 @@ All uw-frame apps have access to the `<launch-button>` directive, which you can 
 ```
 
 This directive includes the classes, styles, and configurable attributes necessary to create a launch button that looks and feels like it's part
-of the widget. You can read more about the configurable attributes of this directive in [uw-frame's directive documentation](http://uw-madison-doit.github.io/uw-frame/directives).
+of the widget. Read more about the configurable attributes of this directive in [uw-frame's directive documentation](http://uw-madison-doit.github.io/uw-frame/directives).
 
 ## Suggested button text
 
@@ -35,8 +35,8 @@ your launch button's `data-button-text` attribute:
 
 ## Launch buttons and accessibility
 
-To ensure your launch buttons are accessible to vision-impaired users and other screen reader users, use the `data-aria-label`
-to provide additional context that is not communicated by the button's text alone. Aria-labels should be kept short and should include
+To ensure launch buttons are accessible to vision-impaired users and other screen reader users, use the `data-aria-label`
+to provide additional context that is not communicated by the button's text alone. Aria-labels should be short and should include
 only the bare minimum text to communicate what the button does. For example:
 
 If your app's title is "Time and Absence" and your launch-button text is "Launch app," the best aria-label in this case would be "Launch Time and Absence app."
@@ -45,10 +45,10 @@ If your app's title is "Time and Absence" and your launch-button text is "Launch
 
 ## Custom button text
 
-If one of the suggested labels does not suit your needs, consider the following guidelines when coming up with custom button text:
+If one of the suggested labels is not suitable, consider the following guidelines when developing custom button text:
 
-* Choose a clear action verb to describe what will happen when a user clicks the button -- "launch," "open," "go to," "view," and "explore" are all viable examples
-* Choose a noun to following the action verb that accurately describes the thing the user is about to experience (e.g. "website," "app," "list," "feed," "wiki," etc.)
-* Limit the length of your button text to 25 characters (including spaces). This will ensure that all the text is visible on all screen sizes. Text that is too long will be truncated.
-* Use the language your intended audience expects to see
+* Choose a clear action verb to describe what will happen when a user clicks the button (e.g. "launch," "open," "go to," "view," and "explore").
+* Choose a noun to follow the action verb that accurately describes the thing the user is about to experience (e.g. "website," "app," "list," "feed," "wiki," etc.)
+* Limit the button text length to 25 characters (including spaces). This will ensure that all the text is visible on all screen sizes. Text that is too long will be truncated.
+* Use the language the intended audience expects to see
 * Remember that the button exists in the context of the widget it belongs to. It is not necessary to include the application's title in the button text (save it for the aria-label).
