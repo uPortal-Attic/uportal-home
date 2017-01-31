@@ -38,30 +38,30 @@ Follow these steps for each of the widget types described in this doc:
 
 ```xml
 <portlet-preference>
-	<name>widgetType</name>
-	<value>list-of-links</value>
+  <name>widgetType</name>
+  <value>list-of-links</value>
 </portlet-preference>
 <portlet-preference>
-	<name>widgetConfig</name>
-    <value>
-    	<![CDATA[{
-      		"launchText":"Launch talent development",
-      		"links": [
-      			{
-          			"title":"All courses and events",
-          			"href":"https://www.ohrd.wisc.edu/home/",
-          			icon":"fa-at",
-          			"target":"_blank"
-        		},
-        		{
-          			"title":"My transcript",
-          			"href":"https://www.ohrd.wisc.edu/ohrdcatalogportal/LearningTranscript/tabid/57/Default.aspx?ctl=login",
-          			"icon":"fa-envelope-o",
-          			"target":"_blank"
-          		}
-      		]
-      	}]]>
-	</value>
+  <name>widgetConfig</name>
+  <value>
+    <![CDATA[{
+      "launchText":"Launch talent development",
+      "links": [
+        {
+          "title":"All courses and events",
+          "href":"https://www.ohrd.wisc.edu/home/",
+          icon":"fa-at",
+          "target":"_blank"
+        },
+        {
+          "title":"My transcript",
+          "href":"https://www.ohrd.wisc.edu/ohrdcatalogportal/LearningTranscript/tabid/57/Default.aspx?ctl=login",
+          "icon":"fa-envelope-o",
+          "target":"_blank"
+        }
+      ]
+    }]]>
+  </value>
 </portlet-preference>
 
 ```
@@ -92,33 +92,33 @@ This provides a more usable click surface, a simpler and cleaner user experience
 
 ```xml
 <portlet-preference>
-	<name>widgetType</name>
-	<value>search-with-links</value>
+  <name>widgetType</name>
+  <value>search-with-links</value>
 </portlet-preference>
 <portlet-preference>
-	<name>widgetConfig</name>
-	<value>
-		<![CDATA[{
-			"actionURL":"https://rprg.wisc.edu/search/",
-			"actionTarget":"_blank",
-			"actionParameter":"q",
-			"launchText":"Go to resource guide",
-			"links":[
-				{
-					"title":"Get started",
-					"href":"https://rprg.wisc.edu/phases/initiate/",
-					"icon":"fa-map-o",
-					"target":"_blank"
-                },
-                {
-                	"title":"Resources",
-                    "href":"https://rprg.wisc.edu/category/resource/",
-                    "icon":"fa-th-list",
-                    "target":"_blank"
-              	}
-             ]
-        }]]>
-	</value>
+  <name>widgetConfig</name>
+  <value>
+    <![CDATA[{
+      "actionURL":"https://rprg.wisc.edu/search/",
+      "actionTarget":"_blank",
+      "actionParameter":"q",
+      "launchText":"Go to resource guide",
+      "links":[
+        {
+          "title":"Get started",
+          "href":"https://rprg.wisc.edu/phases/initiate/",
+          "icon":"fa-map-o",
+          "target":"_blank"
+        },
+        {
+          "title":"Resources",
+          "href":"https://rprg.wisc.edu/category/resource/",
+          "icon":"fa-th-list",
+          "target":"_blank"
+        }
+      ]
+    }]]>
+  </value>
 </portlet-preference>
 ```
 
@@ -199,25 +199,33 @@ This is where the template goes. We suggest using a CDATA tag here.
 
 ```xml
 <portlet-preference>
-        <name>widgetTemplate</name>
-        <value>
-        	<![CDATA[
-				<div style='margin : 0 10px 0 10px;'>
-				   <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>
-				   <ul class='widget-list'><li ng-repeat=\"item in content.report |orderBy: ['-paid.substring(6)','-paid.substring(0,2)','-paid.substring(3,5)'] | limitTo:3\" class='center'><a href='/portal/p/earnings-statement/max/earning_statement.pdf.resource.uP?pP_docId={{item.docId}}' target='_blank'><i class='fa fa-bank fa-fw'></i> {{item.paid}} Statement</a></li></ul>
-				   <div ng-if='isEmpty' style='padding: 10px; font-size: 14px;'><i class='fa fa-exclamation-triangle fa-3x pull-left' style='color: #b70101;'></i><span style='color: #898989;'>We had a problem finding your statements (or you don't have any).</span></div>
-				   <div style='background-color: #EAEAEA; border-radius:4px;padding:10px; margin-top:10px;'>
-					  <span class='bold display-block left' style='text-align: left; padding-left: 10px; font-size: 14px;'>See all payroll information for more options:</span>
-					  <ul style='text-align: left;list-style-type: disc; font-size: 12px;'>
-						 <li>See all pay stubs</li>
-						 <li>Tax statements</li>
-						 <li>Update direct deposit</li>
-					  </ul>
-				   </div>
-				</div>
-				<a class='btn btn-default launch-app-button' href='/portal/p/earnings-statement'>See all payroll information</a>
-        	]]>
-        </value>
+  <name>widgetTemplate</name>
+  <value>
+    <![CDATA[
+      <div style='margin : 0 10px 0 10px;'>
+        <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>
+        <ul class='widget-list'>
+          <li ng-repeat=\"item in content.report |orderBy: ['-paid.substring(6)','-paid.substring(0,2)','-paid.substring(3,5)'] | limitTo:3\" class='center'>
+            <a href='/portal/p/earnings-statement/max/earning_statement.pdf.resource.uP?pP_docId={{item.docId}}' target='_blank'>
+              <i class='fa fa-bank fa-fw'></i> {{item.paid}} Statement</a>
+          </li>
+        </ul>
+        <div ng-if='isEmpty' style='padding: 10px; font-size: 14px;'>
+          <i class='fa fa-exclamation-triangle fa-3x pull-left' style='color: #b70101;'></i>
+          <span style='color: #898989;'>We had a problem finding your statements (or you don't have any).</span>
+        </div>
+        <div style='background-color: #EAEAEA; border-radius:4px;padding:10px; margin-top:10px;'>
+          <span class='bold display-block left' style='text-align: left; padding-left: 10px; font-size: 14px;'>See all payroll information for more options:</span>
+          <ul style='text-align: left;list-style-type: disc; font-size: 12px;'>
+            <li>See all pay stubs</li>
+            <li>Tax statements</li>
+            <li>Update direct deposit</li>
+          </ul>
+        </div>
+      </div>
+      <a class='btn btn-default launch-app-button' href='/portal/p/earnings-statement'>See all payroll information</a>
+    ]]>
+  </value>
 </portlet-preference>
 ```
 
@@ -229,8 +237,8 @@ Currently we only use the evalString to evaluate emptiness. We may add more in t
 
 ```xml
 <portlet-preference>
-    <name>widgetConfig</name>
-    <value><![CDATA[{ "evalString" : "!$scope.content.report || $scope.content.report.length === 0"}]]></value>
+  <name>widgetConfig</name>
+  <value><![CDATA[{ "evalString" : "!$scope.content.report || $scope.content.report.length === 0"}]]></value>
 </portlet-preference>
 ```
 
@@ -254,13 +262,13 @@ Example:
 
 ```xml
 <portlet-preference>
-    <name>widgetConfig</name>
-    <value>
-    	<![CDATA[{
-      		'launchText' : 'See all the Weather',
-      		'maintenanceMode' : true
-    	}]]>
-    </value>
+  <name>widgetConfig</name>
+  <value>
+    <![CDATA[{
+      'launchText' : 'See all the Weather',
+      'maintenanceMode' : true
+    }]]>
+  </value>
 </portlet-preference>
 ```
 
