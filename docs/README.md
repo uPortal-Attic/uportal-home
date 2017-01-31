@@ -29,7 +29,7 @@ Browse a directory of apps, sort them alphabetically or by rating, and filter th
 
 ### [Search](search.md)
 
-Search app directory entries, the web (with Google Custom Search integration, or a directory of people (with directory search integration).
+Search app directory entries, the web (with Google Custom Search integration), or a directory of people (with directory search integration).
 
 ## Integration with uPortal
 + [Silent Login Configuration](silent-login.md)
