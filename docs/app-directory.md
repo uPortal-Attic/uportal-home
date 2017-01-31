@@ -41,7 +41,7 @@ The difference is `title` displays to end users whereas `name` displays in certa
  * the name of the app when viewing the details page for the app
  * the title on the widget tile, if the user adds the app to their home
  * the title when rendering the app, if the app is a portlet
- 
+
 whereas `name` will not display to end users.
 
 `name` will display to administrators in the `Portlet Administration` tooling.
@@ -71,11 +71,11 @@ Beyond the names and URL path identifier, several other fields inform the direct
 
 #### Description
 
-```xml    
+```xml
 <desc>View and update your personal information, including your primary/legal name, office and home addresses.</desc>
 ```
 
-Description text displays 
+Description text displays
 
  * as the description of the search result item in the search results display
  * as the description of the item in the browse view on the directory of apps
