@@ -131,7 +131,7 @@ Optionally, application directory entries can include screenshots.
 
 Screenshot captions should be sentence-cased. Sentences, even.
 
-Screenshots should be managed in the [MyUW images GitLab repo][MyUWImages GitLab repo], with the significant advantage that (tagged releases of) this repo are deployed alongside MyUW and so have availability with MyUW, reducing the chance of a marred app details page experience when an externally referenced image is unavailable. 
+In MyUW, screenshots should be managed in the [MyUW images GitLab repo][MyUWImages GitLab repo], with the significant advantage that (tagged releases of) this repo are deployed alongside MyUW and so have availability with MyUW, reducing the chance of a marred app details page experience when an externally referenced image is unavailable.
 
 ### Optional external URL
 

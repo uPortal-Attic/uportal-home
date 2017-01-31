@@ -1,12 +1,12 @@
 # Launch button purpose
 
-The launch button label on a MyUW widget should concisely reflect the action a user should expect to take place upon clicking.
+The launch button label on a widget should concisely reflect the action a user should expect to take place upon clicking.
 For example, clicking on the main button of a widget could:
 
 * View a full list of “To-Dos” or a full checklist
-* Launch an application within MyUW
-* Launch an application outside of MyUW, or
-* Launch a website outside of MyUW
+* Launch an application within the portal
+* Launch an application outside of the portal, or
+* Launch a website outside of the portal
 
 ## The launch-button directive
 
@@ -31,7 +31,7 @@ the launch button's `data-button-text` attribute:
 
 * **See all**: Best used when the widget features a list of items (a checklist, a list of headlines, an RSS feed) and clicking on the widget button navigates to a complete list
 * **Open website**: For content-based websites and any widgets that link to a static site with an external URL
-* **Launch app**: Best for task-based applications -- can also be used for any applications that open within MyUW and do not meet the criteria of other labels
+* **Launch app**: Best for task-based applications -- can also be used for any applications that open within the portal and do not meet the criteria of other labels
 
 ## Launch buttons and accessibility
 

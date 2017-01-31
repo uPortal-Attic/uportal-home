@@ -1,4 +1,4 @@
-Compact mode is a minimalist interface for MyUW. This mode works well on small screens and for users who want to see many widgets at once.
+Compact mode is a minimalist interface. This mode works well on small screens and for users who want to see many widgets at once.
 
 ![compact mode widgets](./img/compact-mode.png)
 
