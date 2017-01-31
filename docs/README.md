@@ -11,6 +11,9 @@ Under the hood, the home page layout is implemented using uPortal's `DLM` as a p
 default set and ordering of home page content that is filtered to the viewing user's permissions.
 
 #### Toggleable view modes:
+
+Widgets show on the home page in either a minimalist "compact mode" or a rich "expanded mode". AngularJS-portal takes a guess at the best default mode for a given browser and users can toggle the mode, with their preference stored in browser local storage.
+
 + [Expanded mode](expanded.md)
 + [Compact mode](compact.md)
 
