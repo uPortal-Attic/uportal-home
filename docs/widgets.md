@@ -50,7 +50,7 @@ Follow these steps for each of the widget types described in this doc:
         {
           "title":"All courses and events",
           "href":"https://www.ohrd.wisc.edu/home/",
-          icon":"fa-at",
+          "icon":"fa-at",
           "target":"_blank"
         },
         {
