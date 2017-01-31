@@ -26,8 +26,8 @@ of the widget. Read more about the configurable attributes of this directive in 
 
 ## Suggested button text
 
-To maintain consistent labeling, which is important to user experience, **we strongly suggest you choose from following labels** for
-your launch button's `data-button-text` attribute:
+To maintain consistent labeling, which is important to user experience, **we strongly suggest widgets use one of the following labels** for
+the launch button's `data-button-text` attribute:
 
 * **See all**: Best used when the widget features a list of items (a checklist, a list of headlines, an RSS feed) and clicking on the widget button navigates to a complete list
 * **Open website**: For content-based websites and any widgets that link to a static site with an external URL
