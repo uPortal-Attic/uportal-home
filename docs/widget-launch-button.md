@@ -14,10 +14,10 @@ All uw-frame apps have access to the `<launch-button>` directive, which you can 
 
 ```html
 <launch-button
-	data-href=""
-	data-target=""
-	data-button-text=""
-	data-aria-label="">
+  data-href=""
+  data-target=""
+  data-button-text=""
+  data-aria-label="">
 </launch-button>
 ```
 
