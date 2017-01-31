@@ -8,7 +8,7 @@ There are a number of different [widget types](widgets.md) pictured in the image
 * Configurable title text (across the top of each tile)
 * Configurable launch text (across the bottom of each tile)
 * Info icon (displayed on hover): Shows the app description of the selected widget
-* Delete icon (displayed on hover): Removed the widget from the user's layout
+* Delete icon (displayed on hover): Removes the widget from the user's layout
 
 ### uw-frame styles
 Some of the CSS styles for widgets are located in the uw-frame project. You can read about those styles in frame's [widget.less file on Github](https://github.com/UW-Madison-DoIT/uw-frame/blob/master/uw-frame-components/css/buckyless/widget.less).
