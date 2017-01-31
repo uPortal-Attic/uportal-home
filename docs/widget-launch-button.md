@@ -39,7 +39,7 @@ To ensure launch buttons are accessible to vision-impaired users and other scree
 to provide additional context that is not communicated by the button's text alone. Aria-labels should be short and should include
 only the bare minimum text to communicate what the button does. For example:
 
-If your app's title is "Time and Absence" and your launch-button text is "Launch app," the best aria-label in this case would be "Launch Time and Absence app."
+If the app's title is "Time and Absence" and the launch-button text is "Launch app," the best aria-label in this case would be "Launch Time and Absence app."
 
 [Read more about how to use aria-labels effectively](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute).
 
