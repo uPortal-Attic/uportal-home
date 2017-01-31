@@ -1,7 +1,9 @@
 ## Widget types
 
 MyUW widgets are designed to be flexible - users can accomplish or access a single task or piece of information, or they can access
-a collection of related things that will help them accomplish their task. Widgets can:
+a collection of related things that will help them accomplish their task.
+
+Widgets can:
 
 * Provide users with real-time, continuous info about their account (e.g. list of pay statements in the Payroll Information widget, Wiscard balance in the Wiscard widget)
 * Provide users with a snapshot of information that may impact their decision to take an action (e.g. adding money to my Wiscard)
