@@ -7,7 +7,7 @@ This documentation describes [`angularjs-portal`](https://github.com/UW-Madison-
 #### Persistent layout of widgets:
 The home page presents widgets in a remembered order. Logged in users can add to, remove from, and re-order this list.
 
-Under the hood, the home page layout is implemented using uPortal's `DLM` as a personalized layout fragment, so MyUW delivers (and updates) a
+Under the hood, the home page layout is implemented as a personalized layout fragment in [uPortal][]'s `DLM`, so MyUW delivers (and updates) a
 default set and ordering of home page content that is filtered to the viewing user's permissions.
 
 #### Toggleable view modes:
