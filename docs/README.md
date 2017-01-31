@@ -21,7 +21,7 @@ default set and ordering of home page content that is filtered to the viewing us
 
 ### [App directory](app-directory.md)
 
-Browse a directory of apps, sort them alphabetically or by rating, filter them by category. You can also directyly launch the app or view the details about an app on its deep-linkable details page.
+Browse a directory of apps, sort them alphabetically or by rating, and filter them by category. You can also directyly launch the app or view the details about an app on its deep-linkable details page.
 
 ### [Search](search.md)
 
