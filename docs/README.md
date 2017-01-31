@@ -49,6 +49,8 @@ Use the following Google Groups to discuss AngularJS-portal:
 + [MyUW page on it.wisc.edu][MyUW service page]
 + [EDUCAUSE 2016 presentation][]
 
+[uPortal]: http://jasig.github.io/uPortal/
+
 [MyUW Developers Google Group]: https://groups.google.com/forum/#!forum/myuw-developers
 [uportal-dev@]: https://groups.google.com/a/apereo.org/forum/#!forum/uportal-dev
 [uportal-user@]: https://groups.google.com/a/apereo.org/forum/#!forum/uportal-user
