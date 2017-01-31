@@ -67,7 +67,7 @@ See also [KB article on referencing content in MyUW][].
 
 ### Describing the content
 
-Beyond the names and URL path identifier, application directory entries in MyUW have several fields that inform the directory entry presentation.
+Beyond the names and URL path identifier, several other fields inform the directory entry presentation.
 
 #### Description
 
