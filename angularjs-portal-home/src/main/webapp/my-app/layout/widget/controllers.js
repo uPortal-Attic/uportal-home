@@ -388,8 +388,7 @@ define(['angular'], function (angular) {
                 "target": "_blank",
                 "rel": "noopener noreferrer"
               }
-            ],
-            "maintenanceMode": false
+            ]
           },
           hasWidgetURL: false
         },
@@ -406,8 +405,7 @@ define(['angular'], function (angular) {
             showdate: true,
             titleLim: 40,
             dateFormat: 'MM-dd-yyyy',
-            showShowing: true,
-            maintenanceMode: false
+            showShowing: true
           },
           hasWidgetURL: true,
           widgetURL: ""
@@ -437,8 +435,7 @@ define(['angular'], function (angular) {
                 "target": "_blank",
                 "rel": "noopener noreferrer"
               }
-            ],
-            "maintenanceMode": false
+            ]
           },
           description: 'A simple list of links'
         }
