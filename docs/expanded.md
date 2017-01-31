@@ -4,6 +4,7 @@ the most important information, which can be user specific.
 ![expanded mode widgets](./img/expanded-mode.png)
 
 There are a number of different [widget types](widgets.md) pictured in the image above, but all of them contain the following features/information:
+
 * Configurable title text
 * Configurable launch text
 * Info icon (displayed on hover): Shows the app description of the selected widget
