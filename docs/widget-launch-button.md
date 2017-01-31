@@ -29,7 +29,7 @@ of the widget. You can read more about the configurable attributes of this direc
 To maintain consistent labeling, which is important to user experience, **we strongly suggest you choose from following labels** for
 your launch button's `data-button-text` attribute:
 
-* **See all**: Best used if your widget features a list of items (a checklist, a list of headlines, an RSS feed) and if clicking on the widget button takes users to a complete list
+* **See all**: Best used when the widget features a list of items (a checklist, a list of headlines, an RSS feed) and clicking on the widget button navigates to a complete list
 * **Open website**: For content-based websites and any widgets that link to a static site with an external URL
 * **Launch app**: Best for task-based applications -- can also be used for any applications that open within MyUW and do not meet the criteria of other labels
 
