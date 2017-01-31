@@ -25,7 +25,7 @@ Widgets show on the home page in either a minimalist "compact mode" or a rich "e
 
 ### [App directory](app-directory.md)
 
-Browse a directory of apps, sort them alphabetically or by rating, and filter them by category. You can also directyly launch the app or view the details about an app on its deep-linkable details page.
+Browse a directory of apps, sort them alphabetically or by rating, and filter them by category. You can also directly launch the app or view the details about an app on its deep-linkable details page.
 
 ### [Search](search.md)
 
