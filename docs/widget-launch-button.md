@@ -26,7 +26,7 @@ of the widget. You can read more about the configurable attributes of this direc
 
 ## Suggested button text
 
-To maintain consistency of labeling, which is key for a good user experience, **we strongly suggest you choose from following labels** for
+To maintain consistent labeling, which is important to user experience, **we strongly suggest you choose from following labels** for
 your launch button's `data-button-text` attribute:
 
 * **See all**: Best used if your widget features a list of items (a checklist, a list of headlines, an RSS feed) and if clicking on the widget button takes users to a complete list
