@@ -5,7 +5,7 @@ the most important information, which can be user specific.
 
 ![expanded mode widgets](./img/expanded-mode.png)
 
-There are a number of different [widget types](widgets.md) pictured in the image above, but all of them contain the following features/information:
+Several [widget types](widgets.md) are pictured in the image above. All of them demonstrate:
 
 * Configurable title text (across the top of each tile)
 * Configurable launch text (across the bottom of each tile)
