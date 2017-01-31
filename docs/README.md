@@ -36,7 +36,7 @@ Search app directory entries, the web (with Google Custom Search integration), o
 
 ## Email lists
 
-Use the following Google Groups to discuss AngularJS-portal:
+Discuss AngularJS-portal on these Google Groups:
 
 [uportal-dev@][]: Discuss development of AngularJS-portal in the uPortal context
 
