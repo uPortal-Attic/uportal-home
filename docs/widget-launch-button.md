@@ -22,7 +22,7 @@ All uw-frame apps have access to the `<launch-button>` directive, which you can 
 ```
 
 This directive includes the classes, styles, and configurable attributes necessary to create a launch button and looks and feels like it's part
-of the widget. You can read more about the configurable attributes of this directive in [uw-frame's directive documentation](http://uw-madison-doit.github.io/uw-frame/directives)
+of the widget. You can read more about the configurable attributes of this directive in [uw-frame's directive documentation](http://uw-madison-doit.github.io/uw-frame/directives).
 
 ## Suggested button text
 
