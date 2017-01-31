@@ -5,8 +5,8 @@ the most important information, which can be user specific.
 
 There are a number of different [widget types](widgets.md) pictured in the image above, but all of them contain the following features/information:
 
-* Configurable title text
-* Configurable launch text
+* Configurable title text (across the top of each tile)
+* Configurable launch text (across the bottom of each tile)
 * Info icon (displayed on hover): Shows the app description of the selected widget
 * Delete icon (displayed on hover): Removed the widget from the user's layout
 
