@@ -11,8 +11,12 @@ Widgets can:
 * Allow users to quickly access pieces of the app to complete key or regular tasks (e.g. Course Services, My Professional Development, Course Guide)
 * Provide users with at-a-glance information that represents the main use for the widget (e.g. Weather)
 
-The following widget types are available and one of the should (hopefully) meet your needs. They are all intended to
-save developers the time and effort required to make a custom widget.
+#### Advantages of widget types over custom widgets
+
++ It is less development effort to compose configuration and data for an existing widget type than to develop a novel widget.
++ Widget types are maintained as part of the angularjs-portal product, so usages of these types will less often need developer attention to keep them looking up-to-date and working well.
++ Widget types separate configuration (widgetConfig) and data (backing JSON web service) from the implementation of the markup for the widget (widget type).
++ Widget types are more amenable to automated unit testing than are ad-hoc custom widgets.
 
 #### How to use
 
