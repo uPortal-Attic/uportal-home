@@ -26,7 +26,7 @@ Follow these steps for each of the widget types described in this doc:
 
 ![list of links widget](./img/list-of-links.png)
 
-```
+```xml
 <name>widgetType</name>
 <value>list-of-links</value>
 ```
@@ -37,7 +37,7 @@ Follow these steps for each of the widget types described in this doc:
 
 #### Sample entity file
 
-```html
+```xml
 <portlet-preference>
 	<name>widgetType</name>
 	<value>list-of-links</value>
@@ -79,7 +79,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 
 ![search with links widget](./img/search-with-links.png)
 
-```
+```xml
 <name>widgetType</name>
 <value>search-with-links</value>
 ```
@@ -91,7 +91,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 
 #### Sample entity file
 
-```html
+```xml
 <portlet-preference>
 	<name>widgetType</name>
 	<value>search-with-links</value>
@@ -127,7 +127,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 
 ![rss widget](./img/rss.png)
 
-```
+```xml
 <name>widgetType</name>
 <value>rss</value>
 ```
@@ -137,7 +137,8 @@ This provides a more usable click surface, a simpler and cleaner user experience
 * You want to display an RSS feed right on your MyUW home page
 
 #### Sample entity file
-```html
+
+```xml
 <portlet-preference>
     <name>widgetType</name>
     <value>rss</value>
@@ -173,7 +174,7 @@ Using a JSON service is a great way to have user-focused content in your widgets
 This is where we will get the data from (in a JSON format). If your JSON feed lives outside of the portal, you will need to setup 
 a rest proxy for that. Please contact the MyUW team for details and assistance.
 
-```html
+```xml
 <portlet-preference>
   <name>widgetURL</name>
   <value>/portal/p/earnings-statement/max/earningStatements.resource.uP</value>
@@ -186,7 +187,7 @@ When your widget is rendered, this service is called via a `GET`. The returned c
 Setting this to `generic` will enable you to provide your own template. Be sure to evaluate the out of the box widget types 
 before creating your own (documentation on those above).
 
-```html
+```xml
 <portlet-preference>
     <name>widgetType</name>
     <value>generic</value>
@@ -195,7 +196,8 @@ before creating your own (documentation on those above).
 
 #### 3. widgetTemplate
 This is where the template goes. We suggest using a CDATA tag here.
-```html
+
+```xml
 <portlet-preference>
         <name>widgetTemplate</name>
         <value>
@@ -225,7 +227,7 @@ The widget config is a JSON object. Please note it has to be valid JSON. We used
 
 Currently we only use the evalString to evaluate emptiness. We may add more in the future.
 
-```html
+```xml
 <portlet-preference>
     <name>widgetConfig</name>
     <value><![CDATA[{ "evalString" : "!$scope.content.report || $scope.content.report.length === 0"}]]></value>
@@ -250,7 +252,7 @@ simply set the attributes value to "false" or remove it from your `widgetConfig`
 
 Example:
 
-```html
+```xml
 <portlet-preference>
     <name>widgetConfig</name>
     <value>
