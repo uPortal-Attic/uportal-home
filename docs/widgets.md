@@ -1,8 +1,11 @@
- 
-## Widget types
+# Widget types
 
-MyUW widgets are designed to be flexible - users can accomplish or access a single task or piece of information, or they can access 
-a collection of related things that will help them accomplish their task. Widgets can:
+MyUW widgets are designed to be flexible - users can accomplish or access a single task or piece of information, or they can access
+a collection of related things that will help them accomplish their task.
+
+## About widget types generally
+
+Widgets can:
 
 * Provide users with real-time, continuous info about their account (e.g. list of pay statements in the Payroll Information widget, Wiscard balance in the Wiscard widget)
 * Provide users with a snapshot of information that may impact their decision to take an action (e.g. adding money to my Wiscard)
@@ -10,23 +13,32 @@ a collection of related things that will help them accomplish their task. Widget
 * Allow users to quickly access pieces of the app to complete key or regular tasks (e.g. Course Services, My Professional Development, Course Guide)
 * Provide users with at-a-glance information that represents the main use for the widget (e.g. Weather)
 
-The following widget types are available and one of the should (hopefully) meet your needs. They are all intended to 
-save developers the time and effort required to make a custom widget.
+### Advantages of widget types over custom widgets
 
-#### How to use
++ It is less development effort to compose configuration and data for an existing widget type than to develop a novel widget.
++ Widget types are maintained as part of the angularjs-portal product, so usages of these types will less often need developer attention to keep them looking up-to-date and working well.
++ Widget types separate configuration (widgetConfig) and data (backing JSON web service) from the implementation of the markup for the widget (widget type).
++ Widget types are more amenable to automated unit testing than are ad-hoc custom widgets.
 
-Follow these steps for each of the widget types described in this doc: 
- 
+### How to use
+
+Follow these steps for each of the widget types described in this doc:
+
 1. Follow the "when to use" guidance to select the widget type that will best suit your needs
 2. Add the appropriate `widgetType` value to your app's entity file (see widget type's sample code)
 3. Add a `widgetConfig` to your app's entity file (see widget type's sample code)
 
+## The specific available widget types
+
++ List of links
++ Search with links
++ RSS widget
 
 ### List of links
 
 ![list of links widget](./img/list-of-links.png)
 
-```
+```xml
 <name>widgetType</name>
 <value>list-of-links</value>
 ```
@@ -37,41 +49,41 @@ Follow these steps for each of the widget types described in this doc:
 
 #### Sample entity file
 
-```html
+```xml
 <portlet-preference>
-	<name>widgetType</name>
-	<value>list-of-links</value>
+  <name>widgetType</name>
+  <value>list-of-links</value>
 </portlet-preference>
 <portlet-preference>
-	<name>widgetConfig</name>
-    <value>
-    	<![CDATA[{
-      		"launchText":"Launch talent development",
-      		"links": [
-      			{
-          			"title":"All courses and events",
-          			"href":"https://www.ohrd.wisc.edu/home/",
-          			icon":"fa-at",
-          			"target":"_blank"
-        		},
-        		{
-          			"title":"My transcript",
-          			"href":"https://www.ohrd.wisc.edu/ohrdcatalogportal/LearningTranscript/tabid/57/Default.aspx?ctl=login",
-          			"icon":"fa-envelope-o",
-          			"target":"_blank"
-          		}
-      		]
-      	}]]>
-	</value>
+  <name>widgetConfig</name>
+  <value>
+    <![CDATA[{
+      "launchText":"Launch talent development",
+      "links": [
+        {
+          "title":"All courses and events",
+          "href":"https://www.ohrd.wisc.edu/home/",
+          "icon":"fa-at",
+          "target":"_blank"
+        },
+        {
+          "title":"My transcript",
+          "href":"https://www.ohrd.wisc.edu/ohrdcatalogportal/LearningTranscript/tabid/57/Default.aspx?ctl=login",
+          "icon":"fa-envelope-o",
+          "target":"_blank"
+        }
+      ]
+    }]]>
+  </value>
 </portlet-preference>
 
 ```
 
 #### Additional information
 
-* `launchText` is optional. Omitting `launchText` suppresses the launch button at the bottom of the list-of-links widget. This is appropriate 
+* `launchText` is optional. Omitting `launchText` suppresses the launch button at the bottom of the list-of-links widget. This is appropriate
 when there's nothing more to launch, that is, when the list-of-links widget simply presents all the intended links and that's all there is to it.
-* Avoid using a `list-of-links` widget when you only need to display one link. Instead, use the name and `alternativeMaximizedLink` of [the app directory entry](app-directory.md) to represent the link. 
+* Avoid using a `list-of-links` widget when you only need to display one link. Instead, use the name and `alternativeMaximizedLink` of [the app directory entry](app-directory.md) to represent the link.
 This provides a more usable click surface, a simpler and cleaner user experience, and achieves better consistency with other just-a-link widgets in MyUW.
 * The length of your list of links will affect the widget's appearance. If you have more than 4 links, they will be displayed in a more traditional-style list, rather than with the `<circle-button>` directive.
 
@@ -79,7 +91,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 
 ![search with links widget](./img/search-with-links.png)
 
-```
+```xml
 <name>widgetType</name>
 <value>search-with-links</value>
 ```
@@ -91,35 +103,35 @@ This provides a more usable click surface, a simpler and cleaner user experience
 
 #### Sample entity file
 
-```html
+```xml
 <portlet-preference>
-	<name>widgetType</name>
-	<value>search-with-links</value>
+  <name>widgetType</name>
+  <value>search-with-links</value>
 </portlet-preference>
 <portlet-preference>
-	<name>widgetConfig</name>
-	<value>
-		<![CDATA[{
-			"actionURL":"https://rprg.wisc.edu/search/",
-			"actionTarget":"_blank",
-			"actionParameter":"q",
-			"launchText":"Go to resource guide",
-			"links":[
-				{
-					"title":"Get started",
-					"href":"https://rprg.wisc.edu/phases/initiate/",
-					"icon":"fa-map-o",
-					"target":"_blank"
-                },
-                {
-                	"title":"Resources",
-                    "href":"https://rprg.wisc.edu/category/resource/",
-                    "icon":"fa-th-list",
-                    "target":"_blank"
-              	}
-             ]
-        }]]>
-	</value>
+  <name>widgetConfig</name>
+  <value>
+    <![CDATA[{
+      "actionURL":"https://rprg.wisc.edu/search/",
+      "actionTarget":"_blank",
+      "actionParameter":"q",
+      "launchText":"Go to resource guide",
+      "links":[
+        {
+          "title":"Get started",
+          "href":"https://rprg.wisc.edu/phases/initiate/",
+          "icon":"fa-map-o",
+          "target":"_blank"
+        },
+        {
+          "title":"Resources",
+          "href":"https://rprg.wisc.edu/category/resource/",
+          "icon":"fa-th-list",
+          "target":"_blank"
+        }
+      ]
+    }]]>
+  </value>
 </portlet-preference>
 ```
 
@@ -127,7 +139,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 
 ![rss widget](./img/rss.png)
 
-```
+```xml
 <name>widgetType</name>
 <value>rss</value>
 ```
@@ -137,7 +149,8 @@ This provides a more usable click surface, a simpler and cleaner user experience
 * You want to display an RSS feed right on your MyUW home page
 
 #### Sample entity file
-```html
+
+```xml
 <portlet-preference>
     <name>widgetType</name>
     <value>rss</value>
@@ -162,18 +175,19 @@ This provides a more usable click surface, a simpler and cleaner user experience
 #### Additional information
 
 Note the addition required value in the entity file:
+
 * `widgetUrl`: The URL of the *JSON representation of the* RSS feed you want to display
 
 The [rssToJson][] microservice is a fine way to convert desired RSS feeds into the required JSON representation.
 
-### Custom widgets
+## Custom widgets
 Using a JSON service is a great way to have user-focused content in your widgets. Here are the steps you have to take to create your custom JSON-backed widget:
 
-#### 1. widgetURL
-This is where we will get the data from (in a JSON format). If your JSON feed lives outside of the portal, you will need to setup 
+### 1. widgetURL
+This is where we will get the data from (in a JSON format). If your JSON feed lives outside of the portal, you will need to setup
 a rest proxy for that. Please contact the MyUW team for details and assistance.
 
-```html
+```xml
 <portlet-preference>
   <name>widgetURL</name>
   <value>/portal/p/earnings-statement/max/earningStatements.resource.uP</value>
@@ -182,53 +196,62 @@ a rest proxy for that. Please contact the MyUW team for details and assistance.
 
 When your widget is rendered, this service is called via a `GET`. The returned content is stored in the scope variable `content`.
 
-#### 2. widgetType
-Setting this to `generic` will enable you to provide your own template. Be sure to evaluate the out of the box widget types 
+### 2. widgetType
+Setting this to `generic` will enable you to provide your own template. Be sure to evaluate the out of the box widget types
 before creating your own (documentation on those above).
 
-```html
+```xml
 <portlet-preference>
     <name>widgetType</name>
     <value>generic</value>
 </portlet-preference>
 ```
 
-#### 3. widgetTemplate
+### 3. widgetTemplate
 This is where the template goes. We suggest using a CDATA tag here.
-```html
+
+```xml
 <portlet-preference>
-        <name>widgetTemplate</name>
-        <value>
-        	<![CDATA[
-				<div style='margin : 0 10px 0 10px;'>
-				   <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>
-				   <ul class='widget-list'><li ng-repeat=\"item in content.report |orderBy: ['-paid.substring(6)','-paid.substring(0,2)','-paid.substring(3,5)'] | limitTo:3\" class='center'><a href='/portal/p/earnings-statement/max/earning_statement.pdf.resource.uP?pP_docId={{item.docId}}' target='_blank'><i class='fa fa-bank fa-fw'></i> {{item.paid}} Statement</a></li></ul>
-				   <div ng-if='isEmpty' style='padding: 10px; font-size: 14px;'><i class='fa fa-exclamation-triangle fa-3x pull-left' style='color: #b70101;'></i><span style='color: #898989;'>We had a problem finding your statements (or you don't have any).</span></div>
-				   <div style='background-color: #EAEAEA; border-radius:4px;padding:10px; margin-top:10px;'>
-					  <span class='bold display-block left' style='text-align: left; padding-left: 10px; font-size: 14px;'>See all payroll information for more options:</span>
-					  <ul style='text-align: left;list-style-type: disc; font-size: 12px;'>
-						 <li>See all pay stubs</li>
-						 <li>Tax statements</li>
-						 <li>Update direct deposit</li>
-					  </ul>
-				   </div>
-				</div>
-				<a class='btn btn-default launch-app-button' href='/portal/p/earnings-statement'>See all payroll information</a>
-        	]]>
-        </value>
+  <name>widgetTemplate</name>
+  <value>
+    <![CDATA[
+      <div style='margin : 0 10px 0 10px;'>
+        <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>
+        <ul class='widget-list'>
+          <li ng-repeat=\"item in content.report |orderBy: ['-paid.substring(6)','-paid.substring(0,2)','-paid.substring(3,5)'] | limitTo:3\" class='center'>
+            <a href='/portal/p/earnings-statement/max/earning_statement.pdf.resource.uP?pP_docId={{item.docId}}' target='_blank'>
+              <i class='fa fa-bank fa-fw'></i> {{item.paid}} Statement</a>
+          </li>
+        </ul>
+        <div ng-if='isEmpty' style='padding: 10px; font-size: 14px;'>
+          <i class='fa fa-exclamation-triangle fa-3x pull-left' style='color: #b70101;'></i>
+          <span style='color: #898989;'>We had a problem finding your statements (or you don't have any).</span>
+        </div>
+        <div style='background-color: #EAEAEA; border-radius:4px;padding:10px; margin-top:10px;'>
+          <span class='bold display-block left' style='text-align: left; padding-left: 10px; font-size: 14px;'>See all payroll information for more options:</span>
+          <ul style='text-align: left;list-style-type: disc; font-size: 12px;'>
+            <li>See all pay stubs</li>
+            <li>Tax statements</li>
+            <li>Update direct deposit</li>
+          </ul>
+        </div>
+      </div>
+      <a class='btn btn-default launch-app-button' href='/portal/p/earnings-statement'>See all payroll information</a>
+    ]]>
+  </value>
 </portlet-preference>
 ```
 
-#### 4. widgetConfig
+### 4. widgetConfig
 
 The widget config is a JSON object. Please note it has to be valid JSON. We used the <![CDATA[]]> tag so we didn't have to encode everything.
 
 Currently we only use the evalString to evaluate emptiness. We may add more in the future.
 
-```html
+```xml
 <portlet-preference>
-    <name>widgetConfig</name>
-    <value><![CDATA[{ "evalString" : "!$scope.content.report || $scope.content.report.length === 0"}]]></value>
+  <name>widgetConfig</name>
+  <value><![CDATA[{ "evalString" : "!$scope.content.report || $scope.content.report.length === 0"}]]></value>
 </portlet-preference>
 ```
 
@@ -239,7 +262,7 @@ By doing just this we were able to generate:
 ## Other Configuration
 
 ### Launch button text
-If you provide a `widgetConfig` with any widget type with a value for `launchText`, it will replace the text of the 
+If you provide a `widgetConfig` with any widget type with a value for `launchText`, it will replace the text of the
 launch button with the provided value, even for non-widgets.
 
 ### Maintenance mode
@@ -250,15 +273,15 @@ simply set the attributes value to "false" or remove it from your `widgetConfig`
 
 Example:
 
-```html
+```xml
 <portlet-preference>
-    <name>widgetConfig</name>
-    <value>
-    	<![CDATA[{
-      		'launchText' : 'See all the Weather',
-      		'maintenanceMode' : true
-    	}]]>
-    </value>
+  <name>widgetConfig</name>
+  <value>
+    <![CDATA[{
+      'launchText' : 'See all the Weather',
+      'maintenanceMode' : true
+    }]]>
+  </value>
 </portlet-preference>
 ```
 
