@@ -162,6 +162,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 #### Additional information
 
 Note the addition required value in the entity file:
+
 * `widgetUrl`: The URL of the *JSON representation of the* RSS feed you want to display
 
 The [rssToJson][] microservice is a fine way to convert desired RSS feeds into the required JSON representation.
