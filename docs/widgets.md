@@ -1,7 +1,6 @@
- 
 ## Widget types
 
-MyUW widgets are designed to be flexible - users can accomplish or access a single task or piece of information, or they can access 
+MyUW widgets are designed to be flexible - users can accomplish or access a single task or piece of information, or they can access
 a collection of related things that will help them accomplish their task. Widgets can:
 
 * Provide users with real-time, continuous info about their account (e.g. list of pay statements in the Payroll Information widget, Wiscard balance in the Wiscard widget)
@@ -10,13 +9,13 @@ a collection of related things that will help them accomplish their task. Widget
 * Allow users to quickly access pieces of the app to complete key or regular tasks (e.g. Course Services, My Professional Development, Course Guide)
 * Provide users with at-a-glance information that represents the main use for the widget (e.g. Weather)
 
-The following widget types are available and one of the should (hopefully) meet your needs. They are all intended to 
+The following widget types are available and one of the should (hopefully) meet your needs. They are all intended to
 save developers the time and effort required to make a custom widget.
 
 #### How to use
 
-Follow these steps for each of the widget types described in this doc: 
- 
+Follow these steps for each of the widget types described in this doc:
+
 1. Follow the "when to use" guidance to select the widget type that will best suit your needs
 2. Add the appropriate `widgetType` value to your app's entity file (see widget type's sample code)
 3. Add a `widgetConfig` to your app's entity file (see widget type's sample code)
@@ -69,9 +68,9 @@ Follow these steps for each of the widget types described in this doc:
 
 #### Additional information
 
-* `launchText` is optional. Omitting `launchText` suppresses the launch button at the bottom of the list-of-links widget. This is appropriate 
+* `launchText` is optional. Omitting `launchText` suppresses the launch button at the bottom of the list-of-links widget. This is appropriate
 when there's nothing more to launch, that is, when the list-of-links widget simply presents all the intended links and that's all there is to it.
-* Avoid using a `list-of-links` widget when you only need to display one link. Instead, use the name and `alternativeMaximizedLink` of [the app directory entry](app-directory.md) to represent the link. 
+* Avoid using a `list-of-links` widget when you only need to display one link. Instead, use the name and `alternativeMaximizedLink` of [the app directory entry](app-directory.md) to represent the link.
 This provides a more usable click surface, a simpler and cleaner user experience, and achieves better consistency with other just-a-link widgets in MyUW.
 * The length of your list of links will affect the widget's appearance. If you have more than 4 links, they will be displayed in a more traditional-style list, rather than with the `<circle-button>` directive.
 
@@ -171,7 +170,7 @@ The [rssToJson][] microservice is a fine way to convert desired RSS feeds into t
 Using a JSON service is a great way to have user-focused content in your widgets. Here are the steps you have to take to create your custom JSON-backed widget:
 
 #### 1. widgetURL
-This is where we will get the data from (in a JSON format). If your JSON feed lives outside of the portal, you will need to setup 
+This is where we will get the data from (in a JSON format). If your JSON feed lives outside of the portal, you will need to setup
 a rest proxy for that. Please contact the MyUW team for details and assistance.
 
 ```xml
@@ -184,7 +183,7 @@ a rest proxy for that. Please contact the MyUW team for details and assistance.
 When your widget is rendered, this service is called via a `GET`. The returned content is stored in the scope variable `content`.
 
 #### 2. widgetType
-Setting this to `generic` will enable you to provide your own template. Be sure to evaluate the out of the box widget types 
+Setting this to `generic` will enable you to provide your own template. Be sure to evaluate the out of the box widget types
 before creating your own (documentation on those above).
 
 ```xml
@@ -241,7 +240,7 @@ By doing just this we were able to generate:
 ## Other Configuration
 
 ### Launch button text
-If you provide a `widgetConfig` with any widget type with a value for `launchText`, it will replace the text of the 
+If you provide a `widgetConfig` with any widget type with a value for `launchText`, it will replace the text of the
 launch button with the provided value, even for non-widgets.
 
 ### Maintenance mode
