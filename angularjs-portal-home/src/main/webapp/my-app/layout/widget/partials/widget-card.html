@@ -1,7 +1,7 @@
 <md-card class="widget-frame" id="portlet-id-{{portlet.nodeId}}" aria-label="{{ portlet.title }} widget">
 
 	<!-- MAINTENANCE MODE OVERLAY -->
-	<div class="overlay__maintenance-mode" ng-if="portlet.widgetConfig.maintenanceMode">
+	<div class="overlay__maintenance-mode" ng-if="portlet.lifecycleState === 'MAINTENANCE'">
 		<div class="maintenance-content">
 			<p>
 				<md-icon class="md-warn">warning</md-icon>
@@ -13,7 +13,7 @@
   <!-- HEADER -->
   <md-card-header class="widget-header">
     <!-- Widget Chrome -->
-    <md-button class="widget-action widget-info md-icon-button" aria-label="Description: {{ portlet.description }}" role="tooltip" ng-hide="portlet.widgetConfig.maintenanceMode">
+    <md-button class="widget-action widget-info md-icon-button" aria-label="Description: {{ portlet.description }}" role="tooltip" ng-hide="portlet.lifecycleState === 'MAINTENANCE'">
       <md-tooltip md-direction="top" class="widget-action-tooltip">
         {{ portlet.description }}
       </md-tooltip>
@@ -22,7 +22,7 @@
     <md-button class="widget-action widget-remove md-icon-button"
                aria-label="remove {{ portlet.title }} widget from your home screen"
                ng-click="widgetCtrl.removePortlet(portlet.nodeId, portlet.title)"
-               ng-hide="GuestMode || cantRemove || portlet.widgetConfig.maintenanceMode">
+               ng-hide="GuestMode || cantRemove || portlet.lifecycleState === 'MAINTENANCE'">
       <md-icon>close</md-icon>
     </md-button>
 
@@ -70,7 +70,7 @@
       <div ng-switch-when="SWL">
         <swl app="portlet" config="portlet.widgetConfig"></swl>
       </div>
-      
+
       <div ng-switch-when="LTI_LAUNCH">
         <lti-launch app="portlet" config="portlet.widgetConfig"></lti-launch>
       </div>

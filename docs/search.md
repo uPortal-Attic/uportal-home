@@ -86,6 +86,7 @@ Directory searching (optional):
  * `directorySearchURL`: JSON web service for directory search results (TODO: say something more useful about this)
 
 Web searching (optional; declare all or none):
+
  * `googleSearchURL` : JSON web service for Web search.
  * `webSearchURL` : human-facing URL for launching the search query into a full Web search experience. Search query will be appended.
  * `domainResultsLabel` : Your Web search doesn't search the whole Web. That's what the browser address bar is for, after all. So what does it search? This label characterizes that for the user.

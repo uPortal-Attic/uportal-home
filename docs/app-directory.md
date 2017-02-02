@@ -41,7 +41,7 @@ The difference is `title` displays to end users whereas `name` displays in certa
  * the name of the app when viewing the details page for the app
  * the title on the widget tile, if the user adds the app to their home
  * the title when rendering the app, if the app is a portlet
- 
+
 whereas `name` will not display to end users.
 
 `name` will display to administrators in the `Portlet Administration` tooling.
@@ -67,15 +67,15 @@ See also [KB article on referencing content in MyUW][].
 
 ### Describing the content
 
-Beyond the names and URL path identifier, application directory entries in MyUW have several fields that inform the directory entry presentation.
+Beyond the names and URL path identifier, several other fields inform the directory entry presentation.
 
 #### Description
 
-```xml    
+```xml
 <desc>View and update your personal information, including your primary/legal name, office and home addresses.</desc>
 ```
 
-Description text displays 
+Description text displays
 
  * as the description of the search result item in the search results display
  * as the description of the item in the browse view on the directory of apps
@@ -131,7 +131,7 @@ Optionally, application directory entries can include screenshots.
 
 Screenshot captions should be sentence-cased. Sentences, even.
 
-Screenshots should be managed in the [MyUW images GitLab repo][MyUWImages GitLab repo], with the significant advantage that (tagged releases of) this repo are deployed alongside MyUW and so have availability with MyUW, reducing the chance of a marred app details page experience when an externally referenced image is unavailable. 
+In MyUW, screenshots should be managed in the [MyUW images GitLab repo][MyUWImages GitLab repo], with the significant advantage that (tagged releases of) this repo are deployed alongside MyUW and so have availability with MyUW, reducing the chance of a marred app details page experience when an externally referenced image is unavailable.
 
 ### Optional external URL
 
