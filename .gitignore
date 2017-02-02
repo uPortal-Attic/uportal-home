@@ -21,3 +21,4 @@ angularjs-portal-mock-portal/.codenvy
 doc_target
 npm-debug.log
 docs/_site
+docs/Gemfile.lock
