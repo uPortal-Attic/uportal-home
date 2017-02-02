@@ -3,13 +3,125 @@
 
 @import "{{ site.theme }}";
 
+.wrapper {
+  width: auto;
+}
+
+header {
+  left: 0;
+  background: #444;
+  padding: 24px 24px 14px 70px;
+  h1 {
+    a {
+      color: #fff;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+  p {
+    color: #e5e5e5;
+    margin-bottom: 10px;
+    &.view {
+      margin-bottom: 0;
+    }
+  }
+  a.button {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    background: #39c;
+    color: #fff;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    min-height: 36px;
+    min-width: 88px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 2px;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none;
+    border: 0;
+    padding: 0 8px;
+    margin: 6px 8px 6px 0;
+    white-space: nowrap;
+    font-weight: 500;
+    text-decoration: none;
+    overflow: hidden;
+    -webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+    transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+    &:hover {
+      background: #069;
+    }
+    img {
+      vertical-align: middle;
+      margin: 0 4px 2px 0;
+    }
+  }
+}
+
+section {
+  border-bottom: none;
+  width: auto;
+  h2 {
+    font-size: 24px;
+    font-weight: 300;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 6px;
+  }
+  h4 {
+    margin-bottom: 8px;
+    font-weight: 300;
+    border-bottom: #e5e5e5 1px solid;
+    padding-bottom: 4px;
+  }
+}
+
 aside {
-  float: left;
-  width: 270px;
-  position: fixed;
+  margin-bottom: 36px;
+  h5 {
+    font-size: 14px;
+    font-weight: 300;
+    border-bottom: #e5e5e5 1px solid;
+    padding-bottom: 4px;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    -webkit-padding-start: 0;
+  }
+}
+
+footer {
+  top: 270px;
+  bottom: auto;
+  overflow-y: scroll;
+  p.owner {
+    margin: 0;
+  }
 }
 
 @media (min-width: 960px) {
-
+  section {
+    float: left;
+    margin-left: 360px;
+    border-bottom: #e5e5e5 1px solid;
+  }
+  footer {
+    left: 0;
+    padding-left: 70px;
+  }
 }
 
+@media (max-width: 960px) {
+  body {
+    margin: 0;
+    padding: 40px 40px 40px 0;
+    header, section, footer {
+      padding-left: 40px;
+    }
+  }
+}
