@@ -225,25 +225,6 @@
          "renderOnWeb":false
       },
       {
-         "nodeId":"u47l1n27",
-         "title":"Post-graduation Plans",
-         "description":"Links to a questionnaire for seniors to use to update their post-graduation plans. Once the questionnaire is complete, the link will no longer be displayed.",
-         "url":"/portal/f/u47l1s4/p/post-graduation-plans.u47l1n27/max/render.uP",
-         "iconUrl":null,
-         "faIcon":"fa-road",
-         "fname":"post-graduation-plans",
-         "lifecycleState":"PUBLISHED",
-         "target":null,
-         "widgetURL":null,
-         "widgetType":null,
-         "widgetTemplate":null,
-         "widgetConfig":null,
-         "staticContent":null,
-         "pithyStaticContent":null,
-         "altMaxUrl":false,
-         "renderOnWeb":false
-      },
-      {
          "nodeId":"u47l1n29",
          "title":"New Hire NetID Activation",
          "description":"Enter basic NetID eligibility information for new employees who do not yet have an appointment/job in the HR system. This action generates a NetID Activation Key to be used by the new employee to activate his/her NetID.",
