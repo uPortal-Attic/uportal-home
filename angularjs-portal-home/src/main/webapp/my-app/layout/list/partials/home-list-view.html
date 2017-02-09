@@ -10,13 +10,13 @@
       <loading-gif data-object="layout" data-empty="layoutEmpty"></loading-gif>
     </div>
     <!-- List View -->
-    <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list" layout="row" layout-wrap>
-       <li flex-gt-md="25" flex-md="33" flex-sm="50" flex-xs="100" class="no-padding list-container" ng-repeat="portlet in layout | filter:filterText">
+    <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list">
+       <li class="col-xs-6 col-sm-3 col-md-3 col-lg-2 no-padding list-container" ng-repeat="portlet in layout | filter:filterText">
          <default-card></default-card>
        </li>
     </ul>
-    <ul class="tile-list" ng-hide="GuestMode" layout="row" layout-wrap>
-       <li flex-gt-md="25" flex-md="33" flex-sm="50" flex-xs="100" class="no-padding list-container">
+    <ul class="tile-list" ng-hide="GuestMode">
+       <li class="col-xs-6 col-sm-3 col-md-3 col-lg-2 no-padding list-container">
          <marketplace-light></marketplace-light>
        </li>
     </ul>
