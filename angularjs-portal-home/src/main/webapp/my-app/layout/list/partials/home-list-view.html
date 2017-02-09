@@ -1,8 +1,8 @@
-<div class="row portlet-frame">
+<div class="portlet-frame">
   <home-header></home-header>
-  <div role="main" class="col-xs-12 no-padding portlet-body" ng-controller="LayoutController as layoutCtrl">
+  <div role="main" class="no-padding portlet-body" ng-controller="LayoutController as layoutCtrl">
     <div ng-show="$storage.showFilterOption" style="margin: 15px auto; max-width: 1200px;">
-      <div class="col-xs-12" style="margin: 0; padding: 5px;">
+      <div style="margin: 0; padding: 5px;">
         <input ng-model="filterText" placeholder="Filter items on your home screen" class="form-control">
       </div>
     </div>
@@ -10,13 +10,13 @@
       <loading-gif data-object="layout" data-empty="layoutEmpty"></loading-gif>
     </div>
     <!-- List View -->
-    <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list">
-       <li class="col-xs-6 col-sm-3 col-md-3 col-lg-2 no-padding list-container" ng-repeat="portlet in layout | filter:filterText">
+    <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list" layout="row" layout-wrap>
+       <li flex-gt-md="25" flex-md="33" flex-sm="50" flex-xs="100" class="no-padding list-container" ng-repeat="portlet in layout | filter:filterText">
          <default-card></default-card>
        </li>
     </ul>
-    <ul class="tile-list" ng-hide="GuestMode">
-       <li class="col-xs-6 col-sm-3 col-md-3 col-lg-2 no-padding list-container">
+    <ul class="tile-list" ng-hide="GuestMode" layout="row" layout-wrap>
+       <li flex-gt-md="25" flex-md="33" flex-sm="50" flex-xs="100" class="no-padding list-container">
          <marketplace-light></marketplace-light>
        </li>
     </ul>
