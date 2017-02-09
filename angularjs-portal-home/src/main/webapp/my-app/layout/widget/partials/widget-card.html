@@ -85,7 +85,7 @@
 
       <div ng-switch-when="GENERIC" class="generic-widget">
         <div ng-controller="GenericWidgetController as genericWidgetCtrl">
-            <div ng-if="loading" id="loading">
+            <div ng-if="loading" id="loading" layout="row" layout-align="center center">
                 <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>
             </div>
             <content-item ng-if="!loading"></content-item>
@@ -94,7 +94,7 @@
 
       <div ng-switch-when="WIDGET_CREATOR">
         <div>
-            <div ng-if="loading" id="loading">
+            <div ng-if="loading" id="loading" layout="row" layout-align="center center">
                 <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>
             </div>
             <content-item ng-if="!loading"></content-item>
