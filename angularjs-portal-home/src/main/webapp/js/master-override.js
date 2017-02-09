@@ -62,8 +62,8 @@ define(['angular'], function(angular) {
             },
             {
               "id" : "showKeywordsInMarketplace",
-              "title" : "Show Keywords in Marketplace",
-              "description" : "Enable/Disable keywords showing up in marketplace details"
+              "title" : "Show Keywords in app directory",
+              "description" : "Enable/Disable keywords showing up in app directory entry details"
             },
             {
               "id" : "exampleWidgets",

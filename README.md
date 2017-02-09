@@ -1,7 +1,7 @@
 # Portal with Angular
 
-[![Join the chat at https://gitter.im/UW-Madison-DoIT/angularjs-portal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/UW-Madison-DoIT/angularjs-portal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) 
-[![Build Status](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal.svg)](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal) 
+[![Join the chat at https://gitter.im/UW-Madison-DoIT/angularjs-portal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/UW-Madison-DoIT/angularjs-portal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal.svg)](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal)
 [![Coverage Status](https://coveralls.io/repos/UW-Madison-DoIT/angularjs-portal/badge.svg?branch=master&service=github)](https://coveralls.io/github/UW-Madison-DoIT/angularjs-portal?branch=master)  [![Code Climate](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal/badges/gpa.svg)](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal) [![codeclimate.com Issue Count](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal/badges/issue_count.svg)](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal)
 [![alt](https://codenvy.com/factory/resources/factory-white.png)](https://codenvy.com/factory?id=tgb1ssv37wjnblun)
 
@@ -30,7 +30,7 @@ This file contains your server side proxy configurations. See the example file f
 + Setup [autodeploy] (https://github.com/UW-Madison-DoIT/angularjs-portal/blob/master/README.md#deploying-to-a-running-local-tomcat)
 + cd to angularjs-portal root directory
 + Unix based systems, run : `./build.sh master`
-+ Windows based systems, run : 
++ Windows based systems, run :
 ```
 copy angularjs-portal-home/src/main/webapp/js/app-config.js angularjs-portal-home/src/main/webapp/js/app-config.js.bak
 copy angularjs-portal-home/src/main/webapp/js/master-app-config.js angularjs-portal-home/src/main/webapp/js/app-config.js
@@ -42,7 +42,7 @@ mvn tomcat7:deploy  #or redeploy depending if this is a consecutive run
 + Login via any user that has access to the Welcome Tab in uPortal.  If you want to use admin, you have to comment out the admin restricting part in the [welcome tab layout] (https://github.com/Jasig/uPortal/blob/master/uportal-war/src/main/data/quickstart_entities/fragment-layout/welcome-lo.fragment-layout.xml)
 + navigate to localhost:8080/web
 
-Angularjs-portal is a different front end than the one supplied with [Apereo uPortal] (https://github.com/Jasig/uPortal).  
+Angularjs-portal is a different front end than the one supplied with [Apereo uPortal] (https://github.com/Jasig/uPortal).
 As of now, portlet rendering still takes place via uPortal's rendering pipeline.
 The [theming] (http://uw-madison-doit.github.io/uw-frame/latest/#/md/theming) comes from the [uw-frame dependency](https://github.com/UW-Madison-DoIT/uw-frame).
 
@@ -54,7 +54,7 @@ University of Wisconsin styles the portal theme to look similar for a seamless t
 Frame was so cool it moved to [its own project](https://github.com/UW-Madison-DoIT/uw-frame).
 
 + #### Home
-This is the MyUW home page. It uses the frame as a base then adds in the layout, marketplace (app directory), and features pages.
+This is the portal home page. It uses the frame as a base then adds in the layout, app directory, and features pages.
 
 To deploy the home build from the base directory described above. Then `cd ./angularjs-portal-home` and run `mvn tomcat7:redeploy` (assuming you have auto deploy configured).  The home will now be deployed to `/web`.
 
