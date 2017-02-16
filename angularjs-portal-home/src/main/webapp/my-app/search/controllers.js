@@ -44,7 +44,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
      function($location, $rootScope, $scope, $controller,marketplaceService, googleCustomSearchService, directorySearchService, PortalSearchService) {
       var base = $controller('marketplaceCommonFunctions', {$scope : $scope});
 
-      var initWiscEduSearch = function(){
+      var initCampusDomainSearch = function(){
         googleCustomSearchService.googleSearch($scope.searchTerm).then(
           function(data){
             if(data && data.results) {
@@ -61,44 +61,44 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
       };
 
       var initDirectorySearch = function(){
-        $scope.wiscDirectoryLoading = true;
+        $scope.directoryLoading = true;
         directorySearchService.directorySearch($scope.searchTerm).then(
           function(results){
-            $scope.wiscDirectoryLoading = false;
+            $scope.directoryLoading = false;
             if(results){
               if(results.records && results.count) {
-                $scope.wiscDirectoryResults = results.records;
-                $scope.wiscDirectoryResultCount = results.count;
+                $scope.directoryResults = results.records;
+                $scope.directoryResultCount = results.count;
               } else {
-                $scope.wiscDirectoryResultsEmpty = true;
+                $scope.directoryResultsEmpty = true;
               }
               if(results.errors && results.errors[0] && results.errors[0].code && results.errors[1] && results.errors[1].error_msg){
                 if(results.errors[0].code == 4){
-                  $scope.wiscDirectoryTooManyResults = true;
+                  $scope.directoryTooManyResults = true;
                 }
-                $scope.wiscDirectoryErrorMessage= results.errors[1].error_msg;
+                $scope.directoryErrorMessage= results.errors[1].error_msg;
               }
             }
           }, function(){
-            $scope.wiscDirectoryLoading = false;
-            $scope.wiscDirectoryError = true;
+            $scope.directoryLoading = false;
+            $scope.directoryError = true;
           }
         );
       };
 
-      var initwiscDirectoryResultLimit = function(){
-          $scope.wiscDirectoryResultLimit = 3;
+      var initDirectoryResultLimit = function(){
+          $scope.directoryResultLimit = 3;
       };
 
       var init = function(){
         $scope.sortParameter = ['-rating','-userRated'];
-        initwiscDirectoryResultLimit();
-        $scope.myuwResults = [];
+        initDirectoryResultLimit();
+        $scope.portalResults = [];
         $scope.googleResults = [];
         $scope.directoryEnabled = false;
-        $scope.wiscDirectoryResults = [];
-        $scope.wiscDirectoryResultCount = 0;
-        $scope.wiscDirectoryTooManyResults = false;
+        $scope.directoryResults = [];
+        $scope.directoryResultCount = 0;
+        $scope.directoryTooManyResults = false;
         $scope.googleSearchEnabled = false;
         $scope.googleResultsEstimatedCount = 0;
         $scope.googleEmptyResults = false;
@@ -110,27 +110,27 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         base.initializeConstants();
         //get marketplace entries
         marketplaceService.getPortlets().then(function(data) {
-            $scope.myuwResults = data.portlets;
+            $scope.portalResults = data.portlets;
         });
-        $scope.$watchGroup(['googleResultsEstimatedCount','myuwFilteredResults.length', 'wiscDirectoryResultCount'], function(){
+        $scope.$watchGroup(['googleResultsEstimatedCount','portalFilteredResults.length', 'directoryResultCount'], function(){
           $scope.totalCount = 0;
           if($scope.googleResultsEstimatedCount) {
             $scope.totalCount+= parseInt($scope.googleResultsEstimatedCount);
           }
-          if($scope.myuwFilteredResults){
-            $scope.totalCount+= parseInt($scope.myuwFilteredResults.length);
+          if($scope.portalFilteredResults){
+            $scope.totalCount+= parseInt($scope.portalFilteredResults.length);
           }
-          if($scope.wiscDirectoryResultCount){
-            $scope.totalCount+= parseInt($scope.wiscDirectoryResultCount);
+          if($scope.directoryResultCount){
+            $scope.totalCount+= parseInt($scope.directoryResultCount);
           }
         });
       };
       init();
-      
+
       googleCustomSearchService.googleSearchEnabled().then(function(googleSearchEnabled){
           $scope.googleSearchEnabled = googleSearchEnabled;
           if(googleSearchEnabled){
-              initWiscEduSearch();
+            initCampusDomainSearch();
           }
       });
       directorySearchService.directorySearchEnabled().then(function(directoryEnabled){
@@ -139,7 +139,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
               initDirectorySearch();
           }
       });
-      
+
     }]);
 
     return app;

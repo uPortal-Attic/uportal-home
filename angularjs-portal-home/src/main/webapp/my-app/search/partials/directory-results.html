@@ -4,12 +4,12 @@
 </h4>
 
 <div layout="row" layout-align="center center">
-  <loading-gif data-object='wiscDirectoryResults' data-empty="wiscDirectoryResultsEmpty"></loading-gif>
+  <loading-gif data-object='directoryResults' data-empty="directoryResultsEmpty"></loading-gif>
 </div>
-<div ng-show="wiscDirectoryResultsEmpty && !wiscDirectoryTooManyResults" class='no-result'>
+<div ng-show="directoryResultsEmpty && !directoryTooManyResults" class='no-result'>
   No directory results.
 </div>
-<div class="result" ng-repeat="item in wiscDirectoryResults | limitTo:wiscDirectoryResultLimit">
+<div class="result" ng-repeat="item in directoryResults | limitTo:directoryResultLimit">
   <h4>{{item.fullName}}</h4>
   <p ng-if="item.formalName">Also known as {{item.formalName}}</p>
   <p>
@@ -39,10 +39,10 @@
   </div>
 </div>
 <div class="seeMoreResults">
-  <p ng-if="wiscDirectoryResultCount>wiscDirectoryResultLimit">
-    <a href="" ng-click="filterTo('directory')">See all {{wiscDirectoryResultCount}} directory results</a>
+  <p ng-if="directoryResultCount>directoryResultLimit">
+    <a href="" ng-click="filterTo('directory')">See all {{directoryResultCount}} directory results</a>
   </p>
-  <p ng-if="wiscDirectoryErrorMessage">
-    {{wiscDirectoryErrorMessage}}
+  <p ng-if="directoryErrorMessage">
+    {{directoryErrorMessage}}
   </p>
 </div>
