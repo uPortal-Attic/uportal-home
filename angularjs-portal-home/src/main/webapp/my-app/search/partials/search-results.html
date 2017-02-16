@@ -37,17 +37,17 @@
               Get help from the <a ng-href="{{helpdeskUrl}}" target="_blank" rel="noopener noreferrer">Help Desk</a>
             </p>
             <p ng-if="feedbackUrl">
-              <a ng-href="{{feedbackUrl}}" target="_blank" rel="noopener noreferrer">Give feedback</a> on MyUW search
+              <a ng-href="{{feedbackUrl}}" target="_blank" rel="noopener noreferrer">Give feedback</a> on {{portal.theme.title}} search
             </p>
           </div>
         </md-content>
       </md-tab-body>
     </md-tab>
 
-    <!-- MyUW RESULTS ONLY -->
+    <!-- PORTAL RESULTS ONLY -->
     <md-tab ng-if="googleSearchEnabled || directoryEnabled">
       <md-tab-label>
-        MyUW&nbsp;&nbsp;<span class="badge">{{ myuwFilteredResults.length }}</span>
+        {{portal.theme.title}}&nbsp;&nbsp;<span class="badge">{{ portalFilteredResults.length }}</span>
       </md-tab-label>
       <md-tab-body>
         <md-content>
@@ -62,7 +62,7 @@
     <!-- DIRECTORY RESULTS ONLY -->
     <md-tab ng-if="directoryEnabled">
       <md-tab-label>
-        Directory&nbsp;&nbsp;<span class="badge">{{ wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount }}</span>
+        Directory&nbsp;&nbsp;<span class="badge">{{ directoryTooManyResults ? '25+' : directoryResultCount }}</span>
       </md-tab-label>
       <md-tab-body>
         <md-content>

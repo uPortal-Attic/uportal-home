@@ -1,14 +1,14 @@
 <h4 class="md-subhead">
   <div class="subhead-border" ng-style="{background: primaryColorRgb}"></div>
-  MyUW
+  {{portal.theme.title}}
 </h4>
 <div layout="row" layout-align="center center">
-  <loading-gif data-object='myuwResults'></loading-gif>
+  <loading-gif data-object='portalResults'></loading-gif>
 </div>
-<div ng-show="myuwResults.length != 0 && myuwFilteredResults.length == 0" class='no-result'>
-  No MyUW results. <a href="apps">Try browsing instead?</a>
+<div ng-show="portalResults.length != 0 && portalFilteredResults.length == 0" class='no-result'>
+  No {{portal.theme.title}} results. <a href="apps">Try browsing instead?</a>
 </div>
-<div class="result" ng-repeat="portlet in myuwFilteredResults = (myuwResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)">
+<div class="result" ng-repeat="portlet in portalFilteredResults = (portalResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)">
   <h4><a ng-href="{{getLaunchURL(portlet)}}" target="{{::portlet.target}}">{{ portlet.title }}</a> <small ng-if='GuestMode && !portlet.canAdd'>(login to use)</small></h4>
   <p>{{ portlet.description }}</p>
   <p>
