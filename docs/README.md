@@ -1,4 +1,4 @@
-This documentation describes [`angularjs-portal`](https://github.com/UW-Madison-DoIT/angularjs-portal), the free and open source alternative [uPortal][] front end used in e.g. [MyUW](https://it.wisc.edu/services/myuw/). `angularjs-portal` is based on [`uw-frame`](https://github.com/UW-Madison-DoIT/uw-frame) (which has [its own documentation](http://uw-madison-doit.github.io/uw-frame/)).
+This documentation describes [AngularJS-Portal](https://github.com/UW-Madison-DoIT/angularjs-portal), the free and open source alternative front end for [uPortal][], used in e.g. [MyUW](https://it.wisc.edu/services/myuw/). AngularJS-Portal is based on [uw-frame](https://github.com/UW-Madison-DoIT/uw-frame) (which has [its own documentation](http://uw-madison-doit.github.io/uw-frame/)).
 
 ## Features
 
@@ -7,12 +7,12 @@ This documentation describes [`angularjs-portal`](https://github.com/UW-Madison-
 #### Persistent layout of widgets
 The home page presents widgets in a remembered order. Logged in users can add to, remove from, and re-order this list.
 
-Under the hood, the home page layout is implemented as a personalized layout fragment in [uPortal][]'s `DLM`, so AngularJS-portal delivers (and updates) a
+Under the hood, the home page layout is implemented as a personalized layout fragment in [uPortal][]'s `DLM`, so AngularJS-Portal delivers (and updates) a
 default set and ordering of home page content that is filtered to the viewing user's permissions.
 
 #### Toggleable view modes
 
-Widgets show on the home page in either a minimalist "compact mode" or a rich "expanded mode". AngularJS-portal takes a guess at the best default mode for a given browser and users can toggle the mode, with their preference stored in browser local storage.
+Widgets show on the home page in either a minimalist "compact mode" or a rich "expanded mode". AngularJS-Portal takes a guess at the best default mode for a given browser and users can toggle the mode, with their preference stored in browser local storage.
 
 + [Expanded mode](expanded.md)
 + [Compact mode](compact.md)

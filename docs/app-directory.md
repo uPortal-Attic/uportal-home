@@ -2,7 +2,7 @@
 
 ## App directory philosophy
 
-`AngularJS-portal` uses the app directory to scale beyond the limitations of stuffing content into boxes on tabs in an old-school portal. Instead, users are encouraged to search over a directory potentially containing more stuff than would have fit on tabs.
+`AngularJS-Portal` uses the app directory to scale beyond the limitations of stuffing content into boxes on tabs in an old-school portal. Instead, users are encouraged to search over a directory potentially containing more stuff than would have fit on tabs.
 
 This reduces noise and opportunity cost of adding content to the portal. Content that is only interesting to a smaller population can hang out in the directory, ready to be referenced, found, and used, but not bothering anyone who does not go looking for it.
 
@@ -148,7 +148,7 @@ Optionally an application directory entry can specify an "alternative" URL. This
 </parameter>
 ```
 
-Where the external URL is specified, AngularJS-portal will prefer "Launch"ing to the external URL rather than launching to the internal portlet.
+Where the external URL is specified, AngularJS-Portal will prefer "Launch"ing to the external URL rather than launching to the internal portlet.
 
 ### Permissions
 
@@ -227,7 +227,7 @@ Users with `MANAGE` permission over an app directory entry can exercise the JSON
 
 ## App directory implementation details
 
-Currently, the AngularJS-portal app directory *is* the uPortal portlet registry.
+Currently, the AngularJS-Portal app directory *is* the uPortal portlet registry.
 
 This means that the app directory can be viewed and edited via the Portlet Manager tooling in uPortal and that app directory entries are uPortal "entities" bulk loaded via entity import.
 
