@@ -141,7 +141,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         });
         $scope.directorySearchUrl = MISC_URLS.directorySearchURL;
         $scope.feedbackUrl = MISC_URLS.feedbackURL;
-        $scope.loginToAuthPage = MISC_URLS.myuwHome;
+        $scope.loginToAuthPage = MISC_URLS.frameHomeURL;
       }
     }
   ]);
