@@ -16,7 +16,7 @@ Widgets can:
 ### Advantages of widget types over custom widgets
 
 + It is less development effort to compose configuration and data for an existing widget type than to develop a novel widget.
-+ Widget types are maintained as part of the angularjs-portal product, so usages of these types will less often need developer attention to keep them looking up-to-date and working well.
++ Widget types are maintained as part of the AngularJS-Portal product, so usages of these types will less often need developer attention to keep them looking up-to-date and working well.
 + Widget types separate configuration (widgetConfig) and data (backing JSON web service) from the implementation of the markup for the widget (widget type).
 + Widget types are more amenable to automated unit testing than are ad-hoc custom widgets.
 
