@@ -66,7 +66,6 @@ define(['angular'], function (angular) {
     $scope.fetchKey = "userWeatherPreference";
     $scope.initialPreference = true;
     $scope.currentUnits = 'F';
-    $scope.previousUnits = 'K';
     $scope.nextUnits = 'C';
 
     var populateWidgetContent = function () {
@@ -107,26 +106,26 @@ define(['angular'], function (angular) {
       var userPreference = $scope.nextUnits;
       if(userPreference === "" || userPreference === null || typeof userPreference === "undefined"){
         userPreference = 'F';
+         $scope.initialPreference = true;
+      }else{
+         $scope.initialPreference = false;
       }
 
-      if(userPreference === 'F'){
+      if(userPreference === 'F'  && !$scope.initialPreference){
         $scope.changeKToF();
         $scope.currentUnits = 'F';
-        $scope.previousUnits = 'K';
         $scope.nextUnits = 'C';
       }
 
       if(userPreference === 'C'){
         $scope.changeFToC();
         $scope.currentUnits = 'C';
-        $scope.previousUnits = 'F';
         $scope.nextUnits = 'K';
       }
 
       if(userPreference === 'K'){
         $scope.changeCToK();
         $scope.currentUnits = 'K';
-        $scope.previousUnits = 'C';
         $scope.nextUnits = 'F';
       }
 
