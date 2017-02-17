@@ -64,7 +64,6 @@ define(['angular'], function (angular) {
     $scope.weatherData = [];
     $scope.loading = false;
     $scope.fetchKey = "userWeatherPreference";
-    $scope.initialPreference = true;
     $scope.currentUnits = 'F';
     $scope.nextUnits = 'C';
 
@@ -111,7 +110,7 @@ define(['angular'], function (angular) {
       var userPreference = $scope.nextUnits;
 
 
-      if(userPreference === 'F'  && !$scope.initialPreference){
+      if(userPreference === 'F'){
         $scope.changeKToF();
         $scope.currentUnits = 'F';
         $scope.nextUnits = 'C';
