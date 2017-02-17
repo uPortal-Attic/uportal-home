@@ -64,7 +64,6 @@ define(['angular'], function (angular) {
     $scope.weatherData = [];
     $scope.loading = false;
     $scope.fetchKey = "userWeatherPreference";
-    $scope.initialPreference = true;
     $scope.currentUnits = 'F';
     $scope.nextUnits = 'C';
 
@@ -87,7 +86,12 @@ define(['angular'], function (angular) {
             $scope.weatherData = $scope.portlet.widgetData;
             $scope.currentUnits = 'F';
             $scope.nextUnits = 'C';
-            while(myPref.userWeatherPreference != $scope.currentUnits){
+            var userPreference = myPref.userWeatherPreference;
+            if(userPreference ===null ||userPreference === "" || typeof userPreference === "undefined") {
+              userPreference = 'F';
+            }
+            
+            while(userPreference != $scope.currentUnits){
               $scope.cycleUnits();
             }
           } else {
@@ -104,14 +108,9 @@ define(['angular'], function (angular) {
     $scope.cycleUnits = function (){
 
       var userPreference = $scope.nextUnits;
-      if(userPreference === "" || userPreference === null || typeof userPreference === "undefined"){
-        userPreference = 'F';
-         $scope.initialPreference = true;
-      }else{
-         $scope.initialPreference = false;
-      }
 
-      if(userPreference === 'F'  && !$scope.initialPreference){
+
+      if(userPreference === 'F'){
         $scope.changeKToF();
         $scope.currentUnits = 'F';
         $scope.nextUnits = 'C';
