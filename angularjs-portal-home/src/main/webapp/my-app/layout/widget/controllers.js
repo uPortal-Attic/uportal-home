@@ -92,7 +92,7 @@ define(['angular'], function (angular) {
               userPreference = 'F';
             }
             
-            while(myPref.userWeatherPreference != $scope.currentUnits){
+            while(userPreference != $scope.currentUnits){
               $scope.cycleUnits();
             }
           } else {
