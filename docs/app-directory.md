@@ -194,7 +194,7 @@ See [documentation about expanded widgets](expanded.md).
 
 ### Keywords
 
-App directory "search" is really filtering, and currently filters over the name, description, and keywords.
+App directory "search" is really filtering over the name, description, and keywords.
 
 ```xml
 <portlet-preference>
