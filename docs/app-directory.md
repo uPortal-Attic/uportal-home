@@ -90,7 +90,7 @@ App directory entries optionally have an icon.
 <parameter><name>faIcon</name><value>fa-user</value></parameter>
 ```
 
-These can be any of the [Font Awesome icons][].
+These can be any of the [Font Awesome icons][]. (AngularJS-Portal intends to transition to using [Material icons][] instead in the near future.)
 
 #### Categories
 
@@ -240,5 +240,6 @@ Application directory entries are currently uPortal `portlet-definition` entitie
 [KB article on referencing content in MyUW]: https://kb.wisc.edu/myuw/page.php?id=52650
 [XSD for `portlet-definition` XML]: https://github.com/Jasig/uPortal/tree/master/uportal-war/src/main/resources/xsd/io/portlet-definition
 [Font Awesome icons]: https://fortawesome.github.io/Font-Awesome/icons/
+[Material icons]: https://material.io/icons/
 [MyUWImages GitLab repo]: https://git.doit.wisc.edu/myuw/MyUWImages
 [Manifest]: https://it.wisc.edu/services/manifest/
