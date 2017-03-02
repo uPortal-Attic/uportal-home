@@ -8,7 +8,7 @@ This reduces noise and opportunity cost of adding content to the portal. Content
 
 ## Anatomy of a directory entry
 
-Technical, app directory entries *are* uPortal portlet registry entries, and so can be modeled and imported using uPortal `portlet-definition` "entities". The XML snippets in this documentation hint as to how this is done.
+Technically, app directory entries *are* uPortal portlet registry entries, and so can be modeled and imported using uPortal `portlet-definition` "entities". The XML snippets in this documentation hint as to how this is done.
 
 ### Naming the content
 
