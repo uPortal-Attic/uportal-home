@@ -1,9 +1,7 @@
-# Widget types
+# Widget types and configuration
 
-MyUW widgets are designed to be flexible - users can accomplish or access a single task or piece of information, or they can access
+Widgets are designed to be flexible - users can accomplish or access a single task or piece of information, or they can access
 a collection of related things that will help them accomplish their task.
-
-## About widget types generally
 
 Widgets can:
 
@@ -13,26 +11,88 @@ Widgets can:
 * Allow users to quickly access pieces of the app to complete key or regular tasks (e.g. Course Services, My Professional Development, Course Guide)
 * Provide users with at-a-glance information that represents the main use for the widget (e.g. Weather)
 
-### Advantages of widget types over custom widgets
+## Basic widgets
+
+The barebones widget provides an app title, a large icon, and a launch button with configurable text. It's a simple link to an app or external URL.
+
+![basic widget](./img/basic-widget.png)
+
+### Sample entity file
+
+```xml
+<title>Enrollment</title>
+<name>Enrollment</name>
+<fname>enrollment-experience</fname>
+<desc>Try out the newly redesigned student enrollment experience</desc>
+<parameter>
+  <name>faIcon</name>
+  <value>fa-university</value>
+</parameter>
+<parameter>
+  <name>alternativeMaximizedLink</name>
+  <value>https://enroll.wisc.edu/</value>
+</parameter>
+<portlet-preference>
+  <name>keywords</name>
+  <value>enroll</value>
+  <value>enrollment</value>
+  <value>SOAR</value>
+</portlet-preference>
+<portlet-preference>
+  <name>content</name>
+  <readOnly>false</readOnly>
+  <value>
+    <![CDATA[
+      <p>Access the
+        <a href="https://enroll.wisc.edu" target="_blank" rel="noopener noreferrer">student enrollment app</a>.
+      </p>
+    ]]>
+  </value>
+</portlet-preference>
+```
+
+#### About entity file values
+
+The values in the sample file above are the bare minimum required to create a widget. The descriptions below are in the context of widgets only.
+Most entity file attributes have other functions within the portal. Ask your portal development team if you want to know more about entity files.
+
+* **title**: The widget title
+* **fname**: The technical name of the app entry (lowercase and hyphenated)
+* **desc**: Description of the app (visible when hovering the widget's "info" icon
+* **faIcon** parameter: The widget's icon
+* **alternativeMaximizedLink** parameter: An optional parameter to use if your widget links to an external URL
+* **keywords** portlet-preference: A list of keywords to expose your widget when users search the portal marketplace
+* **content** portlet-preference: A required snippet of static content. If your widget has an alternativeMaximizedLink, this content will never be visible, but it's still required.
+
+The above attributes are all you need to create a basic widget!
+
+***Notes:***
+
+* *DO NOT USE a `widgetType` portlet-preference if you want a basic widget*
+* *Some of these parameters may not be required (ex. faIcon) when using the predefined widget types described below*
+
+# Predefined widget types
+
++ List of links
++ Search with links
++ RSS widget
+
+## Advantages of widget types
+
+Widget types provide a predefined standard template that can do a lot more than a basic widget while saving you the trouble of creating a custom design.
 
 + It is less development effort to compose configuration and data for an existing widget type than to develop a novel widget.
 + Widget types are maintained as part of the AngularJS-Portal product, so usages of these types will less often need developer attention to keep them looking up-to-date and working well.
 + Widget types separate configuration (widgetConfig) and data (backing JSON web service) from the implementation of the markup for the widget (widget type).
 + Widget types are more amenable to automated unit testing than are ad-hoc custom widgets.
 
-### How to use
+## How to use
 
-Follow these steps for each of the widget types described in this doc:
+Follow these steps for each of the predefined widget types described in this doc:
 
 1. Follow the "when to use" guidance to select the widget type that will best suit your needs
 2. Add the appropriate `widgetType` value to your app's entity file (see widget type's sample code)
 3. Add a `widgetConfig` to your app's entity file (see widget type's sample code)
-
-## The specific available widget types
-
-+ List of links
-+ Search with links
-+ RSS widget
 
 ### List of links
 
@@ -47,7 +107,7 @@ Follow these steps for each of the widget types described in this doc:
 
 * You only need your widget to display a list of 2-7 links
 
-#### Sample entity file
+#### Additional entity file configuration
 
 ```xml
 <portlet-preference>
@@ -101,7 +161,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 * Your app has built-in search
 * (optional) and you want to display up to 2 links
 
-#### Sample entity file
+#### Additional entity file configuration
 
 ```xml
 <portlet-preference>
@@ -148,7 +208,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 
 * You want to display an RSS feed right on your MyUW home page
 
-#### Sample entity file
+#### Additional entity file configuration
 
 ```xml
 <portlet-preference>
@@ -176,7 +236,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 
 Note the addition required value in the entity file:
 
-* `widgetUrl`: The URL of the *JSON representation of the* RSS feed you want to display
+* **widgetUrl**: The URL of the *JSON representation of the* RSS feed you want to display
 
 The [rssToJson][] microservice is a fine way to convert desired RSS feeds into the required JSON representation.
 
@@ -257,7 +317,7 @@ Currently we only use the evalString to evaluate emptiness. We may add more in t
 
 By doing just this we were able to generate:
 
-![https://cloud.githubusercontent.com/assets/3534544/6626304/a82c9e2e-c8c3-11e4-9bf0-acdc0fbdd2f5.png](https://cloud.githubusercontent.com/assets/3534544/6626304/a82c9e2e-c8c3-11e4-9bf0-acdc0fbdd2f5.png)
+![custom widget](./img/custom-widget.png)
 
 ## Other Configuration
 
