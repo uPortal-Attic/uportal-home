@@ -257,13 +257,13 @@ a rest proxy for that. Please contact the MyUW team for details and assistance.
 When your widget is rendered, this service is called via a `GET`. The returned content is stored in the scope variable `content`.
 
 ### 2. widgetType
-Setting this to `generic` will enable you to provide your own template. Be sure to evaluate the out of the box widget types
+Setting this to `custom` will enable you to provide your own custom template. Be sure to evaluate the out of the box widget types
 before creating your own (documentation on those above).
 
 ```xml
 <portlet-preference>
     <name>widgetType</name>
-    <value>generic</value>
+    <value>custom</value>
 </portlet-preference>
 ```
 
