@@ -115,10 +115,10 @@
             <portlet-icon></portlet-icon>
           </div>
         </a>
-        <launch-button aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch ' + portlet.title }}" class="launch-app-button"  ng-click="widgetCtrl.maxStaticPortlet(portlet)">
+        <button aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch ' + portlet.title }}" class="launch-app-button"  ng-click="widgetCtrl.maxStaticPortlet(portlet)">
           <span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>
           <span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>
-        </launch-button>
+        </button>
       </div>
 
     </div>
