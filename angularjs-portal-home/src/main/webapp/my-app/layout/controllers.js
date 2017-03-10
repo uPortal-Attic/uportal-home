@@ -47,11 +47,6 @@ define(['angular', 'jquery'], function (angular, $) {
         $location.path('/static/' + portlet.fname);
       };
 
-      // Unused??
-      this.directToPortlet = function directToPortlet(url) {
-        $location.path(url);
-      };
-
       /**
        * Remove widget from home layout
        * @param nodeId
@@ -190,12 +185,6 @@ define(['angular', 'jquery'], function (angular, $) {
         $location.path('/static/' + portlet.fname);
       };
 
-      // Unused??
-      // TODO: Determine whether this is used or not
-      childController.directToPortlet = function directToPortlet(url) {
-        $location.path(url);
-      };
-
       /**
        * Remove widget from home layout
        * @param nodeId
@@ -325,29 +314,6 @@ define(['angular', 'jquery'], function (angular, $) {
       };
 
       this.init();
-  }]);
-
-  // Unused??
-  // TODO: Determine whether this is used or not
-  app.controller('NewStuffController', ['$scope', 'layoutService', function ($scope, layoutService) {
-    $scope.newStuffArray = [];
-    layoutService.getNewStuffFeed().then(function (result) {
-      $scope.newStuffArray = result;
-    });
-
-    this.show = function (stuff) {
-      var date = new Date(stuff.expireYr, stuff.expireMon, stuff.expireDay);
-      var today = new Date();
-      return date >= today;
-    }
-  }]);
-
-  // Unused??
-  // TODO: Determine whether this is used or not
-  app.controller('GoToAppsController', ['$location', function ($location) {
-    this.redirectToApps = function () {
-      $location.path("/apps");
-    };
   }]);
 
   return app;

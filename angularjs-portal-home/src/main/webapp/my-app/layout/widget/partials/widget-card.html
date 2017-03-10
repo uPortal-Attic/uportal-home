@@ -95,19 +95,6 @@
         </launch-button>
       </div>
 
-      <!-- For widgets, show fancy markup! (UNUSED) -->
-      <div ng-if="'WIDGET' === widgetCtrl.portletType(portlet)">
-        <div class="widget-content">
-          <div ng-if="'option-link' === portlet.widgetType">
-            <div class="widget-icon-container">
-              <portlet-icon></portlet-icon>
-            </div>
-          </div>
-          <div ng-bind-html="portlet.widgetContent"></div>
-        </div>
-        <a class="launch-app-button" href="{{ portlet.url }}" target="{{ portlet.target }}">Launch full app</a>
-      </div>
-
       <!-- For simple content portlets, show only an icon (RARELY USED) -->
       <div ng-switch-when="SIMPLE">
         <a tabindex="-1" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="basic-widget">
