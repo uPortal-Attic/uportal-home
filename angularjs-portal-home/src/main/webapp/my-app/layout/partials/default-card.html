@@ -20,7 +20,7 @@
       <h4 id="appTitle_portlet.title-{{::portlet.nodeId}}">{{ ::portlet.title }}</h4>
     </div>
   </a>
-  <a aria-labelledby="appTitle_portlet.title-{{::portlet.nodeId}}" tabindex="0" ng-if="'NORMAL' === layoutCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
+  <a aria-labelledby="appTitle_portlet.title-{{::portlet.nodeId}}" tabindex="0" ng-if="'BASIC' === layoutCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
     <div class="icon-container">
       <portlet-icon></portlet-icon>
     </div>

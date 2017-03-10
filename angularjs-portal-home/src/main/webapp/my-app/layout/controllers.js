@@ -4,11 +4,10 @@ define(['angular', 'jquery'], function (angular, $) {
   var app = angular.module('my-app.layout.controllers', []);
 
   /**
-   * Controller for [WHEN IS THIS USED??] (my-app/layout/partials/default-view.html)
+   * Controller for default view (my-app/layout/partials/default-view.html)
    */
   app.controller('DefaultViewController', ['$scope', '$location', '$mdMedia', '$localStorage', '$sessionStorage', 'APP_FLAGS',
     function ($scope, $location, $mdMedia, $localStorage, $sessionStorage, APP_FLAGS) {
-      console.log('inside default view controller');
       $scope.loading = [];
       if (!APP_FLAGS[$localStorage.layoutMode]) {
         // Layout mode set weird, reset to default
@@ -35,7 +34,7 @@ define(['angular', 'jquery'], function (angular, $) {
         } else if (portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)) {
           return "EXCLUSIVE";
         } else {
-          return "NORMAL";
+          return "BASIC";
         }
       };
 
@@ -145,8 +144,8 @@ define(['angular', 'jquery'], function (angular, $) {
             return "RSS";
           } else if ('list-of-links' === portlet.widgetType) {
             if (portlet.widgetConfig.links.length === 1 && portlet.altMaxUrl && portlet.widgetConfig.links[0].href === portlet.url) {
-              // If list of links has only one link and if it is the same as the portlet URL, display the normal widget view
-              return "NORMAL";
+              // If list of links has only one link and if it is the same as the portlet URL, display the default widget view
+              return "BASIC";
             } else {
               return "LOL";
             }
@@ -155,7 +154,10 @@ define(['angular', 'jquery'], function (angular, $) {
           } else if ('lti-launch' === portlet.widgetType) {
             return "LTI_LAUNCH";
           } else if ('generic' === portlet.widgetType) {
-            return "GENERIC";
+            // Include 'generic' for the sake of backwards compatibility, but return what it really is: CUSTOM
+            return "CUSTOM";
+          } else if ('custom' === portlet.widgetType) {
+            return "CUSTOM";
           } else {
             return "WIDGET";
           }
@@ -164,12 +166,12 @@ define(['angular', 'jquery'], function (angular, $) {
         } else if (portlet.staticContent != null && portlet.altMaxUrl == false) {
           return "SIMPLE";
         } else {
-          return "NORMAL";
+          return "BASIC";
         }
       };
 
       /**
-       * Sets href attribute for 'NORMAL' type widget
+       * Sets href attribute for 'BASIC' type widget
        * @param portlet
        * @returns {*}
        */

@@ -300,7 +300,7 @@ define(['angular'], function (angular) {
   /**
    * Controller for 'generic' and 'custom' widget types (/widget/partials/widget-card.html)
    */
-  app.controller('GenericWidgetController', ['$scope', 'layoutService', function ($scope, layoutService) {
+  app.controller('CustomWidgetController', ['$scope', 'layoutService', function ($scope, layoutService) {
     $scope.loading = false;
     /**
      * Configure widget content
