@@ -108,26 +108,18 @@
         <a class="launch-app-button" href="{{ portlet.url }}" target="{{ portlet.target }}">Launch full app</a>
       </div>
 
-      <!-- For pithy content, display the pithy content (UNUSED) -->
-      <!--<div ng-switch-when="PITHY">-->
-        <!--<div class="portlet-content">-->
-          <!--<div ng-bind-html="portlet.pithyStaticContent"></div>-->
-        <!--</div>-->
-        <!--<a class="launch-app-button" href="{{portlet.url}}" target="{{portlet.target}}">Launch full app</a>-->
-      <!--</div>-->
-
-      <!-- For simple content portlets, show only an icon (UNUSED) -->
-      <!--<div ng-switch-when="SIMPLE">-->
-        <!--<a tabindex="-1" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="normal-widget">-->
-          <!--<div class="widget-icon-container" layout="column" layout-align="center center">-->
-            <!--<portlet-icon></portlet-icon>-->
-          <!--</div>-->
-        <!--</a>-->
-        <!--<button aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch ' + portlet.title }}" class="launch-app-button"  ng-click="widgetCtrl.maxStaticPortlet(portlet)">-->
-          <!--<span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>-->
-          <!--<span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>-->
-        <!--</button>-->
-      <!--</div>-->
+      <!-- For simple content portlets, show only an icon (RARELY USED) -->
+      <div ng-switch-when="SIMPLE">
+        <a tabindex="-1" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="basic-widget">
+          <div class="widget-icon-container" layout="column" layout-align="center center">
+            <portlet-icon></portlet-icon>
+          </div>
+        </a>
+        <launch-button aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch ' + portlet.title }}" class="launch-app-button"  ng-click="widgetCtrl.maxStaticPortlet(portlet)">
+          <span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>
+          <span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>
+        </launch-button>
+      </div>
 
     </div>
   </md-card-content>

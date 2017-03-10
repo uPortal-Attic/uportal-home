@@ -161,8 +161,6 @@ define(['angular', 'jquery'], function (angular, $) {
           } else {
             return "WIDGET";
           }
-        } else if (portlet.pithyStaticContent != null) {
-          return "PITHY";
         } else if (portlet.staticContent != null && portlet.altMaxUrl == false) {
           return "SIMPLE";
         } else {
@@ -184,7 +182,7 @@ define(['angular', 'jquery'], function (angular, $) {
       };
 
       /**
-       * Navigates to portlet when launching from 'SIMPLE' type widget
+       * Navigates to portlet when launching from 'SIMPLE' type widget (rarely used, but still needed by some apps)
        * @param portlet
        */
       childController.maxStaticPortlet = function gotoMaxStaticPortlet(portlet) {
