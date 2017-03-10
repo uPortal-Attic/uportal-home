@@ -4,31 +4,37 @@ define(['angular'], function (angular) {
 
   var app = angular.module('my-app.layout.widget.controllers', []);
 
+  /**
+   * Controller for 'optionLink' directive (/widget/directives.js)
+   */
   app.controller('OptionLinkController', ['$scope', 'layoutService', function ($scope, layoutService) {
 
+    /**
+     * Set up default configuration if no config exists
+     */
     var configInit = function () {
-      if (!$scope.config) {
-        //setting up defaults since config doesn't exist
-        $scope.config = {
-          singleElement: false,
-          arrayName: 'array',
-          value: 'value',
-          display: 'display'
-        };
-      }
+      $scope.config = {
+        singleElement: false,
+        arrayName: 'array',
+        value: 'value',
+        display: 'display'
+      };
     };
 
+    /**
+     * Set up the widget based on received configuration
+     */
     var populateWidgetContent = function () {
       if ($scope.portlet.widgetURL && $scope.portlet.widgetType) {
-        //fetch portlet widget json
+
+        // Initialize portlet widget json
         $scope.portlet.widgetData = [];
 
+        // Fetch widget JSON
         layoutService.getWidgetJson($scope.portlet).then(function (data) {
           if (data) {
-            console.log(data);
-            //set init
             if ($scope.config.singleElement) {
-              //set the default selected url
+              // Set the default selected url
               $scope.portlet.selectedUrl = $scope.portlet.widgetData[$scope.config.value];
             } else if ($scope.portlet.widgetData[$scope.config.arrayName] && $scope.portlet.widgetData[$scope.config.arrayName].length > 0) {
               $scope.portlet.selectedUrl = $scope.portlet.widgetData[$scope.config.arrayName][0][$scope.config.value];
@@ -39,7 +45,12 @@ define(['angular'], function (angular) {
         });
       }
     };
-    configInit();
+
+    // Set default values if no config was received
+    if (!$scope.config) {
+      configInit();
+    }
+    // Set up widget content
     populateWidgetContent();
   }]);
 
@@ -87,11 +98,11 @@ define(['angular'], function (angular) {
             $scope.currentUnits = 'F';
             $scope.nextUnits = 'C';
             var userPreference = myPref.userWeatherPreference;
-            if(userPreference ===null ||userPreference === "" || typeof userPreference === "undefined") {
+            if (userPreference === null || userPreference === "" || typeof userPreference === "undefined") {
               userPreference = 'F';
             }
-            
-            while(userPreference != $scope.currentUnits){
+
+            while (userPreference != $scope.currentUnits) {
               $scope.cycleUnits();
             }
           } else {
@@ -105,24 +116,24 @@ define(['angular'], function (angular) {
       }
     };
 
-    $scope.cycleUnits = function (){
+    $scope.cycleUnits = function () {
 
       var userPreference = $scope.nextUnits;
 
 
-      if(userPreference === 'F'){
+      if (userPreference === 'F') {
         $scope.changeKToF();
         $scope.currentUnits = 'F';
         $scope.nextUnits = 'C';
       }
 
-      if(userPreference === 'C'){
+      if (userPreference === 'C') {
         $scope.changeFToC();
         $scope.currentUnits = 'C';
         $scope.nextUnits = 'K';
       }
 
-      if(userPreference === 'K'){
+      if (userPreference === 'K') {
         $scope.changeCToK();
         $scope.currentUnits = 'K';
         $scope.nextUnits = 'F';
@@ -144,9 +155,9 @@ define(['angular'], function (angular) {
       }
     };
 
-    $scope.changeCToK = function() {
+    $scope.changeCToK = function () {
       for (var i = 0; i < $scope.weatherData.length; i++) {
-        $scope.weatherData[i].currentWeather.temperature = ($scope.weatherData[i].currentWeather.temperature + 273) ;
+        $scope.weatherData[i].currentWeather.temperature = ($scope.weatherData[i].currentWeather.temperature + 273);
 
         for (var j = 0; j < $scope.weatherData[i].forecast.length; j++) {
           $scope.weatherData[i].forecast[j].highTemperature = ($scope.weatherData[i].forecast[j].highTemperature + 273);
@@ -155,14 +166,14 @@ define(['angular'], function (angular) {
       }
     };
 
-    $scope.changeKToF = function(){
+    $scope.changeKToF = function () {
       $scope.changeKToC();
       $scope.changeCToF();
     };
 
-    $scope.changeKToC = function() {
+    $scope.changeKToC = function () {
       for (var i = 0; i < $scope.weatherData.length; i++) {
-        $scope.weatherData[i].currentWeather.temperature = ($scope.weatherData[i].currentWeather.temperature - 273) ;
+        $scope.weatherData[i].currentWeather.temperature = ($scope.weatherData[i].currentWeather.temperature - 273);
 
         for (var j = 0; j < $scope.weatherData[i].forecast.length; j++) {
           $scope.weatherData[i].forecast[j].highTemperature = ($scope.weatherData[i].forecast[j].highTemperature - 273);

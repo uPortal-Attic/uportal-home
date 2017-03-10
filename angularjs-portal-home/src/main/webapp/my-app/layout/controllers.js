@@ -301,7 +301,7 @@ define(['angular', 'jquery'], function (angular, $) {
       };
 
       /**
-       * Get user's last-used layout mode and initialize view 
+       * Get user's last-used layout mode and initialize view
        */
       this.init = function () {
         $scope.toggle = APP_FLAGS.enableToggle;

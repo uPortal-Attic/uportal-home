@@ -60,7 +60,7 @@ define(['angular', 'require'], function(angular, require) {
             controller: 'SearchWithLinksController'
         }
     });
-    
+
     app.directive('ltiLaunch', function(){
       return {
         restrict: 'E',
