@@ -22,3 +22,4 @@ doc_target
 npm-debug.log
 docs/_site
 docs/Gemfile.lock
+docs/\.ruby-version
