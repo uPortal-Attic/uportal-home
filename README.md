@@ -8,6 +8,8 @@
 ### What is this?
 This is an Angular approach to the dashboard view of uPortal. This dashboard will work along side uPortal, more of a companion app. It utilizes the uPortal rest APIs to collect layout info. It pulls notifications from the notification portlet resource URL.
 
+[![Apereo Incubating badge](https://img.shields.io/badge/Apereo-Incubating-blue.svg)](https://www.apereo.org/content/projects-currently-incubation)
+
 See [this project's documentation](http://uw-madison-doit.github.io/angularjs-portal/).
 
 #### Resources for understanding what you can do with `angularjs-portal`:
