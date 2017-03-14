@@ -184,4 +184,4 @@ Next actions:
 [uPortal]: https://www.apereo.org/projects/uportal
 [incubation@ proposal]: https://groups.google.com/a/apereo.org/d/msg/incubation/tPBN3-YSSPM/Xk4yghH1AwAJ
 [2016-12-20 Apereo Board meeting minutes]: https://www.apereo.org/sites/default/files/meeting_minutes/2016/Apereo%20Board%20Minutes%20-%20Dec%202016%20-%20002.pdf
-[exit criteria]: https://www.apereo.org/content/apereo-incubation-process#S4 Exit Criteria
+[exit criteria]: https://www.apereo.org/content/apereo-incubation-process#S4
