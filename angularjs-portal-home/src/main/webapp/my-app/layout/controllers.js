@@ -36,6 +36,7 @@ define(['angular', 'jquery'], function (angular, $) {
           console.log('rendering exclusive');
           return 'exclusive/' + portlet.fname;
         } else {
+          console.log('returning default');
           return portlet.url;
         }
       };
@@ -92,6 +93,7 @@ define(['angular', 'jquery'], function (angular, $) {
        * Initialize LayoutController
        */
       this.init = function () {
+        console.log('initializing LayoutController');
         if (typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
           $rootScope.layout = [];
           $scope.layoutEmpty = false;
@@ -99,7 +101,6 @@ define(['angular', 'jquery'], function (angular, $) {
           // Get user's home layout
           layoutService.getLayout().then(function (data) {
             $rootScope.layout = data.layout;
-            console.dir(data.layout);
             if (data.layout && data.layout.length == 0) {
               $scope.layoutEmpty = true;
             }
