@@ -19,6 +19,9 @@ The barebones widget provides an app title, a large icon, and a launch button wi
 
 ### Sample entity file
 
+This code block includes most of the fields needed to configure a widget, but there are additional XML tags (`<portlet-definition>`) you'll need
+to create one from scratch. [See the full entity file](./assets/examples/example-entity.xml) for a complete example.
+
 ```xml
 <title>Enrollment</title>
 <name>Enrollment</name>
@@ -53,9 +56,6 @@ The barebones widget provides an app title, a large icon, and a launch button wi
 
 #### About entity file values
 
-The values in the sample file above are the bare minimum required to create a widget. The descriptions below are in the context of widgets only.
-Most entity file attributes have other functions within the portal. Ask your portal development team if you want to know more about entity files.
-
 * **title**: The widget title
 * **fname**: The technical name of the app entry (lowercase and hyphenated)
 * **desc**: Description of the app (visible when hovering the widget's "info" icon
@@ -64,12 +64,13 @@ Most entity file attributes have other functions within the portal. Ask your por
 * **keywords** portlet-preference: A list of keywords to expose your widget when users search the portal marketplace
 * **content** portlet-preference: A required snippet of static content. If your widget has an alternativeMaximizedLink, this content will never be visible, but it's still required.
 
-The above attributes are all you need to create a basic widget!
+The above attributes are all you need to configure a basic widget!
 
 ***Notes:***
 
 * *DO NOT USE a `widgetType` portlet-preference if you want a basic widget*
 * *Some of these parameters may not be required (ex. faIcon) when using the predefined widget types described below*
+* *The above descriptions are in the context of widgets only. Most entity file attributes have other functions within the portal. Ask your portal development team if you want to know more about entity files.*
 
 # Predefined widget types
 
@@ -278,7 +279,8 @@ This is where the template goes. We suggest using a CDATA tag here.
       <div style='margin : 0 10px 0 10px;'>
         <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>
         <ul class='widget-list'>
-          <li ng-repeat=\"item in content.report |orderBy: ['-paid.substring(6)','-paid.substring(0,2)','-paid.substring(3,5)'] | limitTo:3\" class='center'>
+          <li ng-repeat=\"item in content.report |orderBy: ['-paid.substring(6)','-paid.substring(0,2)'] | limitTo:3\"
+              class='center'>
             <a href='/portal/p/earnings-statement/max/earning_statement.pdf.resource.uP?pP_docId={{item.docId}}' target='_blank'>
               <i class='fa fa-bank fa-fw'></i> {{item.paid}} Statement</a>
           </li>
@@ -288,7 +290,9 @@ This is where the template goes. We suggest using a CDATA tag here.
           <span style='color: #898989;'>We had a problem finding your statements (or you don't have any).</span>
         </div>
         <div style='background-color: #EAEAEA; border-radius:4px;padding:10px; margin-top:10px;'>
-          <span class='bold display-block left' style='text-align: left; padding-left: 10px; font-size: 14px;'>See all payroll information for more options:</span>
+          <span class='bold display-block left' style='text-align: left; padding-left: 10px; font-size: 14px;'>
+            See all payroll information for more options:
+          </span>
           <ul style='text-align: left;list-style-type: disc; font-size: 12px;'>
             <li>See all pay stubs</li>
             <li>Tax statements</li>

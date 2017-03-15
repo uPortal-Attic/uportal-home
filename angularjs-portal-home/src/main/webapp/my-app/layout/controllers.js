@@ -149,7 +149,7 @@ define(['angular', 'jquery'], function (angular, $) {
           } else if ('lti-launch' === portlet.widgetType) {
             return "LTI_LAUNCH";
           } else if ('generic' === portlet.widgetType) {
-            // Include 'generic' for the sake of backwards compatibility, but return what it really is: CUSTOM
+            // DEPRECATED: Include 'generic' for the sake of backwards compatibility, but return what it really is: CUSTOM
             return "CUSTOM";
           } else if ('custom' === portlet.widgetType) {
             return "CUSTOM";
@@ -157,8 +157,10 @@ define(['angular', 'jquery'], function (angular, $) {
             return "WIDGET";
           }
         } else if (portlet.staticContent != null && portlet.altMaxUrl == false) {
+          // Return "SIMPLE" widget type for static content portlets (rarely used -- most apps will have an alternativeMaximizedUrl)
           return "SIMPLE";
         } else {
+          // Return "BASIC" widget type for anything else lacking an explicit widget type definition (default experience)
           return "BASIC";
         }
       };
