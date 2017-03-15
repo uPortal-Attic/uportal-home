@@ -28,9 +28,12 @@ define(['angular', 'jquery'], function (angular, $) {
        * @returns {*}
        */
       this.renderURL = function(portlet) {
+        console.log('inside renderURL');
         if (portlet.staticContent != null && portlet.altMaxUrl == false) {
+          console.log('rendering static');
           return '/static/' + portlet.fname;
         } else if (portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)) {
+          console.log('rendering exclusive');
           return 'exclusive/' + portlet.fname;
         } else {
           return portlet.url;
