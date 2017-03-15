@@ -19,32 +19,22 @@ define(['angular', 'jquery'], function (angular, $) {
   /**
    * Controller for the compact mode widget layout (layout/list/partials/home-list-view.html and layout/partials/default-card.html)
    */
-  app.controller('LayoutController', ['$location', '$localStorage', '$sessionStorage', '$scope', '$rootScope', 'layoutService', 'miscService', 'sharedPortletService',
-    function ($location, $localStorage, $sessionStorage, $scope, $rootScope, layoutService, miscService, sharedPortletService) {
+  app.controller('LayoutController', ['$location', '$localStorage', '$sessionStorage', '$scope', '$rootScope', 'layoutService', 'miscService',
+    function ($location, $localStorage, $sessionStorage, $scope, $rootScope, layoutService, miscService) {
 
       /**
-       * Set widget template type (passed to default-card directive)
+       * Set the href based on whether it's a static, exclusive, or basic widget (based on attributes from entity file)
        * @param portlet
        * @returns {*}
        */
-      this.portletType = function portletType(portlet) {
-        // If staticContent portlet, check for configured fields
+      this.renderURL = function(portlet) {
         if (portlet.staticContent != null && portlet.altMaxUrl == false) {
-          return "SIMPLE";
+          return '/static/' + portlet.fname;
         } else if (portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)) {
-          return "EXCLUSIVE";
+          return 'exclusive/' + portlet.fname;
         } else {
-          return "BASIC";
+          return portlet.url;
         }
-      };
-
-      /**
-       * Go to static portlet
-       * @param portlet
-       */
-      this.maxStaticPortlet = function gotoMaxStaticPortlet(portlet) {
-        sharedPortletService.setProperty(portlet);
-        $location.path('/static/' + portlet.fname);
       };
 
       /**
@@ -121,8 +111,8 @@ define(['angular', 'jquery'], function (angular, $) {
    * Basic widget logic leveraged by WidgetController, expanded mode widget layout (/widget/partials/home-widget-view.html and /widget/partials/widget-card.html),
    * and 'widget' component (/widget/directives.js)
    */
-  app.controller('BaseWidgetFunctionsController', ['$scope', '$location', '$sessionStorage', '$localStorage', 'sharedPortletService', 'layoutService', 'childController',
-    function ($scope, $location, $sessionStorage, $localStorage, sharedPortletService, layoutService, childController) {
+  app.controller('BaseWidgetFunctionsController', ['$scope', '$location', '$sessionStorage', '$localStorage', 'layoutService', 'childController',
+    function ($scope, $location, $sessionStorage, $localStorage, layoutService, childController) {
       /**
        * Determine the type of widget to display
        * @param portlet
@@ -171,20 +161,16 @@ define(['angular', 'jquery'], function (angular, $) {
        * @returns {*}
        */
       childController.renderURL = function renderURL(portlet) {
-        if (portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)) {
-          return 'exclusive/' + portlet.fname;
+        // Check if it's a static or exclusive portlet
+        if (portlet.altMaxUrl == false) {
+          if (portlet.staticContent != null) {
+            return '/static/' + portlet.fname;
+          } else if (portlet.renderOnWeb || $localStorage.webPortletRender) {
+            return 'exclusive/' + portlet.fname;
+          }
         } else {
           return portlet.url;
         }
-      };
-
-      /**
-       * Navigates to portlet when launching from 'SIMPLE' type widget (rarely used, but still needed by some apps)
-       * @param portlet
-       */
-      childController.maxStaticPortlet = function gotoMaxStaticPortlet(portlet) {
-        sharedPortletService.setProperty(portlet);
-        $location.path('/static/' + portlet.fname);
       };
 
       /**
@@ -221,8 +207,8 @@ define(['angular', 'jquery'], function (angular, $) {
    * Widget initialization and sorting for expanded mode widget layout
    * (/widget/partials/home-widget-view.html and /widget/partials/widget-card.html)
    */
-  app.controller('WidgetController', ['$controller', '$location', '$localStorage', '$sessionStorage', '$scope', '$rootScope', 'layoutService', 'miscService', 'sharedPortletService',
-    function ($controller, $location, $localStorage, $sessionStorage, $scope, $rootScope, layoutService, miscService, sharedPortletService) {
+  app.controller('WidgetController', ['$controller', '$location', '$localStorage', '$sessionStorage', '$scope', '$rootScope', 'layoutService', 'miscService',
+    function ($controller, $location, $localStorage, $sessionStorage, $scope, $rootScope, layoutService, miscService) {
 
       // Inherit from BaseWidgetFunctionsController
       var base = $controller('BaseWidgetFunctionsController', {$scope: $scope, childController: this});

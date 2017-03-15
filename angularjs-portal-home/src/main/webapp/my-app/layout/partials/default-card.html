@@ -12,23 +12,7 @@
     <md-icon>close</md-icon>
   </md-button>
 
-  <a aria-labelledby="appTitle_portlet.title-{{::portlet.nodeId}}" tabindex="0" ng-if="'EXCLUSIVE' === layoutCtrl.portletType(portlet)" href="exclusive/{{::portlet.fname}}" target="{{::portlet.target}}">
-    <div class="icon-container">
-      <portlet-icon></portlet-icon>
-    </div>
-    <div class="list-item-container">
-      <h4 id="appTitle_portlet.title-{{::portlet.nodeId}}">{{ ::portlet.title }}</h4>
-    </div>
-  </a>
-  <a aria-labelledby="appTitle_portlet.title-{{::portlet.nodeId}}" tabindex="0" ng-if="'BASIC' === layoutCtrl.portletType(portlet)" href="{{::portlet.url}}" target="{{::portlet.target}}">
-    <div class="icon-container">
-      <portlet-icon></portlet-icon>
-    </div>
-    <div class="list-item-container">
-      <h4 id="appTitle_portlet.title-{{::portlet.nodeId}}">{{ ::portlet.title }}</h4>
-    </div>
-  </a>
-  <a aria-labelledby="appTitle_portlet.title-{{::portlet.nodeId}}" tabindex="0" ng-if="'SIMPLE' === layoutCtrl.portletType(portlet)" ng-click="layoutCtrl.maxStaticPortlet(portlet)">
+  <a aria-labelledby="appTitle_portlet.title-{{::portlet.nodeId}}" tabindex="0" ng-href="layoutCtrl.renderURL(portlet)" target="{{::portlet.target}}">
     <div class="icon-container">
       <portlet-icon></portlet-icon>
     </div>
