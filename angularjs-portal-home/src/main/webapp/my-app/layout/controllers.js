@@ -31,7 +31,7 @@ define(['angular', 'jquery'], function (angular, $) {
         console.log('inside renderURL');
         if (portlet.staticContent != null && portlet.altMaxUrl == false) {
           console.log('rendering static');
-          return '/static/' + portlet.fname;
+          return 'static/' + portlet.fname;
         } else if (portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)) {
           console.log('rendering exclusive');
           return 'exclusive/' + portlet.fname;
@@ -167,7 +167,7 @@ define(['angular', 'jquery'], function (angular, $) {
         // Check if it's a static or exclusive portlet
         if (portlet.staticContent != null && portlet.altMaxUrl == false) {
           console.log('returning static (expanded mode)');
-          return '/static/' + portlet.fname;
+          return 'static/' + portlet.fname;
         } else if (portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)) {
           console.log('returning exclusive (expanded mode)');
           return 'exclusive/' + portlet.fname;
