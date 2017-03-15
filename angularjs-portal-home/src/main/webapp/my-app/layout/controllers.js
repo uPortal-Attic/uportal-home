@@ -99,6 +99,7 @@ define(['angular', 'jquery'], function (angular, $) {
           // Get user's home layout
           layoutService.getLayout().then(function (data) {
             $rootScope.layout = data.layout;
+            console.dir(data.layout);
             if (data.layout && data.layout.length == 0) {
               $scope.layoutEmpty = true;
             }
@@ -151,6 +152,7 @@ define(['angular', 'jquery'], function (angular, $) {
           }
         } else {
           // Return "BASIC" widget type for anything else lacking an explicit widget type definition (default experience)
+          console.log('returning BASIC type widget');
           return "BASIC";
         }
       };
@@ -161,10 +163,13 @@ define(['angular', 'jquery'], function (angular, $) {
        * @returns {*}
        */
       childController.renderURL = function renderURL(portlet) {
+        console.log('inside renderURL (expanded mode)');
         // Check if it's a static or exclusive portlet
         if (portlet.staticContent != null && portlet.altMaxUrl == false) {
+          console.log('returning static (expanded mode)');
           return '/static/' + portlet.fname;
         } else if (portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)) {
+          console.log('returning exclusive (expanded mode)');
           return 'exclusive/' + portlet.fname;
         } else {
           return portlet.url;
