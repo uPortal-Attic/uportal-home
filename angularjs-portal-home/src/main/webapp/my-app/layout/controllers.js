@@ -146,9 +146,6 @@ define(['angular', 'jquery'], function (angular, $) {
           } else {
             return "WIDGET";
           }
-        } else if (portlet.staticContent != null && portlet.altMaxUrl == false) {
-          // Return "SIMPLE" widget type for static content portlets (rarely used -- most apps will have an alternativeMaximizedUrl)
-          return "SIMPLE";
         } else {
           // Return "BASIC" widget type for anything else lacking an explicit widget type definition (default experience)
           return "BASIC";
