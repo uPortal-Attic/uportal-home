@@ -159,12 +159,10 @@ define(['angular', 'jquery'], function (angular, $) {
        */
       childController.renderURL = function renderURL(portlet) {
         // Check if it's a static or exclusive portlet
-        if (portlet.altMaxUrl == false) {
-          if (portlet.staticContent != null) {
-            return '/static/' + portlet.fname;
-          } else if (portlet.renderOnWeb || $localStorage.webPortletRender) {
-            return 'exclusive/' + portlet.fname;
-          }
+        if (portlet.staticContent != null && portlet.altMaxUrl == false) {
+          return '/static/' + portlet.fname;
+        } else if (portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)) {
+          return 'exclusive/' + portlet.fname;
         } else {
           return portlet.url;
         }
