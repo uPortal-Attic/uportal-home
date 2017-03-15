@@ -12,7 +12,7 @@
     <md-icon>close</md-icon>
   </md-button>
 
-  <a aria-labelledby="appTitle_portlet.title-{{::portlet.nodeId}}" tabindex="0" ng-href="layoutCtrl.renderURL(portlet)" target="{{::portlet.target}}">
+  <a aria-labelledby="appTitle_portlet.title-{{::portlet.nodeId}}" tabindex="0" ng-href="{{ layoutCtrl.renderURL(portlet) }}" target="{{::portlet.target}}">
     <div class="icon-container">
       <portlet-icon></portlet-icon>
     </div>

@@ -28,15 +28,11 @@ define(['angular', 'jquery'], function (angular, $) {
        * @returns {*}
        */
       this.renderURL = function(portlet) {
-        console.log('inside renderURL');
         if (portlet.staticContent != null && portlet.altMaxUrl == false) {
-          console.log('rendering static');
           return 'static/' + portlet.fname;
         } else if (portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)) {
-          console.log('rendering exclusive');
           return 'exclusive/' + portlet.fname;
         } else {
-          console.log('returning default');
           return portlet.url;
         }
       };
@@ -93,7 +89,6 @@ define(['angular', 'jquery'], function (angular, $) {
        * Initialize LayoutController
        */
       this.init = function () {
-        console.log('initializing LayoutController');
         if (typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
           $rootScope.layout = [];
           $scope.layoutEmpty = false;
@@ -153,7 +148,6 @@ define(['angular', 'jquery'], function (angular, $) {
           }
         } else {
           // Return "BASIC" widget type for anything else lacking an explicit widget type definition (default experience)
-          console.log('returning BASIC type widget');
           return "BASIC";
         }
       };
@@ -164,13 +158,10 @@ define(['angular', 'jquery'], function (angular, $) {
        * @returns {*}
        */
       childController.renderURL = function renderURL(portlet) {
-        console.log('inside renderURL (expanded mode)');
         // Check if it's a static or exclusive portlet
         if (portlet.staticContent != null && portlet.altMaxUrl == false) {
-          console.log('returning static (expanded mode)');
           return 'static/' + portlet.fname;
         } else if (portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)) {
-          console.log('returning exclusive (expanded mode)');
           return 'exclusive/' + portlet.fname;
         } else {
           return portlet.url;
