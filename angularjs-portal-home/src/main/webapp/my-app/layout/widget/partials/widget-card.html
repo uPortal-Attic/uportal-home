@@ -94,20 +94,7 @@
                        data-aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch ' + portlet.title }}">
         </launch-button>
       </div>
-
-      <!-- For simple content portlets, show only an icon (RARELY USED -- most apps will have an alternativeMaximizedUrl) -->
-      <div ng-switch-when="SIMPLE">
-        <a tabindex="-1" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="basic-widget">
-          <div class="widget-icon-container" layout="column" layout-align="center center">
-            <portlet-icon></portlet-icon>
-          </div>
-        </a>
-        <button aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch ' + portlet.title }}" class="launch-app-button"  ng-click="widgetCtrl.maxStaticPortlet(portlet)">
-          <span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>
-          <span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>
-        </button>
-      </div>
-
+      
     </div>
   </md-card-content>
 
