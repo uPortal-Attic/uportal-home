@@ -45,7 +45,7 @@ define(['angular', 'require'], function(angular, require) {
                 portlet: '=app',
                 config: '=config'
             },
-            templateUrl: require.toUrl('./partials/lol.html')
+            templateUrl: require.toUrl('./partials/list-of-links.html')
         }
     });
 
@@ -60,7 +60,7 @@ define(['angular', 'require'], function(angular, require) {
             controller: 'SearchWithLinksController'
         }
     });
-    
+
     app.directive('ltiLaunch', function(){
       return {
         restrict: 'E',
@@ -112,7 +112,7 @@ define(['angular', 'require'], function(angular, require) {
       bindings : {
         fname : '<'
       },
-      templateUrl: require.toUrl('./partials/single-widget-component.html'),
+      templateUrl: require.toUrl('./partials/widget-preview-component.html'),
       controllerAs: 'widgetCtrl',
       controller: function($scope,
                            $controller,

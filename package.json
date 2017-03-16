@@ -13,8 +13,12 @@
     "type": "git",
     "url": "https://github.com/UW-Madison-DoIT/angularjs-portal.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "University of Wisconsin Madison",
+    "email": "my-admin@lists.wisc.edu",
+    "url": "https://github.com/UW-Madison-DoIT"
+  },
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/UW-Madison-DoIT/angularjs-portal/issues"
   },

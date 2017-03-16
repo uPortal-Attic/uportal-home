@@ -4,19 +4,6 @@ define(['angular', 'jquery'], function(angular, $) {
     var app = angular.module('my-app.layout.services', []);
     var accessDeniedTemplate="<p><strong>Sorry, you're not authorized to access this.</p>    <br><br>    <div class=\"center\"><i class='fa fa-exclamation-triangle fa-5x'></i></div>    <p>If you're here by accident, head back to your My-UW <a href='/web'>homepage</a>.</p>    <p>For help with authorization, contact the <a href=\"https://kb.wisc.edu/helpdesk\">DoIT Help Desk</a>.</p>";
 
-    app.factory('sharedPortletService', function () {
-        var property = {};
-
-        return {
-            getProperty: function () {
-                return property;
-            },
-            setProperty: function(value) {
-                property = value;
-            }
-        };
-    });
-
     app.factory('layoutService', ['$sce','$http', 'miscService', 'mainService', '$sessionStorage', '$q', 'SERVICE_LOC', function($sce, $http, miscService, mainService, $sessionStorage, $q, SERVICE_LOC) {
         var addToHome = function addToHomeFunction(portlet) {
             var fname = portlet.fname;
@@ -198,7 +185,7 @@ define(['angular', 'jquery'], function(angular, $) {
         }
 
           var getRSSJsonified = function(feedURL) {
-            // This is a hack. 
+            // This is a hack.
             // It would be maybe healthier to enhance RSS widget to
             // support
             // 1. configure explicitly with URL that generates the JSON
