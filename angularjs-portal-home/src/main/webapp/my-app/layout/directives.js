@@ -1,60 +1,58 @@
 'use strict';
 
-define(['angular', 'require'], function(angular, require){
+define(['angular', 'require'], function(angular, require) {
+    let app = angular.module('my-app.layout.directives', []);
 
-    var app = angular.module('my-app.layout.directives', []);
-
-    app.directive('portletIcon', function(){
+    app.directive('portletIcon', function() {
         return {
-            restrict : 'E',
-            templateUrl : require.toUrl('./partials/portlet-icon.html')
-        }
+            restrict: 'E',
+            templateUrl: require.toUrl('./partials/portlet-icon.html'),
+        };
     });
 
-    app.directive('defaultCard', function(){
+    app.directive('defaultCard', function() {
         return {
-            restrict : 'E',
-            templateUrl : require.toUrl('./partials/default-card.html')
-        }
+            restrict: 'E',
+            templateUrl: require.toUrl('./partials/default-card.html'),
+        };
     });
 
-    app.directive('pithyContentCard', function(){
+    app.directive('pithyContentCard', function() {
         return {
-            restrict : 'E',
-            templateUrl : require.toUrl('./partials/pithy-content-card.html') //FIXME: this doesn't exist
-        }
+            restrict: 'E',
+            templateUrl: require.toUrl('./partials/pithy-content-card.html'), // FIXME: this doesn't exist
+        };
     });
 
-    app.directive('marketplaceLight', function(){
+    app.directive('marketplaceLight', function() {
         return{
             restrict: 'E',
-            templateUrl: require.toUrl('./partials/marketplace-light.html')
-        }
+            templateUrl: require.toUrl('./partials/marketplace-light.html'),
+        };
     });
 
-    app.directive('homeHeader', function(){
+    app.directive('homeHeader', function() {
         return{
             restrict: 'E',
-            templateUrl: require.toUrl('./partials/home-header.html')
-        }
+            templateUrl: require.toUrl('./partials/home-header.html'),
+        };
     });
 
-    app.directive('exampleWidgets', function(){
+    app.directive('exampleWidgets', function() {
         return{
             restrict: 'E',
-            templateUrl: require.toUrl('./partials/example-widgets.html')
-        }
+            templateUrl: require.toUrl('./partials/example-widgets.html'),
+        };
     });
 
-    app.directive('homeToggle', function(){
+    app.directive('homeToggle', function() {
         return {
             restrict: 'E',
             templateUrl: require.toUrl('./partials/home-toggle.html'),
-            controller: 'ToggleController'
+            controller: 'ToggleController',
         };
     });
 
     return app;
-
 });
 

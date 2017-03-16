@@ -1,8 +1,7 @@
 'use strict';
 
 define(['angular', 'require'], function(angular, require) {
-
-    var app = angular.module('my-app.layout.widget.directives', []);
+    let app = angular.module('my-app.layout.widget.directives', []);
 
     /**
      * <option-link> directive is used to display widget content.
@@ -14,63 +13,63 @@ define(['angular', 'require'], function(angular, require) {
     *             display : 'display' // what to display in the drop down
     *         }
      */
-    app.directive('optionLink', function () {
+    app.directive('optionLink', function() {
         return {
             restrict: 'E',
             scope: {
                 portlet: '=app',
-                config: '=config'
+                config: '=config',
             },
             templateUrl: require.toUrl('./partials/option-link.html'),
-            controller: 'OptionLinkController'
-        }
+            controller: 'OptionLinkController',
+        };
     });
 
-    app.directive('weather', function () {
+    app.directive('weather', function() {
         return {
             restrict: 'E',
             scope: {
                 portlet: '=app',
-                config: '=config'
+                config: '=config',
             },
             templateUrl: require.toUrl('./partials/weather.html'),
-            controller: 'WeatherController'
-        }
+            controller: 'WeatherController',
+        };
     });
 
-    app.directive('lol', function () {
+    app.directive('lol', function() {
         return {
             restrict: 'E',
             scope: {
                 portlet: '=app',
-                config: '=config'
+                config: '=config',
             },
-            templateUrl: require.toUrl('./partials/lol.html')
-        }
+            templateUrl: require.toUrl('./partials/lol.html'),
+        };
     });
 
-    app.directive('swl', function () {
+    app.directive('swl', function() {
         return {
             restrict: 'E',
             scope: {
                 portlet: '=app',
-                config: '=config'
+                config: '=config',
             },
             templateUrl: require.toUrl('./partials/search-with-links.html'),
-            controller: 'SearchWithLinksController'
-        }
+            controller: 'SearchWithLinksController',
+        };
     });
-    
-    app.directive('ltiLaunch', function(){
+
+    app.directive('ltiLaunch', function() {
       return {
         restrict: 'E',
         scope: {
             portlet: '=app',
-            config: '=config'
+            config: '=config',
         },
         templateUrl: require.toUrl('./partials/lti-launch.html'),
-        controller: 'LTILaunchController'
-      }
+        controller: 'LTILaunchController',
+      };
     });
 
     /**
@@ -82,26 +81,26 @@ define(['angular', 'require'], function(angular, require) {
                - dateFormat : The date format, see https://docs.angularjs.org/api/ng/filter/date
                - showShowing : show the Showing x of y (default false)
     **/
-    app.directive('rss', function () {
+    app.directive('rss', function() {
         return {
             restrict: 'E',
             scope: {
                 portlet: '=app',
-                config: '=config'
+                config: '=config',
             },
-            templateUrl: require.toUrl('./partials/rssfeed.html')
-        }
+            templateUrl: require.toUrl('./partials/rssfeed.html'),
+        };
     });
 
     /**
       Just the widget Card, gets the portlet from the scope.
       Object must be in the portlet
     **/
-    app.directive('widgetCard', function(){
+    app.directive('widgetCard', function() {
         return {
-            restrict : 'E',
-            templateUrl : require.toUrl('./partials/widget-card.html')
-        }
+            restrict: 'E',
+            templateUrl: require.toUrl('./partials/widget-card.html'),
+        };
     });
 
     /**
@@ -109,8 +108,8 @@ define(['angular', 'require'], function(angular, require) {
       * fname : the fname of the object you wish to display
       */
     app.component('widget', {
-      bindings : {
-        fname : '<'
+      bindings: {
+        fname: '<',
       },
       templateUrl: require.toUrl('./partials/single-widget-component.html'),
       controllerAs: 'widgetCtrl',
@@ -118,12 +117,12 @@ define(['angular', 'require'], function(angular, require) {
                            $controller,
                            $location,
                            layoutService) {
-        var that = this;
-        $scope.portlet = { title: 'loading...'};
+        let that = this;
+        $scope.portlet = {title: 'loading...'};
         $scope.cantRemove = true;
         this.$onInit = function() {
-          var base = $controller('BaseWidgetFunctionsController', { $scope : $scope, childController : that });
-        }
+          let base = $controller('BaseWidgetFunctionsController', {$scope: $scope, childController: that});
+        };
 
         this.$onChanges = function(changesObj) {
           if(changesObj
@@ -131,9 +130,9 @@ define(['angular', 'require'], function(angular, require) {
               && changesObj.fname.currentValue
               && changesObj.fname.currentValue
                   !== changesObj.fname.previousValue) {
-            var fname = changesObj.fname.currentValue;
-            layoutService.getApp(fname).then(function (result) {
-                var data = result.data;
+            let fname = changesObj.fname.currentValue;
+            layoutService.getApp(fname).then(function(result) {
+                let data = result.data;
                 $scope.portlet = data.portlet;
                 if (typeof $scope.portlet === 'undefined' ||
                     typeof $scope.portlet.fname === 'undefined') {
@@ -148,12 +147,11 @@ define(['angular', 'require'], function(angular, require) {
                 }
             });
           }
-        }
+        };
 
 
-      }
+      },
     });
 
     return app;
-
 });
