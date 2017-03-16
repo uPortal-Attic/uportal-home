@@ -23,7 +23,7 @@ Widgets show on the home page in either a minimalist "compact mode" or a rich "e
 
 #### Developing expanded modes for widgets
 
-+ [Preset and custom widget types](widgets.md)
++ [How to create a widget](widgets.md)
 + [Configurable launch text for widgets](widget-launch-button.md)
 + [Widget creator](https://public.my.wisc.edu/web/widget-creator)
 

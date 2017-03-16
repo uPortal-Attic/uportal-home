@@ -18,13 +18,6 @@ define(['angular', 'require'], function(angular, require){
         }
     });
 
-    app.directive('pithyContentCard', function(){
-        return {
-            restrict : 'E',
-            templateUrl : require.toUrl('./partials/pithy-content-card.html') //FIXME: this doesn't exist
-        }
-    });
-
     app.directive('marketplaceLight', function(){
         return{
             restrict: 'E',
