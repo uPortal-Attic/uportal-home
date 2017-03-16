@@ -36,18 +36,6 @@
   <!-- BODY -->
   <md-card-content class="widget-content">
     <sub class="sr-only" id="goToApps-{{portlet.nodeId}}">go to</sub>
-    <!-- For widgets, show fancy markup! -->
-    <div ng-if="'WIDGET' === widgetCtrl.portletType(portlet)">
-      <div class="widget-content">
-         <div ng-if="'option-link' === portlet.widgetType">
-           <div class="widget-icon-container">
-             <portlet-icon></portlet-icon>
-           </div>
-         </div>
-         <div ng-bind-html="portlet.widgetContent"></div>
-      </div>
-      <a class="launch-app-button" href="{{ portlet.url }}" target="{{ portlet.target }}">Launch full app</a>
-    </div>
 
     <div ng-switch="widgetCtrl.portletType(portlet)" class="widget-type-container">
 
@@ -75,20 +63,12 @@
         <lti-launch app="portlet" config="portlet.widgetConfig"></lti-launch>
       </div>
 
-      <!-- For pithy content, display the pithy content -->
-      <div ng-switch-when="PITHY">
-        <div class="portlet-content">
-           <div ng-bind-html="portlet.pithyStaticContent"></div>
-        </div>
-        <a class="launch-app-button" href="{{portlet.url}}" target="{{portlet.target}}">Launch full app</a>
-      </div>
-
-      <div ng-switch-when="GENERIC" class="generic-widget">
-        <div ng-controller="GenericWidgetController as genericWidgetCtrl">
-            <div ng-if="loading" layout="row" layout-align="center center">
-                <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>
-            </div>
-            <content-item ng-if="!loading"></content-item>
+      <div ng-switch-when="CUSTOM" class="custom-widget">
+        <div ng-controller="CustomWidgetController as customWidgetCtrl">
+          <div ng-if="loading" layout="row" layout-align="center center">
+            <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>
+          </div>
+          <content-item ng-if="!loading"></content-item>
         </div>
       </div>
 
@@ -101,9 +81,8 @@
         </div>
       </div>
 
-      <!-- For basic apps (not a widget, not simple content, no pithy content), show only an icon -->
-      <div ng-switch-when="NORMAL">
-        <a tabindex="-1" ng-href="{{ widgetCtrl.renderURL(portlet) }}" target="{{portlet.target}}" class="normal-widget">
+      <div ng-switch-when="BASIC">
+        <a tabindex="-1" ng-href="{{ widgetCtrl.renderURL(portlet) }}" target="{{portlet.target}}" class="basic-widget">
           <div class="widget-icon-container" layout="column" layout-align="center center">
             <portlet-icon></portlet-icon>
           </div>
@@ -114,19 +93,6 @@
                        data-button-text="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch full app' }}"
                        data-aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch ' + portlet.title }}">
         </launch-button>
-      </div>
-
-      <!-- For simple content portlets, show only an icon -->
-      <div ng-switch-when="SIMPLE">
-        <a tabindex="-1" ng-click="widgetCtrl.maxStaticPortlet(portlet)" class="normal-widget">
-          <div class="widget-icon-container" layout="column" layout-align="center center">
-            <portlet-icon></portlet-icon>
-          </div>
-        </a>
-        <button aria-label="{{ portlet.widgetConfig.launchText ? portlet.widgetConfig.launchText : 'Launch ' + portlet.title }}" class="launch-app-button"  ng-click="widgetCtrl.maxStaticPortlet(portlet)">
-          <span ng-if='portlet.widgetConfig.launchText'>{{portlet.widgetConfig.launchText}}</span>
-          <span ng-if='!portlet.widgetConfig.launchText'>Launch full app</span>
-        </button>
       </div>
 
     </div>

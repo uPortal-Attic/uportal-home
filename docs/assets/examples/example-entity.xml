@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<portlet-definition xmlns="https://source.jasig.org/schemas/uportal/io/portlet-definition" xmlns:ns2="https://source.jasig.org/schemas/uportal" xmlns:ns3="https://source.jasig.org/schemas/uportal/io/portlet-type" xmlns:ns4="https://source.jasig.org/schemas/uportal/io/event-aggregation" xmlns:ns5="https://source.jasig.org/schemas/uportal/io/stylesheet-descriptor" xmlns:ns6="https://source.jasig.org/schemas/uportal/io/permission-owner" xmlns:ns7="https://source.jasig.org/schemas/uportal/io/subscribed-fragment" xmlns:ns8="https://source.jasig.org/schemas/uportal/io/user" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.0" xsi:schemaLocation="https://source.jasig.org/schemas/uportal/io/portlet-definition https://source.jasig.org/schemas/uportal/io/portlet-definition/portlet-definition-4.0.xsd">
+  <title>Enrollment</title>
+  <name>Enrollment</name>
+  <fname>enrollment-experience</fname>
+  <desc>Try out the newly redesigned student enrollment experience</desc>
+  <category>Applications</category>
+  <group>Student</group>
+  <portlet-descriptor>
+    <ns2:webAppName>/SimpleContentPortlet</ns2:webAppName>
+    <ns2:portletName>advanced-cms</ns2:portletName>
+  </portlet-descriptor>
+  <permissions>
+    <permission system="UP_PORTLET_SUBSCRIBE" activity="BROWSE">
+      <group>UW-Madison</group>
+    </permission>
+  </permissions>
+  <parameter>
+    <name>faIcon</name>
+    <value>fa-university</value>
+  </parameter>
+  <parameter>
+    <name>alternativeMaximizedLink</name>
+    <value>https://enroll.wisc.edu/</value>
+  </parameter>
+  <portlet-preference>
+    <name>keywords</name>
+    <value>enroll</value>
+    <value>enrollment</value>
+    <value>SOAR</value>
+  </portlet-preference>
+  <portlet-preference>
+    <name>widgetConfig</name>
+    <value>
+      <![CDATA[{
+				'launchText' : 'Launch app'
+			}]]>
+    </value>
+  </portlet-preference>
+  <portlet-preference>
+    <name>content</name>
+    <readOnly>false</readOnly>
+    <value>
+      <![CDATA[
+				<p>Access the
+					<a href="https://enroll.wisc.edu" target="_blank" rel="noopener noreferrer">student enrollment app</a>
+				.</p>
+      ]]>
+    </value>
+  </portlet-preference>
+</portlet-definition>
