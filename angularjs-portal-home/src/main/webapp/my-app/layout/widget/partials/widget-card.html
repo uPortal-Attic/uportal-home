@@ -59,10 +59,6 @@
         <swl app="portlet" config="portlet.widgetConfig"></swl>
       </div>
 
-      <div ng-switch-when="LTI_LAUNCH">
-        <lti-launch app="portlet" config="portlet.widgetConfig"></lti-launch>
-      </div>
-
       <div ng-switch-when="CUSTOM" class="custom-widget">
         <div ng-controller="CustomWidgetController as customWidgetCtrl">
           <div ng-if="loading" layout="row" layout-align="center center">

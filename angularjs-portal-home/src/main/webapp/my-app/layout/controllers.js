@@ -136,8 +136,6 @@ define(['angular', 'jquery'], function (angular, $) {
             }
           } else if ('search-with-links' === portlet.widgetType) {
             return "SWL";
-          } else if ('lti-launch' === portlet.widgetType) {
-            return "LTI_LAUNCH";
           } else if ('generic' === portlet.widgetType) {
             // DEPRECATED: Include 'generic' for the sake of backwards compatibility, but return what it really is: CUSTOM
             return "CUSTOM";

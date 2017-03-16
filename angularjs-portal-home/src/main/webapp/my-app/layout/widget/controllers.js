@@ -53,29 +53,6 @@ define(['angular'], function (angular) {
   }]);
 
   /**
-   * Controller for the 'ltilaunch' directive (/widget/directives.js)
-   */
-  app.controller('LTILaunchController', ['$scope', 'layoutService', 'keyValueService', '$q', '$sce', function ($scope, layoutService, keyValueService, $q, $sce) {
-    $scope.loading = false;
-
-    var init = function () {
-      $scope.loading = true;
-      // Fetch widget JSON
-      layoutService.getWidgetJson($scope.portlet).then(function (data) {
-        $scope.loading = false;
-        if (data) {
-          $scope.formInputs = data.formInputs;
-          $scope.formAction = $sce.trustAsResourceUrl(data.action);
-        }
-      }, function () {
-        $scope.loading = false;
-      });
-    };
-
-    init();
-  }]);
-
-  /**
    * Controller for weather widget (/widget/directives.js)
    */
   app.controller('WeatherController', ['$scope', 'layoutService', 'keyValueService', '$q', function ($scope, layoutService, keyValueService, $q) {
