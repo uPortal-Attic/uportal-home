@@ -5,8 +5,9 @@
   "scripts": {
     "pretest": "mvn clean package",
     "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run",
-	"prestart": "mvn clean package",
-	"start": "mvn jetty:run"
+    "posttest": "remark .",
+    "prestart": "mvn clean package",
+    "start": "mvn jetty:run"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,18 @@
     "karma-phantomjs-launcher": "^0.2.0",
     "karma-requirejs": "^0.2.2",
     "phantomjs": "^1.9.17",
+    "remark-cli": "^3.0.0",
+    "remark-lint": "^6.0.0",
+    "remark-preset-lint-consistent": "^2.0.0",
+    "remark-preset-lint-recommended": "^2.0.0",
+    "remark-validate-links": "^6.0.0",
     "requirejs": "^2.1.18"
+  },
+  "remarkConfig": {
+    "plugins": [
+      "preset-lint-recommended",
+      "preset-lint-consistent",
+      "validate-links"
+    ]
   }
 }
