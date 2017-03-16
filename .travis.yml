@@ -3,6 +3,8 @@ before_install:
   - npm install
 jdk:
   - oraclejdk7
+  - openjdk7
+  - oraclejdk8
 sudo: false
 script:
   - mvn package
