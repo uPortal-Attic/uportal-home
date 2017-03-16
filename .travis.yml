@@ -6,4 +6,5 @@ jdk:
 sudo: false
 script:
   - mvn package
+  - mvn checkstyle:check
   - npm test
