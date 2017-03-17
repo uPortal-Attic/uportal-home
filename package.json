@@ -61,7 +61,7 @@
     "extends": "stylelint-config-standard",
     "rules": {
       "selector-type-no-unknown": false
-    "extends": "stylelint-config-standard"
+    }
   },
   "remarkConfig": {
     "settings": {
