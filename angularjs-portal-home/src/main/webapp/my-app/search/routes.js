@@ -1,11 +1,9 @@
-define(['require'], function(require){
-
+define(['require'], function(require) {
     return {
         search: {
             templateUrl: require.toUrl('./partials/search-results.html'),
             controller: 'SearchResultController',
-            searchParam: 'initFilter'
-        }
-    }
-
+            searchParam: 'initFilter',
+        },
+    };
 });

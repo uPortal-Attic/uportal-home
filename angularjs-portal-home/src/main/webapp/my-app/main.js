@@ -31,10 +31,9 @@ define([
     './rating/controllers',
     './search/controllers',
     './search/directives',
-    './search/services'
+    './search/services',
 ], function(angular, require, marketplaceRoutes, listRoute, notificationsRoute, portalSettingsRoutes,
 			featuresRoute, aboutRoute, layoutRoute, staticRoutes, widgetRoutes, searchRoutes) {
-
     var app = angular.module('my-app', [
         'app-config',
         'web-config',
@@ -56,7 +55,7 @@ define([
         'ngRoute',
         'ngSanitize',
         'ngStorage',
-        'portal'
+        'portal',
     ]);
 
     // TODO: Think of a more extensible approach such that frame and app can each manage their own routing without conflict
@@ -83,5 +82,4 @@ define([
 
 
     return app;
-
 });

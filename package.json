@@ -5,7 +5,8 @@
   "scripts": {
     "pretest": "mvn clean package",
     "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run",
-    "posttest": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
+    "lint-less": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
+    "lint-js": "eslint --ext js --ext json --ext md . --ignore-path .gitignore",
     "prestart": "mvn clean package",
     "start": "mvn jetty:run"
   },
@@ -24,6 +25,15 @@
   },
   "homepage": "https://github.com/UW-Madison-DoIT/angularjs-portal",
   "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-google": "^0.7.1",
+    "eslint-plugin-angular": "^1.6.2",
+    "eslint-plugin-compat": "^1.0.2",
+    "eslint-plugin-jasmine": "^2.2.0",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-markdown": "^1.0.0-beta.4",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-requirejs": "^3.1.1",
     "jasmine-core": "^2.3.4",
     "karma": "^0.12.36",
     "karma-chrome-launcher": "^0.1.12",
@@ -42,5 +52,52 @@
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "browser": true,
+      "jasmine": true,
+      "amd": true
+    },
+    "plugins": [
+      "angular",
+      "compat",
+      "jasmine",
+      "json",
+      "markdown",
+      "promise",
+      "requirejs"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "google",
+      "plugin:jasmine/recommended",
+      "plugin:promise/recommended",
+      "plugin:requirejs/recommended"
+    ],
+    "rules": {
+      "angular/angularelement": "error",
+      "angular/di": "error",
+      "angular/di-order": "error",
+      "angular/di-unused": "error",
+      "angular/document-service": "error",
+      "angular/log": "error",
+      "angular/module-dependency-order": "error",
+      "angular/no-service-method": "error",
+      "angular/no-services": "error",
+      "angular/window-service": "error",
+      "compat/compat": "error",
+      "arrow-parens": "off",
+      "constructor-super": "off",
+      "generator-star-spacing": "off",
+      "no-new-symbol": "off",
+      "no-this-before-super": "off",
+      "no-var": "off",
+      "prefer-rest-params": "off",
+      "prefer-spread": "off",
+      "rest-spread-spacing": "off",
+      "yield-star-spacing": "off"
+    }
   }
 }
