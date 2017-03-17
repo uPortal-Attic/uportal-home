@@ -81,7 +81,17 @@
       "angular/no-service-method": "error",
       "angular/no-services": "error",
       "angular/window-service": "error",
-      "compat/compat": "error"
+      "compat/compat": "error",
+      "arrow-parens": "off",
+      "constructor-super": "off",
+      "generator-star-spacing": "off",
+      "no-new-symbol": "off",
+      "no-this-before-super": "off",
+      "no-var": "off",
+      "prefer-rest-params": "off",
+      "prefer-spread": "off",
+      "rest-spread-spacing": "off",
+      "yield-star-spacing": "off"
     }
   }
 }
