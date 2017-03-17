@@ -32,13 +32,6 @@ define(['angular', 'require'], function(angular, require){
         }
     });
 
-    app.directive('exampleWidgets', function(){
-        return{
-            restrict: 'E',
-            templateUrl: require.toUrl('./partials/example-widgets.html')
-        }
-    });
-
     app.directive('homeToggle', function(){
         return {
             restrict: 'E',

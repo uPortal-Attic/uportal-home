@@ -51,7 +51,12 @@
     "stylelint-config-standard": "^16.0.0"
   },
   "stylelint": {
-    "extends": "stylelint-config-standard"
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "selector-type-no-unknown": [ true, {
+          "ignoreTypes": ["/^md-/", "default-card", "portlet-icon"]
+      } ]
+    }
   },
   "eslintConfig": {
     "root": true,
