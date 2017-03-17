@@ -10,3 +10,5 @@ script:
   - mvn package
   - mvn checkstyle:check
   - npm test
+  - npm run lint-js
+  - npm run lint-md
