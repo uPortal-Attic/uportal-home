@@ -5,7 +5,7 @@
   "scripts": {
     "pretest": "mvn clean package",
     "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run",
-    "posttest": "remark .",
+    "lint-md": "remark .",
     "prestart": "mvn clean package",
     "start": "mvn jetty:run"
   },
@@ -47,7 +47,11 @@
     "plugins": [
       "preset-lint-recommended",
       "preset-lint-consistent",
-      "validate-links"
+      "validate-links",
+      [
+        "remark-lint-list-item-indent",
+        "mixed"
+      ]
     ]
   }
 }
