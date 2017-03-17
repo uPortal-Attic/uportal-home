@@ -54,6 +54,9 @@
     "requirejs": "^2.1.18"
   },
   "remarkConfig": {
+    "settings": {
+      "ignoreName": ".gitignore"
+    },
     "plugins": [
       "preset-lint-recommended",
       "preset-lint-consistent",
