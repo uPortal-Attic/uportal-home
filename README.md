@@ -2,13 +2,11 @@
 
 [![Join the chat at https://gitter.im/UW-Madison-DoIT/angularjs-portal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/UW-Madison-DoIT/angularjs-portal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal.svg)](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal)
-[![Coverage Status](https://coveralls.io/repos/UW-Madison-DoIT/angularjs-portal/badge.svg?branch=master&service=github)](https://coveralls.io/github/UW-Madison-DoIT/angularjs-portal?branch=master)  [![Code Climate](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal/badges/gpa.svg)](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal) [![codeclimate.com Issue Count](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal/badges/issue_count.svg)](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal)
-[![alt](https://codenvy.com/factory/resources/factory-white.png)](https://codenvy.com/factory?id=tgb1ssv37wjnblun)
+[![Coverage Status](https://coveralls.io/repos/UW-Madison-DoIT/angularjs-portal/badge.svg?branch=master&service=github)](https://coveralls.io/github/UW-Madison-DoIT/angularjs-portal?branch=master)  [![Code Climate](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal/badges/gpa.svg)](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal) [![codeclimate.com Issue Count](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal/badges/issue_count.svg)](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal)  [![Apereo Incubating badge](https://img.shields.io/badge/apereo-incubating-blue.svg)](https://www.apereo.org/content/projects-currently-incubation)
+
 
 ### What is this?
 This is an Angular approach to the dashboard view of uPortal. This dashboard will work along side uPortal, more of a companion app. It utilizes the uPortal rest APIs to collect layout info. It pulls notifications from the notification portlet resource URL.
-
-[![Apereo Incubating badge](https://img.shields.io/badge/Apereo-Incubating-blue.svg)](https://www.apereo.org/content/projects-currently-incubation)
 
 See [this project's documentation](http://uw-madison-doit.github.io/angularjs-portal/).
 
@@ -86,13 +84,6 @@ The role of `manager-script` gives them the ability to use the `/text` api from 
 Read more about that here: http://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/plugin-info.html
 
 With this you can run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy` if you have already deployed it once. We also wrote a script for this. Just run `./build.sh`
-
-### Run on Codenvy
-
-+ Create a Codenvy account (codenvy.com)
-+ Click [![alt](https://codenvy.com/factory/resources/factory-white.png)](https://codenvy.com/factory?id=tgb1ssv37wjnblun) and clone the Codenvy project.
-+ If the project setup wizard prompts, select a Java Maven project.
-+ Run the `Multinode-tc7-j7` runner. (upper right corner). This should be the default runner for the project. (Note that it defaults to the root node, so you have to add in /web or /frame to the URL to get to those sub projects.)
 
 ### Deploy to Remote Instance
 
