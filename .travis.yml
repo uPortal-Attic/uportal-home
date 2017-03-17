@@ -11,4 +11,5 @@ script:
   - mvn checkstyle:check
   - npm test
   - npm run lint-js
+  - npm run lint-md
   - npm run lint-less
