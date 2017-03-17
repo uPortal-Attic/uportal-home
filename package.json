@@ -3,6 +3,7 @@
   "version": "5.0.0",
   "description": "angular my-uw",
   "scripts": {
+    "lint-css": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
     "pretest": "mvn clean package",
     "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run",
     "lint-js": "eslint --ext js --ext json --ext md . --ignore-path .gitignore",
@@ -57,7 +58,10 @@
     "stylelint-config-standard": "^16.0.0"
   },
   "stylelint": {
-    "extends": "stylelint-config-standard"
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "selector-type-no-unknown": false
+    }
   },
   "remarkConfig": {
     "settings": {

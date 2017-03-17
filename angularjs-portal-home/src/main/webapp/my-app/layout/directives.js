@@ -30,15 +30,8 @@ define(['angular', 'require'], function(angular, require) {
             templateUrl: require.toUrl('./partials/home-header.html'),
         };
     });
-
-    app.directive('exampleWidgets', function() {
-        return{
-            restrict: 'E',
-            templateUrl: require.toUrl('./partials/example-widgets.html'),
-        };
-    });
-
-    app.directive('homeToggle', function() {
+  
+    app.directive('homeToggle', function(){
         return {
             restrict: 'E',
             templateUrl: require.toUrl('./partials/home-toggle.html'),
