@@ -1,7 +1,6 @@
 'use strict';
 
 define(['angular', 'jquery', 'require'], function(angular, $, require) {
-
     var app = angular.module('my-app.rating.components', []);
 
     /**
@@ -11,31 +10,30 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
      * portlet object usage : { fname, title}
      */
     app.component('ratingButton', {
-      bindings : {
-        portlet : '<',
-        buttonText : '@',
-        buttonClasses : '@'
+      bindings: {
+        portlet: '<',
+        buttonText: '@',
+        buttonClasses: '@',
       },
       templateUrl: require.toUrl('./partials/rating-button.html'),
       controllerAs: 'ratingCtrl',
       controller: function($scope,
                            $location,
                            $mdDialog) {
-
            this.$onInit = function() {
-             //initialize
+             // initialize
              $scope.openModal = function() {
                $mdDialog.show({
                    controller: 'RatingsModalController',
                    templateUrl: require.toUrl('./partials/rating-review.html'),
                    parent: angular.element(document.body),
                    scope: $scope,
-                   preserveScope : true,
-                   clickOutsideToClose:true,
-                   fullscreen: false
+                   preserveScope: true,
+                   clickOutsideToClose: true,
+                   fullscreen: false,
                });
              };
-           }
+           };
 
            this.$onChanges = function(changesObj) {
              if(changesObj
@@ -45,8 +43,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
                      !== changesObj.portlet.previousValue) {
                $scope.portlet = changesObj.portlet.currentValue;
              }
-           }
-      }
+           };
+      },
     });
-
   });
