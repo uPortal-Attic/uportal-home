@@ -1,14 +1,13 @@
 'use strict';
 
 define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'], function(angular) {
-
     var app = angular.module('my-app.search.controllers', ['portal.search.controllers', 'my-app.marketplace.controllers']);
-    app.controller('SearchController', [ 'marketplaceService', '$location', '$scope', '$localStorage', function(marketplaceService, $location, $scope, $localStorage) {
+    app.controller('SearchController', ['marketplaceService', '$location', '$scope', '$localStorage', function(marketplaceService, $location, $scope, $localStorage) {
         $scope.initialFilter = '';
         $scope.filterMatches = [];
         $scope.portletListLoading = true;
         if($localStorage && $localStorage.typeaheadSearch) {
-            marketplaceService.getPortlets().then(function(data){
+            marketplaceService.getPortlets().then(function(data) {
                 $scope.portlets = data.portlets;
                 $scope.portletListLoading = false;
             });
@@ -23,16 +22,16 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         });
 
         $scope.onSelect = function(portlet) {
-            $location.path("apps/details/"+ portlet.fname);
-            $scope.initialFilter = "";
+            $location.path('apps/details/'+ portlet.fname);
+            $scope.initialFilter = '';
             $scope.showSearch = false;
             $scope.showSearchFocus = false;
         };
 
-        $scope.submit = function(){
-            if($scope.initialFilter != "") {
-                $location.path("apps/search/"+ $scope.initialFilter);
-                $scope.initialFilter = "";
+        $scope.submit = function() {
+            if($scope.initialFilter != '') {
+                $location.path('apps/search/'+ $scope.initialFilter);
+                $scope.initialFilter = '';
                 $scope.showSearch = false;
                 $scope.showSearchFocus = false;
             }
@@ -40,19 +39,19 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
     }]);
 
     app.controller('SearchResultController',
-     ['$location', '$rootScope', '$scope', '$controller','marketplaceService', 'googleCustomSearchService', 'directorySearchService','PortalSearchService',
-     function($location, $rootScope, $scope, $controller,marketplaceService, googleCustomSearchService, directorySearchService, PortalSearchService) {
-      var base = $controller('marketplaceCommonFunctions', {$scope : $scope});
+     ['$location', '$rootScope', '$scope', '$controller', 'marketplaceService', 'googleCustomSearchService', 'directorySearchService', 'PortalSearchService',
+     function($location, $rootScope, $scope, $controller, marketplaceService, googleCustomSearchService, directorySearchService, PortalSearchService) {
+      var base = $controller('marketplaceCommonFunctions', {$scope: $scope});
 
-      var initWiscEduSearch = function(){
+      var initWiscEduSearch = function() {
         googleCustomSearchService.googleSearch($scope.searchTerm).then(
-          function(data){
+          function(data) {
             if(data && data.results) {
               $scope.googleResults = data.results;
-              if(data.estimatedResultCount){
+              if(data.estimatedResultCount) {
                 $scope.googleResultsEstimatedCount = data.estimatedResultCount;
               }
-              if(!data.estimatedResultCount || data.estimatedResultCount == 0){
+              if(!data.estimatedResultCount || data.estimatedResultCount == 0) {
                   $scope.googleEmptyResults = true;
               }
             }
@@ -60,38 +59,38 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         );
       };
 
-      var initDirectorySearch = function(){
+      var initDirectorySearch = function() {
         $scope.wiscDirectoryLoading = true;
         directorySearchService.directorySearch($scope.searchTerm).then(
-          function(results){
+          function(results) {
             $scope.wiscDirectoryLoading = false;
-            if(results){
+            if(results) {
               if(results.records && results.count) {
                 $scope.wiscDirectoryResults = results.records;
                 $scope.wiscDirectoryResultCount = results.count;
               } else {
                 $scope.wiscDirectoryResultsEmpty = true;
               }
-              if(results.errors && results.errors[0] && results.errors[0].code && results.errors[1] && results.errors[1].error_msg){
-                if(results.errors[0].code == 4){
+              if(results.errors && results.errors[0] && results.errors[0].code && results.errors[1] && results.errors[1].error_msg) {
+                if(results.errors[0].code == 4) {
                   $scope.wiscDirectoryTooManyResults = true;
                 }
                 $scope.wiscDirectoryErrorMessage= results.errors[1].error_msg;
               }
             }
-          }, function(){
+          }, function() {
             $scope.wiscDirectoryLoading = false;
             $scope.wiscDirectoryError = true;
           }
         );
       };
 
-      var initwiscDirectoryResultLimit = function(){
+      var initwiscDirectoryResultLimit = function() {
           $scope.wiscDirectoryResultLimit = 3;
       };
 
-      var init = function(){
-        $scope.sortParameter = ['-rating','-userRated'];
+      var init = function() {
+        $scope.sortParameter = ['-rating', '-userRated'];
         initwiscDirectoryResultLimit();
         $scope.myuwResults = [];
         $scope.googleResults = [];
@@ -106,42 +105,40 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         $scope.searchResultLimit = 20;
         $scope.showAll = $rootScope.GuestMode || false;
         base.setupSearchTerm();
-        PortalSearchService.setQuery($scope.searchTerm); //in case the search field is not set for whatever reason, reset it
+        PortalSearchService.setQuery($scope.searchTerm); // in case the search field is not set for whatever reason, reset it
         base.initializeConstants();
-        //get marketplace entries
+        // get marketplace entries
         marketplaceService.getPortlets().then(function(data) {
             $scope.myuwResults = data.portlets;
         });
-        $scope.$watchGroup(['googleResultsEstimatedCount','myuwFilteredResults.length', 'wiscDirectoryResultCount'], function(){
+        $scope.$watchGroup(['googleResultsEstimatedCount', 'myuwFilteredResults.length', 'wiscDirectoryResultCount'], function() {
           $scope.totalCount = 0;
           if($scope.googleResultsEstimatedCount) {
             $scope.totalCount+= parseInt($scope.googleResultsEstimatedCount);
           }
-          if($scope.myuwFilteredResults){
+          if($scope.myuwFilteredResults) {
             $scope.totalCount+= parseInt($scope.myuwFilteredResults.length);
           }
-          if($scope.wiscDirectoryResultCount){
+          if($scope.wiscDirectoryResultCount) {
             $scope.totalCount+= parseInt($scope.wiscDirectoryResultCount);
           }
         });
       };
       init();
-      
-      googleCustomSearchService.googleSearchEnabled().then(function(googleSearchEnabled){
+
+      googleCustomSearchService.googleSearchEnabled().then(function(googleSearchEnabled) {
           $scope.googleSearchEnabled = googleSearchEnabled;
-          if(googleSearchEnabled){
+          if(googleSearchEnabled) {
               initWiscEduSearch();
           }
       });
-      directorySearchService.directorySearchEnabled().then(function(directoryEnabled){
+      directorySearchService.directorySearchEnabled().then(function(directoryEnabled) {
           $scope.directoryEnabled = directoryEnabled;
-          if(directoryEnabled){
+          if(directoryEnabled) {
               initDirectorySearch();
           }
       });
-      
     }]);
 
     return app;
-
 });
