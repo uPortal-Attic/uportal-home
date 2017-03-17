@@ -1,73 +1,49 @@
-/**
- * Licensed to Jasig under one or more contributor license
- * agreements. See the NOTICE file distributed with this work
- * for additional information regarding copyright ownership.
- * Jasig licenses this file to you under the Apache License,
- * Version 2.0 (the "License"); you may not use this file
- * except in compliance with the License. You may obtain a
- * copy of the License at:
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
-/* ==========================================================================
-   Variables
-   ========================================================================== */
-@white: #FFFFFF;
-@black: #000000;
+// VARIABLES
+@white: #fff;
+@black: #000;
 @category-blue: #066999;
 
-/*
- * Grayscale colors. 1 is lightest, 10 is darkest.
- */
-
-@grayscale1: #F5F5F5;
-@grayscale2: #E5E5E5;
-@grayscale3: #D8D8D8;
-@grayscale4: #CCCCCC;
-@grayscale5: #ADADAD;
-@grayscale6: #999999;
-@grayscale7: #8C8C8C;
+// GRAYSCALE
+@grayscale1: #f5f5f5;
+@grayscale2: #e5e5e5;
+@grayscale3: #d8d8d8;
+@grayscale4: #ccc;
+@grayscale5: #adadad;
+@grayscale6: #999;
+@grayscale7: #8c8c8c;
 @grayscale8: #696969;
 @grayscale9: #404040;
-@grayscale10: #333333;
-@grayscale11: #222222;
+@grayscale10: #333;
+@grayscale11: #222;
 
-/* Transitions */
-@button-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
-@tabs-slide-transition: bottom 0.3s cubic-bezier(.25,.8,.25,1);
-@all-transition: all .5s cubic-bezier(.35,0,.25,1);
+// TRANSITIONS
+@button-transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+@tabs-slide-transition: bottom 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+@all-transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1);
 
-/* Mock tabs */
-@tabs-inactive: rgba(0,0,0,0.54);
-@tabs-border: rgba(0,0,0,0.12);
+// MOCK TABS
+@tabs-inactive: rgba(0, 0, 0, 0.54);
+@tabs-border: rgba(0, 0, 0, 0.12);
 
-/* Footer */
-@footer-background-color : #404040;
-@footer-text-color : #adadad;
+// FOOTER
+@footer-background-color: #404040;
+@footer-text-color: #adadad;
 
-/* MyUW colors (legacy UW-Madison colors) */
+// MyUW COLORS (legacy UW-Madison colors)
 @color1: #b70101;         // Badger Red
-@color2: #990000;         // Medium Red
-@color3: #660000;         // Dark Red
-@color4: #F7F5E8;         // Cream
-@link-color: #660000;     // Dark Red
+@color2: #900;         // Medium Red
+@color3: #600;         // Dark Red
+@color4: #f7f5e8;         // Cream
+@link-color: #600;     // Dark Red
 
 @border: 1px solid @grayscale3;
 
-/* Custom mix-ins */
+// CUSTOM MIX-INS
 .border (@color: @grayscale3, @size: 1px) {
   border: @size solid @color;
 }
 
-/* Base formatting for converting a block-list to an inline-list */
+// Base formatting for converting a block-list to an inline-list
 .inline-block-list {
   padding: 0;
   margin: 0;
