@@ -53,10 +53,7 @@
   "stylelint": {
     "extends": "stylelint-config-standard",
     "rules": {
-      "selector-type-no-unknown": [ true, {
-          "ignoreTypes": ["/^md-/", "default-card", "portlet-icon"]
-      } ]
-    }
+      "selector-type-no-unknown": false
   },
   "eslintConfig": {
     "root": true,
