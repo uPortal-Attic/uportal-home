@@ -5,7 +5,8 @@
   "scripts": {
     "pretest": "mvn clean package",
     "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run",
-    "posttest": "eslint --ext js --ext json --ext md . --ignore-path .gitignore",
+    "lint-less": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
+    "lint-js": "eslint --ext js --ext json --ext md . --ignore-path .gitignore",
     "prestart": "mvn clean package",
     "start": "mvn jetty:run"
   },
@@ -45,7 +46,12 @@
     "karma-phantomjs-launcher": "^0.2.0",
     "karma-requirejs": "^0.2.2",
     "phantomjs": "^1.9.17",
-    "requirejs": "^2.1.18"
+    "requirejs": "^2.1.18",
+    "stylelint": "^7.9.0",
+    "stylelint-config-standard": "^16.0.0"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard"
   },
   "eslintConfig": {
     "root": true,
