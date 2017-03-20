@@ -7,9 +7,9 @@ As an [incubating, aspiring Apereo product][AngularJS-portal website on incubati
 The short version:
 
 + You must have submitted an [Apereo Individual Contributor License Agreement][]
-+ You individually must actually appear in the roster of registered ICLAs.
++ You individually must actually appear in the [roster of registered ICLAs][Apereo CLA roster].
 + To the extent that you're working under the auspices of an employer or working on behalf of anyone or anything other than yourself individually, those entities must have submitted a [Apereo Corporate Contributor License Agreement][] naming you as an authorized contributor.
-+ Those entities must actually appear in the roster of registered CCLAs.
++ Those entities must actually appear in [the roster of registered CCLAs][Apereo CLA roster].
 
 The long version:
 
@@ -25,3 +25,4 @@ The long version:
 [Apereo website on licensing]: https://www.apereo.org/licensing
 [Apereo website on Contributor License Agreement]: https://www.apereo.org/licensing/agreements
 [Apereo licensing discussion Google Group]: https://groups.google.com/a/apereo.org/forum/#!forum/licensing-discuss
+[Apereo CLA roster]: http://licensing.apereo.org/completed-clas
