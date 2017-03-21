@@ -6,6 +6,7 @@
 [![Code Climate](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal/badges/gpa.svg)](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal)
 [![codeclimate.com Issue Count](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal/badges/issue_count.svg)](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal)
 [![Apereo Incubating badge](https://img.shields.io/badge/apereo-incubating-blue.svg)](https://www.apereo.org/content/projects-currently-incubation)
+[![uPortal ecosystem incubating badge](https://img.shields.io/badge/uPortal%20ecosystem-incubating-blue.svg)](http://uw-madison-doit.github.io/angularjs-portal/apereo-incubation.html)
 
 ### What is this?
 This is an Angular approach to the dashboard view of uPortal. This dashboard will work along side uPortal, more of a companion app. It utilizes the uPortal rest APIs to collect layout info. It pulls notifications from the notification portlet resource URL.
