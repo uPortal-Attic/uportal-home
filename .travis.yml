@@ -1,6 +1,4 @@
 language: java
-before_install:
-  - npm install
 jdk:
   - oraclejdk7
   - openjdk7
