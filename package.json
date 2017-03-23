@@ -6,13 +6,11 @@
     "lint-css": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
     "pretest": "mvn clean package",
     "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run",
-    "dev-lint-js": "eslint --ext js --ext json --ext md --format html --output-file angularjs-portal-home/target/web/lint-out.html . --ignore-path .gitignore",
     "lint-js": "eslint --ext js --ext json --ext md . --ignore-path .gitignore",
     "lint-md": "remark . --ignore-path .gitignore",
     "lint-less": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
     "prestart": "mvn clean package",
-    "start": "mvn jetty:run",
-    "watch-lint": "live-server angularjs-portal-home/target/web/lint-out.html"
+    "start": "mvn jetty:run"
   },
   "repository": {
     "type": "git",
@@ -29,7 +27,6 @@
   },
   "homepage": "https://github.com/UW-Madison-DoIT/angularjs-portal",
   "devDependencies": {
-    "concurrently": "^3.4.0",
     "eslint": "^3.17.1",
     "eslint-config-google": "^0.7.1",
     "eslint-plugin-angular": "^1.6.2",
@@ -50,7 +47,6 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-requirejs": "^1.1.0",
-    "live-server": "^1.2.0",
     "phantomjs": "^2.1.7",
     "remark-cli": "^3.0.0",
     "remark-lint": "^6.0.0",

@@ -326,6 +326,7 @@ define(['angular', 'jquery'], function(angular, $) {
       /**
        * Returns a promise that will return a directorySearchURL if any exist
        * for a users group or null if one does not exists.
+       * @return {Promise} directoryUrlPromise
        */
       function getDirectorySearchURL() {
         var successFn;
