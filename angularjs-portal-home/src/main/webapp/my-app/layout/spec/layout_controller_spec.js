@@ -1,10 +1,11 @@
 'use strict';
+/* eslint-env node, phantomjs, jasmine */
+/* global inject */
 define(['angular-mocks', 'portal', 'my-app'], function() {
     describe('LayoutController', function() {
       var scope;
       var controller;
       var $localStorage;
-      var $location;
       var $sessionStorage;
       var rootScope;
       var layoutService;
@@ -23,7 +24,8 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
         module('my-app');
       });
 
-      beforeEach(inject(function(_$rootScope_, $controller, _$localStorage_, _$sessionStorage_, $location, $q, _APP_FLAGS_, _$httpBackend_, _SERVICE_LOC_) {
+      beforeEach(inject(function(_$rootScope_, $controller, _$localStorage_, _$sessionStorage_, $location, $q,
+        _APP_FLAGS_, _$httpBackend_, _SERVICE_LOC_) {
         q = $q;
         scope = _$rootScope_.$new();
         rootScope = _$rootScope_;

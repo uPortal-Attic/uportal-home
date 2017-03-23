@@ -35,8 +35,9 @@ define([
 ], function(angular, require, marketplaceRoutes, listRoute, notificationsRoute, portalSettingsRoutes,
 			featuresRoute, aboutRoute, layoutRoute, staticRoutes, widgetRoutes, searchRoutes) {
     var app = angular.module('my-app', [
+        'ngRoute',
+        'ngSanitize',
         'app-config',
-        'web-config',
         'my-app.layout.controllers',
         'my-app.layout.directives',
         'my-app.layout.services',
@@ -52,14 +53,14 @@ define([
         'my-app.search.controllers',
         'my-app.search.directives',
         'my-app.search.services',
-        'ngRoute',
-        'ngSanitize',
         'ngStorage',
         'portal',
+        'web-config',
     ]);
 
-    // TODO: Think of a more extensible approach such that frame and app can each manage their own routing without conflict
-    app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    // TODO: Think of a more extensible approach such that frame and app can
+    // each manage their own routing without conflict
+    app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
         $locationProvider.html5Mode(true);
         $routeProvider.
             when('/apps', marketplaceRoutes.main).
@@ -79,7 +80,6 @@ define([
             when('/widget-creator', widgetRoutes.widgetCreator).
             otherwise(layoutRoute);
     }]);
-
 
     return app;
 });

@@ -67,7 +67,9 @@ define(['angular'], function(angular) {
             {
               'id': 'linkRatingsApi',
               'title': 'Link ratings API',
-              'description': 'Links the ratings JSON API from the ratings count in the details page for each app. Actual access to this JSON API depends upon MANAGE permissions; this setting just includes the hyperlink in the UI for convenience.',
+              'description': 'Links the ratings JSON API from the ratings count in the details page for each app. ' +
+                'Actual access to this JSON API depends upon MANAGE permissions; this setting just includes the ' +
+                'hyperlink in the UI for convenience.',
             },
             {
               'id': 'exampleWidgets',

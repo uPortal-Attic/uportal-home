@@ -2,9 +2,14 @@
 
 define(['angular', 'jquery'], function(angular, $) {
     var app = angular.module('my-app.layout.services', []);
-    var accessDeniedTemplate='<p><strong>Sorry, you\'re not authorized to access this.</p>    <br><br>    <div class="center"><i class=\'fa fa-exclamation-triangle fa-5x\'></i></div>    <p>If you\'re here by accident, head back to your My-UW <a href=\'/web\'>homepage</a>.</p>    <p>For help with authorization, contact the <a href="https://kb.wisc.edu/helpdesk">DoIT Help Desk</a>.</p>';
+    var accessDeniedTemplate='<p><strong>Sorry, you\'re not authorized to access this.</p><br><br>' +
+    '<div class="center"><i class=\'fa fa-exclamation-triangle fa-5x\'></i></div>' +
+    '<p>If you\'re here by accident, head back to your My-UW <a href=\'/web\'>homepage</a>.</p>' +
+    '<p>For help with authorization, contact the <a href="https://kb.wisc.edu/helpdesk">DoIT Help Desk</a>.</p>';
 
-    app.factory('layoutService', ['$sce', '$http', 'miscService', 'mainService', '$sessionStorage', '$q', 'SERVICE_LOC', function($sce, $http, miscService, mainService, $sessionStorage, $q, SERVICE_LOC) {
+    app.factory('layoutService',
+      ['$sce', '$http', '$log', 'miscService', 'mainService', '$sessionStorage', '$q', 'SERVICE_LOC',
+      function($sce, $http, $log, miscService, mainService, $sessionStorage, $q, SERVICE_LOC) {
         var addToHome = function addToHomeFunction(portlet) {
             var fname = portlet.fname;
             var tabName = SERVICE_LOC.layoutTab;
@@ -15,12 +20,12 @@ define(['angular', 'jquery'], function(angular, $) {
                 dataType: 'json',
                 async: true,
                 success: function(request, text) {
-                    console.log('Added ' + portlet.fname + ' successfully');
+                    $log.log('Added ' + portlet.fname + ' successfully');
                     miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
                     return true;
                 },
                 error: function(request, text, error) {
-                    console.warn('failed to add app to home.');
+                    $log.warn('failed to add app to home.');
                     return false;
                 },
             });
@@ -34,7 +39,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 dataType: 'json',
                 async: true,
                 success: function(request, text) {
-                    console.log('removed ' + title + ' successfully.');
+                    $log.log('removed ' + title + ' successfully.');
                     miscService.pushGAEvent('Layout Modification', 'Remove', title);
                 },
                 error: function(request, text, error) {
@@ -58,13 +63,18 @@ define(['angular', 'jquery'], function(angular, $) {
             userPromise.then(function(user) {
                 $sessionStorage.sessionKey = user.sessionKey;
                 $sessionStorage.layout = data;
+                return user;
+            }).catch(function() {
+              $log.warn('Could not getUser');
             });
         };
 
 
         var getLayout = function() {
             return checkLayoutCache().then(function(data) {
-                var successFn, errorFn, defer;
+                var successFn;
+                var errorFn;
+                var defer;
 
                 // first, check the local storage...
                 if (data) {
@@ -108,7 +118,7 @@ define(['angular', 'jquery'], function(angular, $) {
                     + '&sourceId=' + sourceId
                     + '&previousNodeId=' + previousNodeId
                     + '&nextNodeId=' + nextNodeId;
-                console.log(saveOrderURL);
+                $log.log(saveOrderURL);
                 $.ajax({
                     url: saveOrderURL,
                     type: 'POST',
@@ -116,10 +126,10 @@ define(['angular', 'jquery'], function(angular, $) {
                     dataType: 'json',
                     async: true,
                     success: function() {
-                        console.log('layout move successful.');
+                        $log.log('layout move successful.');
                     },
                     error: function(request, text, error) {
-                        console.error('Error persisting move ' + saveOrderURL);
+                        $log.error('Error persisting move ' + saveOrderURL);
                     },
                 });
             };
@@ -149,7 +159,7 @@ define(['angular', 'jquery'], function(angular, $) {
                         if(data.content) {
                             portlet.widgetContent = data.content;
                         }
-                        console.log(portlet.fname + '\'s widget data came back with data');
+                        $log.log(portlet.fname + '\'s widget data came back with data');
                     }
                     return data;
                 },
@@ -166,19 +176,21 @@ define(['angular', 'jquery'], function(angular, $) {
                         var data = result.data;
                         if(data) {
                             portlet.exclusiveContent = $sce.trustAsHtml(data);
-                            console.log(portlet.fname + '\'s exclusive data came back with data');
+                            $log.log(portlet.fname + '\'s exclusive data came back with data');
                         }else{
-                            portlet.exclusiveContent='<div class="alert alert-danger" role="alert">This service is unavailable right now. Please check back later.</div>';
+                            portlet.exclusiveContent='<div class="alert alert-danger" role="alert">' +
+                              'This service is unavailable right now. Please check back later.</div>';
                         }
 
                         return data;
                     },
                     function(reason) {
-                        if(reason.status===403) {
-                            portlet.exclusiveContent=$sce.trustAsHtml(accessDeniedTemplate);
-                        }else{
-                           miscService.redirectUser(reason.status, 'exclusive markup for ' + portlet.fname + ' failed.');
-                       }
+                      if (reason.status===403) {
+                          portlet.exclusiveContent=$sce.trustAsHtml(accessDeniedTemplate);
+                      } else {
+                        miscService.redirectUser(reason.status,
+                          'exclusive markup for ' + portlet.fname + ' failed.');
+                      }
                     }
                 );
         };

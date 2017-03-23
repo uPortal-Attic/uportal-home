@@ -104,12 +104,13 @@ define(['angular', 'require'], function(angular, require) {
       controller: function($scope,
                            $controller,
                            $location,
+                           $log,
                            layoutService) {
         var that = this;
         $scope.portlet = {title: 'loading...'};
         $scope.cantRemove = true;
         this.$onInit = function() {
-          var base = $controller('BaseWidgetFunctionsController', {$scope: $scope, childController: that});
+          $controller('BaseWidgetFunctionsController', {$scope: $scope, childController: that});
         };
 
         this.$onChanges = function(changesObj) {
@@ -133,6 +134,9 @@ define(['angular', 'require'], function(angular, require) {
                 } else {
                     $scope.loaded = true;
                 }
+                return result;
+            }).catch(function() {
+              $log.warn('Could not getApp');
             });
           }
         };

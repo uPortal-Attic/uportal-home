@@ -6,11 +6,13 @@
     "lint-css": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
     "pretest": "mvn clean package",
     "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run",
+    "dev-lint-js": "eslint --ext js --ext json --ext md --format html --output-file angularjs-portal-home/target/web/lint-out.html . --ignore-path .gitignore",
     "lint-js": "eslint --ext js --ext json --ext md . --ignore-path .gitignore",
     "lint-md": "remark . --ignore-path .gitignore",
     "lint-less": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
     "prestart": "mvn clean package",
-    "start": "mvn jetty:run"
+    "start": "mvn jetty:run",
+    "watch-lint": "live-server angularjs-portal-home/target/web/lint-out.html"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
   },
   "homepage": "https://github.com/UW-Madison-DoIT/angularjs-portal",
   "devDependencies": {
+    "concurrently": "^3.4.0",
     "eslint": "^3.17.1",
     "eslint-config-google": "^0.7.1",
     "eslint-plugin-angular": "^1.6.2",
@@ -47,6 +50,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-requirejs": "^1.1.0",
+    "live-server": "^1.2.0",
     "phantomjs": "^2.1.7",
     "remark-cli": "^3.0.0",
     "remark-lint": "^6.0.0",
@@ -60,7 +64,7 @@
   "stylelint": {
     "extends": "stylelint-config-standard",
     "rules": {
-      "selector-type-no-unknown": false
+      "selector-type-no-unknown": null
     }
   },
   "remarkConfig": {
@@ -102,24 +106,35 @@
     ],
     "rules": {
       "angular/angularelement": "error",
-      "angular/di": "error",
-      "angular/di-order": "error",
+      "angular/di": "warn",
+      "angular/di-order": "warn",
       "angular/di-unused": "error",
       "angular/document-service": "error",
       "angular/log": "error",
       "angular/module-dependency-order": "error",
       "angular/no-service-method": "error",
-      "angular/no-services": "error",
+      "angular/no-services": "warn",
       "angular/window-service": "error",
       "compat/compat": "error",
       "arrow-parens": "off",
       "constructor-super": "off",
       "generator-star-spacing": "off",
+      "max-len": [
+        "error",
+        {
+          "code": 120,
+          "tabWidth": 2,
+          "ignoreUrls": true
+        }
+      ],
       "no-new-symbol": "off",
       "no-this-before-super": "off",
+      "no-invalid-this": "off",
       "no-var": "off",
       "prefer-rest-params": "off",
       "prefer-spread": "off",
+      "require-jsdoc": "error",
+      "valid-jsdoc": "warn",
       "rest-spread-spacing": "off",
       "yield-star-spacing": "off"
     }

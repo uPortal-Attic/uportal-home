@@ -3,7 +3,10 @@
 define(['angular', 'jquery'], function(angular, $) {
     var app = angular.module('my-app.marketplace.services', []);
 
-    app.factory('marketplaceService', ['$q', '$http', '$sessionStorage', 'layoutService', 'miscService', 'mainService', 'SERVICE_LOC', 'APP_FLAGS', function($q, $http, $sessionStorage, layoutService, miscService, mainService, SERVICE_LOC, APP_FLAGS) {
+    app.factory('marketplaceService',
+      ['$q', '$http', '$sessionStorage', 'layoutService', '$log',
+      'miscService', 'mainService', 'SERVICE_LOC', 'APP_FLAGS',
+      function($q, $http, $sessionStorage, layoutService, $log, miscService, mainService, SERVICE_LOC, APP_FLAGS) {
         var marketplacePromise;
         // local variables
         var filter = '';
@@ -53,12 +56,17 @@ define(['angular', 'jquery'], function(angular, $) {
                 $sessionStorage.sessionKey = user.sessionKey;
                 $sessionStorage.marketplace = data.portlets;
                 $sessionStorage.categories = data.categories;
+                return user;
+            }).catch(function() {
+              $log.warn('Could not getUser');
             });
         };
 
         var getPortlets = function() {
             return checkMarketplaceCache().then(function(data) {
-                var successFn, errorFn, defer;
+                var successFn;
+                var errorFn;
+                var defer;
 
                 // first, check the local storage...
                 if (data) {
@@ -92,7 +100,9 @@ define(['angular', 'jquery'], function(angular, $) {
                 };
 
                 // no caching...  request from the server
-                marketplacePromise = $q.all([$http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + SERVICE_LOC.marketplace.entries, {cache: true}), layoutService.getLayout()]).then(successFn, errorFn);
+                marketplacePromise = $q.all([$http.get(
+                    SERVICE_LOC.base + SERVICE_LOC.marketplace.base + SERVICE_LOC.marketplace.entries, {cache: true}),
+                  layoutService.getLayout()]).then(successFn, errorFn);
                 return marketplacePromise;
             });
         };
@@ -101,15 +111,17 @@ define(['angular', 'jquery'], function(angular, $) {
           returns portlet if one exists in user's marketplace, or goes and gets entry from server
         **/
         var getPortlet = function(fname) {
-          var successFn, errorFn, defer;
+          var successFn;
+          var errorFn;
+          var defer;
           // first check cache, if there use that (it'll be faster)
           return checkMarketplaceCache().then(function(data) {
             if (data) {
                 defer = $q.defer();
                 // find portlet and resolve with it if exists
                 var portlets = $.grep(data.portlets, function(e) {
- return e.fname === fname;
-});
+                  return e.fname === fname;
+                });
                 var portlet = portlets ? portlets[0] : null;
                 defer.resolve(portlet);
                 return defer.promise;
@@ -127,28 +139,33 @@ define(['angular', 'jquery'], function(angular, $) {
                 miscService.redirectUser(reason.status, 'marketplace entry service call');
               };
 
-              return $q.all([$http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + SERVICE_LOC.marketplace.entry + fname + '.json', {cache: true}), layoutService.getLayout()]).then(successFn, errorFn);
+              return $q.all([$http.get(
+                SERVICE_LOC.base + SERVICE_LOC.marketplace.base + SERVICE_LOC.marketplace.entry + fname + '.json',
+                {cache: true}), layoutService.getLayout()]).then(successFn, errorFn);
             }
           });
         };
 
         var getUserRating = function(fname) {
-            return $http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/getRating').then(function(result) {
+            return $http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/getRating')
+              .then(function(result) {
                 return result.data.rating;
-            });
+              });
         };
 
         var saveRating = function(fname, rating) {
-            return $http.post(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/rating/' + rating.rating, {}, {params: {review: rating.review}}).
-                success(function(data, status, headers, config) {
+            return $http.post(
+              SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/rating/' + rating.rating,
+              {}, {params: {review: rating.review}})
+                .success(function(data, status, headers, config) {
                   if(APP_FLAGS.debug) {
-                    console.log('successfully saved marketplace rating for ' + fname + ' with data ' + rating);
+                    $log.log('successfully saved marketplace rating for ' + fname + ' with data ' + rating);
                   }
                   return data;
-                }).
-                error(function(data, status, headers, config) {
+                })
+                .error(function(data, status, headers, config) {
                   if(APP_FLAGS.debug) {
-                    console.error('Failed to save marketplace rating for ' + fname + ' with data ' + rating);
+                    $log.error('Failed to save marketplace rating for ' + fname + ' with data ' + rating);
                   }
                   return data;
                 });
@@ -158,12 +175,12 @@ define(['angular', 'jquery'], function(angular, $) {
 
         var processInLayout = function(portlet, layout) {
           var inLayout = $.grep(layout, function(e) {
- return e.fname === portlet.fname;
-}).length;
+            return e.fname === portlet.fname;
+          }).length;
           if (inLayout > 0) {
-              portlet.hasInLayout = true;
+            portlet.hasInLayout = true;
           } else {
-              portlet.hasInLayout = false;
+            portlet.hasInLayout = false;
           }
         };
 

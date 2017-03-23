@@ -23,6 +23,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
                                       };
                       $scope.loading = false;
                   }
+                  return data;
                 }).catch(function() {
                   $scope.loading = false;
                   $scope.rating = {
@@ -40,6 +41,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
                 .then(function() {
                   $mdDialog.hide();
                   $scope.saved = true;
+                  return;
                 })
                 .catch(function() {
                   $scope.error = 'Issue saving rating';

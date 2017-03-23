@@ -6,8 +6,8 @@ define(['angular', 'jquery'], function(angular, $) {
   /**
    * Controller for default view (my-app/layout/partials/default-view.html)
    */
-  app.controller('DefaultViewController', ['$scope', '$location', '$mdMedia', '$localStorage', '$sessionStorage', 'APP_FLAGS',
-    function($scope, $location, $mdMedia, $localStorage, $sessionStorage, APP_FLAGS) {
+  app.controller('DefaultViewController', ['$scope', '$location', '$mdMedia', '$localStorage', 'APP_FLAGS',
+    function($scope, $location, $mdMedia, $localStorage, APP_FLAGS) {
       $scope.loading = [];
       if (!APP_FLAGS[$localStorage.layoutMode]) {
         // Layout mode set weird, reset to default
@@ -17,14 +17,16 @@ define(['angular', 'jquery'], function(angular, $) {
   }]);
 
   /**
-   * Controller for the compact mode widget layout (layout/list/partials/home-list-view.html and layout/partials/default-card.html)
+   * Controller for the compact mode widget layout (layout/list/partials/home-list-view.html and
+   * layout/partials/default-card.html)
    */
-  app.controller('LayoutController', ['$location', '$localStorage', '$sessionStorage', '$scope', '$rootScope', 'layoutService', 'miscService',
-    function($location, $localStorage, $sessionStorage, $scope, $rootScope, layoutService, miscService) {
+  app.controller('LayoutController',
+    ['$localStorage', '$log', '$sessionStorage', '$scope', '$rootScope', 'layoutService',
+    function($localStorage, $log, $sessionStorage, $scope, $rootScope, layoutService) {
       /**
        * Set the href based on whether it's a static, exclusive, or basic widget (based on attributes from entity file)
        * @param portlet
-       * @returns {*}
+       * @returns {String}
        */
       this.renderURL = function(portlet) {
         if (portlet.staticContent != null && portlet.altMaxUrl == false) {
@@ -75,11 +77,16 @@ define(['angular', 'jquery'], function(angular, $) {
         stop: function(e, ui) {
           if (ui.item.sortable.dropindex != ui.item.sortable.index) {
             var node = $scope.layout[ui.item.sortable.dropindex];
-            console.log('Change happened, logging move of ' + node.fname + ' from ' + ui.item.sortable.index + ' to ' + ui.item.sortable.dropindex);
+            $log.info('Change happened, logging move of ' + node.fname +
+            ' from ' + ui.item.sortable.index +
+            ' to ' + ui.item.sortable.dropindex);
             // index, length, movingNodeId, previousNodeId, nextNodeId
-            var prevNodeId = ui.item.sortable.dropindex != 0 ? $scope.layout[ui.item.sortable.dropindex - 1].nodeId : '';
-            var nextNodeId = ui.item.sortable.dropindex != $scope.layout.length - 1 ? $scope.layout[ui.item.sortable.dropindex + 1].nodeId : '';
-            layoutService.moveStuff(ui.item.sortable.dropindex, $scope.layout.length, node.nodeId, prevNodeId, nextNodeId);
+            var prevNodeId = ui.item.sortable.dropindex != 0 ?
+              $scope.layout[ui.item.sortable.dropindex - 1].nodeId : '';
+            var nextNodeId = ui.item.sortable.dropindex != $scope.layout.length - 1 ?
+              $scope.layout[ui.item.sortable.dropindex + 1].nodeId : '';
+            layoutService.moveStuff(ui.item.sortable.dropindex,
+              $scope.layout.length, node.nodeId, prevNodeId, nextNodeId);
           }
         },
       };
@@ -98,6 +105,9 @@ define(['angular', 'jquery'], function(angular, $) {
             if (data.layout && data.layout.length == 0) {
               $scope.layoutEmpty = true;
             }
+            return data;
+          }).catch(function() {
+            $log.warn('Could not getLayout');
           });
         }
       };
@@ -106,11 +116,13 @@ define(['angular', 'jquery'], function(angular, $) {
     }]);
 
   /**
-   * Basic widget logic leveraged by WidgetController, expanded mode widget layout (/widget/partials/home-widget-view.html and /widget/partials/widget-card.html),
+   * Basic widget logic leveraged by WidgetController, expanded mode widget layout
+   * (/widget/partials/home-widget-view.html and /widget/partials/widget-card.html),
    * and 'widget' component (/widget/directives.js)
    */
-  app.controller('BaseWidgetFunctionsController', ['$scope', '$location', '$sessionStorage', '$localStorage', 'layoutService', 'childController',
-    function($scope, $location, $sessionStorage, $localStorage, layoutService, childController) {
+  app.controller('BaseWidgetFunctionsController',
+    ['$scope', '$sessionStorage', '$localStorage', 'layoutService', 'childController',
+    function($scope, $sessionStorage, $localStorage, layoutService, childController) {
       /**
        * Determine the type of widget to display
        * @param portlet
@@ -126,8 +138,10 @@ define(['angular', 'jquery'], function(angular, $) {
           } else if ('rss' === portlet.widgetType) {
             return 'RSS';
           } else if ('list-of-links' === portlet.widgetType) {
-            if (portlet.widgetConfig.links.length === 1 && portlet.altMaxUrl && portlet.widgetConfig.links[0].href === portlet.url) {
-              // If list of links has only one link and if it is the same as the portlet URL, display the default widget view
+            if (portlet.widgetConfig.links.length === 1 &&
+              portlet.altMaxUrl && portlet.widgetConfig.links[0].href === portlet.url) {
+              // If list of links has only one link and if it is the same as the portlet URL,
+              // display the default widget view
               return 'BASIC';
             } else {
               return 'LOL';
@@ -135,7 +149,8 @@ define(['angular', 'jquery'], function(angular, $) {
           } else if ('search-with-links' === portlet.widgetType) {
             return 'SWL';
           } else if ('generic' === portlet.widgetType) {
-            // DEPRECATED: Include 'generic' for the sake of backwards compatibility, but return what it really is: CUSTOM
+            // DEPRECATED: Include 'generic' for the sake of backwards compatibility,
+            // but return what it really is: CUSTOM
             return 'CUSTOM';
           } else if ('custom' === portlet.widgetType) {
             return 'CUSTOM';
@@ -143,7 +158,8 @@ define(['angular', 'jquery'], function(angular, $) {
             return 'WIDGET';
           }
         } else {
-          // Return "BASIC" widget type for anything else lacking an explicit widget type definition (default experience)
+          // Return "BASIC" widget type for anything else lacking an explicit widget
+          // type definition (default experience)
           return 'BASIC';
         }
       };
@@ -198,12 +214,14 @@ define(['angular', 'jquery'], function(angular, $) {
    * Widget initialization and sorting for expanded mode widget layout
    * (/widget/partials/home-widget-view.html and /widget/partials/widget-card.html)
    */
-  app.controller('WidgetController', ['$controller', '$location', '$localStorage', '$sessionStorage', '$scope', '$rootScope', 'layoutService', 'miscService',
-    function($controller, $location, $localStorage, $sessionStorage, $scope, $rootScope, layoutService, miscService) {
+  app.controller('WidgetController', ['$controller', '$log', '$scope', '$rootScope', 'layoutService',
+    function($controller, $log, $scope, $rootScope, layoutService) {
       // Inherit from BaseWidgetFunctionsController
-      var base = $controller('BaseWidgetFunctionsController', {$scope: $scope, childController: this});
+      $controller('BaseWidgetFunctionsController', {$scope: $scope, childController: this});
 
-      // Initialize expanded mode widget layout
+      /**
+       * Initialize expanded mode widget layout
+       */
       function init() {
         if (typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
           $rootScope.layout = [];
@@ -214,6 +232,9 @@ define(['angular', 'jquery'], function(angular, $) {
             if (data.layout && data.layout.length == 0) {
               $scope.layoutEmpty = true;
             }
+            return data;
+          }).catch(function() {
+            $log.warn('Could not getLayout');
           });
         }
       }
@@ -228,13 +249,15 @@ define(['angular', 'jquery'], function(angular, $) {
         stop: function(e, ui) {
           if (ui.item.sortable.dropindex != ui.item.sortable.index) {
             var node = $scope.layout[ui.item.sortable.dropindex];
-            if (console) {
-              console.log('Change happened, logging move of ' + node.fname + ' from ' + ui.item.sortable.index + ' to ' + ui.item.sortable.dropindex);
-            }
+            $log.log('Change happened, logging move of ' + node.fname +
+              ' from ' + ui.item.sortable.index + ' to ' + ui.item.sortable.dropindex);
             // index, length, movingNodeId, previousNodeId, nextNodeId
-            var prevNodeId = ui.item.sortable.dropindex != 0 ? $scope.layout[ui.item.sortable.dropindex - 1].nodeId : '';
-            var nextNodeId = ui.item.sortable.dropindex != $scope.layout.length - 1 ? $scope.layout[ui.item.sortable.dropindex + 1].nodeId : '';
-            layoutService.moveStuff(ui.item.sortable.dropindex, $scope.layout.length, node.nodeId, prevNodeId, nextNodeId);
+            var prevNodeId = ui.item.sortable.dropindex != 0 ?
+              $scope.layout[ui.item.sortable.dropindex - 1].nodeId : '';
+            var nextNodeId = ui.item.sortable.dropindex != $scope.layout.length - 1 ?
+              $scope.layout[ui.item.sortable.dropindex + 1].nodeId : '';
+            layoutService.moveStuff(ui.item.sortable.dropindex,
+              $scope.layout.length, node.nodeId, prevNodeId, nextNodeId);
           }
         },
       };
@@ -244,8 +267,8 @@ define(['angular', 'jquery'], function(angular, $) {
   /**
    * Controller for toggling between expanded and compact mode via the app-header's toggle
    */
-  app.controller('ToggleController', ['$localStorage', '$scope', '$location', 'miscService', 'APP_FLAGS',
-    function($localStorage, $scope, $location, miscService, APP_FLAGS) {
+  app.controller('ToggleController', ['$localStorage', '$scope', '$location', '$log', 'miscService', 'APP_FLAGS',
+    function($localStorage, $scope, $location, $log, miscService, APP_FLAGS) {
       /**
        * Switch between compact and expanded mode
        * @param mode
@@ -283,7 +306,7 @@ define(['angular', 'jquery'], function(angular, $) {
             if (APP_FLAGS[$localStorage.layoutMode]) {
               $location.path('/' + $localStorage.layoutMode);
             } else {
-              console.log('Something is weird, resetting to default layout view');
+              $log.log('Something is weird, resetting to default layout view');
               $scope.switchMode(APP_FLAGS.defaultView);
             }
           }
