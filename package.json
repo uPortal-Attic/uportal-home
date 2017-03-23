@@ -129,7 +129,6 @@
       "no-var": "off",
       "prefer-rest-params": "off",
       "prefer-spread": "off",
-      "require-jsdoc": "error",
       "valid-jsdoc": "warn",
       "rest-spread-spacing": "off",
       "yield-star-spacing": "off"
