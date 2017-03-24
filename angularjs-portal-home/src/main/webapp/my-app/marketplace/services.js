@@ -6,7 +6,8 @@ define(['angular', 'jquery'], function(angular, $) {
     app.factory('marketplaceService',
       ['$q', '$http', '$sessionStorage', 'layoutService', '$log',
       'miscService', 'mainService', 'SERVICE_LOC', 'APP_FLAGS',
-      function($q, $http, $sessionStorage, layoutService, $log, miscService, mainService, SERVICE_LOC, APP_FLAGS) {
+      function($q, $http, $sessionStorage, layoutService, $log,
+          miscService, mainService, SERVICE_LOC, APP_FLAGS) {
         var marketplacePromise;
         // local variables
         var filter = '';
@@ -40,11 +41,12 @@ define(['angular', 'jquery'], function(angular, $) {
         var checkMarketplaceCache = function() {
             var userPromise = mainService.getUser();
             return userPromise.then(function(user) {
-                if ($sessionStorage.sessionKey === user.sessionKey && $sessionStorage.marketplace) {
-                    return {
-                        portlets: $sessionStorage.marketplace,
-                        categories: $sessionStorage.categories,
-                    };
+                if ($sessionStorage.sessionKey === user.sessionKey &&
+                    $sessionStorage.marketplace) {
+                  return {
+                      portlets: $sessionStorage.marketplace,
+                      categories: $sessionStorage.categories,
+                  };
                 }
                 return null;
             });
@@ -75,14 +77,15 @@ define(['angular', 'jquery'], function(angular, $) {
                     return defer.promise;
                 }
 
-                // then check for outstanding requests that may have not yet been cached.
+                // check for outstanding requests that have not yet been cached.
 
                 // Downside of adding caching in getUser() is that the
                 // promise in getUser blocks till we get results.  That blocks
                 // the call to getMarketplace.  So, they pile up.  Then, when
                 // getUser clears, all the getUser promises fire immediately.
                 // They all fire so fast that the layout data doesn't make it
-                // to cache between calls.  So, cache the very first promise locally.
+                // to cache between calls.
+                // So, cache the very first promise locally.
                 // Then, if the marketplace promise exists use it again.
                 if (marketplacePromise) {
                     return marketplacePromise;
@@ -96,20 +99,25 @@ define(['angular', 'jquery'], function(angular, $) {
                 };
 
                 errorFn = function(reason) {
-                    miscService.redirectUser(reason.status, 'marketplace entries call');
+                  miscService.redirectUser(
+                    reason.status,
+                    'marketplace entries call'
+                  );
                 };
 
                 // no caching...  request from the server
                 marketplacePromise = $q.all([$http.get(
-                    SERVICE_LOC.base + SERVICE_LOC.marketplace.base + SERVICE_LOC.marketplace.entries, {cache: true}),
+                    SERVICE_LOC.base + SERVICE_LOC.marketplace.base +
+                    SERVICE_LOC.marketplace.entries, {cache: true}),
                   layoutService.getLayout()]).then(successFn, errorFn);
                 return marketplacePromise;
             });
         };
 
         /**
-          returns portlet if one exists in user's marketplace, or goes and gets entry from server
-        **/
+         *  returns portlet if one exists in user's marketplace,
+         *  or goes and gets entry from server
+         */
         var getPortlet = function(fname) {
           var successFn;
           var errorFn;
@@ -136,39 +144,51 @@ define(['angular', 'jquery'], function(angular, $) {
               };
 
               errorFn = function(reason) {
-                miscService.redirectUser(reason.status, 'marketplace entry service call');
+                miscService.redirectUser(
+                  reason.status,
+                  'marketplace entry service call'
+                );
               };
 
-              return $q.all([$http.get(
-                SERVICE_LOC.base + SERVICE_LOC.marketplace.base + SERVICE_LOC.marketplace.entry + fname + '.json',
-                {cache: true}), layoutService.getLayout()]).then(successFn, errorFn);
+              return $q.all(
+                  [$http.get(
+                    SERVICE_LOC.base + SERVICE_LOC.marketplace.base +
+                    SERVICE_LOC.marketplace.entry + fname + '.json',
+                    {cache: true}),
+                  layoutService.getLayout()])
+                .then(successFn, errorFn);
             }
           });
         };
 
         var getUserRating = function(fname) {
-            return $http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/getRating')
+            return $http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base +
+                fname + '/getRating')
               .then(function(result) {
                 return result.data.rating;
               });
         };
 
         var saveRating = function(fname, rating) {
-            return $http.post(
-              SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/rating/' + rating.rating,
-              {}, {params: {review: rating.review}})
-                .success(function(data, status, headers, config) {
-                  if(APP_FLAGS.debug) {
-                    $log.log('successfully saved marketplace rating for ' + fname + ' with data ' + rating);
-                  }
-                  return data;
-                })
-                .error(function(data, status, headers, config) {
-                  if(APP_FLAGS.debug) {
-                    $log.error('Failed to save marketplace rating for ' + fname + ' with data ' + rating);
-                  }
-                  return data;
-                });
+          return $http.post(
+              SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname +
+                '/rating/' + rating.rating,
+              {},
+              {params: {review: rating.review}})
+            .success(function(data, status, headers, config) {
+              if(APP_FLAGS.debug) {
+                $log.log('successfully saved marketplace rating for ' +
+                  fname + ' with data ' + rating);
+              }
+              return data;
+            })
+            .error(function(data, status, headers, config) {
+              if(APP_FLAGS.debug) {
+                $log.error('Failed to save marketplace rating for ' +
+                  fname + ' with data ' + rating);
+              }
+              return data;
+            });
         };
 
         // private functions
@@ -199,8 +219,9 @@ define(['angular', 'jquery'], function(angular, $) {
                 var categoriesOfThisPortlet = cur.categories;
 
                 $.each(categoriesOfThisPortlet, function(index, category) {
-                    if ($.inArray(category, categories) == -1 && cur.canAdd == true) {
-                        categories.push(category);
+                    if ($.inArray(category, categories) == -1 &&
+                        cur.canAdd == true) {
+                      categories.push(category);
                     }
                 });
             });
@@ -210,57 +231,66 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         var portletMatchesSearchTerm = function(portlet, searchTerm, opts) {
-            if (!searchTerm) {
-                return opts && opts.defaultReturn;
+          if (!searchTerm) {
+              return opts && opts.defaultReturn;
+          }
+
+          // create local var for searchTerm
+          var lowerSearchTerm = searchTerm.toLowerCase();
+
+          // check title
+          if(portlet.title.toLowerCase().indexOf(lowerSearchTerm) !== -1) {
+            return true;
+          }
+
+          if (opts && opts.searchDescription) {
+            var desc = portlet.description;
+            // check description match
+            if (desc &&
+                desc.toLowerCase().indexOf(lowerSearchTerm) !== -1) {
+              return true;
             }
+          }
 
-            var lowerSearchTerm = searchTerm.toLowerCase(); // create local var for searchTerm
-
-            if(portlet.title.toLowerCase().indexOf(lowerSearchTerm) !== -1) {// check title
-                return true;
-            }
-
-            if (opts && opts.searchDescription) {
-                // check description match
-                if(portlet.description && portlet.description.toLowerCase().indexOf(lowerSearchTerm) !== -1) {
+          // last ditch effort, check keywords
+          if (opts && opts.searchKeywords) {
+            var keys = portlet.keywords;
+            if (keys) {
+              for (var i = 0; i < keys.length; i++) {
+                if (keys[i].toLowerCase().indexOf(lowerSearchTerm) !== -1) {
                     return true;
                 }
+              }
             }
-
-            // last ditch effort, check keywords
-            if (opts && opts.searchKeywords) {
-                if (portlet.keywords) {
-                    for (var i = 0; i < portlet.keywords.length; i++) {
-                        if (portlet.keywords[i].toLowerCase().indexOf(lowerSearchTerm) !== -1) {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
+          }
+          return false;
         };
 
-        var filterPortletsBySearchTerm = function(portletList, searchTerm, opts) {
+        var filterPortletsBySearchTerm =
+          function(portletList, searchTerm, opts) {
             var matches;
 
             if (!angular.isArray(portletList)) {
-                return null;
+              return null;
             }
 
             matches = [];
             angular.forEach(portletList, function(portlet) {
-                if (portletMatchesSearchTerm(portlet, searchTerm, opts)) {
-                    matches.push(portlet);
-                }
+              if (portletMatchesSearchTerm(portlet, searchTerm, opts)) {
+                matches.push(portlet);
+              }
             });
-
             return matches;
-        };
+          };
 
         var getAllRatings = function(fname) {
-          return $http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base + fname + '/ratings').then(function(result) {
+          return $http.get(
+              SERVICE_LOC.base +
+              SERVICE_LOC.marketplace.base + fname +
+              '/ratings')
+            .then(function(result) {
               return result.data.ratings;
-          });
+            });
         };
 
         // return list of avaliable functions

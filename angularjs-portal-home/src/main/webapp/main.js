@@ -7,8 +7,10 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
     // https://blog.mariusschulz.com/2014/10/22/asynchronously-bootstrapping-angularjs-applications-with-server-side-data
     doLogin().then(bootstrapApplication)
       .catch(function() {
-        angular.element('#loading-splash').html('<b style="padding: 10px;">An error has occured during loading, ' +
-        'please try refreshing the page. If the issue persists please contact the helpdesk.</b>');
+        angular.element('#loading-splash').html(
+          '<b style="padding: 10px;">An error has occured during loading, ' +
+          'please try refreshing the page. If the issue persists please ' +
+          'contact the helpdesk.</b>');
       });
 
     /**
@@ -24,10 +26,11 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
     * @return {boolean} is the last login valid
     */
     function lastLoginValid($sessionStorage) {
-      var timeLapseBetweenLogins = 14400000;
-      if($sessionStorage.portal && $sessionStorage.portal.lastAccessed) {
+      var timeLapseBetweenLogins = 14400000; // 4 hours
+      if ($sessionStorage.portal && $sessionStorage.portal.lastAccessed) {
         var now = (new Date()).getTime();
-        if(now - $sessionStorage.portal.lastAccessed <= timeLapseBetweenLogins) {// 4 hours
+        if (now - $sessionStorage.portal.lastAccessed <=
+            timeLapseBetweenLogins) {
           return true;
         }
       }

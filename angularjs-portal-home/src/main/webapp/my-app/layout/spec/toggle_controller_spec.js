@@ -19,23 +19,24 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
         module('my-app');
       });
 
-      beforeEach(inject(function(_$rootScope_, $controller, _$localStorage_, $log, _APP_FLAGS_) {
+      beforeEach(inject(function(
+          _$rootScope_, $controller, _$localStorage_, $log, _APP_FLAGS_) {
         scope = _$rootScope_.$new();
         $localStorage = _$localStorage_;
         APP_FLAGS = _APP_FLAGS_;
         currentPath = '/';
         // gaPageViewHits = 0;
         $location = {
-            'path': function(newPath) {
-                if(newPath) {
-                    currentPath = newPath;
-                } else {
-                    return currentPath;
-                }
-            },
-            'url': function() {
-                return currentPath;
-            },
+          'path': function(newPath) {
+            if(newPath) {
+              currentPath = newPath;
+            } else {
+              return currentPath;
+              }
+          },
+          'url': function() {
+            return currentPath;
+          },
         };
 
         miscService = {
@@ -63,15 +64,18 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           expect(scope.toggle).toBeTruthy();
       });
 
-      it('should switch to default if layoutMode is set to something weird', function() {
+      it('should switch to default if layoutMode is set to something weird',
+        function() {
           $localStorage.layoutMode = 'fishy'; // basically not list or widgets
           controller.init();
 
           // verify it was reset properly
           expect($localStorage.layoutMode).toBe(APP_FLAGS.defaultView);
-      });
+        }
+      );
 
-      it('should redirect if you go somewhere you are not supposed to be.', function() {
+      it('should redirect if you go somewhere you are not supposed to be.',
+        function() {
           // setup
           $location.path('/expanded');
           $localStorage.layoutMode = 'compact';
@@ -81,18 +85,19 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           expect($location.url()).toBe('/compact');
       });
 
-      it('should redirect you if you switch modes and have a new layoutMode', function() {
-        // setup
-        $location.path('/expanded');
-        controller.init();
+      it('should redirect you if you switch modes and have a new layoutMode',
+        function() {
+          // setup
+          $location.path('/expanded');
+          controller.init();
 
-        // switch!
-        scope.switchMode('compact');
-        controller.init();
+          // switch!
+          scope.switchMode('compact');
+          controller.init();
 
-        // validate
-        expect($localStorage.layoutMode).toBe('compact');
-        expect($location.url()).toBe('/compact');
+          // validate
+          expect($localStorage.layoutMode).toBe('compact');
+          expect($location.url()).toBe('/compact');
       });
 
       it('should only have page hits if it didn\'t redirect', function() {

@@ -6,6 +6,7 @@
     "lint-css": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
     "pretest": "mvn clean package",
     "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run",
+    "dev-lint-js": "eslint --ext js --ext json --ext md --format html --output-file angularjs-portal-home/target/web/lint-out.html . --ignore-path .gitignore",
     "lint-js": "eslint --ext js --ext json --ext md . --ignore-path .gitignore",
     "lint-md": "remark . --ignore-path .gitignore",
     "lint-less": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
@@ -115,14 +116,6 @@
       "arrow-parens": "off",
       "constructor-super": "off",
       "generator-star-spacing": "off",
-      "max-len": [
-        "error",
-        {
-          "code": 120,
-          "tabWidth": 2,
-          "ignoreUrls": true
-        }
-      ],
       "no-new-symbol": "off",
       "no-this-before-super": "off",
       "no-invalid-this": "off",

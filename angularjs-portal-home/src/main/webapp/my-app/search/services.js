@@ -4,8 +4,10 @@ define(['angular', 'jquery'], function(angular, $) {
     var app = angular.module('my-app.search.services', []);
 
     app.factory('googleCustomSearchService',
-      ['$log', '$http', '$q', 'PortalGroupService', 'miscSearchService', 'miscService',
-      function($log, $http, $q, PortalGroupService, miscSearchService, miscService) {
+      ['$log', '$http', '$q', 'PortalGroupService',
+        'miscSearchService', 'miscService',
+      function($log, $http, $q, PortalGroupService,
+        miscSearchService, miscService) {
       var googleSearchURLPromise;
       var googleSearchEnabledPromise;
       var webSearchURLPromise;
@@ -31,9 +33,13 @@ define(['angular', 'jquery'], function(angular, $) {
           });
         };
         errorFn = function(reason) {
-          miscService.redirectUser(reason.status, 'Could not get appropriate domain results label');
+          miscService.redirectUser(
+            reason.status,
+            'Could not get appropriate domain results label'
+          );
         };
-        domainResultsLabelPromise = PortalGroupService.getGroups().then(successFn, errorFn);
+        domainResultsLabelPromise = PortalGroupService.getGroups()
+          .then(successFn, errorFn);
         return domainResultsLabelPromise;
       }
 
@@ -42,25 +48,30 @@ define(['angular', 'jquery'], function(angular, $) {
        * @return {Promise} webSearchURLPromise
        */
       function getPublicWebSearchURL() {
-          var successFn;
-          var errorFn;
-          if(webSearchURLPromise) {
-            return webSearchURLPromise;
-          }
-          successFn = function(groups) {
-            return miscSearchService.getSearchURLS(groups).then(function(result) {
+        var successFn;
+        var errorFn;
+        if(webSearchURLPromise) {
+          return webSearchURLPromise;
+        }
+        successFn = function(groups) {
+          return miscSearchService.getSearchURLS(groups)
+            .then(function(result) {
               if(result && result.webSearchURL) {
                 return result.webSearchURL;
               } else{
                 return null;
               }
             });
-          };
-          errorFn = function(reason) {
-            miscService.redirectUser(reason.status, 'Could not get appropriate public web search url');
-          };
-          webSearchURLPromise = PortalGroupService.getGroups().then(successFn, errorFn);
-          return webSearchURLPromise;
+        };
+        errorFn = function(reason) {
+          miscService.redirectUser(
+            reason.status,
+            'Could not get appropriate public web search url'
+          );
+        };
+        webSearchURLPromise = PortalGroupService.getGroups()
+          .then(successFn, errorFn);
+        return webSearchURLPromise;
       }
 
       /**
@@ -81,24 +92,33 @@ define(['angular', 'jquery'], function(angular, $) {
                   // Standardize data
                   if (response.data) {
                     // Find the results
-                    if(response.data.results) { // uwrf
+                    if (response.data.results) { // uwrf
                         data.results = response.data.results;
-                    }else if(response.data.responseData && response.data.responseData.results) { // uwmad
-                        data.results = response.data.responseData.results;
+                    } else if ( // uwmad
+                        response.data.responseData &&
+                        response.data.responseData.results) {
+                      data.results = response.data.responseData.results;
                     }
                     // Find the estimated count
-                    if(response.data.cursor && response.data.cursor.estimatedResultCount) { // uwrf
-                      data.estimatedResultCount = response.data.cursor.estimatedResultCount;
-                    } else if(response.data.responseData && response.data.responseData.cursor &&
-                        response.data.responseData.cursor.estimatedResultCount) { // uwmad
-                      data.estimatedResultCount = response.data.responseData.cursor.estimatedResultCount;
+                    var respData = response.data;
+                    if ( // uwrf
+                        respData.cursor &&
+                        respData.cursor.estimatedResultCount) {
+                      data.estimatedResultCount =
+                          respData.cursor.estimatedResultCount;
+                    } else if ( // uwmad
+                        respData.responseData &&
+                        respData.responseData.cursor &&
+                        respData.responseData.cursor.estimatedResultCount) {
+                      data.estimatedResultCount =
+                        respData.responseData.cursor.estimatedResultCount;
                     }
                   }
                   resolve(data);
                   return response;
                 }
               );
-            }else{
+            } else {
               reject('User has no group for google URL search');
             }
           });
@@ -128,10 +148,14 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         errorFn = function(reason) {
-          miscService.redirectUser(reason.status, 'Could not get appropriate google search url');
+          miscService.redirectUser(
+            reason.status,
+            'Could not get appropriate google search url'
+          );
         };
 
-        googleSearchURLPromise = PortalGroupService.getGroups().then(successFn, errorFn);
+        googleSearchURLPromise =
+          PortalGroupService.getGroups().then(successFn, errorFn);
 
         return googleSearchURLPromise;
       }
@@ -157,11 +181,13 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         errorFn = function(response) {
-          $log.log('error determing if google search is enabled: ' + response.status);
+          $log.log('error determing if google search is enabled: ' +
+            response.status);
           return false;
         };
 
-        googleSearchEnabledPromise = getGoogleSearchURL().then(successFn, errorFn);
+        googleSearchEnabledPromise =
+          getGoogleSearchURL().then(successFn, errorFn);
         return googleSearchEnabledPromise;
       }
 
@@ -174,8 +200,10 @@ define(['angular', 'jquery'], function(angular, $) {
     }]);
 
     app.factory('miscSearchService',
-        ['$q', '$sessionStorage', 'PortalGroupService', 'filterFilter', 'SEARCH_CONFIG',
-        function($q, $sessionStorage, PortalGroupService, filterFilter, SEARCH_CONFIG) {
+      ['$q', '$sessionStorage', 'PortalGroupService',
+        'filterFilter', 'SEARCH_CONFIG',
+      function($q, $sessionStorage, PortalGroupService,
+        filterFilter, SEARCH_CONFIG) {
       /**
        * retrieve the KB Search URL from the Group Service
        * @return {string} kbSearchURL
@@ -266,8 +294,10 @@ define(['angular', 'jquery'], function(angular, $) {
     }]);
 
     app.factory('directorySearchService',
-        ['$log', '$http', '$q', 'PortalGroupService', 'miscSearchService', 'miscService',
-        function($log, $http, $q, PortalGroupService, miscSearchService, miscService) {
+        ['$log', '$http', '$q', 'PortalGroupService',
+          'miscSearchService', 'miscService',
+        function($log, $http, $q, PortalGroupService,
+          miscSearchService, miscService) {
       var directoryUrlPromise;
       var directorySearchEnabledPromise;
 
@@ -284,7 +314,8 @@ define(['angular', 'jquery'], function(angular, $) {
                   return resolve(response.data);
                 },
                 function(response) {
-                  return reject('error searching the directory: ' + response.status);
+                  return reject('error searching the directory: ' +
+                    response.status);
                 }
               );
             }else{
@@ -315,11 +346,13 @@ define(['angular', 'jquery'], function(angular, $) {
           };
 
           errorFn = function(response) {
-            $log.log('error determing if directory search is enabled: ' + response.status);
+            $log.log('error determing if directory search is enabled: ' +
+              response.status);
             return false;
           };
 
-          directorySearchEnabledPromise = getDirectorySearchURL().then(successFn, errorFn);
+          directorySearchEnabledPromise = getDirectorySearchURL()
+            .then(successFn, errorFn);
           return directorySearchEnabledPromise;
       }
 
@@ -350,7 +383,8 @@ define(['angular', 'jquery'], function(angular, $) {
           miscService.redirectUser(reason.status, 'search directory url call');
         };
 
-        directoryUrlPromise = PortalGroupService.getGroups().then(successFn, errorFn);
+        directoryUrlPromise = PortalGroupService.getGroups()
+          .then(successFn, errorFn);
 
         return directoryUrlPromise;
       }

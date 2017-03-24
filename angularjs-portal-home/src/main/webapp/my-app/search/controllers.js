@@ -1,6 +1,10 @@
 'use strict';
 
-define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'], function(angular) {
+define([
+    'angular',
+    'portal/search/controllers',
+    'my-app/marketplace/controllers'],
+  function(angular) {
     var app = angular.module('my-app.search.controllers',
       ['my-app.marketplace.controllers', 'portal.search.controllers']);
     app.controller('SearchController',
@@ -23,7 +27,11 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
           if (!newVal || !$scope.portlets) {
             $scope.filterMatches = [];
           } else {
-            $scope.filterMatches = marketplaceService.filterPortletsBySearchTerm($scope.portlets, newVal);
+            $scope.filterMatches =
+              marketplaceService.filterPortletsBySearchTerm(
+                $scope.portlets,
+                newVal
+              );
           }
         });
 
@@ -45,10 +53,12 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
     }]);
 
     app.controller('SearchResultController',
-      ['$log', '$rootScope', '$scope', '$controller', 'marketplaceService',
-      'googleCustomSearchService', 'directorySearchService', 'PortalSearchService',
-      function($log, $rootScope, $scope, $controller, marketplaceService,
-        googleCustomSearchService, directorySearchService, PortalSearchService) {
+      ['$log', '$rootScope', '$scope', '$controller',
+      'marketplaceService', 'googleCustomSearchService',
+      'directorySearchService', 'PortalSearchService',
+      function($log, $rootScope, $scope, $controller,
+        marketplaceService, googleCustomSearchService,
+        directorySearchService, PortalSearchService) {
       var base = $controller('marketplaceCommonFunctions', {$scope: $scope});
 
       var initWiscEduSearch = function() {
@@ -60,7 +70,7 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
                 $scope.googleResultsEstimatedCount = data.estimatedResultCount;
               }
               if(!data.estimatedResultCount || data.estimatedResultCount == 0) {
-                  $scope.googleEmptyResults = true;
+                $scope.googleEmptyResults = true;
               }
             }
             return data;
@@ -82,9 +92,12 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
               } else {
                 $scope.wiscDirectoryResultsEmpty = true;
               }
-              if (results.errors && results.errors[0] && results.errors[0].code &&
-                  results.errors[1] && results.errors[1].error_msg) {
-                if(results.errors[0].code == 4) {
+              if (results.errors &&
+                  results.errors[0] &&
+                  results.errors[0].code &&
+                  results.errors[1] &&
+                  results.errors[1].error_msg) {
+                if (results.errors[0].code == 4) {
                   $scope.wiscDirectoryTooManyResults = true;
                 }
                 $scope.wiscDirectoryErrorMessage= results.errors[1].error_msg;
@@ -128,7 +141,10 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
         }).catch(function() {
           $log.warn('Could not getPortlets');
         });
-        $scope.$watchGroup(['googleResultsEstimatedCount', 'myuwFilteredResults.length', 'wiscDirectoryResultCount'],
+        $scope.$watchGroup([
+            'googleResultsEstimatedCount',
+            'myuwFilteredResults.length',
+            'wiscDirectoryResultCount'],
           function() {
             $scope.totalCount = 0;
             if($scope.googleResultsEstimatedCount) {
@@ -144,21 +160,23 @@ define(['angular', 'portal/search/controllers', 'my-app/marketplace/controllers'
       };
       init();
 
-      googleCustomSearchService.googleSearchEnabled().then(function(googleSearchEnabled) {
-          $scope.googleSearchEnabled = googleSearchEnabled;
-          if (googleSearchEnabled) {
-            initWiscEduSearch();
-          }
-          return googleSearchEnabled;
+      googleCustomSearchService.googleSearchEnabled()
+      .then(function(googleSearchEnabled) {
+        $scope.googleSearchEnabled = googleSearchEnabled;
+        if (googleSearchEnabled) {
+          initWiscEduSearch();
+        }
+        return googleSearchEnabled;
       }).catch(function() {
         $log.warn('Could not googleSearchEnabled');
       });
-      directorySearchService.directorySearchEnabled().then(function(directoryEnabled) {
-          $scope.directoryEnabled = directoryEnabled;
-          if (directoryEnabled) {
-            initDirectorySearch();
-          }
-          return directoryEnabled;
+      directorySearchService.directorySearchEnabled()
+      .then(function(directoryEnabled) {
+        $scope.directoryEnabled = directoryEnabled;
+        if (directoryEnabled) {
+          initDirectorySearch();
+        }
+        return directoryEnabled;
       }).catch(function() {
         $log.warn('Could not directorySearchEnabled');
       });

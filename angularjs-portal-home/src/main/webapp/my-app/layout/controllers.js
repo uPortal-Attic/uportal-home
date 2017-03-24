@@ -6,32 +6,39 @@ define(['angular', 'jquery'], function(angular, $) {
   /**
    * Controller for default view (my-app/layout/partials/default-view.html)
    */
-  app.controller('DefaultViewController', ['$scope', '$location', '$mdMedia', '$localStorage', 'APP_FLAGS',
+  app.controller('DefaultViewController',
+    ['$scope', '$location', '$mdMedia', '$localStorage', 'APP_FLAGS',
     function($scope, $location, $mdMedia, $localStorage, APP_FLAGS) {
       $scope.loading = [];
       if (!APP_FLAGS[$localStorage.layoutMode]) {
         // Layout mode set weird, reset to default
-        $localStorage.layoutMode = ($mdMedia('xs') && APP_FLAGS.compact) ? 'compact' : APP_FLAGS.defaultView;
+        $localStorage.layoutMode = ($mdMedia('xs') && APP_FLAGS.compact) ?
+        'compact' : APP_FLAGS.defaultView;
       }
       $location.path('/' + $localStorage.layoutMode);
   }]);
 
   /**
-   * Controller for the compact mode widget layout (layout/list/partials/home-list-view.html and
+   * Controller for the compact mode widget layout
+   * (layout/list/partials/home-list-view.html and
    * layout/partials/default-card.html)
    */
   app.controller('LayoutController',
-    ['$localStorage', '$log', '$sessionStorage', '$scope', '$rootScope', 'layoutService',
-    function($localStorage, $log, $sessionStorage, $scope, $rootScope, layoutService) {
+    ['$localStorage', '$log', '$sessionStorage',
+    '$scope', '$rootScope', 'layoutService',
+    function($localStorage, $log, $sessionStorage,
+      $scope, $rootScope, layoutService) {
       /**
-       * Set the href based on whether it's a static, exclusive, or basic widget (based on attributes from entity file)
+       * Set the href based on whether it's a static, exclusive,
+       * or basic widget (based on attributes from entity file)
        * @param portlet
        * @returns {String}
        */
       this.renderURL = function(portlet) {
         if (portlet.staticContent != null && portlet.altMaxUrl == false) {
           return 'static/' + portlet.fname;
-        } else if (portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)) {
+        } else if (portlet.altMaxUrl == false &&
+          (portlet.renderOnWeb || $localStorage.webPortletRender)) {
           return 'exclusive/' + portlet.fname;
         } else {
           return portlet.url;
@@ -53,7 +60,8 @@ define(['angular', 'jquery'], function(angular, $) {
             // remove
             $scope.layout.splice(index, 1);
             if ($sessionStorage.marketplace != null) {
-              var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) {
+              var marketplaceEntries = $.grep($sessionStorage.marketplace,
+                function(e) {
                 return e.fname === result[0].fname;
               });
               if (marketplaceEntries.length > 0) {
@@ -63,13 +71,16 @@ define(['angular', 'jquery'], function(angular, $) {
           });
         }).error(
           function(request, text, error) {
-            alert('Issue deleting ' + title + ' from your list of favorites, try again later.');
+            alert('Issue deleting ' + title +
+            ' from your list of favorites, try again later.');
           });
       };
 
       /**
        * Configure ui-sortable options
-       * @type {{delay: number, cursorAt: {top: number, left: number}, stop: $scope.sortableOptions.stop}}
+       * @type {{delay: number,
+       * cursorAt: {top: number, left: number},
+       * stop: $scope.sortableOptions.stop}}
        */
       $scope.sortableOptions = {
         delay: 250,
@@ -83,7 +94,8 @@ define(['angular', 'jquery'], function(angular, $) {
             // index, length, movingNodeId, previousNodeId, nextNodeId
             var prevNodeId = ui.item.sortable.dropindex != 0 ?
               $scope.layout[ui.item.sortable.dropindex - 1].nodeId : '';
-            var nextNodeId = ui.item.sortable.dropindex != $scope.layout.length - 1 ?
+            var nextNodeId = ui.item.sortable.dropindex !=
+            $scope.layout.length - 1 ?
               $scope.layout[ui.item.sortable.dropindex + 1].nodeId : '';
             layoutService.moveStuff(ui.item.sortable.dropindex,
               $scope.layout.length, node.nodeId, prevNodeId, nextNodeId);
@@ -95,7 +107,8 @@ define(['angular', 'jquery'], function(angular, $) {
        * Initialize LayoutController
        */
       this.init = function() {
-        if (typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
+        if (typeof $rootScope.layout === 'undefined' ||
+        $rootScope.layout == null) {
           $rootScope.layout = [];
           $scope.layoutEmpty = false;
 
@@ -116,20 +129,25 @@ define(['angular', 'jquery'], function(angular, $) {
     }]);
 
   /**
-   * Basic widget logic leveraged by WidgetController, expanded mode widget layout
-   * (/widget/partials/home-widget-view.html and /widget/partials/widget-card.html),
+   * Basic widget logic leveraged by WidgetController,
+   * expanded mode widget layout
+   * (/widget/partials/home-widget-view.html and
+   * /widget/partials/widget-card.html),
    * and 'widget' component (/widget/directives.js)
    */
   app.controller('BaseWidgetFunctionsController',
-    ['$scope', '$sessionStorage', '$localStorage', 'layoutService', 'childController',
-    function($scope, $sessionStorage, $localStorage, layoutService, childController) {
+    ['$scope', '$sessionStorage', '$localStorage',
+    'layoutService', 'childController',
+    function($scope, $sessionStorage, $localStorage,
+      layoutService, childController) {
       /**
        * Determine the type of widget to display
        * @param portlet
        * @returns {*}
        */
       childController.portletType = function portletType(portlet) {
-        // If portlet has a defined widgetType, check if it's one we have a defined template for
+        // If portlet has a defined widgetType,
+        // check if it's one we have a defined template for
         if (portlet.widgetType) {
           if ('option-link' === portlet.widgetType) {
             return 'OPTION_LINK';
@@ -139,8 +157,10 @@ define(['angular', 'jquery'], function(angular, $) {
             return 'RSS';
           } else if ('list-of-links' === portlet.widgetType) {
             if (portlet.widgetConfig.links.length === 1 &&
-              portlet.altMaxUrl && portlet.widgetConfig.links[0].href === portlet.url) {
-              // If list of links has only one link and if it is the same as the portlet URL,
+              portlet.altMaxUrl &&
+              portlet.widgetConfig.links[0].href === portlet.url) {
+              // If list of links has only one link and
+              // if it is the same as the portlet URL,
               // display the default widget view
               return 'BASIC';
             } else {
@@ -149,7 +169,8 @@ define(['angular', 'jquery'], function(angular, $) {
           } else if ('search-with-links' === portlet.widgetType) {
             return 'SWL';
           } else if ('generic' === portlet.widgetType) {
-            // DEPRECATED: Include 'generic' for the sake of backwards compatibility,
+            // DEPRECATED: Include 'generic' for the
+            // sake of backwards compatibility,
             // but return what it really is: CUSTOM
             return 'CUSTOM';
           } else if ('custom' === portlet.widgetType) {
@@ -158,7 +179,8 @@ define(['angular', 'jquery'], function(angular, $) {
             return 'WIDGET';
           }
         } else {
-          // Return "BASIC" widget type for anything else lacking an explicit widget
+          // Return "BASIC" widget type for anything
+          // else lacking an explicit widget
           // type definition (default experience)
           return 'BASIC';
         }
@@ -173,7 +195,8 @@ define(['angular', 'jquery'], function(angular, $) {
         // Check if it's a static or exclusive portlet
         if (portlet.staticContent != null && portlet.altMaxUrl == false) {
           return 'static/' + portlet.fname;
-        } else if (portlet.altMaxUrl == false && (portlet.renderOnWeb || $localStorage.webPortletRender)) {
+        } else if (portlet.altMaxUrl == false && (portlet.renderOnWeb ||
+          $localStorage.webPortletRender)) {
           return 'exclusive/' + portlet.fname;
         } else {
           return portlet.url;
@@ -185,7 +208,8 @@ define(['angular', 'jquery'], function(angular, $) {
        * @param nodeId
        * @param title
        */
-      childController.removePortlet = function removePortletFunction(nodeId, title) {
+      childController.removePortlet =
+      function removePortletFunction(nodeId, title) {
         layoutService.removeFromHome(nodeId, title).success(function() {
           $scope.$apply(function(request, text) {
             var result = $.grep($scope.layout, function(e) {
@@ -195,7 +219,8 @@ define(['angular', 'jquery'], function(angular, $) {
             // remove
             $scope.layout.splice(index, 1);
             if ($sessionStorage.marketplace != null) {
-              var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) {
+              var marketplaceEntries = $.grep($sessionStorage.marketplace,
+                function(e) {
                 return e.fname === result[0].fname;
               });
               if (marketplaceEntries.length > 0) {
@@ -204,7 +229,8 @@ define(['angular', 'jquery'], function(angular, $) {
             }
           });
         }).error(function(request, text, error) {
-          alert('Issue deleting ' + title + ' from your list of favorites, try again later.');
+          alert('Issue deleting ' + title +
+          ' from your list of favorites, try again later.');
         });
       };
     },
@@ -212,18 +238,22 @@ define(['angular', 'jquery'], function(angular, $) {
 
   /**
    * Widget initialization and sorting for expanded mode widget layout
-   * (/widget/partials/home-widget-view.html and /widget/partials/widget-card.html)
+   * (/widget/partials/home-widget-view.html and
+   * /widget/partials/widget-card.html)
    */
-  app.controller('WidgetController', ['$controller', '$log', '$scope', '$rootScope', 'layoutService',
+  app.controller('WidgetController',
+  ['$controller', '$log', '$scope', '$rootScope', 'layoutService',
     function($controller, $log, $scope, $rootScope, layoutService) {
       // Inherit from BaseWidgetFunctionsController
-      $controller('BaseWidgetFunctionsController', {$scope: $scope, childController: this});
+      $controller('BaseWidgetFunctionsController',
+      {$scope: $scope, childController: this});
 
       /**
        * Initialize expanded mode widget layout
        */
       function init() {
-        if (typeof $rootScope.layout === 'undefined' || $rootScope.layout == null) {
+        if (typeof $rootScope.layout === 'undefined' ||
+        $rootScope.layout == null) {
           $rootScope.layout = [];
           $scope.layoutEmpty = false;
           // Get user's home layout
@@ -241,7 +271,11 @@ define(['angular', 'jquery'], function(angular, $) {
 
       /**
        * Configure ui-sortable options
-       * @type {{delay: number, cursorAt: {top: number, left: number}, stop: $scope.sortableOptions.stop}}
+       * @type {{
+       * delay: number,
+       * cursorAt: {top: number, left: number},
+       * stop: $scope.sortableOptions.stop
+       * }}
        */
       $scope.sortableOptions = {
         delay: 250,
@@ -250,11 +284,13 @@ define(['angular', 'jquery'], function(angular, $) {
           if (ui.item.sortable.dropindex != ui.item.sortable.index) {
             var node = $scope.layout[ui.item.sortable.dropindex];
             $log.log('Change happened, logging move of ' + node.fname +
-              ' from ' + ui.item.sortable.index + ' to ' + ui.item.sortable.dropindex);
+              ' from ' + ui.item.sortable.index +
+              ' to ' + ui.item.sortable.dropindex);
             // index, length, movingNodeId, previousNodeId, nextNodeId
             var prevNodeId = ui.item.sortable.dropindex != 0 ?
               $scope.layout[ui.item.sortable.dropindex - 1].nodeId : '';
-            var nextNodeId = ui.item.sortable.dropindex != $scope.layout.length - 1 ?
+            var nextNodeId = ui.item.sortable.dropindex !=
+            $scope.layout.length - 1 ?
               $scope.layout[ui.item.sortable.dropindex + 1].nodeId : '';
             layoutService.moveStuff(ui.item.sortable.dropindex,
               $scope.layout.length, node.nodeId, prevNodeId, nextNodeId);
@@ -265,9 +301,11 @@ define(['angular', 'jquery'], function(angular, $) {
   }]);
 
   /**
-   * Controller for toggling between expanded and compact mode via the app-header's toggle
+   * Controller for toggling between expanded
+   * and compact mode via the app-header's toggle
    */
-  app.controller('ToggleController', ['$localStorage', '$scope', '$location', '$log', 'miscService', 'APP_FLAGS',
+  app.controller('ToggleController',
+  ['$localStorage', '$scope', '$location', '$log', 'miscService', 'APP_FLAGS',
     function($localStorage, $scope, $location, $log, miscService, APP_FLAGS) {
       /**
        * Switch between compact and expanded mode

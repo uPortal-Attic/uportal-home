@@ -4,11 +4,16 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
   var app = angular.module('my-app.marketplace.controllers', []);
 
   app.controller('marketplaceCommonFunctions',
-    ['googleCustomSearchService', 'miscSearchService', 'layoutService', '$log', 'marketplaceService', 'miscService',
-      'MISC_URLS', '$sessionStorage', '$localStorage', '$rootScope', '$scope', '$routeParams', '$timeout', '$location',
-    function(googleCustomSearchService, miscSearchService, layoutService, $log, marketplaceService, miscService,
-      MISC_URLS, $sessionStorage, $localStorage, $rootScope, $scope, $routeParams, $timeout, $location) {
-      var currentThemePrimary = ($sessionStorage.portal.theme && $sessionStorage.portal.theme.materialTheme) ?
+    ['googleCustomSearchService', 'miscSearchService', 'layoutService',
+      '$log', 'marketplaceService', 'miscService', 'MISC_URLS',
+      '$sessionStorage', '$localStorage', '$rootScope', '$scope',
+      '$routeParams', '$timeout', '$location',
+    function(googleCustomSearchService, miscSearchService, layoutService,
+      $log, marketplaceService, miscService, MISC_URLS,
+        $sessionStorage, $localStorage, $rootScope, $scope,
+        $routeParams, $timeout, $location) {
+      var currentThemePrimary = ($sessionStorage.portal.theme &&
+        $sessionStorage.portal.theme.materialTheme) ?
         $sessionStorage.portal.theme.materialTheme.primary['500'] :
         {value: ['0', '0', '0']};
       $scope.primaryColorRgb = 'rgb('+
@@ -22,18 +27,21 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       };
 
       $scope.isStatic = function(portlet) {
-        return portlet.maxUrl.indexOf('portal') !== -1 // max url is a portal hit
+        return portlet.maxUrl.indexOf('portal') !== -1 // a portal hit
           && portlet.portletName // there is a portletName
-          && portlet.portletName.indexOf('cms') != -1; // the portlet is static content portlet
+          && portlet.portletName.indexOf('cms') != -1; // static content portlet
       };
 
       $scope.getLaunchURL = function(marketplaceEntry) {
         var layoutObj = marketplaceEntry.layoutObject;
-        if($rootScope.GuestMode && !marketplaceEntry.hasInLayout) {
-          return $scope.loginToAuthPage + '/web/apps/details/'+ marketplaceEntry.fname;
-        } else if(layoutObj.altMaxUrl == false && (layoutObj.renderOnWeb || $localStorage.webPortletRender)) {
+        if ($rootScope.GuestMode && !marketplaceEntry.hasInLayout) {
+          return $scope.loginToAuthPage +
+              '/web/apps/details/'+ marketplaceEntry.fname;
+        } else if (layoutObj.altMaxUrl == false &&
+            (layoutObj.renderOnWeb || $localStorage.webPortletRender)) {
           return 'exclusive/' + layoutObj.fname;
-        } else if(layoutObj.altMaxUrl == false && $scope.isStatic(marketplaceEntry)) {
+        } else if (layoutObj.altMaxUrl == false &&
+            $scope.isStatic(marketplaceEntry)) {
           return 'static/' + layoutObj.fname;
         } else {
           return marketplaceEntry.maxUrl;
@@ -50,9 +58,12 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
             .removeClass('btn-add')
             .addClass('btn-added');
           $scope.$apply(function() {
-            var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) {
-              return e.fname === portlet.fname;
-            });
+            var marketplaceEntries = $.grep(
+              $sessionStorage.marketplace,
+              function(e) {
+                return e.fname === portlet.fname;
+              }
+            );
             if(marketplaceEntries.length > 0) {
               marketplaceEntries[0].hasInLayout = true;
             }
@@ -63,16 +74,22 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           .error(function(request, text, error) {
             angular.element('.fname-'+fname)
               .parent()
-              .append('<span>Issue adding to home, please try again later</span>');
+              .append(
+                '<span>Issue adding to home, please try again later</span>'
+              );
           });
       };
 
       $scope.searchTermFilter = function(portlet) {
-        return marketplaceService.portletMatchesSearchTerm(portlet, $scope.searchTerm, {
-          searchDescription: true,
-          searchKeywords: true,
-          defaultReturn: true,
-        });
+        return marketplaceService.portletMatchesSearchTerm(
+          portlet,
+          $scope.searchTerm,
+          {
+            searchDescription: true,
+            searchKeywords: true,
+            defaultReturn: true,
+          }
+        );
       };
 
       $scope.selectFilter = function(filter, category) {
@@ -111,7 +128,8 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         var tempFilterText = '';
         var filterTextTimeout;
         $scope.searchTerm = marketplaceService.getInitialFilter();
-        if($routeParams.initFilter !== null && ($scope.searchTerm === null || $scope.searchTerm === '')) {
+        if($routeParams.initFilter !== null &&
+            ($scope.searchTerm === null || $scope.searchTerm === '')) {
           $scope.searchTerm = $routeParams.initFilter;
         } else {
           marketplaceService.initialFilter('');
@@ -141,26 +159,36 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           };
         };
         // initialize constants
-        googleCustomSearchService.getPublicWebSearchURL().then(function(webSearchURL) {
-          $scope.webSearchUrl = webSearchURL;
-          return webSearchURL;
-        }).catch(errorFn('getPublicWebSearchURL'));
-        googleCustomSearchService.getDomainResultsLabel().then(function(domainResultsLabel) {
-          $scope.domainResultsLabel = domainResultsLabel;
-          return domainResultsLabel;
-        }).catch(errorFn('getDomainResultsLabel'));
-        miscSearchService.getKBSearchURL().then(function(kbSearchURL) {
-          $scope.kbSearchUrl = kbSearchURL;
-          return kbSearchURL;
-        }).catch(errorFn('getKBSearchURL'));
-        miscSearchService.getEventSearchURL().then(function(eventsSearchURL) {
-          $scope.eventsSearchUrl = eventsSearchURL;
-          return eventsSearchURL;
-        }).catch(errorFn('getEventSearchURL'));
-        miscSearchService.getHelpDeskHelpURL().then(function(helpdeskURL) {
-          $scope.helpdeskUrl = helpdeskURL;
-          return helpdeskURL;
-        }).catch(errorFn('getHelpDeskHelpURL'));
+        googleCustomSearchService.getPublicWebSearchURL().then(
+          function(webSearchURL) {
+            $scope.webSearchUrl = webSearchURL;
+            return webSearchURL;
+          }
+        ).catch(errorFn('getPublicWebSearchURL'));
+        googleCustomSearchService.getDomainResultsLabel().then(
+          function(domainResultsLabel) {
+            $scope.domainResultsLabel = domainResultsLabel;
+            return domainResultsLabel;
+          }
+        ).catch(errorFn('getDomainResultsLabel'));
+        miscSearchService.getKBSearchURL().then(
+          function(kbSearchURL) {
+            $scope.kbSearchUrl = kbSearchURL;
+            return kbSearchURL;
+          }
+        ).catch(errorFn('getKBSearchURL'));
+        miscSearchService.getEventSearchURL().then(
+          function(eventsSearchURL) {
+            $scope.eventsSearchUrl = eventsSearchURL;
+            return eventsSearchURL;
+          }
+        ).catch(errorFn('getEventSearchURL'));
+        miscSearchService.getHelpDeskHelpURL().then(
+          function(helpdeskURL) {
+            $scope.helpdeskUrl = helpdeskURL;
+            return helpdeskURL;
+          }
+        ).catch(errorFn('getHelpDeskHelpURL'));
         $scope.directorySearchUrl = MISC_URLS.directorySearchURL;
         $scope.feedbackUrl = MISC_URLS.feedbackURL;
         $scope.loginToAuthPage = MISC_URLS.myuwHome;
@@ -196,7 +224,8 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         if(currentPage === 'details') {
           // Empty string indicates no categories, show all portlets
           $scope.categoryToShow = '';
-          // Default filter is to sort by category for marketplaceDetails back to marketplace
+          // Default filter is to sort by category for
+          // marketplaceDetails back to marketplace
           $scope.selectedFilter = 'category';
           // To sort by category, angular will use name to filter
           $scope.sortParameter = 'name';
@@ -227,10 +256,10 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
     }]);
 
   app.controller('MarketplaceDetailsController', [
-      '$controller', '$document', '$scope', '$routeParams', '$mdDialog', 'marketplaceService',
-      'SERVICE_LOC',
-      function($controller, $document, $scope, $routeParams, $mdDialog, marketplaceService,
-               SERVICE_LOC) {
+      '$controller', '$document', '$scope', '$routeParams',
+      '$mdDialog', 'marketplaceService', 'SERVICE_LOC',
+      function($controller, $document, $scope, $routeParams,
+          $mdDialog, marketplaceService, SERVICE_LOC) {
         $controller('marketplaceCommonFunctions', {$scope: $scope});
 
         $scope.specifyCategory = function(category) {
@@ -280,18 +309,21 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           $scope.obj = [];
           $scope.ratingPrefix = SERVICE_LOC.base +
             SERVICE_LOC.marketplace.base;
-          $scope.errorMessage = 'There was an issue loading details, please click back to apps.';
-          marketplaceService.getPortlet($routeParams.fname).then(function(result) {
-            $scope.loading = false;
-            if (!result) {
-              $scope.error = true;
-              $scope.portlet = null;
-            } else {
-              $scope.portlet = result;
-              $scope.error = false;
+          $scope.errorMessage =
+              'There was an issue loading details, please click back to apps.';
+          marketplaceService.getPortlet($routeParams.fname).then(
+            function(result) {
+              $scope.loading = false;
+              if (!result) {
+                $scope.error = true;
+                $scope.portlet = null;
+              } else {
+                $scope.portlet = result;
+                $scope.error = false;
+              }
+              return result;
             }
-            return result;
-          }).catch(function(reason) {
+          ).catch(function(reason) {
             $scope.loading = false;
             $scope.error = true;
           });
@@ -305,21 +337,23 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
     function($log, $scope, marketplaceService) {
       var init = function() {
         $scope.ratings = [];
-        marketplaceService.getAllRatings($scope.portlet.fname).then(function(ratings) {
-          if (ratings) {
-            $scope.ratings = ratings;
-            $scope.average =0;
-            $scope.totalReviews = 0;
-            angular.forEach(ratings, function(value, key) {
-              $scope.average+= value.rating;
-              if(value.review) {
-                $scope.totalReviews += 1;
-              }
-            });
-            $scope.average = Math.round($scope.average / ratings.length);
+        marketplaceService.getAllRatings($scope.portlet.fname).then(
+          function(ratings) {
+            if (ratings) {
+              $scope.ratings = ratings;
+              $scope.average =0;
+              $scope.totalReviews = 0;
+              angular.forEach(ratings, function(value, key) {
+                $scope.average+= value.rating;
+                if(value.review) {
+                  $scope.totalReviews += 1;
+                }
+              });
+              $scope.average = Math.round($scope.average / ratings.length);
+            }
+            return ratings;
           }
-          return ratings;
-        }).catch(function() {
+        ).catch(function() {
           $log.warn('Could not getAllRatings');
         });
       };
