@@ -3,8 +3,9 @@
 define(['angular', 'jquery', 'require'], function(angular, $, require) {
   var app = angular.module('my-app.layout.static.controllers', []);
 
-  app.controller('ExclusiveContentController', ['$location', '$sessionStorage', '$routeParams', '$rootScope', '$scope', 'layoutService',
-    function($location, $sessionStorage, $routeParams, $rootScope, $scope, layoutService) {
+  app.controller('ExclusiveContentController',
+    ['$location', '$log', '$routeParams', '$scope', 'layoutService',
+    function($location, $log, $routeParams, $scope, layoutService) {
       // BINDABLE MEMBERS
       $scope.portlet = {};
       $scope.loaded = false;
@@ -12,7 +13,8 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       // Resolve promises
       var endFn = function() {
         $scope.loaded = true;
-        $scope.empty = $scope.portlet.exclusiveContent && $scope.portlet.exclusiveContent.length > 0 ? false : true;
+        $scope.empty = $scope.portlet.exclusiveContent &&
+          $scope.portlet.exclusiveContent.length > 0 ? false : true;
       };
 
       // Get the requested app from layoutService
@@ -33,13 +35,20 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           }
         } else {
           $scope.loaded = true;
-          layoutService.getExclusiveMarkup($scope.portlet).then(endFn, endFn);
+          layoutService.getExclusiveMarkup($scope.portlet)
+            .then(endFn).catch(endFn);
         }
+        return result;
+      }).catch(function() {
+        $log.warn('Could not getApp ' + $routeParams.fname);
       });
     }]);
 
-  app.controller('StaticContentController', ['$location', '$sessionStorage', '$routeParams', '$rootScope', '$scope', 'layoutService',
-    function($location, $sessionStorage, $routeParams, $rootScope, $scope, layoutService) {
+  app.controller('StaticContentController',
+    ['$location', '$log', '$sessionStorage', '$routeParams',
+      '$rootScope', '$scope', 'layoutService',
+    function($location, $log, $sessionStorage, $routeParams,
+        $rootScope, $scope, layoutService) {
       // BINDABLE MEMBERS
       $scope.portlet = {};
       $scope.loaded = false;
@@ -63,17 +72,26 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         } else {
           $scope.loaded = true;
         }
+        return result;
+      }).catch(function() {
+        $log.warn('Could not getApp ' + $routeParams.fname);
       });
 
       this.addToHome = function(portlet) {
         var ret = layoutService.addToHome(portlet);
         ret.success(function(request, text) {
-          $('.fname-' + portlet.fname).html('<span style="color : green;"><i class="fa fa-check"></i> Added Successfully</span>').prop('disabled', true);
+          angular.element('.fname-' + portlet.fname)
+            .html('<span style="color : green;">' +
+              '<i class="fa fa-check"></i> Added Successfully</span>')
+            .prop('disabled', true);
           $scope.$apply(function() {
             if (typeof $sessionStorage.marketplace !== 'undefined') {
-              var marketplaceEntries = $.grep($sessionStorage.marketplace, function(e) {
-                return e.fname === portlet.fname;
-              });
+              var marketplaceEntries = $.grep(
+                $sessionStorage.marketplace,
+                function(e) {
+                  return e.fname === portlet.fname;
+                }
+              );
               if (marketplaceEntries.length > 0) {
                 marketplaceEntries[0].hasInLayout = true;
               }
@@ -84,9 +102,14 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
             $sessionStorage.layout = null;
           });
         })
-          .error(function(request, text, error) {
-            $('.fname-' + portlet.fname).html('<span style="color : red;">Issue adding to home, please try again later</span>');
-          });
+        .error(function(request, text, error) {
+          angular.element('.fname-' + portlet.fname)
+            .html(
+              '<span style="color : red;">' +
+              'Issue adding to home, please try again later' +
+              '</span>'
+            );
+        });
       };
 
       this.inLayout = function() {
@@ -99,7 +122,11 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
             var portlets = $.grep($rootScope.layout, function(e) {
               return e.fname === $routeParams.fname;
             });
-            $scope.inFavorites = portlets.length > 0; // change scope variable to trigger apply
+            // change scope variable to trigger apply
+            $scope.inFavorites = portlets.length > 0;
+            return data;
+          }).catch(function() {
+            $log.warn('Could not getLayout');
           });
         } else {
           var portlets = $.grep($rootScope.layout, function(e) {

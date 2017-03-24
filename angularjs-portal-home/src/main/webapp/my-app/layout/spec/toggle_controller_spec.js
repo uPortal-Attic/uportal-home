@@ -1,4 +1,6 @@
 'use strict';
+/* eslint-env node, phantomjs, jasmine */
+/* global inject */
 define(['angular-mocks', 'portal', 'my-app'], function() {
     describe('ToggleController', function() {
       var scope;
@@ -8,7 +10,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
       var miscService;
       var APP_FLAGS;
       var currentPath;
-      var gaPageViewHits;
+      // var gaPageViewHits;
 
 
       // load the marketplace controller
@@ -17,55 +19,63 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
         module('my-app');
       });
 
-      beforeEach(inject(function(_$rootScope_, $controller, _$localStorage_, _APP_FLAGS_) {
+      beforeEach(inject(function(
+          _$rootScope_, $controller, _$localStorage_, $log, _APP_FLAGS_) {
         scope = _$rootScope_.$new();
         $localStorage = _$localStorage_;
         APP_FLAGS = _APP_FLAGS_;
         currentPath = '/';
-        gaPageViewHits = 0;
+        // gaPageViewHits = 0;
         $location = {
-            'path': function(newPath) {
-                if(newPath) {
-                    currentPath = newPath;
-                } else {
-                    return path;
-                }
-            },
-            'url': function() {
-                return currentPath;
-            },
+          'path': function(newPath) {
+            if(newPath) {
+              currentPath = newPath;
+            } else {
+              return currentPath;
+              }
+          },
+          'url': function() {
+            return currentPath;
+          },
         };
 
         miscService = {
-                        'pushPageview': function() {
- gaPageViewHits++; console.log($location.url()); return;
-},
-                        'pushGAEvent': function() {
- return;
-},
-                      };
+          'pushPageview': function() {
+            // gaPageViewHits++;
+            $log.info($location.url());
+            return;
+          },
+          'pushGAEvent': function() {
+            return;
+          },
+        };
 
-        controller = $controller('ToggleController', {'$localStorage': $localStorage,
-                                                      '$scope': scope,
-                                                      '$location': $location,
-                                                      'miscService': miscService,
-                                                      'APP_FLAGS': APP_FLAGS,
-                                                      });
+        controller = $controller('ToggleController', {
+          '$localStorage': $localStorage,
+          '$scope': scope,
+          '$location': $location,
+          '$log': $log,
+          'miscService': miscService,
+          'APP_FLAGS': APP_FLAGS,
+        });
       }));
 
       it('should have toggle set', function() {
           expect(scope.toggle).toBeTruthy();
       });
 
-      it('should switch to default if layoutMode is set to something weird', function() {
+      it('should switch to default if layoutMode is set to something weird',
+        function() {
           $localStorage.layoutMode = 'fishy'; // basically not list or widgets
           controller.init();
 
           // verify it was reset properly
-          expect($localStorage.layoutMode === APP_FLAGS.defaultView);
-      });
+          expect($localStorage.layoutMode).toBe(APP_FLAGS.defaultView);
+        }
+      );
 
-      it('should redirect if you go somewhere you are not supposed to be.', function() {
+      it('should redirect if you go somewhere you are not supposed to be.',
+        function() {
           // setup
           $location.path('/expanded');
           $localStorage.layoutMode = 'compact';
@@ -75,23 +85,24 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           expect($location.url()).toBe('/compact');
       });
 
-      it('should redirect you if you switch modes and have a new layoutMode', function() {
-        // setup
-        $location.path('/expanded');
-        controller.init();
+      it('should redirect you if you switch modes and have a new layoutMode',
+        function() {
+          // setup
+          $location.path('/expanded');
+          controller.init();
 
-        // switch!
-        scope.switchMode('compact');
-        controller.init();
+          // switch!
+          scope.switchMode('compact');
+          controller.init();
 
-        // validate
-        expect($localStorage.layoutMode).toBe('compact');
-        expect($location.url()).toBe('/compact');
+          // validate
+          expect($localStorage.layoutMode).toBe('compact');
+          expect($location.url()).toBe('/compact');
       });
 
       it('should only have page hits if it didn\'t redirect', function() {
         // setup
-        gaPageViewHits = 0;
+        // gaPageViewHits = 0;
         $localStorage.layoutMode = 'expanded';
         $location.path('/compact');
         controller.init();

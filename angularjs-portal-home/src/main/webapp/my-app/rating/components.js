@@ -17,16 +17,14 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       },
       templateUrl: require.toUrl('./partials/rating-button.html'),
       controllerAs: 'ratingCtrl',
-      controller: function($scope,
-                           $location,
-                           $mdDialog) {
+      controller: function($document, $scope, $location, $mdDialog) {
            this.$onInit = function() {
              // initialize
              $scope.openModal = function() {
                $mdDialog.show({
                    controller: 'RatingsModalController',
                    templateUrl: require.toUrl('./partials/rating-review.html'),
-                   parent: angular.element(document.body),
+                   parent: angular.element($document.body),
                    scope: $scope,
                    preserveScope: true,
                    clickOutsideToClose: true,
