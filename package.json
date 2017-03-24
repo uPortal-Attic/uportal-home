@@ -10,6 +10,7 @@
     "lint-js": "eslint --ext js --ext json --ext md . --ignore-path .gitignore",
     "lint-md": "remark . --ignore-path .gitignore",
     "lint-less": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
+    "precommit": "eslint-git-changes",
     "prestart": "mvn clean package",
     "start": "mvn jetty:run"
   },
@@ -30,6 +31,7 @@
   "devDependencies": {
     "eslint": "^3.17.1",
     "eslint-config-google": "^0.7.1",
+    "eslint-git-changes": "^1.0.0",
     "eslint-plugin-angular": "^1.6.2",
     "eslint-plugin-compat": "^1.0.2",
     "eslint-plugin-jasmine": "^2.2.0",
@@ -37,6 +39,7 @@
     "eslint-plugin-markdown": "^1.0.0-beta.4",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-requirejs": "^3.1.1",
+    "husky": "^0.13.3",
     "jasmine-core": "^2.3.4",
     "karma": "^1.5.0",
     "karma-chrome-launcher": "^2.0.0",
