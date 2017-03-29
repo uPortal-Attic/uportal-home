@@ -1,91 +1,93 @@
 'use strict';
 
 define(['angular', 'jquery', 'require'], function(angular, $, require) {
-  var app = angular.module('my-app.layout.static.controllers', []);
+  return angular.module('my-app.layout.static.controllers', [])
 
-  app.controller('ExclusiveContentController',
-    ['$location', '$log', '$routeParams', '$scope', 'layoutService',
-    function($location, $log, $routeParams, $scope, layoutService) {
+  .controller('ExclusiveContentController',
+    ['$location', '$log', '$routeParams', 'layoutService',
+    function($location, $log, $routeParams, layoutService) {
+      var vm = this;
       // BINDABLE MEMBERS
-      $scope.portlet = {};
-      $scope.loaded = false;
+      vm.portlet = {};
+      vm.loaded = false;
 
       // Resolve promises
       var endFn = function() {
-        $scope.loaded = true;
-        $scope.empty = $scope.portlet.exclusiveContent &&
-          $scope.portlet.exclusiveContent.length > 0 ? false : true;
+        vm.loaded = true;
+        vm.empty = vm.portlet.exclusiveContent &&
+          vm.portlet.exclusiveContent.length > 0 ? false : true;
       };
 
       // Get the requested app from layoutService
       layoutService.getApp($routeParams.fname).then(function(result) {
         var data = result.data;
-        $scope.portlet = data.portlet;
-        if (typeof $scope.portlet === 'undefined' ||
-          typeof $scope.portlet.fname === 'undefined') {
+        vm.portlet = data.portlet;
+        if (angular.isUndefined(vm.portlet) ||
+         angular.isUndefined(vm.portlet.fname)) {
           if (result.status === 403) {
-            $scope.loaded = true;
-            $scope.empty = false;
-            $scope.portlet = {};
-            $scope.portlet.title = 'Access Denied';
-            $scope.portlet.faIcon = 'fa-exclamation-triangle';
-            $scope.portlet.exclusiveContent = result.deniedTemplate;
+            vm.loaded = true;
+            vm.empty = false;
+            vm.portlet = {};
+            vm.portlet.title = 'Access Denied';
+            vm.portlet.faIcon = 'fa-exclamation-triangle';
+            vm.portlet.exclusiveContent = result.deniedTemplate;
           } else {
             $location.path('/');
           }
         } else {
-          $scope.loaded = true;
-          layoutService.getExclusiveMarkup($scope.portlet)
+          vm.loaded = true;
+          layoutService.getExclusiveMarkup(vm.portlet)
             .then(endFn).catch(endFn);
         }
         return result;
       }).catch(function() {
         $log.warn('Could not getApp ' + $routeParams.fname);
       });
-    }]);
+    }])
 
-  app.controller('StaticContentController',
+  .controller('StaticContentController',
     ['$location', '$log', '$sessionStorage', '$routeParams',
-      '$rootScope', '$scope', 'layoutService',
+      '$rootScope', 'layoutService',
     function($location, $log, $sessionStorage, $routeParams,
-        $rootScope, $scope, layoutService) {
+        $rootScope, layoutService) {
+      var vm = this;
       // BINDABLE MEMBERS
-      $scope.portlet = {};
-      $scope.loaded = false;
+      vm.portlet = {};
+      vm.loaded = false;
 
       // Get requested app from layoutService
       layoutService.getApp($routeParams.fname).then(function(result) {
         var data = result.data;
-        $scope.portlet = data.portlet;
-        if (typeof $scope.portlet === 'undefined' ||
-          typeof $scope.portlet.fname === 'undefined') {
+        vm.portlet = data.portlet;
+        if (angular.isUndefined(vm.portlet) ||
+          angular.isUndefined(vm.portlet.fname)) {
           if (result.status === 403) {
-            $scope.loaded = true;
-            $scope.empty = false;
-            $scope.portlet = {};
-            $scope.portlet.title = 'Access Denied';
-            $scope.portlet.faIcon = 'fa-exclamation-triangle';
-            $scope.portlet.exclusiveContent = result.deniedTemplate;
+            vm.loaded = true;
+            vm.empty = false;
+            vm.portlet = {};
+            vm.portlet.title = 'Access Denied';
+            vm.portlet.faIcon = 'fa-exclamation-triangle';
+            vm.portlet.exclusiveContent = result.deniedTemplate;
           } else {
             $location.path('/');
           }
         } else {
-          $scope.loaded = true;
+          vm.loaded = true;
         }
         return result;
       }).catch(function() {
         $log.warn('Could not getApp ' + $routeParams.fname);
       });
 
-      this.addToHome = function(portlet) {
+      vm.addToHome = function(portlet) {
         var ret = layoutService.addToHome(portlet);
         ret.success(function(request, text) {
           angular.element('.fname-' + portlet.fname)
             .html('<span style="color : green;">' +
               '<i class="fa fa-check"></i> Added Successfully</span>')
             .prop('disabled', true);
-          $scope.$apply(function() {
-            if (typeof $sessionStorage.marketplace !== 'undefined') {
+          vm.$apply(function() {
+            if (angular.isDefined($sessionStorage.marketplace)) {
               var marketplaceEntries = $.grep(
                 $sessionStorage.marketplace,
                 function(e) {
@@ -112,7 +114,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         });
       };
 
-      this.inLayout = function() {
+      vm.inLayout = function() {
         var layout = $rootScope.layout;
         var ret = false;
         if (!layout) {
@@ -123,7 +125,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
               return e.fname === $routeParams.fname;
             });
             // change scope variable to trigger apply
-            $scope.inFavorites = portlets.length > 0;
+            vm.inFavorites = portlets.length > 0;
             return data;
           }).catch(function() {
             $log.warn('Could not getLayout');
@@ -138,8 +140,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         return ret;
       };
 
-      $scope.inFavorites = this.inLayout();
+      vm.inFavorites = vm.inLayout();
     }]);
-
-  return app;
 });
