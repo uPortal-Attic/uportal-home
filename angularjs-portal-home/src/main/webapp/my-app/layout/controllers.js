@@ -1,40 +1,41 @@
 'use strict';
 
 define(['angular', 'jquery'], function(angular, $) {
-  var app = angular.module('my-app.layout.controllers', []);
+  return angular.module('my-app.layout.controllers', [])
 
   /**
    * Controller for default view (my-app/layout/partials/default-view.html)
    */
-  app.controller('DefaultViewController',
-    ['$scope', '$location', '$mdMedia', '$localStorage', 'APP_FLAGS',
-    function($scope, $location, $mdMedia, $localStorage, APP_FLAGS) {
-      $scope.loading = [];
+  .controller('DefaultViewController',
+    ['$location', '$mdMedia', '$localStorage', 'APP_FLAGS',
+    function($location, $mdMedia, $localStorage, APP_FLAGS) {
+      var vm = this;
+
+      vm.loading = [];
       if (!APP_FLAGS[$localStorage.layoutMode]) {
         // Layout mode set weird, reset to default
         $localStorage.layoutMode = ($mdMedia('xs') && APP_FLAGS.compact) ?
         'compact' : APP_FLAGS.defaultView;
       }
       $location.path('/' + $localStorage.layoutMode);
-  }]);
+  }])
 
   /**
    * Controller for the compact mode widget layout
    * (layout/list/partials/home-list-view.html and
    * layout/partials/default-card.html)
    */
-  app.controller('LayoutController',
-    ['$localStorage', '$log', '$sessionStorage',
-    '$scope', '$rootScope', 'layoutService',
-    function($localStorage, $log, $sessionStorage,
-      $scope, $rootScope, layoutService) {
+  .controller('LayoutController',
+    ['$localStorage', '$log', '$sessionStorage', '$rootScope', 'layoutService',
+    function($localStorage, $log, $sessionStorage, $rootScope, layoutService) {
+      var vm = this;
       /**
        * Set the href based on whether it's a static, exclusive,
        * or basic widget (based on attributes from entity file)
        * @param portlet
        * @returns {String}
        */
-      this.renderURL = function(portlet) {
+      vm.renderURL = function(portlet) {
         if (portlet.staticContent != null && portlet.altMaxUrl == false) {
           return 'static/' + portlet.fname;
         } else if (portlet.altMaxUrl == false &&
@@ -50,15 +51,15 @@ define(['angular', 'jquery'], function(angular, $) {
        * @param nodeId
        * @param title
        */
-      this.removePortlet = function removePortletFunction(nodeId, title) {
+      vm.removePortlet = function removePortletFunction(nodeId, title) {
         layoutService.removeFromHome(nodeId, title).success(function() {
-          $scope.$apply(function(request, text) {
-            var result = $.grep($scope.layout, function(e) {
+          vm.$apply(function(request, text) {
+            var result = $.grep(vm.layout, function(e) {
               return e.nodeId === nodeId;
             });
-            var index = $.inArray(result[0], $scope.layout);
+            var index = $.inArray(result[0], vm.layout);
             // remove
-            $scope.layout.splice(index, 1);
+            vm.layout.splice(index, 1);
             if ($sessionStorage.marketplace != null) {
               var marketplaceEntries = $.grep($sessionStorage.marketplace,
                 function(e) {
@@ -82,23 +83,23 @@ define(['angular', 'jquery'], function(angular, $) {
        * cursorAt: {top: number, left: number},
        * stop: $scope.sortableOptions.stop}}
        */
-      $scope.sortableOptions = {
+      vm.sortableOptions = {
         delay: 250,
         cursorAt: {top: 30, left: 30},
         stop: function(e, ui) {
           if (ui.item.sortable.dropindex != ui.item.sortable.index) {
-            var node = $scope.layout[ui.item.sortable.dropindex];
+            var node = vm.layout[ui.item.sortable.dropindex];
             $log.info('Change happened, logging move of ' + node.fname +
             ' from ' + ui.item.sortable.index +
             ' to ' + ui.item.sortable.dropindex);
             // index, length, movingNodeId, previousNodeId, nextNodeId
             var prevNodeId = ui.item.sortable.dropindex != 0 ?
-              $scope.layout[ui.item.sortable.dropindex - 1].nodeId : '';
+              vm.layout[ui.item.sortable.dropindex - 1].nodeId : '';
             var nextNodeId = ui.item.sortable.dropindex !=
-            $scope.layout.length - 1 ?
-              $scope.layout[ui.item.sortable.dropindex + 1].nodeId : '';
+            vm.layout.length - 1 ?
+              vm.layout[ui.item.sortable.dropindex + 1].nodeId : '';
             layoutService.moveStuff(ui.item.sortable.dropindex,
-              $scope.layout.length, node.nodeId, prevNodeId, nextNodeId);
+              vm.layout.length, node.nodeId, prevNodeId, nextNodeId);
           }
         },
       };
@@ -106,17 +107,17 @@ define(['angular', 'jquery'], function(angular, $) {
       /**
        * Initialize LayoutController
        */
-      this.init = function() {
-        if (typeof $rootScope.layout === 'undefined' ||
+      vm.init = function() {
+        if (angular.isUndefined($rootScope.layout) ||
         $rootScope.layout == null) {
           $rootScope.layout = [];
-          $scope.layoutEmpty = false;
+          vm.layoutEmpty = false;
 
           // Get user's home layout
           layoutService.getLayout().then(function(data) {
             $rootScope.layout = data.layout;
             if (data.layout && data.layout.length == 0) {
-              $scope.layoutEmpty = true;
+              vm.layoutEmpty = true;
             }
             return data;
           }).catch(function() {
@@ -125,8 +126,8 @@ define(['angular', 'jquery'], function(angular, $) {
         }
       };
 
-      this.init();
-    }]);
+      vm.init();
+    }])
 
   /**
    * Basic widget logic leveraged by WidgetController,
@@ -135,7 +136,7 @@ define(['angular', 'jquery'], function(angular, $) {
    * /widget/partials/widget-card.html),
    * and 'widget' component (/widget/directives.js)
    */
-  app.controller('BaseWidgetFunctionsController',
+  .controller('BaseWidgetFunctionsController',
     ['$scope', '$sessionStorage', '$localStorage',
     'layoutService', 'childController',
     function($scope, $sessionStorage, $localStorage,
@@ -234,33 +235,34 @@ define(['angular', 'jquery'], function(angular, $) {
         });
       };
     },
-  ]);
+  ])
 
   /**
    * Widget initialization and sorting for expanded mode widget layout
    * (/widget/partials/home-widget-view.html and
    * /widget/partials/widget-card.html)
    */
-  app.controller('WidgetController',
+  .controller('WidgetController',
   ['$controller', '$log', '$scope', '$rootScope', 'layoutService',
     function($controller, $log, $scope, $rootScope, layoutService) {
+      var vm = this;
       // Inherit from BaseWidgetFunctionsController
       $controller('BaseWidgetFunctionsController',
-      {$scope: $scope, childController: this});
+      {$scope: $scope, childController: vm});
 
       /**
        * Initialize expanded mode widget layout
        */
       function init() {
-        if (typeof $rootScope.layout === 'undefined' ||
+        if (angular.isUndefined($rootScope.layout) ||
         $rootScope.layout == null) {
           $rootScope.layout = [];
-          $scope.layoutEmpty = false;
+          vm.layoutEmpty = false;
           // Get user's home layout
           layoutService.getLayout().then(function(data) {
             $rootScope.layout = data.layout;
             if (data.layout && data.layout.length == 0) {
-              $scope.layoutEmpty = true;
+              vm.layoutEmpty = true;
             }
             return data;
           }).catch(function() {
@@ -277,7 +279,7 @@ define(['angular', 'jquery'], function(angular, $) {
        * stop: $scope.sortableOptions.stop
        * }}
        */
-      $scope.sortableOptions = {
+      vm.sortableOptions = {
         delay: 250,
         cursorAt: {top: 30, left: 30},
         stop: function(e, ui) {
@@ -298,20 +300,22 @@ define(['angular', 'jquery'], function(angular, $) {
         },
       };
       init();
-  }]);
+  }])
 
   /**
    * Controller for toggling between expanded
    * and compact mode via the app-header's toggle
    */
-  app.controller('ToggleController',
-  ['$localStorage', '$scope', '$location', '$log', 'miscService', 'APP_FLAGS',
-    function($localStorage, $scope, $location, $log, miscService, APP_FLAGS) {
+  .controller('ToggleController',
+  ['$localStorage', '$location', '$log', 'miscService', 'APP_FLAGS',
+    function($localStorage, $location, $log, miscService, APP_FLAGS) {
+      var vm = this;
+
       /**
        * Switch between compact and expanded mode
        * @param mode
        */
-      $scope.switchMode = function(mode) {
+      vm.switchMode = function(mode) {
         $localStorage.layoutMode = mode;
         $location.path('/' + mode);
         miscService.pushGAEvent('Widgets', 'View', mode);
@@ -321,22 +325,22 @@ define(['angular', 'jquery'], function(angular, $) {
        * Respond to toggle click events
        * @param expandedMode
        */
-      $scope.toggleMode = function(expandedMode) {
-        $scope.expandedMode = expandedMode;
+      vm.toggleMode = function(expandedMode) {
+        vm.expandedMode = expandedMode;
         var mode = expandedMode ? 'expanded' : 'compact';
-        $scope.switchMode(mode);
+        vm.switchMode(mode);
       };
 
       /**
        * Get user's last-used layout mode and initialize view
        */
-      this.init = function() {
-        $scope.toggle = APP_FLAGS.enableToggle;
-        $scope.$storage = localStorage;
+      vm.init = function() {
+        vm.toggle = APP_FLAGS.enableToggle;
+        vm.$storage = localStorage;
 
         if ($localStorage.layoutMode) {
           // Determine whether the layout is expanded or compact mode
-          $scope.expandedMode = $localStorage.layoutMode === 'expanded';
+          vm.expandedMode = $localStorage.layoutMode === 'expanded';
           // Ensure we're at the correct mode & url
           if ($location.url().indexOf($localStorage.layoutMode) == -1) {
             // Oops, we are in the wrong mode, switch!
@@ -345,14 +349,12 @@ define(['angular', 'jquery'], function(angular, $) {
               $location.path('/' + $localStorage.layoutMode);
             } else {
               $log.log('Something is weird, resetting to default layout view');
-              $scope.switchMode(APP_FLAGS.defaultView);
+              vm.switchMode(APP_FLAGS.defaultView);
             }
           }
         }
       };
 
-      this.init();
+      vm.init();
   }]);
-
-  return app;
 });
