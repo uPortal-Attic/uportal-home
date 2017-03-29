@@ -28,9 +28,9 @@ cp angularjs-portal/angularjs-portal-home/src/main/resources/endpoint.properties
 This file contains your server side proxy configurations. See the example file for examples
 + run `mvn clean package` from the root directory to build the war files.
 
-#### Building, Deploying, and Running with [Apereo uPortal] (https://github.com/Jasig/uPortal)
+#### Building, Deploying, and Running with [Apereo uPortal](https://github.com/Jasig/uPortal)
 + Download, build, and run uPortal on your server
-+ Setup [autodeploy] (https://github.com/UW-Madison-DoIT/angularjs-portal/blob/master/README.md#deploying-to-a-running-local-tomcat)
++ Setup [autodeploy](https://github.com/UW-Madison-DoIT/angularjs-portal/blob/master/README.md#deploying-to-a-running-local-tomcat)
 + cd to angularjs-portal root directory
 + Unix based systems, run : `./build.sh master`
 + Windows based systems, run :
@@ -42,10 +42,10 @@ cd angularjs-portal-home
 mvn tomcat7:deploy  #or redeploy depending if this is a consecutive run
 ```
 + navigate to localhost:8080/uPortal
-+ Login via any user that has access to the Welcome Tab in uPortal.  If you want to use admin, you have to comment out the admin restricting part in the [welcome tab layout] (https://github.com/Jasig/uPortal/blob/master/uportal-war/src/main/data/quickstart_entities/fragment-layout/welcome-lo.fragment-layout.xml)
++ Login via any user that has access to the Welcome Tab in uPortal.  If you want to use admin, you have to comment out the admin restricting part in the [welcome tab layout](https://github.com/Jasig/uPortal/blob/master/uportal-war/src/main/data/quickstart_entities/fragment-layout/welcome-lo.fragment-layout.xml)
 + navigate to localhost:8080/web
 
-Angularjs-portal is a different front end than the one supplied with [Apereo uPortal] (https://github.com/Jasig/uPortal).
+Angularjs-portal is a different front end than the one supplied with [Apereo uPortal](https://github.com/Jasig/uPortal).
 As of now, portlet rendering still takes place via uPortal's rendering pipeline.
 The [theming] (http://uw-madison-doit.github.io/uw-frame/latest/#/md/theming) comes from the [uw-frame dependency](https://github.com/UW-Madison-DoIT/uw-frame).
 

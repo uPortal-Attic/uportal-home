@@ -57,27 +57,35 @@ define(['angular'], function(angular) {
             {
               'id': 'webPortletRender',
               'title': '/web portlet rendering',
-              'description': 'Renders portlets via /web\'s exclusive page, but not as launched from expanded widgets.',
+              'description': 'Renders portlets via /web\'s exclusive page, ' +
+                  'but not as launched from expanded widgets.',
             },
             {
               'id': 'showKeywordsInMarketplace',
               'title': 'Show Keywords in app directory',
-              'description': 'Enable/Disable keywords showing up in app directory details',
+              'description': 'Enable/Disable keywords showing up in app ' +
+                  'directory details',
             },
             {
               'id': 'linkRatingsApi',
               'title': 'Link ratings API',
-              'description': 'Links the ratings JSON API from the ratings count in the details page for each app. Actual access to this JSON API depends upon MANAGE permissions; this setting just includes the hyperlink in the UI for convenience.',
+              'description': 'Links the ratings JSON API from the ratings ' +
+                  'count in the details page for each app. Actual access to ' +
+                  'this JSON API depends upon MANAGE permissions; this ' +
+                  'setting just includes the hyperlink in the UI for ' +
+                  'convenience.',
             },
             {
               'id': 'exampleWidgets',
               'title': 'Example Widgets',
-              'description': 'Show the My Courses, Email, and Calendar example widgets',
+              'description': 'Show the My Courses, Email, and Calendar ' +
+                  'example widgets',
             },
             {
               'id': 'showFilterOption',
               'title': 'Show Filter Option on Home',
-              'description': 'Enables a filter on home to filter ones content down to what want',
+              'description': 'Enables a filter on home to filter ones ' +
+                  'content down to what want',
             },
           ],
         });

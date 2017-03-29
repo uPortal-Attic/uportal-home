@@ -5,13 +5,15 @@ define(['angular', 'require'], function(angular, require) {
 
     /**
      * <option-link> directive is used to display widget content.
-     * You need to setup a config JSON object, or just use the defaults defined below
+     * You need to setup a config JSON object,
+     * or just use the defaults defined below
      * config = {
-    *             singleElement : false, //flags if your widgetData object as a single set in addition to the array
-    *             arrayName : 'array', //the array name under widgetData
-    *             value : 'value', //what you want the value to be (usually a URL)
-    *             display : 'display' // what to display in the drop down
-    *         }
+     *   //is your widgetData object a single set in addition to the array
+     *   'singleElement': false,
+     *   'arrayName': 'array', //the array name under widgetData
+     *   'value': 'value', //what you want the value to be (usually a URL)
+     *   'display': 'display' // what to display in the drop down
+     * }
      */
     app.directive('optionLink', function() {
         return {
@@ -104,12 +106,14 @@ define(['angular', 'require'], function(angular, require) {
       controller: function($scope,
                            $controller,
                            $location,
+                           $log,
                            layoutService) {
         var that = this;
         $scope.portlet = {title: 'loading...'};
         $scope.cantRemove = true;
         this.$onInit = function() {
-          var base = $controller('BaseWidgetFunctionsController', {$scope: $scope, childController: that});
+          $controller('BaseWidgetFunctionsController',
+            {$scope: $scope, childController: that});
         };
 
         this.$onChanges = function(changesObj) {
@@ -133,6 +137,9 @@ define(['angular', 'require'], function(angular, require) {
                 } else {
                     $scope.loaded = true;
                 }
+                return result;
+            }).catch(function() {
+              $log.warn('Could not getApp');
             });
           }
         };

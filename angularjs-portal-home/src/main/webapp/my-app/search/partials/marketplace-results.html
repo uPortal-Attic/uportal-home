@@ -19,6 +19,6 @@
     </md-button>
     <span ng-if="portlet.canAdd && portlet.hasInLayout && !GuestMode" class="added"><i class="fa fa-check"></i> Added to home</span>
     <md-button class="md-default" aria-label="See more about {{portlet.title}}" ng-click='navToDetails(portlet, "Search")'>Details</md-button>
-    <span><rating ng-model="portlet.rating" readonly="true" class="rating"></rating></span>
+    <span><span uib-rating ng-if="portlet.userRating" ng-model="portlet.rating" read-only="true" class="rating"></span></span>
   </p>
 </div>

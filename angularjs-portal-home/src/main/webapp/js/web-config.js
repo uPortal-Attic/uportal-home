@@ -1,3 +1,4 @@
+/* eslint max-len: "off" */
 define(['angular'], function(angular) {
     var config = angular.module('web-config', []);
     config.value('SEARCH_CONFIG', [

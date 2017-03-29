@@ -1,10 +1,11 @@
 'use strict';
+/* eslint-env node, phantomjs, jasmine */
+/* global inject */
 define(['angular-mocks', 'portal', 'my-app'], function() {
     describe('LayoutController', function() {
       var scope;
       var controller;
       var $localStorage;
-      var $location;
       var $sessionStorage;
       var rootScope;
       var layoutService;
@@ -23,7 +24,9 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
         module('my-app');
       });
 
-      beforeEach(inject(function(_$rootScope_, $controller, _$localStorage_, _$sessionStorage_, $location, $q, _APP_FLAGS_, _$httpBackend_, _SERVICE_LOC_) {
+      beforeEach(inject(function(
+          _$rootScope_, $controller, _$localStorage_, _$sessionStorage_,
+          $location, $q, _APP_FLAGS_, _$httpBackend_, _SERVICE_LOC_) {
         q = $q;
         scope = _$rootScope_.$new();
         rootScope = _$rootScope_;
@@ -31,31 +34,32 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
         $sessionStorage = _$sessionStorage_;
         httpBackend = _$httpBackend_;
         layoutService = {
-                'getLayout': function() {
-                     deferred = q.defer();
-                     return deferred.promise;
-                },
+          'getLayout': function() {
+            deferred = q.defer();
+            return deferred.promise;
+          },
         };
         miscService = {
-                'pushPageview': function() {
-                    return;
-                },
+          'pushPageview': function() {
+            return;
+          },
         };
 
         groupURL = _SERVICE_LOC_.groupURL;
         loginSilentURL = _SERVICE_LOC_.loginSilentURL;
 
         sharedPortletService = {};
-        controller = $controller('LayoutController', {'$localStorage': $localStorage,
-                                                      '$scope': scope,
-                                                      '$rootScope': rootScope,
-                                                      '$location': $location,
-                                                      '$sessionStorage': $sessionStorage,
-                                                      'layoutService': layoutService,
-                                                      'miscService': miscService,
-                                                      'sharedPortletService': sharedPortletService,
-                                                      'APP_FLAGS': _APP_FLAGS_,
-                                                      });
+        controller = $controller('LayoutController', {
+            '$localStorage': $localStorage,
+            '$scope': scope,
+            '$rootScope': rootScope,
+            '$location': $location,
+            '$sessionStorage': $sessionStorage,
+            'layoutService': layoutService,
+            'miscService': miscService,
+            'sharedPortletService': sharedPortletService,
+            'APP_FLAGS': _APP_FLAGS_,
+          });
       }));
 
 
@@ -67,25 +71,31 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           expect(scope.layoutEmpty).toBe(false);
       });
 
-      it('should set layoutEmpty to true after return empty layout', function() {
+      it('should set layoutEmpty to true after return empty layout',
+        function() {
           httpBackend.whenGET(groupURL).respond([]);
-          httpBackend.whenGET('/base/my-app/layout/partials/default-view.html').respond('<div></div>');
+          httpBackend.whenGET('/base/my-app/layout/partials/default-view.html')
+            .respond('<div></div>');
           controller.init();
           scope.$apply(function() {
-              deferred.resolve({'layout': []});
+            deferred.resolve({'layout': []});
           });
           expect(scope.layoutEmpty).toBe(true);
-      });
+        }
+      );
 
-      it('should set layoutEmpty to false after return non empty layout', function() {
+      it('should set layoutEmpty to false after return non empty layout',
+        function() {
           httpBackend.whenGET(groupURL).respond([]);
-          httpBackend.whenGET('/base/my-app/layout/partials/default-view.html').respond('<div></div>');
+          httpBackend.whenGET('/base/my-app/layout/partials/default-view.html')
+            .respond('<div></div>');
           controller.init();
           if(loginSilentURL) {
-            httpBackend.whenGET(loginSilentURL).respond({'status': 'success', 'username': 'admin'});
+            httpBackend.whenGET(loginSilentURL)
+              .respond({'status': 'success', 'username': 'admin'});
           }
           scope.$apply(function() {
-              deferred.resolve({'layout': [{'fake': true}]});
+            deferred.resolve({'layout': [{'fake': true}]});
           });
           expect(scope.layoutEmpty).toBe(false);
       });

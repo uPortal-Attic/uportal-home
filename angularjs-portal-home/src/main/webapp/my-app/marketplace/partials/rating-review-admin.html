@@ -14,7 +14,7 @@
     <md-subheader style="background-color: #ccc;"><h3>Individual Ratings/Reviews</h3></md-subheader>
     <md-list-item class="md-4-line" ng-repeat="rating in ratings" ng-click="null">
       <div class="md-list-item-text" layout="column">
-        <h4><rating ng-model="rating.rating" readonly="true" class="rating"></rating></h4>
+        <h4><span uib-rating ng-model="rating.rating" read-only="true" class="rating"></span></h4>
         <p>{{rating.review}} <span ng-if="!rating.review" style='font-style: italic;'>No review given</span></p>
       </div>
     </md-list-item>

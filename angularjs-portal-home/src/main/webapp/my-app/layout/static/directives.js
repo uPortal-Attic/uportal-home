@@ -9,18 +9,18 @@ define(['angular', 'require'], function(angular, require) {
 
     app.directive('staticContentCard', function() {
         return {
-            restrict: 'E',
-            templateUrl: require.toUrl('./partials/static-content-card.html'),
+          restrict: 'E',
+          templateUrl: require.toUrl('./partials/static-content-card.html'),
         };
     });
 
     app.directive('staticContentCardMax', function() {
         return {
-            restrict: 'E',
-            templateUrl: require.toUrl('./partials/static-content-card-max.html'),
+          restrict: 'E',
+          templateUrl:
+              require.toUrl('./partials/static-content-card-max.html'),
         };
     });
 
     return app;
 });
-
