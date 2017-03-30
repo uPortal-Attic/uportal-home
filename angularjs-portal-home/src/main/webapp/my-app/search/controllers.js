@@ -61,7 +61,8 @@ define([
         marketplaceService, googleCustomSearchService,
         directorySearchService, PortalSearchService) {
       var vm = this;
-      var base = $controller('marketplaceCommonFunctions', {$scope: vm});
+      var base = $controller('MarketplaceCommonFunctionsController',
+                  {$scope: vm});
 
       var initWiscEduSearch = function() {
         googleCustomSearchService.googleSearch(vm.searchTerm).then(

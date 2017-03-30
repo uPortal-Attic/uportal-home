@@ -1,54 +1,57 @@
 'use strict';
 
 define(['angular', 'jquery', 'require'], function(angular, $, require) {
-  var app = angular.module('my-app.marketplace.controllers', []);
+  var currentPage = 'market';
+  var currentCategory = '';
 
-  app.controller('marketplaceCommonFunctions',
+  return angular.module('my-app.marketplace.controllers', [])
+  .controller('MarketplaceCommonFunctionsController',
     ['googleCustomSearchService', 'miscSearchService', 'layoutService',
       '$log', 'marketplaceService', 'miscService', 'MISC_URLS',
-      '$sessionStorage', '$localStorage', '$rootScope', '$scope',
+      '$sessionStorage', '$localStorage', '$rootScope',
       '$routeParams', '$timeout', '$location',
     function(googleCustomSearchService, miscSearchService, layoutService,
       $log, marketplaceService, miscService, MISC_URLS,
-        $sessionStorage, $localStorage, $rootScope, $scope,
+        $sessionStorage, $localStorage, $rootScope,
         $routeParams, $timeout, $location) {
+      var vm = this;
       var currentThemePrimary = ($sessionStorage.portal.theme &&
         $sessionStorage.portal.theme.materialTheme) ?
         $sessionStorage.portal.theme.materialTheme.primary['500'] :
         {value: ['0', '0', '0']};
-      $scope.primaryColorRgb = 'rgb('+
+      vm.primaryColorRgb = 'rgb('+
         currentThemePrimary.value[0] + ',' +
         currentThemePrimary.value[1] + ',' +
         currentThemePrimary.value[2] + ')';
 
-      $scope.navToDetails = function(marketplaceEntry, location) {
-        marketplaceService.setFromInfo(location, $scope.searchTerm);
+      vm.navToDetails = function(marketplaceEntry, location) {
+        marketplaceService.setFromInfo(location, vm.searchTerm);
         $location.path('apps/details/'+ marketplaceEntry.fname);
       };
 
-      $scope.isStatic = function(portlet) {
+      vm.isStatic = function(portlet) {
         return portlet.maxUrl.indexOf('portal') !== -1 // a portal hit
           && portlet.portletName // there is a portletName
           && portlet.portletName.indexOf('cms') != -1; // static content portlet
       };
 
-      $scope.getLaunchURL = function(marketplaceEntry) {
+      vm.getLaunchURL = function(marketplaceEntry) {
         var layoutObj = marketplaceEntry.layoutObject;
         if ($rootScope.GuestMode && !marketplaceEntry.hasInLayout) {
-          return $scope.loginToAuthPage +
+          return vm.loginToAuthPage +
               '/web/apps/details/'+ marketplaceEntry.fname;
         } else if (layoutObj.altMaxUrl == false &&
             (layoutObj.renderOnWeb || $localStorage.webPortletRender)) {
           return 'exclusive/' + layoutObj.fname;
         } else if (layoutObj.altMaxUrl == false &&
-            $scope.isStatic(marketplaceEntry)) {
+            vm.isStatic(marketplaceEntry)) {
           return 'static/' + layoutObj.fname;
         } else {
           return marketplaceEntry.maxUrl;
         }
       };
 
-      $scope.addToHome = function addToHome(portlet) {
+      vm.addToHome = function addToHome(portlet) {
         var fname = portlet.fname;
         var ret = layoutService.addToHome(portlet);
         ret.success(function(request, text) {
@@ -57,7 +60,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
             .prop('disabled', true)
             .removeClass('btn-add')
             .addClass('btn-added');
-          $scope.$apply(function() {
+          vm.$apply(function() {
             var marketplaceEntries = $.grep(
               $sessionStorage.marketplace,
               function(e) {
@@ -80,10 +83,10 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           });
       };
 
-      $scope.searchTermFilter = function(portlet) {
+      vm.searchTermFilter = function(portlet) {
         return marketplaceService.portletMatchesSearchTerm(
           portlet,
-          $scope.searchTerm,
+          vm.searchTerm,
           {
             searchDescription: true,
             searchKeywords: true,
@@ -92,59 +95,59 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         );
       };
 
-      $scope.selectFilter = function(filter, category) {
-        $scope.sortParameter = filter;
-        $scope.categoryToShow = category;
-        $scope.showCategories = false;
+      vm.selectFilter = function(filter, category) {
+        vm.sortParameter = filter;
+        vm.categoryToShow = category;
+        vm.showCategories = false;
         if (filter === 'popular') {
-          $scope.selectedFilter = 'popular';
-          $scope.sortParameter = ['-rating', '-userRated'];
+          vm.selectedFilter = 'popular';
+          vm.sortParameter = ['-rating', '-userRated'];
         }
         if (filter === 'az') {
-          $scope.selectedFilter = 'az';
-          $scope.sortParameter = 'name';
+          vm.selectedFilter = 'az';
+          vm.sortParameter = 'name';
         }
         if (filter === 'category') {
-          $scope.selectedFilter = 'category';
-          $scope.sortParameter = 'name';
-          $scope.showCategories = true;
+          vm.selectedFilter = 'category';
+          vm.sortParameter = 'name';
+          vm.showCategories = true;
         }
 
         miscService.pushGAEvent('Marketplace', 'Tab Select', filter);
       };
 
-      $scope.slideTabs = function(direction) {
-        $scope.tabsPosition = 'start';
+      vm.slideTabs = function(direction) {
+        vm.tabsPosition = 'start';
         if (direction === 'right') {
-          $scope.tabsPosition = 'end';
+          vm.tabsPosition = 'end';
         }
       };
 
-      $scope.toggleShowAll = function() {
-        $scope.showAll = !$scope.showAll;
+      vm.toggleShowAll = function() {
+        vm.showAll = !vm.showAll;
       };
 
-      this.setupSearchTerm = function() {
+      vm.setupSearchTerm = function() {
         var tempFilterText = '';
         var filterTextTimeout;
-        $scope.searchTerm = marketplaceService.getInitialFilter();
+        vm.searchTerm = marketplaceService.getInitialFilter();
         if($routeParams.initFilter !== null &&
-            ($scope.searchTerm === null || $scope.searchTerm === '')) {
-          $scope.searchTerm = $routeParams.initFilter;
+            (vm.searchTerm === null || vm.searchTerm === '')) {
+          vm.searchTerm = $routeParams.initFilter;
         } else {
           marketplaceService.initialFilter('');
         }
-        $scope.searchText = $scope.searchTerm;
+        vm.searchText = vm.searchTerm;
         var initFilter = false;
         // delay on the filter
-        $scope.$watch('searchText', function(val) {
+        vm.$watch('searchText', function(val) {
           if (filterTextTimeout) $timeout.cancel(filterTextTimeout);
 
           tempFilterText = val;
           filterTextTimeout = $timeout(function() {
-            $scope.searchTerm = tempFilterText;
-            if(initFilter && $scope.searchTerm) {
-              miscService.pushGAEvent('Search', 'Filter', $scope.searchTerm);
+            vm.searchTerm = tempFilterText;
+            if(initFilter && vm.searchTerm) {
+              miscService.pushGAEvent('Search', 'Filter', vm.searchTerm);
             } else {
               initFilter = true;
             }
@@ -152,7 +155,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         });
       };
 
-      this.initializeConstants = function() {
+      vm.initializeConstants = function() {
         var errorFn = function(name) {
           return function() {
             $log.warn('Could not ' + name);
@@ -161,55 +164,54 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         // initialize constants
         googleCustomSearchService.getPublicWebSearchURL().then(
           function(webSearchURL) {
-            $scope.webSearchUrl = webSearchURL;
+            vm.webSearchUrl = webSearchURL;
             return webSearchURL;
           }
         ).catch(errorFn('getPublicWebSearchURL'));
         googleCustomSearchService.getDomainResultsLabel().then(
           function(domainResultsLabel) {
-            $scope.domainResultsLabel = domainResultsLabel;
+            vm.domainResultsLabel = domainResultsLabel;
             return domainResultsLabel;
           }
         ).catch(errorFn('getDomainResultsLabel'));
         miscSearchService.getKBSearchURL().then(
           function(kbSearchURL) {
-            $scope.kbSearchUrl = kbSearchURL;
+            vm.kbSearchUrl = kbSearchURL;
             return kbSearchURL;
           }
         ).catch(errorFn('getKBSearchURL'));
         miscSearchService.getEventSearchURL().then(
           function(eventsSearchURL) {
-            $scope.eventsSearchUrl = eventsSearchURL;
+            vm.eventsSearchUrl = eventsSearchURL;
             return eventsSearchURL;
           }
         ).catch(errorFn('getEventSearchURL'));
         miscSearchService.getHelpDeskHelpURL().then(
           function(helpdeskURL) {
-            $scope.helpdeskUrl = helpdeskURL;
+            vm.helpdeskUrl = helpdeskURL;
             return helpdeskURL;
           }
         ).catch(errorFn('getHelpDeskHelpURL'));
-        $scope.directorySearchUrl = MISC_URLS.directorySearchURL;
-        $scope.feedbackUrl = MISC_URLS.feedbackURL;
-        $scope.loginToAuthPage = MISC_URLS.myuwHome;
+        vm.directorySearchUrl = MISC_URLS.directorySearchURL;
+        vm.feedbackUrl = MISC_URLS.feedbackURL;
+        vm.loginToAuthPage = MISC_URLS.myuwHome;
       };
     },
-  ]);
+  ])
 
-  var currentPage = 'market';
-  var currentCategory = '';
-
-  app.controller('MarketplaceController', [
-    '$log', '$rootScope', '$scope', '$controller', 'marketplaceService',
-    function($log, $rootScope, $scope, $controller, marketplaceService) {
-      var base = $controller('marketplaceCommonFunctions', {$scope: $scope});
+  .controller('MarketplaceController', [
+    '$log', '$rootScope', '$controller', 'marketplaceService',
+    function($log, $rootScope, $controller, marketplaceService) {
+      var vm = this;
+      var base = $controller('MarketplaceCommonFunctionsController',
+                    {$scope: vm});
 
       var init = function() {
         // init variables
-        $scope.portlets = [];
+        vm.portlets = [];
         marketplaceService.getPortlets().then(function(data) {
-          $scope.portlets = data.portlets;
-          $scope.categories = data.categories;
+          vm.portlets = data.portlets;
+          vm.categories = data.categories;
           return data;
         }).catch(function() {
           $log.warn('Could not getPortlets');
@@ -219,33 +221,33 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
         // initialize variables
 
-        $scope.searchResultLimit = 20;
-        $scope.showAll = $rootScope.GuestMode || false;
+        vm.searchResultLimit = 20;
+        vm.showAll = $rootScope.GuestMode || false;
         if(currentPage === 'details') {
           // Empty string indicates no categories, show all portlets
-          $scope.categoryToShow = '';
+          vm.categoryToShow = '';
           // Default filter is to sort by category for
           // marketplaceDetails back to marketplace
-          $scope.selectedFilter = 'category';
+          vm.selectedFilter = 'category';
           // To sort by category, angular will use name to filter
-          $scope.sortParameter = 'name';
+          vm.sortParameter = 'name';
           // Show category selection div by default
-          $scope.showCategories = true;
+          vm.showCategories = true;
 
           currentPage = 'market';
           if(currentCategory !== '')
-            $scope.categoryToShow = currentCategory;
+            vm.categoryToShow = currentCategory;
           else
-            $scope.categoryToShow = '';
+            vm.categoryToShow = '';
         } else {
           // Empty string indicates no categories, show all portlets
-          $scope.categoryToShow = '';
+          vm.categoryToShow = '';
           // Default filter is to sort by popularity
-          $scope.selectedFilter = 'popular';
+          vm.selectedFilter = 'popular';
           // To sort by popularity, angular will use portlet.rating to filter
-          $scope.sortParameter = ['-rating', '-userRated'];
+          vm.sortParameter = ['-rating', '-userRated'];
           // Hide category selection div by default
-          $scope.showCategories = false;
+          vm.showCategories = false;
         }
 
         base.initializeConstants();
@@ -253,16 +255,17 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
       // run functions
       init();
-    }]);
+    }])
 
-  app.controller('MarketplaceDetailsController', [
-      '$controller', '$document', '$scope', '$routeParams',
+  .controller('MarketplaceDetailsController', [
+      '$controller', '$document', '$routeParams',
       '$mdDialog', 'marketplaceService', 'SERVICE_LOC',
       function($controller, $document, $scope, $routeParams,
           $mdDialog, marketplaceService, SERVICE_LOC) {
-        $controller('marketplaceCommonFunctions', {$scope: $scope});
+        var vm = this;
+        $controller('MarketplaceCommonFunctionsController', {$scope: vm});
 
-        $scope.specifyCategory = function(category) {
+        vm.specifyCategory = function(category) {
           currentCategory=category;
           currentPage='details';
         };
@@ -273,29 +276,29 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
             // from somewhere
             if('Search' === fromInfo.searchOrBrowse && fromInfo.term) {
               // if from search and term is populated, return to search
-              $scope.backText = 'Search Results for ' + fromInfo.term;
-              $scope.backURL = 'apps/search/' + fromInfo.term;
+              vm.backText = 'Search Results for ' + fromInfo.term;
+              vm.backURL = 'apps/search/' + fromInfo.term;
             } else {
               // assuming from browse
-              $scope.backText = 'Browse';
-              $scope.backURL = 'apps/browse/' + fromInfo.term;
+              vm.backText = 'Browse';
+              vm.backURL = 'apps/browse/' + fromInfo.term;
             }
 
             // reset services
             marketplaceService.setFromInfo(undefined, undefined);
           } else {
             // direct hit, will go back to browse
-            $scope.backURL='apps';
-            $scope.backText='Browse';
+            vm.backURL='apps';
+            vm.backText='Browse';
           }
         };
 
-        $scope.clickRatingReviewAdmin = function() {
+        vm.clickRatingReviewAdmin = function() {
           $mdDialog.show({
             controller: 'MarketplaceRatingReviewAdminController',
             templateUrl: require.toUrl('./partials/rating-review-admin.html'),
             parent: angular.element($document.body),
-            scope: $scope,
+            scope: vm,
             preserveScope: true,
             clickOutsideToClose: true,
             fullscreen: false,
@@ -304,52 +307,53 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
         // init
         var init = function() {
-          $scope.loading = true;
+          vm.loading = true;
           figureOutBackStuff();
-          $scope.obj = [];
-          $scope.ratingPrefix = SERVICE_LOC.base +
+          vm.obj = [];
+          vm.ratingPrefix = SERVICE_LOC.base +
             SERVICE_LOC.marketplace.base;
-          $scope.errorMessage =
+          vm.errorMessage =
               'There was an issue loading details, please click back to apps.';
           marketplaceService.getPortlet($routeParams.fname).then(
             function(result) {
-              $scope.loading = false;
+              vm.loading = false;
               if (!result) {
-                $scope.error = true;
-                $scope.portlet = null;
+                vm.error = true;
+                vm.portlet = null;
               } else {
-                $scope.portlet = result;
-                $scope.error = false;
+                vm.portlet = result;
+                vm.error = false;
               }
               return result;
             }
           ).catch(function(reason) {
-            $scope.loading = false;
-            $scope.error = true;
+            vm.loading = false;
+            vm.error = true;
           });
         };
         init();
       }]
-  );
+  )
 
-  app.controller('MarketplaceRatingReviewAdminController', [
-    '$log', '$scope', 'marketplaceService',
-    function($log, $scope, marketplaceService) {
+  .controller('MarketplaceRatingReviewAdminController', [
+    '$log', 'marketplaceService',
+    function($log, marketplaceService) {
+      var vm = this;
       var init = function() {
-        $scope.ratings = [];
-        marketplaceService.getAllRatings($scope.portlet.fname).then(
+        vm.ratings = [];
+        marketplaceService.getAllRatings(vm.portlet.fname).then(
           function(ratings) {
             if (ratings) {
-              $scope.ratings = ratings;
-              $scope.average =0;
-              $scope.totalReviews = 0;
+              vm.ratings = ratings;
+              vm.average =0;
+              vm.totalReviews = 0;
               angular.forEach(ratings, function(value, key) {
-                $scope.average+= value.rating;
+                vm.average+= value.rating;
                 if(value.review) {
-                  $scope.totalReviews += 1;
+                  vm.totalReviews += 1;
                 }
               });
-              $scope.average = Math.round($scope.average / ratings.length);
+              vm.average = Math.round(vm.average / ratings.length);
             }
             return ratings;
           }
@@ -360,6 +364,4 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
       init();
     }]);
-
-  return app;
 });
