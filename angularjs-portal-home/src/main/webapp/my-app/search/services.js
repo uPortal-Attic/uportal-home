@@ -1,9 +1,9 @@
 'use strict';
 
 define(['angular', 'jquery'], function(angular, $) {
-    var app = angular.module('my-app.search.services', []);
+    return angular.module('my-app.search.services', [])
 
-    app.factory('googleCustomSearchService',
+    .factory('googleCustomSearchService',
       ['$log', '$http', '$q', 'PortalGroupService',
         'miscSearchService', 'miscService',
       function($log, $http, $q, PortalGroupService,
@@ -197,9 +197,9 @@ define(['angular', 'jquery'], function(angular, $) {
         getPublicWebSearchURL: getPublicWebSearchURL,
         getDomainResultsLabel: getDomainResultsLabel,
       };
-    }]);
+    }])
 
-    app.factory('miscSearchService',
+    .factory('miscSearchService',
       ['$q', '$sessionStorage', 'PortalGroupService',
         'filterFilter', 'SEARCH_CONFIG',
       function($q, $sessionStorage, PortalGroupService,
@@ -291,9 +291,9 @@ define(['angular', 'jquery'], function(angular, $) {
           getEventSearchURL: getEventSearchURL,
           getHelpDeskHelpURL: getHelpDeskHelpURL,
       };
-    }]);
+    }])
 
-    app.factory('directorySearchService',
+    .factory('directorySearchService',
         ['$log', '$http', '$q', 'PortalGroupService',
           'miscSearchService', 'miscService',
         function($log, $http, $q, PortalGroupService,
