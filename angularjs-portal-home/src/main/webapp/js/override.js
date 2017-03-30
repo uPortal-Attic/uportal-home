@@ -1,8 +1,7 @@
 define(['angular'], function(angular) {
   /* Keep in sync with docs/markdown/configuration.md*/
 
-    var config = angular.module('override', []);
-    config
+    return angular.module('override', [])
         // see configuration.md for howto
         .constant('OVERRIDE', {
           'APP_FLAGS': {
@@ -89,6 +88,4 @@ define(['angular'], function(angular) {
             },
           ],
         });
-
-    return config;
 });

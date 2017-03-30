@@ -111,7 +111,7 @@
     ],
     "rules": {
       "angular/di": [
-        "error",
+        "warn",
         "array"
       ],
       "compat/compat": "error",
