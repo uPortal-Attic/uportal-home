@@ -1,7 +1,7 @@
 'use strict';
 
 define(['angular', 'jquery', 'require'], function(angular, $, require) {
-    var app = angular.module('my-app.rating.components', []);
+    return angular.module('my-app.rating.components', [])
 
     /**
      * <rating-button portlet='portletObject'
@@ -9,7 +9,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
                       button-classes="any additional classes">
      * portlet object usage : { fname, title}
      */
-    app.component('ratingButton', {
+    .component('ratingButton', {
       bindings: {
         portlet: '<',
         buttonText: '@',
