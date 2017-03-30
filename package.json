@@ -32,7 +32,7 @@
     "eslint": "^3.17.1",
     "eslint-config-angular": "^0.5.0",
     "eslint-config-google": "^0.7.1",
-    "eslint-git-changes": "^1.0.0",
+    "eslint-git-changes": "^2.0.0",
     "eslint-plugin-angular": "^1.6.2",
     "eslint-plugin-compat": "^1.0.2",
     "eslint-plugin-jasmine": "^2.2.0",
