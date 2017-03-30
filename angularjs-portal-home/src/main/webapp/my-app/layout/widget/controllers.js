@@ -1,18 +1,19 @@
 'use strict';
 
 define(['angular'], function(angular) {
-  var app = angular.module('my-app.layout.widget.controllers', []);
+  return angular.module('my-app.layout.widget.controllers', [])
 
   /**
    * Controller for 'optionLink' directive (/widget/directives.js)
    */
-  app.controller('OptionLinkController', ['$scope', '$log', 'layoutService',
-    function($scope, $log, layoutService) {
+  .controller('OptionLinkController', ['$log', 'layoutService',
+    function($log, layoutService) {
+    var vm = this;
     /**
      * Set up default configuration if no config exists
      */
     var configInit = function() {
-      $scope.config = {
+      vm.config = {
         singleElement: false,
         arrayName: 'array',
         value: 'value',
@@ -24,91 +25,92 @@ define(['angular'], function(angular) {
      * Set up the widget based on received configuration
      */
     var populateWidgetContent = function() {
-      if ($scope.portlet.widgetURL && $scope.portlet.widgetType) {
+      if (vm.portlet.widgetURL && vm.portlet.widgetType) {
         // Initialize portlet widget json
-        $scope.portlet.widgetData = [];
+        vm.portlet.widgetData = [];
         // Fetch widget JSON
-        layoutService.getWidgetJson($scope.portlet).then(function(data) {
+        layoutService.getWidgetJson(vm.portlet).then(function(data) {
           if (data) {
-            var arr = $scope.portlet.widgetData[$scope.config.arrayName];
-            if ($scope.config.singleElement) {
+            var arr = vm.portlet.widgetData[vm.config.arrayName];
+            if (vm.config.singleElement) {
               // Set the default selected url
-              $scope.portlet.selectedUrl =
-                $scope.portlet.widgetData[$scope.config.value];
+              vm.portlet.selectedUrl =
+                vm.portlet.widgetData[vm.config.value];
             } else if (arr && arr.length > 0) {
-              $scope.portlet.selectedUrl = arr[0][$scope.config.value];
+              vm.portlet.selectedUrl = arr[0][vm.config.value];
             }
           } else {
             $log.warn('Got nothing back from widget fetch for ' +
-                $scope.portlet.fname);
+                vm.portlet.fname);
           }
           return data;
         }).catch(function() {
-          $log.warn('Could not getWidgetJson ' + $scope.portlet);
+          $log.warn('Could not getWidgetJson ' + vm.portlet);
         });
       }
     };
 
     // Set default values if no config was received
-    if (!$scope.config) {
+    if (!vm.config) {
       configInit();
     }
     // Set up widget content
     populateWidgetContent();
-  }]);
+  }])
 
   /**
    * Controller for weather widget (/widget/directives.js)
    */
-  app.controller('WeatherController',
-    ['$scope', '$log', 'layoutService', 'keyValueService', '$q',
-    function($scope, $log, layoutService, keyValueService, $q) {
+  .controller('WeatherController',
+    ['$log', 'layoutService', 'keyValueService', '$q',
+    function($log, layoutService, keyValueService, $q) {
+    var vm = this;
     // Bindable members
-    $scope.weatherData = [];
-    $scope.loading = false;
-    $scope.fetchKey = 'userWeatherPreference';
-    $scope.currentUnits = 'F';
-    $scope.nextUnits = 'C';
+    vm.weatherData = [];
+    vm.loading = false;
+    vm.fetchKey = 'userWeatherPreference';
+    vm.currentUnits = 'F';
+    vm.nextUnits = 'C';
 
     /**
      * Configure widget content
      */
     var populateWidgetContent = function() {
-      if ($scope.portlet.widgetURL && $scope.portlet.widgetType) {
-        $scope.loading = true;
+      if (vm.portlet.widgetURL && vm.portlet.widgetType) {
+        vm.loading = true;
         // fetch portlet widget json
-        $scope.portlet.widgetData = [];
-        var widgetPromise = layoutService.getWidgetJson($scope.portlet);
-        var preferencePromise = keyValueService.getValue($scope.fetchKey);
+        vm.portlet.widgetData = [];
+        var widgetPromise = layoutService.getWidgetJson(vm.portlet);
+        var preferencePromise = keyValueService.getValue(vm.fetchKey);
 
         $q.all([widgetPromise, preferencePromise]).then(function(data) {
-          $scope.loading = false;
+          vm.loading = false;
 
           if (data) {
             $log.debug(data);
             var allTheWeathers = data[0];
             var myPref = data[1];
-            $scope.portlet.widgetData = allTheWeathers.weathers;
-            $scope.weatherData = $scope.portlet.widgetData;
-            $scope.currentUnits = 'F';
-            $scope.nextUnits = 'C';
+            vm.portlet.widgetData = allTheWeathers.weathers;
+            vm.weatherData = vm.portlet.widgetData;
+            vm.currentUnits = 'F';
+            vm.nextUnits = 'C';
             var userPreference = myPref.userWeatherPreference;
             if (userPreference === null || userPreference === '' ||
-                typeof userPreference === 'undefined') {
+                angular.isUndefined(userPreference)) {
               userPreference = 'F';
             }
 
-            while (userPreference != $scope.currentUnits) {
-              $scope.cycleUnits();
+            while (userPreference != vm.currentUnits) {
+              vm.cycleUnits();
             }
           } else {
-            $scope.error = true;
+            vm.error = true;
             $log.warn('Got nothing back from widget fetch');
           }
           return data;
         }).catch(function() {
-          $scope.loading = false;
-          $scope.error = true;
+          vm.loading = false;
+          vm.error = true;
         });
       }
     };
@@ -116,49 +118,49 @@ define(['angular'], function(angular) {
     /**
      * Respond to click events when changing temperature unit type
      */
-    $scope.cycleUnits = function() {
-      var userPreference = $scope.nextUnits;
+    vm.cycleUnits = function() {
+      var userPreference = vm.nextUnits;
       var value = {};
 
       if (userPreference === 'F') {
-        $scope.changeKToF();
-        $scope.currentUnits = 'F';
-        $scope.nextUnits = 'C';
+        vm.changeKToF();
+        vm.currentUnits = 'F';
+        vm.nextUnits = 'C';
       }
       if (userPreference === 'C') {
-        $scope.changeFToC();
-        $scope.currentUnits = 'C';
-        $scope.nextUnits = 'K';
+        vm.changeFToC();
+        vm.currentUnits = 'C';
+        vm.nextUnits = 'K';
       }
       if (userPreference === 'K') {
-        $scope.changeCToK();
-        $scope.currentUnits = 'K';
-        $scope.nextUnits = 'F';
+        vm.changeCToK();
+        vm.currentUnits = 'K';
+        vm.nextUnits = 'F';
       }
 
       // Set user preference
-      value.userWeatherPreference = $scope.currentUnits;
+      value.userWeatherPreference = vm.currentUnits;
 
       // Remember the user's preferred unit of measurement
-      keyValueService.setValue($scope.fetchKey, value);
+      keyValueService.setValue(vm.fetchKey, value);
     };
 
     /**
      * Change from farenheit to celsius
      */
-    $scope.changeFToC = function() {
+    vm.changeFToC = function() {
       var ratio = (5 / 9);
       var offset = 32;
-      for (var i = 0; i < $scope.weatherData.length; i++) {
-        $scope.weatherData[i].currentWeather.temperature =
-          ($scope.weatherData[i].currentWeather.temperature -
+      for (var i = 0; i < vm.weatherData.length; i++) {
+        vm.weatherData[i].currentWeather.temperature =
+          (vm.weatherData[i].currentWeather.temperature -
             offset) * ratio;
-        for (var j = 0; j < $scope.weatherData[i].forecast.length; j++) {
-          $scope.weatherData[i].forecast[j].highTemperature =
-            ($scope.weatherData[i].forecast[j].highTemperature -
+        for (var j = 0; j < vm.weatherData[i].forecast.length; j++) {
+          vm.weatherData[i].forecast[j].highTemperature =
+            (vm.weatherData[i].forecast[j].highTemperature -
               offset) * ratio;
-          $scope.weatherData[i].forecast[j].lowTemperature =
-            ($scope.weatherData[i].forecast[j].lowTemperature -
+          vm.weatherData[i].forecast[j].lowTemperature =
+            (vm.weatherData[i].forecast[j].lowTemperature -
               offset) * ratio;
         }
       }
@@ -167,17 +169,17 @@ define(['angular'], function(angular) {
     /**
      * Change from celsius to kelvin
      */
-    $scope.changeCToK = function() {
+  vm.changeCToK = function() {
       var offset = 273;
-      for (var i = 0; i < $scope.weatherData.length; i++) {
-        $scope.weatherData[i].currentWeather.temperature =
-          ($scope.weatherData[i].currentWeather.temperature + offset);
+      for (var i = 0; i < vm.weatherData.length; i++) {
+        vm.weatherData[i].currentWeather.temperature =
+          (vm.weatherData[i].currentWeather.temperature + offset);
 
-        for (var j = 0; j < $scope.weatherData[i].forecast.length; j++) {
-          $scope.weatherData[i].forecast[j].highTemperature =
-            ($scope.weatherData[i].forecast[j].highTemperature + offset);
-          $scope.weatherData[i].forecast[j].lowTemperature =
-            ($scope.weatherData[i].forecast[j].lowTemperature + offset);
+        for (var j = 0; j < vm.weatherData[i].forecast.length; j++) {
+          vm.weatherData[i].forecast[j].highTemperature =
+            (vm.weatherData[i].forecast[j].highTemperature + offset);
+          vm.weatherData[i].forecast[j].lowTemperature =
+            (vm.weatherData[i].forecast[j].lowTemperature + offset);
         }
       }
     };
@@ -185,17 +187,17 @@ define(['angular'], function(angular) {
     /**
      * Change kelvin to celsius
      */
-    $scope.changeKToC = function() {
+    vm.changeKToC = function() {
       var offset = 273;
-      for (var i = 0; i < $scope.weatherData.length; i++) {
-        $scope.weatherData[i].currentWeather.temperature =
-          ($scope.weatherData[i].currentWeather.temperature - offset);
+      for (var i = 0; i < vm.weatherData.length; i++) {
+        vm.weatherData[i].currentWeather.temperature =
+          (vm.weatherData[i].currentWeather.temperature - offset);
 
-        for (var j = 0; j < $scope.weatherData[i].forecast.length; j++) {
-          $scope.weatherData[i].forecast[j].highTemperature =
-            ($scope.weatherData[i].forecast[j].highTemperature - offset);
-          $scope.weatherData[i].forecast[j].lowTemperature =
-            ($scope.weatherData[i].forecast[j].lowTemperature - offset);
+        for (var j = 0; j < vm.weatherData[i].forecast.length; j++) {
+          vm.weatherData[i].forecast[j].highTemperature =
+            (vm.weatherData[i].forecast[j].highTemperature - offset);
+          vm.weatherData[i].forecast[j].lowTemperature =
+            (vm.weatherData[i].forecast[j].lowTemperature - offset);
         }
       }
     };
@@ -203,20 +205,20 @@ define(['angular'], function(angular) {
     /**
      * Change celsius to farenheit
      */
-    $scope.changeCToF = function() {
+    vm.changeCToF = function() {
       var ratio = (9 / 5);
       var offset = 32;
-      for (var i = 0; i < $scope.weatherData.length; i++) {
-        $scope.weatherData[i].currentWeather.temperature =
-          ($scope.weatherData[i].currentWeather.temperature *
+      for (var i = 0; i < vm.weatherData.length; i++) {
+        vm.weatherData[i].currentWeather.temperature =
+          (vm.weatherData[i].currentWeather.temperature *
             ratio) + offset;
 
-        for (var j = 0; j < $scope.weatherData[i].forecast.length; j++) {
-          $scope.weatherData[i].forecast[j].highTemperature =
-            ($scope.weatherData[i].forecast[j].highTemperature *
+        for (var j = 0; j < vm.weatherData[i].forecast.length; j++) {
+          vm.weatherData[i].forecast[j].highTemperature =
+            (vm.weatherData[i].forecast[j].highTemperature *
               ratio) + offset;
-          $scope.weatherData[i].forecast[j].lowTemperature =
-            ($scope.weatherData[i].forecast[j].lowTemperature *
+          vm.weatherData[i].forecast[j].lowTemperature =
+            (vm.weatherData[i].forecast[j].lowTemperature *
               ratio) + offset;
         }
       }
@@ -225,28 +227,29 @@ define(['angular'], function(angular) {
     /**
      * Change kelvin to farenheit (via celsius)
      */
-    $scope.changeKToF = function() {
-      $scope.changeKToC();
-      $scope.changeCToF();
+    vm.changeKToF = function() {
+      vm.changeKToC();
+      vm.changeCToF();
     };
 
     // Initialize weather widget
     populateWidgetContent();
-    $scope.details = false;
-  }]);
+    vm.details = false;
+  }])
 
   /**
    * Controller for 'rss' widget type (/widget/directives.js)
    */
-  app.controller('RSSWidgetController',
-    ['$scope', 'layoutService',
-    function($scope, layoutService) {
+  .controller('RSSWidgetController',
+    ['layoutService',
+    function(layoutService) {
+    var vm = this;
     /**
      *
      * @param dateString
      * @returns {*}
      */
-    $scope.getPrettyDate = function(dateString) {
+    vm.getPrettyDate = function(dateString) {
       // Create a new date if a date string was provided, otherwise return null
       return dateString ? new Date(dateString) : null;
     };
@@ -255,42 +258,42 @@ define(['angular'], function(angular) {
      * Initialize rss widget
      */
     var init = function() {
-      $scope.loading = true;
+      vm.loading = true;
       // Only initialize if everything is provided
-      if ($scope.portlet &&
-          $scope.portlet.widgetURL &&
-          $scope.portlet.widgetType) {
+      if (vm.portlet &&
+          vm.portlet.widgetURL &&
+          vm.portlet.widgetType) {
         // Set defaults if any config attributes are missing
-        if (!$scope.config) {
-          $scope.config = {};
+        if (!vm.config) {
+          vm.config = {};
         }
-        if (!$scope.config.lim) {
-          $scope.config.lim = 5;
+        if (!vm.config.lim) {
+          vm.config.lim = 5;
         }
-        if (!$scope.config.titleLim) {
-          $scope.config.titleLim = 40;
+        if (!vm.config.titleLim) {
+          vm.config.titleLim = 40;
         }
-        if (!$scope.config.showShowing) {
-          $scope.config.showShowing = false;
+        if (!vm.config.showShowing) {
+          vm.config.showShowing = false;
         }
 
         // If we got JSON, display it in the widget
         var successFn = function(result) {
-          $scope.loading = false;
-          $scope.data = result.data;
+          vm.loading = false;
+          vm.data = result.data;
 
-          if ($scope.data.status !== 'ok') {
-            $scope.error = true;
-            $scope.loading = false;
+          if (vm.data.status !== 'ok') {
+            vm.error = true;
+            vm.loading = false;
           } else {
-            if (!$scope.data.items || $scope.data.items.length == 0) {
-              $scope.isEmpty = true;
-              $scope.loading = false;
-              $scope.error = true;
+            if (!vm.data.items || vm.data.items.length == 0) {
+              vm.isEmpty = true;
+              vm.loading = false;
+              vm.error = true;
             } else {
-              if (!$scope.config.showShowing &&
-                  $scope.data.items.length > $scope.config.lim) {
-                $scope.config.showShowing = true;
+              if (!vm.config.showShowing &&
+                  vm.data.items.length > vm.config.lim) {
+                vm.config.showShowing = true;
               }
             }
           }
@@ -298,74 +301,76 @@ define(['angular'], function(angular) {
 
         // If getting JSON failed, show empty widget
         var errorFn = function(data) {
-          $scope.error = true;
-          $scope.isEmpty = true;
-          $scope.loading = false;
+          vm.error = true;
+          vm.isEmpty = true;
+          vm.loading = false;
         };
 
         // Get rss as JSON feed
-        layoutService.getRSSJsonified($scope.portlet.widgetURL)
+        layoutService.getRSSJsonified(vm.portlet.widgetURL)
           .then(successFn).catch(errorFn);
       }
     };
 
     init();
-  }]);
+  }])
 
   /**
    * Controller for 'swl' widget type (/widget/directives.js)
    */
-  app.controller('SearchWithLinksController',
-      ['$scope', '$sce', function($scope, $sce) {
-    $scope.secureURL = $sce.trustAsResourceUrl($scope.config.actionURL);
-  }]);
+  .controller('SearchWithLinksController',
+      ['$sce', function($sce) {
+    var vm = this;
+    vm.secureURL = $sce.trustAsResourceUrl(vm.config.actionURL);
+  }])
 
   /**
    * Controller for 'generic' and 'custom' widget types
    * (/widget/partials/widget-card.html)
    */
-  app.controller('CustomWidgetController',
-      ['$scope', 'layoutService', '$log',
-      function($scope, layoutService, $log) {
-    $scope.loading = false;
+  .controller('CustomWidgetController',
+      ['layoutService', '$log',
+      function(layoutService, $log) {
+    var vm = this;
+    vm.loading = false;
     /**
      * Configure widget content
      */
     var populateWidgetContent = function() {
-      if ($scope.portlet.widgetURL && $scope.portlet.widgetType) {
-        $scope.loading = true;
+      if (vm.portlet.widgetURL && vm.portlet.widgetType) {
+        vm.loading = true;
         // fetch portlet widget json
-        $scope.portlet.widgetData = [];
-        layoutService.getWidgetJson($scope.portlet).then(function(data) {
-          $scope.loading = false;
+        vm.portlet.widgetData = [];
+        layoutService.getWidgetJson(vm.portlet).then(function(data) {
+          vm.loading = false;
           if (data) {
-            $scope.portlet.widgetData = data;
-            $scope.content = $scope.portlet.widgetData;
-            if (Array.isArray($scope.content) && $scope.content.length == 0) {
-              $scope.isEmpty = true;
-            } else if ($scope.portlet.widgetConfig &&
-                $scope.portlet.widgetConfig.evalString
-              && eval($scope.portlet.widgetConfig.evalString)) {
+            vm.portlet.widgetData = data;
+            vm.content = vm.portlet.widgetData;
+            if (angular.isArray(vm.content) && vm.content.length == 0) {
+              vm.isEmpty = true;
+            } else if (vm.portlet.widgetConfig &&
+                vm.portlet.widgetConfig.evalString
+              && eval(vm.portlet.widgetConfig.evalString)) {
               // ideally this would do a check on an embedded
               // object for emptiness
-              // example : '$scope.content.report.length === 0'
-              $scope.isEmpty = true;
+              // example : 'vm.content.report.length === 0'
+              vm.isEmpty = true;
             }
           } else {
             $log.warn('Got nothing back from widget fetch from ' +
-                $scope.portlet.widgetURL);
-            $scope.isEmpty = true;
+                vm.portlet.widgetURL);
+            vm.isEmpty = true;
           }
           return data;
         }).catch(function() {
-          $scope.loading = false;
+          vm.loading = false;
         });
       }
     };
 
     // Unused??
     // TODO: Determine whether this is used or not
-    $scope.filteredArray = function(array, objectVar, strings) {
+    vm.filteredArray = function(array, objectVar, strings) {
       if (array && objectVar && strings) {
         return array.filter(function(letter) {
           for (var i = 0; i < strings.length; i++) {
@@ -380,34 +385,35 @@ define(['angular'], function(angular) {
     };
 
     // Make sure widget provided a custom html template
-    if ($scope.portlet.widgetTemplate) {
-      $scope.content = [];
-      $scope.template = $scope.portlet.widgetTemplate;
-      $scope.isEmpty = false;
-      $scope.portlet.widgetData = [];
+    if (vm.portlet.widgetTemplate) {
+      vm.content = [];
+      vm.template = vm.portlet.widgetTemplate;
+      vm.isEmpty = false;
+      vm.portlet.widgetData = [];
       populateWidgetContent();
     } else {
-      $log.error($scope.portlet.fname +
+      $log.error(vm.portlet.fname +
           ' said its a widget, but no template defined.');
-      $scope.isEmpty = true;
+      vm.isEmpty = true;
     }
-  }]);
+  }])
 
   /**
    * Widget creator controller (/widget/partials/widget-creator.html)
    */
-  app.controller('WidgetCreatorController',
-    ['$scope', '$route', '$localStorage',
-    function($scope, $route, $localStorage) {
+  .controller('WidgetCreatorController',
+    ['$route', '$localStorage',
+    function($route, $localStorage) {
+    var vm = this;
     // SCOPE FUNCTIONS
 
     // Reload widget preview
-    $scope.reload = function() {
+    vm.reload = function() {
       $route.reload();
     };
 
     // Clear widget configuration
-    $scope.clear = function() {
+    vm.clear = function() {
       if (confirm('Are you sure, all your config will be cleared')) {
         init();
         $route.reload();
@@ -415,14 +421,14 @@ define(['angular'], function(angular) {
     };
 
     // Change to newly-selected template type
-    $scope.changeTemplate = function() {
-      $scope.storage.content = $scope.storage.starterTemplate.contentIsJSON ?
-        JSON.stringify($scope.storage.starterTemplate.content) :
-        $scope.storage.starterTemplate.content;
-      $scope.storage.portlet = $scope.storage.starterTemplate;
-      $scope.storage.widgetConfig =
-        JSON.stringify($scope.storage.starterTemplate.widgetConfig);
-      $scope.reload();
+    vm.changeTemplate = function() {
+      vm.storage.content = vm.storage.starterTemplate.contentIsJSON ?
+        angular.toJson(vm.storage.starterTemplate.content) :
+        vm.storage.starterTemplate.content;
+      vm.storage.portlet = vm.storage.starterTemplate;
+      vm.storage.widgetConfig =
+        angular.toJson(vm.storage.starterTemplate.widgetConfig);
+      vm.reload();
     };
 
     // LOCAL FUNCTIONS
@@ -430,7 +436,7 @@ define(['angular'], function(angular) {
     // Test for valid JSON
     var validJSON = function isValidJson(json) {
       try {
-        JSON.parse(json);
+        angular.fromJson(json);
         return true;
       } catch (e) {
         return false;
@@ -439,35 +445,35 @@ define(['angular'], function(angular) {
 
     // Set defaults and flag inited true
     var configureDefaults = function() {
-      $scope.storage.isEmpty = false;
-      $scope.storage.portlet = $scope.storage.starterTemplates[0];
-      $scope.storage.inited = true;
-      $scope.portlet = $scope.storage.portlet;
+      vm.storage.isEmpty = false;
+      vm.storage.portlet = vm.storage.starterTemplates[0];
+      vm.storage.inited = true;
+      vm.portlet = vm.storage.portlet;
     };
 
     // Get widget configuration from scope.storage and display in preview
     var configureDefaultsFromStorage = function() {
-      $scope.portlet = $scope.storage.portlet;
-      $scope.isEmpty = $scope.storage.isEmpty;
-      if ($scope.storage.content && validJSON($scope.storage.content)) {
-        $scope.content = JSON.parse($scope.storage.content);
-        $scope.isEmpty = $scope.storage.evalString ?
-          eval($scope.storage.evalString) : false;
+      vm.portlet = vm.storage.portlet;
+      vm.isEmpty = vm.storage.isEmpty;
+      if (vm.storage.content && validJSON(vm.storage.content)) {
+        vm.content = angular.fromJson(vm.storage.content);
+        vm.isEmpty = vm.storage.evalString ?
+          eval(vm.storage.evalString) : false;
       } else {
-        $scope.content = {};
-        $scope.isEmpty = true;
-        $scope.errorJSON = $scope.storage.content ? 'JSON NOT VALID' : '';
+        vm.content = {};
+        vm.isEmpty = true;
+        vm.errorJSON = vm.storage.content ? 'JSON NOT VALID' : '';
       }
-      if ($scope.storage.widgetConfig &&
-          validJSON($scope.storage.widgetConfig)) {
-        $scope.portlet.widgetConfig =
-          JSON.parse($scope.storage.widgetConfig);
+      if (vm.storage.widgetConfig &&
+          validJSON(vm.storage.widgetConfig)) {
+        vm.portlet.widgetConfig =
+          angular.fromJson(vm.storage.widgetConfig);
       } else {
-        $scope.errorConfigJSON = $scope.storage.widgetConfig ?
+        vm.errorConfigJSON = vm.storage.widgetConfig ?
           'JSON NOT VALID' : '';
       }
 
-      $scope.template = $scope.portlet.widgetTemplate;
+      vm.template = vm.portlet.widgetTemplate;
     };
 
     /**
@@ -476,10 +482,10 @@ define(['angular'], function(angular) {
     var init = function() {
       $localStorage.widgetCreator = $localStorage.widgetCreator || {};
       // Makes the widget creator stuff contained
-      $scope.storage = $localStorage.widgetCreator;
+      vm.storage = $localStorage.widgetCreator;
 
       // Mock the widget controller
-      $scope.widgetCtrl = {
+      vm.widgetCtrl = {
         portletType: function(portlet) {
           if (portlet.type) {
             return portlet.type;
@@ -488,7 +494,7 @@ define(['angular'], function(angular) {
         },
       };
       // Define default templates
-      $scope.storage.starterTemplates = [
+      vm.storage.starterTemplates = [
         {
           id: 4,
           type: 'WIDGET_CREATOR',
@@ -580,7 +586,7 @@ define(['angular'], function(angular) {
       ];
 
       // Make sure view is initialized
-      if (!$scope.storage.inited) {
+      if (!vm.storage.inited) {
         configureDefaults();
         configureDefaultsFromStorage();
       } else {
@@ -590,6 +596,4 @@ define(['angular'], function(angular) {
 
     init();
   }]);
-
-  return app;
 });
