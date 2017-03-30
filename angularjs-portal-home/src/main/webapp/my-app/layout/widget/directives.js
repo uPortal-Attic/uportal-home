@@ -1,7 +1,7 @@
 'use strict';
 
 define(['angular', 'require'], function(angular, require) {
-    var app = angular.module('my-app.layout.widget.directives', []);
+    return angular.module('my-app.layout.widget.directives', [])
 
     /**
      * <option-link> directive is used to display widget content.
@@ -15,7 +15,7 @@ define(['angular', 'require'], function(angular, require) {
      *   'display': 'display' // what to display in the drop down
      * }
      */
-    app.directive('optionLink', function() {
+    .directive('optionLink', function() {
         return {
             restrict: 'E',
             scope: {
@@ -25,9 +25,9 @@ define(['angular', 'require'], function(angular, require) {
             templateUrl: require.toUrl('./partials/option-link.html'),
             controller: 'OptionLinkController',
         };
-    });
+    })
 
-    app.directive('weather', function() {
+    .directive('weather', function() {
         return {
             restrict: 'E',
             scope: {
@@ -37,9 +37,9 @@ define(['angular', 'require'], function(angular, require) {
             templateUrl: require.toUrl('./partials/weather.html'),
             controller: 'WeatherController',
         };
-    });
+    })
 
-    app.directive('lol', function() {
+    .directive('lol', function() {
         return {
             restrict: 'E',
             scope: {
@@ -48,9 +48,9 @@ define(['angular', 'require'], function(angular, require) {
             },
             templateUrl: require.toUrl('./partials/list-of-links.html'),
         };
-    });
+    })
 
-    app.directive('swl', function() {
+    .directive('swl', function() {
         return {
             restrict: 'E',
             scope: {
@@ -60,7 +60,7 @@ define(['angular', 'require'], function(angular, require) {
             templateUrl: require.toUrl('./partials/search-with-links.html'),
             controller: 'SearchWithLinksController',
         };
-    });
+    })
 
     /**
      <rss></rss> is an rss widget card that will show your info in a view
@@ -71,7 +71,7 @@ define(['angular', 'require'], function(angular, require) {
                - dateFormat : The date format, see https://docs.angularjs.org/api/ng/filter/date
                - showShowing : show the Showing x of y (default false)
     **/
-    app.directive('rss', function() {
+    .directive('rss', function() {
         return {
             restrict: 'E',
             scope: {
@@ -80,24 +80,24 @@ define(['angular', 'require'], function(angular, require) {
             },
             templateUrl: require.toUrl('./partials/rssfeed.html'),
         };
-    });
+    })
 
     /**
       Just the widget Card, gets the portlet from the scope.
       Object must be in the portlet
     **/
-    app.directive('widgetCard', function() {
+    .directive('widgetCard', function() {
         return {
             restrict: 'E',
             templateUrl: require.toUrl('./partials/widget-card.html'),
         };
-    });
+    })
 
     /**
       * Independent widget that does everything
       * fname : the fname of the object you wish to display
       */
-    app.component('widget', {
+    .component('widget', {
       bindings: {
         fname: '<',
       },
@@ -126,8 +126,8 @@ define(['angular', 'require'], function(angular, require) {
             layoutService.getApp(fname).then(function(result) {
                 var data = result.data;
                 $scope.portlet = data.portlet;
-                if (typeof $scope.portlet === 'undefined' ||
-                    typeof $scope.portlet.fname === 'undefined') {
+                if (angular.isUndefined($scope.portlet) ||
+                    angular.isUndefined($scope.portlet.fname)) {
                     $scope.loaded = true;
                     $scope.empty = false;
                     $scope.portlet = {};
@@ -145,6 +145,4 @@ define(['angular', 'require'], function(angular, require) {
         };
       },
     });
-
-    return app;
 });
