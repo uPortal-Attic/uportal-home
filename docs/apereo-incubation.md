@@ -48,7 +48,21 @@ Next actions:
 
 Next actions:
 
-+ New software product names that better reflect nature and do not infringe on others' trademarks. Probably a functional name describing what the product is, with "uPortal" brand attached. As in "uPortal Foo Sprocket".
++ New software product names that better reflect nature and do not infringe on others' trademarks.
++ Names should reflect uPortal commitment and represent how the product should
+be used.
++ Proposed names:
+  + `uw-frame` → `uPortal-app-framework`
+    + The uPortal App Framework will house common functionality to be leveraged
+      by uPortal Apps.
+    + Institutions can provide a custom `uPortal-app-framework-config`
+    + Developers can create their own uPortal Apps drawing from common
+      configuration, style and functionality.
+  + `angularjs-portal` → `uPortal-home`
+    + uPortal Home will be a standard uPortal App that handles layout of the
+      framework widgets for a cohesive user experience.
+    + Developers provide `uPortal-home-config` for environment specific
+      configuration.
 
 ### 4.2 Community
 
