@@ -5,7 +5,7 @@ define(['require'], function(require) {
     },
     widgetFullScreen: {
       template: '<div class="widget-middle">' +
-          '<widget fname="$routeParams.fname"></widget></div>',
+          '<widget fname="{{$routeParams.fname}}" unremovable="true"></widget></div>',
       controller: function($routeParams, $scope) {
         $scope.$routeParams = $routeParams;
       },

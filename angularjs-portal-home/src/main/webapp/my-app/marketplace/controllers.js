@@ -320,6 +320,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
               } else {
                 $scope.portlet = result;
                 $scope.error = false;
+                $scope.cantRemove = true;
               }
               return result;
             }

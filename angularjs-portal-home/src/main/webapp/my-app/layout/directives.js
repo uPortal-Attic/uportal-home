@@ -10,13 +10,6 @@ define(['angular', 'require'], function(angular, require) {
         };
     });
 
-    app.directive('defaultCard', function() {
-        return {
-            restrict: 'E',
-            templateUrl: require.toUrl('./partials/default-card.html'),
-        };
-    });
-
     app.directive('marketplaceLight', function() {
         return{
             restrict: 'E',
