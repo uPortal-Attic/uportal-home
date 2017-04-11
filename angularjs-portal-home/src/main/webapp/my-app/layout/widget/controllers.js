@@ -363,8 +363,14 @@ define(['angular'], function(angular) {
       }
     };
 
-    // Unused??
-    // TODO: Determine whether this is used or not
+    /**
+     * Filter array for provided values of a given object -- used by some widgets (i.e. Leave Balances)
+     * 
+     * @param {Array<Object>} array The array to filter
+     * @param {Object} objectVar The array entry to search through
+     * @param {Array<String>} strings The string values to test against each entry
+     * @returns {Array<Object>} An array containing only the desired
+     */
     $scope.filteredArray = function(array, objectVar, strings) {
       if (array && objectVar && strings) {
         return array.filter(function(letter) {
