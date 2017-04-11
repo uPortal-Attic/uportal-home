@@ -365,10 +365,11 @@ define(['angular'], function(angular) {
 
     /**
      * Filter array for provided values of a given object -- used by some widgets (i.e. Leave Balances)
-     * @param array The array to filter
-     * @param objectVar The array entry to search through
-     * @param strings The string values to test against each entry
-     * @returns {*} An array containing only the desired
+     * 
+     * @param {Array<Object>} array The array to filter
+     * @param {Object} objectVar The array entry to search through
+     * @param {Array<String>} strings The string values to test against each entry
+     * @returns {Array<Object>} An array containing only the desired
      */
     $scope.filteredArray = function(array, objectVar, strings) {
       if (array && objectVar && strings) {
