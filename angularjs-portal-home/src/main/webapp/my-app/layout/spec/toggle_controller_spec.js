@@ -50,7 +50,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           },
         };
 
-        controller = $controller('ToggleController', {
+        controller = $controller('ToggleController as tc', {
           '$localStorage': $localStorage,
           '$scope': scope,
           '$location': $location,
@@ -61,7 +61,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
       }));
 
       it('should have toggle set', function() {
-          expect(scope.toggle).toBeTruthy();
+          expect(scope.tc.toggle).toBeTruthy();
       });
 
       it('should switch to default if layoutMode is set to something weird',
@@ -92,7 +92,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           controller.init();
 
           // switch!
-          scope.switchMode('compact');
+          scope.tc.switchMode('compact');
           controller.init();
 
           // validate
