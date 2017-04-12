@@ -49,7 +49,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
         loginSilentURL = _SERVICE_LOC_.loginSilentURL;
 
         sharedPortletService = {};
-        controller = $controller('LayoutController', {
+        controller = $controller('LayoutController as lc', {
             '$localStorage': $localStorage,
             '$scope': scope,
             '$rootScope': rootScope,
@@ -68,7 +68,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
       });
 
       it('should set layoutEmpty to false initially', function() {
-          expect(scope.layoutEmpty).toBe(false);
+          expect(scope.lc.layoutEmpty).toBe(false);
       });
 
       it('should set layoutEmpty to true after return empty layout',
@@ -80,7 +80,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           scope.$apply(function() {
             deferred.resolve({'layout': []});
           });
-          expect(scope.layoutEmpty).toBe(true);
+          expect(scope.lc.layoutEmpty).toBe(true);
         }
       );
 
@@ -97,7 +97,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           scope.$apply(function() {
             deferred.resolve({'layout': [{'fake': true}]});
           });
-          expect(scope.layoutEmpty).toBe(false);
+          expect(scope.lc.layoutEmpty).toBe(false);
       });
     });
 });
