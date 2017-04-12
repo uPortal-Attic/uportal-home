@@ -31,6 +31,14 @@ define(['angular', 'require'], function(angular, require) {
             controller: 'ToggleController',
         };
     });
+    
+    app.directive('removeButton', function() {
+      return {
+          restrict: 'E',
+          controller: 'LayoutController',
+          templateUrl: require.toUrl('./partials/remove-button.html')
+      };
+  });
 
     return app;
 });
