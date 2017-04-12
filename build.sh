@@ -14,12 +14,7 @@ else
   fi
 
 fi
-  pushd ../uw-frame/
-  npm run clean
-  pushd uw-frame-java
-  mvn -Djava.awt.headless=true clean install
-  popd
-  popd
+
   pushd angularjs-portal-home
   mvn -Djava.awt.headless=true tomcat7:redeploy
   popd
