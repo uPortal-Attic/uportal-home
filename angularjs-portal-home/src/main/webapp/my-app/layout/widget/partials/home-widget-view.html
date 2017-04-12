@@ -12,7 +12,7 @@
     <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list">
       <example-widgets ng-if="$storage.exampleWidgets"></example-widgets>
       <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 no-padding list-container" ng-repeat="portlet in layout | filter:filterText">
-        <widget-card></widget-card>
+        <widget fname="{{ portlet.fname }}"><remove-button></remove-button></widget>
       </li>
     </ul>
     <ul class="tile-list" ng-hide='GuestMode'>
