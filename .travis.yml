@@ -14,3 +14,7 @@ script:
   - npm run lint-js
   - npm run lint-md
   - npm run lint-less
+cache:
+  directories:
+    - $HOME/.m2
+    - node_modules
