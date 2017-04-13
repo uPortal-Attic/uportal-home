@@ -26,8 +26,10 @@ define(['angular', 'jquery'], function(angular, $) {
    * layout/partials/default-card.html)
    */
   .controller('LayoutController',
-    ['$localStorage', '$log', '$sessionStorage', '$rootScope', 'layoutService',
-    function($localStorage, $log, $sessionStorage, $rootScope, layoutService) {
+    ['$localStorage', '$log', '$sessionStorage', 'scope', '$rootScope',
+    'layoutService',
+    function($localStorage, $log, $sessionStorage, $scope, $rootScope,
+      layoutService) {
       var vm = this;
       /**
        * Set the href based on whether it's a static, exclusive,
@@ -53,7 +55,7 @@ define(['angular', 'jquery'], function(angular, $) {
        */
       vm.removePortlet = function removePortletFunction(nodeId, title) {
         layoutService.removeFromHome(nodeId, title).success(function() {
-          vm.$apply(function(request, text) {
+          $scope.$apply(function(request, text) {
             var result = $.grep(vm.layout, function(e) {
               return e.nodeId === nodeId;
             });

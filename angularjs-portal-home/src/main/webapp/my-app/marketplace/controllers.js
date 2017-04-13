@@ -9,11 +9,11 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
     ['googleCustomSearchService', 'miscSearchService', 'layoutService',
       '$log', 'marketplaceService', 'miscService', 'MISC_URLS',
       '$sessionStorage', '$localStorage', '$rootScope',
-      '$routeParams', '$timeout', '$location',
+      '$routeParams', '$timeout', '$location', '$scope',
     function(googleCustomSearchService, miscSearchService, layoutService,
       $log, marketplaceService, miscService, MISC_URLS,
         $sessionStorage, $localStorage, $rootScope,
-        $routeParams, $timeout, $location) {
+        $routeParams, $timeout, $location, $scope) {
       var vm = this;
       var currentThemePrimary = ($sessionStorage.portal.theme &&
         $sessionStorage.portal.theme.materialTheme) ?
@@ -60,7 +60,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
             .prop('disabled', true)
             .removeClass('btn-add')
             .addClass('btn-added');
-          vm.$apply(function() {
+          $scope.$apply(function() {
             var marketplaceEntries = $.grep(
               $sessionStorage.marketplace,
               function(e) {
@@ -140,7 +140,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         vm.searchText = vm.searchTerm;
         var initFilter = false;
         // delay on the filter
-        vm.$watch('searchText', function(val) {
+        $scope.$watch('searchText', function(val) {
           if (filterTextTimeout) $timeout.cancel(filterTextTimeout);
 
           tempFilterText = val;

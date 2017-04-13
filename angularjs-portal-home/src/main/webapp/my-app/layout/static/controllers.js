@@ -46,9 +46,9 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
     }])
 
   .controller('StaticContentController',
-    ['$location', '$log', '$sessionStorage', '$routeParams',
+    ['$location', '$log', '$sessionStorage', '$scope', '$routeParams',
       '$rootScope', 'layoutService',
-    function($location, $log, $sessionStorage, $routeParams,
+    function($location, $log, $sessionStorage, $scope, $routeParams,
         $rootScope, layoutService) {
       var vm = this;
       // BINDABLE MEMBERS
@@ -86,7 +86,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
             .html('<span style="color : green;">' +
               '<i class="fa fa-check"></i> Added Successfully</span>')
             .prop('disabled', true);
-          vm.$apply(function() {
+          $scope.$apply(function() {
             if (angular.isDefined($sessionStorage.marketplace)) {
               var marketplaceEntries = $.grep(
                 $sessionStorage.marketplace,

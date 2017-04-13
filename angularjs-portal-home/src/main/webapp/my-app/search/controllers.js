@@ -8,8 +8,8 @@ define([
     return angular.module('my-app.search.controllers',
       ['my-app.marketplace.controllers', 'portal.search.controllers'])
     .controller('SearchController',
-      ['marketplaceService', '$log', '$location', '$localStorage',
-      function(marketplaceService, $log, $location, $localStorage) {
+      ['marketplaceService', '$log', '$location', '$localStorage', '$scope',
+      function(marketplaceService, $log, $location, $localStorage, $scope) {
         var vm = this;
         vm.initialFilter = '';
         vm.filterMatches = [];
@@ -24,7 +24,7 @@ define([
             });
         }
 
-        vm.$watch('initialFilter', function(newVal, oldVal) {
+        $scope.$watch('initialFilter', function(newVal, oldVal) {
           if (!newVal || !vm.portlets) {
             vm.filterMatches = [];
           } else {
@@ -56,10 +56,10 @@ define([
     .controller('SearchResultController',
       ['$log', '$rootScope', '$controller',
       'marketplaceService', 'googleCustomSearchService',
-      'directorySearchService', 'PortalSearchService',
+      'directorySearchService', 'PortalSearchService', '$scope',
       function($log, $rootScope, $controller,
         marketplaceService, googleCustomSearchService,
-        directorySearchService, PortalSearchService) {
+        directorySearchService, PortalSearchService, $scope) {
       var vm = this;
       var base = $controller('MarketplaceCommonFunctionsController',
                   {$scope: vm});
@@ -144,7 +144,7 @@ define([
         }).catch(function() {
           $log.warn('Could not getPortlets');
         });
-        vm.$watchGroup([
+        $scope.$watchGroup([
             'googleResultsEstimatedCount',
             'myuwFilteredResults.length',
             'wiscDirectoryResultCount'],
