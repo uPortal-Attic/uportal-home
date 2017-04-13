@@ -1,17 +1,17 @@
 'use strict';
 
 define(['angular', 'jquery'], function(angular, $) {
-  var app = angular.module('my-app.layout.services', []);
   var accessDeniedTemplate=
-      '<p><strong>Sorry, you\'re not authorized to access this.</p><br><br>' +
-      '<div class="center">' +
-      '<i class=\'fa fa-exclamation-triangle fa-5x\'></i></div>' +
-      '<p>If you\'re here by accident, head back to your My-UW ' +
-      '<a href=\'/web\'>homepage</a>.</p>' +
-      '<p>For help with authorization, contact the ' +
-      '<a href="https://kb.wisc.edu/helpdesk">DoIT Help Desk</a>.</p>';
+    '<p><strong>Sorry, you\'re not authorized to access this.</p><br><br>' +
+    '<div class="center">' +
+    '<i class=\'fa fa-exclamation-triangle fa-5x\'></i></div>' +
+    '<p>If you\'re here by accident, head back to your My-UW ' +
+    '<a href=\'/web\'>homepage</a>.</p>' +
+    '<p>For help with authorization, contact the ' +
+    '<a href="https://kb.wisc.edu/helpdesk">DoIT Help Desk</a>.</p>';
 
-    app.factory('layoutService',
+  return angular.module('my-app.layout.services', [])
+    .factory('layoutService',
       ['$sce', '$http', '$log', 'miscService',
       'mainService', '$sessionStorage', '$q', 'SERVICE_LOC',
       function($sce, $http, $log, miscService,
@@ -244,6 +244,4 @@ define(['angular', 'jquery'], function(angular, $) {
             getRSSJsonified: getRSSJsonified,
         };
     }]);
-
-    return app;
 });

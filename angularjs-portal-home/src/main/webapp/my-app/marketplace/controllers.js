@@ -1,9 +1,12 @@
 'use strict';
 
 define(['angular', 'jquery', 'require'], function(angular, $, require) {
-  var app = angular.module('my-app.marketplace.controllers', []);
+  var currentPage = 'market';
+  var currentCategory = '';
 
-  app.controller('marketplaceCommonFunctions',
+  return angular.module('my-app.marketplace.controllers', [])
+
+  .controller('marketplaceCommonFunctions',
     ['googleCustomSearchService', 'miscSearchService', 'layoutService',
       '$log', 'marketplaceService', 'miscService', 'MISC_URLS',
       '$sessionStorage', '$localStorage', '$rootScope', '$scope',
@@ -194,12 +197,9 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $scope.loginToAuthPage = MISC_URLS.myuwHome;
       };
     },
-  ]);
+  ])
 
-  var currentPage = 'market';
-  var currentCategory = '';
-
-  app.controller('MarketplaceController', [
+  .controller('MarketplaceController', [
     '$log', '$rootScope', '$scope', '$controller', 'marketplaceService',
     function($log, $rootScope, $scope, $controller, marketplaceService) {
       var base = $controller('marketplaceCommonFunctions', {$scope: $scope});
@@ -253,9 +253,9 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
       // run functions
       init();
-    }]);
+    }])
 
-  app.controller('MarketplaceDetailsController', [
+  .controller('MarketplaceDetailsController', [
       '$controller', '$document', '$scope', '$routeParams',
       '$mdDialog', 'marketplaceService', 'SERVICE_LOC',
       function($controller, $document, $scope, $routeParams,
@@ -330,9 +330,9 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         };
         init();
       }]
-  );
+  )
 
-  app.controller('MarketplaceRatingReviewAdminController', [
+  .controller('MarketplaceRatingReviewAdminController', [
     '$log', '$scope', 'marketplaceService',
     function($log, $scope, marketplaceService) {
       var init = function() {
@@ -360,6 +360,4 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
       init();
     }]);
-
-  return app;
 });

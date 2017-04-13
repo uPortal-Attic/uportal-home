@@ -1,12 +1,12 @@
 'use strict';
 
 define(['angular', 'jquery'], function(angular, $) {
-  var app = angular.module('my-app.layout.controllers', []);
+  return angular.module('my-app.layout.controllers', [])
 
   /**
    * Controller for default view (my-app/layout/partials/default-view.html)
    */
-  app.controller('DefaultViewController',
+  .controller('DefaultViewController',
     ['$scope', '$location', '$mdMedia', '$localStorage', 'APP_FLAGS',
     function($scope, $location, $mdMedia, $localStorage, APP_FLAGS) {
       $scope.loading = [];
@@ -16,14 +16,14 @@ define(['angular', 'jquery'], function(angular, $) {
         'compact' : APP_FLAGS.defaultView;
       }
       $location.path('/' + $localStorage.layoutMode);
-  }]);
+  }])
 
   /**
    * Controller for the compact mode widget layout
    * (layout/list/partials/home-list-view.html and
    * layout/partials/default-card.html)
    */
-  app.controller('LayoutController',
+  .controller('LayoutController',
     ['$localStorage', '$log', '$sessionStorage',
     '$scope', '$rootScope', 'layoutService',
     function($localStorage, $log, $sessionStorage,
@@ -126,7 +126,7 @@ define(['angular', 'jquery'], function(angular, $) {
       };
 
       this.init();
-    }]);
+    }])
 
   /**
    * Basic widget logic leveraged by WidgetController,
@@ -135,7 +135,7 @@ define(['angular', 'jquery'], function(angular, $) {
    * /widget/partials/widget-card.html),
    * and 'widget' component (/widget/directives.js)
    */
-  app.controller('BaseWidgetFunctionsController',
+  .controller('BaseWidgetFunctionsController',
     ['$scope', '$sessionStorage', '$localStorage',
     'layoutService', 'childController',
     function($scope, $sessionStorage, $localStorage,
@@ -234,14 +234,14 @@ define(['angular', 'jquery'], function(angular, $) {
         });
       };
     },
-  ]);
+  ])
 
   /**
    * Widget initialization and sorting for expanded mode widget layout
    * (/widget/partials/home-widget-view.html and
    * /widget/partials/widget-card.html)
    */
-  app.controller('WidgetController',
+  .controller('WidgetController',
   ['$controller', '$log', '$scope', '$rootScope', 'layoutService',
     function($controller, $log, $scope, $rootScope, layoutService) {
       // Inherit from BaseWidgetFunctionsController
@@ -298,13 +298,13 @@ define(['angular', 'jquery'], function(angular, $) {
         },
       };
       init();
-  }]);
+  }])
 
   /**
    * Controller for toggling between expanded
    * and compact mode via the app-header's toggle
    */
-  app.controller('ToggleController',
+  .controller('ToggleController',
   ['$localStorage', '$scope', '$location', '$log', 'miscService', 'APP_FLAGS',
     function($localStorage, $scope, $location, $log, miscService, APP_FLAGS) {
       /**
@@ -353,6 +353,4 @@ define(['angular', 'jquery'], function(angular, $) {
 
       this.init();
   }]);
-
-  return app;
 });

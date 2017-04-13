@@ -5,22 +5,20 @@
 */
 
 define(['angular', 'require'], function(angular, require) {
-    var app = angular.module('my-app.layout.static.directives', []);
+    return angular.module('my-app.layout.static.directives', [])
 
-    app.directive('staticContentCard', function() {
+    .directive('staticContentCard', function() {
         return {
           restrict: 'E',
           templateUrl: require.toUrl('./partials/static-content-card.html'),
         };
-    });
+    })
 
-    app.directive('staticContentCardMax', function() {
+    .directive('staticContentCardMax', function() {
         return {
           restrict: 'E',
           templateUrl:
               require.toUrl('./partials/static-content-card-max.html'),
         };
     });
-
-    return app;
 });

@@ -6,7 +6,7 @@
     "lint-css": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
     "pretest": "mvn clean package",
     "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run",
-    "dev-lint-js": "eslint --ext js --ext json --ext md --format html --output-file angularjs-portal-home/target/web/lint-out.html . --ignore-path .gitignore",
+    "dev-lint-js": "eslint --quiet --ext js --ext json --ext md --format html --output-file angularjs-portal-home/target/web/lint-out.html . --ignore-path .gitignore",
     "lint-js": "eslint --ext js --ext json --ext md . --ignore-path .gitignore",
     "lint-md": "remark . --ignore-path .gitignore",
     "lint-less": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
@@ -30,8 +30,9 @@
   "homepage": "https://github.com/UW-Madison-DoIT/angularjs-portal",
   "devDependencies": {
     "eslint": "^3.17.1",
+    "eslint-config-angular": "^0.5.0",
     "eslint-config-google": "^0.7.1",
-    "eslint-git-changes": "^1.0.0",
+    "eslint-git-changes": "^2.0.0",
     "eslint-plugin-angular": "^1.6.2",
     "eslint-plugin-compat": "^1.0.2",
     "eslint-plugin-jasmine": "^2.2.0",
@@ -103,21 +104,17 @@
     "extends": [
       "eslint:recommended",
       "google",
+      "angular",
       "plugin:jasmine/recommended",
       "plugin:promise/recommended",
       "plugin:requirejs/recommended"
     ],
     "rules": {
-      "angular/angularelement": "error",
-      "angular/di": "warn",
-      "angular/di-order": "warn",
-      "angular/di-unused": "error",
-      "angular/document-service": "error",
-      "angular/log": "error",
-      "angular/module-dependency-order": "error",
-      "angular/no-service-method": "error",
-      "angular/no-services": "warn",
-      "angular/window-service": "error",
+      "angular/di": [
+        "warn",
+        "array"
+      ],
+      "angular/controller-as": "off",
       "compat/compat": "error",
       "arrow-parens": "off",
       "constructor-super": "off",

@@ -1,9 +1,9 @@
 'use strict';
 
 define(['angular', 'jquery', 'require'], function(angular, $, require) {
-  var app = angular.module('my-app.layout.static.controllers', []);
+  return angular.module('my-app.layout.static.controllers', [])
 
-  app.controller('ExclusiveContentController',
+  .controller('ExclusiveContentController',
     ['$location', '$log', '$routeParams', '$scope', 'layoutService',
     function($location, $log, $routeParams, $scope, layoutService) {
       // BINDABLE MEMBERS
@@ -42,9 +42,9 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       }).catch(function() {
         $log.warn('Could not getApp ' + $routeParams.fname);
       });
-    }]);
+    }])
 
-  app.controller('StaticContentController',
+  .controller('StaticContentController',
     ['$location', '$log', '$sessionStorage', '$routeParams',
       '$rootScope', '$scope', 'layoutService',
     function($location, $log, $sessionStorage, $routeParams,
@@ -140,6 +140,4 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
       $scope.inFavorites = this.inLayout();
     }]);
-
-  return app;
 });
