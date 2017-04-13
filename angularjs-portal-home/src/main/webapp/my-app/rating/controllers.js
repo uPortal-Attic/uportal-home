@@ -1,32 +1,34 @@
 'use strict';
 
 define(['angular', 'jquery', 'require'], function(angular, $, require) {
-    var app = angular.module('my-app.rating.controllers', []);
+    return angular.module('my-app.rating.controllers', [])
 
-    app.controller('RatingsModalController', [
-        '$scope', 'marketplaceService', '$mdDialog',
-        function($scope, marketplaceService, $mdDialog) {
+    .controller('RatingsModalController', [
+        'marketplaceService', '$mdDialog',
+        function(marketplaceService, $mdDialog) {
+            var vm = this;
+
             var init = function() {
-              $scope.loading = true;
-              marketplaceService.getUserRating($scope.portlet.fname)
+              vm.loading = true;
+              marketplaceService.getUserRating(vm.portlet.fname)
                 .then(function(data) {
                   var rating = data;
                   if (rating !== null) {
-                      $scope.rating = rating;
-                      $scope.rating.previouslyRated=true;
-                      $scope.loading = false;
+                      vm.rating = rating;
+                      vm.rating.previouslyRated=true;
+                      vm.loading = false;
                   } else {
-                      $scope.rating = {
-                                       'rating': 0,
-                                       'review': '',
-                                       'previouslyRated': false,
-                                      };
-                      $scope.loading = false;
+                      vm.rating = {
+                       'rating': 0,
+                       'review': '',
+                       'previouslyRated': false,
+                      };
+                      vm.loading = false;
                   }
                   return data;
                 }).catch(function() {
-                  $scope.loading = false;
-                  $scope.rating = {
+                  vm.loading = false;
+                  vm.rating = {
                                    'rating': 0,
                                    'review': '',
                                    'previouslyRated': false,
@@ -36,19 +38,19 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
             init();
 
-            $scope.ok = function() {
-              marketplaceService.saveRating($scope.portlet.fname, $scope.rating)
+            vm.ok = function() {
+              marketplaceService.saveRating(vm.portlet.fname, vm.rating)
                 .then(function() {
                   $mdDialog.hide();
-                  $scope.saved = true;
+                  vm.saved = true;
                   return;
                 })
                 .catch(function() {
-                  $scope.error = 'Issue saving rating';
+                  vm.error = 'Issue saving rating';
                 });
             };
 
-            $scope.cancel = function() {
+            vm.cancel = function() {
               $mdDialog.cancel();
             };
         }]);

@@ -1,45 +1,42 @@
 'use strict';
 
 define(['angular', 'require'], function(angular, require) {
-    var app = angular.module('my-app.layout.directives', []);
+  return angular.module('my-app.layout.directives', [])
 
-    app.directive('portletIcon', function() {
-        return {
-            restrict: 'E',
-            templateUrl: require.toUrl('./partials/portlet-icon.html'),
-        };
-    });
+  .directive('portletIcon', function() {
+    return {
+      restrict: 'E',
+      templateUrl: require.toUrl('./partials/portlet-icon.html'),
+    };
+  })
 
-    app.directive('marketplaceLight', function() {
-        return{
-            restrict: 'E',
-            templateUrl: require.toUrl('./partials/marketplace-light.html'),
-        };
-    });
+  .directive('marketplaceLight', function() {
+    return{
+      restrict: 'E',
+      templateUrl: require.toUrl('./partials/marketplace-light.html'),
+    };
+  })
 
-    app.directive('homeHeader', function() {
-        return{
-            restrict: 'E',
-            templateUrl: require.toUrl('./partials/home-header.html'),
-        };
-    });
+  .directive('homeHeader', function() {
+    return{
+      restrict: 'E',
+      templateUrl: require.toUrl('./partials/home-header.html'),
+    };
+  })
 
-    app.directive('homeToggle', function() {
-        return {
-            restrict: 'E',
-            templateUrl: require.toUrl('./partials/home-toggle.html'),
-            controller: 'ToggleController',
-        };
-    });
-
-    app.directive('removeButton', function() {
+  .directive('homeToggle', function() {
       return {
-          restrict: 'E',
-          controller: 'LayoutController',
-          templateUrl: require.toUrl('./partials/remove-button.html'),
+        restrict: 'E',
+        templateUrl: require.toUrl('./partials/home-toggle.html'),
+        controller: 'ToggleController',
       };
+  })
+
+  .directive('removeButton', function() {
+    return {
+      restrict: 'E',
+      controller: 'LayoutController',
+      templateUrl: require.toUrl('./partials/remove-button.html'),
+    };
   });
-
-    return app;
 });
-

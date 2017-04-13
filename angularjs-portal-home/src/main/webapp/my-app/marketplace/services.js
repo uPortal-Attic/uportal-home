@@ -1,9 +1,9 @@
 'use strict';
 
 define(['angular', 'jquery'], function(angular, $) {
-    var app = angular.module('my-app.marketplace.services', []);
+    return angular.module('my-app.marketplace.services', [])
 
-    app.factory('marketplaceService',
+    .factory('marketplaceService',
       ['$q', '$http', '$sessionStorage', 'layoutService', '$log',
       'miscService', 'mainService', 'SERVICE_LOC', 'APP_FLAGS',
       function($q, $http, $sessionStorage, layoutService, $log,
@@ -308,6 +308,4 @@ define(['angular', 'jquery'], function(angular, $) {
             getFromInfo: getFromInfo,
         };
     }]);
-
-    return app;
 });
