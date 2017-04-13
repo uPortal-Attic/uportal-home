@@ -107,7 +107,7 @@ define(['angular', 'jquery'], function(angular, $) {
        * Initialize LayoutController
        */
       this.init = function() {
-        if (typeof $rootScope.layout === 'undefined' ||
+        if (angular.isUndefined($rootScope.layout) ||
         $rootScope.layout == null) {
           $rootScope.layout = [];
           $scope.layoutEmpty = false;
@@ -252,7 +252,7 @@ define(['angular', 'jquery'], function(angular, $) {
        * Initialize expanded mode widget layout
        */
       function init() {
-        if (typeof $rootScope.layout === 'undefined' ||
+        if (angular.isUndefined($rootScope.layout) ||
         $rootScope.layout == null) {
           $rootScope.layout = [];
           $scope.layoutEmpty = false;

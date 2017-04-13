@@ -21,8 +21,8 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       layoutService.getApp($routeParams.fname).then(function(result) {
         var data = result.data;
         $scope.portlet = data.portlet;
-        if (typeof $scope.portlet === 'undefined' ||
-          typeof $scope.portlet.fname === 'undefined') {
+        if (angular.isUndefined($scope.portlet) ||
+          angular.isUndefined($scope.portlet.fname)) {
           if (result.status === 403) {
             $scope.loaded = true;
             $scope.empty = false;
@@ -57,8 +57,8 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       layoutService.getApp($routeParams.fname).then(function(result) {
         var data = result.data;
         $scope.portlet = data.portlet;
-        if (typeof $scope.portlet === 'undefined' ||
-          typeof $scope.portlet.fname === 'undefined') {
+        if (angular.isUndefined($scope.portlet) ||
+          angular.isUndefined($scope.portlet.fname)) {
           if (result.status === 403) {
             $scope.loaded = true;
             $scope.empty = false;
@@ -85,7 +85,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
               '<i class="fa fa-check"></i> Added Successfully</span>')
             .prop('disabled', true);
           $scope.$apply(function() {
-            if (typeof $sessionStorage.marketplace !== 'undefined') {
+            if (angular.isDefined($sessionStorage.marketplace)) {
               var marketplaceEntries = $.grep(
                 $sessionStorage.marketplace,
                 function(e) {
