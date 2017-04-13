@@ -59,7 +59,8 @@ define([
       function($log, $rootScope, $scope, $controller,
         marketplaceService, googleCustomSearchService,
         directorySearchService, PortalSearchService) {
-      var base = $controller('marketplaceCommonFunctions', {$scope: $scope});
+      var base = $controller('MarketplaceCommonFunctionsController',
+        {$scope: $scope});
 
       var initWiscEduSearch = function() {
         googleCustomSearchService.googleSearch($scope.searchTerm).then(

@@ -6,7 +6,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
   return angular.module('my-app.marketplace.controllers', [])
 
-  .controller('marketplaceCommonFunctions',
+  .controller('MarketplaceCommonFunctionsController',
     ['googleCustomSearchService', 'miscSearchService', 'layoutService',
       '$log', 'marketplaceService', 'miscService', 'MISC_URLS',
       '$sessionStorage', '$localStorage', '$rootScope', '$scope',
@@ -203,7 +203,8 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
   .controller('MarketplaceController', [
     '$log', '$rootScope', '$scope', '$controller', 'marketplaceService',
     function($log, $rootScope, $scope, $controller, marketplaceService) {
-      var base = $controller('marketplaceCommonFunctions', {$scope: $scope});
+      var base = $controller('MarketplaceCommonFunctionsController',
+        {$scope: $scope});
 
       var init = function() {
         // init variables
@@ -261,7 +262,8 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       '$mdDialog', 'marketplaceService', 'SERVICE_LOC',
       function($controller, $document, $scope, $routeParams,
           $mdDialog, marketplaceService, SERVICE_LOC) {
-        $controller('marketplaceCommonFunctions', {$scope: $scope});
+        $controller('MarketplaceCommonFunctionsController',
+          {$scope: $scope});
 
         $scope.specifyCategory = function(category) {
           currentCategory=category;
