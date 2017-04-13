@@ -26,7 +26,7 @@ define(['angular', 'jquery'], function(angular, $) {
    * layout/partials/default-card.html)
    */
   .controller('LayoutController',
-    ['$localStorage', '$log', '$sessionStorage', 'scope', '$rootScope',
+    ['$localStorage', '$log', '$sessionStorage', '$scope', '$rootScope',
     'layoutService',
     function($localStorage, $log, $sessionStorage, $scope, $rootScope,
       layoutService) {
