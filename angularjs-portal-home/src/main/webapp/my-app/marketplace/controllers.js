@@ -15,6 +15,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       $log, marketplaceService, miscService, MISC_URLS,
         $sessionStorage, $localStorage, $rootScope, $scope,
         $routeParams, $timeout, $location) {
+      var vm = this;
       var currentThemePrimary = ($sessionStorage.portal.theme &&
         $sessionStorage.portal.theme.materialTheme) ?
         $sessionStorage.portal.theme.materialTheme.primary['500'] :
@@ -127,7 +128,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $scope.showAll = !$scope.showAll;
       };
 
-      this.setupSearchTerm = function() {
+      vm.setupSearchTerm = function() {
         var tempFilterText = '';
         var filterTextTimeout;
         $scope.searchTerm = marketplaceService.getInitialFilter();
@@ -155,7 +156,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         });
       };
 
-      this.initializeConstants = function() {
+      vm.initializeConstants = function() {
         var errorFn = function(name) {
           return function() {
             $log.warn('Could not ' + name);

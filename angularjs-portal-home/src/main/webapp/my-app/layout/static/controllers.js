@@ -49,6 +49,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       '$rootScope', '$scope', 'layoutService',
     function($location, $log, $sessionStorage, $routeParams,
         $rootScope, $scope, layoutService) {
+      var vm = this;
       // BINDABLE MEMBERS
       $scope.portlet = {};
       $scope.loaded = false;
@@ -77,7 +78,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $log.warn('Could not getApp ' + $routeParams.fname);
       });
 
-      this.addToHome = function(portlet) {
+      vm.addToHome = function(portlet) {
         var ret = layoutService.addToHome(portlet);
         ret.success(function(request, text) {
           angular.element('.fname-' + portlet.fname)
@@ -112,7 +113,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         });
       };
 
-      this.inLayout = function() {
+      vm.inLayout = function() {
         var layout = $rootScope.layout;
         var ret = false;
         if (!layout) {
@@ -138,6 +139,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         return ret;
       };
 
-      $scope.inFavorites = this.inLayout();
+      $scope.inFavorites = vm.inLayout();
     }]);
 });
