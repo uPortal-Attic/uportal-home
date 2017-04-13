@@ -3,6 +3,14 @@
 define(['angular', 'require'], function(angular, require) {
     var app = angular.module('my-app.layout.directives', []);
 
+    // Compact Mode
+    app.directive('defaultCard', function() {
+      return {
+        restrict: 'E',
+        templateUrl: require.toUrl('./partials/default-card.html'),
+      };
+    });
+
     app.directive('portletIcon', function() {
         return {
             restrict: 'E',
