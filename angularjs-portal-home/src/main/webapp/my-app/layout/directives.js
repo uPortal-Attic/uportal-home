@@ -1,53 +1,50 @@
 'use strict';
 
 define(['angular', 'require'], function(angular, require) {
-    var app = angular.module('my-app.layout.directives', []);
+    return angular.module('my-app.layout.directives', [])
 
     // Compact Mode
-    app.directive('defaultCard', function() {
+    .directive('defaultCard', function() {
       return {
         restrict: 'E',
         templateUrl: require.toUrl('./partials/default-card.html'),
       };
-    });
+    })
 
-    app.directive('portletIcon', function() {
+    .directive('portletIcon', function() {
         return {
             restrict: 'E',
             templateUrl: require.toUrl('./partials/portlet-icon.html'),
         };
-    });
+    })
 
-    app.directive('marketplaceLight', function() {
+    .directive('marketplaceLight', function() {
         return{
             restrict: 'E',
             templateUrl: require.toUrl('./partials/marketplace-light.html'),
         };
-    });
+    })
 
-    app.directive('homeHeader', function() {
+    .directive('homeHeader', function() {
         return{
             restrict: 'E',
             templateUrl: require.toUrl('./partials/home-header.html'),
         };
-    });
+    })
 
-    app.directive('homeToggle', function() {
+    .directive('homeToggle', function() {
         return {
             restrict: 'E',
             templateUrl: require.toUrl('./partials/home-toggle.html'),
             controller: 'ToggleController',
         };
-    });
+    })
 
-    app.directive('removeButton', function() {
+    .directive('removeButton', function() {
       return {
           restrict: 'E',
           controller: 'LayoutController',
           templateUrl: require.toUrl('./partials/remove-button.html'),
       };
   });
-
-    return app;
 });
-

@@ -1,6 +1,6 @@
 'use strict';
 require(['./config', './js/login-config'], function(config, loginConfig) {
-  require.config(config);
+  require.config(config); // eslint-disable-line angular/module-getter
 
   require(['angular', 'jquery', 'my-app'], function(angular, $) {
     // Idea taken from

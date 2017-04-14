@@ -30,8 +30,9 @@
   "homepage": "https://github.com/UW-Madison-DoIT/angularjs-portal",
   "devDependencies": {
     "eslint": "^3.17.1",
+    "eslint-config-angular": "^0.5.0",
     "eslint-config-google": "^0.7.1",
-    "eslint-git-changes": "^1.0.0",
+    "eslint-git-changes": "^2.0.0",
     "eslint-plugin-angular": "^1.6.2",
     "eslint-plugin-compat": "^1.0.2",
     "eslint-plugin-jasmine": "^2.2.0",
@@ -103,21 +104,17 @@
     "extends": [
       "eslint:recommended",
       "google",
+      "angular",
       "plugin:jasmine/recommended",
       "plugin:promise/recommended",
       "plugin:requirejs/recommended"
     ],
     "rules": {
-      "angular/angularelement": "error",
-      "angular/di": "warn",
-      "angular/di-order": "warn",
-      "angular/di-unused": "error",
-      "angular/document-service": "error",
-      "angular/log": "error",
-      "angular/module-dependency-order": "error",
-      "angular/no-service-method": "error",
-      "angular/no-services": "warn",
-      "angular/window-service": "error",
+      "angular/di": [
+        "warn",
+        "array"
+      ],
+      "angular/controller-as": "off",
       "compat/compat": "error",
       "arrow-parens": "off",
       "constructor-super": "off",

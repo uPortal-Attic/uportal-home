@@ -1,9 +1,12 @@
 'use strict';
 
 define(['angular', 'jquery', 'require'], function(angular, $, require) {
-  var app = angular.module('my-app.marketplace.controllers', []);
+  var currentPage = 'market';
+  var currentCategory = '';
 
-  app.controller('marketplaceCommonFunctions',
+  return angular.module('my-app.marketplace.controllers', [])
+
+  .controller('MarketplaceCommonFunctionsController',
     ['googleCustomSearchService', 'miscSearchService', 'layoutService',
       '$log', 'marketplaceService', 'miscService', 'MISC_URLS',
       '$sessionStorage', '$localStorage', '$rootScope', '$scope',
@@ -12,6 +15,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       $log, marketplaceService, miscService, MISC_URLS,
         $sessionStorage, $localStorage, $rootScope, $scope,
         $routeParams, $timeout, $location) {
+      var vm = this;
       var currentThemePrimary = ($sessionStorage.portal.theme &&
         $sessionStorage.portal.theme.materialTheme) ?
         $sessionStorage.portal.theme.materialTheme.primary['500'] :
@@ -124,7 +128,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $scope.showAll = !$scope.showAll;
       };
 
-      this.setupSearchTerm = function() {
+      vm.setupSearchTerm = function() {
         var tempFilterText = '';
         var filterTextTimeout;
         $scope.searchTerm = marketplaceService.getInitialFilter();
@@ -152,7 +156,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         });
       };
 
-      this.initializeConstants = function() {
+      vm.initializeConstants = function() {
         var errorFn = function(name) {
           return function() {
             $log.warn('Could not ' + name);
@@ -194,15 +198,13 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $scope.loginToAuthPage = MISC_URLS.myuwHome;
       };
     },
-  ]);
+  ])
 
-  var currentPage = 'market';
-  var currentCategory = '';
-
-  app.controller('MarketplaceController', [
+  .controller('MarketplaceController', [
     '$log', '$rootScope', '$scope', '$controller', 'marketplaceService',
     function($log, $rootScope, $scope, $controller, marketplaceService) {
-      var base = $controller('marketplaceCommonFunctions', {$scope: $scope});
+      var base = $controller('MarketplaceCommonFunctionsController',
+        {$scope: $scope});
 
       var init = function() {
         // init variables
@@ -253,14 +255,15 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
       // run functions
       init();
-    }]);
+    }])
 
-  app.controller('MarketplaceDetailsController', [
+  .controller('MarketplaceDetailsController', [
       '$controller', '$document', '$scope', '$routeParams',
       '$mdDialog', 'marketplaceService', 'SERVICE_LOC',
       function($controller, $document, $scope, $routeParams,
           $mdDialog, marketplaceService, SERVICE_LOC) {
-        $controller('marketplaceCommonFunctions', {$scope: $scope});
+        $controller('MarketplaceCommonFunctionsController',
+          {$scope: $scope});
 
         $scope.specifyCategory = function(category) {
           currentCategory=category;
@@ -330,9 +333,9 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         };
         init();
       }]
-  );
+  )
 
-  app.controller('MarketplaceRatingReviewAdminController', [
+  .controller('MarketplaceRatingReviewAdminController', [
     '$log', '$scope', 'marketplaceService',
     function($log, $scope, marketplaceService) {
       var init = function() {
@@ -360,6 +363,4 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
       init();
     }]);
-
-  return app;
 });
