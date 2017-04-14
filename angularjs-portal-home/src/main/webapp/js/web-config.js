@@ -1,7 +1,7 @@
 /* eslint max-len: "off" */
 define(['angular'], function(angular) {
-    var config = angular.module('web-config', []);
-    config.value('SEARCH_CONFIG', [
+    return angular.module('web-config', [])
+    .value('SEARCH_CONFIG', [
       {
         'group': 'UW-Madison',
         'directorySearchURL': '/web/api/proxy/wiscdirectory',
@@ -29,5 +29,4 @@ define(['angular'], function(angular) {
         'domainResultsLabel': 'uwplatt.edu',
       },
     ]);
-    return config;
 });

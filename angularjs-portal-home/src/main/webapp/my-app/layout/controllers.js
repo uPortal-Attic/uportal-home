@@ -1,12 +1,12 @@
 'use strict';
 
 define(['angular', 'jquery'], function(angular, $) {
-  var app = angular.module('my-app.layout.controllers', []);
+  return angular.module('my-app.layout.controllers', [])
 
   /**
    * Controller for default view (my-app/layout/partials/default-view.html)
    */
-  app.controller('DefaultViewController',
+  .controller('DefaultViewController',
     ['$scope', '$location', '$mdMedia', '$localStorage', 'APP_FLAGS',
     function($scope, $location, $mdMedia, $localStorage, APP_FLAGS) {
       $scope.loading = [];
@@ -16,25 +16,26 @@ define(['angular', 'jquery'], function(angular, $) {
         'compact' : APP_FLAGS.defaultView;
       }
       $location.path('/' + $localStorage.layoutMode);
-  }]);
+  }])
 
   /**
    * Controller for the compact mode widget layout
    * (layout/list/partials/home-list-view.html and
    * layout/partials/default-card.html)
    */
-  app.controller('LayoutController',
+  .controller('LayoutController',
     ['$localStorage', '$log', '$sessionStorage',
     '$scope', '$rootScope', 'layoutService',
     function($localStorage, $log, $sessionStorage,
       $scope, $rootScope, layoutService) {
+      var vm = this;
       /**
        * Set the href based on whether it's a static, exclusive,
        * or basic widget (based on attributes from entity file)
        * @param portlet
        * @returns {String}
        */
-      this.renderURL = function(portlet) {
+      vm.renderURL = function(portlet) {
         if (portlet.staticContent != null && portlet.altMaxUrl == false) {
           return 'static/' + portlet.fname;
         } else if (portlet.altMaxUrl == false &&
@@ -50,7 +51,7 @@ define(['angular', 'jquery'], function(angular, $) {
        * @param nodeId
        * @param title
        */
-      this.removePortlet = function removePortletFunction(nodeId, title) {
+      vm.removePortlet = function removePortletFunction(nodeId, title) {
         layoutService.removeFromHome(nodeId, title).success(function() {
           $scope.$apply(function(request, text) {
             var result = $.grep($scope.layout, function(e) {
@@ -106,8 +107,8 @@ define(['angular', 'jquery'], function(angular, $) {
       /**
        * Initialize LayoutController
        */
-      this.init = function() {
-        if (typeof $rootScope.layout === 'undefined' ||
+      vm.init = function() {
+        if (angular.isUndefined($rootScope.layout) ||
         $rootScope.layout == null) {
           $rootScope.layout = [];
           $scope.layoutEmpty = false;
@@ -125,8 +126,8 @@ define(['angular', 'jquery'], function(angular, $) {
         }
       };
 
-      this.init();
-    }]);
+      vm.init();
+    }])
 
   /**
    * Basic widget logic leveraged by WidgetController,
@@ -135,7 +136,7 @@ define(['angular', 'jquery'], function(angular, $) {
    * /widget/partials/widget-card.html),
    * and 'widget' component (/widget/directives.js)
    */
-  app.controller('BaseWidgetFunctionsController',
+  .controller('BaseWidgetFunctionsController',
     ['$scope', '$sessionStorage', '$localStorage',
     'layoutService', 'childController',
     function($scope, $sessionStorage, $localStorage,
@@ -234,25 +235,26 @@ define(['angular', 'jquery'], function(angular, $) {
         });
       };
     },
-  ]);
+  ])
 
   /**
    * Widget initialization and sorting for expanded mode widget layout
    * (/widget/partials/home-widget-view.html and
    * /widget/partials/widget-card.html)
    */
-  app.controller('WidgetController',
+  .controller('WidgetController',
   ['$controller', '$log', '$scope', '$rootScope', 'layoutService',
     function($controller, $log, $scope, $rootScope, layoutService) {
+      var vm = this;
       // Inherit from BaseWidgetFunctionsController
       $controller('BaseWidgetFunctionsController',
-      {$scope: $scope, childController: this});
+      {$scope: $scope, childController: vm});
 
       /**
        * Initialize expanded mode widget layout
        */
       function init() {
-        if (typeof $rootScope.layout === 'undefined' ||
+        if (angular.isUndefined($rootScope.layout) ||
         $rootScope.layout == null) {
           $rootScope.layout = [];
           $scope.layoutEmpty = false;
@@ -298,15 +300,16 @@ define(['angular', 'jquery'], function(angular, $) {
         },
       };
       init();
-  }]);
+  }])
 
   /**
    * Controller for toggling between expanded
    * and compact mode via the app-header's toggle
    */
-  app.controller('ToggleController',
+  .controller('ToggleController',
   ['$localStorage', '$scope', '$location', '$log', 'miscService', 'APP_FLAGS',
     function($localStorage, $scope, $location, $log, miscService, APP_FLAGS) {
+      var vm = this;
       /**
        * Switch between compact and expanded mode
        * @param mode
@@ -330,7 +333,7 @@ define(['angular', 'jquery'], function(angular, $) {
       /**
        * Get user's last-used layout mode and initialize view
        */
-      this.init = function() {
+      vm.init = function() {
         $scope.toggle = APP_FLAGS.enableToggle;
         $scope.$storage = localStorage;
 
@@ -351,8 +354,6 @@ define(['angular', 'jquery'], function(angular, $) {
         }
       };
 
-      this.init();
+      vm.init();
   }]);
-
-  return app;
 });

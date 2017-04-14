@@ -5,9 +5,9 @@ define([
     'portal/search/controllers',
     'my-app/marketplace/controllers'],
   function(angular) {
-    var app = angular.module('my-app.search.controllers',
-      ['my-app.marketplace.controllers', 'portal.search.controllers']);
-    app.controller('SearchController',
+    return angular.module('my-app.search.controllers',
+      ['my-app.marketplace.controllers', 'portal.search.controllers'])
+    .controller('SearchController',
       ['marketplaceService', '$log', '$location', '$scope', '$localStorage',
       function(marketplaceService, $log, $location, $scope, $localStorage) {
         $scope.initialFilter = '';
@@ -50,16 +50,17 @@ define([
             $scope.showSearchFocus = false;
           }
         };
-    }]);
+    }])
 
-    app.controller('SearchResultController',
+    .controller('SearchResultController',
       ['$log', '$rootScope', '$scope', '$controller',
       'marketplaceService', 'googleCustomSearchService',
       'directorySearchService', 'PortalSearchService',
       function($log, $rootScope, $scope, $controller,
         marketplaceService, googleCustomSearchService,
         directorySearchService, PortalSearchService) {
-      var base = $controller('marketplaceCommonFunctions', {$scope: $scope});
+      var base = $controller('MarketplaceCommonFunctionsController',
+        {$scope: $scope});
 
       var initWiscEduSearch = function() {
         googleCustomSearchService.googleSearch($scope.searchTerm).then(
@@ -181,6 +182,4 @@ define([
         $log.warn('Could not directorySearchEnabled');
       });
     }]);
-
-    return app;
 });

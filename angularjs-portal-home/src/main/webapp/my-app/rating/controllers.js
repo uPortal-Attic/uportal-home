@@ -1,9 +1,9 @@
 'use strict';
 
 define(['angular', 'jquery', 'require'], function(angular, $, require) {
-    var app = angular.module('my-app.rating.controllers', []);
+    return angular.module('my-app.rating.controllers', [])
 
-    app.controller('RatingsModalController', [
+    .controller('RatingsModalController', [
         '$scope', 'marketplaceService', '$mdDialog',
         function($scope, marketplaceService, $mdDialog) {
             var init = function() {
