@@ -4,6 +4,8 @@ This documentation describes [AngularJS-Portal](https://github.com/UW-Madison-Do
 
 [![Apereo Incubating badge](https://img.shields.io/badge/Apereo-Incubating-blue.svg)](https://www.apereo.org/content/projects-currently-incubation)
 
+Many [contributors](contributors.md) make this project possible.
+
 ## Features
 
 ### Home page
