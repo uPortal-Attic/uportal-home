@@ -24,7 +24,7 @@ define(['angular'], function(angular) {
             'newstuffInfo': '/web/staticFeeds/new-stuff.json',
             'context': '/portal/',
             'base': '/portal/api/',
-            'layout': 'layoutDoc?tab=UW Bucky Home',
+            'layout': 'layout.json',
             'layoutTab': 'UW Bucky Home',
             'marketplace': {
                 'base': 'marketplace/',

@@ -80,6 +80,27 @@ define(['angular', 'jquery'], function(angular, $) {
             });
         };
 
+        var formatLayoutForCache = function(data) {
+          var result = {
+            'layout': [],
+          };
+          if ($.isPlainObject(data.layout) &&
+              $.isArray(data.layout.folders)) { // layout.json
+            var folders = data.layout.folders.filter(function(el) {
+              var result = false;
+              if (el && SERVICE_LOC.layoutTab === el.title) {
+                result = true;
+              }
+              return result;
+            });
+            if (folders && 0 < folders.length) {
+              result.layout = folders[0].portlets;
+            }
+          } else if ($.isArray(data.layout)) { // layoutDoc
+            result.layout = data.layout;
+          }
+          return result;
+        };
 
         var getLayout = function() {
             return checkLayoutCache().then(function(data) {
@@ -95,17 +116,17 @@ define(['angular', 'jquery'], function(angular, $) {
                 }
 
                 successFn = function(result) {
-                    var data = result.data;
+                    var data = formatLayoutForCache(result.data);
                     storeLayoutInCache(data);
                     return data;
                 };
 
                 errorFn = function(reason) {
-                    miscService.redirectUser(reason.status, 'layoutDoc call');
+                    miscService.redirectUser(reason.status, 'layout call');
                 };
 
                 // no caching...  request from the server
-                return $http.get(SERVICE_LOC.base + SERVICE_LOC.layout)
+                return $http.get(SERVICE_LOC.context + SERVICE_LOC.layout)
                     .then(successFn, errorFn);
             });
         };
