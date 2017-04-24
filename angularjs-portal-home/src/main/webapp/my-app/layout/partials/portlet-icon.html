@@ -1,4 +1,5 @@
-<img ng-src="{{portlet.iconUrl}}" ng-if="!portlet.faIcon && portlet.iconUrl" alt="App icon">
-<i class="fa {{::portlet.faIcon}}" ng-if="portlet.faIcon && portlet.faIcon.indexOf('fa-')===0"></i>
-<i class="{{::portlet.faIcon}}" ng-if="portlet.faIcon && portlet.faIcon.indexOf('fa-')!==0"></i>
-<i class="fa fa-star" ng-if="!portlet.faIcon && !portlet.iconUrl"></i>
+<md-icon ng-if="portlet.mdIcon">{{ portlet.mdIcon }}</md-icon>
+<img ng-if="!portlet.mdIcon && !portlet.faIcon && portlet.iconUrl" ng-src="{{portlet.iconUrl}}" alt="App icon">
+<i ng-if="!portlet.mdIcon && portlet.faIcon && portlet.faIcon.indexOf('fa-')===0" class="fa {{::portlet.faIcon}}"></i>
+<i ng-if="!portlet.mdIcon && portlet.faIcon && portlet.faIcon.indexOf('fa-')!==0" class="{{::portlet.faIcon}}"></i>
+<i ng-if="!portlet.mdIcon && !portlet.faIcon && !portlet.iconUrl" class="fa fa-star"></i>
