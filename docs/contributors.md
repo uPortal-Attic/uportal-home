@@ -18,3 +18,7 @@ This project gratefully acknowledges its contributors, including:
 + David Sibley ( @davidmsibley )
 
 (Roughly in order of first contribution).
+
+(See also [GitHub's report on Contributors][]; ways of contributing that don't surface into GitHub reporting are also valued.)
+
+[GitHub's report on Contributors]: github.com/UW-Madison-DoIT/angularjs-portal/graphs/contributors
