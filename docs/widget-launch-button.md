@@ -31,7 +31,7 @@ the launch button's `data-button-text` attribute:
 
 * **See all**: Best used when the widget features a list of items (a checklist, a list of headlines, an RSS feed) and clicking on the widget button navigates to a complete list
 * **Open website**: For content-based websites and any widgets that link to a static site with an external URL
-* **Launch app**: Best for task-based applications -- can also be used for any applications that open within the portal and do not meet the criteria of other labels
+* **Launch full app**: (Default) Best for task-based applications -- can also be used for any applications that open within the portal and do not meet the criteria of other labels
 
 ## Launch buttons and accessibility
 
