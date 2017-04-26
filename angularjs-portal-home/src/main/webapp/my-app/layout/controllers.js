@@ -48,14 +48,13 @@ define(['angular', 'jquery'], function(angular, $) {
 
       /**
        * Remove widget from home layout
-       * @param nodeId
-       * @param title
+       * @param fname
        */
-      vm.removePortlet = function removePortletFunction(nodeId, title) {
-        layoutService.removeFromHome(nodeId, title).success(function() {
+      vm.removePortlet = function removePortletFunction(fname) {
+        layoutService.removeFromHome(fname).success(function() {
           $scope.$apply(function(request, text) {
             var result = $.grep($scope.layout, function(e) {
-              return e.nodeId === nodeId;
+              return e.fname === fname;
             });
             var index = $.inArray(result[0], $scope.layout);
             // remove
@@ -72,7 +71,7 @@ define(['angular', 'jquery'], function(angular, $) {
           });
         }).error(
           function(request, text, error) {
-            alert('Issue deleting ' + title +
+            alert('Issue deleting ' + fname +
             ' from your list of favorites, try again later.');
           });
       };
@@ -206,15 +205,14 @@ define(['angular', 'jquery'], function(angular, $) {
 
       /**
        * Remove widget from home layout
-       * @param nodeId
-       * @param title
+       * @param fname
        */
       childController.removePortlet =
-      function removePortletFunction(nodeId, title) {
-        layoutService.removeFromHome(nodeId, title).success(function() {
+      function removePortletFunction(fname) {
+        layoutService.removeFromHome(fname).success(function() {
           $scope.$apply(function(request, text) {
             var result = $.grep($scope.layout, function(e) {
-              return e.nodeId === nodeId;
+              return e.fname === fname;
             });
             var index = $.inArray(result[0], $scope.layout);
             // remove
@@ -230,7 +228,7 @@ define(['angular', 'jquery'], function(angular, $) {
             }
           });
         }).error(function(request, text, error) {
-          alert('Issue deleting ' + title +
+          alert('Issue deleting ' + fname +
           ' from your list of favorites, try again later.');
         });
       };

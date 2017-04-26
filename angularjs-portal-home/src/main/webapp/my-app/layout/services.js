@@ -39,18 +39,18 @@ define(['angular', 'jquery'], function(angular, $) {
             });
         };
 
-        var removeFromHome = function removeFromHomeFunction(nodeId, title) {
+        var removeFromHome = function removeFromHomeFunction(fname) {
             return $.ajax({
                 url: SERVICE_LOC.base +
-                  'layout?action=removeElement&elementID=' + nodeId,
+                  'layout?action=removeByFName&fname=' + fname,
                 type: 'POST',
                 data: null,
                 dataType: 'json',
                 async: true,
                 success: function(request, text) {
-                    $log.log('removed ' + title + ' successfully.');
+                    $log.log('removed ' + fname + ' successfully.');
                     miscService.pushGAEvent(
-                      'Layout Modification', 'Remove', title);
+                      'Layout Modification', 'Remove', fname);
                 },
                 error: function(request, text, error) {
                 },
