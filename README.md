@@ -1,4 +1,4 @@
-# Portal with Angular
+# uPortal-home
 
 [![Join the chat at https://gitter.im/UW-Madison-DoIT/angularjs-portal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/UW-Madison-DoIT/angularjs-portal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal.svg)](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal)
@@ -10,6 +10,8 @@
 
 ### What is this?
 This is an Angular approach to the dashboard view of uPortal. This dashboard will work along side uPortal, more of a companion app. It utilizes the uPortal rest APIs to collect layout info. It pulls notifications from the notification portlet resource URL.
+
+"uPortal-home" is somewhere in the process of a name change from its old name, "AngularJS-Portal".
 
 See [this project's documentation](http://uw-madison-doit.github.io/angularjs-portal/).
 
