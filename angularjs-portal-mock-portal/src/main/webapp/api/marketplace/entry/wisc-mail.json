@@ -1,0 +1,62 @@
+{
+  "entry": {
+    "canAdd": false,
+    "categories": [
+      "Applications"
+    ],
+    "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+    "faIcon": "fa-envelope",
+    "fname": "wisc-mail",
+    "id": "40",
+    "keywords": [
+      "wisconsin mail",
+      "wiscemail",
+      "wismail"
+    ],
+    "layoutObject": {
+      "altMaxUrl": true,
+      "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+      "faIcon": "fa-envelope",
+      "fname": "wisc-mail",
+      "iconUrl": null,
+      "lifecycleState": "PUBLISHED",
+      "mdIcon": null,
+      "nodeId": "-1",
+      "pithyStaticContent": null,
+      "renderOnWeb": false,
+      "staticContent": "\n            \n                <a href=\"/web/widget/wisc-mail\">Access Wiscmail</a>.\n            \n\t\t",
+      "target": null,
+      "title": "Email",
+      "url": "/web/widget/wisc-mail",
+      "widgetConfig": {
+        "arrayName": "linked",
+        "display": "email",
+        "singleElement": true,
+        "value": "uri"
+      },
+      "widgetTemplate": null,
+      "widgetType": "option-link",
+      "widgetURL": "/web/api/proxy/wiscmaillookup"
+    },
+    "lifecycleState": "PUBLISHED",
+    "marketplaceScreenshots": [
+    ],
+    "maxUrl": "/web/widget/wisc-mail",
+    "name": "Email",
+    "portletName": "advanced-cms",
+    "portletReleaseNotes": {
+      "initialReleaseDate": null,
+      "releaseDate": null,
+      "releaseNotes": null
+    },
+    "portletWebAppName": "/SimpleContentPortlet",
+    "rating": 3.5,
+    "relatedPortlets": null,
+    "renderUrl": "/web/widget/wisc-mail",
+    "shortUrl": null,
+    "target": null,
+    "title": "Email",
+    "type": "Portlet",
+    "userRated": 2
+  }
+}

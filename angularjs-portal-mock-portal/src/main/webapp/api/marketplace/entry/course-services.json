@@ -1,0 +1,85 @@
+{
+  "entry": {
+    "canAdd": false,
+    "categories": [
+      "Academics",
+      "Instructor"
+    ],
+    "description": "Access services including Learn@UW, email class list requests, Registrar's Office forms, Teaching and Learning Excellence, and more.",
+    "faIcon": "fa-list-ul",
+    "fname": "course-services",
+    "id": "111",
+    "keywords": [
+      "Curricular",
+      "Academic programs listing"
+    ],
+    "layoutObject": {
+      "altMaxUrl": true,
+      "description": "Access services including Learn@UW, email class list requests, Registrar's Office forms, Teaching and Learning Excellence, and more.",
+      "faIcon": "fa-list-ul",
+      "fname": "course-services",
+      "iconUrl": null,
+      "lifecycleState": "PUBLISHED",
+      "mdIcon": null,
+      "nodeId": "-1",
+      "pithyStaticContent": null,
+      "renderOnWeb": false,
+      "staticContent": "\n<div  data-role='content'>\n<ul data-role='listview'>\n<li><a href='https://admin.lists.wisc.edu/classlists' target='_blank'>Manage EMAIL CLASS LISTS (Classlist Module)</a></li>\n<li><a href='http://www.registrar.wisc.edu/classroom_scheduling.htm' target='_blank'>Classroom scheduling</a></li>\n<li><a href='http://registrar.wisc.edu/grades_and_grading_policy.htm' target='_blank'>Grades and grading policy</a></li>\n<li><a href='http://www.doit.wisc.edu/learnatuw/' target='_blank'>Learn about Learn@UW</a>\n<img src=\"/static/transparent.gif\" valign=\"bottom\" border=\"0\" height=\"30\" width=\"1\"></li>\n<li><a href='http://www.library.wisc.edu/inst-services' target='_blank'>Library Instructional Services for Faculty</a></li>\n<li><a href='http://registrar.wisc.edu/faculty_staff_forms.htm' target='_blank'>Registrar's Office Faculty/Staff Forms</a></li>\n<li><a href='http://registrar.wisc.edu/documents/Official_Programs_of_Study.pdf' target='_blank'>Academic programs listing</a><img src=\"/static/transparent.gif\" valign=\"bottom\" border=\"0\" height=\"30\" width=\"1\"></li>\n<li><a href='https://tle.wisc.edu/' target='_blank'>Teaching and Learning Excellence@UW-Madison</a></li>\n<li><a href='http://registrar.wisc.edu/curricular_toolkit.htm' target='_blank'>Curricular Toolkit</a></li>\n<li><a href='http://learnuw.wisc.edu/' target='_blank'>LEARN@UW COURSES</a><img src=\"/static/transparent.gif\" valign=\"bottom\" border=\"0\" height=\"30\" width=\"1\"></li>\n\n</ul>\n</div>        \n\n",
+      "target": null,
+      "title": "Course Services",
+      "url": "/portal/p/course-services/render.uP",
+      "widgetConfig": {
+        "launchText": "See all course services",
+        "links": [
+          {
+            "href": "https://wwwtest.coursedashboard.learnuw.wisc.edu/",
+            "icon": "fa-at",
+            "target": "_blank",
+            "title": "Learn@UW"
+          },
+          {
+            "href": "https://admin.lists.wisc.edu/classlists",
+            "icon": "fa-envelope-o",
+            "target": "_blank",
+            "title": "Classlist"
+          },
+          {
+            "href": "http://www.registrar.wisc.edu/classroom_scheduling.htm",
+            "icon": "fa-calendar",
+            "target": "_blank",
+            "title": "Classroom Scheduling"
+          },
+          {
+            "href": "https://registrar.wisc.edu/Grades_and_Grading_%20Policy.htm",
+            "icon": "fa-pencil",
+            "target": "_blank",
+            "title": "Grading Policy"
+          }
+        ]
+      },
+      "widgetTemplate": null,
+      "widgetType": "list-of-links",
+      "widgetURL": null
+    },
+    "lifecycleState": "PUBLISHED",
+    "marketplaceScreenshots": [
+    ],
+    "maxUrl": "/portal/p/course-services/render.uP",
+    "name": "Course Services",
+    "portletName": "advanced-cms",
+    "portletReleaseNotes": {
+      "initialReleaseDate": null,
+      "releaseDate": null,
+      "releaseNotes": null
+    },
+    "portletWebAppName": "/SimpleContentPortlet",
+    "rating": 5,
+    "relatedPortlets": null,
+    "renderUrl": "/portal/p/course-services/render.uP",
+    "shortUrl": null,
+    "target": null,
+    "title": "Course Services",
+    "type": "Portlet",
+    "userRated": 1
+  }
+}

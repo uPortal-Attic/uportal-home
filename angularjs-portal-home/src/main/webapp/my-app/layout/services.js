@@ -39,18 +39,18 @@ define(['angular', 'jquery'], function(angular, $) {
             });
         };
 
-        var removeFromHome = function removeFromHomeFunction(nodeId, title) {
+        var removeFromHome = function removeFromHomeFunction(fname) {
             return $.ajax({
                 url: SERVICE_LOC.base +
-                  'layout?action=removeElement&elementID=' + nodeId,
+                  'layout?action=removeByFName&fname=' + fname,
                 type: 'POST',
                 data: null,
                 dataType: 'json',
                 async: true,
                 success: function(request, text) {
-                    $log.log('removed ' + title + ' successfully.');
+                    $log.log('removed ' + fname + ' successfully.');
                     miscService.pushGAEvent(
-                      'Layout Modification', 'Remove', title);
+                      'Layout Modification', 'Remove', fname);
                 },
                 error: function(request, text, error) {
                 },
@@ -80,6 +80,27 @@ define(['angular', 'jquery'], function(angular, $) {
             });
         };
 
+        var formatLayoutForCache = function(data) {
+          var result = {
+            'layout': [],
+          };
+          if ($.isPlainObject(data.layout) &&
+              $.isArray(data.layout.folders)) { // layout.json
+            var folders = data.layout.folders.filter(function(el) {
+              var result = false;
+              if (el && SERVICE_LOC.layoutTab === el.title) {
+                result = true;
+              }
+              return result;
+            });
+            if (folders && 0 < folders.length) {
+              result.layout = folders[0].portlets;
+            }
+          } else if ($.isArray(data.layout)) { // layoutDoc
+            result.layout = data.layout;
+          }
+          return result;
+        };
 
         var getLayout = function() {
             return checkLayoutCache().then(function(data) {
@@ -95,17 +116,17 @@ define(['angular', 'jquery'], function(angular, $) {
                 }
 
                 successFn = function(result) {
-                    var data = result.data;
+                    var data = formatLayoutForCache(result.data);
                     storeLayoutInCache(data);
                     return data;
                 };
 
                 errorFn = function(reason) {
-                    miscService.redirectUser(reason.status, 'layoutDoc call');
+                    miscService.redirectUser(reason.status, 'layout call');
                 };
 
                 // no caching...  request from the server
-                return $http.get(SERVICE_LOC.base + SERVICE_LOC.layout)
+                return $http.get(SERVICE_LOC.context + SERVICE_LOC.layout)
                     .then(successFn, errorFn);
             });
         };

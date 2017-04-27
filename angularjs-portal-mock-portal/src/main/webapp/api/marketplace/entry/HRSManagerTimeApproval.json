@@ -1,0 +1,81 @@
+{
+  "entry": {
+    "canAdd": false,
+    "categories": [
+      "Work"
+    ],
+    "description": "Review and approve timesheets and absence requests from your direct reports, for managers or supervisors with a time approval role.",
+    "faIcon": "fa-thumbs-up",
+    "fname": "HRSManagerTimeApproval",
+    "id": "66",
+    "keywords": [
+      "approval",
+      "time",
+      "manager",
+      "payable time",
+      "payable",
+      "supervisor",
+      "hr",
+      "human resource system",
+      "timesheet",
+      "work record"
+    ],
+    "layoutObject": {
+      "altMaxUrl": true,
+      "description": "Review and approve timesheets and absence requests from your direct reports, for managers or supervisors with a time approval role.",
+      "faIcon": "fa-thumbs-up",
+      "fname": "HRSManagerTimeApproval",
+      "iconUrl": null,
+      "lifecycleState": "PUBLISHED",
+      "mdIcon": null,
+      "nodeId": "-1",
+      "pithyStaticContent": null,
+      "renderOnWeb": true,
+      "staticContent": "\n        \n          <p>\n            <ul>\n              <li>\n                <a href=\"https://uat.ps.wisconsin.edu/psp/hrqa-fd/EMPLOYEE/HRMS/c/ROLE_MANAGER.TL_SRCH_APPRV_GRP.GBL\n                  target=\"_blank\" rel=\"noopener noreferrer\">\n                  Approve time\n                </a>\n              </li>\n              <li>\n                <a href=\"https://uat.ps.wisconsin.edu/psp/hrqa-fd/EMPLOYEE/HRMS/c/ROLE_MANAGER.GP_SS_ABS_APPR_L.GBL\"\n                  target=\"_blank\" rel=\"noopener noreferrer\">\n                  Approve absence\n                </a>\n              </li>\n              <li>\n                <a href=\"https://wwwtest.uwservice.wisconsin.edu/help/manager-time-absence.php\"\n                  target=\"_blank\" rel=\"noopener noreferrer\">\n                  Help\n                </a>\n              </li>\n            </ul>\n          </p>\n          \n      ",
+      "target": null,
+      "title": "Manager Time and Approval",
+      "url": "/portal/p/HRSManagerTimeApproval/render.uP",
+      "widgetConfig": {
+        "additionalText": "FOR MANAGERS ONLY",
+        "launchText": "See all approval options",
+        "links": [
+          {
+            "href": "https://uat.ps.wisconsin.edu/psp/hrqa-fd/EMPLOYEE/HRMS/c/ROLE_MANAGER.TL_SRCH_APPRV_GRP.GBL",
+            "icon": "fa-clock-o",
+            "target": "_blank",
+            "title": "Approve Time"
+          },
+          {
+            "href": "https://uat.ps.wisconsin.edu/psp/hrqa-fd/EMPLOYEE/HRMS/c/ROLE_MANAGER.GP_SS_ABS_APPR_L.GBL",
+            "icon": "fa-calendar-times-o",
+            "target": "_blank",
+            "title": "Approve Absence"
+          }
+        ]
+      },
+      "widgetTemplate": null,
+      "widgetType": "list-of-links",
+      "widgetURL": null
+    },
+    "lifecycleState": "PUBLISHED",
+    "marketplaceScreenshots": [
+    ],
+    "maxUrl": "/portal/p/HRSManagerTimeApproval/render.uP",
+    "name": "HRS Manager Time and Approval",
+    "portletName": "advanced-cms",
+    "portletReleaseNotes": {
+      "initialReleaseDate": null,
+      "releaseDate": null,
+      "releaseNotes": null
+    },
+    "portletWebAppName": "/SimpleContentPortlet",
+    "rating": 0,
+    "relatedPortlets": null,
+    "renderUrl": "/portal/p/HRSManagerTimeApproval/render.uP",
+    "shortUrl": null,
+    "target": null,
+    "title": "Manager Time and Approval",
+    "type": "Portlet",
+    "userRated": 0
+  }
+}

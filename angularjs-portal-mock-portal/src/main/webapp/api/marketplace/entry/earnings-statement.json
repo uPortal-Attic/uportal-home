@@ -1,0 +1,58 @@
+{
+  "entry": {
+    "canAdd": false,
+    "categories": [
+      "Work",
+      "Payroll and taxes"
+    ],
+    "description": "View earnings and tax statements, and update tax information and direct deposit.",
+    "faIcon": "fa-money",
+    "fname": "earnings-statement",
+    "id": "75",
+    "keywords": [
+      "work record"
+    ],
+    "layoutObject": {
+      "altMaxUrl": true,
+      "description": "View earnings and tax statements, and update tax information and direct deposit.",
+      "faIcon": "fa-money",
+      "fname": "earnings-statement",
+      "iconUrl": null,
+      "lifecycleState": "PUBLISHED",
+      "mdIcon": null,
+      "nodeId": "-1",
+      "pithyStaticContent": null,
+      "renderOnWeb": false,
+      "staticContent": null,
+      "target": null,
+      "title": "Payroll Information",
+      "url": "/portal/p/earnings-statement/render.uP",
+      "widgetConfig": {
+        "evalString": "!$scope.content.report || $scope.content.report.length === 0"
+      },
+      "widgetTemplate": "\n\t\t<div style='margin : 0 10px 0 10px;'>\n\t\t   <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>\n\t\t   <ul class='widget-list'>\n\t\t      <li ng-repeat='item in content.report |orderBy: [\"-paid.substring(6)\",\"-paid.substring(0,2)\",\"-paid.substring(3,5)\"] | limitTo:3' class='center'><a href='/portal/p/earnings-statement/max/earning_statement.pdf.resource.uP?pP_docId={{item.docId}}' target='_blank'> {{item.paid}} Earnings Statement</a></li>\n\t\t   </ul>\n\t\t   <div ng-if='isEmpty' style='padding: 10px; font-size: 14px;'><i class='fa fa-exclamation-triangle fa-3x pull-left' style='color: #b70101;'></i><span style='color: #898989;'>We had a problem finding your statements (or you don't have any).</span></div>\n\t\t   <div style='background-color: #EAEAEA; border-radius:4px;padding:10px; margin-top:10px;'>\n\t\t      <span class='bold display-block left' style='text-align: left; padding-left: 10px; font-size: 14px;'>Launch payroll to find:</span>\n\t\t      <ul style='text-align: left;list-style-type: disc; font-size: 12px;     margin-left: 40px;'>\n\t\t         <li>Earnings statements</li>\n\t\t         <li>Tax statements (W-2, 1095-C, etc.)</li>\n\t\t         <li>W-4 and direct deposit forms</li>\n\t\t      </ul>\n\t\t   </div>\n\t\t</div>\n        <a class='launch-app-button' href='/portal/p/earnings-statement'>See all payroll information</a>\n        ",
+      "widgetType": "generic",
+      "widgetURL": "/web/samples/earningstatement.json"
+    },
+    "lifecycleState": "PUBLISHED",
+    "marketplaceScreenshots": [
+    ],
+    "maxUrl": "/portal/p/earnings-statement/render.uP",
+    "name": "Payroll Information",
+    "portletName": "PayrollInformation",
+    "portletReleaseNotes": {
+      "initialReleaseDate": null,
+      "releaseDate": null,
+      "releaseNotes": null
+    },
+    "portletWebAppName": "/HRSPortlets",
+    "rating": 3,
+    "relatedPortlets": null,
+    "renderUrl": "/portal/p/earnings-statement/render.uP",
+    "shortUrl": null,
+    "target": null,
+    "title": "Payroll Information",
+    "type": "Portlet",
+    "userRated": 2
+  }
+}

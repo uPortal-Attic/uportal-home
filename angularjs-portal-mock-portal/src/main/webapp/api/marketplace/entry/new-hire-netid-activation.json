@@ -1,0 +1,59 @@
+{
+  "entry": {
+    "canAdd": false,
+    "categories": [
+      "Services"
+    ],
+    "description": "Enter basic NetID eligibility information for new employees who do not yet have an appointment/job in the HR system. This action generates a NetID Activation Key to be used by the new employee to activate his/her NetID.",
+    "faIcon": "fa-sign-in",
+    "fname": "new-hire-netid-activation",
+    "id": "96",
+    "keywords": [
+      "NetID",
+      "activation",
+      "new hire",
+      "hire",
+      "new employee"
+    ],
+    "layoutObject": {
+      "altMaxUrl": true,
+      "description": "Enter basic NetID eligibility information for new employees who do not yet have an appointment/job in the HR system. This action generates a NetID Activation Key to be used by the new employee to activate his/her NetID.",
+      "faIcon": "fa-sign-in",
+      "fname": "new-hire-netid-activation",
+      "iconUrl": null,
+      "lifecycleState": "PUBLISHED",
+      "mdIcon": null,
+      "nodeId": "-1",
+      "pithyStaticContent": null,
+      "renderOnWeb": false,
+      "staticContent": null,
+      "target": null,
+      "title": "New Hire NetID Activation",
+      "url": "/portal/p/new-hire-netid-activation/render.uP",
+      "widgetConfig": null,
+      "widgetTemplate": null,
+      "widgetType": null,
+      "widgetURL": null
+    },
+    "lifecycleState": "PUBLISHED",
+    "marketplaceScreenshots": [
+    ],
+    "maxUrl": "/portal/p/new-hire-netid-activation/render.uP",
+    "name": "New Hire NetID Activation",
+    "portletName": "AuthenticatedWebProxy",
+    "portletReleaseNotes": {
+      "initialReleaseDate": null,
+      "releaseDate": null,
+      "releaseNotes": null
+    },
+    "portletWebAppName": "/WebProxyPortlet",
+    "rating": 0,
+    "relatedPortlets": null,
+    "renderUrl": "/portal/p/new-hire-netid-activation/render.uP",
+    "shortUrl": null,
+    "target": null,
+    "title": "New Hire NetID Activation",
+    "type": "Portlet",
+    "userRated": 0
+  }
+}

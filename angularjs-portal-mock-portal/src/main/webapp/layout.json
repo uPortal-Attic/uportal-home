@@ -1,0 +1,558 @@
+{
+  "user": "admin",
+  "locale": "en-US",
+  "layout": {
+    "header": {
+      "portlets": []
+    },
+    "folders": [
+      {
+        "id": "u2160l1s4",
+        "title": "UW Bucky Home",
+        "portlets": [
+          {
+            "fname": "wisc-mail",
+            "title": "Email",
+            "url": "/portal/f/u2160l1s4/p/wisc-mail.n64/detached/render.uP?pCm=view",
+            "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "HRSManagerTimeApproval",
+            "title": "Manager Time and Approval",
+            "url": "/portal/f/u2160l1s4/p/HRSManagerTimeApproval.u2160l1n28/detached/render.uP?pCm=view",
+            "description": "Review and approve timesheets and absence requests from your direct reports, for managers or supervisors with a time approval role.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "earnings-statement",
+            "title": "Payroll Information",
+            "url": "/portal/f/u2160l1s4/p/earnings-statement.n66/detached/render.uP?pCm=view",
+            "description": "View earnings and tax statements, and update tax information and direct deposit.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "student-center",
+            "title": "Student Center",
+            "url": "/portal/f/u2160l1s4/p/student-center.u2160l1n12/detached/render.uP?pCm=view",
+            "description": "Access Student Center to view and update admissions, financial aid, course, enrollment, tuition, and grades information.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "course-services",
+            "title": "Course Services",
+            "url": "/portal/f/u2160l1s4/p/course-services.n70/detached/render.uP?pCm=view",
+            "description": "Access services including Learn@UW, email class list requests, Registrar's Office forms, Teaching and Learning Excellence, and more.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "learn-at-uw",
+            "title": "Learn@UW",
+            "url": "/portal/f/u2160l1s4/p/learn-at-uw.n72/detached/render.uP?pCm=view",
+            "description": "Access your Learn@UW account.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "MyCourses",
+            "title": "My Courses",
+            "url": "/portal/f/u2160l1s4/p/MyCourses.n74/detached/render.uP?pCm=view",
+            "description": "View your current courses and class schedule, and see each course's library materials and online resources, location, time, and contacts. ",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "new-hire-netid-activation",
+            "title": "New Hire NetID Activation",
+            "url": "/portal/f/u2160l1s4/p/new-hire-netid-activation.n76/detached/render.uP?pCm=view",
+            "description": "Enter basic NetID eligibility information for new employees who do not yet have an appointment/job in the HR system. This action generates a NetID Activation Key to be used by the new employee to activate his/her NetID.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "uw-system-university-staff-benefits-statement",
+            "title": "Benefit Information",
+            "url": "/portal/f/u2160l1s4/p/uw-system-university-staff-benefits-statement.u2160l1n137/detached/render.uP?pCm=view",
+            "description": "View current benefit selections, including dependent and plan information (i.e. medical, dental, and or vision benefits coverage).",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "feedback",
+            "title": "Feedback",
+            "url": "/portal/f/u2160l1s4/p/feedback.n80/detached/render.uP?pCm=view",
+            "description": "Submit feedback on MyUW.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          }
+        ]
+      },
+      {
+        "id": "u112l1s4",
+        "title": "Welcome",
+        "portlets": [
+          {
+            "fname": "soar-registration",
+            "title": "SOAR Registration",
+            "url": "/portal/f/u112l1s4/p/soar-registration.u112l1n98/detached/render.uP?pCm=view",
+            "description": "Register for the SOAR (Student Orientation, Advising, and Registration) program.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "waa-membership",
+            "title": "WAA Membership",
+            "url": "/portal/f/u112l1s4/p/waa-membership.u112l1n208/detached/render.uP?pCm=view",
+            "description": "The Wisconsin Alumni Association offers special rates for new graduates.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "my-bookmarks",
+            "title": "My Bookmarks",
+            "url": "/portal/f/u112l1s4/p/my-bookmarks.u112l1n159/detached/render.uP?pCm=view",
+            "description": "Make personal bookmarks to your favorite web sites.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          }
+        ]
+      },
+      {
+        "id": "u111l1s64",
+        "title": "Learning",
+        "portlets": [
+          {
+            "fname": "enrolled-classes-map",
+            "title": "My Courses Map",
+            "url": "/portal/f/u111l1s64/p/enrolled-classes-map.u111l1n122/detached/render.uP?pCm=view",
+            "description": "Displays a map with markers on the buildings where the courses you have enrolled in meet.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "advising-support",
+            "title": "Advising Support",
+            "url": "/portal/f/u111l1s64/p/advising-support.u111l1n105/detached/render.uP?pCm=view",
+            "description": "Advising support links including course selection, frequently asked questions, career advising, and more.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "etext-pilot",
+            "title": "eText Pilot",
+            "url": "/portal/f/u111l1s64/p/etext-pilot.u111l1n156/detached/render.uP?pCm=view",
+            "description": "Provides log in and support information for students participating in the spring 2013 eText pilot",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "lynda-dot-com-at-uw-madison",
+            "title": "lynda.com@UW-Madison",
+            "url": "/portal/f/u111l1s64/p/lynda-dot-com-at-uw-madison.u111l1n124/detached/render.uP?pCm=view",
+            "description": "Expansive set of self-paced software online training tutorials",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "learning-support",
+            "title": "Learning Support",
+            "url": "/portal/f/u111l1s64/p/learning-support.u111l1n154/detached/render.uP?pCm=view",
+            "description": "Links to information on Tutoring, Library Instruction, Writing, Computing, and more.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "academic-resources",
+            "title": "Academic Resources",
+            "url": "/portal/f/u111l1s64/p/academic-resources.u111l1n87/detached/render.uP?pCm=view",
+            "description": "Links to academic resources including undergraduate and graduate catalogs, academic calendar, and more.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "enrichment-opportunities",
+            "title": "Enrichment Opportunities",
+            "url": "/portal/f/u111l1s64/p/enrichment-opportunities.u111l1n99/detached/render.uP?pCm=view",
+            "description": "Links to information on awards, scholarships, honors programs, international opportunities, service learning, and more.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          }
+        ]
+      },
+      {
+        "id": "u2162l1s8",
+        "title": "Navigation for xs-sm",
+        "portlets": [
+          {
+            "fname": "side-bar-menu",
+            "title": "Side Bar Menu",
+            "url": "/portal/f/u2162l1s8/p/side-bar-menu.u2162l1n9/detached/render.uP?pCm=view",
+            "description": "A side bar menu so people can navigate the portal with ease.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          }
+        ]
+      },
+      {
+        "id": "u2162l1s19",
+        "title": "Right Navigation for md-lg",
+        "portlets": [
+          {
+            "fname": "notification-bell",
+            "title": "Notification Bell",
+            "url": "/portal/f/u2162l1s19/p/notification-bell.u2162l1n200/detached/render.uP?pCm=view",
+            "description": "Region Bell for portal",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "portal-greeting-dropdown",
+            "title": "Portal Greeting Dropdown",
+            "url": "/portal/f/u2162l1s19/p/portal-greeting-dropdown.u2162l1n190/detached/render.uP?pCm=view",
+            "description": "Greeting that appears at the top of the page for authenticated users",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          }
+        ]
+      },
+      {
+        "id": "u2162l1s10",
+        "title": "Navigation for md-lg",
+        "portlets": [
+          {
+            "fname": "notification-icon-placeholder",
+            "title": "Notification Icon Placeholder",
+            "url": "/portal/f/u2162l1s10/p/notification-icon-placeholder.u2162l1n11/detached/render.uP?pCm=view",
+            "description": "Basically an empty portlet so the header looks okay",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "search-lite",
+            "title": "Search Lite",
+            "url": "/portal/f/u2162l1s10/p/search-lite.u2162l1n12/detached/render.uP?pCm=view",
+            "description": "A lite search for now",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          }
+        ]
+      },
+      {
+        "id": "u2162l1s15",
+        "title": "Side bar left folder",
+        "portlets": [
+          {
+            "fname": "side-bar-menu",
+            "title": "Side Bar Menu",
+            "url": "/portal/f/u2162l1s15/p/side-bar-menu.u2162l1n16/detached/render.uP?pCm=view",
+            "description": "A side bar menu so people can navigate the portal with ease.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          }
+        ]
+      },
+      {
+        "id": "u118l1s4",
+        "title": "Student Services",
+        "portlets": [
+          {
+            "fname": "student-elections",
+            "title": "Vote in Student Government Elections",
+            "url": "/portal/f/u118l1s4/p/student-elections.u118l1n67/detached/render.uP?pCm=view",
+            "description": "Vote in the Associated Students of Madison (ASM) Student Government Elections. Use this secure link to access the online ballot during the 3-day voting window.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "student-center",
+            "title": "Student Center",
+            "url": "/portal/f/u118l1s4/p/student-center.u118l1n48/detached/render.uP?pCm=view",
+            "description": "Access Student Center to view and update admissions, financial aid, course, enrollment, tuition, and grades information.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "soar-registration",
+            "title": "SOAR Registration",
+            "url": "/portal/f/u118l1s4/p/soar-registration.u118l1n57/detached/render.uP?pCm=view",
+            "description": "Register for the SOAR (Student Orientation, Advising, and Registration) program.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "grad-application-status",
+            "title": "Grad Application Status",
+            "url": "/portal/f/u118l1s4/p/grad-application-status.u118l1n52/detached/render.uP?pCm=view",
+            "description": "Check the status of your Graduate School application and admission.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "applicant-resources",
+            "title": "Applicant Resources",
+            "url": "/portal/f/u118l1s4/p/applicant-resources.u118l1n63/detached/render.uP?pCm=view",
+            "description": "Resources for university applicants.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "tuition-account-erefunds",
+            "title": "Tuition Account eRefunds",
+            "url": "/portal/f/u118l1s4/p/tuition-account-erefunds.u118l1n111/detached/render.uP?pCm=view",
+            "description": "Information on how to sign up for tuition refunds via direct deposit into your back account (eRefunds).",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "my-info-student-center-ssn",
+            "title": "Social Security Number",
+            "url": "/portal/f/u118l1s4/p/my-info-student-center-ssn.u118l1n50/detached/render.uP?pCm=view",
+            "description": "Our records indicate the Social Security Number in your Personal Information is invalid or missing. Please click the link below to either provide your Social Security Number or select to not provide your Social Security Number.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "enrolled-classes-map",
+            "title": "My Courses Map",
+            "url": "/portal/f/u118l1s4/p/enrolled-classes-map.u118l1n65/detached/render.uP?pCm=view",
+            "description": "Displays a map with markers on the buildings where the courses you have enrolled in meet.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "FinalGrades",
+            "title": "Final Grades",
+            "url": "/portal/f/u118l1s4/p/FinalGrades.u118l1n76/detached/render.uP?pCm=view",
+            "description": "",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "scholarships-at-uw-madison",
+            "title": "Scholarships@UW-Madison",
+            "url": "/portal/f/u118l1s4/p/scholarships-at-uw-madison.u118l1n42/detached/render.uP?pCm=view",
+            "description": "Search and apply for undergraduate scholarships online.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "financial-services-and-resources",
+            "title": "Student Financial Resources",
+            "url": "/portal/f/u118l1s4/p/financial-services-and-resources.u118l1n43/detached/render.uP?pCm=view",
+            "description": "Find resources and answers about financial aid and FAFSA, fellowships and funding, scholarships, student jobs, Wiscard/UW ID, and tuition and bill information and FAQs.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          }
+        ]
+      },
+      {
+        "id": "u123l1s4",
+        "title": "Services",
+        "portlets": [
+          {
+            "fname": "wisc-mail",
+            "title": "Email",
+            "url": "/portal/f/u123l1s4/p/wisc-mail.u123l1n91/detached/render.uP?pCm=view",
+            "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "my-doit-help-desk-cases",
+            "title": "My DoIT Help Desk Cases",
+            "url": "/portal/f/u123l1s4/p/my-doit-help-desk-cases.u123l1n31/detached/render.uP?pCm=view",
+            "description": "View your DoIT Help Desk cases.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "wisccal-available-portlet",
+            "title": "Scheduling Assistant",
+            "url": "/portal/f/u123l1s4/p/wisccal-available-portlet.u123l1n121/detached/render.uP?pCm=view",
+            "description": "Make an appointment with people who have shared their schedules via the Scheduling Assistant.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "lynda-dot-com-at-uw-madison",
+            "title": "lynda.com@UW-Madison",
+            "url": "/portal/f/u123l1s4/p/lynda-dot-com-at-uw-madison.u123l1n175/detached/render.uP?pCm=view",
+            "description": "Expansive set of self-paced software online training tutorials",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "new-hire-netid-activation",
+            "title": "New Hire NetID Activation",
+            "url": "/portal/f/u123l1s4/p/new-hire-netid-activation.u123l1n41/detached/render.uP?pCm=view",
+            "description": "Enter basic NetID eligibility information for new employees who do not yet have an appointment/job in the HR system. This action generates a NetID Activation Key to be used by the new employee to activate his/her NetID.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "purchasing-resources",
+            "title": "Purchasing Resources",
+            "url": "/portal/f/u123l1s4/p/purchasing-resources.u123l1n43/detached/render.uP?pCm=view",
+            "description": "Links to purchasing resources for university staff.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "financial-information-resources",
+            "title": "Employee Financial Resources",
+            "url": "/portal/f/u123l1s4/p/financial-information-resources.u123l1n44/detached/render.uP?pCm=view",
+            "description": "Links to financial tools such as WISDM, DP/PIR, Cost Transfer, TravelWise and Expense Reimbursement.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "computing-and-software",
+            "title": "Computing and Software",
+            "url": "/portal/f/u123l1s4/p/computing-and-software.u123l1n45/detached/render.uP?pCm=view",
+            "description": "Links to various computing and software resources for university applicants, students and staff.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "marketplace",
+            "title": "Marketplace",
+            "url": "/portal/f/u123l1s4/p/marketplace.u123l1n46/detached/render.uP?pCm=view",
+            "description": "Links to online shopping resources for the campus community.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "doit-consolidated-billing-invoice",
+            "title": "DoIT Departmental Consolidated Billing Invoice",
+            "url": "/portal/f/u123l1s4/p/doit-consolidated-billing-invoice.u123l1n32/detached/render.uP?pCm=view",
+            "description": "View your monthly billing statement from DoIT. Includes purchases made with a DoIT Number or funding string and can include telephone activity, Tech Store purchases, or other services.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "wisc-alerts-text-messaging",
+            "title": "WiscAlerts",
+            "url": "/portal/f/u123l1s4/p/wisc-alerts-text-messaging.u123l1n73/detached/render.uP?pCm=view",
+            "description": "Sign up to receive WiscAlerts-Text for emergency text message notification. Email and Desk Phone notifications are automatic.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "requisition-and-number-generator",
+            "title": "Requisition and Number Generator",
+            "url": "/portal/f/u123l1s4/p/requisition-and-number-generator.u123l1n33/detached/render.uP?pCm=view",
+            "description": "Business Services-Purchasing Services Requisition Applications. The Requisition Printer allows users to prepare, edit and produce a printable requisition form. The Requistion Number Set Request System allows users to request blocks of requisition numbers.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          }
+        ]
+      },
+      {
+        "id": "u115l1s4",
+        "title": "News",
+        "portlets": [
+          {
+            "fname": "weather",
+            "title": "Weather",
+            "url": "/portal/f/u115l1s4/p/weather.u115l1n33/detached/render.uP?pCm=view",
+            "description": "Access the latest weather conditions and 5-day forecasts for the cities you select.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          }
+        ]
+      },
+      {
+        "id": "u124l1s4",
+        "title": "Research",
+        "portlets": [
+          {
+            "fname": "researcher-quick-links",
+            "title": "Researcher Quick Links",
+            "url": "/portal/f/u124l1s4/p/researcher-quick-links.u124l1n109/detached/render.uP?pCm=view",
+            "description": "Links to UW resources for Researchers.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "pi-financials-tool",
+            "title": "PI Financials Tool",
+            "url": "/portal/f/u124l1s4/p/pi-financials-tool.u124l1n107/detached/render.uP?pCm=view",
+            "description": "View financial information about sponsored projects and gifts.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "rcat_search",
+            "title": "Research Facilities and Tools",
+            "url": "/portal/f/u124l1s4/p/rcat_search.u124l1n31/detached/render.uP?pCm=view",
+            "description": "Browse and Search across UW Research Centers, Institutes, Facilities and Tools.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          }
+        ]
+      },
+      {
+        "id": "u113l1s4",
+        "title": "Portal admin",
+        "portlets": [
+          {
+            "fname": "attribute-swapper-hrs",
+            "title": "Attribute Swapper - HRS",
+            "url": "/portal/f/u113l1s4/p/attribute-swapper-hrs.u113l1n55/detached/render.uP?pCm=view",
+            "description": "Allows admin to swap HRS self-service attributes",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "attribute-swapper-isis",
+            "title": "Attribute Swapper - SIS",
+            "url": "/portal/f/u113l1s4/p/attribute-swapper-isis.u113l1n43/detached/render.uP?pCm=view",
+            "description": "Allows admin to swap SIS self-service attributes",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "attribute-swapper-all",
+            "title": "Attribute Swapper - All",
+            "url": "/portal/f/u113l1s4/p/attribute-swapper-all.u113l1n42/detached/render.uP?pCm=view",
+            "description": "Allows an administrator to swap any attribute",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "groupsmanager",
+            "title": "Groups Administration",
+            "url": "/portal/f/u113l1s4/p/groupsmanager.u113l1n32/detached/render.uP?pCm=view",
+            "description": "Groups adminsitration",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "portal-administration",
+            "title": "Portal Administration",
+            "url": "/portal/f/u113l1s4/p/portal-administration.u113l1n51/detached/render.uP?pCm=view",
+            "description": "Administrative links for managing portal entities and impersonating users",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          },
+          {
+            "fname": "statistics",
+            "title": "Statistics",
+            "url": "/portal/f/u113l1s4/p/statistics.u113l1n57/detached/render.uP?pCm=view",
+            "description": "View portal statistics.",
+            "newItemCount": "0",
+            "iconUrl": "/portal/media/skins/icons/mobile/default.png"
+          }
+        ]
+      }
+    ],
+    "footer": {
+      "portlets": []
+    }
+  }
+}

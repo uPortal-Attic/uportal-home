@@ -1,6 +1,6 @@
 <md-button ng-controller="LayoutController as layoutCtrl" class="widget-action widget-remove md-icon-button"
            aria-label="remove {{ portlet.fname }} widget from your home screen"
-           ng-click="layoutCtrl.removePortlet(portlet.nodeId, portlet.fname)"
+           ng-click="layoutCtrl.removePortlet(portlet.fname)"
            ng-hide="GuestMode || portlet.lifecycleState === 'MAINTENANCE'">
   <md-icon>close</md-icon>
 </md-button>

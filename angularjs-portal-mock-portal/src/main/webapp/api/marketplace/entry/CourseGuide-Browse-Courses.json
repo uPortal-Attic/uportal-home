@@ -1,0 +1,57 @@
+{
+  "entry": {
+    "canAdd": false,
+    "categories": [
+      "Enrollment"
+    ],
+    "description": "Find courses by title, college, department, school, or instructor.",
+    "faIcon": "fa-compass",
+    "fname": "CourseGuide-Browse-Courses",
+    "id": "69",
+    "keywords": [
+      "campus course guide",
+      "campuscourseguide",
+      "courseguide"
+    ],
+    "layoutObject": {
+      "altMaxUrl": true,
+      "description": "Find courses by title, college, department, school, or instructor.",
+      "faIcon": "fa-compass",
+      "fname": "CourseGuide-Browse-Courses",
+      "iconUrl": null,
+      "lifecycleState": "PUBLISHED",
+      "mdIcon": null,
+      "nodeId": "-1",
+      "pithyStaticContent": null,
+      "renderOnWeb": false,
+      "staticContent": null,
+      "target": null,
+      "title": "Course Guide",
+      "url": "/portal/p/CourseGuide-Browse-Courses/render.uP",
+      "widgetConfig": null,
+      "widgetTemplate": "\n        <div>\n          <div class='display-block center' style='max-width: 95%; margin: auto;'>\n            <form action='/portal/p/CourseGuide-Browse-Courses/detached/action.uP?pCm=view&amp;pP_action=advancedSearch' method='post' target='_blank'>\n              <md-input-container class=\"md-block\" md-no-float style=\"margin-top: 0;padding-right: 16px;display: flex;flex-direction: row;justify-content: flex-start;align-items: center;align-content: flex-start;\">\n                <input type='text' id='keywordSearch' name='keywordSearch' placeholder='Search for courses' style=\"display:inline;width:250px;\">\n                <md-button type='submit' class=\"md-primary md-icon-button\" style='margin: 0;padding: 0;' aria-label=\"search courses\">\n                  <i class='fa fa-search'></i>\n                </md-button>\n              </md-input-container>\n            </form>\n            <div style='background-color: #EAEAEA; border-radius:4px;padding:10px; margin-top:10px;'>\n              <span class='bold display-block left' style='text-align: left; padding-left: 10px; font-size: 14px; display:block;'>\n                Use My Course Guide for more options:\n              </span>\n              <ul style='text-align: left;list-style-type: disc; font-size: 12px; margin-left: 40px;'>\n                <li>Search by term</li>\n                <li>Search by instructor</li>\n                <li>Browse by subject</li>\n                <li>Plan your degree</li>\n              </ul>\n            </div>\n          </div>\n          <a class='launch-app-button ng-scope' href='/portal/p/CourseGuide-Browse-Courses/detached/action.uP?pCm=view&amp;pP_action=advancedSearch' target='_blank'>Go to my course guide</a>\n        </div>\n        ",
+      "widgetType": "generic",
+      "widgetURL": null
+    },
+    "lifecycleState": "PUBLISHED",
+    "marketplaceScreenshots": [
+    ],
+    "maxUrl": "/portal/p/CourseGuide-Browse-Courses/render.uP",
+    "name": "Course Guide",
+    "portletName": "BrowsePortlet",
+    "portletReleaseNotes": {
+      "initialReleaseDate": null,
+      "releaseDate": null,
+      "releaseNotes": null
+    },
+    "portletWebAppName": "/CampusCourseGuide",
+    "rating": 2.5,
+    "relatedPortlets": null,
+    "renderUrl": "/portal/p/CourseGuide-Browse-Courses/render.uP",
+    "shortUrl": null,
+    "target": null,
+    "title": "Course Guide",
+    "type": "Portlet",
+    "userRated": 2
+  }
+}
