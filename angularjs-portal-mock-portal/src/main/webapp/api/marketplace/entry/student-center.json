@@ -1,0 +1,68 @@
+{
+  "entry": {
+    "canAdd": false,
+    "categories": [
+      "Academics",
+      "Enrollment",
+      "Personal information"
+    ],
+    "description": "Access Student Center to view and update admissions, financial aid, course, enrollment, tuition, and grades information.",
+    "faIcon": "fa-group",
+    "fname": "student-center",
+    "id": "36",
+    "keywords": [
+      "enrollment",
+      "tuition",
+      "grades",
+      "financial",
+      "financial aid",
+      "admissions",
+      "emergency information",
+      "contact information",
+      "transcripts",
+      "residency",
+      "tuition",
+      "payment"
+    ],
+    "layoutObject": {
+      "altMaxUrl": true,
+      "description": "Access Student Center to view and update admissions, financial aid, course, enrollment, tuition, and grades information.",
+      "faIcon": "fa-group",
+      "fname": "student-center",
+      "iconUrl": null,
+      "lifecycleState": "PUBLISHED",
+      "mdIcon": null,
+      "nodeId": "-1",
+      "pithyStaticContent": null,
+      "renderOnWeb": false,
+      "staticContent": null,
+      "target": "_blank",
+      "title": "Student Center",
+      "url": "/portal/p/student-center/max/action.uP?pP_action=loginAction",
+      "widgetConfig": null,
+      "widgetTemplate": null,
+      "widgetType": null,
+      "widgetURL": null
+    },
+    "lifecycleState": "PUBLISHED",
+    "marketplaceScreenshots": [
+    ],
+    "maxUrl": "/portal/p/student-center/max/action.uP?pP_action=loginAction",
+    "name": "Student Center",
+    "portletName": "BasicIsisLink",
+    "portletReleaseNotes": {
+      "initialReleaseDate": null,
+      "releaseDate": null,
+      "releaseNotes": null
+    },
+    "portletWebAppName": "/ISISPortlets",
+    "rating": 5,
+    "relatedPortlets": null,
+    "renderUrl": "/portal/p/student-center/max/action.uP?pP_action=loginAction",
+    "shortUrl": null,
+    "target": "_blank",
+    "title": "Student Center",
+    "type": "Portlet",
+    "userRated": 1
+  }
+}

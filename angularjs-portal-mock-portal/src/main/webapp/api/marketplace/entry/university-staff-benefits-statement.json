@@ -1,0 +1,86 @@
+{
+  "entry": {
+    "canAdd": false,
+    "categories": [
+      "Employee benefits",
+      "Work"
+    ],
+    "description": "Summary information about your current benefit enrollments and links to your WRS Statement of Benefits.",
+    "faIcon": "fa-umbrella",
+    "fname": "university-staff-benefits-statement",
+    "id": "130",
+    "keywords": [
+      "benefit summary",
+      "dependents",
+      "statements",
+      "ETF",
+      "enrollment confirmation",
+      "confirmation",
+      "enrollment",
+      "staff",
+      "faculty",
+      "coverage",
+      "work record",
+      "eBenefits",
+      "benefits enrollment",
+      "open enrollment",
+      "benefits",
+      "work record",
+      "retirement",
+      "etf",
+      "ebenefits",
+      "open enrollment",
+      "wrs",
+      "work",
+      "ohr",
+      "enrollment",
+      "HRS"
+    ],
+    "layoutObject": {
+      "altMaxUrl": true,
+      "description": "Summary information about your current benefit enrollments and links to your WRS Statement of Benefits.",
+      "faIcon": "fa-umbrella",
+      "fname": "university-staff-benefits-statement",
+      "iconUrl": null,
+      "lifecycleState": "PUBLISHED",
+      "mdIcon": null,
+      "nodeId": "-1",
+      "pithyStaticContent": null,
+      "renderOnWeb": false,
+      "staticContent": null,
+      "target": null,
+      "title": "Benefit Information",
+      "url": "/portal/p/university-staff-benefits-statement/render.uP",
+      "widgetConfig": {
+        "beginDate": "October 17",
+        "endDate": "November 11",
+        "enrollLink": "https://uat.ps.wisconsin.edu/psp/hrqa-fd/EMPLOYEE/HRMS/c/W3EB_MENU.W3EB_ENR_SELECT.GBL",
+        "learnMoreLink": "https://www.wisconsin.edu/abe/",
+        "surveyLink": ""
+      },
+      "widgetTemplate": "\n          <style>\n  .benefit-info h5 {\n    font-weight:600;\n    margin:0;\n    padding:3px 0px;\n    font-size:1.1em;\n  }\n  .benefit-info .top-h5 {\n    margin-top:20px;\n  }\n  .benefit-info p {\n    margin:0px 0px 20px 0px;\n    padding:0;\n  }\n  .benefit-info .duringCountdown {\n    color:#b70101;\n  }\n  .benefit-info .lastDay {\n    color: #b70101;\n    font-size:1.1em;\n  }\n  .benefit-info .outageWarning {\n    color: #E28332;\n  }\n</style>\n<div>\n  <div class='widget-body benefit-info'>\n    <div class=\"row\">\n      <div class=\"col-xs-12 center\">\n        <p class=\"outageWarning\">\n          <a \n            href=\"http://outages.doit.wisc.edu/outage/940be3ed0cbc752b79f3ac4b118ab0c0cb6f3c3968\"\n            target=\"_blank\" rel=\"noopener noreferrer\">Maintenance</a> may interrupt access to Open Enrollment on Nov. 6 from 6-10am.</p>\n        <h5>Annual Benefits Enrollment</h5>\n        <h5 class=\"beforeCountdown\">Begins {{portlet.widgetConfig.beginDate}}</h5>\n        <h5 class=\"duringCountdown\"><span id=\"days-left\"></span> days left to enroll</h5>\n        <h5 class=\"lastDay\">Today is the last day to<br>change benefits</h5>\n        <h5 class=\"afterCountdown\">Ended {{portlet.widgetConfig.endDate}}</h5>\n        <p class=\"getStarted\"><a href=\"{{portlet.widgetConfig.learnMoreLink}}\" target=\"_blank\">Learn more</a>\n</p>\n<p class=\"enroll\"><a href=\"{{portlet.widgetConfig.enrollLink}}\">Enroll</a></p>\n        <p class=\"paragraphAfterCountdown\"><a href=\"{{portlet.widgetConfig.surveyLink}}\" target=\"_blank\">Give feedback</a></p>\n      </div>\n    </div>\n  </div>\n  <a class='launch-app-button' href='{{::portlet.url}}' target='{{::portlet.target}}'>Go to benefit information</a>\n</div>\n<script type=\"text/javascript\">\n    $(document).ready(function() {\n      var goLive = new Date(\"11/11/2016\");\n      var countdownLength = 25; //Oct 17th\n\n      //hide everything except before\n      $('.duringCountdown').hide();\n      $('.afterCountdown').hide();\n      $('.paragraphAfterCountdown').hide();\n      $('.enroll').hide();\n      $('.lastDay').hide();\n\n      //create today and countdown start day\n      var today = new Date();\n      var todayParsed = Date.parse(today);\n      var countdownStart = new Date();\n      countdownStart.setTime(goLive.getTime() - (countdownLength * 24 * 60 * 60 * 1000) );\n\n      //calculate days left\n      var daysLeft = Math.ceil((Date.parse(goLive) - todayParsed) / (1000 * 60 * 60 * 24));\n      $('#days-left').text(daysLeft);\n\n      var goLiveWithTime = new Date();\n      //End at midnight of the day specified\n      goLiveWithTime.setTime(goLive.getTime() + (24 * 60 * 60 * 1000));\n\n      if (todayParsed < Date.parse(goLiveWithTime) && todayParsed >= Date.parse(countdownStart)) {\n        //enable during ABE\n        $('.duringCountdown').show();\n        $('.enroll').show();\n        $('.beforeCountdown').hide();\n        if (goLive.getDate() === today.getDate()) {\n          //last day\n          $('.duringCountdown').hide();\n          $('.lastDay').show();\n        }\n      } else if (todayParsed > Date.parse(goLiveWithTime)) {\n       // after\n       $('.enroll').hide();\n       $('.afterCountdown').show();\n       $('.paragraphAfterCountdown').show();\n       $('.beforeCountdown').hide();\n       $('.duringCountdown').hide();\n       $('.getStarted').hide();\n } //else before, but we init with before, so nothing to do\n});\n\n</script>\n\n        ",
+      "widgetType": null,
+      "widgetURL": null
+    },
+    "lifecycleState": "PUBLISHED",
+    "marketplaceScreenshots": [
+    ],
+    "maxUrl": "/portal/p/university-staff-benefits-statement/render.uP",
+    "name": "Benefit Information",
+    "portletName": "BenefitInformation",
+    "portletReleaseNotes": {
+      "initialReleaseDate": null,
+      "releaseDate": null,
+      "releaseNotes": null
+    },
+    "portletWebAppName": "/HRSPortlets",
+    "rating": 4.5,
+    "relatedPortlets": null,
+    "renderUrl": "/portal/p/university-staff-benefits-statement/render.uP",
+    "shortUrl": null,
+    "target": null,
+    "title": "Benefit Information",
+    "type": "Portlet",
+    "userRated": 2
+  }
+}

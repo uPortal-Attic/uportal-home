@@ -1,0 +1,53 @@
+{
+  "entry": {
+    "canAdd": false,
+    "categories": [
+      "Administration"
+    ],
+    "description": "Submit feedback on MyUW.",
+    "faIcon": "fa-bullhorn",
+    "fname": "feedback",
+    "id": "41",
+    "keywords": null,
+    "layoutObject": {
+      "altMaxUrl": true,
+      "description": "Submit feedback on MyUW.",
+      "faIcon": "fa-bullhorn",
+      "fname": "feedback",
+      "iconUrl": null,
+      "lifecycleState": "PUBLISHED",
+      "mdIcon": null,
+      "nodeId": "-1",
+      "pithyStaticContent": null,
+      "renderOnWeb": false,
+      "staticContent": null,
+      "target": null,
+      "title": "Feedback",
+      "url": "/portal/p/feedback/render.uP",
+      "widgetConfig": null,
+      "widgetTemplate": null,
+      "widgetType": null,
+      "widgetURL": null
+    },
+    "lifecycleState": "PUBLISHED",
+    "marketplaceScreenshots": [
+    ],
+    "maxUrl": "/portal/p/feedback/render.uP",
+    "name": "Feedback",
+    "portletName": "FeedbackPortlet",
+    "portletReleaseNotes": {
+      "initialReleaseDate": null,
+      "releaseDate": null,
+      "releaseNotes": null
+    },
+    "portletWebAppName": "/FeedbackPortlet",
+    "rating": 1,
+    "relatedPortlets": null,
+    "renderUrl": "/portal/p/feedback/render.uP",
+    "shortUrl": null,
+    "target": null,
+    "title": "Feedback",
+    "type": "Portlet",
+    "userRated": 1
+  }
+}

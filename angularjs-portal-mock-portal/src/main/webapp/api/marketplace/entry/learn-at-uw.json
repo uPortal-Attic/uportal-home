@@ -1,0 +1,64 @@
+{
+  "entry": {
+    "canAdd": false,
+    "categories": [
+      "Academics"
+    ],
+    "description": "Access your Learn@UW account.",
+    "faIcon": "fa-at",
+    "fname": "learn-at-uw",
+    "id": "3096",
+    "keywords": [
+      "learn",
+      "course",
+      "dashboard",
+      "course dashboard",
+      "learn@UW",
+      "learnatUW",
+      "moodle",
+      "desire2learn",
+      "desiretolearn",
+      "desire"
+    ],
+    "layoutObject": {
+      "altMaxUrl": true,
+      "description": "Access your Learn@UW account.",
+      "faIcon": "fa-at",
+      "fname": "learn-at-uw",
+      "iconUrl": null,
+      "lifecycleState": "PUBLISHED",
+      "mdIcon": null,
+      "nodeId": "-1",
+      "pithyStaticContent": null,
+      "renderOnWeb": false,
+      "staticContent": "\n            \n                Click <a href=\"https://wwwtest.coursedashboard.learnuw.wisc.edu/\">here</a> to access Learn@UW.\n            \n        ",
+      "target": "_blank",
+      "title": "Learn@UW",
+      "url": "https://wwwtest.coursedashboard.learnuw.wisc.edu/",
+      "widgetConfig": null,
+      "widgetTemplate": null,
+      "widgetType": null,
+      "widgetURL": null
+    },
+    "lifecycleState": "PUBLISHED",
+    "marketplaceScreenshots": [
+    ],
+    "maxUrl": "https://wwwtest.coursedashboard.learnuw.wisc.edu/",
+    "name": "Learn@UW",
+    "portletName": "advanced-cms",
+    "portletReleaseNotes": {
+      "initialReleaseDate": null,
+      "releaseDate": null,
+      "releaseNotes": null
+    },
+    "portletWebAppName": "/SimpleContentPortlet",
+    "rating": 4.5,
+    "relatedPortlets": null,
+    "renderUrl": "https://wwwtest.coursedashboard.learnuw.wisc.edu/",
+    "shortUrl": null,
+    "target": "_blank",
+    "title": "Learn@UW",
+    "type": "Portlet",
+    "userRated": 2
+  }
+}
