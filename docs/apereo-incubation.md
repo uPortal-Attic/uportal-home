@@ -2,7 +2,7 @@
 
 AngularJS-portal [is presently][Apereo projects currently in incubation] in [Apereo Incubation][], aspiring to be an [Apereo][] project in the [uPortal][] ecosystem.
 
-[![Apereo Incubating badge](https://img.shields.io/badge/apereo-incubating-blue.svg)](https://www.apereo.org/content/projects-currently-incubation)
+[![Apereo Incubating badge](https://www.apereo.org/sites/default/files/Incubation%20Logos/incubating%20w-out%20logo%2015mar17.png)](https://www.apereo.org/content/projects-currently-incubation)
 
 + Incubation requested: [2016-11-21][incubation@ proposal]
 + Apereo Board approved for incubation: [2016-12-20][2016-12-20 Apereo Board meeting minutes]
