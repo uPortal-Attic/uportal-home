@@ -40,5 +40,9 @@ Search app directory entries, the web (with Google Custom Search integration), o
 ## Integration with uPortal
 + [Silent Login Configuration](silent-login.md)
 
+## Developing
+
++ [On releasing](releasing.md)
+
 
 [uPortal]: http://jasig.github.io/uPortal/
