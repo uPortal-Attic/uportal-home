@@ -2,11 +2,13 @@
 
 AngularJS-portal [is presently][Apereo projects currently in incubation] in [Apereo Incubation][], aspiring to be an [Apereo][] project in the [uPortal][] ecosystem.
 
-[![Apereo Incubating badge](https://img.shields.io/badge/apereo-incubating-blue.svg)](https://www.apereo.org/content/projects-currently-incubation)
+[![Apereo Incubating badge](https://www.apereo.org/sites/default/files/Incubation%20Logos/incubating%20w-out%20logo%2015mar17.png)](https://www.apereo.org/content/projects-currently-incubation)
 
 + Incubation requested: [2016-11-21][incubation@ proposal]
 + Apereo Board approved for incubation: [2016-12-20][2016-12-20 Apereo Board meeting minutes]
 + Entered incubation (initial conference call): 2017-03-13.
++ Subsequent check-in calls: [2017-04-10][2017-04-10 incubation status call], [2017-05-25 at 10a NYC (scheduled)][2017-04-10 incubation status call].
+
 
 ## Project status vis a vis exit criteria
 
@@ -40,8 +42,7 @@ Most major contributors have ICLAs on file.
 
 Next actions:
 
-+ Audit for CLA completeness of contributors
-+ Document CLA requirements in `CONTRIBUTING.md`
++ Follow up with past Contributors to secure CLAs
 + Potentially implement cla-assistant.io with the wrinkle of it asking contributors to attest to their compliance with the external-to-CLA-assistant CLA agreement process. (Click-through assurance that demonstrated CLA agreement through more arduous process, not click-through agreement to CLA.)
 
 #### 4.1.4 Name trademark clarity
@@ -198,4 +199,5 @@ Next actions:
 [uPortal]: https://www.apereo.org/projects/uportal
 [incubation@ proposal]: https://groups.google.com/a/apereo.org/d/msg/incubation/tPBN3-YSSPM/Xk4yghH1AwAJ
 [2016-12-20 Apereo Board meeting minutes]: https://www.apereo.org/sites/default/files/meeting_minutes/2016/Apereo%20Board%20Minutes%20-%20Dec%202016%20-%20002.pdf
+[2017-04-10 incubation status call]: https://groups.google.com/a/apereo.org/d/msg/uportal-user/rN76LaT-VGQ/dikxNY9wAQAJ
 [exit criteria]: https://www.apereo.org/content/apereo-incubation-process#S4
