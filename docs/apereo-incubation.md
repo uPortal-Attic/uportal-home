@@ -43,7 +43,6 @@ Most major contributors have ICLAs on file.
 Next actions:
 
 + Audit for CLA completeness of contributors
-+ Document CLA requirements in `CONTRIBUTING.md`
 + Potentially implement cla-assistant.io with the wrinkle of it asking contributors to attest to their compliance with the external-to-CLA-assistant CLA agreement process. (Click-through assurance that demonstrated CLA agreement through more arduous process, not click-through agreement to CLA.)
 
 #### 4.1.4 Name trademark clarity
