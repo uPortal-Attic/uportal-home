@@ -13,7 +13,7 @@
     <!-- List View -->
     <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list">
        <li class="col-xs-6 col-sm-3 col-md-3 col-lg-2 no-padding list-container" ng-repeat="portlet in layout | filter:filterText">
-         <default-card></default-card>
+         <compact-widget fname="{{portlet.fname}}"><remove-button></remove-button></compact-widget>
        </li>
     </ul>
     <ul class="tile-list" ng-hide="GuestMode">
