@@ -1,5 +1,10 @@
 # Contributing to `AngularJS-portal`
 
+In short:
+
++ All Contributors must appear in the public [Apereo CLA roster][].
++ Use [Google code style][].
+
 ## Contributor License Agreements
 
 As an [incubating, aspiring Apereo product][AngularJS-portal website on incubating], `AngularjS-portal` requires contributors and contributions to comply with [Apereo inbound intellectual property licensing practices][].
@@ -18,6 +23,11 @@ The long version:
 
 *Please* provide feedback about how these practices impact your ability to contribute. You might voice that feedback on the [Apereo licensing discussion Google Group][] or in any other way in which you are comfortable.
 
+## Google code style
+
+This project adopts [Google code style][].
+
+
 [AngularJS-portal website on incubating]: http://uw-madison-doit.github.io/angularjs-portal/apereo-incubation.html
 [Apereo inbound intellectual property licensing practices]: https://www.apereo.org/licensing/practices
 [Apereo Individual Contributor License Agreement]: https://www.apereo.org/sites/default/files/Licensing%20Agreements/apereo-icla.pdf
@@ -26,3 +36,5 @@ The long version:
 [Apereo website on Contributor License Agreement]: https://www.apereo.org/licensing/agreements
 [Apereo licensing discussion Google Group]: https://groups.google.com/a/apereo.org/forum/#!forum/licensing-discuss
 [Apereo CLA roster]: http://licensing.apereo.org/completed-clas
+
+[Google code style]: https://google.github.io/styleguide/
