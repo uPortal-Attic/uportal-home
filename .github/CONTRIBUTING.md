@@ -3,7 +3,7 @@
 In short:
 
 + All Contributors must appear in the public [Apereo CLA roster][].
-+ Use [Google Style][].
++ Use [Google code style][].
 
 ## Contributor License Agreements
 
@@ -23,10 +23,9 @@ The long version:
 
 *Please* provide feedback about how these practices impact your ability to contribute. You might voice that feedback on the [Apereo licensing discussion Google Group][] or in any other way in which you are comfortable.
 
-## Google Style
+## Google code style
 
-This project adopts [Google Style][].
-
+This project adopts [Google code style][].
 
 
 [AngularJS-portal website on incubating]: http://uw-madison-doit.github.io/angularjs-portal/apereo-incubation.html
@@ -38,4 +37,4 @@ This project adopts [Google Style][].
 [Apereo licensing discussion Google Group]: https://groups.google.com/a/apereo.org/forum/#!forum/licensing-discuss
 [Apereo CLA roster]: http://licensing.apereo.org/completed-clas
 
-[Google Style]: https://google.github.io/styleguide/
+[Google code style]: https://google.github.io/styleguide/
