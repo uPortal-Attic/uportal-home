@@ -14,7 +14,7 @@ This is an Angular approach to the dashboard view of uPortal. This dashboard wil
 
 "uPortal-home" is somewhere in the process of a name change from its old name, "AngularJS-Portal".
 
-See [this project's documentation](http://uw-madison-doit.github.io/angularjs-portal/).
+See [this project's documentation][GitHub Pages site].
 
 #### Resources for understanding what you can do with `angularjs-portal`:
 
@@ -97,3 +97,5 @@ Drop angularjs-portal-home/target/web.war in the Tomcat instance that runs uPort
 
 [MyUW Overview slide deck]: http://go.wisc.edu/qwg5r1
 [Tomcat docs re Maven plugin]: http://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/plugin-info.html
+
+[GitHub Pages site]: http://uw-madison-doit.github.io/angularjs-portal/
