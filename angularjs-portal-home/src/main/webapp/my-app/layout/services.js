@@ -124,6 +124,7 @@ define(['angular', 'jquery'], function(angular, $) {
           } else if ($.isArray(data.layout)) { // layoutDoc
             result.layout = data.layout;
           }
+
           return result;
         };
 
