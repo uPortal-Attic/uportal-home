@@ -110,26 +110,19 @@ define(['angular', 'jquery'], function(angular, $) {
               return result;
             });
             if (tabs && 0 < tabs.length) {
-
               var columns = tabs[0].content;
-
               var portlets = [];
-
               function collectPortletsFromColumns(column) {
                 portlets = portlets.concat(column.content);
               }
-
               if ($.isArray(columns)) {
                 columns.forEach( collectPortletsFromColumns );
               }
-
               result.layout = portlets;
-
             }
           } else if ($.isArray(data.layout)) { // layoutDoc
             result.layout = data.layout;
           }
-
           return result;
         };
 
