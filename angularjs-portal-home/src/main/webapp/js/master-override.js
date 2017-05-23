@@ -1,7 +1,5 @@
 define(['angular'], function(angular) {
-
   return angular.module('override', [])
-
         .constant('OVERRIDE', {
           'APP_FLAGS': {
             'enableToggle': true,
