@@ -87,7 +87,7 @@ Example:
 ```
 The role of `manager-script` gives them the ability to use the `/text` api from Tomcat.
 
-Read more about that here: http://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/plugin-info.html
+Read more about how this works in [Tomcat documentation][Tomcat docs re Maven plugin].
 
 With this you can run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy` if you have already deployed it once. We also wrote a script for this. Just run `./build.sh`
 
@@ -96,3 +96,4 @@ With this you can run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy` if you have
 Drop angularjs-portal-home/target/web.war in the Tomcat instance that runs uPortal and fire it up. Should just work.
 
 [MyUW Overview slide deck]: http://go.wisc.edu/qwg5r1
+[Tomcat docs re Maven plugin]: http://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/plugin-info.html
