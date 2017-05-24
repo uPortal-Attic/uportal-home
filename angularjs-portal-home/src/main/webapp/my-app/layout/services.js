@@ -112,11 +112,10 @@ define(['angular', 'jquery'], function(angular, $) {
             if (tabs && 0 < tabs.length) {
               var columns = tabs[0].content;
               var portlets = [];
-              function collectPortletsFromColumns(column) {
-                portlets = portlets.concat(column.content);
-              }
               if ($.isArray(columns)) {
-                columns.forEach( collectPortletsFromColumns );
+                columns.forEach( function(column) {
+                  portlets = portlets.concat(column.content);
+                });
               }
               result.layout = portlets;
             }
