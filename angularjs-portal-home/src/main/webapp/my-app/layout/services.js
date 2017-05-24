@@ -84,8 +84,11 @@ define(['angular', 'jquery'], function(angular, $) {
           var result = {
             'layout': [],
           };
+          // layout will map to an array of objects each with an fname field.
+          // those fnames represent, in order,
+          // the home page content for the user
           if ($.isPlainObject(data.layout) &&
-              $.isArray(data.layout.folders)) { // layout.json
+              $.isArray(data.layout.folders)) { // layout.json v1
             var folders = data.layout.folders.filter(function(el) {
               var result = false;
               if (el && SERVICE_LOC.layoutTab === el.title) {
@@ -95,6 +98,28 @@ define(['angular', 'jquery'], function(angular, $) {
             });
             if (folders && 0 < folders.length) {
               result.layout = folders[0].portlets;
+            }
+          } else if ( data.layout.navigation &&
+              $.isPlainObject(data.layout.navigation) &&
+              $.isArray(data.layout.navigation.tabs)) { // v4-3
+            // var tabs will be tabs matching the layoutTab name
+            // expected to be an array with length 1
+            var tabs = data.layout.navigation.tabs.filter(function(el) {
+              var result = false;
+              if (el && SERVICE_LOC.layoutTab === el.name) {
+                result = true;
+              }
+              return result;
+            });
+            if (tabs && 0 < tabs.length) {
+              var columns = tabs[0].content;
+              var portlets = [];
+              if ($.isArray(columns)) {
+                columns.forEach( function(column) {
+                  portlets = portlets.concat(column.content);
+                });
+              }
+              result.layout = portlets;
             }
           } else if ($.isArray(data.layout)) { // layoutDoc
             result.layout = data.layout;
