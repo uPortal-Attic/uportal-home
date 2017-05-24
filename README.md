@@ -18,9 +18,9 @@ See [this project's documentation](http://uw-madison-doit.github.io/angularjs-po
 
 #### Resources for understanding what you can do with `angularjs-portal`:
 
- * [MyUW Overview slide deck][]
- * [MyUW Introduction YouTube video](https://www.youtube.com/watch?v=4kM9pPnH_hA)
- * [MyUW KnowledgeBase](https://kb.wisc.edu/myuw/)
++ [MyUW Overview slide deck][]
++ [MyUW Introduction YouTube video](https://www.youtube.com/watch?v=4kM9pPnH_hA)
++ [MyUW KnowledgeBase](https://kb.wisc.edu/myuw/)
 
 ### Building
 
