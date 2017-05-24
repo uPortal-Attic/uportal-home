@@ -99,7 +99,9 @@ define(['angular', 'jquery'], function(angular, $) {
             if (folders && 0 < folders.length) {
               result.layout = folders[0].portlets;
             }
-          } else if ($.isArray(data.layout.navigation.tabs)) { // v4-3
+          } else if ( data.layout.navigation &&
+              $.isPlainObject(data.layout.navigation) &&
+              $.isArray(data.layout.navigation.tabs)) { // v4-3
             // var tabs will be tabs matching the layoutTab name
             // expected to be an array with length 1
             var tabs = data.layout.navigation.tabs.filter(function(el) {
