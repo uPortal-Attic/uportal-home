@@ -281,6 +281,7 @@ define(['angular', 'jquery'], function(angular, $) {
 
         return {
             getLayout: getLayout,
+            formatLayoutForCache: formatLayoutForCache,
             getApp: getApp,
             moveStuff: moveStuff,
             getNewStuffFeed: getNewStuffFeed,
