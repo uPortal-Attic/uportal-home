@@ -16,7 +16,7 @@
     "startYear": 2015,
     "startMonth": 7,
     "startDay": 11,
-    "endYear": 2016,
+    "endYear": 2017,
     "endMonth": 7,
     "endDay": 25,
     "buttonText": "Continue to MyUW"
@@ -25,7 +25,7 @@
   {
     "id": 2,
     "title": "A new and improved search",
-    "description": "Search more places. In addition to searching MyUW, now you can find people in the campus directory, and search the entire Wisc.edu website. Quickly find what you’re looking for. The new streamlined search results page has a familiar and straightforward look, with tabs to narrow your search to what you need.",
+    "description": "Search more places. In addition to searching MyUW, now you can find people in the campus directory, and search the entire Wisc.edu website. Quickly find what you're looking for. The new streamlined search results page has a familiar and straightforward look, with tabs to narrow your search to what you need.",
     "img": "img/search-demo.png",
     "learnMoreURL": "",
     "groups" : "authenticated-UW-Madison",

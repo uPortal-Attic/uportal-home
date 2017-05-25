@@ -115,10 +115,10 @@ define([
       var initwiscDirectoryResultLimit = function() {
         $scope.wiscDirectoryResultLimit = 3;
       };
-      
-      $scope.showAllDirectoryResults = function(){
+
+      $scope.showAllDirectoryResults = function() {
         $scope.wiscDirectoryResultLimit = $scope.wiscDirectoryResultCount;
-      }
+      };
 
       var init = function() {
         $scope.sortParameter = ['-rating', '-userRated'];
