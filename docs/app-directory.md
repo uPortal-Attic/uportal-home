@@ -36,11 +36,11 @@ The difference is `title` displays to end users whereas `name` displays in certa
 
 `title` will display to end users as
 
- * the name of the app when browsing the app directory
- * the name of the app in search results
- * the name of the app when viewing the details page for the app
- * the title on the widget tile, if the user adds the app to their home
- * the title when rendering the app, if the app is a portlet
++ the name of the app when browsing the app directory
++ the name of the app in search results
++ the name of the app when viewing the details page for the app
++ the title on the widget tile, if the user adds the app to their home
++ the title when rendering the app, if the app is a portlet
 
 whereas `name` will not display to end users.
 
@@ -56,8 +56,8 @@ The functional name ("fname") is a short human-readable string uniquely identify
   ...
 ```
 
- * `/web/exclusive/{fname}` will render the content. (Currently not all portlet content works well rendered in this way, but that should be fixed someday.)
- * `/web/apps/details/{fname}` will render the details page about the content.
++ `/web/exclusive/{fname}` will render the content. (Currently not all portlet content works well rendered in this way, but that should be fixed someday.)
++ `/web/apps/details/{fname}` will render the details page about the content.
 
 Historically (and technically, currently) `/portal/p/{fname}` would render the content, if the content is a portlet, but this uses the old rendering pipeline that should eventually be replaced by rendering in the new `/web/exclusive/{fname}` way.
 
@@ -77,10 +77,10 @@ Beyond the names and URL path identifier, several other fields inform the direct
 
 Description text displays
 
- * as the description of the search result item in the search results display
- * as the description of the item in the browse view on the directory of apps
- * as the tooltip upon hovering on the (i) icon on the app's widget
- * on the app's details page
++ as the description of the search result item in the search results display
++ as the description of the item in the browse view on the directory of apps
++ as the tooltip upon hovering on the (i) icon on the app's widget
++ on the app's details page
 
 #### Icon
 
@@ -235,7 +235,7 @@ This means that the app directory can be viewed and edited via the Portlet Manag
 
 Application directory entries are currently uPortal `portlet-definition` entities.
 
- * [XSD for `portlet-definition` XML][]
++ [XSD for `portlet-definition` XML][]
 
 [KB article on referencing content in MyUW]: https://kb.wisc.edu/myuw/page.php?id=52650
 [XSD for `portlet-definition` XML]: https://github.com/Jasig/uPortal/tree/master/uportal-war/src/main/resources/xsd/io/portlet-definition

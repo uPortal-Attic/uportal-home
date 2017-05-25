@@ -238,7 +238,7 @@ This provides a more usable click surface, a simpler and cleaner user experience
 * **lim**: The number of items to show. Any number greater than 6 will default to 6 (due to space limitations). Use a smaller number for feeds that are infrequently updated.
 * **titleLim**: Limit the length (in characters, including spaces) of feed titles. This number should be between 30 and 60 (depending on whether you're showing dates or not).
 * **showdate**: T/F show each feed item's published date. The date format is "M/d/yy" (localizable) due to space consideration.
-* **showShowing**: T/F Show the "Showing [x] out of [y]" message (to communicate that there is more to see). Set this to true if your feed has frequent updates.
+* **showShowing**: T/F Show the "Showing \[x] out of \[y]" message (to communicate that there is more to see). Set this to true if your feed has frequent updates.
 
 #### Additional information
 

@@ -18,9 +18,9 @@ See [this project's documentation](http://uw-madison-doit.github.io/angularjs-po
 
 #### Resources for understanding what you can do with `angularjs-portal`:
 
- * [MyUW Overview slide deck][]
- * [MyUW Introduction YouTube video](https://www.youtube.com/watch?v=4kM9pPnH_hA)
- * [MyUW KnowledgeBase](https://kb.wisc.edu/myuw/)
++ [MyUW Overview slide deck][]
++ [MyUW Introduction YouTube video](https://www.youtube.com/watch?v=4kM9pPnH_hA)
++ [MyUW KnowledgeBase](https://kb.wisc.edu/myuw/)
 
 ### Building
 
@@ -56,10 +56,10 @@ University of Wisconsin styles the portal theme to look similar for a seamless t
 
 ### Modules
 
-+ #### Frame
+#### Frame
 Frame was so cool it moved to [its own project](https://github.com/UW-Madison-DoIT/uw-frame).
 
-+ #### Home
+#### Home
 This is the portal home page. It uses the frame as a base then adds in the layout, app directory, and features pages.
 
 To deploy the home build from the base directory described above. Then `cd ./angularjs-portal-home` and run `mvn tomcat7:redeploy` (assuming you have auto deploy configured).  The home will now be deployed to `/web`.
@@ -87,7 +87,7 @@ Example:
 ```
 The role of `manager-script` gives them the ability to use the `/text` api from Tomcat.
 
-Read more about that here: http://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/plugin-info.html
+Read more about how this works in [Tomcat documentation][Tomcat docs re Maven plugin].
 
 With this you can run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy` if you have already deployed it once. We also wrote a script for this. Just run `./build.sh`
 
@@ -96,3 +96,4 @@ With this you can run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy` if you have
 Drop angularjs-portal-home/target/web.war in the Tomcat instance that runs uPortal and fire it up. Should just work.
 
 [MyUW Overview slide deck]: http://go.wisc.edu/qwg5r1
+[Tomcat docs re Maven plugin]: http://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/plugin-info.html

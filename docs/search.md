@@ -20,9 +20,9 @@ Search over the app directory, with the results filtered to what the user can bo
 
 Dirty secret: this isn't actually search! This is filtering. The implementation simply matches the search term against
 
- * app names
- * app descriptions
- * keywords
++ app names
++ app descriptions
++ keywords
 
 The matching is case-insensitive, but otherwise requires an exact prefix match.  That means that if the user types "goat" that'll match the word "goats", but if the user types "goats" that will not match the word "goat".
 
@@ -79,20 +79,20 @@ You declare one or more search configurations.  A search configuration has a `gr
 
 Within each search configuration, you can set:
 
- * `group` (required) : A user must be a member of this group for the search configuration to apply. (Use `Everyone` to match, well, everyone.)
++ `group` (required) : A user must be a member of this group for the search configuration to apply. (Use `Everyone` to match, well, everyone.)
 
 Directory searching (optional):
 
- * `directorySearchURL`: JSON web service for directory search results (TODO: say something more useful about this)
++ `directorySearchURL`: JSON web service for directory search results (TODO: say something more useful about this)
 
 Web searching (optional; declare all or none):
 
- * `googleSearchURL` : JSON web service for Web search.
- * `webSearchURL` : human-facing URL for launching the search query into a full Web search experience. Search query will be appended.
- * `domainResultsLabel` : Your Web search doesn't search the whole Web. That's what the browser address bar is for, after all. So what does it search? This label characterizes that for the user.
++ `googleSearchURL` : JSON web service for Web search.
++ `webSearchURL` : human-facing URL for launching the search query into a full Web search experience. Search query will be appended.
++ `domainResultsLabel` : Your Web search doesn't search the whole Web. That's what the browser address bar is for, after all. So what does it search? This label characterizes that for the user.
 
 Zero-results search recovery (individually optional):
 
- * `kbSearchURL` : Human-facing URL for launching a knowledge base search, shown only as a zero-results search recovery option. Search query will be appended.
- * `eventsSearchURL` : Human-facing URL for launching an events search, shown only as a zero-results search recovery option. Search query will be appended.
- * `helpdeskURL` : Human-facing URL for launching help desk website, shown only as a zero-results search recovery option.
++ `kbSearchURL` : Human-facing URL for launching a knowledge base search, shown only as a zero-results search recovery option. Search query will be appended.
++ `eventsSearchURL` : Human-facing URL for launching an events search, shown only as a zero-results search recovery option. Search query will be appended.
++ `helpdeskURL` : Human-facing URL for launching help desk website, shown only as a zero-results search recovery option.
