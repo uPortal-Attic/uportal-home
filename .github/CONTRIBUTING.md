@@ -27,6 +27,16 @@ The long version:
 
 This project adopts [Google code style][].
 
+You can locally check for build, test, and linting ("style") errors with commands like
+
+```shell
+mvn package
+mvn checkstyle:check
+npm test
+npm run lint-js
+npm run lint-md
+npm run lint-less
+```
 
 [AngularJS-portal website on incubating]: http://uw-madison-doit.github.io/angularjs-portal/apereo-incubation.html
 [Apereo inbound intellectual property licensing practices]: https://www.apereo.org/licensing/practices
