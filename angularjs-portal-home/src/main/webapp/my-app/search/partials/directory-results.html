@@ -40,7 +40,7 @@
 </div>
 <div class="seeMoreResults">
   <p ng-if="wiscDirectoryResultCount>wiscDirectoryResultLimit">
-    <a href="" ng-click="filterTo('directory')">See all {{wiscDirectoryResultCount}} directory results</a>
+    <a href="" ng-click="showAllDirectoryResults()">See all {{wiscDirectoryResultCount}} directory results</a>
   </p>
   <p ng-if="wiscDirectoryErrorMessage">
     {{wiscDirectoryErrorMessage}}
