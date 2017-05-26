@@ -148,14 +148,16 @@ Tada! It'll render the `uPortal-home` home page with some widgets on it.
 
 ## Portlet registry as app directory
 
-
+TODO.
 
 ## Widgets as portlet-definition metadata
 
-
+TODO.
 
 ## uPortal-home and Portlets
 
-
+TODO.
 
 ## Redirecting from uPortal to uPortal-home
+
+TODO.
