@@ -18,6 +18,7 @@ define([
 
     beforeEach(inject(function(layoutService) {
       service = layoutService;
+      // TODO Retrieve example JSON responses
       layoutDoc = {
         'layout': [],
       };
