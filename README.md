@@ -14,7 +14,7 @@ This is an Angular approach to the dashboard view of uPortal. This dashboard wil
 
 "uPortal-home" is somewhere in the process of a name change from its old name, "AngularJS-Portal".
 
-See [this project's documentation](http://uw-madison-doit.github.io/angularjs-portal/).
+See [this project's documentation][GitHub Pages site].
 
 #### Resources for understanding what you can do with `angularjs-portal`:
 
@@ -32,27 +32,8 @@ This file contains your server side proxy configurations. See the example file f
 + run `mvn clean package` from the root directory to build the war files.
 
 #### Building, Deploying, and Running with [Apereo uPortal](https://github.com/Jasig/uPortal)
-+ Download, build, and run uPortal on your server
-+ Setup [autodeploy](https://github.com/UW-Madison-DoIT/angularjs-portal/blob/master/README.md#deploying-to-a-running-local-tomcat)
-+ cd to angularjs-portal root directory
-+ Unix based systems, run : `./build.sh master`
-+ Windows based systems, run :
-```
-copy angularjs-portal-home/src/main/webapp/js/app-config.js angularjs-portal-home/src/main/webapp/js/app-config.js.bak
-copy angularjs-portal-home/src/main/webapp/js/master-app-config.js angularjs-portal-home/src/main/webapp/js/app-config.js
-mvn package
-cd angularjs-portal-home
-mvn tomcat7:deploy  #or redeploy depending if this is a consecutive run
-```
-+ navigate to localhost:8080/uPortal
-+ Login via any user that has access to the Welcome Tab in uPortal.  If you want to use admin, you have to comment out the admin restricting part in the [welcome tab layout](https://github.com/Jasig/uPortal/blob/master/uportal-war/src/main/data/quickstart_entities/fragment-layout/welcome-lo.fragment-layout.xml)
-+ navigate to localhost:8080/web
 
-Angularjs-portal is a different front end than the one supplied with [Apereo uPortal](https://github.com/Jasig/uPortal).
-As of now, portlet rendering still takes place via uPortal's rendering pipeline.
-The [theming] (http://uw-madison-doit.github.io/uw-frame/latest/#/md/theming) comes from the [uw-frame dependency](https://github.com/UW-Madison-DoIT/uw-frame).
-
-University of Wisconsin styles the portal theme to look similar for a seamless transition between this webapp and the portal webapp.
+See [documentation site][GitHub Pages site].
 
 ### Modules
 
@@ -97,3 +78,5 @@ Drop angularjs-portal-home/target/web.war in the Tomcat instance that runs uPort
 
 [MyUW Overview slide deck]: http://go.wisc.edu/qwg5r1
 [Tomcat docs re Maven plugin]: http://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/plugin-info.html
+
+[GitHub Pages site]: http://uw-madison-doit.github.io/angularjs-portal/

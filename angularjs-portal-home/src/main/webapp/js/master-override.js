@@ -1,8 +1,5 @@
 define(['angular'], function(angular) {
-  /* Keep in sync with docs/markdown/configuration.md*/
-
   return angular.module('override', [])
-        // see configuration.md for howto
         .constant('OVERRIDE', {
           'APP_FLAGS': {
             'enableToggle': true,
@@ -24,12 +21,17 @@ define(['angular'], function(angular) {
             'newstuffInfo': '/web/staticFeeds/new-stuff.json',
             'context': '/uPortal/',
             'base': '/uPortal/api/',
-            'layout': 'layout.json',
+            'layout': 'api/v4-3/dlm/layout.json',
             'layoutTab': 'Welcome',
             'marketplace': {
                 'base': 'marketplace/',
                 'entry': 'entry/',
                 'entries': 'entries.json',
+            },
+            'widgetApi': {
+              'entry': '/uPortal/api/marketplace/entry/',
+              'entrySuffix': '.json',
+              'entries': '/uPortal/api/marketplace/entries.json',
             },
             'notificationsURL': '/web/staticFeeds/notifications.json',
             'groupURL': '/uPortal/api/groups',
