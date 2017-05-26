@@ -28,6 +28,11 @@ define(['angular'], function(angular) {
                 'entry': 'entry/',
                 'entries': 'entries.json',
             },
+            'widgetApi': {
+              'entry': '/uPortal/api/marketplace/entry/',
+              'entrySuffix': '.json',
+              'entries': '/uPortal/api/marketplace/entries.json',
+            },
             'notificationsURL': '/web/staticFeeds/notifications.json',
             'groupURL': '/uPortal/api/groups',
             'kvURL': null,
