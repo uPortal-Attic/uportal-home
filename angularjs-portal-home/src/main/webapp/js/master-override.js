@@ -49,6 +49,7 @@ define(['angular'], function(angular) {
           'NOTIFICATION': {
               'enabled': true,
               'groupFiltering': true,
+              'notificationFullURL': '/web/notifications',
           },
           'MISC_URLS': {
             'feedbackURL': '/uPortal/p/feedback',
