@@ -8,6 +8,7 @@ AngularJS-portal [is presently][Apereo projects currently in incubation] in [Ape
 + Apereo Board approved for incubation: [2016-12-20][2016-12-20 Apereo Board meeting minutes]
 + Entered incubation (initial conference call): 2017-03-13.
 + Subsequent check-in calls: [2017-04-10][2017-04-10 incubation status call], [2017-05-25 at 10a NYC (scheduled)][2017-04-10 incubation status call].
++ Open Apereo 2017 pre-conference seminar: 2017-06-04, including [slides about incubation][Open Apereo 2017 seminar slides re incubation].
 
 
 ## Project status vis a vis exit criteria
@@ -201,3 +202,4 @@ Next actions:
 [2016-12-20 Apereo Board meeting minutes]: https://www.apereo.org/sites/default/files/meeting_minutes/2016/Apereo%20Board%20Minutes%20-%20Dec%202016%20-%20002.pdf
 [2017-04-10 incubation status call]: https://groups.google.com/a/apereo.org/d/msg/uportal-user/rN76LaT-VGQ/dikxNY9wAQAJ
 [exit criteria]: https://www.apereo.org/content/apereo-incubation-process#S4
+[Open Apereo 2017 seminar slides re incubation]: https://docs.google.com/a/wisc.edu/presentation/d/1C-xRJoXWJKObfhmGV-7KYoZmiT5EyKHcQ36JVF6sGxk/edit?usp=sharing.
