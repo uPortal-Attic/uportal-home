@@ -7,7 +7,7 @@ AngularJS-portal [is presently][Apereo projects currently in incubation] in [Ape
 + Incubation requested: [2016-11-21][incubation@ proposal]
 + Apereo Board approved for incubation: [2016-12-20][2016-12-20 Apereo Board meeting minutes]
 + Entered incubation (initial conference call): 2017-03-13.
-+ Subsequent check-in calls: [2017-04-10][2017-04-10 incubation status call], [2017-05-25][2017-05-25 incubation status call Google Group topic].
++ Subsequent check-in calls: [2017-04-10][2017-04-10 incubation status call], [2017-05-25][2017-05-25 incubation status call Google Group topic], [2017-07-12 10 NYC (scheduled)][2017-07-12 incubation status call].
 + Open Apereo 2017 pre-conference seminar: 2017-06-04, including [slides about incubation][Open Apereo 2017 seminar slides re incubation].
 
 
@@ -202,5 +202,6 @@ Next actions:
 [2016-12-20 Apereo Board meeting minutes]: https://www.apereo.org/sites/default/files/meeting_minutes/2016/Apereo%20Board%20Minutes%20-%20Dec%202016%20-%20002.pdf
 [2017-04-10 incubation status call]: https://groups.google.com/a/apereo.org/d/msg/uportal-user/rN76LaT-VGQ/dikxNY9wAQAJ
 [2017-05-25 incubation status call Google Group topic]: https://groups.google.com/a/apereo.org/d/topic/uportal-user/7CmkrP-2Dic/discussion
+[2017-07-12 incubation status call]: https://docs.google.com/document/d/1LGBcsL-hg6a6kWktE4HgThjpF7idc_AwFcV4op6NLy8/edit?usp=sharing
 [exit criteria]: https://www.apereo.org/content/apereo-incubation-process#S4
 [Open Apereo 2017 seminar slides re incubation]: https://docs.google.com/a/wisc.edu/presentation/d/1C-xRJoXWJKObfhmGV-7KYoZmiT5EyKHcQ36JVF6sGxk/edit?usp=sharing.
