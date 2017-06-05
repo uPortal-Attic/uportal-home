@@ -34,7 +34,7 @@ define(['angular'], function(angular) {
             'loginSilentURL': '/portal/Login?silent=true&profile=bucky',
           },
           'NAMES': {
-              'title': 'DevOps BOF',
+              'title': 'MyUW',
               'ariaLabelTitle': 'My U W',
               'crest': 'img/uwcrest_web_sm.png',
               'crestalt': 'UW Crest',
