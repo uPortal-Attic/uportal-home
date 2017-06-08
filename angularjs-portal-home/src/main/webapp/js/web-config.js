@@ -4,7 +4,7 @@ define(['angular'], function(angular) {
     .value('SEARCH_CONFIG', [
       {
         'group': 'UW-Madison',
-        'directorySearchURL': '/web/api/proxy/wiscdirectory',
+        'directorySearchURL': '/aries/proxy/wiscdirectory',
         'googleSearchURL': '/web/api/proxy/wiscedusearch?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=10&num=10&sig=b16e3ffbc96e4526fdc0cc8394bf713a&cx=001601028090761970182:uu2tbvfp4za&alt=json',
         'webSearchURL': 'http://www.wisc.edu/search/?q=',
         'domainResultsLabel': 'Wisc.edu',
