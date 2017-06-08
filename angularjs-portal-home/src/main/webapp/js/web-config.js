@@ -14,7 +14,7 @@ define(['angular'], function(angular) {
       },
       {
         'group': 'UW System-River Falls',
-        'directorySearchURL': '/web/api/proxy/uwrfdirectory',
+        'directorySearchURL': '/aries/proxy/uwrfdirectory',
         'googleSearchURL': '/web/api/proxy/uwrfsearch?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=10&num=10&hl=en&prettyPrint=false&source=gcsc&gss=.com&sig=432dd570d1a386253361f581254f9ca1&cx=004071655910512460416:8kmve-tofw8&googlehost=www.google.com&nocache=1456777578251&',
         'webSearchURL': 'https://www.uwrf.edu/AboutUs/SearchResults.cfm?q=',
         'domainResultsLabel': 'UWRF.edu',
