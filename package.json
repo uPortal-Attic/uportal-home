@@ -29,15 +29,15 @@
   },
   "homepage": "https://github.com/UW-Madison-DoIT/angularjs-portal",
   "devDependencies": {
-    "eslint": "^3.17.1",
+    "eslint": "^4.0.0",
     "eslint-config-angular": "^0.5.0",
-    "eslint-config-google": "^0.7.1",
+    "eslint-config-google": "^0.8.0",
     "eslint-git-changes": "^2.0.0",
-    "eslint-plugin-angular": "^1.6.2",
+    "eslint-plugin-angular": "^2.4.2",
     "eslint-plugin-compat": "^1.0.2",
     "eslint-plugin-jasmine": "^2.2.0",
     "eslint-plugin-json": "^1.2.0",
-    "eslint-plugin-markdown": "^1.0.0-beta.4",
+    "eslint-plugin-markdown": "^1.0.0-beta.6",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-requirejs": "^3.1.1",
     "husky": "^0.13.3",
@@ -59,7 +59,7 @@
     "remark-preset-lint-recommended": "^2.0.0",
     "remark-validate-links": "^6.0.0",
     "requirejs": "^2.1.18",
-    "stylelint": "^7.9.0",
+    "stylelint": "^7.11.0",
     "stylelint-config-standard": "^16.0.0"
   },
   "stylelint": {
