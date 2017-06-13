@@ -25,7 +25,7 @@ define(['angular'], function(angular) {
         'group': 'UW System-Platteville',
         'kbSearchURL': 'https://kb.uwplatt.edu/search.php?q=',
         'helpdeskURL': 'https://kb.wisc.edu/helpdesk/',
-        'googleSearchURL': '/aries/uwplattsearch?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=10&num=10&sig=b16e3ffbc96e4526fdc0cc8394bf713a&cx=013148818429580281285:suupwg3jgw4&alt=json',
+        'googleSearchURL': '/aries/proxy/uwplattsearch?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=10&num=10&sig=b16e3ffbc96e4526fdc0cc8394bf713a&cx=013148818429580281285:suupwg3jgw4&alt=json',
         'domainResultsLabel': 'uwplatt.edu',
       },
     ]);
