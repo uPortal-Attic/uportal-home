@@ -28,7 +28,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
         // gaPageViewHits = 0;
         $location = {
           'path': function(newPath) {
-            if(newPath) {
+            if (newPath) {
               currentPath = newPath;
             } else {
               return currentPath;

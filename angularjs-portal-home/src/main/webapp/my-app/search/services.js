@@ -20,14 +20,14 @@ define(['angular', 'jquery'], function(angular, $) {
       function getDomainResultsLabel() {
         var successFn;
         var errorFn;
-        if(domainResultsLabelPromise) {
+        if (domainResultsLabelPromise) {
           return domainResultsLabelPromise;
         }
         successFn = function(groups) {
           return miscSearchService.getSearchURLS(groups).then(function(result) {
-            if(result && result.domainResultsLabel) {
+            if (result && result.domainResultsLabel) {
               return result.domainResultsLabel;
-            } else{
+            } else {
               return null;
             }
           });
@@ -50,15 +50,15 @@ define(['angular', 'jquery'], function(angular, $) {
       function getPublicWebSearchURL() {
         var successFn;
         var errorFn;
-        if(webSearchURLPromise) {
+        if (webSearchURLPromise) {
           return webSearchURLPromise;
         }
         successFn = function(groups) {
           return miscSearchService.getSearchURLS(groups)
             .then(function(result) {
-              if(result && result.webSearchURL) {
+              if (result && result.webSearchURL) {
                 return result.webSearchURL;
-              } else{
+              } else {
                 return null;
               }
             });
@@ -82,7 +82,7 @@ define(['angular', 'jquery'], function(angular, $) {
       function googleSearch(term) {
         return getGoogleSearchURL().then(function(googleSearchURL) {
           return $q(function(resolve, reject) {
-            if(googleSearchURL) {
+            if (googleSearchURL) {
               return $http.get(googleSearchURL + '&q=' + term).then(
                 function(response) {
                   var data = {
@@ -133,15 +133,15 @@ define(['angular', 'jquery'], function(angular, $) {
         var successFn;
         var errorFn;
 
-        if(googleSearchURLPromise) {
+        if (googleSearchURLPromise) {
           return googleSearchURLPromise;
         }
 
         successFn = function(groups) {
           return miscSearchService.getSearchURLS(groups).then(function(result) {
-            if(result && result.googleSearchURL) {
+            if (result && result.googleSearchURL) {
               return result.googleSearchURL;
-            } else{
+            } else {
               return null;
             }
           });
@@ -168,14 +168,14 @@ define(['angular', 'jquery'], function(angular, $) {
         var successFn;
         var errorFn;
 
-        if(googleSearchEnabledPromise) {
+        if (googleSearchEnabledPromise) {
           return googleSearchEnabledPromise;
         }
 
         successFn = function(googleSearchURL) {
-          if(googleSearchURL) {
+          if (googleSearchURL) {
             return true;
-          }else{
+          } else {
             return false;
           }
         };
@@ -213,9 +213,9 @@ define(['angular', 'jquery'], function(angular, $) {
           function(groups) {
             return getSearchURLS(groups).then(
               function(result) {
-                if(result && result.kbSearchURL) {
+                if (result && result.kbSearchURL) {
                   return result.kbSearchURL;
-                } else{
+                } else {
                   return null;
                 }
               }
@@ -233,9 +233,9 @@ define(['angular', 'jquery'], function(angular, $) {
           function(groups) {
             return getSearchURLS(groups).then(
               function(result) {
-                if(result && result.eventsSearchURL) {
+                if (result && result.eventsSearchURL) {
                   return result.eventsSearchURL;
-                } else{
+                } else {
                   return null;
                 }
               }
@@ -253,9 +253,9 @@ define(['angular', 'jquery'], function(angular, $) {
           function(groups) {
             return getSearchURLS(groups).then(
               function(result) {
-                if(result && result.helpdeskURL) {
+                if (result && result.helpdeskURL) {
                   return result.helpdeskURL;
-                } else{
+                } else {
                   return null;
                 }
               }
@@ -269,14 +269,14 @@ define(['angular', 'jquery'], function(angular, $) {
        */
       function getSearchURLS(groups) {
         return $q(function(resolve, reject) {
-          if($sessionStorage.search) {
+          if ($sessionStorage.search) {
             resolve($sessionStorage.search);
           }
-          for(var i = 0; i < SEARCH_CONFIG.length; i++) {
+          for (var i = 0; i < SEARCH_CONFIG.length; i++) {
             var searchURLS = SEARCH_CONFIG[i];
             var searchGroup = searchURLS.group;
             var filterTest = filterFilter(groups, {name: searchGroup});
-            if(filterTest && filterTest.length >0) {
+            if (filterTest && filterTest.length >0) {
               $sessionStorage.search = searchURLS;
               resolve(searchURLS);
             }
@@ -308,7 +308,7 @@ define(['angular', 'jquery'], function(angular, $) {
       function directorySearch(term) {
         return getDirectorySearchURL().then(function(searchDirectoryURL) {
           return $q(function(resolve, reject) {
-            if(searchDirectoryURL) {
+            if (searchDirectoryURL) {
               return $http.get(searchDirectoryURL + '/?name=' + term).then(
                 function(response) {
                   return resolve(response.data);
@@ -318,7 +318,7 @@ define(['angular', 'jquery'], function(angular, $) {
                     response.status);
                 }
               );
-            }else{
+            } else {
               return reject('User has no group for directory search');
             }
           });
@@ -333,14 +333,14 @@ define(['angular', 'jquery'], function(angular, $) {
           var successFn;
           var errorFn;
 
-          if(directorySearchEnabledPromise) {
+          if (directorySearchEnabledPromise) {
             return directorySearchEnabledPromise;
           }
 
           successFn = function(directoryURL) {
-            if(directoryURL) {
+            if (directoryURL) {
               return true;
-            }else{
+            } else {
               return false;
             }
           };
@@ -365,15 +365,15 @@ define(['angular', 'jquery'], function(angular, $) {
         var successFn;
         var errorFn;
 
-        if(directoryUrlPromise) {
+        if (directoryUrlPromise) {
           return directoryUrlPromise;
         }
 
         successFn = function(groups) {
           return miscSearchService.getSearchURLS(groups).then(function(result) {
-              if(result && result.directorySearchURL) {
+              if (result && result.directorySearchURL) {
                   return result.directorySearchURL;
-              } else{
+              } else {
                   return null;
               }
           });

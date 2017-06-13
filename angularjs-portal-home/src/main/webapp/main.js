@@ -48,7 +48,7 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
       var $rootScope = initInjector.get('$rootScope');
 
       // login stuff
-      if(loginConfig.loginURL && !lastLoginValid($sessionStorage)) {
+      if (loginConfig.loginURL && !lastLoginValid($sessionStorage)) {
         // assume not valid, go get a username and bootstrap the user
         var $http = initInjector.get('$http');
         return $http
@@ -57,7 +57,7 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
           if ('success' === response.data.status
           || response.data.username === 'guest') {
             // store some meta data for caching reason
-            if(!$sessionStorage.portal) {
+            if (!$sessionStorage.portal) {
               $sessionStorage.portal = {};
             }
             $sessionStorage.portal.lastAccessed = (new Date).getTime();
