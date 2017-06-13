@@ -19,14 +19,14 @@ define(['angular', 'require'], function(angular, require) {
     })
 
     .directive('marketplaceLight', function() {
-        return{
+        return {
             restrict: 'E',
             templateUrl: require.toUrl('./partials/marketplace-light.html'),
         };
     })
 
     .directive('homeHeader', function() {
-        return{
+        return {
             restrict: 'E',
             templateUrl: require.toUrl('./partials/home-header.html'),
         };

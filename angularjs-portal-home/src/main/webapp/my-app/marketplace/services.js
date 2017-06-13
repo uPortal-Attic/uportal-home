@@ -136,7 +136,7 @@ define(['angular', 'jquery'], function(angular, $) {
             } else {
               successFn =function(data) {
                 var portlet = data[0].data.entry;
-                if(portlet) {
+                if (portlet) {
                   var layout = data[1];
                   processInLayout(portlet, layout);
                 }
@@ -176,14 +176,14 @@ define(['angular', 'jquery'], function(angular, $) {
               {},
               {params: {review: rating.review}})
             .success(function(data, status, headers, config) {
-              if(APP_FLAGS.debug) {
+              if (APP_FLAGS.debug) {
                 $log.log('successfully saved marketplace rating for ' +
                   fname + ' with data ' + rating);
               }
               return data;
             })
             .error(function(data, status, headers, config) {
-              if(APP_FLAGS.debug) {
+              if (APP_FLAGS.debug) {
                 $log.error('Failed to save marketplace rating for ' +
                   fname + ' with data ' + rating);
               }
@@ -239,7 +239,7 @@ define(['angular', 'jquery'], function(angular, $) {
           var lowerSearchTerm = searchTerm.toLowerCase();
 
           // check title
-          if(portlet.title.toLowerCase().indexOf(lowerSearchTerm) !== -1) {
+          if (portlet.title.toLowerCase().indexOf(lowerSearchTerm) !== -1) {
             return true;
           }
 

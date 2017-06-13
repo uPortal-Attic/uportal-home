@@ -68,7 +68,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
                 return e.fname === portlet.fname;
               }
             );
-            if(marketplaceEntries.length > 0) {
+            if (marketplaceEntries.length > 0) {
               marketplaceEntries[0].hasInLayout = true;
             }
             $rootScope.layout = null; // reset layout due to modifications
@@ -132,7 +132,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         var tempFilterText = '';
         var filterTextTimeout;
         $scope.searchTerm = marketplaceService.getInitialFilter();
-        if($routeParams.initFilter !== null &&
+        if ($routeParams.initFilter !== null &&
             ($scope.searchTerm === null || $scope.searchTerm === '')) {
           $scope.searchTerm = $routeParams.initFilter;
         } else {
@@ -147,7 +147,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           tempFilterText = val;
           filterTextTimeout = $timeout(function() {
             $scope.searchTerm = tempFilterText;
-            if(initFilter && $scope.searchTerm) {
+            if (initFilter && $scope.searchTerm) {
               miscService.pushGAEvent('Search', 'Filter', $scope.searchTerm);
             } else {
               initFilter = true;
@@ -223,7 +223,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
         $scope.searchResultLimit = 20;
         $scope.showAll = $rootScope.GuestMode || false;
-        if(currentPage === 'details') {
+        if (currentPage === 'details') {
           // Empty string indicates no categories, show all portlets
           $scope.categoryToShow = '';
           // Default filter is to sort by category for
@@ -235,10 +235,11 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           $scope.showCategories = true;
 
           currentPage = 'market';
-          if(currentCategory !== '')
-            $scope.categoryToShow = currentCategory;
-          else
-            $scope.categoryToShow = '';
+          if (currentCategory !== '') {
+$scope.categoryToShow = currentCategory;
+} else {
+$scope.categoryToShow = '';
+}
         } else {
           // Empty string indicates no categories, show all portlets
           $scope.categoryToShow = '';
@@ -272,9 +273,9 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
         var figureOutBackStuff = function() {
           var fromInfo = marketplaceService.getFromInfo();
-          if(fromInfo.term) {
+          if (fromInfo.term) {
             // from somewhere
-            if('Search' === fromInfo.searchOrBrowse && fromInfo.term) {
+            if ('Search' === fromInfo.searchOrBrowse && fromInfo.term) {
               // if from search and term is populated, return to search
               $scope.backText = 'Search Results for ' + fromInfo.term;
               $scope.backURL = 'apps/search/' + fromInfo.term;
@@ -348,7 +349,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
               $scope.totalReviews = 0;
               angular.forEach(ratings, function(value, key) {
                 $scope.average+= value.rating;
-                if(value.review) {
+                if (value.review) {
                   $scope.totalReviews += 1;
                 }
               });

@@ -34,7 +34,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
            };
 
            this.$onChanges = function(changesObj) {
-             if(changesObj
+             if (changesObj
                  && changesObj.portlet
                  && changesObj.portlet.currentValue
                  && changesObj.portlet.currentValue

@@ -165,7 +165,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 },
                 function(reason) {
                     miscService.redirectUser(reason.status, 'getApp call');
-                    if(reason.status === 403) {
+                    if (reason.status === 403) {
                       reason.deniedTemplate =
                         $sce.trustAsHtml(accessDeniedTemplate);
                     }
@@ -216,11 +216,11 @@ define(['angular', 'jquery'], function(angular, $) {
           return $http.get(portlet.widgetURL, {cache: true})
               .then(function(result) {
                   var data = result.data;
-                  if(data) {
-                    if(data.result) {
+                  if (data) {
+                    if (data.result) {
                       portlet.widgetData = data.result;
                     }
-                    if(data.content) {
+                    if (data.content) {
                       portlet.widgetContent = data.content;
                     }
                     $log.log(portlet.fname +
@@ -241,7 +241,7 @@ define(['angular', 'jquery'], function(angular, $) {
               '/p/' + portlet.fname + '/exclusive/render.uP', {cache: true})
               .then(function(result) {
                   var data = result.data;
-                  if(data) {
+                  if (data) {
                     portlet.exclusiveContent = $sce.trustAsHtml(data);
                     $log.log(portlet.fname +
                       '\'s exclusive data came back with data');

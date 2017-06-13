@@ -90,7 +90,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           httpBackend.whenGET('/base/my-app/layout/partials/default-view.html')
             .respond('<div></div>');
           controller.init();
-          if(loginSilentURL) {
+          if (loginSilentURL) {
             httpBackend.whenGET(loginSilentURL)
               .respond({'status': 'success', 'username': 'admin'});
           }
