@@ -236,10 +236,10 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
           currentPage = 'market';
           if (currentCategory !== '') {
-$scope.categoryToShow = currentCategory;
-} else {
-$scope.categoryToShow = '';
-}
+            $scope.categoryToShow = currentCategory;
+          } else {
+            $scope.categoryToShow = '';
+          }
         } else {
           // Empty string indicates no categories, show all portlets
           $scope.categoryToShow = '';
