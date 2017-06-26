@@ -97,12 +97,7 @@ Next actions:
 
 ### 4.3 Governance
 
-No formal governance is documented.
-
-Next actions:
-
-+ Formalize recognition of committership
-+ Formalize relationship of committership with uPortal-steering
++ [Committers][] are documented, with Apache-style governance by the Committers, process for adding Committers, and governance fail-safe falling back on uPortal steering.
 
 ### 4.4 Voting practices
 
