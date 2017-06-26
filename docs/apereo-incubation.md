@@ -90,10 +90,10 @@ Next actions:
 
 > What activities/events/artifacts are created/managed by the project to foster participation and development? How are decisions made?
 
-Next actions:
-
-+ Formalize recognition of committership
-+ Pre-conference seminar and presentations at Open Apereo 2017.
++ [Committers][] are documented, with Apache-style governance by the Committers, process for adding Committers, and governance fail-safes.
++ [Contributors][] are gratefully acknowledged.
++ Pre-conference seminar and presentations about this project delivered at Open Apereo 2015, 2016, and 2017.
++ Incubation status calls are held as open conference calls.
 
 ### 4.3 Governance
 
@@ -199,4 +199,5 @@ Next actions:
 [exit criteria]: https://www.apereo.org/content/apereo-incubation-process#S4
 [Open Apereo 2017 seminar slides re incubation]: https://docs.google.com/a/wisc.edu/presentation/d/1C-xRJoXWJKObfhmGV-7KYoZmiT5EyKHcQ36JVF6sGxk/edit?usp=sharing.
 [Committers]: https://github.com/UW-Madison-DoIT/angularjs-portal/blob/master/committers.md
+[Contributors]: contributors.md
 [Apereo Welcoming Policy]: https://www.apereo.org/content/apereo-welcoming-policy
