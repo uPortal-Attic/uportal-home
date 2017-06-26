@@ -105,6 +105,8 @@ Next actions:
 
 ### 4.5 Conflict resolution policy
 
++ Inherits code of conduct considerations from uPortal which participates in the [Apereo Welcoming Policy][].
+
 No formal conflict resolution policy is in place.
 
 Next actions:
@@ -197,3 +199,4 @@ Next actions:
 [exit criteria]: https://www.apereo.org/content/apereo-incubation-process#S4
 [Open Apereo 2017 seminar slides re incubation]: https://docs.google.com/a/wisc.edu/presentation/d/1C-xRJoXWJKObfhmGV-7KYoZmiT5EyKHcQ36JVF6sGxk/edit?usp=sharing.
 [Committers]: https://github.com/UW-Madison-DoIT/angularjs-portal/blob/master/committers.md
+[Apereo Welcoming Policy]: https://www.apereo.org/content/apereo-welcoming-policy
