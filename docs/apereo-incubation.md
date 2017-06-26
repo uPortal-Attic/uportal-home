@@ -90,29 +90,22 @@ Next actions:
 
 > What activities/events/artifacts are created/managed by the project to foster participation and development? How are decisions made?
 
-Next actions:
-
-+ Formalize recognition of committership
-+ Pre-conference seminar and presentations at Open Apereo 2017.
++ [Committers][] are documented, with Apache-style governance by the Committers, process for adding Committers, and governance fail-safes.
++ [Contributors][] are gratefully acknowledged.
++ Pre-conference seminar and presentations about this project delivered at Open Apereo 2015, 2016, and 2017.
++ Incubation status calls are held as open conference calls.
 
 ### 4.3 Governance
 
-No formal governance is documented.
-
-Next actions:
-
-+ Formalize recognition of committership
-+ Formalize relationship of committership with uPortal-steering
++ [Committers][] are documented, with Apache-style governance by the Committers, process for adding Committers, and governance fail-safe falling back on uPortal steering.
 
 ### 4.4 Voting practices
 
-No formal voting practices are documented.
-
-Next actions:
-
-+ Formalize adoption of Apache rules
++ [Adopted Apache-style rules][Committers]
 
 ### 4.5 Conflict resolution policy
+
++ Inherits code of conduct considerations from uPortal which participates in the [Apereo Welcoming Policy][].
 
 No formal conflict resolution policy is in place.
 
@@ -205,3 +198,6 @@ Next actions:
 [2017-07-12 incubation status call]: https://docs.google.com/document/d/1LGBcsL-hg6a6kWktE4HgThjpF7idc_AwFcV4op6NLy8/edit?usp=sharing
 [exit criteria]: https://www.apereo.org/content/apereo-incubation-process#S4
 [Open Apereo 2017 seminar slides re incubation]: https://docs.google.com/a/wisc.edu/presentation/d/1C-xRJoXWJKObfhmGV-7KYoZmiT5EyKHcQ36JVF6sGxk/edit?usp=sharing.
+[Committers]: https://github.com/UW-Madison-DoIT/angularjs-portal/blob/master/committers.md
+[Contributors]: contributors.md
+[Apereo Welcoming Policy]: https://www.apereo.org/content/apereo-welcoming-policy
