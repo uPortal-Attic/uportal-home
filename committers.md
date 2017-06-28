@@ -2,7 +2,7 @@
 
 ## Who are the committers?
 
-+ Christian Murphy ( @ChristianMurphy )
++ [Christian Murphy][Christian Murphy committer election record] ( @ChristianMurphy )
 + Andrew Petro ( @apetro )
 + Doug Reed ( @Doug-Reed )
 + Dave Sibley ( @davidmsibley )
@@ -82,3 +82,5 @@ Apache Software Foundation on
 
 [public registry of Apereo ICLA signatories]: http://licensing.apereo.org/
 [uPortal-home Committers GitHub team]: https://github.com/orgs/UW-Madison-DoIT/teams/uportal-home-committers
+
+[Christian Murphy committer election record]: https://groups.google.com/a/apereo.org/d/msg/uportal-dev/qcl7cyVWCDU/Z_mUyIXBAQAJ
