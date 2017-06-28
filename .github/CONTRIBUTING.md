@@ -2,8 +2,13 @@
 
 In short:
 
++ Be kind
 + All Contributors must appear in the public [Apereo CLA roster][].
 + Use [Google code style][].
+
+## Code of conduct
+
+The [Apereo Welcoming Policy][] [applies][code of conduct].
 
 ## Contributor License Agreements
 
@@ -48,3 +53,5 @@ npm run lint-less
 [Apereo CLA roster]: http://licensing.apereo.org/completed-clas
 
 [Google code style]: https://google.github.io/styleguide/
+[Apereo Welcoming Policy]: https://www.apereo.org/content/apereo-welcoming-policy
+[code of conduct]: ../CODE_OF_CONDUCT.md

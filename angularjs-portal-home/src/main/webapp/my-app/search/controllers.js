@@ -13,7 +13,7 @@ define([
         $scope.initialFilter = '';
         $scope.filterMatches = [];
         $scope.portletListLoading = true;
-        if($localStorage && $localStorage.typeaheadSearch) {
+        if ($localStorage && $localStorage.typeaheadSearch) {
             marketplaceService.getPortlets().then(function(data) {
               $scope.portlets = data.portlets;
               $scope.portletListLoading = false;
@@ -43,7 +43,7 @@ define([
         };
 
         $scope.submit = function() {
-          if($scope.initialFilter != '') {
+          if ($scope.initialFilter != '') {
             $location.path('apps/search/'+ $scope.initialFilter);
             $scope.initialFilter = '';
             $scope.showSearch = false;
@@ -67,10 +67,12 @@ define([
           function(data) {
             if (data && data.results) {
               $scope.googleResults = data.results;
-              if(data.estimatedResultCount) {
+              if (data.estimatedResultCount) {
                 $scope.googleResultsEstimatedCount = data.estimatedResultCount;
               }
-              if(!data.estimatedResultCount || data.estimatedResultCount == 0) {
+              if (
+                !data.estimatedResultCount || data.estimatedResultCount == 0
+              ) {
                 $scope.googleEmptyResults = true;
               }
             }
@@ -152,13 +154,13 @@ define([
             'wiscDirectoryResultCount'],
           function() {
             $scope.totalCount = 0;
-            if($scope.googleResultsEstimatedCount) {
+            if ($scope.googleResultsEstimatedCount) {
               $scope.totalCount+= parseInt($scope.googleResultsEstimatedCount);
             }
-            if($scope.myuwFilteredResults) {
+            if ($scope.myuwFilteredResults) {
               $scope.totalCount+= parseInt($scope.myuwFilteredResults.length);
             }
-            if($scope.wiscDirectoryResultCount) {
+            if ($scope.wiscDirectoryResultCount) {
               $scope.totalCount+= parseInt($scope.wiscDirectoryResultCount);
             }
           });
