@@ -66,7 +66,7 @@ Anyone can do that. But they probably shouldn't. Preferable to engage here inste
 4. Publicly propose on `uportal-dev@` that the new committer be added. This proposal should include a summary of some of the merit of the proposed committer -- whatever rationale is justifying adding them. The proposer should immediately `+1`, helping to emphasize that this is a vote. This is a consensus vote: requires 3 +1s with no binding vetoes. The vote runs for a week or until all active Committers have voted.
 5. Summarize the votes and result in a wrap-up post to the thread.
 6. Issue a Pull Request adding the new committer to `COMMITTERS.md`, linking the email thread documenting the vote supporting the add. Secure a +1 from another committer verifying correctness. Merge the Pull Request. If merging in a way that does not preserve individual commits and their commmit messages, ensure e.g. the squash commit message itself links the email thread documenting the successful vote.
-7. Adjust GitHub Teams memberships in some way TBD.
+7. Add the new Committer to the [uPortal-home Committers GitHub Team][]
 
 
 
@@ -81,3 +81,4 @@ Apache Software Foundation on
 
 
 [public registry of Apereo ICLA signatories]: http://licensing.apereo.org/
+[uPortal-home Committers GitHub team]: https://github.com/orgs/UW-Madison-DoIT/teams/uportal-home-committers
