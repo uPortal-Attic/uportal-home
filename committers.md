@@ -2,6 +2,7 @@
 
 ## Who are the committers?
 
++ Christian Murphy ( @ChristianMurphy )
 + Andrew Petro ( @apetro )
 + Doug Reed ( @Doug-Reed )
 + Dave Sibley ( @davidmsibley )
