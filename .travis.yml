@@ -1,12 +1,25 @@
 language: java
-jdk:
-  - oraclejdk7
-  - openjdk7
-  - oraclejdk8
 sudo: false
+
+matrix:
+  fast_finish: true
+  include:
+    - os: linux
+      dist: trusty
+      jdk: oraclejdk8
+    - os: linux
+      dist: trusty
+      jdk: openjdk7
+    - os: osx
+      osx_image: xcode8.3
+
+addons:
+  chrome: stable
+
 before_install:
   - nvm install node
   - npm install
+
 script:
   - mvn package
   - mvn checkstyle:check
@@ -14,6 +27,7 @@ script:
   - npm run lint-js
   - npm run lint-md
   - npm run lint-less
+
 cache:
   directories:
     - $HOME/.m2
