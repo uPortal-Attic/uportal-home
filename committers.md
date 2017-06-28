@@ -17,13 +17,13 @@ Committership is a state of mind. Committers are Committers because the other Co
 
 Committership is *not* access to write changes. Committers are entitled to write access and other like infrastructural privileges, but "write access" isn't the point, it's just a tool. You aren't a Committer because you have write access; you might have write access because you're a Committer.
 
-## How do I become a Committer?
+### How do I become a Committer?
 
 Committership is a state of mind. Of your mind, and of the minds of the other Committers. You become a Committer because the other committers recognize you as a Committer and because you recognize yourself as (and act like) a Committer.
 
 Formally, you become a Committer when the other Committers acknowledge this state of mind by formal nomination and vote on the email list.
 
-## What happens to inactive Committers?
+### What happens to inactive Committers?
 
 Committership is for life. If you once acted as a steward of the project, you could almost certainly get back into that state of mind.
 
