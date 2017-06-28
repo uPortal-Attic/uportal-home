@@ -1,0 +1,279 @@
+{
+  "layout": [
+    {
+      "nodeId": "n143",
+      "title": "Email",
+      "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+      "url": "/web/widget/wisc-mail",
+      "iconUrl": null,
+      "faIcon": "fa-envelope",
+      "fname": "wisc-mail",
+      "lifecycleState": "PUBLISHED",
+      "target": null,
+      "widgetURL": "/web/api/proxy/wiscmaillookup",
+      "widgetType": "option-link",
+      "widgetTemplate": null,
+      "widgetConfig": {
+        "value": "uri",
+        "display": "email",
+        "arrayName": "linked",
+        "singleElement": true
+      },
+      "staticContent": "\n            \n                <a href=\"/web/widget/wisc-mail\">Access Wiscmail</a>.\n            \n        ",
+      "pithyStaticContent": null,
+      "altMaxUrl": true,
+      "renderOnWeb": false
+    },
+    {
+      "nodeId": "n108",
+      "title": "Weather",
+      "description": "Access the latest weather conditions and 5-day forecasts for the cities you select.",
+      "url": "/portal/f/u360303l1s4/p/weather.n108/max/render.uP",
+      "iconUrl": null,
+      "faIcon": "fa-sun-o",
+      "fname": "weather",
+      "lifecycleState": "PUBLISHED",
+      "target": null,
+      "widgetURL": "/portal/p/weather/max/weatherFeed.resource.uP",
+      "widgetType": "weather",
+      "widgetTemplate": null,
+      "widgetConfig": {
+        "iconPrefix": "/WeatherPortlet/images/accuweather/",
+        "iconPostfix": ".png"
+      },
+      "staticContent": null,
+      "pithyStaticContent": null,
+      "altMaxUrl": false,
+      "renderOnWeb": false
+    },
+    {
+      "nodeId": "u360303l1n9",
+      "title": "Payroll Information",
+      "description": "View earnings and tax statements, and update tax information and direct deposit.",
+      "url": "/portal/f/u360303l1s4/p/earnings-statement.u360303l1n9/max/render.uP",
+      "iconUrl": null,
+      "faIcon": "fa-money",
+      "fname": "earnings-statement",
+      "lifecycleState": "PUBLISHED",
+      "target": null,
+      "widgetURL": "/portal/p/earnings-statement/max/earningStatements.resource.uP",
+      "widgetType": "generic",
+      "widgetTemplate": "\n    <div style='margin : 0 10px 0 10px;'>\n       <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>\n       <ul class='widget-list'>\n          <li ng-repeat='item in content.report |orderBy: [\"-paid.substring(6)\",\"-paid.substring(0,2)\",\"-paid.substring(3,5)\"] | limitTo:3' class='center'><a href='/portal/p/earnings-statement/max/earning_statement.pdf.resource.uP?pP_docId={{item.docId}}' target='_blank'> {{item.paid}} Earnings Statement</a></li>\n       </ul>\n       <div ng-if='isEmpty' style='padding: 10px; font-size: 14px;'><i class='fa fa-exclamation-triangle fa-3x pull-left' style='color: #b70101;'></i><span style='color: #898989;'>We had a problem finding your statements (or you don't have any).</span></div>\n       <div style='background-color: #EAEAEA; border-radius:4px;padding:10px; margin-top:10px;'>\n          <span class='bold display-block left' style='text-align: left; padding-left: 10px; font-size: 14px;'>Launch payroll to find:</span>\n          <ul style='text-align: left;list-style-type: disc; font-size: 12px;     margin-left: 40px;'>\n             <li>Earnings statements</li>\n             <li>Tax statements (W-2, 1095-C, etc.)</li>\n             <li>W-4 and direct deposit forms</li>\n          </ul>\n       </div>\n    </div>\n        <a class='btn btn-default launch-app-button' href='/portal/p/earnings-statement'>See all payroll information</a>\n        ",
+      "widgetConfig": {
+        "evalString": "!$scope.content.report || $scope.content.report.length === 0"
+      },
+      "staticContent": null,
+      "pithyStaticContent": null,
+      "altMaxUrl": false,
+      "renderOnWeb": false
+    },
+    {
+      "nodeId": "n74",
+      "title": "Learn@UW",
+      "description": "Access your Learn@UW account.",
+      "url": "https://coursedashboard.learnuw.wisc.edu/",
+      "iconUrl": null,
+      "faIcon": "fa-at",
+      "fname": "learn-at-uw",
+      "lifecycleState": "PUBLISHED",
+      "target": "_blank",
+      "widgetURL": null,
+      "widgetType": null,
+      "widgetTemplate": null,
+      "widgetConfig": null,
+      "staticContent": "\n            \n                Click <a href=\"https://coursedashboard.learnuw.wisc.edu/\">here</a> to access Learn@UW.\n            \n    ",
+      "pithyStaticContent": null,
+      "altMaxUrl": true,
+      "renderOnWeb": false
+    },
+    {
+      "nodeId": "n21",
+      "title": "lynda.com@UW-Madison",
+      "description": "Expansive set of self-paced software online training tutorials",
+      "url": "https://shib.lynda.com/Shibboleth.sso/InCommon?providerId=https://login.wisc.edu/idp/shibboleth&target=https://shib.lynda.com/InCommon",
+      "iconUrl": null,
+      "faIcon": "fa-lightbulb-o",
+      "fname": "lynda-dot-com-at-uw-madison",
+      "lifecycleState": "PUBLISHED",
+      "target": null,
+      "widgetURL": null,
+      "widgetType": null,
+      "widgetTemplate": null,
+      "widgetConfig": null,
+      "staticContent": "\n          \n              Click <a href=\"https://shib.lynda.com/Shibboleth.sso/InCommon?providerId=https://login.wisc.edu/idp/shibboleth&target=https://shib.lynda.com/InCommon\" target=\"_blank\">here</a> to access Lynda.com for UW-Madison.\n          \n      ",
+      "pithyStaticContent": null,
+      "altMaxUrl": true,
+      "renderOnWeb": false
+    },
+    {
+      "nodeId": "n63",
+      "title": "Wiscard Balance",
+      "description": "See your wiscard balance, make a deposit, or report a lost or stolen wiscard.",
+      "url": "https://online.wiscard.wisc.edu/login.php?cid=120",
+      "iconUrl": null,
+      "faIcon": "fa-credit-card-alt",
+      "fname": "wiscard-balance",
+      "lifecycleState": "PUBLISHED",
+      "target": "_blank",
+      "widgetURL": "/web/api/proxy/wiscard",
+      "widgetType": "generic",
+      "widgetTemplate": "\n          <div class='widget-body'>\n            <loading-gif data-object='content' data-empty='isEmpty'></loading-gif>\n            <div ng-if=\"content && (content.data | filter: account=103).length > 0\"  class='center' style='padding:20px; font-size: 35px; '>\n              <i class=\"fa fa-credit-card-alt\" style=\"color: #cbcbcb;\"></i> \n              <span style='color:#b70101; padding-left:10px;'>  {{ (content.data | filter: account=103)[0].balance | currency:\"$\":2}}</span>\n            </div>\n            <div ng-if='isEmpty' >\n              <circle-button data-href='https://online.wiscard.wisc.edu/login.php?cid=120' data-target='_blank' data-fa-icon='fa fa-credit-card-alt' data-title='See balance'></circle-button>\n            </div>\n            <div class='col-xs-6 v-center center'>\n                <circle-button data-href='https://online.wiscard.wisc.edu/login.php?wason=paymentach.php?tab=check' data-target='_blank' data-fa-icon='fa fa-dollar' data-title='Deposit money'></circle-button>\n            </div>\n            <div class='col-xs-6 v-center center'>\n                <circle-button data-href='https://online.wiscard.wisc.edu/login.php?wason=lost.php' data-target='_blank' data-fa-icon='fa fa-exclamation-triangle' data-title='Report lost card'></circle-button>\n            </div>\n          </div>\n          <a class='btn btn-default launch-app-button' target='_blank' href='https://online.wiscard.wisc.edu/login.php?cid=120'>Manage my Wiscard</a>\n        ",
+      "widgetConfig": {
+        "error": "config JSON not valid, syntax error? Double quotes not escaped?"
+      },
+      "staticContent": "\n        \n          <a href=\"https://online.wiscard.wisc.edu/login.php?cid=120\">Access your Wiscard account.</a>\n        \n      ",
+      "pithyStaticContent": null,
+      "altMaxUrl": true,
+      "renderOnWeb": false
+    },
+    {
+      "nodeId": "n133",
+      "title": "Working at UW",
+      "description": "News for UW-Madison employees.",
+      "url": "https://working.wisc.edu",
+      "iconUrl": null,
+      "faIcon": "fa-newspaper-o",
+      "fname": "uw-madison-working-at-uw",
+      "lifecycleState": "PUBLISHED",
+      "target": "_blank",
+      "widgetURL": "/rss-to-json/rssTransform/working-at-uw",
+      "widgetType": "rss",
+      "widgetTemplate": null,
+      "widgetConfig": {
+        "lim": 5,
+        "target": "_blank",
+        "showdate": true,
+        "titleLim": 40,
+        "dateFormat": "MM-dd",
+        "showShowing": true
+      },
+      "staticContent": "\n            \n                Click <a href=\"https://working.wisc.edu\">here</a> to access Working at UW.\n            \n        ",
+      "pithyStaticContent": null,
+      "altMaxUrl": true,
+      "renderOnWeb": false
+    },
+    {
+      "nodeId": "n134",
+      "title": "Google Apps",
+      "description": "Access your UW-Madison account for Google Drive, Hangouts, Google+ and more.",
+      "url": "https://apps.google.wisc.edu/",
+      "iconUrl": null,
+      "faIcon": "fa-google",
+      "fname": "google-apps",
+      "lifecycleState": "PUBLISHED",
+      "target": "_blank",
+      "widgetURL": null,
+      "widgetType": "list-of-links",
+      "widgetTemplate": null,
+      "widgetConfig": {
+        "launchText": "See all Google services",
+        "links": [
+          {
+            "title": "Drive",
+            "href": "https://drive.google.com/a/wisc.edu/",
+            "icon": "fa-hdd-o",
+            "target": "_blank"
+          },
+          {
+            "title": "Docs",
+            "href": "https://docs.google.com/a/wisc.edu/",
+            "icon": "fa-files-o",
+            "target": "_blank"
+          },
+          {
+            "title": "Hangouts",
+            "href": "https://hangouts.google.com/",
+            "icon": "fa-comment",
+            "target": "_blank"
+          },
+          {
+            "title": "Google+",
+            "href": "https://plus.google.com/",
+            "icon": "fa-google-plus",
+            "target": "_blank"
+          }
+        ]
+      },
+      "staticContent": "\n            \n                \n                <p>Access your UW-Madison account for Google Drive, Hangouts, Google+ and more. Details <a href='https://www.doit.wisc.edu/services/google-apps/' target='_blank'>here</a>.</p>\n                <p>\n                    <a  class=\"btn btn-default\" \n                        href=\"https://apps.google.wisc.edu/\" \n                        target=\"_blank\"\n                        title=\"Launch Google Apps for UW-Madison.\"\n                      >Go to Google Apps\n                    </a>\n                </p>\n            \n        ",
+      "pithyStaticContent": "\n            \n<p>Access your UW-Madison account for Google Drive, Hangouts, Google+ and more. Details <a href='https://www.doit.wisc.edu/services/google-apps/' target='_blank'>here</a>.</p>\n<p>\n    <a  class=\"btn btn-default\" \n        href=\"https://apps.google.wisc.edu/\" \n        target=\"_blank\"\n        title=\"Launch Google Apps for UW-Madison.\"\n      >Go to Google Apps\n    </a>\n</p>\n            \n        ",
+      "altMaxUrl": true,
+      "renderOnWeb": false
+    },
+    {
+      "nodeId": "n136",
+      "title": "DoIT Tech Store",
+      "description": "DoIT Tech Store",
+      "url": "http://techstore.doit.wisc.edu/",
+      "iconUrl": null,
+      "faIcon": "fa-shopping-cart",
+      "fname": "doit-tech-store",
+      "lifecycleState": "PUBLISHED",
+      "target": "_blank",
+      "widgetURL": null,
+      "widgetType": "list-of-links",
+      "widgetTemplate": null,
+      "widgetConfig": {
+        "launchText": "Go to the DoIT Techstore ",
+        "links": [
+          {
+            "title": "Personal Store",
+            "href": "http://techstore.doit.wisc.edu/promos.asp?login=P",
+            "icon": "fa-shopping-basket",
+            "target": "_blank"
+          },
+          {
+            "title": "Departmental Store",
+            "href": "http://techstore.doit.wisc.edu/promos.asp?login=D",
+            "icon": "fa-shopping-bag",
+            "target": "_blank"
+          }
+        ]
+      },
+      "staticContent": "\n            \n                <p>Access the <a href='http://techstore.doit.wisc.edu/' target='_blank' rel=\"noopener noreferrer\">DoIT Techstore</a>.</p>\n            \n        ",
+      "pithyStaticContent": null,
+      "altMaxUrl": true,
+      "renderOnWeb": false
+    },
+    {
+      "nodeId": "n138",
+      "title": "DoIT Unplanned Outages",
+      "description": "DoIT outages page and widget",
+      "url": "http://outages.doit.wisc.edu/",
+      "iconUrl": null,
+      "faIcon": "fa-cogs",
+      "fname": "doit-unplanned-outages",
+      "lifecycleState": "PUBLISHED",
+      "target": "_blank",
+      "widgetURL": "/rss-to-json/rssTransform/unplanned-outages",
+      "widgetType": "rss",
+      "widgetTemplate": null,
+      "widgetConfig": {
+        "lim": 7,
+        "target": "_blank"
+      },
+      "staticContent": "\n            \n                Click <a href=\"http://outages.doit.wisc.edu/\">here</a> to access the UW Outages.\n            \n        ",
+      "pithyStaticContent": null,
+      "altMaxUrl": true,
+      "renderOnWeb": false
+    },
+    {
+      "nodeId": "n209",
+      "title": "Time and Absence",
+      "description": "View and update your absence and leave balances, time entry record, and leave reports.",
+      "url": "/portal/f/u360303l1s4/p/leave-statement.n209/max/render.uP",
+      "iconUrl": null,
+      "faIcon": "fa-clock-o",
+      "fname": "leave-statement",
+      "lifecycleState": "PUBLISHED",
+      "target": null,
+      "widgetURL": null,
+      "widgetType": null,
+      "widgetTemplate": null,
+      "widgetConfig": null,
+      "staticContent": null,
+      "pithyStaticContent": null,
+      "altMaxUrl": false,
+      "renderOnWeb": false
+    }
+  ]
+}
