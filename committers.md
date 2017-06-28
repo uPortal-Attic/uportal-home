@@ -40,7 +40,7 @@ We make necessary or pragmatic local adaptations.
 + Committers form the "PMC" for purposes of Apache rules.
 + We use the lists we have. Currently, the go-to list is public  `uportal-dev@apereo.org`. If we had more differentiated lists we'd use them in the way an Apache project would use them.
 
-## Governance fail safe: the uPortal Steering Committee
+### Governance fail safe: the uPortal Steering Committee
 
 This is a (presently, incubating) Apereo uPortal ecosystem project.
 
@@ -48,7 +48,7 @@ The uPortal Steering Committee or successor governance body may at any time for 
 
 This is a fail-safe. If it has to be invoked, it's because something failed.
 
-## Governance fail safe: the freedom to fork
+### Governance fail safe: the freedom to fork
 
 This is an open source project under the Apache 2 open source software license.
 
