@@ -248,6 +248,63 @@ Note the addition required value in the entity file:
 
 The [rssToJson][] microservice is a fine way to convert desired RSS feeds into the required JSON representation.
 
+### Action Items List
+
+![action items widget](./img/action-items.png)
+
+```xml
+<name>widgetType</name>
+<value>action-items</value>
+```
+
+#### When to use
+
+* You want to display a list of quantity-based items, with quantities that are expected to change. For example, a manager who has to approve time off could see "5 leave requests need your approval".
+
+#### Additional entity file configuration
+
+```xml
+<portlet-preference>
+    <name>widgetType</name>
+    <value>action-items</value>
+</portlet-preference>
+<portlet-preference>
+    <name>widgetConfig</name>
+    <value>
+      <![CDATA[{
+        "actionItems": [
+          {
+            "textSingular": "item needs your attention.",
+            "textPlural": "items need your attention.",
+            "feedUrl": "example/path/to/individual-item-feed",
+            "actionUrl": "example/path/to/take/action"
+          }
+        ]
+      }]]>
+    </value>
+</portlet-preference>
+```
+
+#### About entity file values
+
+* **actionItems**: A simple array of items. Each item should have values for each of the four attributes.
+* **textSingular**: Text to show when there is only 1 item of this type requiring attention.
+* **textPlural**: Text to show when there are multiple items of this type requiring attention.
+* **feedUrl**: The URL to fetch the *JSON representation* of the quantity of items needing attention.
+* **actionUrl**: The URL where action can be taken for this specific item. If no such URL exists, use the same URL as you use for the "See all" launch button.
+
+#### Additional information
+
+If there are multiple action item types to display, the widget will display the first 3 in the list. If there are more than 3, it will display a note that says "Showing 3 of [x]".
+
+The endpoint used for **feedUrl** should return a simple JSON object containing a "quantity" key with a number for a value. For example:
+
+```json
+  {
+    "quantity": 5
+  }
+```
+
 ## Custom widgets
 Using a JSON service is a great way to have user-focused content in your widgets. Here are the steps you have to take to create your custom JSON-backed widget:
 
