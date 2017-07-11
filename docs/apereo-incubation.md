@@ -23,7 +23,7 @@ AngularJS-portal and uw-frame include the Apache 2 license (approved for Apereo 
 
 Next actions:
 
-+ Add `NOTICE` file. (Requires some auditing to get its contents correct).
++ Add `NOTICE` file. (Requires some auditing to get its contents correct). (Intended for Q3 2017).
 
 #### 4.1.2 License marking
 
@@ -32,9 +32,9 @@ Next actions:
 
 Next actions:
 
-+ Clean up marking source code with license
++ Clean up marking source code with license. (Intended for Q3 2017).
 + Automate source code header checking
-+ Add NOTICE file. Audit inclusions and dependencies to get its contents right.
++ Add NOTICE file. Audit inclusions and dependencies to get its contents right. (Intended for Q3 2017).
 + Automate `NOTICE` file checking
 
 #### 4.1.3 Contributor License Agreements
@@ -43,7 +43,7 @@ Most major contributors have ICLAs on file.
 
 Next actions:
 
-+ Follow up with past Contributors to secure CLAs
++ Follow up with 1 remaining past Contributor to secure ICLA. (Intended for Q3 2017).
 + Potentially implement cla-assistant.io with the wrinkle of it asking contributors to attest to their compliance with the external-to-CLA-assistant CLA agreement process. (Click-through assurance that demonstrated CLA agreement through more arduous process, not click-through agreement to CLA.)
 
 #### 4.1.4 Name trademark clarity
@@ -75,8 +75,8 @@ be used.
 
 Next actions:
 
-+ Open, public incubation status check-in conference call.
-+ Move GitHub repositories to a uPortal-project context
++ Open, public incubation status check-in conference call. (Continuing in Q3 2017).
++ Move GitHub repositories to a uPortal-project context. (Intended for Q3 2017).
 
 #### b. Organization of community
 
@@ -149,7 +149,7 @@ Using GitHub repositories.
 
 Next actions:
 
-+ Move GitHub repositories to a non-UW-Madison-specific organizational context.
++ Move GitHub repositories to a non-UW-Madison-specific organizational context. (Intended for Q3 2017).
 
 #### b. Issue tracking
 
@@ -165,7 +165,7 @@ Currently piggyback on uPortal email lists, only somewhat effectively.
 
 Next actions:
 
-+ Use Incubation check-in meetings, making these open meetings and drawing in would-be participants.
++ Use Incubation check-in meetings, making these open meetings and drawing in would-be participants. (Continuing in Q3 2017).
 + Re-commit to using Gitter for project chat.
 + Consider advocating for an Apereo Discourse instance and adopt Discourse forums in lieu of traditional email list.
 + Consider how to better fit into existing uPortal email lists, or create new lists.
