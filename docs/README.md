@@ -1,3 +1,5 @@
+Questions? [Get in touch][uportal-user@].
+
 This documentation describes [AngularJS-Portal](https://github.com/UW-Madison-DoIT/angularjs-portal), the free and open source alternative front end for [uPortal][], used in e.g. [MyUW](https://it.wisc.edu/services/myuw/). AngularJS-Portal is based on [uw-frame](https://github.com/UW-Madison-DoIT/uw-frame) (which has [its own documentation](http://uw-madison-doit.github.io/uw-frame/)).
 
 [AngularJS-Portal is an Apereo Incubating project](apereo-incubation.md) in the uPortal ecosystem.
@@ -52,3 +54,4 @@ Search app directory entries, the web (with Google Custom Search integration), o
 
 
 [uPortal]: http://jasig.github.io/uPortal/
+[uportal-user@]: https://groups.google.com/a/apereo.org/forum/#!forum/uportal-user
