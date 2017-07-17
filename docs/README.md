@@ -29,11 +29,10 @@ Widgets show on the home page in either a minimalist "compact mode" or a rich "e
 + [Expanded mode](expanded.md)
 + [Compact mode](compact.md)
 
-#### Developing expanded modes for widgets
+#### More about widgets
 
-+ [How to create a widget](widgets.md)
-+ [Configurable launch text for widgets](widget-launch-button.md)
-+ [Widget creator](https://public.my.wisc.edu/web/widget-creator)
++ [Widget type documentation](http://uw-madison-doit.github.io/uw-frame/make-a-widget.html)
++ [Widget creator](https://test.my.wisc.edu/widget-creator/home)
 
 ### [App directory](app-directory.md)
 
