@@ -5,7 +5,7 @@ the most important information, which can be user specific.
 
 ![expanded mode widgets](./img/expanded-mode.png)
 
-Several [widget types](widgets.md) are pictured in the image above. All of them demonstrate:
+Several [widget types](http://uw-madison-doit.github.io/uw-frame/make-a-widget.html) are pictured in the image above. All of them demonstrate:
 
 * Configurable title text (across the top of each tile)
 * Configurable launch text (across the bottom of each tile)
