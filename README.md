@@ -1,6 +1,7 @@
 # uPortal-home
 
-[![Join the chat at https://gitter.im/UW-Madison-DoIT/angularjs-portal](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/UW-Madison-DoIT/angularjs-portal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+Questions? [Get in touch][uportal-user@].
+
 [![Build Status](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal.svg)](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal)
 [![Coverage Status](https://coveralls.io/repos/UW-Madison-DoIT/angularjs-portal/badge.svg?branch=master&service=github)](https://coveralls.io/github/UW-Madison-DoIT/angularjs-portal?branch=master)
 [![Code Climate](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal/badges/gpa.svg)](https://codeclimate.com/github/UW-Madison-DoIT/angularjs-portal)
@@ -80,3 +81,4 @@ Drop angularjs-portal-home/target/web.war in the Tomcat instance that runs uPort
 [Tomcat docs re Maven plugin]: http://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/plugin-info.html
 
 [GitHub Pages site]: http://uw-madison-doit.github.io/angularjs-portal/
+[uportal-user@]: https://groups.google.com/a/apereo.org/forum/#!forum/uportal-user
