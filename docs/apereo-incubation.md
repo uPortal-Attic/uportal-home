@@ -1,6 +1,6 @@
 # AngularJS-portal aspires to be an Apereo project
 
-AngularJS-portal [is presently][Apereo projects currently in incubation] in [Apereo Incubation][], aspiring to be an [Apereo][] project in the [uPortal][] ecosystem.
+uPortal-home [is presently][Apereo projects currently in incubation] in [Apereo Incubation][], aspiring to be an [Apereo][] project in the [uPortal][] ecosystem.
 
 [![Apereo Incubating badge](https://www.apereo.org/sites/default/files/Incubation%20Logos/incubating%20w-out%20logo%2015mar17.png)](https://www.apereo.org/content/projects-currently-incubation)
 
@@ -45,7 +45,7 @@ Items are checked where the project believes it now fulfills the exit criteria.
 
 #### 4.1.1 Out-bound licensing
 
-AngularJS-portal and uw-frame include the Apache 2 license (approved for Apereo outbound) as LICENSE, but do not include the NOTICE file intended for inclusion with Apache2-licensed products.
+uPortal-home and uPortal-app-framework include the Apache 2 license (approved for Apereo outbound) as LICENSE, but do not include the NOTICE file intended for inclusion with Apache2-licensed products.
 
 Next actions:
 
@@ -167,7 +167,7 @@ Next actions:
 
 ### 4.7 Successful release during Incubation
 
-AngularJS-portal has had many releases.
+uPortal-home has had many releases.
 
 Let's say Incubation starts for this purpose after governance and licensing is squared and the repos are moved to a uPortal-project context. Successfully releasing after those changes are in place will demonstrate that the product can still release under the new arrangements.
 
@@ -225,7 +225,7 @@ Next actions:
 
 #### e. Website: current and with instructions for installation, configuration
 
-Both AngularJS-portal and uw-frame use GitHub Pages to generate documentation websites, including installation and configuration instructions. Documentation of the uPortal integration specifically is weak.
+Both uPortal-home and uPortal-app-framework use GitHub Pages to generate documentation websites, including installation and configuration instructions. Documentation of the uPortal integration specifically is weak.
 
 Next actions:
 
