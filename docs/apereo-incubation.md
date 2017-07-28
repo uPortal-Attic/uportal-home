@@ -48,11 +48,9 @@ Next actions:
 
 #### 4.1.4 Name trademark clarity
 
-Next actions:
+Naming considerations: Names should reflect uPortal commitment and represent how the product should be used.
 
-+ New software product names that better reflect nature and do not infringe on others' trademarks.
-+ Names should reflect uPortal commitment and represent how the product should
-be used.
+
 + Proposed names:
   + `uw-frame` → `uPortal-app-framework`
     + The uPortal App Framework will house common functionality to be leveraged
@@ -65,6 +63,14 @@ be used.
       framework widgets for a cohesive user experience.
     + Developers provide `uPortal-home-config` for environment specific
       configuration.
+
+Next actions:
+
++ Implement repo re-naming in the course of migrating repos into a `uPortal-Project` GitHub organization. (Intended for Q3 2017).
++ Apply product re-naming in documentation
++ Apply product re-naming in source
+
+
 
 ### 4.2 Community
 
