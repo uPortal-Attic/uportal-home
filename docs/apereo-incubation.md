@@ -88,6 +88,15 @@ Next actions:
 
 > What roles are in place? Who occupies those roles? How do those roles interact among one another and with the community?
 
+Roles:
+
++ [Committers]
++ [Contributors]
+
+Next actions
+
++ Document any roles not yet listed.
++ Document how the roles interact.
 
 #### c. Operation of community
 
