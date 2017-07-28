@@ -102,6 +102,8 @@ Next actions:
 
 + [Committers][] are documented, with Apache-style governance by the Committers, process for adding Committers, and governance fail-safe falling back on uPortal steering.
 
+Committers include a non-University-of-Wisconsin committer (Christian Murphy).
+
 ### 4.4 Voting practices
 
 + [Adopted Apache-style rules][Committers]
