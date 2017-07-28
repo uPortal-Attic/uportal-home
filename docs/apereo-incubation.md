@@ -129,7 +129,7 @@ Next actions:
 
 ### 4.6 Release planning
 
-Releases come together organically. They're simply the changes from the accepted Pull Requests since the prior release, with Semantic Versioning observed.
+Releases come together organically. They're the changes from the accepted Pull Requests since the prior release, with Semantic Versioning observed.
 
 Next actions:
 
