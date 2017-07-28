@@ -133,6 +133,7 @@ Releases come together organically. They're the changes from the accepted Pull R
 
 Next actions:
 
++ Move product issue tracking into a public context. Currently product issue tracking to the extent it exists is implied from the Scrum stories on the MyUW product and sprint backlogs. Scrum stories and product issue tracker entries for bugs, features, etc. aren't the same thing.
 + Further document release planning, beyond just release execution.
 + Further document adoption of Semantic Versioning.
 + Start looking a few more milestones out
