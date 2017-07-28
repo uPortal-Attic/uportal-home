@@ -135,6 +135,10 @@ AngularJS-portal has had many releases.
 
 Let's say Incubation starts for this purpose after governance and licensing is squared and the repos are moved to a uPortal-project context. Successfully releasing after those changes are in place will demonstrate that the product can still release under the new arrangements.
 
+Next actions:
+
++ Make the transition to a uPortal-project GitHub organization context, then, cut a release.
+
 ### 4.8 Alignment and synergy with other Apereo software products
 
 Depends on and leverages uPortal.
