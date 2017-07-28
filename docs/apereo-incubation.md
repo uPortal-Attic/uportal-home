@@ -10,8 +10,34 @@ AngularJS-portal [is presently][Apereo projects currently in incubation] in [Ape
 + Subsequent check-in calls: [2017-04-10][2017-04-10 incubation status call], [2017-05-25][2017-05-25 incubation status call Google Group topic], [2017-07-11 10][2017-07-11 incubation status call] ([audio][2017-07-11 incubation status audio]).
 + Open Apereo 2017 pre-conference seminar: 2017-06-04, including [slides about incubation][Open Apereo 2017 seminar slides re incubation].
 
+## Summary: Project status vis a vis exit criteria
 
-## Project status vis a vis exit criteria
+Items are checked where the project believes it now fulfills the exit criteria.
+
+- [ ] 4.1 Legal
+  - [ ] 4.1.1 Out-bound licensing
+  - [ ] 4.1.2 License marking
+  - [ ] 4.1.3 Contributor License Agreements
+  - [ ] 4.1.4 Name trademark clarity
+- [ ] 4.2 Community
+  - [ ] 4.2.a Level of community involvement
+  - [ ] 4.2.b Organization of community
+  - [ ] 4.2.c Operation of community
+- [x] 4.3 Governance
+- [x] 4.4 Voting practices
+- [ ] 4.5 Conflict resolution policy
+- [ ] 4.6 Release planning
+- [ ] 4.7 Successful release during incubation
+- [ ] 4.8 Alignment and synergy with other Apereo software products
+- [ ] 4.9 Infrastructure
+  - [ ] 4.9.a Version control
+  - [ ] 4.9.b Issue tracking
+  - [ ] 4.9.c Communication channels
+  - [ ] 4.9.d Plans, directions, and objectives are readily identifiable
+  - [ ] 4.9.e Website: current and with instructions for installation, configuration
+
+
+## Detail: Project status vis a vis exit criteria
 
 (See [exit criteria][]).
 
