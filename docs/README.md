@@ -10,7 +10,8 @@ Many [contributors](contributors.md) make this project possible.
 
 ## Presentations and screenshots
 
-See [presentations](presentations.md).
++ See [presentations](presentations.md).
++ See [screenshots](screenshots.md).
 
 ## Demoing and implementing
 
