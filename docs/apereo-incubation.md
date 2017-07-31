@@ -4,6 +4,7 @@ uPortal-home [is presently][Apereo projects currently in incubation] in [Apereo 
 
 [![Apereo Incubating badge](https://www.apereo.org/sites/default/files/Incubation%20Logos/incubating%20w-out%20logo%2015mar17.png)](https://www.apereo.org/content/projects-currently-incubation)
 
++ [Formal incubation record]
 + Incubation requested: [2016-11-21][incubation@ proposal]
 + Apereo Board approved for incubation: [2016-12-20][2016-12-20 Apereo Board meeting minutes]
 + Entered incubation (initial conference call): 2017-03-13.
@@ -246,3 +247,4 @@ Next actions:
 [Committers]: https://github.com/UW-Madison-DoIT/angularjs-portal/blob/master/committers.md
 [Contributors]: contributors.md
 [Apereo Welcoming Policy]: https://www.apereo.org/content/apereo-welcoming-policy
+[Formal incubation record]: https://apereo.oaeproject.org/content/apereo/r1jIPVNjl
