@@ -8,6 +8,10 @@ This documentation describes [AngularJS-Portal](https://github.com/UW-Madison-Do
 
 Many [contributors](contributors.md) make this project possible.
 
+## Presentations and screenshots
+
+See [presentations](presentations.md).
+
 ## Demoing and implementing
 
 You can partially demonstrate `uPortal-home` without a backing server, using provided stub example data. See the root `README.md` for how; start with that simplest possible local demo.
