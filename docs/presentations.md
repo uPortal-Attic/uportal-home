@@ -4,8 +4,8 @@ Some of these are about MyUW's implementation of uPortal-home.
 
 <!-- most recent first -->
 
-+ [2017-08-16 intro to integration in MyUW] (home page, widget types, app directory, notifications, announcements)
-+ [2017-06-22 MyUW widgets in 5 minutes]
++ [2017-08-16 intro to integration in MyUW][] (home page, widget types, app directory, notifications, announcements)
++ [2017-06-22 MyUW widgets in 5 minutes][]
 
 
 
