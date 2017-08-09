@@ -11,9 +11,6 @@ define(['angular'], function(angular) {
             'debug': true,
             'showUserSettingsPage': true,
           },
-          'FEATURES': {
-            enabled: true,
-          },
           'SERVICE_LOC': {
             'aboutURL': '/uPortal/api/session.json',
             'sessionInfo': '/uPortal/api/session.json',
@@ -33,10 +30,16 @@ define(['angular'], function(angular) {
               'entrySuffix': '.json',
               'entries': '/uPortal/api/marketplace/entries.json',
             },
-            'notificationsURL': '/web/staticFeeds/notifications.json',
+            'messagesURL': '/web/staticFeeds/messages.json',
             'groupURL': '/uPortal/api/groups',
             'kvURL': null,
             'loginSilentURL': '/uPortal/Login?silent=true',
+          },
+          'MESSAGES': {
+            'announcementsEnabled': true,
+            'notificationsEnabled': true,
+            'groupFiltering': true,
+            'notificationsPageURL': '/web/notifications',
           },
           'NAMES': {
               'title': 'uPortal',
@@ -45,11 +48,6 @@ define(['angular'], function(angular) {
               'crestalt': 'U Portal Crest',
               'sublogo': '',
               'guestUserName': 'guest',
-          },
-          'NOTIFICATION': {
-              'enabled': true,
-              'groupFiltering': true,
-              'notificationFullURL': '/web/notifications',
           },
           'MISC_URLS': {
             'feedbackURL': '/uPortal/p/feedback',

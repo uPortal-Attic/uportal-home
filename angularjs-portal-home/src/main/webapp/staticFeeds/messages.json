@@ -1,0 +1,102 @@
+{
+  "messages": [
+    {
+      "id": 0,
+      "title": "This is a notification. You know it's a notification because that's its messageType",
+      "titleShort": null,
+      "description": null,
+      "descriptionShort": null,
+      "messageType": "notification",
+      "goLiveDate": null,
+      "expireDate": null,
+      "featureImageUrl": null,
+      "priority": null,
+      "audienceFilter": {
+        "groups": ["UW-Madison"],
+        "dataUrl": "",
+        "dataObject": "",
+        "dataArrayFilter": {}
+      },
+      "actionButton": {
+        "label": "Take action",
+        "url": "http://www.google.com"
+      },
+      "moreInfoButton": {
+        "label": "More info",
+        "url": "http://www.google.com"
+      },
+      "confirmButton": null
+    },
+    {
+      "id": 2,
+      "title": "This is a high priority notification.",
+      "titleShort": null,
+      "description": null,
+      "descriptionShort": null,
+      "messageType": "notification",
+      "goLiveDate": "2017-08-03",
+      "expireDate": null,
+      "featureImageUrl": null,
+      "priority": "high",
+      "audienceFilter": {
+        "groups": ["UW-Madison"],
+        "dataUrl": "",
+        "dataObject": "",
+        "dataArrayFilter": {}
+      },
+      "actionButton": null,
+      "moreInfoButton": null,
+      "confirmButton": null
+    },
+    {
+      "id": 1,
+      "title": "This is a mascot announcement's long title",
+      "titleShort": "This is a short title",
+      "description": "This is the long description for a mascot announcement. It is lower priority than a popup.",
+      "descriptionShort": "This is a short description",
+      "messageType": "announcement",
+      "goLiveDate": "2017-08-01T09:30",
+      "expireDate": "2017-08-15",
+      "featureImageUrl": "img/features/bucky-announcement.png",
+      "priority": null,
+      "audienceFilter": {
+        "groups": ["UW-Madison"],
+        "dataUrl": "",
+        "dataObject": "",
+        "dataArrayFilter": {}
+      },
+      "actionButton": null,
+      "moreInfoButton": {
+        "label": "Read more",
+        "url": "/features"
+      },
+      "confirmButton": null
+    },
+    {
+      "id": 3,
+      "title": "This is a popup message",
+      "titleShort": "Popup message",
+      "description": "A popup message is a high priority message about MyUW",
+      "descriptionShort": "Woot",
+      "messageType": "announcement",
+      "goLiveDate": "2017-08-01T09:30",
+      "expireDate": "2017-08-15",
+      "featureImageUrl": "img/the-cow.png",
+      "priority": "high",
+      "audienceFilter": {
+        "groups": ["UW-Madison"],
+        "dataUrl": "",
+        "dataObject": "",
+        "dataArrayFilter": {}
+      },
+      "actionButton": null,
+      "moreInfoButton": {
+        "label": "Read more",
+        "url": "/features"
+      },
+      "confirmButton": {
+        "label": "Got it!"
+      }
+    }
+  ]
+}

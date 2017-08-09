@@ -11,9 +11,6 @@ define(['angular'], function(angular) {
             'debug': true,
             'showUserSettingsPage': true,
           },
-          'FEATURES': {
-            enabled: true,
-          },
           'SERVICE_LOC': {
             'aboutURL': '/portal/api/session.json',
             'sessionInfo': '/portal/api/session.json',
@@ -28,10 +25,16 @@ define(['angular'], function(angular) {
                 'entry': 'entry/',
                 'entries': 'entries.json',
             },
-            'notificationsURL': '/web/staticFeeds/notifications.json',
+            'messagesURL': '/web/staticFeeds/messages.json',
             'groupURL': '/portal/api/groups',
             'kvURL': '/storage',
             'loginSilentURL': '/portal/Login?silent=true&profile=bucky',
+          },
+          'MESSAGES': {
+            'announcementsEnabled': true,
+            'notificationsEnabled': true,
+            'groupFiltering': true,
+            'notificationsPageURL': '/web/notifications',
           },
           'NAMES': {
               'title': 'MyUW',
@@ -40,11 +43,6 @@ define(['angular'], function(angular) {
               'crestalt': 'UW Crest',
               'sublogo': '',
               'guestUserName': 'guest',
-          },
-          'NOTIFICATION': {
-              'enabled': true,
-              'groupFiltering': true,
-              'notificationFullURL': '/web/notifications',
           },
           'MISC_URLS': {
             'feedbackURL': '/portal/p/feedback',
