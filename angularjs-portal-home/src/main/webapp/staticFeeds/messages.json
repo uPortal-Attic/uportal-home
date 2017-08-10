@@ -1,8 +1,8 @@
 {
   "messages": [
     {
-      "id": 0,
-      "title": "This is a notification. You know it's a notification because that's its messageType",
+      "id": 99,
+      "title": "This is a basic notification. It should appear to everyone, even when group filtering is enabled.",
       "titleShort": null,
       "description": null,
       "descriptionShort": null,
@@ -12,7 +12,7 @@
       "featureImageUrl": null,
       "priority": null,
       "audienceFilter": {
-        "groups": ["UW-Madison"],
+        "groups": ["Everyone"],
         "dataUrl": "",
         "dataObject": "",
         "dataArrayFilter": {}
@@ -28,8 +28,8 @@
       "confirmButton": null
     },
     {
-      "id": 2,
-      "title": "This is a high priority notification.",
+      "id": 98,
+      "title": "This is a high priority notification. It should only appear to the UW-Madison group if group filtering is enabled.",
       "titleShort": null,
       "description": null,
       "descriptionShort": null,
@@ -49,9 +49,9 @@
       "confirmButton": null
     },
     {
-      "id": 1,
+      "id": 97,
       "title": "This is a mascot announcement's long title",
-      "titleShort": "This is a short title",
+      "titleShort": "This is a mascot announcement",
       "description": "This is the long description for a mascot announcement. It is lower priority than a popup.",
       "descriptionShort": "This is a short description",
       "messageType": "announcement",
@@ -60,7 +60,7 @@
       "featureImageUrl": "img/features/bucky-announcement.png",
       "priority": null,
       "audienceFilter": {
-        "groups": ["UW-Madison"],
+        "groups": [],
         "dataUrl": "",
         "dataObject": "",
         "dataArrayFilter": {}
@@ -73,8 +73,8 @@
       "confirmButton": null
     },
     {
-      "id": 3,
-      "title": "This is a popup message",
+      "id": 96,
+      "title": "Only UW-Madison group should see this popup",
       "titleShort": "Popup message",
       "description": "A popup message is a high priority message about MyUW",
       "descriptionShort": "Woot",
