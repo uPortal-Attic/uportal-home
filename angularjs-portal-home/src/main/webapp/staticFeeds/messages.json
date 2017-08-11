@@ -29,7 +29,7 @@
     },
     {
       "id": "sample-uw-madison-high-priority-notification",
-      "title": "This is a high priority notification. It should only appear to the UW-Madison group (unless group filtering is disabled).",
+      "title": "This is a high priority notification. It should only appear if group filtering is disabled in /settings",
       "titleShort": null,
       "description": null,
       "descriptionShort": null,
@@ -39,7 +39,7 @@
       "featureImageUrl": null,
       "priority": "high",
       "audienceFilter": {
-        "groups": ["UW-Madison"],
+        "groups": ["fjdkslafd"],
         "dataUrl": "",
         "dataObject": "",
         "dataArrayFilter": {}
