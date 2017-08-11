@@ -31,9 +31,6 @@ define(['angular'], function(angular) {
             'loginSilentURL': '/portal/Login?silent=true&profile=bucky',
           },
           'MESSAGES': {
-            'announcementsEnabled': true,
-            'notificationsEnabled': true,
-            'groupFiltering': true,
             'notificationsPageURL': '/web/notifications',
           },
           'NAMES': {

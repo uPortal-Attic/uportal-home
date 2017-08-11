@@ -36,9 +36,6 @@ define(['angular'], function(angular) {
             'loginSilentURL': '/uPortal/Login?silent=true',
           },
           'MESSAGES': {
-            'announcementsEnabled': true,
-            'notificationsEnabled': true,
-            'groupFiltering': true,
             'notificationsPageURL': '/web/notifications',
           },
           'NAMES': {
