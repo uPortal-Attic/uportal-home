@@ -12,7 +12,7 @@
       "featureImageUrl": null,
       "priority": null,
       "audienceFilter": {
-        "groups": ["Everyone"],
+        "groups": [],
         "dataUrl": "",
         "dataObject": "",
         "dataArrayFilter": {}
@@ -60,7 +60,7 @@
       "featureImageUrl": "img/features/bucky-announcement.png",
       "priority": null,
       "audienceFilter": {
-        "groups": [],
+        "groups": ["Nonexistent-Group"],
         "dataUrl": "",
         "dataObject": "",
         "dataArrayFilter": {}
