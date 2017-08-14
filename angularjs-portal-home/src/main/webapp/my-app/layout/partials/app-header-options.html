@@ -1,15 +1,15 @@
-<md-button ng-href="apps" class="md-primary">
+<div layout="row" layout-align="end center">
+  <md-button ng-href="apps" class="md-primary">
   <span ng-if="GuestMode">
     <md-icon>explore</md-icon> Browse {{ portal.theme.title }}
   </span>
-  <span ng-if="!GuestMode">
+    <span ng-if="!GuestMode">
     <md-icon>add</md-icon> Add more to home
   </span>
-</md-button>
-<div ng-controller="ToggleController">
-  <md-switch class="md-accent app-header-toggle" ng-model="expandedMode"
+  </md-button>
+  <md-switch class="md-accent app-header-toggle" ng-model="expandedMode" ng-controller="ToggleController"
              aria-label="Toggle expanded widget layout" ng-change="toggleMode(expandedMode)"
-             style="margin-top:0;margin-bottom:0;">
+             style="margin-top:0;margin-bottom:0;color:#fff;">
     <span>Expand widgets</span>
   </md-switch>
 </div>
