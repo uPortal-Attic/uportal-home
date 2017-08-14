@@ -11,6 +11,9 @@ define(['angular'], function(angular) {
             'debug': true,
             'showUserSettingsPage': true,
           },
+          'APP_OPTIONS': {
+            'optionsTemplateURL': 'my-app/layout/partials/app-header-options.html',
+          },
           'FEATURES': {
             enabled: true,
           },

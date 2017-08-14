@@ -1,17 +1,4 @@
-<script type="text/ng-template" id="toggle-modes.html">
-  <div ng-controller="ToggleController">
-    <md-switch class="md-accent app-header-toggle" ng-model="expandedMode"
-               aria-label="Toggle expanded widget layout" ng-change="toggleMode(expandedMode)"
-               style="margin-top:0;margin-bottom:0;">
-      <span>Expand widgets</span>
-    </md-switch>
-  </div>
-</script>
 <app-header-two-way-bind app-title="'Home'"
-                         app-icon="'fa-home'"
-                         app-action-link-url="'apps'"
-                         app-action-link-icon="GuestMode ? 'fa-globe' : 'fa-plus-square'"
-                         app-action-link-text="GuestMode ? 'Browse {{portal.theme.title}}' : 'Add more to home'"
-                         app-single-option="true"
-                         app-option-template="'toggle-modes.html'">
+                         app-icon="'home'"
+                         app-show-add-to-home="false">
 </app-header-two-way-bind>
