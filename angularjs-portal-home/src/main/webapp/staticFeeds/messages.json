@@ -1,0 +1,102 @@
+{
+  "messages": [
+    {
+      "id": "sample-everyone-basic-notification",
+      "title": "This is a basic notification. It should appear to everyone, even when group filtering is enabled.",
+      "titleShort": null,
+      "description": null,
+      "descriptionShort": null,
+      "messageType": "notification",
+      "goLiveDate": null,
+      "expireDate": null,
+      "featureImageUrl": null,
+      "priority": null,
+      "audienceFilter": {
+        "groups": [],
+        "dataUrl": "",
+        "dataObject": "",
+        "dataArrayFilter": {}
+      },
+      "actionButton": {
+        "label": "Take action",
+        "url": "http://www.google.com"
+      },
+      "moreInfoButton": {
+        "label": "More info",
+        "url": "http://www.google.com"
+      },
+      "confirmButton": null
+    },
+    {
+      "id": "sample-uw-madison-high-priority-notification",
+      "title": "This is a high priority notification. It should only appear if group filtering is disabled in /settings",
+      "titleShort": null,
+      "description": null,
+      "descriptionShort": null,
+      "messageType": "notification",
+      "goLiveDate": "2017-08-03",
+      "expireDate": null,
+      "featureImageUrl": null,
+      "priority": "high",
+      "audienceFilter": {
+        "groups": ["fjdkslafd"],
+        "dataUrl": "",
+        "dataObject": "",
+        "dataArrayFilter": {}
+      },
+      "actionButton": null,
+      "moreInfoButton": null,
+      "confirmButton": null
+    },
+    {
+      "id": "sample-uw-madison-mascot-announcement",
+      "title": "This is a mascot announcement's long title",
+      "titleShort": "This is a UW-Madison mascot announcement",
+      "description": "This mascot announcement should appear to the UW-Madison group only (unless group filtering is disabled).",
+      "descriptionShort": "This is a short description",
+      "messageType": "announcement",
+      "goLiveDate": "2017-08-01T09:30",
+      "expireDate": "2017-08-15",
+      "featureImageUrl": "img/features/bucky-announcement.png",
+      "priority": null,
+      "audienceFilter": {
+        "groups": ["UW-Madison"],
+        "dataUrl": "",
+        "dataObject": "",
+        "dataArrayFilter": {}
+      },
+      "actionButton": null,
+      "moreInfoButton": {
+        "label": "Read more",
+        "url": "/features"
+      },
+      "confirmButton": null
+    },
+    {
+      "id": "sample-filtered-popup-announcement",
+      "title": "This is a filtered popup",
+      "titleShort": "Filtered popup",
+      "description": "This popup message should not appear to anyone unless group filtering is disabled (via beta settings).",
+      "descriptionShort": "You must have disabled group filtering!",
+      "messageType": "announcement",
+      "goLiveDate": "2017-08-01T09:30",
+      "expireDate": "2017-08-15",
+      "featureImageUrl": "img/the-cow.png",
+      "priority": "high",
+      "audienceFilter": {
+        "groups": ["Nonexistent-Group"],
+        "dataUrl": "",
+        "dataObject": "",
+        "dataArrayFilter": {}
+      },
+      "actionButton": null,
+      "moreInfoButton": {
+        "label": "Read more",
+        "url": "/features"
+      },
+      "confirmButton": {
+        "label": "Got it!"
+      }
+    }
+  ]
+}
