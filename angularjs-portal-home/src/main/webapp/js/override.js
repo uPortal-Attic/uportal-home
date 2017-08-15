@@ -12,7 +12,8 @@ define(['angular'], function(angular) {
             'showUserSettingsPage': true,
           },
           'APP_OPTIONS': {
-            'optionsTemplateURL': 'my-app/layout/partials/app-header-options.html',
+            'optionsTemplateURL':
+              'my-app/layout/partials/app-header-options.html',
           },
           'SERVICE_LOC': {
             'aboutURL': '/portal/api/session.json',
