@@ -91,7 +91,7 @@ Release 6.4.0 Adds thoughtful automation tools.  Style checkers were added and o
 
 ## [6.2.2][] - 2017-03-09
 
-* Documentation updates https://github.com/UW-Madison-DoIT/angularjs-portal/pull/579
+* Documentation updates <https://github.com/UW-Madison-DoIT/angularjs-portal/pull/579>
 * Upgrades to [UW-Frame version 3.1.3](https://github.com/UW-Madison-DoIT/uw-frame/releases/tag/v3.1.3) which adds a fix for UW-Lacrosse UI
 
 ## [6.2.1][] - 2017-03-02
