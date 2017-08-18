@@ -4,9 +4,9 @@ define(['angular', 'jquery'], function(angular, $) {
     return angular.module('my-app.search.services', [])
 
     .factory('googleCustomSearchService',
-      ['$log', '$http', '$q', 'PortalGroupService',
+      ['$log', '$http', '$q', 'portalGroupService',
         'miscSearchService', 'miscService',
-      function($log, $http, $q, PortalGroupService,
+      function($log, $http, $q, portalGroupService,
         miscSearchService, miscService) {
       var googleSearchURLPromise;
       var googleSearchEnabledPromise;
@@ -38,7 +38,7 @@ define(['angular', 'jquery'], function(angular, $) {
             'Could not get appropriate domain results label'
           );
         };
-        domainResultsLabelPromise = PortalGroupService.getGroups()
+        domainResultsLabelPromise = portalGroupService.getGroups()
           .then(successFn, errorFn);
         return domainResultsLabelPromise;
       }
@@ -69,7 +69,7 @@ define(['angular', 'jquery'], function(angular, $) {
             'Could not get appropriate public web search url'
           );
         };
-        webSearchURLPromise = PortalGroupService.getGroups()
+        webSearchURLPromise = portalGroupService.getGroups()
           .then(successFn, errorFn);
         return webSearchURLPromise;
       }
@@ -155,7 +155,7 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         googleSearchURLPromise =
-          PortalGroupService.getGroups().then(successFn, errorFn);
+          portalGroupService.getGroups().then(successFn, errorFn);
 
         return googleSearchURLPromise;
       }
@@ -200,16 +200,16 @@ define(['angular', 'jquery'], function(angular, $) {
     }])
 
     .factory('miscSearchService',
-      ['$q', '$sessionStorage', 'PortalGroupService',
+      ['$q', '$sessionStorage', 'portalGroupService',
         'filterFilter', 'SEARCH_CONFIG',
-      function($q, $sessionStorage, PortalGroupService,
+      function($q, $sessionStorage, portalGroupService,
         filterFilter, SEARCH_CONFIG) {
       /**
        * retrieve the KB Search URL from the Group Service
        * @return {string} kbSearchURL
        */
       function getKBSearchURL() {
-        return PortalGroupService.getGroups().then(
+        return portalGroupService.getGroups().then(
           function(groups) {
             return getSearchURLS(groups).then(
               function(result) {
@@ -229,7 +229,7 @@ define(['angular', 'jquery'], function(angular, $) {
        * @return {string} eventsSearchURL
        */
       function getEventSearchURL() {
-        return PortalGroupService.getGroups().then(
+        return portalGroupService.getGroups().then(
           function(groups) {
             return getSearchURLS(groups).then(
               function(result) {
@@ -249,7 +249,7 @@ define(['angular', 'jquery'], function(angular, $) {
        * @return {string} helpdeskURL
        */
       function getHelpDeskHelpURL() {
-        return PortalGroupService.getGroups().then(
+        return portalGroupService.getGroups().then(
           function(groups) {
             return getSearchURLS(groups).then(
               function(result) {
@@ -294,9 +294,9 @@ define(['angular', 'jquery'], function(angular, $) {
     }])
 
     .factory('directorySearchService',
-        ['$log', '$http', '$q', 'PortalGroupService',
+        ['$log', '$http', '$q', 'portalGroupService',
           'miscSearchService', 'miscService',
-        function($log, $http, $q, PortalGroupService,
+        function($log, $http, $q, portalGroupService,
           miscSearchService, miscService) {
       var directoryUrlPromise;
       var directorySearchEnabledPromise;
@@ -383,7 +383,7 @@ define(['angular', 'jquery'], function(angular, $) {
           miscService.redirectUser(reason.status, 'search directory url call');
         };
 
-        directoryUrlPromise = PortalGroupService.getGroups()
+        directoryUrlPromise = portalGroupService.getGroups()
           .then(successFn, errorFn);
 
         return directoryUrlPromise;
