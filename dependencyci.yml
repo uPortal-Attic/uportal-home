@@ -1,0 +1,5 @@
+platform:
+  Maven:
+    tests:
+      unlicensed: skip
+      removed: skip
