@@ -1,0 +1,43 @@
+<!-- MEDIUM AND LARGE SCREENS -->
+<div layout="row" layout-align="end center" hide-xs>
+  <md-button ng-href="apps" class="md-primary">
+    <span ng-if="GuestMode">
+      <md-icon>explore</md-icon> Browse {{ portal.theme.title }}
+    </span>
+    <span ng-if="!GuestMode">
+      <md-icon>add</md-icon> Add more to home
+    </span>
+  </md-button>
+  <md-switch class="md-accent app-header-toggle" ng-model="expandedMode" ng-controller="ToggleController"
+             aria-label="Toggle expanded widget layout" ng-change="toggleMode(expandedMode)"
+             style="margin-top:0;margin-bottom:0;color:#fff;">
+    <span>Expand widgets</span>
+  </md-switch>
+</div>
+
+<!-- SMALL SCREENS -->
+<md-menu md-position-mode="target-right bottom" hide-gt-xs>
+  <md-button aria-label="Open options menu" class="md-primary link-div" ng-click="$mdOpenMenu($event)">
+    <span layout="row" layout-align="center center"><md-icon>settings</md-icon></span>
+    <md-tooltip class="top-bar-tooltip" md-direction="bottom" md-delay="500">Options</md-tooltip>
+  </md-button>
+  <md-menu-content width="5">
+    <md-menu-item>
+      <md-button ng-href="apps" class="md-primary">
+        <span ng-if="GuestMode">
+          <md-icon>explore</md-icon> Browse {{ portal.theme.title }}
+        </span>
+        <span ng-if="!GuestMode">
+          <md-icon>add</md-icon> Add more to home
+        </span>
+      </md-button>
+    </md-menu-item>
+    <md-menu-item>
+      <md-switch class="md-accent app-header-toggle" ng-model="expandedMode" ng-controller="ToggleController"
+                 aria-label="Toggle expanded widget layout" ng-change="toggleMode(expandedMode)"
+                 style="margin-top:0;margin-bottom:0;color:#fff;">
+        <span>Expand widgets</span>
+      </md-switch>
+    </md-menu-item>
+  </md-menu-content>
+</md-menu>

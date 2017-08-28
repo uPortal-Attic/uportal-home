@@ -3,9 +3,8 @@ define([
   'require',
   './marketplace/routes',
   './layout/list/route',
-  'portal/notifications/route',
+  'portal/messages/routes',
   'portal/settings/routes',
-  'portal/features/route',
   'portal/about/route',
   './layout/route',
   './layout/static/routes',
@@ -30,8 +29,8 @@ define([
   './search/controllers',
   './search/directives',
   './search/services',
-], function(angular, require, marketplaceRoutes, listRoute, notificationsRoute,
-    portalSettingsRoutes, featuresRoute, aboutRoute, layoutRoute, staticRoutes,
+], function(angular, require, marketplaceRoutes, listRoute, messagesRoutes,
+    portalSettingsRoutes, aboutRoute, layoutRoute, staticRoutes,
     widgetRoutes, searchRoutes) {
   return angular.module('my-app', [
     'ngRoute',
@@ -67,10 +66,10 @@ define([
           .when('/apps/search/:initFilter', searchRoutes.search)
           .when('/compact', listRoute)
           .when('/expanded', widgetRoutes.widgetView)
-          .when('/notifications', notificationsRoute)
+          .when('/notifications', messagesRoutes.notifications)
           .when('/settings', portalSettingsRoutes.betaSettings)
           .when('/user-settings', portalSettingsRoutes.userSettings)
-          .when('/features', featuresRoute)
+          .when('/features', messagesRoutes.announcements)
           .when('/static/:fname', staticRoutes.staticMax)
           .when('/exclusive/:fname', staticRoutes.exclusiveMax)
           .when('/widget/:fname', widgetRoutes.widgetFullScreen)
