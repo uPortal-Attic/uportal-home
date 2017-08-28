@@ -3,6 +3,8 @@
   "version": "5.0.0",
   "description": "angular my-uw",
   "scripts": {
+    "commitmsg": "commitlint -e",
+    "cz": "git-cz",
     "lint-css": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
     "pretest": "mvn clean package",
     "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run",
@@ -29,6 +31,10 @@
   },
   "homepage": "https://github.com/UW-Madison-DoIT/angularjs-portal",
   "devDependencies": {
+    "@commitlint/cli": "^3.0.3",
+    "@commitlint/config-angular": "^3.0.3",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
     "eslint": "^4.0.0",
     "eslint-config-angular": "^0.5.0",
     "eslint-config-google": "^0.9.1",
@@ -126,6 +132,11 @@
       "valid-jsdoc": "warn",
       "rest-spread-spacing": "off",
       "yield-star-spacing": "off"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
