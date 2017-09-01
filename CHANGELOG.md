@@ -11,6 +11,63 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 * Change `CHANGELOG` format to [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
+## [6.6.0][] - 2017-09-01
+
+### Documentation updates
+* [Add additional badges](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/673) 
+* [Note next scheduled Incubation call](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/670)
+* [Link to formal incubation record](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/669)
+* [Fix broken GitHub Pages caused by extra whitespace](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/668)
+* [Link project screenshots and presentations](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/667)
+* [Reflect latest incubation status](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/664)
+* [Adds SUPPORT.md](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/661)
+* [Remove unused images from docs](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/660)
+* [Emphasize support channels through existing uPortal methods](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/655)
+* [Move widget documentation to this project](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/657)
+* [Note which incubation steps are intended to be resolved in 2017 Q3](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/656)
+* [Reflect Christian Murphy committer status](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/650)
+* [Acknowledge Apereo Welcoming Policy](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/649)
+* [Link to slides used in incubation call](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/640)
+* [Document implementing with Vanilla uPortal](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/633)
+* [Add documentation how to do local testing and linting](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/635)
+* [Document our use of Google Style](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/630)
+* [Switch incubating badge to shields.io version](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/631)
+
+### Code maintenance
+* [Adopt conventional commits](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/666)
+* [Update remark-validate-links to latest version](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/679)
+* [Fix link in documentation](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/675)
+* [Adds a formal change log](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/671)
+* [Restructure remarklint setup](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/672)
+* [Update requirejs-text to new version](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/665)
+* [Enable greenkeeper](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/659)
+* [Remove phantomjs and possible security risk](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/653)
+* [Add layout service tests](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/638)
+* [Stop assuming application deployed at /web on web server](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/641)
+* [Clear all markdown lint warnings](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/636)
+
+### CI
+* [Skip flaky maven dependency checks](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/678)
+* [Update to work with Greenkeeper](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/662)
+* [Add chrome to CI, test with macOS and Ubuntu Trusty](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/651)
+* [Add automated testing for Windows](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/628)
+
+### Header
+* [Allow the subheader to be more configurable and in an easier to implement](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/676)
+
+### Messaging
+* [Update configuration to use new messages model](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/674)
+
+### Widgets
+* [Allow widgets to be removable even when in maintenance mode](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/663)
+* [Document new action-items widget type](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/652)
+
+### Search
+* [Fix bug where show all directory results button doesn't do anything](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/637)
+
+### Vanilla uPortal
+* [Add support and detection for using layout.json v4.3](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/634)
+
 ## [6.5.0][] - 2017-05-04
 ### CI Enhancements
 * [Cache dependencies to reduce download time in Travis CI](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/618)
@@ -132,7 +189,8 @@ This release overlays on [uw-frame v3.0.3](https://github.com/UW-Madison-DoIT/uw
 See also:
 - the [6.0.0 milestone](https://github.com/UW-Madison-DoIT/angularjs-portal/milestone/5?closed=1).
 
-[Unreleased]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.5.0...HEAD
+[Unreleased]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.6.0...HEAD
+[6.6.0]  https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.5.0...angularjs-portal-parent-6.6.0
 [6.5.0]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.4.2...angularjs-portal-parent-6.5.0
 [6.4.2]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.4.1...angularjs-portal-parent-6.4.2
 [6.4.1]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.4.0...angularjs-portal-parent-6.4.1
