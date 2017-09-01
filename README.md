@@ -4,7 +4,8 @@ Questions? [Get in touch][uportal-user@].
 
 <!-- current project status -->
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/edu.wisc.my.portal.angular/angularjs-portal-home/badge.svg)](https://maven-badges.herokuapp.com/maven-central/edu.wisc.my.portal.angular/angularjs-portal-home)
-[![Build Status](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal.svg)](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal)
+[![Linux and MacOS Build Status](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal.svg)](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/y9aopisf2db2fpwe/branch/master?svg=true)](https://ci.appveyor.com/project/ChristianMurphy/angularjs-portal-npp5x/branch/master)
 [![Coverage Status](https://coveralls.io/repos/UW-Madison-DoIT/angularjs-portal/badge.svg?branch=master&service=github)](https://coveralls.io/github/UW-Madison-DoIT/angularjs-portal?branch=master)
 [![devDependencies Status](https://david-dm.org/UW-Madison-DoIT/angularjs-portal/dev-status.svg)](https://david-dm.org/UW-Madison-DoIT/angularjs-portal?type=dev)
 [![bitHound Overall Score](https://www.bithound.io/github/UW-Madison-DoIT/angularjs-portal/badges/score.svg)](https://www.bithound.io/github/UW-Madison-DoIT/angularjs-portal)
