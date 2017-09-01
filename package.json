@@ -3,7 +3,6 @@
   "version": "5.0.0",
   "description": "angular my-uw",
   "scripts": {
-    "commitmsg": "commitlint -e",
     "cz": "git-cz",
     "lint-css": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
     "pretest": "mvn clean package",
