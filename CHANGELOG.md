@@ -5,16 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased][]
-### Added
-* Added `CHANGELOG` file with copy of release notes from [GitHub releases](https://github.com/UW-Madison-DoIT/angularjs-portal/releases).
-
-### Changed
-* Change `CHANGELOG` format to [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 ## [6.6.0][] - 2017-09-01
 
 ### Documentation updates
-* [Add additional badges](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/673) 
+* [Add additional badges](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/673)
 * [Note next scheduled Incubation call](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/670)
 * [Link to formal incubation record](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/669)
 * [Fix broken GitHub Pages caused by extra whitespace](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/668)
@@ -190,7 +185,7 @@ See also:
 - the [6.0.0 milestone](https://github.com/UW-Madison-DoIT/angularjs-portal/milestone/5?closed=1).
 
 [Unreleased]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.6.0...HEAD
-[6.6.0]  https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.5.0...angularjs-portal-parent-6.6.0
+[6.6.0]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.5.0...angularjs-portal-parent-6.6.0
 [6.5.0]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.4.2...angularjs-portal-parent-6.5.0
 [6.4.2]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.4.1...angularjs-portal-parent-6.4.2
 [6.4.1]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.4.0...angularjs-portal-parent-6.4.1
