@@ -2,9 +2,12 @@
 
 In short:
 
-+ Be kind
++ [Be kind][code of conduct].
 + All Contributors must appear in the public [Apereo CLA roster][].
 + Use [Google code style][].
++ Use [Conventional Commits][].
+
+However: *please do not let contribution guidance be an insurmountable barrier to your contribution.* Project participants can work with you to hone your contribution, but only if we know you're trying to contribute.
 
 ## Code of conduct
 
@@ -43,15 +46,49 @@ npm run lint-md
 npm run lint-less
 ```
 
+## Conventional Commits
+
+We use [Conventional Commits][] as our commit message format. This leads to more
+uniform messages in the project history.
+
+### Type
+
+We use [the change types Angular uses][].
+
+
+### Scope
+
+We have not yet formalized scopes. In practice scopes used so far include:
+
++ `changelog`
++ `ci`
++ `dependency`
++ `dependency upgrade`
++ `github`
++ `md`
++ `npm`
++ `package`
++ `readme`
+
+## Contribution welcome
+
+Contribution guidance is intended to help you make the most effective contributions you can. Contribution guidance is **not intended to be a barrier to contributions, especially not to newcomer contributions.**
+
+The [code of conduct][] is not negotiable. Please do be kind.
+
+Everything else the project participants welcome helping you to work through in your contributions.
+
+
 [AngularJS-portal website on incubating]: http://uw-madison-doit.github.io/angularjs-portal/apereo-incubation.html
+[Apereo CLA roster]: http://licensing.apereo.org/completed-clas
+[Apereo Corporate Contributor License Agreement]: https://www.apereo.org/sites/default/files/Licensing%20Agreements/apereo-ccla.pdf
 [Apereo inbound intellectual property licensing practices]: https://www.apereo.org/licensing/practices
 [Apereo Individual Contributor License Agreement]: https://www.apereo.org/sites/default/files/Licensing%20Agreements/apereo-icla.pdf
-[Apereo Corporate Contributor License Agreement]: https://www.apereo.org/sites/default/files/Licensing%20Agreements/apereo-ccla.pdf
-[Apereo website on licensing]: https://www.apereo.org/licensing
-[Apereo website on Contributor License Agreement]: https://www.apereo.org/licensing/agreements
 [Apereo licensing discussion Google Group]: https://groups.google.com/a/apereo.org/forum/#!forum/licensing-discuss
-[Apereo CLA roster]: http://licensing.apereo.org/completed-clas
-
-[Google code style]: https://google.github.io/styleguide/
+[Apereo website on Contributor License Agreement]: https://www.apereo.org/licensing/agreements
+[Apereo website on licensing]: https://www.apereo.org/licensing
 [Apereo Welcoming Policy]: https://www.apereo.org/content/apereo-welcoming-policy
 [code of conduct]: ../CODE_OF_CONDUCT.md
+[Conventional Commits]: https://conventionalcommits.org/
+[Google code style]: https://google.github.io/styleguide/
+[the change types Angular uses]: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit
