@@ -2,7 +2,7 @@
 
 In short:
 
-+ Be kind
++ [Be kind][code of conduct].
 + All Contributors must appear in the public [Apereo CLA roster][].
 + Use [Google code style][].
 
