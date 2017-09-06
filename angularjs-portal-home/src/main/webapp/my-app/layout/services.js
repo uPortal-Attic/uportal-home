@@ -55,7 +55,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   return true;
               },
               error: function(request, text, error) {
-                  $log.warn('failed to add app to home.');
+                  $log.warn('failed to add app to home');
                   return false;
               },
           });
