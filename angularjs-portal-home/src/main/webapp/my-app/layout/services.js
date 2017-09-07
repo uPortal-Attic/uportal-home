@@ -27,13 +27,13 @@ define(['angular', 'jquery'], function(angular, $) {
                 dataType: 'json',
                 async: true,
                 success: function(request, text) {
-                    $log.log('Added ' + portlet.fname + ' successfully');
+                    $log.log('Added ' + fname + ' successfully');
                     miscService.pushGAEvent(
-                      'Layout Modification', 'Add', portlet.name);
+                      'Layout Modification', 'Add', fname);
                     return true;
                 },
                 error: function(request, text, error) {
-                    $log.warn('failed to add app to home.');
+                    $log.warn('failed to add app to home');
                     return false;
                 },
             });
