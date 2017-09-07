@@ -152,6 +152,7 @@
         <version>2.5.1</version>
         <configuration>
           <autoVersionSubmodules>true</autoVersionSubmodules>
+          <scmCommentPrefix>chore(release): </scmCommentPrefix>
           <useReleaseProfile>false</useReleaseProfile>
           <releaseProfiles>release</releaseProfiles>
           <goals>deploy</goals>
