@@ -204,3 +204,20 @@
 ----
 
 This product may include Contributions intentionally submitted for inclusion in the Work, under the terms and conditions of the Apache License Version 2.0.
+
+----
+
+In the binary (with-dependencies) distribution only:
+
+This product bundles Apereo uPortal Application Framework,
+which is available under the Apache License 2.0.
+
+This product bundles University of Wisconsin rest-proxy,
+which is available under the Apache License 2.0.
+
+This product bundles Apache Commons Codec and Commons Lang,
+which are available under the Apache License 2.0.
+
+This product bundles The Spring Framework,
+which is available under the Apache License 2.0.
+
