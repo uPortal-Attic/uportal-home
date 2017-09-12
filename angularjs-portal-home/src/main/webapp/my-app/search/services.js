@@ -3,201 +3,201 @@
 define(['angular', 'jquery'], function(angular, $) {
     return angular.module('my-app.search.services', [])
 
-    .factory('googleCustomSearchService',
-      ['$log', '$http', '$q', 'portalGroupService',
-        'miscSearchService', 'miscService',
-      function($log, $http, $q, portalGroupService,
-        miscSearchService, miscService) {
-      var googleSearchURLPromise;
-      var googleSearchEnabledPromise;
-      var webSearchURLPromise;
-      var domainResultsLabelPromise;
-
-      /**
-       * Get the Domain Results Label
-       * @return {Promise} domainResultsLabelPromise
-       */
-      function getDomainResultsLabel() {
-        var successFn;
-        var errorFn;
-        if (domainResultsLabelPromise) {
-          return domainResultsLabelPromise;
-        }
-        successFn = function(groups) {
-          return miscSearchService.getSearchURLS(groups).then(function(result) {
-            if (result && result.domainResultsLabel) {
-              return result.domainResultsLabel;
-            } else {
-              return null;
-            }
-          });
-        };
-        errorFn = function(reason) {
-          miscService.redirectUser(
-            reason.status,
-            'Could not get appropriate domain results label'
-          );
-        };
-        domainResultsLabelPromise = portalGroupService.getGroups()
-          .then(successFn, errorFn);
-        return domainResultsLabelPromise;
-      }
-
-      /**
-       * Returns a public web search url. Useful for 'See more results here'
-       * @return {Promise} webSearchURLPromise
-       */
-      function getPublicWebSearchURL() {
-        var successFn;
-        var errorFn;
-        if (webSearchURLPromise) {
-          return webSearchURLPromise;
-        }
-        successFn = function(groups) {
-          return miscSearchService.getSearchURLS(groups)
-            .then(function(result) {
-              if (result && result.webSearchURL) {
-                return result.webSearchURL;
-              } else {
-                return null;
-              }
-            });
-        };
-        errorFn = function(reason) {
-          miscService.redirectUser(
-            reason.status,
-            'Could not get appropriate public web search url'
-          );
-        };
-        webSearchURLPromise = portalGroupService.getGroups()
-          .then(successFn, errorFn);
-        return webSearchURLPromise;
-      }
-
-      /**
-       * Search Google for term
-       * @param {string} term
-       * @return {Promise} Promise of google search results
-       */
-      function googleSearch(term) {
-        return getGoogleSearchURL().then(function(googleSearchURL) {
-          return $q(function(resolve, reject) {
-            if (googleSearchURL) {
-              return $http.get(googleSearchURL + '&q=' + term).then(
-                function(response) {
-                  var data = {
-                    results: null,
-                    estimatedResultCount: null,
-                  };
-                  // Standardize data
-                  if (response.data) {
-                    // Find the results
-                    if (response.data.results) { // uwrf
-                        data.results = response.data.results;
-                    } else if ( // uwmad
-                        response.data.responseData &&
-                        response.data.responseData.results) {
-                      data.results = response.data.responseData.results;
-                    }
-                    // Find the estimated count
-                    var respData = response.data;
-                    if ( // uwrf
-                        respData.cursor &&
-                        respData.cursor.estimatedResultCount) {
-                      data.estimatedResultCount =
-                          respData.cursor.estimatedResultCount;
-                    } else if ( // uwmad
-                        respData.responseData &&
-                        respData.responseData.cursor &&
-                        respData.responseData.cursor.estimatedResultCount) {
-                      data.estimatedResultCount =
-                        respData.responseData.cursor.estimatedResultCount;
-                    }
-                  }
-                  resolve(data);
-                  return response;
-                }
-              );
-            } else {
-              reject('User has no group for google URL search');
-            }
-          });
-        });
-      }
-
-      /**
-       * Returns a promise that will return a googleSearchURL if any exist
-       * for a users group or null if one does not exists.
-       */
-      function getGoogleSearchURL() {
-        var successFn;
-        var errorFn;
-
-        if (googleSearchURLPromise) {
-          return googleSearchURLPromise;
-        }
-
-        successFn = function(groups) {
-          return miscSearchService.getSearchURLS(groups).then(function(result) {
-            if (result && result.googleSearchURL) {
-              return result.googleSearchURL;
-            } else {
-              return null;
-            }
-          });
-        };
-
-        errorFn = function(reason) {
-          miscService.redirectUser(
-            reason.status,
-            'Could not get appropriate google search url'
-          );
-        };
-
-        googleSearchURLPromise =
-          portalGroupService.getGroups().then(successFn, errorFn);
-
-        return googleSearchURLPromise;
-      }
-
-      /**
-       * Returns promise that will return true or false if there exists
-       * a directorySearchURL for any of the users groups
-       */
-      function googleSearchEnabled() {
-        var successFn;
-        var errorFn;
-
-        if (googleSearchEnabledPromise) {
-          return googleSearchEnabledPromise;
-        }
-
-        successFn = function(googleSearchURL) {
-          if (googleSearchURL) {
-            return true;
-          } else {
-            return false;
-          }
-        };
-
-        errorFn = function(response) {
-          $log.log('error determing if google search is enabled: ' +
-            response.status);
-          return false;
-        };
-
-        googleSearchEnabledPromise =
-          getGoogleSearchURL().then(successFn, errorFn);
-        return googleSearchEnabledPromise;
-      }
-
-      return {
-        googleSearch: googleSearch,
-        googleSearchEnabled: googleSearchEnabled,
-        getPublicWebSearchURL: getPublicWebSearchURL,
-        getDomainResultsLabel: getDomainResultsLabel,
-      };
-    }])
+// .factory('googleCustomSearchService',
+//   ['$log', '$http', '$q', 'portalGroupService',
+//     'miscSearchService', 'miscService',
+//   function($log, $http, $q, portalGroupService,
+//     miscSearchService, miscService) {
+//   var googleSearchURLPromise;
+//   var googleSearchEnabledPromise;
+//   var webSearchURLPromise;
+//   var domainResultsLabelPromise;
+//
+//   /**
+//    * Get the Domain Results Label
+//    * @return {Promise} domainResultsLabelPromise
+//    */
+//   function getDomainResultsLabel() {
+//     var successFn;
+//     var errorFn;
+//     if (domainResultsLabelPromise) {
+//       return domainResultsLabelPromise;
+//     }
+//     successFn = function(groups) {
+//       return miscSearchService.getSearchURLS(groups).then(function(result) {
+//         if (result && result.domainResultsLabel) {
+//           return result.domainResultsLabel;
+//         } else {
+//           return null;
+//         }
+//       });
+//     };
+//     errorFn = function(reason) {
+//       miscService.redirectUser(
+//         reason.status,
+//         'Could not get appropriate domain results label'
+//       );
+//     };
+//     domainResultsLabelPromise = portalGroupService.getGroups()
+//       .then(successFn, errorFn);
+//     return domainResultsLabelPromise;
+//   }
+//
+//   /**
+//    * Returns a public web search url. Useful for 'See more results here'
+//    * @return {Promise} webSearchURLPromise
+//    */
+//   function getPublicWebSearchURL() {
+//     var successFn;
+//     var errorFn;
+//     if (webSearchURLPromise) {
+//       return webSearchURLPromise;
+//     }
+//     successFn = function(groups) {
+//       return miscSearchService.getSearchURLS(groups)
+//         .then(function(result) {
+//           if (result && result.webSearchURL) {
+//             return result.webSearchURL;
+//           } else {
+//             return null;
+//           }
+//         });
+//     };
+//     errorFn = function(reason) {
+//       miscService.redirectUser(
+//         reason.status,
+//         'Could not get appropriate public web search url'
+//       );
+//     };
+//     webSearchURLPromise = portalGroupService.getGroups()
+//       .then(successFn, errorFn);
+//     return webSearchURLPromise;
+//   }
+//
+//   /**
+//    * Search Google for term
+//    * @param {string} term
+//    * @return {Promise} Promise of google search results
+//    */
+//   function googleSearch(term) {
+//     return getGoogleSearchURL().then(function(googleSearchURL) {
+//       return $q(function(resolve, reject) {
+//         if (googleSearchURL) {
+//           return $http.get(googleSearchURL + '&q=' + term).then(
+//             function(response) {
+//               var data = {
+//                 results: null,
+//                 estimatedResultCount: null,
+//               };
+//               // Standardize data
+//               if (response.data) {
+//                 // Find the results
+//                 if (response.data.results) { // uwrf
+//                     data.results = response.data.results;
+//                 } else if ( // uwmad
+//                     response.data.responseData &&
+//                     response.data.responseData.results) {
+//                   data.results = response.data.responseData.results;
+//                 }
+//                 // Find the estimated count
+//                 var respData = response.data;
+//                 if ( // uwrf
+//                     respData.cursor &&
+//                     respData.cursor.estimatedResultCount) {
+//                   data.estimatedResultCount =
+//                       respData.cursor.estimatedResultCount;
+//                 } else if ( // uwmad
+//                     respData.responseData &&
+//                     respData.responseData.cursor &&
+//                     respData.responseData.cursor.estimatedResultCount) {
+//                   data.estimatedResultCount =
+//                     respData.responseData.cursor.estimatedResultCount;
+//                 }
+//               }
+//               resolve(data);
+//               return response;
+//             }
+//           );
+//         } else {
+//           reject('User has no group for google URL search');
+//         }
+//       });
+//     });
+//   }
+//
+//   /**
+//    * Returns a promise that will return a googleSearchURL if any exist
+//    * for a users group or null if one does not exists.
+//    */
+//   function getGoogleSearchURL() {
+//     var successFn;
+//     var errorFn;
+//
+//     if (googleSearchURLPromise) {
+//       return googleSearchURLPromise;
+//     }
+//
+//     successFn = function(groups) {
+//       return miscSearchService.getSearchURLS(groups).then(function(result) {
+//         if (result && result.googleSearchURL) {
+//           return result.googleSearchURL;
+//         } else {
+//           return null;
+//         }
+//       });
+//     };
+//
+//     errorFn = function(reason) {
+//       miscService.redirectUser(
+//         reason.status,
+//         'Could not get appropriate google search url'
+//       );
+//     };
+//
+//     googleSearchURLPromise =
+//       portalGroupService.getGroups().then(successFn, errorFn);
+//
+//     return googleSearchURLPromise;
+//   }
+//
+//   /**
+//    * Returns promise that will return true or false if there exists
+//    * a directorySearchURL for any of the users groups
+//    */
+//   function googleSearchEnabled() {
+//     var successFn;
+//     var errorFn;
+//
+//     if (googleSearchEnabledPromise) {
+//       return googleSearchEnabledPromise;
+//     }
+//
+//     successFn = function(googleSearchURL) {
+//       if (googleSearchURL) {
+//         return true;
+//       } else {
+//         return false;
+//       }
+//     };
+//
+//     errorFn = function(response) {
+//       $log.log('error determing if google search is enabled: ' +
+//         response.status);
+//       return false;
+//     };
+//
+//     googleSearchEnabledPromise =
+//       getGoogleSearchURL().then(successFn, errorFn);
+//     return googleSearchEnabledPromise;
+//   }
+//
+//   return {
+//     googleSearch: googleSearch,
+//     googleSearchEnabled: googleSearchEnabled,
+//     getPublicWebSearchURL: getPublicWebSearchURL,
+//     getDomainResultsLabel: getDomainResultsLabel,
+//   };
+// }])
 
     .factory('miscSearchService',
       ['$q', '$sessionStorage', 'portalGroupService',

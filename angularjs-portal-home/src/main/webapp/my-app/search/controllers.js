@@ -54,34 +54,34 @@ define([
 
     .controller('SearchResultController',
       ['$log', '$rootScope', '$scope', '$controller',
-      'marketplaceService', 'googleCustomSearchService',
+      'marketplaceService', // 'googleCustomSearchService',
       'directorySearchService', 'PortalSearchService',
       function($log, $rootScope, $scope, $controller,
-        marketplaceService, googleCustomSearchService,
+        marketplaceService, // googleCustomSearchService,
         directorySearchService, PortalSearchService) {
       var base = $controller('MarketplaceCommonFunctionsController',
         {$scope: $scope});
 
-      var initWiscEduSearch = function() {
-        googleCustomSearchService.googleSearch($scope.searchTerm).then(
-          function(data) {
-            if (data && data.results) {
-              $scope.googleResults = data.results;
-              if (data.estimatedResultCount) {
-                $scope.googleResultsEstimatedCount = data.estimatedResultCount;
-              }
-              if (
-                !data.estimatedResultCount || data.estimatedResultCount == 0
-              ) {
-                $scope.googleEmptyResults = true;
-              }
-            }
-            return data;
-          }
-        ).catch(function() {
-          $log.warn('Could not googleSearch');
-        });
-      };
+// var initWiscEduSearch = function() {
+//   googleCustomSearchService.googleSearch($scope.searchTerm).then(
+//     function(data) {
+//       if (data && data.results) {
+//         $scope.googleResults = data.results;
+//         if (data.estimatedResultCount) {
+//           $scope.googleResultsEstimatedCount = data.estimatedResultCount;
+//         }
+//         if (
+//           !data.estimatedResultCount || data.estimatedResultCount == 0
+//         ) {
+//           $scope.googleEmptyResults = true;
+//         }
+//       }
+//       return data;
+//     }
+//   ).catch(function() {
+//     $log.warn('Could not googleSearch');
+//   });
+// };
 
       var initDirectorySearch = function() {
         $scope.wiscDirectoryLoading = true;
@@ -167,16 +167,16 @@ define([
       };
       init();
 
-      googleCustomSearchService.googleSearchEnabled()
-      .then(function(googleSearchEnabled) {
-        $scope.googleSearchEnabled = googleSearchEnabled;
-        if (googleSearchEnabled) {
-          initWiscEduSearch();
-        }
-        return googleSearchEnabled;
-      }).catch(function() {
-        $log.warn('Could not googleSearchEnabled');
-      });
+      // googleCustomSearchService.googleSearchEnabled()
+      // .then(function(googleSearchEnabled) {
+      //   $scope.googleSearchEnabled = googleSearchEnabled;
+      //   if (googleSearchEnabled) {
+      //     initWiscEduSearch();
+      //   }
+      //   return googleSearchEnabled;
+      // }).catch(function() {
+      //   $log.warn('Could not googleSearchEnabled');
+      // });
       directorySearchService.directorySearchEnabled()
       .then(function(directoryEnabled) {
         $scope.directoryEnabled = directoryEnabled;
