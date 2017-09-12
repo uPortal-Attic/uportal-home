@@ -19,9 +19,9 @@
           </div>
 
           <!--Campus domain results-->
-          <div ng-show="googleSearchEnabled" class="search-results-container">
+          <!-- <div ng-show="googleSearchEnabled" class="search-results-container">
             <campus-domain-results></campus-domain-results>
-          </div>
+          </div> -->
 
           <!-- No search results found -->
           <div id="no-results" class="search-results-container search-results" ng-show="totalCount === 0">
@@ -75,18 +75,18 @@
     </md-tab>
 
     <!-- GOOGLE CUSTOM SEARCH RESULTS ONLY -->
-    <md-tab ng-if="googleSearchEnabled">
+    <!-- <md-tab ng-if="googleSearchEnabled">
       <md-tab-label>
         {{domainResultsLabel}}&nbsp;&nbsp;<span class="badge">{{ googleResultsEstimatedCount }}</span>
       </md-tab-label>
       <md-tab-body>
-        <md-content>
+        <md-content> -->
           <!--Campus domain results-->
-          <div ng-show="googleSearchEnabled" class="search-results-container">
+          <!-- <div ng-show="googleSearchEnabled" class="search-results-container">
             <campus-domain-results></campus-domain-results>
           </div>
         </md-content>
       </md-tab-body>
-    </md-tab>
+    </md-tab> -->
   </md-tabs>
 </md-content>

@@ -7,12 +7,14 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
   return angular.module('my-app.marketplace.controllers', [])
 
   .controller('MarketplaceCommonFunctionsController',
-    ['googleCustomSearchService', 'miscSearchService', 'layoutService',
+    [/* 'googleCustomSearchService', */
+      'miscSearchService', 'layoutService',
       '$log', 'marketplaceService', 'miscService', 'MISC_URLS',
       '$sessionStorage', '$localStorage', '$rootScope', '$scope',
       '$routeParams', '$timeout', '$location',
-    function(googleCustomSearchService, miscSearchService, layoutService,
-      $log, marketplaceService, miscService, MISC_URLS,
+    function(/* googleCustomSearchService,*/
+        miscSearchService, layoutService,
+        $log, marketplaceService, miscService, MISC_URLS,
         $sessionStorage, $localStorage, $rootScope, $scope,
         $routeParams, $timeout, $location) {
       var vm = this;
@@ -163,18 +165,18 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           };
         };
         // initialize constants
-        googleCustomSearchService.getPublicWebSearchURL().then(
-          function(webSearchURL) {
-            $scope.webSearchUrl = webSearchURL;
-            return webSearchURL;
-          }
-        ).catch(errorFn('getPublicWebSearchURL'));
-        googleCustomSearchService.getDomainResultsLabel().then(
-          function(domainResultsLabel) {
-            $scope.domainResultsLabel = domainResultsLabel;
-            return domainResultsLabel;
-          }
-        ).catch(errorFn('getDomainResultsLabel'));
+        // googleCustomSearchService.getPublicWebSearchURL().then(
+        //   function(webSearchURL) {
+        //     $scope.webSearchUrl = webSearchURL;
+        //     return webSearchURL;
+        //   }
+        // ).catch(errorFn('getPublicWebSearchURL'));
+        // googleCustomSearchService.getDomainResultsLabel().then(
+        //   function(domainResultsLabel) {
+        //     $scope.domainResultsLabel = domainResultsLabel;
+        //     return domainResultsLabel;
+        //   }
+        // ).catch(errorFn('getDomainResultsLabel'));
         miscSearchService.getKBSearchURL().then(
           function(kbSearchURL) {
             $scope.kbSearchUrl = kbSearchURL;

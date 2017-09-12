@@ -15,12 +15,12 @@ define(['angular', 'require'], function(angular, require) {
       restrict: 'E',
       templateUrl: require.toUrl('./partials/directory-results.html'),
     };
-  })
-
-  .directive('campusDomainResults', function() {
-    return {
-      restrict: 'E',
-      templateUrl: require.toUrl('./partials/campus-domain-results.html'),
-    };
   });
+
+  // .directive('campusDomainResults', function() {
+  //   return {
+  //     restrict: 'E',
+  //     templateUrl: require.toUrl('./partials/campus-domain-results.html'),
+  //   };
+  // });
 });
