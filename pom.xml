@@ -9,6 +9,12 @@
   <description>AngularJS Portal is an alternative front end to uPortal</description>
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
 
+  <parent>
+    <groupId>org.jasig.parent</groupId>
+    <artifactId>jasig-parent</artifactId>
+    <version>41</version>
+  </parent>
+
   <developers>
     <developer>
         <email>my-admin@lists.wisc.edu</email>
@@ -36,6 +42,7 @@
     <spring.version>4.1.5.RELEASE</spring.version>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.license.plugin.ver>3.0</maven.license.plugin.ver>
   </properties>
 
   <modules>
@@ -227,6 +234,34 @@
           <configLocation>google_checks.xml</configLocation>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>com.mycila</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <version>${maven.license.plugin.ver}</version>
+        <configuration>
+        <basedir>${project.basedir}</basedir>
+        <header>${jasig-short-license-url}</header>
+          <strictCheck>true</strictCheck>
+          <excludes>
+            <exclude>LICENSE</exclude>
+            <exclude>NOTICE</exclude>
+            <exclude>**/node_modules/**</exclude>
+            <exclude>**/docs/_site/**</exclude>
+            <exclude>**/docs/bower_components/**</exclude>
+            <exclude>**/*.log*</exclude>
+            <exclude>**/*.json</exclude>
+            <exclude>**/*.lock</exclude>
+            <exclude>.gitignore</exclude>
+          </excludes>
+          <mapping>
+            <less>JAVADOC_STYLE</less>
+            <scss>JAVADOC_STYLE</scss>
+            <Gemfile>SCRIPT_STYLE</Gemfile>
+            <example>SCRIPT_STYLE</example>
+            <uP>XML_STYLE</uP>
+          </mapping>
+        </configuration>
+      </plugin> 
     </plugins>
   </build>
 
