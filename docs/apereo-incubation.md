@@ -16,7 +16,7 @@ uPortal-home [is presently][Apereo projects currently in incubation] in [Apereo 
 Items are checked where the project believes it now fulfills the exit criteria.
 
 - [ ] 4.1 Legal
-  - [ ] 4.1.1 Out-bound licensing
+  - [x] 4.1.1 Out-bound licensing
   - [ ] 4.1.2 License marking
   - [ ] 4.1.3 Contributor License Agreements
   - [ ] 4.1.4 Name trademark clarity
@@ -46,23 +46,21 @@ Items are checked where the project believes it now fulfills the exit criteria.
 
 #### 4.1.1 Out-bound licensing
 
-uPortal-home and uPortal-app-framework include the Apache 2 license (approved for Apereo outbound) as LICENSE, but do not include the NOTICE file intended for inclusion with Apache2-licensed products.
+uPortal-home and uPortal-app-framework include the Apache 2 license (approved for Apereo outbound) as LICENSE and accompanying NOTICE file acknowledging dependencies under Apache 2 and other permitted licenses.
 
 Next actions:
 
-+ Add `NOTICE` file. (Requires some auditing to get its contents correct). (Intended for Q3 2017).
++ Stop using Maven, stop delivering a `.war`, and thereby stop having Java dependencies and further simplify licensing posture.
 
 #### 4.1.2 License marking
 
 + Partial but not verified-complete license marking.
-+ Poor acknowledgement of dependency or inclusion licensing.
 
 Next actions:
 
 + Clean up marking source code with license. (Intended for Q3 2017).
 + Automate source code header checking
-+ Add NOTICE file. Audit inclusions and dependencies to get its contents right. (Intended for Q3 2017).
-+ Automate `NOTICE` file checking
++ Stop using Maven, stop delivering a `.war`, and thereby stop having Java dependencies and further simplify licensing posture.
 
 #### 4.1.3 Contributor License Agreements
 
