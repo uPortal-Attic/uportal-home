@@ -25,9 +25,9 @@ define(['angular', 'jquery'], function(angular, $) {
    */
   .controller('LayoutController',
     ['$localStorage', '$log', '$sessionStorage',
-    '$scope', '$rootScope', 'layoutService',
+    '$scope', '$rootScope', 'layoutService', 'marketplaceService',
     function($localStorage, $log, $sessionStorage,
-      $scope, $rootScope, layoutService) {
+      $scope, $rootScope, layoutService, marketplaceService) {
       var vm = this;
       /**
        * Set the href based on whether it's a static, exclusive,
@@ -75,7 +75,28 @@ define(['angular', 'jquery'], function(angular, $) {
             ' from your list of favorites, try again later.');
           });
       };
-
+       
+      $rootScope.addPortletToHome = function (fname) {
+          layoutService.addToLayoutByFname(fname).success(function() {
+          layoutService.getUncachedLayout().then(function(data) {
+              $scope.$apply($scope.layout.unshift(data.layout[0]));
+          });
+        });
+      };
+        
+      /**
+       * Add widget to home layout
+       */
+       vm.addPortlet = function addPortletFunction(fname) {
+         $rootScope.addToLayoutByFname(fname).success(function(){
+           $scope.$apply(function(request, text) {
+             $sessionStorage.layout = $scope.layout;
+           })
+         }).error(
+           function(){
+             $sessionStorage.layout = layoutService.getLayout();
+           });
+       };
       /**
        * Configure ui-sortable options
        * @type {{delay: number,

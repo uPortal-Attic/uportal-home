@@ -12,9 +12,9 @@ define(['angular', 'jquery'], function(angular, $) {
 
   return angular.module('my-app.layout.services', [])
     .factory('layoutService',
-      ['$sce', '$http', '$log', 'miscService',
-      'mainService', '$sessionStorage', '$q', 'SERVICE_LOC',
-      function($sce, $http, $log, miscService,
+      ['$sce', '$http', '$log', 'miscService', '$rootScope',
+      'mainService', '$sessionStorage', '$q', 'SERVICE_LOC', 
+      function($sce, $http, $log, miscService, $rootScope,
         mainService, $sessionStorage, $q, SERVICE_LOC) {
         var addToHome = function addToHomeFunction(portlet) {
             var fname = portlet.fname;
@@ -38,6 +38,33 @@ define(['angular', 'jquery'], function(angular, $) {
                 },
             });
         };
+        
+        var addToLayoutByFname = function addToLayoutByFname(fname){
+          var tabName = SERVICE_LOC.layoutTab;
+          return $.ajax({
+              url: SERVICE_LOC.base + 'layout?action=addPortlet&fname=' +
+                fname + '&tabName=' + tabName,
+              type: 'POST',
+              data: null,
+              dataType: 'json',
+              async: true,
+              success: function(request, text) {
+                  $log.log('Added ' + fname + ' successfully');
+                  miscService.pushGAEvent(
+                    'Layout Modification', 'Add', fname);
+
+                  
+  //                  $sessionStorage.layout = null;
+  //                  getLayout().then(function(result){
+  //                    $sessionStorage.layout = result;
+   //                 });
+                  },
+              error: function(request, text, error) {
+                  $log.warn('failed to add app to home.');
+                  return false;
+              },
+          });
+        }
 
         var removeFromHome = function removeFromHomeFunction(fname) {
             return $.ajax({
@@ -127,6 +154,23 @@ define(['angular', 'jquery'], function(angular, $) {
 
           return result;
         };
+
+        var getUncachedLayout = function() {
+
+              var successFn = function(result) {
+                  var data = formatLayoutForCache(result.data);
+                  storeLayoutInCache(data);
+                  return data;
+              };
+
+              var errorFn = function(reason) {
+                  miscService.redirectUser(reason.status, 'layout call');
+              };
+
+              // no caching...  request from the server
+              return $http.get(SERVICE_LOC.context + SERVICE_LOC.layout)
+                  .then(successFn, errorFn);
+      };
 
         var getLayout = function() {
             return checkLayoutCache().then(function(data) {
@@ -281,11 +325,13 @@ define(['angular', 'jquery'], function(angular, $) {
 
         return {
             getLayout: getLayout,
+            getUncachedLayout: getUncachedLayout,
             formatLayoutForCache: formatLayoutForCache,
             getApp: getApp,
             moveStuff: moveStuff,
             getNewStuffFeed: getNewStuffFeed,
             addToHome: addToHome,
+            addToLayoutByFname: addToLayoutByFname,
             removeFromHome: removeFromHome,
             getWidgetJson: getWidgetJson,
             getExclusiveMarkup: getExclusiveMarkup,
