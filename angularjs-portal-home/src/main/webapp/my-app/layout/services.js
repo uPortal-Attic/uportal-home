@@ -45,16 +45,38 @@ define(['angular', 'jquery'], function(angular, $) {
                 dataType: 'json',
                 async: true,
                 success: function(request, text) {
-                    $log.log('Added ' + portlet.fname + ' successfully');
+                    $log.log('Added ' + fname + ' successfully');
                     miscService.pushGAEvent(
-                      'Layout Modification', 'Add', portlet.name);
+                      'Layout Modification', 'Add', fname);
                     return true;
                 },
                 error: function(request, text, error) {
-                    $log.warn('failed to add app to home.');
+                    $log.warn('failed to add app to home');
                     return false;
                 },
             });
+        };
+
+        var addToHomeWithFname = function addToHomeWithFname(fname) {
+          var tabName = SERVICE_LOC.layoutTab;
+          return $.ajax({
+              url: SERVICE_LOC.base + 'layout?action=addPortlet&fname=' +
+                fname + '&tabName=' + tabName,
+              type: 'POST',
+              data: null,
+              dataType: 'json',
+              async: true,
+              success: function(request, text) {
+                  $log.log('Added ' + fname + ' successfully');
+                  miscService.pushGAEvent(
+                    'Layout Modification', 'Add', fname);
+                  return true;
+              },
+              error: function(request, text, error) {
+                  $log.warn('failed to add app to home');
+                  return false;
+              },
+          });
         };
 
         var removeFromHome = function removeFromHomeFunction(fname) {
@@ -304,6 +326,7 @@ define(['angular', 'jquery'], function(angular, $) {
             moveStuff: moveStuff,
             getNewStuffFeed: getNewStuffFeed,
             addToHome: addToHome,
+            addToHomeWithFname: addToHomeWithFname,
             removeFromHome: removeFromHome,
             getWidgetJson: getWidgetJson,
             getExclusiveMarkup: getExclusiveMarkup,
