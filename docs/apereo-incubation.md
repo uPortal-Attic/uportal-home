@@ -18,7 +18,7 @@ Items are checked where the project believes it now fulfills the exit criteria.
 - [ ] 4.1 Legal
   - [x] 4.1.1 Out-bound licensing
   - [x] 4.1.2 License marking
-  - [ ] 4.1.3 Contributor License Agreements
+  - [x] 4.1.3 Contributor License Agreements
   - [ ] 4.1.4 Name trademark clarity
 - [ ] 4.2 Community
   - [ ] 4.2.a Level of community involvement
@@ -62,11 +62,14 @@ Next actions:
 
 #### 4.1.3 Contributor License Agreements
 
-Most major contributors have ICLAs on file.
+All major contributors have ICLAs on file.
+
+Did not secure ICLA from one minor past Contributor. Deferred further worry about this by accepting the Contributor's Contributions (if any are still relevant) via Apache2 clause 5, as noted in `LICENSE`.
+
+If this ever becomes a problem a careful audit might reveal that no Contributions from this Contributor are still relevant, through the natural turnover of modules and code within the project. In practice this is unlikely to ever be a problem.
 
 Next actions:
 
-+ Follow up with 1 remaining past Contributor to secure ICLA. (Intended for Q3 2017).
 + Potentially implement cla-assistant.io with the wrinkle of it asking contributors to attest to their compliance with the external-to-CLA-assistant CLA agreement process. (Click-through assurance that demonstrated CLA agreement through more arduous process, not click-through agreement to CLA.)
 
 #### 4.1.4 Name trademark clarity
