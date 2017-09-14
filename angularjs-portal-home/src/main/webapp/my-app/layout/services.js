@@ -13,7 +13,7 @@ define(['angular', 'jquery'], function(angular, $) {
   return angular.module('my-app.layout.services', [])
     .factory('layoutService',
       ['$sce', '$http', '$log', 'miscService',
-      'mainService', '$sessionStorage', '$q', 'SERVICE_LOC', 
+      'mainService', '$sessionStorage', '$q', 'SERVICE_LOC',
       function($sce, $http, $log, miscService,
         mainService, $sessionStorage, $q, SERVICE_LOC) {
         var addToHome = function addToHomeFunction(portlet) {
