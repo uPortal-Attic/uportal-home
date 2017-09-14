@@ -25,9 +25,9 @@ define(['angular', 'jquery'], function(angular, $) {
    */
   .controller('LayoutController',
     ['$localStorage', '$log', '$sessionStorage',
-    '$scope', '$rootScope', 'layoutService', 'marketplaceService',
+    '$scope', '$rootScope', 'layoutService',
     function($localStorage, $log, $sessionStorage,
-      $scope, $rootScope, layoutService, marketplaceService) {
+      $scope, $rootScope, layoutService) {
       var vm = this;
       /**
        * Set the href based on whether it's a static, exclusive,

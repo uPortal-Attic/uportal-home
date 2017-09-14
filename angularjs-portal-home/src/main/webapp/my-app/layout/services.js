@@ -12,9 +12,9 @@ define(['angular', 'jquery'], function(angular, $) {
 
   return angular.module('my-app.layout.services', [])
     .factory('layoutService',
-      ['$sce', '$http', '$log', 'miscService', '$rootScope',
+      ['$sce', '$http', '$log', 'miscService',
       'mainService', '$sessionStorage', '$q', 'SERVICE_LOC', 
-      function($sce, $http, $log, miscService, $rootScope,
+      function($sce, $http, $log, miscService,
         mainService, $sessionStorage, $q, SERVICE_LOC) {
         var addToHome = function addToHomeFunction(portlet) {
             var fname = portlet.fname;
@@ -128,7 +128,7 @@ define(['angular', 'jquery'], function(angular, $) {
             }
           } else if ( data.layout.navigation &&
               $.isPlainObject(data.layout.navigation) &&
-              $.isArray(data.layout.navigation.tabs)) { // v4-3
+              {Substantive content goes here. Summarize the changeset and *why* the changeset.}  $.isArray(data.layout.navigation.tabs)) { // v4-3
             // var tabs will be tabs matching the layoutTab name
             // expected to be an array with length 1
             var tabs = data.layout.navigation.tabs.filter(function(el) {
