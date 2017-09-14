@@ -17,7 +17,7 @@ Items are checked where the project believes it now fulfills the exit criteria.
 
 - [ ] 4.1 Legal
   - [x] 4.1.1 Out-bound licensing
-  - [ ] 4.1.2 License marking
+  - [x] 4.1.2 License marking
   - [ ] 4.1.3 Contributor License Agreements
   - [ ] 4.1.4 Name trademark clarity
 - [ ] 4.2 Community
@@ -54,13 +54,11 @@ Next actions:
 
 #### 4.1.2 License marking
 
-+ Partial but not verified-complete license marking.
+All source files are marked with the Apereo Apache2 license header.
 
 Next actions:
 
-+ Clean up marking source code with license. (Intended for Q3 2017).
-+ Automate source code header checking
-+ Stop using Maven, stop delivering a `.war`, and thereby stop having Java dependencies and further simplify licensing posture.
++ Re-implement license header checking without relying upon Maven. Sooner or later this project will stop using Maven.
 
 #### 4.1.3 Contributor License Agreements
 
