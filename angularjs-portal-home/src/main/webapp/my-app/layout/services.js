@@ -128,7 +128,7 @@ define(['angular', 'jquery'], function(angular, $) {
             }
           } else if ( data.layout.navigation &&
               $.isPlainObject(data.layout.navigation) &&
-              {Substantive content goes here. Summarize the changeset and *why* the changeset.}  $.isArray(data.layout.navigation.tabs)) { // v4-3
+              $.isArray(data.layout.navigation.tabs)) { // v4-3
             // var tabs will be tabs matching the layoutTab name
             // expected to be an array with length 1
             var tabs = data.layout.navigation.tabs.filter(function(el) {
