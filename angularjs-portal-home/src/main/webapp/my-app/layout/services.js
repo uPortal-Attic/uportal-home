@@ -56,6 +56,27 @@ define(['angular', 'jquery'], function(angular, $) {
                 },
             });
         };
+        
+        var addToLayoutByFname = function addToLayoutByFname(fname){
+          var tabName = SERVICE_LOC.layoutTab;
+          return $.ajax({
+              url: SERVICE_LOC.base + 'layout?action=addPortlet&fname=' +
+                fname + '&tabName=' + tabName,
+              type: 'POST',
+              data: null,
+              dataType: 'json',
+              async: true,
+              success: function() {
+                  $log.log('Added ' + fname + ' successfully');
+                  miscService.pushGAEvent(
+                    'Layout Modification', 'Add', fname);
+                  },
+              error: function() {
+                  $log.warn('failed to add app to home.');
+                  return false;
+              },
+          });
+        }
 
         var removeFromHome = function removeFromHomeFunction(fname) {
             return $.ajax({
@@ -145,6 +166,23 @@ define(['angular', 'jquery'], function(angular, $) {
 
           return result;
         };
+
+        var getUncachedLayout = function() {
+
+              var successFn = function(result) {
+                  var data = formatLayoutForCache(result.data);
+                  storeLayoutInCache(data);
+                  return data;
+              };
+
+              var errorFn = function(reason) {
+                  miscService.redirectUser(reason.status, 'layout call');
+              };
+
+              // no caching...  request from the server
+              return $http.get(SERVICE_LOC.context + SERVICE_LOC.layout)
+                  .then(successFn, errorFn);
+      };
 
         var getLayout = function() {
             return checkLayoutCache().then(function(data) {
@@ -299,11 +337,13 @@ define(['angular', 'jquery'], function(angular, $) {
 
         return {
             getLayout: getLayout,
+            getUncachedLayout: getUncachedLayout,
             formatLayoutForCache: formatLayoutForCache,
             getApp: getApp,
             moveStuff: moveStuff,
             getNewStuffFeed: getNewStuffFeed,
             addToHome: addToHome,
+            addToLayoutByFname: addToLayoutByFname,
             removeFromHome: removeFromHome,
             getWidgetJson: getWidgetJson,
             getExclusiveMarkup: getExclusiveMarkup,

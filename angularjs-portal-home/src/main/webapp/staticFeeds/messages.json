@@ -39,7 +39,7 @@
       "featureImageUrl": null,
       "priority": "high",
       "audienceFilter": {
-        "groups": ["fjdkslafd"],
+        "groups": [""],
         "dataUrl": "",
         "dataObject": "",
         "dataArrayFilter": {}
@@ -66,6 +66,33 @@
         "dataArrayFilter": {}
       },
       "actionButton": null,
+      "moreInfoButton": {
+        "label": "Read more",
+        "url": "/features"
+      },
+      "confirmButton": null
+    },
+    {
+      "id": "sample-uw-madison-add-to-home-announcement",
+      "title": "This will add campus news to your home",
+      "titleShort": "Add campus news to your home page",
+      "description": "This mascot announcement should appear to the UW-Madison group only (unless group filtering is disabled).",
+      "descriptionShort": "Add campus news",
+      "messageType": "announcement",
+      "goLiveDate": "2017-08-01T09:30",
+      "expireDate": "2017-08-15",
+      "featureImageUrl": "img/features/bucky-announcement.png",
+      "priority": null,
+      "audienceFilter": {
+        "groups": ["UW-Madison"],
+        "dataUrl": "",
+        "dataObject": "",
+        "dataArrayFilter": {}
+      },
+      "actionButton": {
+        "label": "Add To Home",
+        "url": "addToHome/campus-news"
+      },
       "moreInfoButton": {
         "label": "Read more",
         "url": "/features"
