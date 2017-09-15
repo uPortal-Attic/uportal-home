@@ -48,18 +48,12 @@ define(['angular', 'jquery'], function(angular, $) {
               data: null,
               dataType: 'json',
               async: true,
-              success: function(request, text) {
+              success: function() {
                   $log.log('Added ' + fname + ' successfully');
                   miscService.pushGAEvent(
                     'Layout Modification', 'Add', fname);
-
-                  
-  //                  $sessionStorage.layout = null;
-  //                  getLayout().then(function(result){
-  //                    $sessionStorage.layout = result;
-   //                 });
                   },
-              error: function(request, text, error) {
+              error: function() {
                   $log.warn('failed to add app to home.');
                   return false;
               },

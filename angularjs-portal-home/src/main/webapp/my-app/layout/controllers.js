@@ -78,7 +78,7 @@ define(['angular', 'jquery'], function(angular, $) {
        
       $rootScope.addPortletToHome = function (fname) {
           layoutService.addToLayoutByFname(fname).success(function() {
-          layoutService.getUncachedLayout().then(function(data) {
+            layoutService.getUncachedLayout().then(function(data) {
               $scope.$apply($scope.layout.unshift(data.layout[0]));
           });
         });
@@ -89,7 +89,7 @@ define(['angular', 'jquery'], function(angular, $) {
        */
        vm.addPortlet = function addPortletFunction(fname) {
          $rootScope.addToLayoutByFname(fname).success(function(){
-           $scope.$apply(function(request, text) {
+           $scope.$apply(function() {
              $sessionStorage.layout = $scope.layout;
            })
          }).error(
