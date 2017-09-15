@@ -258,6 +258,7 @@
             <exclude>**/node_modules/**</exclude>
             <exclude>**/docs/_site/**</exclude>
             <exclude>**/docs/bower_components/**</exclude>
+            <exclude>**/docs/**/*.scss</exclude>
             <exclude>**/*.log*</exclude>
             <exclude>**/*.json</exclude>
             <exclude>**/*.lock</exclude>
@@ -265,7 +266,6 @@
           </excludes>
           <mapping>
             <less>JAVADOC_STYLE</less>
-            <scss>JAVADOC_STYLE</scss>
             <Gemfile>SCRIPT_STYLE</Gemfile>
             <example>SCRIPT_STYLE</example>
             <uP>XML_STYLE</uP>
