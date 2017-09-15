@@ -68,10 +68,6 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
     </dependency>
-    <dependency>
-      <groupId>jstl</groupId>
-      <artifactId>jstl</artifactId>
-    </dependency>
 
     <dependency>
       <groupId>javax.servlet</groupId>

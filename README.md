@@ -90,6 +90,13 @@ With this you can run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy` if you have
 
 Drop angularjs-portal-home/target/web.war in the Tomcat instance that runs uPortal and fire it up. Should just work.
 
+## License
+
+This product is licensed to you under the Apache License 2.0.
+
+The binary distribution of this product includes binaries licensed under the Eclipse Public License - v 1.0.
+
+
 [MyUW Overview slide deck]: http://go.wisc.edu/qwg5r1
 [Tomcat docs re Maven plugin]: http://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/plugin-info.html
 

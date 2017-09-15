@@ -16,9 +16,9 @@ uPortal-home [is presently][Apereo projects currently in incubation] in [Apereo 
 Items are checked where the project believes it now fulfills the exit criteria.
 
 - [ ] 4.1 Legal
-  - [ ] 4.1.1 Out-bound licensing
-  - [ ] 4.1.2 License marking
-  - [ ] 4.1.3 Contributor License Agreements
+  - [x] 4.1.1 Out-bound licensing
+  - [x] 4.1.2 License marking
+  - [x] 4.1.3 Contributor License Agreements
   - [ ] 4.1.4 Name trademark clarity
 - [ ] 4.2 Community
   - [ ] 4.2.a Level of community involvement
@@ -46,31 +46,30 @@ Items are checked where the project believes it now fulfills the exit criteria.
 
 #### 4.1.1 Out-bound licensing
 
-uPortal-home and uPortal-app-framework include the Apache 2 license (approved for Apereo outbound) as LICENSE, but do not include the NOTICE file intended for inclusion with Apache2-licensed products.
+uPortal-home and uPortal-app-framework include the Apache 2 license (approved for Apereo outbound) as LICENSE and accompanying NOTICE file acknowledging dependencies under Apache 2 and other permitted licenses.
 
 Next actions:
 
-+ Add `NOTICE` file. (Requires some auditing to get its contents correct). (Intended for Q3 2017).
++ Stop using Maven, stop delivering a `.war`, and thereby stop having Java dependencies and further simplify licensing posture.
 
 #### 4.1.2 License marking
 
-+ Partial but not verified-complete license marking.
-+ Poor acknowledgement of dependency or inclusion licensing.
+All source files are marked with the Apereo Apache2 license header.
 
 Next actions:
 
-+ Clean up marking source code with license. (Intended for Q3 2017).
-+ Automate source code header checking
-+ Add NOTICE file. Audit inclusions and dependencies to get its contents right. (Intended for Q3 2017).
-+ Automate `NOTICE` file checking
++ Re-implement license header checking without relying upon Maven. Sooner or later this project will stop using Maven.
 
 #### 4.1.3 Contributor License Agreements
 
-Most major contributors have ICLAs on file.
+All major contributors have ICLAs on file.
+
+Did not secure ICLA from one minor past Contributor. Deferred further worry about this by accepting the Contributor's Contributions (if any are still relevant) via Apache2 clause 5, as noted in `LICENSE`.
+
+If this ever becomes a problem a careful audit might reveal that no Contributions from this Contributor are still relevant, through the natural turnover of modules and code within the project. In practice this is unlikely to ever be a problem.
 
 Next actions:
 
-+ Follow up with 1 remaining past Contributor to secure ICLA. (Intended for Q3 2017).
 + Potentially implement cla-assistant.io with the wrinkle of it asking contributors to attest to their compliance with the external-to-CLA-assistant CLA agreement process. (Click-through assurance that demonstrated CLA agreement through more arduous process, not click-through agreement to CLA.)
 
 #### 4.1.4 Name trademark clarity
