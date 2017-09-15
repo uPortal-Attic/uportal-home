@@ -91,17 +91,6 @@
                             <li ng-repeat="related in portlet.relatedPortlets"><a href="apps/details/{{ ::related.fname }}">{{ ::related.title }}</a></li>
                         </ul>
                     </div>
-                    <div class="desc-item">
-                      <h3 tabindex="0" class="md-title">Categories</h3>
-                      <md-chips ng-if="portlet.categories.length > 0"
-                                ng-model="portlet.categories"
-                                readonly="true"
-                                md-removable="false">
-                        <md-chip-template>
-                          <a ng-href="apps" ng-click="specifyCategory($chip)" aria-label="see more apps in the {{ $chip }} category">{{ $chip }}</a>
-                        </md-chip-template>
-                      </md-chips>
-                    </div>
                     <div class="desc-item" ng-if="portlet.marketplaceScreenshots.length != 0">
                         <h3 tabindex="0" class="md-title">Screenshots</h3>
                         <ul class="enlarge">
