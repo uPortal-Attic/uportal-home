@@ -93,25 +93,29 @@ define(['angular', 'jquery'], function(angular, $) {
             ' from your list of favorites, try again later.');
           });
       };
-       
-      $rootScope.addPortletToHome = function (fname) {
+
+      $rootScope.addPortletToHome = function(fname) {
           layoutService.addToLayoutByFname(fname).success(function() {
             layoutService.getUncachedLayout().then(function(data) {
               $scope.$apply($scope.layout.unshift(data.layout[0]));
+              return true;
+          }).catch(function() {
+            $log.warn('Could not getLayout while adding to home');
+            return false;
           });
         });
       };
-        
+
       /**
        * Add widget to home layout
        */
        vm.addPortlet = function addPortletFunction(fname) {
-         $rootScope.addToLayoutByFname(fname).success(function(){
+         $rootScope.addToLayoutByFname(fname).success(function() {
            $scope.$apply(function() {
              $sessionStorage.layout = $scope.layout;
-           })
+           });
          }).error(
-           function(){
+           function() {
              $sessionStorage.layout = layoutService.getLayout();
            });
        };

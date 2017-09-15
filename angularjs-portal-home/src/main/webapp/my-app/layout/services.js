@@ -56,8 +56,8 @@ define(['angular', 'jquery'], function(angular, $) {
                 },
             });
         };
-        
-        var addToLayoutByFname = function addToLayoutByFname(fname){
+
+        var addToLayoutByFname = function addToLayoutByFname(fname) {
           var tabName = SERVICE_LOC.layoutTab;
           return $.ajax({
               url: SERVICE_LOC.base + 'layout?action=addPortlet&fname=' +
@@ -76,7 +76,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   return false;
               },
           });
-        }
+        };
 
         var removeFromHome = function removeFromHomeFunction(fname) {
             return $.ajax({
@@ -168,7 +168,6 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         var getUncachedLayout = function() {
-
               var successFn = function(result) {
                   var data = formatLayoutForCache(result.data);
                   storeLayoutInCache(data);
