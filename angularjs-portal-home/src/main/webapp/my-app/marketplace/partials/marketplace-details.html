@@ -85,7 +85,8 @@
                         <br>
                         <rating-button ng-hide="GuestMode" portlet='portlet' button-text="Rate" button-classes="md-raised"></rating-button>
                     </div>
-                    <div class="desc-item">
+                    <div class="desc-item"
+                      ng-if="portlet.relatedPortlets.length > 0">
                         <h3 tabindex="0" class="md-title">Related Apps</h3>
                         <ul>
                             <li ng-repeat="related in portlet.relatedPortlets"><a href="apps/details/{{ ::related.fname }}">{{ ::related.title }}</a></li>
