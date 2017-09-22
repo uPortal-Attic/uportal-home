@@ -39,10 +39,10 @@
   <dependencies>
     <!-- overlays -->
     <dependency>
-      <groupId>edu.wisc.my.apps</groupId>
-      <artifactId>uw-frame</artifactId>
+      <groupId>org.apereo.uportal</groupId>
+      <artifactId>uportal-app-framework</artifactId>
       <type>war</type>
-      <version>5.2.2-SNAPSHOT</version>
+      <version>6.0.1-SNAPSHOT</version>
     </dependency>
 
     <!-- Test -->
