@@ -171,6 +171,41 @@ define(['angular', 'jquery'], function(angular, $) {
       vm.init();
     }])
 
+  .controller('RemoveWidgetController', ['$scope', 'layoutService',
+    '$sessionStorage', function($scope, layoutService,
+      $sessionStorage) {
+        var vm = this;
+        /**
+         * Remove widget from home layout
+         * @param fname
+         */
+        vm.removePortlet = function removePortletFunction(fname) {
+          layoutService.removeFromHome(fname).success(function() {
+            $scope.$apply(function(request, text) {
+              var result = $.grep($scope.$parent.layout, function(e) {
+                return e.fname === fname;
+              });
+              var index = $.inArray(result[0], $scope.$parent.layout);
+              // remove
+              $scope.$parent.layout.splice(index, 1);
+              if ($sessionStorage.marketplace != null) {
+                var marketplaceEntries = $.grep($sessionStorage.marketplace,
+                  function(e) {
+                    return e.fname === result[0].fname;
+                  });
+                if (marketplaceEntries.length > 0) {
+                  marketplaceEntries[0].hasInLayout = false;
+                }
+              }
+            });
+          }).error(
+            function(request, text, error) {
+              alert('Issue deleting ' + fname +
+                ' from your list of favorites, try again later.');
+            });
+        };
+   }])
+
   /**
    * Basic widget logic leveraged by WidgetController,
    * expanded mode widget layout
