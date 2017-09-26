@@ -6,6 +6,31 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [6.7.0][] - 2017-09-26
+### Minor Changes
+* [Add from feature button](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/692)
+* [Remove "categories" from app directory](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/695)
+
+### Patch Changes
+#### Documentation
+* [Update Changelog](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/681)
+* [Add badge for AppVeyor](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/683)
+* [Acknowledge Jianyi Liu](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/684)
+* [Document conventional commits](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/685)
+* [Apply License Headers](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/690)
+* [Add Notice File](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/691)
+
+#### Bug Fixes
+* [Remove google domain search](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/689)
+* [Clean up Lint Errors](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/694)
+* [Remove Auto-Licensing from Docs](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/693)
+* [Clean up category remnants](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/698)
+* [Fix auto-redirect introduced in 6.6.0](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/703)
+
+#### Build Changes
+* [Change Maven Commit format](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/686)
+* [Use uportal-app-framework](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/701)
+
 ## [6.6.0][] - 2017-09-01
 
 ### Documentation updates
@@ -184,7 +209,8 @@ This release overlays on [uw-frame v3.0.3](https://github.com/UW-Madison-DoIT/uw
 See also:
 - the [6.0.0 milestone](https://github.com/UW-Madison-DoIT/angularjs-portal/milestone/5?closed=1).
 
-[Unreleased]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.6.0...HEAD
+[Unreleased]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.7.0...HEAD
+[6.7.0]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.6.0...angularjs-portal-parent-6.7.0
 [6.6.0]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.5.0...angularjs-portal-parent-6.6.0
 [6.5.0]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.4.2...angularjs-portal-parent-6.5.0
 [6.4.2]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.4.1...angularjs-portal-parent-6.4.2
