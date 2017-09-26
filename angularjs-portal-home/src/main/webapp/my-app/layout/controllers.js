@@ -399,12 +399,12 @@ define(['angular', 'jquery'], function(angular, $) {
   }])
   .controller('OptionsController', [
     '$scope', '$location', function($scope, $location) {
-      var expanded = 'expanded';
-      var compact = 'compact';
+      var expanded = '/expanded';
+      var compact = '/compact';
       $scope.renderMe = false;
       if (
-        $location.url().indexOf(expanded) > -1 ||
-        $location.url().indexOf(compact) > -1
+        $location.url().indexOf(expanded) == 0 ||
+        $location.url().indexOf(compact) == 0
       ) {
         $scope.renderMe = true;
       }
