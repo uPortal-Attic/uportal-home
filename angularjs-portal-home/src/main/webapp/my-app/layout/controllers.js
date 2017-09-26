@@ -396,5 +396,17 @@ define(['angular', 'jquery'], function(angular, $) {
       };
 
       vm.init();
+  }])
+  .controller('OptionsController', [
+    '$scope', '$location', function($scope, $location) {
+      var expanded = 'expanded';
+      var compact = 'compact';
+      $scope.renderMe = false;
+      if (
+        $location.url().indexOf(expanded) > -1 ||
+        $location.url().indexOf(compact) > -1
+      ) {
+        $scope.renderMe = true;
+      }
   }]);
 });
