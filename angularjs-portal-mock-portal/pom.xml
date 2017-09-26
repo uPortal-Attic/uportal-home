@@ -33,5 +33,16 @@
   
   <build>
     <finalName>portal</finalName>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.jasig.maven</groupId>
+          <artifactId>maven-notice-plugin</artifactId>
+          <configuration>
+            <skipChecks>true</skipChecks>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 </project>
