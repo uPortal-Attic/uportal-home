@@ -68,6 +68,7 @@ We have not yet formalized scopes. In practice scopes used so far include:
 + `md`
 + `npm`
 + `package`
++ `presentations` : the documentation linking related presentations
 + `readme`
 
 ## Contribution welcome
