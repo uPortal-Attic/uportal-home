@@ -1,7 +1,7 @@
 {
-  "name": "web",
-  "version": "5.0.0",
-  "description": "angular my-uw",
+  "name": "@uportal/uportal-home",
+  "version": "6.7.0",
+  "description": "uPortal Home",
   "scripts": {
     "commitmsg": "commitlint -e",
     "cz": "git-cz",
@@ -16,14 +16,21 @@
     "prestart": "mvn clean package",
     "start": "mvn jetty:run"
   },
+  "files": [
+    "pom.xml",
+    "web/src",
+    "web/pom.xml",
+    "mock-portal/src",
+    "mock-portal/pom.xml"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/UW-Madison-DoIT/angularjs-portal.git"
   },
   "author": {
-    "name": "University of Wisconsin Madison",
-    "email": "my-admin@lists.wisc.edu",
-    "url": "https://github.com/UW-Madison-DoIT"
+    "name": "uPortal Home Developers",
+    "email": "uportal-dev@apereo.org",
+    "url": "https://github.com/uPortal-Project/"
   },
   "license": "Apache-2.0",
   "bugs": {
