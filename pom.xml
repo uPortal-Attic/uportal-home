@@ -30,7 +30,7 @@
   <groupId>org.apereo.uportal</groupId>
   <artifactId>uportal-home-parent</artifactId>
   <packaging>pom</packaging>
-  <version>6.7.1-SNAPSHOT</version>
+  <version>7.0.0</version>
   <name>uPortal Home Parent Project</name>
   <description>An alternative homepage for uPortal</description>
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
@@ -55,6 +55,7 @@
     <connection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</connection>
     <developerConnection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</developerConnection>
     <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
+    <tag>uportal-home-parent-7.0.0</tag>
   </scm>
 
   <properties>
