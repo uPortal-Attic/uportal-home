@@ -19,28 +19,28 @@
 
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>edu.wisc.my.portal.angular</groupId>
-  <artifactId>angularjs-portal-parent</artifactId>
-  <packaging>pom</packaging>
-  <version>6.7.1-SNAPSHOT</version>
-  <name>angularjs-portal</name>
-  <description>AngularJS Portal is an alternative front end to uPortal</description>
-  <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
-
+  
   <parent>
     <groupId>org.jasig.parent</groupId>
     <artifactId>jasig-parent</artifactId>
     <version>41</version>
   </parent>
 
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.apereo.uportal</groupId>
+  <artifactId>uportal-home-parent</artifactId>
+  <packaging>pom</packaging>
+  <version>6.7.1-SNAPSHOT</version>
+  <name>uPortal Home</name>
+  <description>An alternative homepage for uPortal</description>
+  <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
+  
   <developers>
     <developer>
-        <email>my-admin@lists.wisc.edu</email>
-        <organization>UW-Madison</organization>
+        <email>uportal-dev@apereo.org</email>
+        <organization>Apereo uPortal Developers</organization>
         <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
-        <name>My UW Dev Team</name>
+        <name>Apereo uPortal Developers</name>
     </developer>
   </developers>
 
@@ -55,7 +55,6 @@
     <connection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</connection>
     <developerConnection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</developerConnection>
     <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
-    <tag>HEAD</tag>
   </scm>
 
   <properties>
@@ -77,17 +76,6 @@
       <url>https://oss.sonatype.org/content/groups/public</url>
     </repository>
   </repositories>
-
-  <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
 
   <dependencyManagement>
     <dependencies>

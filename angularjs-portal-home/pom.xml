@@ -21,15 +21,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <parent>
-    <groupId>edu.wisc.my.portal.angular</groupId>
-    <artifactId>angularjs-portal-parent</artifactId>
+    <groupId>org.apereo.uportal</groupId>
+    <artifactId>uportal-home-parent</artifactId>
     <version>6.7.1-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>angularjs-portal-home</artifactId>
+  <artifactId>uportal-home</artifactId>
   <packaging>war</packaging>
-  <name>angularjs-portal-home</name>
+  <name>uPortal Home</name>
 
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
   <properties>
