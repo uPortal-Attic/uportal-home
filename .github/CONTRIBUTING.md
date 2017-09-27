@@ -62,6 +62,7 @@ We have not yet formalized scopes. In practice scopes used so far include:
 
 + `changelog`
 + `ci`
++ `contributing` : guidance to contributors
 + `dependency`
 + `dependency upgrade`
 + `github`
