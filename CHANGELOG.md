@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [7.0.0][] - 2017-09-27
+* Changing name from angularjs-portal to uportal-home
+
 ## [6.7.0][] - 2017-09-26
 ### Minor Changes
 * [Add from feature button](https://github.com/UW-Madison-DoIT/angularjs-portal/pull/692)
@@ -209,7 +212,8 @@ This release overlays on [uw-frame v3.0.3](https://github.com/UW-Madison-DoIT/uw
 See also:
 - the [6.0.0 milestone](https://github.com/UW-Madison-DoIT/angularjs-portal/milestone/5?closed=1).
 
-[Unreleased]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.7.0...HEAD
+[Unreleased]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/uportal-home-parent-7.0.0...HEAD
+[7.0.0]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.7.0...uportal-home-parent-7.0.0
 [6.7.0]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.6.0...angularjs-portal-parent-6.7.0
 [6.6.0]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.5.0...angularjs-portal-parent-6.6.0
 [6.5.0]: https://github.com/UW-Madison-DoIT/angularjs-portal/compare/angularjs-portal-parent-6.4.2...angularjs-portal-parent-6.5.0
