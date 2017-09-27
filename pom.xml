@@ -65,8 +65,8 @@
   </properties>
 
   <modules>
-    <module>angularjs-portal-home</module>
-    <module>angularjs-portal-mock-portal</module>
+    <module>uportal-home</module>
+    <module>uportal-home-mock-portal</module>
   </modules>
 
   <repositories>

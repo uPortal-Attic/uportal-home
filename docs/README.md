@@ -1,8 +1,8 @@
 Questions? [Get in touch][uportal-user@].
 
-This documentation describes [AngularJS-Portal](https://github.com/UW-Madison-DoIT/angularjs-portal), the free and open source alternative front end for [uPortal][], used in e.g. [MyUW](https://it.wisc.edu/services/myuw/). AngularJS-Portal is based on [uPortal App-Framework](https://github.com/uPortal-Project/uportal-app-framework) (which has [its own documentation](http://uportal-project.github.io/uportal-app-framework/)).
+This documentation describes [uPortal Home](https://github.com/UW-Madison-DoIT/angularjs-portal), the free and open source alternative front end for [uPortal][], used in e.g. [MyUW](https://it.wisc.edu/services/myuw/). uPortal Home is based on [uPortal App-Framework](https://github.com/uPortal-Project/uportal-app-framework) (which has [its own documentation](http://uportal-project.github.io/uportal-app-framework/)).
 
-[AngularJS-Portal is an Apereo Incubating project](apereo-incubation.md) in the uPortal ecosystem.
+[uPortal Home is an Apereo Incubating project](apereo-incubation.md) in the uPortal ecosystem.
 
 [![Apereo Incubating badge](https://www.apereo.org/sites/default/files/Incubation%20Logos/incubating%20w%20logo%2015MAR17.png)](https://www.apereo.org/content/projects-currently-incubation)
 
@@ -26,12 +26,12 @@ Of course for a more sophisticated demo or to adopt for real you will need to [c
 #### Persistent layout of widgets
 The home page presents widgets in a remembered order. Logged in users can add to, remove from, and re-order this list.
 
-Under the hood, the home page layout is implemented as a personalized layout fragment in [uPortal][]'s `DLM`, so AngularJS-Portal delivers (and updates) a
+Under the hood, the home page layout is implemented as a personalized layout fragment in [uPortal][]'s `DLM`, so uPortal Home delivers (and updates) a
 default set and ordering of home page content that is filtered to the viewing user's permissions.
 
 #### Toggleable view modes
 
-Widgets show on the home page in either a minimalist "compact mode" or a rich "expanded mode". AngularJS-Portal takes a guess at the best default mode for a given browser and users can toggle the mode, with their preference stored in browser local storage.
+Widgets show on the home page in either a minimalist "compact mode" or a rich "expanded mode". uPortal Home takes a guess at the best default mode for a given browser and users can toggle the mode, with their preference stored in browser local storage.
 
 + [Expanded mode](expanded.md)
 + [Compact mode](compact.md)
