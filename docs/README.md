@@ -1,6 +1,6 @@
 Questions? [Get in touch][uportal-user@].
 
-This documentation describes [AngularJS-Portal](https://github.com/UW-Madison-DoIT/angularjs-portal), the free and open source alternative front end for [uPortal][], used in e.g. [MyUW](https://it.wisc.edu/services/myuw/). AngularJS-Portal is based on [uw-frame](https://github.com/UW-Madison-DoIT/uw-frame) (which has [its own documentation](http://uw-madison-doit.github.io/uw-frame/)).
+This documentation describes [AngularJS-Portal](https://github.com/UW-Madison-DoIT/angularjs-portal), the free and open source alternative front end for [uPortal][], used in e.g. [MyUW](https://it.wisc.edu/services/myuw/). AngularJS-Portal is based on [uPortal App-Framework](https://github.com/uPortal-Project/uportal-app-framework) (which has [its own documentation](http://uportal-project.github.io/uportal-app-framework/)).
 
 [AngularJS-Portal is an Apereo Incubating project](apereo-incubation.md) in the uPortal ecosystem.
 
@@ -38,8 +38,8 @@ Widgets show on the home page in either a minimalist "compact mode" or a rich "e
 
 #### More about widgets
 
-+ [Widget type documentation](http://uw-madison-doit.github.io/uw-frame/make-a-widget.html)
-+ [Widget creator](https://test.my.wisc.edu/widget-creator/home)
++ [Widget type documentation](http://uportal-project.github.io/uportal-app-framework/make-a-widget.html)
++ [Widget creator](https://my.wisc.edu/widget-creator/)
 
 ### [App directory](app-directory.md)
 

@@ -52,7 +52,7 @@ See [documentation site][GitHub Pages site].
 ### Modules
 
 #### Frame
-Frame was so cool it moved to [its own project](https://github.com/UW-Madison-DoIT/uw-frame).
+uPortal Home is a [uPortal App-Framework project](https://github.com/uPortal-Project/uportal-app-framework).
 
 #### Home
 This is the portal home page. It uses the frame as a base then adds in the layout, app directory, and features pages.
