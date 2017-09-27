@@ -161,7 +161,7 @@
         <version>1.7.0.1.1</version>
         <configuration>
           <sourceDirectory>${project.basedir}/src/main/webapp/css/</sourceDirectory>
-          <outputDirectory>${project.basedir}/src/main/webapp/my-app</outputDirectory>
+          <outputDirectory>${project.build.directory}/generated-css/my-app</outputDirectory>
           <compress>true</compress>
           <includes>
             <include>my-app.less</include>
@@ -181,6 +181,11 @@
         <version>2.6</version>
         <configuration>
           <attachClasses>true</attachClasses>
+          <webResources>
+            <resource>
+              <directory>${project.build.directory}/generated-css</directory>
+            </resource>
+          </webResources>
         </configuration>
       </plugin>
       <plugin>
