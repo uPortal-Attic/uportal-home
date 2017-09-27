@@ -5,13 +5,13 @@
   "scripts": {
     "commitmsg": "commitlint -e",
     "cz": "git-cz",
-    "lint-css": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
+    "lint-css": "stylelint --syntax less uportal-home-web/src/**/*.less",
     "pretest": "mvn clean package",
-    "test": "karma start angularjs-portal-home/target/web/karma.conf.js  --single-run",
-    "dev-lint-js": "eslint --quiet --ext js --ext json --ext md --format html --output-file angularjs-portal-home/target/web/lint-out.html . --ignore-path .gitignore --ignore-pattern angularjs-portal-mock-portal",
-    "lint-js": "eslint --ext js --ext json --ext md . --ignore-path .gitignore --ignore-pattern angularjs-portal-mock-portal",
+    "test": "karma start uportal-home-web/target/web/karma.conf.js  --single-run",
+    "dev-lint-js": "eslint --quiet --ext js --ext json --ext md --format html --output-file uportal-home-web/target/web/lint-out.html . --ignore-path .gitignore --ignore-pattern uportal-home-mock-portal",
+    "lint-js": "eslint --ext js --ext json --ext md . --ignore-path .gitignore --ignore-pattern uportal-home-mock-portal",
     "lint-md": "remark . --frail --ignore-path .gitignore",
-    "lint-less": "stylelint --syntax less angularjs-portal-home/src/**/*.less",
+    "lint-less": "stylelint --syntax less uportal-home/src/**/*.less",
     "precommit": "eslint-git-changes",
     "prestart": "mvn clean package",
     "start": "mvn jetty:run"

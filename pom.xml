@@ -65,8 +65,8 @@
   </properties>
 
   <modules>
-    <module>uportal-home</module>
-    <module>uportal-home-mock-portal</module>
+    <module>web</module>
+    <module>mock-portal</module>
   </modules>
 
   <repositories>
@@ -180,15 +180,15 @@
         <configuration>
           <contextHandlers>
             <contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
-              <war>${project.basedir}/angularjs-portal-home/target/web.war</war>
+              <war>${project.basedir}/web/target/web.war</war>
               <contextPath>/web</contextPath>
             </contextHandler>
             <contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
-              <war>${project.basedir}/angularjs-portal-mock-portal/target/portal.war</war>
+              <war>${project.basedir}/mock-portal/target/portal.war</war>
               <contextPath>/portal</contextPath>
             </contextHandler>
             <contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
-              <war>${project.basedir}/angularjs-portal-mock-portal/target/portal.war</war>
+              <war>${project.basedir}/mock-portal/target/portal.war</war>
               <contextPath>/storage</contextPath>
             </contextHandler>
           </contextHandlers>
