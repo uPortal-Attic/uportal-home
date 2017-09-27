@@ -171,7 +171,6 @@
           <autoVersionSubmodules>true</autoVersionSubmodules>
           <scmCommentPrefix>chore(release): </scmCommentPrefix>
           <useReleaseProfile>false</useReleaseProfile>
-          <releaseProfiles>release</releaseProfiles>
           <goals>deploy</goals>
         </configuration>
       </plugin>
@@ -181,7 +180,7 @@
         <version>1.6.5</version>
         <extensions>false</extensions>
         <configuration>
-          <serverId>ossrh</serverId>
+          <serverId>sonatype-nexus-staging</serverId>
           <nexusUrl>https://oss.sonatype.org/</nexusUrl>
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
