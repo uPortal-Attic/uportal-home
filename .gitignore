@@ -14,7 +14,6 @@ catalina.base_IS_UNDEFINED/
 overlays/
 logs/
 .DS_Store
-web/src/main/webapp/my-app/my-app.css
 .codenvy/project.json
 web/.codenvy
 mock-portal/.codenvy
