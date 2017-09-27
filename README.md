@@ -3,7 +3,7 @@
 Questions? [Get in touch][uportal-user@].
 
 <!-- current project status -->
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/edu.wisc.my.portal.angular/angularjs-portal-home/badge.svg)](https://maven-badges.herokuapp.com/maven-central/edu.wisc.my.portal.angular/angularjs-portal-home)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apereo.uportal/uportal-home/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.apereo.uportal/uportal-home)
 [![Linux and MacOS Build Status](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal.svg)](https://travis-ci.org/UW-Madison-DoIT/angularjs-portal)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/y9aopisf2db2fpwe/branch/master?svg=true)](https://ci.appveyor.com/project/ChristianMurphy/angularjs-portal-npp5x/branch/master)
 [![Coverage Status](https://coveralls.io/repos/UW-Madison-DoIT/angularjs-portal/badge.svg?branch=master&service=github)](https://coveralls.io/github/UW-Madison-DoIT/angularjs-portal?branch=master)
@@ -30,7 +30,7 @@ This is an Angular approach to the dashboard view of uPortal. This dashboard wil
 
 See [this project's documentation][GitHub Pages site].
 
-#### Resources for understanding what you can do with `angularjs-portal`:
+#### Resources for understanding what you can do with `uportal-home`:
 
 + [MyUW Overview slide deck][]
 + [MyUW Introduction YouTube video](https://www.youtube.com/watch?v=4kM9pPnH_hA)
@@ -40,7 +40,8 @@ See [this project's documentation][GitHub Pages site].
 
 + Generate `endpoint.properties`
 ```shell
-cp angularjs-portal/angularjs-portal-home/src/main/resources/endpoint.properties.example angularjs-portal/angularjs-portal-home/src/main/resources/endpoint.properties
+cd uportal-home
+cp angularjs-portal-home/src/main/resources/endpoint.properties.example angularjs-portal-home/src/main/resources/endpoint.properties
 ```
 This file contains your server side proxy configurations. See the example file for examples
 + run `mvn clean package` from the root directory to build the war files.

@@ -1,8 +1,8 @@
-# Search in AngularJS Portal
+# Search in uPortal Home
 
 ## Search philosophy
 
-AngularJS-Portal uses search to scale beyond the limitations of stuffing content into boxes on tabs in an old-school portal. Instead, users are encouraged to search over a directory potentially containing more stuff than would have fit on tabs.
+uPortal Home uses search to scale beyond the limitations of stuffing content into boxes on tabs in an old-school portal. Instead, users are encouraged to search over a directory potentially containing more stuff than would have fit on tabs.
 
 ## What you can Search
 
@@ -75,7 +75,7 @@ Search is configured in `web-config.js`:
 ...
 ```
 
-You declare one or more search configurations.  A search configuration has a `group`. The first search configuration matching a user's groups will apply to that user's AngularJS-Portal experience.
+You declare one or more search configurations.  A search configuration has a `group`. The first search configuration matching a user's groups will apply to that user's uPortal Home experience.
 
 Within each search configuration, you can set:
 
