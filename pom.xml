@@ -31,7 +31,7 @@
   <artifactId>uportal-home-parent</artifactId>
   <packaging>pom</packaging>
   <version>6.7.1-SNAPSHOT</version>
-  <name>uPortal Home</name>
+  <name>uPortal Home Parent Project</name>
   <description>An alternative homepage for uPortal</description>
   <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
   
