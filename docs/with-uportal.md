@@ -114,7 +114,7 @@ Check it out: at `http://localhost:8080/uPortal`; you've got a uPortal.
 
 Now that you've got uPortal running, go ahead and stop Tomcat again.
 
-Configure for operation against a localhost uPortal: in source `angularjs-portal-home/src/main/webapp/js/`, replace the contents of  `override.js` with the contents of `master-override.js`.
+Configure for operation against a localhost uPortal: in source `web/src/main/webapp/js/`, replace the contents of  `override.js` with the contents of `master-override.js`.
 
 Build `uPortal-home` to a .war file with
 
@@ -128,7 +128,7 @@ and then
 mvn clean package
 ```
 
-Drop the resulting `angularjs-portal-home/target/web.war` in the `webapps` directory of Tomcat.
+Drop the resulting `web/target/web.war` in the `webapps` directory of Tomcat.
 
 Start Tomcat again.
 

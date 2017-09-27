@@ -20,8 +20,8 @@
 
 
 if [ "$1" = "master" ]; then
-  cp angularjs-portal-home/src/main/webapp/js/override.js angularjs-portal-home/src/main/webapp/js/override.js.bak
-  cp angularjs-portal-home/src/main/webapp/js/master-override.js angularjs-portal-home/src/main/webapp/js/override.js
+  cp web/src/main/webapp/js/override.js uportal-home/src/main/webapp/js/override.js.bak
+  cp web/src/main/webapp/js/master-override.js uportal-home/src/main/webapp/js/override.js
 
   mvn -Djava.awt.headless=true clean install
 else
@@ -34,18 +34,18 @@ else
 
 fi
 
-  pushd angularjs-portal-home
+  pushd web
   mvn -Djava.awt.headless=true tomcat7:redeploy
   popd
 
 if [ "$1" = "master" ]; then
-  mv angularjs-portal-home/src/main/webapp/js/override.js.bak angularjs-portal-home/src/main/webapp/js/override.js
+  mv web/src/main/webapp/js/override.js.bak web/src/main/webapp/js/override.js
 fi
 
 
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
- notify-send "Build complete for angularjs-portal"
+ notify-send "Build complete for uportal-home"
 elif [[ "$unamestr" == 'Darwin' ]]; then
- osascript -e 'display notification "angularJS-portal build.sh finished" with title "Angular portal deployed" sound name "Hero"'
+ osascript -e 'display notification "uportal-home build.sh finished" with title "uPortal Home deployed" sound name "Hero"'
 fi

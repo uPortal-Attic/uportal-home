@@ -41,7 +41,7 @@ See [this project's documentation][GitHub Pages site].
 + Generate `endpoint.properties`
 ```shell
 cd uportal-home
-cp angularjs-portal-home/src/main/resources/endpoint.properties.example angularjs-portal-home/src/main/resources/endpoint.properties
+cp web/src/main/resources/endpoint.properties.example web/src/main/resources/endpoint.properties
 ```
 This file contains your server side proxy configurations. See the example file for examples
 + run `mvn clean package` from the root directory to build the war files.
@@ -58,7 +58,7 @@ uPortal Home is a [uPortal App-Framework project](https://github.com/uPortal-Pro
 #### Home
 This is the portal home page. It uses the frame as a base then adds in the layout, app directory, and features pages.
 
-To deploy the home build from the base directory described above. Then `cd ./angularjs-portal-home` and run `mvn tomcat7:redeploy` (assuming you have auto deploy configured).  The home will now be deployed to `/web`.
+To deploy the home build from the base directory described above. Then `cd ./web` and run `mvn tomcat7:redeploy` (assuming you have auto deploy configured).  The home will now be deployed to `/web`.
 
 ### Running w/ Mock Data
 To run simply type `mvn clean package && mvn jetty:run` from the root directory. By default jetty runs on port 8080.
@@ -89,7 +89,7 @@ With this you can run `mvn tomcat7:deploy` or `mvn tomcat7:redeploy` if you have
 
 ### Deploy to Remote Instance
 
-Drop angularjs-portal-home/target/web.war in the Tomcat instance that runs uPortal and fire it up. Should just work.
+Drop `uportal-home/web/target/web.war` in the Tomcat instance that runs uPortal and fire it up. Should just work.
 
 ## License
 
