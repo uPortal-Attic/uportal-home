@@ -15,6 +15,6 @@ uPortal-home configuration about being uPortal-home (rather than the `override.j
 
 ## `login-config.js`
 
-Configuration specific to `uPortal-home` delegating to uPortal for user login. See [documentation](http://uw-madison-doit.github.io/angularjs-portal/silent-login.html).
+Configuration specific to `uPortal-home` delegating to uPortal for user login. See [documentation](http://uportal-project.github.io/uportal-home/silent-login.html).
 
 [uPortal-app-framework configuration docs]: http://uportal-project.github.io/uportal-app-framework/configuration.html

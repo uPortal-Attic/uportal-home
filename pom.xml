@@ -33,13 +33,13 @@
   <version>7.0.1-SNAPSHOT</version>
   <name>uPortal Home Parent Project</name>
   <description>An alternative homepage for uPortal</description>
-  <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
+  <url>https://github.com/uPortal-Project/uportal-home</url>
   
   <developers>
     <developer>
         <email>uportal-dev@apereo.org</email>
         <organization>Apereo uPortal Developers</organization>
-        <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
+        <url>https://github.com/uPortal-Project/uportal-home</url>
         <name>Apereo uPortal Developers</name>
     </developer>
   </developers>
@@ -52,9 +52,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</connection>
-    <developerConnection>scm:git:git@github.com:UW-Madison-DoIT/angularjs-portal.git</developerConnection>
-    <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
+    <connection>scm:git:git@github.com:uPortal-Project/uportal-home.git</connection>
+    <developerConnection>scm:git:git@github.com:uPortal-Project/uportal-home.git</developerConnection>
+    <url>https://github.com/uPortal-Project/uportal-home</url>
     <tag>HEAD</tag>
   </scm>
 

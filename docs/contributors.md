@@ -21,4 +21,4 @@ This project gratefully acknowledges its contributors, including:
 
 (See also [GitHub's report on Contributors][]; ways of contributing that don't surface into GitHub reporting are also valued.)
 
-[GitHub's report on Contributors]: https://github.com/UW-Madison-DoIT/angularjs-portal/graphs/contributors
+[GitHub's report on Contributors]: https://github.com/uPortal-Project/uportal-home/graphs/contributors
