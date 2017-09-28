@@ -22,7 +22,7 @@
   <div ng-if="renderMe">
     <!-- MEDIUM AND LARGE SCREENS -->
     <div layout="row" layout-align="end center" hide-xs>
-      <md-button ng-href="apps" class="md-primary">
+      <md-button ng-href="apps" class="md-primary" aria-label="Add more apps to home">
         <span ng-if="GuestMode">
           <md-icon>explore</md-icon> Browse {{ portal.theme.title }}
         </span>
@@ -52,7 +52,7 @@
             <md-icon>explore</md-icon>
             <span>Browse {{ portal.theme.title }}</span>
           </md-button>
-          <md-button ng-href="apps" ng-if="!GuestMode">
+          <md-button ng-href="apps" ng-if="!GuestMode" aria-label="Add more apps to home">
             <md-icon>add</md-icon>
             <span>Add more to home</span>
           </md-button>
