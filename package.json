@@ -25,7 +25,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/UW-Madison-DoIT/angularjs-portal.git"
+    "url": "https://github.com/uPortal-Project/uportal-home.git"
   },
   "author": {
     "name": "uPortal Home Developers",
@@ -34,9 +34,9 @@
   },
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/UW-Madison-DoIT/angularjs-portal/issues"
+    "url": "https://github.com/uPortal-Project/uportal-home/issues"
   },
-  "homepage": "https://github.com/UW-Madison-DoIT/angularjs-portal",
+  "homepage": "https://github.com/uPortal-Project/uportal-home",
   "devDependencies": {
     "@commitlint/cli": "^3.0.3",
     "@commitlint/config-angular": "^3.0.3",

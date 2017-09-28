@@ -1,6 +1,6 @@
 Questions? [Get in touch][uportal-user@].
 
-This documentation describes [uPortal Home](https://github.com/UW-Madison-DoIT/angularjs-portal), the free and open source alternative front end for [uPortal][], used in e.g. [MyUW](https://it.wisc.edu/services/myuw/). uPortal Home is based on [uPortal App-Framework](https://github.com/uPortal-Project/uportal-app-framework) (which has [its own documentation](http://uportal-project.github.io/uportal-app-framework/)).
+This documentation describes [uPortal Home](https://github.com/uPortal-Project/uportal-home), the free and open source alternative front end for [uPortal][], used in e.g. [MyUW](https://it.wisc.edu/services/myuw/). uPortal Home is based on [uPortal App-Framework](https://github.com/uPortal-Project/uportal-app-framework) (which has [its own documentation](http://uportal-project.github.io/uportal-app-framework/)).
 
 [uPortal Home is an Apereo Incubating project](apereo-incubation.md) in the uPortal ecosystem.
 

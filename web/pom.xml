@@ -31,7 +31,7 @@
   <packaging>war</packaging>
   <name>uPortal Home</name>
 
-  <url>https://github.com/UW-Madison-DoIT/angularjs-portal</url>
+  <url>https://github.com/uPortal-Project/uportal-home</url>
   <properties>
     <webapp.target.directory>${project.build.directory}/${project.build.finalName}</webapp.target.directory>
   </properties>

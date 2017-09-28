@@ -81,7 +81,7 @@ The [code of conduct][] is not negotiable. Please do be kind.
 Everything else the project participants welcome helping you to work through in your contributions.
 
 
-[uPortal Home website on incubating]: http://uw-madison-doit.github.io/angularjs-portal/apereo-incubation.html
+[uPortal Home website on incubating]: http://uportal-project.github.io/uportal-home/apereo-incubation.html
 [Apereo CLA roster]: http://licensing.apereo.org/completed-clas
 [Apereo Corporate Contributor License Agreement]: https://www.apereo.org/sites/default/files/Licensing%20Agreements/apereo-ccla.pdf
 [Apereo inbound intellectual property licensing practices]: https://www.apereo.org/licensing/practices
