@@ -81,6 +81,6 @@ Apache Software Foundation on
 
 
 [public registry of Apereo ICLA signatories]: http://licensing.apereo.org/
-[uPortal-home Committers GitHub team]: https://github.com/orgs/UW-Madison-DoIT/teams/uportal-home-committers
+[uPortal-home Committers GitHub team]: https://github.com/orgs/uPortal-Project/teams/uportal-home-committers
 
 [Christian Murphy committer election record]: https://groups.google.com/a/apereo.org/d/msg/uportal-dev/qcl7cyVWCDU/Z_mUyIXBAQAJ
