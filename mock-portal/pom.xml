@@ -28,7 +28,7 @@
   
   <artifactId>uportal-home-mock-portal</artifactId>
   <packaging>war</packaging>
-  <name>uPortal Home Mock Portal</name>
+  <name>uPortal-home Mock Portal</name>
   <description>Mock Portal Environment</description>
   
   <build>

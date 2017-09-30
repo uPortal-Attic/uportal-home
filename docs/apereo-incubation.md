@@ -85,7 +85,7 @@ Naming considerations: Names should reflect uPortal commitment and represent how
     + Developers can create their own uPortal Apps drawing from common
       configuration, style and functionality.
   + `angularjs-portal` → `uPortal-home`
-    + uPortal Home will be a standard uPortal App that handles layout of the
+    + uPortal-home will be a standard uPortal App that handles layout of the
       framework widgets for a cohesive user experience.
     + Developers provide `uPortal-home-config` for environment specific
       configuration.

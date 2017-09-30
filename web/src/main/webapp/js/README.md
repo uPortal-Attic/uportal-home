@@ -1,6 +1,6 @@
 # What are these files?
 
-(This is not comprehensive documentation on how to configure uPortal Home -- see the documentation site both for this project and [for the `uPortal-app-framework` project][uPortal-app-framework configuration docs] it overlays upon. Rather, this is directory-local reminder of what these files are.)
+(This is not comprehensive documentation on how to configure uPortal-home -- see the documentation site both for this project and [for the `uPortal-app-framework` project][uPortal-app-framework configuration docs] it overlays upon. Rather, this is directory-local reminder of what these files are.)
 
 ## `override.js`
 

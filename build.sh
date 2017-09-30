@@ -45,7 +45,7 @@ fi
 
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
- notify-send "Build complete for uportal-home"
+ notify-send "Build complete for uPortal-home"
 elif [[ "$unamestr" == 'Darwin' ]]; then
- osascript -e 'display notification "uportal-home build.sh finished" with title "uPortal Home deployed" sound name "Hero"'
+ osascript -e 'display notification "uPortal-home build.sh finished" with title "uPortal-home deployed" sound name "Hero"'
 fi

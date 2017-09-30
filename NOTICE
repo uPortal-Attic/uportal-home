@@ -50,7 +50,6 @@ This project includes:
         Common Development And Distribution License (CDDL) Version 1.0
   tomcat-util under Apache License, Version 2.0
   uPortal Application Framework under The Apache License, Version 2.0
-  uPortal Home under The Apache License, Version 2.0
-  uPortal Home Mock Portal under The Apache License, Version 2.0
-  uPortal Home Parent Project under The Apache License, Version 2.0
-
+  uPortal-home under The Apache License, Version 2.0
+  uPortal-home Mock Portal under The Apache License, Version 2.0
+  uPortal-home Parent Project under The Apache License, Version 2.0

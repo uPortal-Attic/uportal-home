@@ -29,7 +29,7 @@
 
   <artifactId>uportal-home</artifactId>
   <packaging>war</packaging>
-  <name>uPortal Home</name>
+  <name>uPortal-home</name>
 
   <url>https://github.com/uPortal-Project/uportal-home</url>
   <properties>
