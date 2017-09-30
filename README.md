@@ -5,7 +5,7 @@ Questions? [Get in touch][uportal-user@].
 <!-- current project status -->
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apereo.uportal/uportal-home/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.apereo.uportal/uportal-home)
 [![Linux and MacOS Build Status](https://travis-ci.org/uPortal-Project/uportal-home.svg)](https://travis-ci.org/uPortal-Project/uportal-home)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/y9aopisf2db2fpwe/branch/master?svg=true)](https://ci.appveyor.com/project/ChristianMurphy/angularjs-portal-npp5x/branch/master)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/80kfnn3469oybst2/branch/master?svg=true)](https://ci.appveyor.com/project/ChristianMurphy/uportal-home/branch/master)
 [![Coverage Status](https://coveralls.io/repos/uPortal-Project/uportal-home/badge.svg?branch=master&service=github)](https://coveralls.io/github/uPortal-Project/uportal-home?branch=master)
 [![devDependencies Status](https://david-dm.org/uPortal-Project/uportal-home/dev-status.svg)](https://david-dm.org/uPortal-Project/uportal-home?type=dev)
 [![bitHound Overall Score](https://www.bithound.io/github/uPortal-Project/uportal-home/badges/score.svg)](https://www.bithound.io/github/uPortal-Project/uportal-home)
