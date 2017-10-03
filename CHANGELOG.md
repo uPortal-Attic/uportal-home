@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * [Update references to github repos](https://github.com/uPortal-Project/uportal-home/pull/706)
 
 ## [7.0.0][] - 2017-09-27
-* Changing name from angularjs-portal to uportal-home
+* Changing name from angularjs-portal to uPortal-home
 
 ## [6.7.0][] - 2017-09-26
 ### Minor Changes

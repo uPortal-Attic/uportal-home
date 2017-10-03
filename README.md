@@ -28,7 +28,7 @@ This is an Angular approach to the dashboard view of uPortal. This dashboard wil
 
 See [this project's documentation][GitHub Pages site].
 
-#### Resources for understanding what you can do with `uportal-home`:
+#### Resources for understanding what you can do with `uPortal-home`:
 
 + [MyUW Overview slide deck][]
 + [MyUW Introduction YouTube video](https://www.youtube.com/watch?v=4kM9pPnH_hA)
@@ -51,7 +51,7 @@ See [documentation site][GitHub Pages site].
 ### Modules
 
 #### Frame
-uPortal Home is a [uPortal App-Framework project](https://github.com/uPortal-Project/uportal-app-framework).
+uPortal-home is a [uPortal App-Framework project](https://github.com/uPortal-Project/uportal-app-framework).
 
 #### Home
 This is the portal home page. It uses the frame as a base then adds in the layout, app directory, and features pages.

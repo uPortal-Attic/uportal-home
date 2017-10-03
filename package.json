@@ -1,7 +1,7 @@
 {
   "name": "@uportal/home",
   "version": "7.0.1",
-  "description": "uPortal Home",
+  "description": "uPortal-home",
   "scripts": {
     "commitmsg": "commitlint -e",
     "cz": "git-cz",
@@ -28,7 +28,7 @@
     "url": "https://github.com/uPortal-Project/uportal-home.git"
   },
   "author": {
-    "name": "uPortal Home Developers",
+    "name": "uPortal-home Developers",
     "email": "uportal-dev@apereo.org",
     "url": "https://github.com/uPortal-Project/"
   },
