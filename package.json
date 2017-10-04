@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/uPortal-Project/uportal-home",
   "devDependencies": {
-    "@commitlint/cli": "^3.0.3",
+    "@commitlint/cli": "^4.0.0",
     "@commitlint/config-angular": "^3.0.3",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
