@@ -35,8 +35,6 @@ script:
   - npm run lint-md
   - npm run lint-less
 
-after_script: greenkeeper-lockfile-upload
-
 cache:
   directories:
     - $HOME/.m2
