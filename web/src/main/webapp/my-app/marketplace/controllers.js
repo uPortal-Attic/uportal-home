@@ -28,20 +28,14 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
     ['googleCustomSearchService', 'miscSearchService', 'layoutService',
       '$log', 'marketplaceService', 'miscService', 'MISC_URLS',
       '$sessionStorage', '$localStorage', '$rootScope', '$scope',
-      '$routeParams', '$timeout', '$location',
+      '$routeParams', '$timeout', '$location', '$mdColors',
     function(googleCustomSearchService, miscSearchService, layoutService,
       $log, marketplaceService, miscService, MISC_URLS,
         $sessionStorage, $localStorage, $rootScope, $scope,
-        $routeParams, $timeout, $location) {
+        $routeParams, $timeout, $location, $mdColors) {
       var vm = this;
-      var currentThemePrimary = ($sessionStorage.portal.theme &&
-        $sessionStorage.portal.theme.materialTheme) ?
-        $sessionStorage.portal.theme.materialTheme.primary['500'] :
-        {value: ['0', '0', '0']};
-      $scope.primaryColorRgb = 'rgb('+
-        currentThemePrimary.value[0] + ',' +
-        currentThemePrimary.value[1] + ',' +
-        currentThemePrimary.value[2] + ')';
+      $scope.primaryColorRgb =
+          $mdColors.getThemeColor($rootScope.portal.theme.name + '-primary');
 
       $scope.navToDetails = function(marketplaceEntry, location) {
         marketplaceService.setFromInfo(location, $scope.searchTerm);
