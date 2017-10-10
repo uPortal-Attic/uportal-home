@@ -29,7 +29,7 @@
   No {{portal.theme.title}} results. <a href="apps">Try browsing instead?</a>
 </div>
 <div class="result" ng-repeat="portlet in myuwFilteredResults = (myuwResults | filter:searchTermFilter | showApplicable:showAll | orderBy:sortParameter | limitTo:searchResultLimit)">
-  <h4><a ng-href="{{getLaunchURL(portlet)}}" target="{{::portlet.target}}" target="{{::portlet.target | targetToRel}}">{{ portlet.title }}</a> <small ng-if='GuestMode && !portlet.canAdd'>(login to use)</small></h4>
+  <h4><a ng-href="{{getLaunchURL(portlet)}}" target="{{::portlet.target}}" rel="{{::portlet.target | targetToRel}}">{{ portlet.title }}</a> <small ng-if='GuestMode && !portlet.canAdd'>(login to use)</small></h4>
   <p>{{ portlet.description }}</p>
   <p>
     <md-button ng-click="addToHome(portlet)"
