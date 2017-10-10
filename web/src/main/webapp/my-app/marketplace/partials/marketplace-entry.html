@@ -31,7 +31,7 @@
 		<div ng-hide="GuestMode" hide-xs layout="row">
       <!-- Launch button with access -->
       <md-button class="md-default" aria-label="launch {{::portlet.title}}" ng-href="{{getLaunchURL(portlet)}}"
-                 target="{{::portlet.target}}" ng-if="portlet.canAdd">
+                 target="{{::portlet.target}}" rel="{{::portlet.target | targetToRel}}" ng-if="portlet.canAdd">
         <span class="fa fa-arrow-circle-o-right"></span> Launch
       </md-button>
 
@@ -103,7 +103,7 @@
     <div ng-hide="GuestMode" layout="row" layout-align="end center" class="mp-mobile-buttons">
       <!-- Launch button with access on mobile-->
       <md-button class="md-default" aria-label="launch {{::portlet.title}}" ng-href="{{getLaunchURL(portlet)}}"
-                 target="{{::portlet.target}}" ng-if="portlet.canAdd">
+                 target="{{::portlet.target}}" rel="{{::portlet.target | targetToRel}}" ng-if="portlet.canAdd">
         <span class="fa fa-arrow-circle-o-right"></span> Launch
       </md-button>
 
