@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [7.0.3][] - 2017-10-10
+
+Uses [uPortal-app-framework 6.0.4](https://github.com/uPortal-Project/uportal-app-framework/releases/tag/uportal-app-framework-maven-6.0.4).
+
+### Bug Fixes
+* Fix clipping app options on small screens #713
+* Separate remove button into own controller #718
+
+### Documentation & Build
+* update appveyor badge #716
+* Enable cross browser testing #717
+* Use name `uPortal-home` consistently #715
+* Update @commitlint/cli to the latest version #719
+* update `eslint-plugin-compat` to version `2.0.1` #721
+
 ## [7.0.2][] - 2017-10-02
 
 Uses [uPortal-app-framework 6.0.3](https://github.com/uPortal-Project/uportal-app-framework/releases/tag/uportal-app-framework-maven-6.0.3).
@@ -221,7 +236,8 @@ This release overlays on [App-Framework v3.0.3](https://github.com/uPortal-Proje
 See also:
 - the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[Unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.0.2...HEAD
+[Unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.0.3...HEAD
+[7.0.3]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.3
 [7.0.2]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.2
 [7.0.1]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-7.0.0...uportal-home-parent-7.0.1
 [7.0.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.7.0...uportal-home-parent-7.0.0
