@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Bug Fixes
+* fix: use `mdColors` to get primary color in app directory #723
+* fix: Calculate rel on marketplace anchors #725
+
 ## [7.0.3][] - 2017-10-10
 
 Uses [uPortal-app-framework 6.0.4](https://github.com/uPortal-Project/uportal-app-framework/releases/tag/uportal-app-framework-maven-6.0.4).
