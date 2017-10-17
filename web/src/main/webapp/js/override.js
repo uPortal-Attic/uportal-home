@@ -32,6 +32,23 @@ define(['angular'], function(angular) {
           'APP_OPTIONS': {
             'optionsTemplateURL':
               'my-app/layout/partials/app-header-options.html',
+            'appMenuItems': [
+              {
+                'label': 'Browse apps',
+                'icon': 'widgets',
+                'url': '/web/apps',
+              },
+              {
+                'label': 'New features',
+                'icon': 'new_releases',
+                'url': '/web/features',
+              },
+              {
+                'label': 'About',
+                'icon': 'info',
+                'url': '/web/about',
+              },
+            ],
           },
           'SERVICE_LOC': {
             'aboutURL': '/portal/api/session.json',
