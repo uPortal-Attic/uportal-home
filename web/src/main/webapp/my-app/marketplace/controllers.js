@@ -35,7 +35,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $routeParams, $timeout, $location, $mdColors) {
       var vm = this;
       $scope.primaryColorRgb =
-          $mdColors.getThemeColor($sessionStorage.portal.theme.name 
+          $mdColors.getThemeColor($sessionStorage.portal.theme.name
             + '-primary');
 
       $scope.navToDetails = function(marketplaceEntry, location) {
