@@ -34,18 +34,19 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $sessionStorage, $localStorage, $rootScope, $scope,
         $routeParams, $timeout, $location, $mdColors) {
       var vm = this;
-      
 
-      if(!$sessionStorage.portal.theme){
-        $scope.primaryColorRgb =
-          $mdColors.getThemeColor($rootScope.THEMES[0].name
-            + '-primary'); 
-      } else {
+      if ($sessionStorage.portal.theme) {
+        // theme already in session, use primary color from it
         $scope.primaryColorRgb =
           $mdColors.getThemeColor($sessionStorage.portal.theme.name
-          + '-primary');     
-        }   
-        
+          + '-primary');
+      } else {
+        // theme not yet in session, use primary color from zeroth theme
+        $scope.primaryColorRgb =
+          $mdColors.getThemeColor($rootScope.THEMES[0].name
+            + '-primary');
+        }
+
        $scope.navToDetails = function(marketplaceEntry, location) {
         marketplaceService.setFromInfo(location, $scope.searchTerm);
         $location.path('apps/details/'+ marketplaceEntry.fname);
