@@ -10,7 +10,7 @@ matrix:
       env: BROWSERS=ChromeHeadless,FirefoxHeadless
     - os: linux
       dist: trusty
-      jdk: openjdk7
+      jdk: openjdk8
       env: BROWSERS=ChromeHeadless,FirefoxHeadless
     - os: osx
       osx_image: xcode8.3
