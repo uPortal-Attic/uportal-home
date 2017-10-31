@@ -34,18 +34,17 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $sessionStorage, $localStorage, $rootScope, $scope,
         $routeParams, $timeout, $location, $mdColors) {
       var vm = this;
-      
 
-      if(!$sessionStorage.portal.theme){
+      if (!$sessionStorage.portal.theme) {
         $scope.primaryColorRgb =
           $mdColors.getThemeColor($rootScope.THEMES[0].name
-            + '-primary'); 
+            + '-primary');
       } else {
         $scope.primaryColorRgb =
           $mdColors.getThemeColor($sessionStorage.portal.theme.name
-          + '-primary');     
-        }   
-        
+          + '-primary');
+        }
+
        $scope.navToDetails = function(marketplaceEntry, location) {
         marketplaceService.setFromInfo(location, $scope.searchTerm);
         $location.path('apps/details/'+ marketplaceEntry.fname);
