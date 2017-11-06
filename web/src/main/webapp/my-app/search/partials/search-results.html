@@ -18,95 +18,97 @@
     under the License.
 
 -->
-<md-content class="search-results">
-  <md-tabs md-dynamic-height md-border-bottom >
+<frame-page app-title="Search results" app-icon="search">
+  <md-content class="search-results">
+    <md-tabs md-dynamic-height md-border-bottom >
 
-    <!-- ALL RESULTS -->
-    <md-tab>
-      <md-tab-label>
-        All&nbsp;&nbsp;<span class="badge">{{ totalCount }}</span>
-      </md-tab-label>
-      <md-tab-body>
-        <md-content>
-          <!-- MyUW results -->
-          <div class="search-results-container">
-            <marketplace-results></marketplace-results>
-          </div>
+      <!-- ALL RESULTS -->
+      <md-tab>
+        <md-tab-label>
+          All&nbsp;&nbsp;<span class="badge">{{ totalCount }}</span>
+        </md-tab-label>
+        <md-tab-body>
+          <md-content>
+            <!-- MyUW results -->
+            <div class="search-results-container">
+              <marketplace-results></marketplace-results>
+            </div>
 
-          <!-- Wisc directory results-->
-          <div ng-show="directoryEnabled" class="search-results-container">
-            <directory-results></directory-results>
-          </div>
+            <!-- Wisc directory results-->
+            <div ng-show="directoryEnabled" class="search-results-container">
+              <directory-results></directory-results>
+            </div>
 
-          <!--Campus domain results-->
-          <div ng-show="googleSearchEnabled" class="search-results-container">
-            <campus-domain-results></campus-domain-results>
-          </div>
+            <!--Campus domain results-->
+            <div ng-show="googleSearchEnabled" class="search-results-container">
+              <campus-domain-results></campus-domain-results>
+            </div>
 
-          <!-- No search results found -->
-          <div id="no-results" class="search-results-container search-results" ng-show="totalCount === 0">
-            <p><strong>No matches.</strong></p>
-            <p>Suggestions:</p>
-            <p ng-if="kbSearchUrl">
-              Search the <a ng-href="{{kbSearchUrl}}{{searchText}}" target="_blank" rel="noopener noreferrer">KnowledgeBase</a>
-            </p>
-            <p ng-if="eventsSearchUrl">
-              Look for <a ng-href="{{eventsSearchUrl}}{{searchText}}" target="_blank" rel="noopener noreferrer">events</a>
-            </p>
-            <p ng-if="helpdeskUrl">
-              Get help from the <a ng-href="{{helpdeskUrl}}" target="_blank" rel="noopener noreferrer">Help Desk</a>
-            </p>
-            <p ng-if="feedbackUrl">
-              <a ng-href="{{feedbackUrl}}" target="_blank" rel="noopener noreferrer">Give feedback</a> on {{portal.theme.title}} search
-            </p>
-          </div>
-        </md-content>
-      </md-tab-body>
-    </md-tab>
+            <!-- No search results found -->
+            <div id="no-results" class="search-results-container search-results" ng-show="totalCount === 0">
+              <p><strong>No matches.</strong></p>
+              <p>Suggestions:</p>
+              <p ng-if="kbSearchUrl">
+                Search the <a ng-href="{{kbSearchUrl}}{{searchText}}" target="_blank" rel="noopener noreferrer">KnowledgeBase</a>
+              </p>
+              <p ng-if="eventsSearchUrl">
+                Look for <a ng-href="{{eventsSearchUrl}}{{searchText}}" target="_blank" rel="noopener noreferrer">events</a>
+              </p>
+              <p ng-if="helpdeskUrl">
+                Get help from the <a ng-href="{{helpdeskUrl}}" target="_blank" rel="noopener noreferrer">Help Desk</a>
+              </p>
+              <p ng-if="feedbackUrl">
+                <a ng-href="{{feedbackUrl}}" target="_blank" rel="noopener noreferrer">Give feedback</a> on {{portal.theme.title}} search
+              </p>
+            </div>
+          </md-content>
+        </md-tab-body>
+      </md-tab>
 
-    <!-- MyUW RESULTS ONLY -->
-    <md-tab ng-if="googleSearchEnabled || directoryEnabled">
-      <md-tab-label>
-        {{portal.theme.title}}&nbsp;&nbsp;<span class="badge">{{ myuwFilteredResults.length }}</span>
-      </md-tab-label>
-      <md-tab-body>
-        <md-content>
-          <!-- MyUW results -->
-          <div class="search-results-container">
-            <marketplace-results></marketplace-results>
-          </div>
-        </md-content>
-      </md-tab-body>
-    </md-tab>
+      <!-- MyUW RESULTS ONLY -->
+      <md-tab ng-if="googleSearchEnabled || directoryEnabled">
+        <md-tab-label>
+          {{portal.theme.title}}&nbsp;&nbsp;<span class="badge">{{ myuwFilteredResults.length }}</span>
+        </md-tab-label>
+        <md-tab-body>
+          <md-content>
+            <!-- MyUW results -->
+            <div class="search-results-container">
+              <marketplace-results></marketplace-results>
+            </div>
+          </md-content>
+        </md-tab-body>
+      </md-tab>
 
-    <!-- DIRECTORY RESULTS ONLY -->
-    <md-tab ng-if="directoryEnabled">
-      <md-tab-label>
-        Directory&nbsp;&nbsp;<span class="badge">{{ wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount }}</span>
-      </md-tab-label>
-      <md-tab-body>
-        <md-content>
-          <!-- Wisc directory results-->
-          <div ng-show="directoryEnabled" class="search-results-container">
-            <directory-results></directory-results>
-          </div>
-        </md-content>
-      </md-tab-body>
-    </md-tab>
+      <!-- DIRECTORY RESULTS ONLY -->
+      <md-tab ng-if="directoryEnabled">
+        <md-tab-label>
+          Directory&nbsp;&nbsp;<span class="badge">{{ wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount }}</span>
+        </md-tab-label>
+        <md-tab-body>
+          <md-content>
+            <!-- Wisc directory results-->
+            <div ng-show="directoryEnabled" class="search-results-container">
+              <directory-results></directory-results>
+            </div>
+          </md-content>
+        </md-tab-body>
+      </md-tab>
 
-    <!-- GOOGLE CUSTOM SEARCH RESULTS ONLY -->
-    <md-tab ng-if="googleSearchEnabled">
-      <md-tab-label>
-        {{domainResultsLabel}}&nbsp;&nbsp;<span class="badge">{{ googleResultsEstimatedCount }}</span>
-      </md-tab-label>
-      <md-tab-body>
-        <md-content>
-          <!--Campus domain results-->
-          <div ng-show="googleSearchEnabled" class="search-results-container">
-            <campus-domain-results></campus-domain-results>
-          </div>
-        </md-content>
-      </md-tab-body>
-    </md-tab>
-  </md-tabs>
-</md-content>
+      <!-- GOOGLE CUSTOM SEARCH RESULTS ONLY -->
+      <md-tab ng-if="googleSearchEnabled">
+        <md-tab-label>
+          {{domainResultsLabel}}&nbsp;&nbsp;<span class="badge">{{ googleResultsEstimatedCount }}</span>
+        </md-tab-label>
+        <md-tab-body>
+          <md-content>
+            <!--Campus domain results-->
+            <div ng-show="googleSearchEnabled" class="search-results-container">
+              <campus-domain-results></campus-domain-results>
+            </div>
+          </md-content>
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</frame-page>

@@ -19,8 +19,7 @@
 
 -->
 <!-- COMPACT MODE -->
-<div class="portlet-frame">
-  <home-header></home-header>
+<frame-page app-title="Home" app-icon="home" app-show-add-to-home="false">
   <div role="main" class="no-padding portlet-body" ng-controller="LayoutController as layoutCtrl">
     <div ng-show="$storage.showFilterOption" style="margin: 15px auto; max-width: 1200px;">
       <div style="margin: 0; padding: 5px;">
@@ -42,4 +41,4 @@
        </li>
     </ul>
   </div>
-</div>
+</frame-page>
