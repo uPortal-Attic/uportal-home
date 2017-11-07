@@ -18,75 +18,73 @@
     under the License.
 
 -->
-
-<div ng-controller="MarketplaceController as marketplaceCtrl" class="row portlet-frame marketplace col-xs-12 col-md-12 no-padding">
-  <app-header app-title="Browse {{NAMES.title}}"
-              app-icon="fa-home">
-  </app-header>
-  <div class="marketplace-body">
-    <div class="mp-header">
-      <md-input-container class="md-block browse-input">
-        <!-- Use floating label instead of placeholder -->
-        <label hide>What are you looking for?</label>
-        <md-icon><i class="fa fa-search"></i></md-icon>
-        <input type="text"
-               class="mp-search"
-               placeholder="What are you looking for?"
-               ng-model="searchText"
-               ng-change="searchResultLimit=20"
-               select-on-page-load
-               aria-label="search bar: enter the app you are looking for">
-      </md-input-container>
-    </div>
-
-    <div class="mp-tabs-container">
-      <div class="mp-prev-button" ng-click="slideTabs('left')">
-        <i class="fa fa-chevron-left"></i>
+<div ng-controller="MarketplaceController as marketplaceCtrl" class="marketplace">
+  <frame-page app-title="Browse {{NAMES.title}}" app-icon="home" app-show-add-to-home="false">
+    <div class="marketplace-body">
+      <div class="mp-header">
+        <md-input-container class="md-block browse-input">
+          <!-- Use floating label instead of placeholder -->
+          <label hide>What are you looking for?</label>
+          <md-icon><i class="fa fa-search"></i></md-icon>
+          <input type="text"
+                 class="mp-search"
+                 placeholder="What are you looking for?"
+                 ng-model="searchText"
+                 ng-change="searchResultLimit=20"
+                 select-on-page-load
+                 aria-label="search bar: enter the app you are looking for">
+        </md-input-container>
       </div>
-      <div class="mp-next-button" ng-click="slideTabs('right')">
-        <i class="fa fa-chevron-right"></i>
+
+      <div class="mp-tabs-container">
+        <div class="mp-prev-button" ng-click="slideTabs('left')">
+          <i class="fa fa-chevron-left"></i>
+        </div>
+        <div class="mp-next-button" ng-click="slideTabs('right')">
+          <i class="fa fa-chevron-right"></i>
+        </div>
+        <div class="mp-tabs-canvas">
+          <ul class="mp-tabs" ng-class="{true:'slide-right'}[tabsPosition === 'end']">
+            <li class="mp-tab md-ink-ripple" ng-click="selectFilter('popular','')"
+                ng-class="{true:'active'}[selectedFilter === 'popular']"
+                ng-style="selectedFilter === 'popular' && {color: primaryColorRgb}">
+              <span aria-label="Sort by popularity">Most Popular</span>
+              <div class="mp-tabs-slide" ng-style="{background: primaryColorRgb}"></div>
+            </li>
+            <li class="mp-tab md-ink-ripple" ng-click="selectFilter('az','')"
+                ng-class="{true: 'active'}[selectedFilter === 'az']"
+                ng-style="selectedFilter === 'az' && {color: primaryColorRgb}">
+              <span aria-label="Sort by alphabetical order">A-Z</span>
+              <div class="mp-tabs-slide" ng-style="{background: primaryColorRgb}"></div>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="mp-tabs-canvas">
-        <ul class="mp-tabs" ng-class="{true:'slide-right'}[tabsPosition === 'end']">
-          <li class="mp-tab md-ink-ripple" ng-click="selectFilter('popular','')"
-              ng-class="{true:'active'}[selectedFilter === 'popular']"
-              ng-style="selectedFilter === 'popular' && {color: primaryColorRgb}">
-            <span aria-label="Sort by popularity">Most Popular</span>
-            <div class="mp-tabs-slide" ng-style="{background: primaryColorRgb}"></div>
-          </li>
-          <li class="mp-tab md-ink-ripple" ng-click="selectFilter('az','')"
-              ng-class="{true: 'active'}[selectedFilter === 'az']"
-              ng-style="selectedFilter === 'az' && {color: primaryColorRgb}">
-            <span aria-label="Sort by alphabetical order">A-Z</span>
-            <div class="mp-tabs-slide" ng-style="{background: primaryColorRgb}"></div>
-          </li>
-        </ul>
+
+      <md-chips ng-show="showCategories" class="show-categories"
+                ng-model="categories"
+                readonly="true"
+                md-removable="false">
+        <md-chip-template>
+          <a ng-click="selectFilter('category', $chip)" ng-class="{true: 'selected-category'}[categoryToShow === $chip]" aria-label="see apps in the {{ $chip }} category">{{ $chip }}</a>
+        </md-chip-template>
+      </md-chips>
+
+      <loading-gif data-object='portlets' layout="row" layout-align="center center"></loading-gif>
+
+      <div class="portlet-container"
+           ng-repeat="portlet in portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:sortParameter | limitTo:searchResultLimit"
+           ng-class="{portlet_hover: hover}"
+           ng-mouseenter="hover = true"
+           ng-mouseleave="hover = false"
+           ng-click="showDetails = !showDetails">
+        <marketplace-entry></marketplace-entry>
       </div>
+
+      <marketplace-load-more ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"></marketplace-load-more>
+      <marketplace-no-results ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length == 0"></marketplace-no-results>
+
+      <!-- CHANGE INNER NAV TO MATERIAL TABS -->
     </div>
-
-    <md-chips ng-show="showCategories" class="show-categories"
-              ng-model="categories"
-              readonly="true"
-              md-removable="false">
-      <md-chip-template>
-        <a ng-click="selectFilter('category', $chip)" ng-class="{true: 'selected-category'}[categoryToShow === $chip]" aria-label="see apps in the {{ $chip }} category">{{ $chip }}</a>
-      </md-chip-template>
-    </md-chips>
-
-    <loading-gif data-object='portlets' layout="row" layout-align="center center"></loading-gif>
-
-    <div class="portlet-container"
-         ng-repeat="portlet in portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow | orderBy:sortParameter | limitTo:searchResultLimit"
-         ng-class="{portlet_hover: hover}"
-         ng-mouseenter="hover = true"
-         ng-mouseleave="hover = false"
-         ng-click="showDetails = !showDetails">
-      <marketplace-entry></marketplace-entry>
-    </div>
-
-    <marketplace-load-more ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length > searchResultLimit"></marketplace-load-more>
-    <marketplace-no-results ng-show="portlets.length > 0 && (portlets | filter:searchTermFilter | showApplicable:showAll | showCategory:categoryToShow).length == 0"></marketplace-no-results>
-
-    <!-- CHANGE INNER NAV TO MATERIAL TABS -->
-  </div>
+  </frame-page>
 </div>
