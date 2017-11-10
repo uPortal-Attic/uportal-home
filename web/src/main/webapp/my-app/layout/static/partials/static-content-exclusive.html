@@ -19,7 +19,7 @@
 
 -->
 <div ng-controller="ExclusiveContentController as exclusiveContentCtrl">
-  <frame-page app-title="portlet.title" app-icon="portlet.faIcon" app-fname="portlet.fname" app-show-add-to-home="true">
+  <frame-page app-title="{{ portlet.title }}" app-icon="{{ portlet.faIcon }}" app-fname="portlet.fname" app-show-add-to-home="true">
     <md-card>
       <div ng-if="!loaded" layout="row" layout-align="center center" layout-padding>
         <loading-gif data-object="loaded"></loading-gif>

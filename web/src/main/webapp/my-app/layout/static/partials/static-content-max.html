@@ -19,8 +19,8 @@
 
 -->
 <div ng-controller="StaticContentController as staticContentCtrl">
-  <!-- another update ayyy -->
-  <frame-page app-title="portlet.title" app-icon="portlet.faIcon" app-fname="portlet.fname" app-show-add-to-home="true">
+  <!-- another update two-way bind -->
+  <frame-page app-title="{{ portlet.title }}" app-icon="{{ portlet.faIcon }}" app-fname="portlet.fname" app-show-add-to-home="true">
     <md-card>
       <div ng-if="!loaded" layout="row" layout-align="center center" layout-padding>
         <loading-gif data-object="loaded"></loading-gif>
@@ -30,5 +30,12 @@
         <rating-button ng-if="loaded" ng-hide="GuestMode" portlet="portlet" button-text="Rate {{ portlet.title }}"></rating-button>
       </div>
     </md-card>
+    <div>
+      Debug: <br>
+      {{ portlet.title }} <br>
+      {{ portlet.faIcon }} <br>
+      {{ portlet.fname }} <br>
+      {{ portlet }}
+    </div>
   </frame-page>
 </div>
