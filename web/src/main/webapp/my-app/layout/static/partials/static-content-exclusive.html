@@ -18,8 +18,8 @@
     under the License.
 
 -->
-<div ng-controller="ExclusiveContentController as exclusiveCtrl">
-  <frame-page app-title="portlet.title" app-icon="portlet.faIcon" app-fname="portlet.fname" app-show-add-to-home="true">
+<div ng-controller="ExclusiveContentController as exclusiveContentCtrl">
+  <frame-page app-title="{{ ::portlet.title }}" app-icon="{{ ::portlet.faIcon }}" app-fname="{{ ::portlet.fname }}" app-show-add-to-home="true">
     <md-card>
       <loading-gif data-object="loaded" data-empty="empty"></loading-gif>
       <div ng-bind-html="::portlet.exclusiveContent" class="up-portlet-content-wrapper" id="content-{{ ::portlet.nodeId }}"></div>

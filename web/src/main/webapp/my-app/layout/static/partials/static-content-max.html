@@ -18,8 +18,8 @@
     under the License.
 
 -->
-<div ng-controller="StaticContentController as staticCtrl">
-  <frame-page app-title="portlet.title" app-icon="portlet.faIcon" app-fname="portlet.fname" app-show-add-to-home="true">
+<div ng-controller="StaticContentController as staticContentCtrl">
+  <frame-page app-title="{{ ::portlet.title }}" app-icon="{{ ::portlet.faIcon }}" app-fname="{{ ::portlet.fname }}" app-show-add-to-home="true">
     <md-card>
       <loading-gif data-object="loaded"></loading-gif>
       <div ng-bind-html="::portlet.staticContent" class="up-portlet-content-wrapper" id="content-{{ ::portlet.nodeId }}"></div>
