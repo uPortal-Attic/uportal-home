@@ -18,23 +18,14 @@
     under the License.
 
 -->
-<div class="row portlet-frame static-content"  ng-controller="ExclusiveContentController as exclusiveContentCtrl">
-  <script type="text/ng-template" id="static-content-options.html">
-    <div ng-controller="StaticContentController as staticContentCtrl">
-      <rating-button ng-hide="GuestMode" portlet='portlet' button-text="Rate {{portlet.title}}"></rating-button>
-    </div>
-  </script>
-
-  <app-header-two-way-bind
-  app-title="portlet.title"
-  app-icon="portlet.faIcon"
-  app-option-template="'static-content-options.html'"
-  app-fname='portlet.fname'
-  app-action-link-text="'Add to home'"
-  app-add-to-home='true'></app-header-two-way-bind>
-  <div role="main" class="white-page portlet-body">
-    <loading-gif  data-object='loaded' data-empty='empty'></loading-gif>
-    <div ng-bind-html="portlet.exclusiveContent" class="up-portlet-content-wrapper" id="content-{{::portlet.nodeId}}">
-    </div>
-  </div>
+<div ng-controller="ExclusiveContentController as exclusiveCtrl">
+  <frame-page app-title="portlet.title" app-icon="portlet.faIcon" app-fname="portlet.fname" app-show-add-to-home="true">
+    <md-card>
+      <loading-gif data-object="loaded" data-empty="empty"></loading-gif>
+      <div ng-bind-html="::portlet.exclusiveContent" class="up-portlet-content-wrapper" id="content-{{ ::portlet.nodeId }}"></div>
+      <div layout="row" layout-align="end center">
+        <rating-button ng-hide="GuestMode" portlet="portlet" button-text="Rate {{ portlet.title }}"></rating-button>
+      </div>
+    </md-card>
+  </frame-page>
 </div>
