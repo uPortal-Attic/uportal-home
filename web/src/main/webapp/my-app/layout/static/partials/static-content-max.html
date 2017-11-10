@@ -19,8 +19,7 @@
 
 -->
 <div ng-controller="StaticContentController as staticContentCtrl">
-  <!-- another update two-way bind -->
-  <frame-page app-title="{{ portlet.title }}" app-icon="{{ portlet.faIcon }}" app-fname="portlet.fname" app-show-add-to-home="true">
+  <frame-page app-title="{{ ::portlet.title }}" app-icon="{{ portlet.faIcon }}" app-fname="portlet.fname" app-show-add-to-home="true">
     <md-card>
       <div ng-if="!loaded" layout="row" layout-align="center center" layout-padding>
         <loading-gif data-object="loaded"></loading-gif>
@@ -31,11 +30,10 @@
       </div>
     </md-card>
     <div>
-      Debug: <br>
+      Debug v2: <br>
       {{ portlet.title }} <br>
       {{ portlet.faIcon }} <br>
       {{ portlet.fname }} <br>
-      {{ portlet }}
     </div>
   </frame-page>
 </div>
