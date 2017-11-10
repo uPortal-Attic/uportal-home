@@ -19,21 +19,15 @@
 
 -->
 <div ng-controller="StaticContentController as staticContentCtrl">
-  <frame-page app-title="{{ ::portlet.title }}" app-icon="{{ portlet.faIcon }}" app-fname="portlet.fname" app-show-add-to-home="true">
+  <div ng-if="!loaded" layout="row" layout-align="center center" layout-padding>
+    <loading-gif data-object="loaded"></loading-gif>
+  </div>
+  <frame-page ng-if="loaded" app-title="portlet.title" app-icon="portlet.faIcon" app-fname="portlet.fname" app-show-add-to-home="true">
     <md-card>
-      <div ng-if="!loaded" layout="row" layout-align="center center" layout-padding>
-        <loading-gif data-object="loaded"></loading-gif>
-      </div>
       <div ng-bind-html="::portlet.staticContent" class="up-portlet-content-wrapper" id="content-{{ ::portlet.nodeId }}"></div>
       <div layout="row" layout-align="end center">
         <rating-button ng-if="loaded" ng-hide="GuestMode" portlet="portlet" button-text="Rate {{ portlet.title }}"></rating-button>
       </div>
     </md-card>
-    <div>
-      Debug v2: <br>
-      {{ portlet.title }} <br>
-      {{ portlet.faIcon }} <br>
-      {{ portlet.fname }} <br>
-    </div>
   </frame-page>
 </div>
