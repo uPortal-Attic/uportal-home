@@ -19,12 +19,14 @@
 
 -->
 <div ng-controller="ExclusiveContentController as exclusiveContentCtrl">
-  <frame-page app-title="{{ ::portlet.title }}" app-icon="{{ ::portlet.faIcon }}" app-fname="{{ ::portlet.fname }}" app-show-add-to-home="true">
+  <frame-page app-title="{{ portlet.title }}" app-icon="{{ portlet.faIcon }}" app-fname="{{ portlet.fname }}" app-show-add-to-home="true">
     <md-card>
-      <loading-gif data-object="loaded" data-empty="empty"></loading-gif>
+      <div ng-if="!loaded" layout="row" layout-align="center center" layout-padding>
+        <loading-gif data-object="loaded"></loading-gif>
+      </div>
       <div ng-bind-html="::portlet.exclusiveContent" class="up-portlet-content-wrapper" id="content-{{ ::portlet.nodeId }}"></div>
       <div layout="row" layout-align="end center">
-        <rating-button ng-hide="GuestMode" portlet="portlet" button-text="Rate {{ portlet.title }}"></rating-button>
+        <rating-button ng-if="loaded" ng-hide="GuestMode" portlet="portlet" button-text="Rate {{ portlet.title }}"></rating-button>
       </div>
     </md-card>
   </frame-page>
