@@ -18,5 +18,7 @@
     under the License.
 
 -->
-<md-button class="md-primary {{ ratingCtrl.buttonClasses }}" ng-click="openModal()">{{ ratingCtrl.buttonText }}</md-button>
-<i class="fa fa-check-circle" ng-if="saved"></i>
+<md-button class="md-primary {{ ratingCtrl.buttonClasses }}" ng-click="openModal()">
+  {{ ratingCtrl.buttonText }}
+  <md-icon ng-if="saved">check</md-icon>
+</md-button>
