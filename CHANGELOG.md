@@ -4,11 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased][]
+## [Unreleased][] (7.1.0 ?)
+
+### Features
+
+* Implement `uportal-app-framework` `7.0.0`'s new sidebar navigation #730
+* Use frame-page directive for all views #739, #742 (supports upgrade to
+  `uportal-app-framework` `7.0.0` with its new side navigation feature.)
 
 ### Bug Fixes
+* fix: support deep link to details page about an app #732, #735
 * fix: use `mdColors` to get primary color in app directory #723
 * fix: Calculate rel on marketplace anchors #725
+
+### Build changes
+* build(maven): set Java 8 as source and target versions #737
+
+### Dependency upgrades
+* chore(package): update @commitlint/config-angular to version 4.2.0 #729
+
+### Style
+* style(lint): Style marketplace controller per style guide #738
 
 ## [7.0.3][] - 2017-10-10
 
