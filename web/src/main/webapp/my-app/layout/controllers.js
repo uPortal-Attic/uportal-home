@@ -157,7 +157,7 @@ define(['angular', 'jquery'], function(angular, $) {
           var index = $scope.$parent.layout.indexOf(result[0]);
 
           // Remove from layout
-          $scope.$parent.layout.splice(index, 1);
+          $scope.$apply($scope.$parent.layout.splice(index, 1));
 
           // Clear marketplace flag
           if ($sessionStorage.marketplace != null) {
@@ -170,7 +170,6 @@ define(['angular', 'jquery'], function(angular, $) {
               marketplaceEntries[0].hasInLayout = false;
             }
           }
-          $scope.$digest();
         }).error(
           function(request, text, error) {
             alert('Issue deleting ' + fname +
@@ -252,36 +251,6 @@ define(['angular', 'jquery'], function(angular, $) {
         } else {
           return portlet.url;
         }
-      };
-
-      /**
-       * Remove widget from home layout
-       * @param fname
-       */
-      childController.removePortlet =
-      function removePortletFunction(fname) {
-        layoutService.removeFromHome(fname).success(function() {
-          $scope.$apply(function(request, text) {
-            var result = $.grep($scope.layout, function(e) {
-              return e.fname === fname;
-            });
-            var index = $.inArray(result[0], $scope.layout);
-            // remove
-            $scope.layout.splice(index, 1);
-            if ($sessionStorage.marketplace != null) {
-              var marketplaceEntries = $.grep($sessionStorage.marketplace,
-                function(e) {
-                return e.fname === result[0].fname;
-              });
-              if (marketplaceEntries.length > 0) {
-                marketplaceEntries[0].hasInLayout = false;
-              }
-            }
-          });
-        }).error(function(request, text, error) {
-          alert('Issue deleting ' + fname +
-          ' from your list of favorites, try again later.');
-        });
       };
     },
   ])
