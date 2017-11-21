@@ -20,125 +20,87 @@
 
 // BROWSE PAGE
 
-.marketplace {
+/* MARKETPLACE BODY */
+
+.marketplace-body {
   input:focus,
   span:focus {
     outline: none;
   }
 
-  h2 {
-    margin: 0 0 5px;
+  .portlet-container {
+    border-bottom: 1px solid @grayscale3;
 
-    span {
-      &.fa {
-        width: 38px;
-        height: 38px;
-        font-size: 0.7em;
-        margin: 4px 0 0 10px;
-        position: relative;
-        border-radius: 50%;
-        border: 1px solid @grayscale10;
-        text-align: center;
-        padding: 8px 0 0;
-        opacity: 1;
-        color: @grayscale10;
-        top: 8px;
+    marketplace-entry {
+      p {
+        margin-bottom: 0;
       }
 
-      &.portlet-title {
-        padding-left: 10px;
-        font-size: 0.85em;
+      .marketplace-entry {
+        padding: 12px 22px;
+        background: @white;
+      }
+
+      .rating {
+        margin-left: 0;
+        cursor: default;
+
+        [role="button"] {
+          cursor: default;
+        }
+      }
+
+      a.md-button:hover {
+        text-decoration: none;
+      }
+
+      &:hover {
+        cursor: default;
       }
     }
   }
 
-  .btn {
-    .fa {
-      padding-right: 8px;
-    }
+  .mp-mobile-buttons {
+    width: 100%;
   }
 
-  /* MARKETPLACE BODY */
+  .mp-mobile-details {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    min-width: 70px;
+  }
 
-  .marketplace-body {
-    .portlet-container {
-      border-bottom: 1px solid @grayscale3;
+  .marketplace-load-more {
+    text-align: center;
+    background-color: @white;
+    padding: 8px 16px;
+  }
 
-      marketplace-entry {
-        p {
-          margin-bottom: 0;
-        }
+  .mp-entry-title-row {
+    margin-bottom: 8px;
+  }
 
-        .marketplace-entry {
-          padding: 12px 22px;
-          background: @white;
-        }
+  .loading-gif {
+    text-align: center;
+  }
 
-        .rating {
-          margin-left: 0;
-          cursor: default;
+  .show-categories {
+    padding: 10px;
+    display: inline-block;
+    background-color: @white;
+  }
 
-          [role="button"] {
-            cursor: default;
-          }
-        }
-
-        a.md-button:hover {
-          text-decoration: none;
-        }
-
-        &:hover {
-          cursor: default;
-        }
-      }
-    }
-
-    .mp-mobile-buttons {
-      width: 100%;
-    }
-
-    .mp-mobile-details {
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      min-width: 70px;
-    }
-
-    .marketplace-load-more {
-      text-align: center;
-      background-color: @white;
-      padding: 8px 16px;
-    }
-
-    .mp-entry-title-row {
-      margin-bottom: 8px;
-    }
-
-    .loading-gif {
-      text-align: center;
-    }
-
-    .show-categories {
-      padding: 10px;
-      display: inline-block;
-      background-color: @white;
-    }
-
-    @media (min-width: 600px) {
-      margin: 15px;
-    }
+  @media (min-width: 600px) {
+    margin: 15px;
   }
 
   /* MARKETPLACE SEARCH */
   .mp-search {
-    width: 100%;
-    position: relative;
-    font-size: 1.8em;
-    font-weight: 200;
+    font-size: 20px;
+    font-weight: 300;
     padding: 4px 4px 4px 12px;
-    margin: 0;
-    display: block;
     height: 50px;
     border: 0 solid transparent;
   }
@@ -150,48 +112,40 @@
 
     md-input-container.browse-input {
       margin: 0;
-      padding: 0 0 0 50px;
+      padding: 0 0 0 40px;
       height: 50px;
 
       > md-icon.material-icons {
-        height: 50px;
-        width: 50px;
-        top: 0;
-        left: 0;
-        background: @grayscale2;
-
-        > .fa-search {
-          font-size: 20px;
-          padding: 15px;
-        }
+        top: 14px;
+        left: 14px;
       }
     }
 
     ::-webkit-input-placeholder {
       color: @tabs-inactive;
-      font-size: 0.8em;
-      font-weight: 200;
-      line-height: 1.8em;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 20px;
     }
 
     :-moz-placeholder {
       /* Firefox 18- */
       color: @tabs-inactive;
-      font-size: 1em;
-      font-weight: 200;
+      font-size: 20px;
+      font-weight: 300;
     }
 
     ::-moz-placeholder {
       /* Firefox 19+ */
       color: @tabs-inactive;
-      font-size: 1em;
-      font-weight: 200;
+      font-size: 20px;
+      font-weight: 300;
     }
 
     :-ms-input-placeholder {
       color: @tabs-inactive;
-      font-size: 1em;
-      font-weight: 200;
+      font-size: 20px;
+      font-weight: 300;
     }
 
     @media (max-width: 767px) {
