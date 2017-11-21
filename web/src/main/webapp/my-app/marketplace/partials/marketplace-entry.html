@@ -25,7 +25,7 @@
 			<portlet-icon></portlet-icon>
 			<span class="portlet-title">{{::portlet.title}}</span>
 		</h2>
-		<md-button aria-label="view details of this app" class="md-default mp-mobile-details" ng-click="navToDetails(portlet, 'Browse')" hide-gt-xs>
+		<md-button aria-label="view details of this app" class="md-accent mp-mobile-details" ng-click="navToDetails(portlet, 'Browse')" hide-gt-xs>
 			Details
 		</md-button>
 		<div ng-hide="GuestMode" hide-xs layout="row">
@@ -51,17 +51,12 @@
 			<!-- Added to home -->
 			<md-button class="fname-{{::portlet.fname}}"
 			           ng-disabled="true"
-			           ng-if="portlet.canAdd && portlet.hasInLayout"
-			           popover="This app is already in your favorites"
-			           popover-trigger="mouseenter"
-			           popover-placement="left"
-			           popover-popup-delay="500">
+			           ng-if="portlet.canAdd && portlet.hasInLayout">
 				<i class="fa fa-check"></i> Added to home
 			</md-button>
 
 			<!-- Add to home button without access -->
-			<md-button ng-disabled="true" ng-hide="portlet.canAdd" popover="You do not have access to this app"
-			           popover-trigger="mouseenter" popover-placement="left" popover-popup-delay="500">
+			<md-button ng-disabled="true" ng-hide="portlet.canAdd">
 				<span class="fa fa-plus"></span> Add to home
 			</md-button>
 		</div>
@@ -108,8 +103,7 @@
       </md-button>
 
       <!-- Launch button without access on mobile-->
-      <md-button ng-disabled="true" href ng-hide="portlet.canAdd" popover="You do not have access to this app"
-                 popover-trigger="mouseenter" popover-placement="left" popover-popup-delay="500">
+      <md-button ng-disabled="true" href ng-hide="portlet.canAdd">
         <span class="fa fa-arrow-circle-o-right"></span> Launch
       </md-button>
 
@@ -119,8 +113,7 @@
       </md-button>
 
       <!-- Add to home button without access on mobile-->
-      <md-button ng-disabled="true" ng-hide="portlet.canAdd" popover="You do not have access to this app"
-                 popover-trigger="mouseenter" popover-placement="left" popover-popup-delay="500">
+      <md-button ng-disabled="true" ng-hide="portlet.canAdd">
         <span class="fa fa-plus"></span> Add to home
       </md-button>
 
