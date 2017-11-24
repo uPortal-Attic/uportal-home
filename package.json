@@ -3,7 +3,7 @@
   "version": "7.0.1",
   "description": "uPortal-home",
   "scripts": {
-    "cz": "git-cz",
+    "commit": "commit",
     "pretest": "mvn clean package",
     "test": "karma start web/target/web/karma.conf.js --single-run",
     "lint-css": "stylelint --syntax less web/src/**/*.less",
@@ -37,10 +37,9 @@
   "homepage": "https://github.com/uPortal-Project/uportal-home",
   "devDependencies": {
     "@commitlint/cli": "^5.1.1",
-    "@commitlint/config-angular": "^5.1.1",
+    "@commitlint/config-conventional": "^5.1.1",
+    "@commitlint/prompt-cli": "^5.1.2",
     "@commitlint/travis-cli": "^5.1.1",
-    "commitizen": "^2.9.6",
-    "cz-conventional-changelog": "^2.0.0",
     "eslint": "^4.0.0",
     "eslint-config-angular": "^0.5.0",
     "eslint-config-google": "^0.9.1",
@@ -144,9 +143,9 @@
       "yield-star-spacing": "off"
     }
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
