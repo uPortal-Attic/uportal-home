@@ -73,7 +73,7 @@
     "requirejs": "^2.1.18",
     "requirejs-text": "^2.0.15",
     "stylelint": "^8.0.0",
-    "stylelint-config-standard": "^17.0.0"
+    "stylelint-config-standard": "^18.0.0"
   },
   "stylelint": {
     "extends": "stylelint-config-standard",
