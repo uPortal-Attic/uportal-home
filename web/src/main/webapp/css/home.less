@@ -31,23 +31,56 @@ default-card portlet-icon img {
   right: 0;
 }
 
+.portlet-title {
+  margin: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding: 6px 30px 5px 12px;
+
+  img {
+    position: relative;
+    width: 25px;
+    top: -4px;
+    margin-right: 10px;
+  }
+
+  h1,
+  i.fa {
+    font-size: 1.5em;
+    color: #600;
+    width: 100%;
+    font-weight: 200;
+    display: inline;
+  }
+
+  i,
+  img {
+    margin-right: 10px;
+    font-size: 1.7em;
+  }
+
+  > div {
+    float: right;
+    display: inline;
+    padding: 0;
+  }
+
+  div {
+    position: relative;
+    top: 0;
+  }
+}
+
 .add-more {
   padding: 15px;
 
   .portlet-title {
     margin-bottom: 5px;
   }
-}
 
-.add-more:hover {
-  padding-left: 10px;
-}
-
-.portlet-title img {
-  position: relative;
-  width: 25px;
-  top: -4px;
-  margin-right: 10px;
+  &:hover {
+    padding-left: 10px;
+  }
 }
 
 .portlet-div {
@@ -57,64 +90,36 @@ default-card portlet-icon img {
   padding: 5px;
   border-bottom: 1px solid #ddd !important;
   border-right: 1px solid #ddd !important;
-}
 
-.portlet-div:hover {
-  background-color: #f3f3f3;
-  padding-left: 0;
-  border-left: 5px solid @color1;
-  z-index: 100;
-}
+  &:hover {
+    background-color: #f3f3f3;
+    padding-left: 0;
+    border-left: 5px solid @color1;
+    z-index: 100;
+  }
 
-.portlet-div a {
-  color: #000;
-}
+  a {
+    color: #000;
 
-.portlet-div a:hover {
-  text-decoration: none;
-}
+    &:hover {
+      text-decoration: none;
+    }
+  }
 
-.portlet-div .portlet-options {
-  color: #aaa;
-  font-size: 1.3em;
-  padding: 8px 10px;
-}
+  .portlet-options {
+    color: #aaa;
+    font-size: 1.3em;
+    padding: 8px 10px;
 
-.portlet-div .portlet-options:hover {
-  color: #333;
+    &:hover {
+      color: #333;
+    }
+  }
 }
 
 .widget-content {
   padding: 0 12px;
   height: 80px;
-}
-
-.portlet-title {
-  margin: 0;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  padding: 6px 30px 5px 12px;
-}
-
-.portlet-title h1,
-.portlet-title i.fa {
-  font-size: 1.5em;
-  color: #600;
-  width: 100%;
-  font-weight: 200;
-  display: inline;
-}
-
-.portlet-title i,
-.portlet-title img {
-  margin-right: 10px;
-  font-size: 1.7em;
-}
-
-.portlet-title > div {
-  float: right;
-  display: inline;
-  padding: 0;
 }
 
 .home-section-header {
@@ -130,11 +135,6 @@ default-card portlet-icon img {
     display: table-cell;
     vertical-align: middle;
   }
-}
-
-.portlet-title div {
-  position: relative;
-  top: 0;
 }
 
 div.table {
@@ -153,18 +153,18 @@ div.table-cell {
   -ms-transform: rotate(3deg); /* IE 9 */
   -webkit-transform: rotate(3deg); /* Chrome, Safari, Opera */
   transform: rotate(3deg);
-}
 
-.ui-sortable-helper:active {
-  cursor: move;
-}
+  &:active {
+    cursor: move;
+  }
 
-.ui-sortable-helper a:-webkit-any-link {
-  cursor: move;
-}
+  a:-webkit-any-link {
+    cursor: move;
+  }
 
-.ui-sortable-helper a:-moz-any-link {
-  cursor: move;
+  a:-moz-any-link {
+    cursor: move;
+  }
 }
 
 .ui-sortable-placeholder {
@@ -182,6 +182,11 @@ div.table-cell {
     padding-right: 0;
     padding-left: 0;
   }
+
+  // Super Large Screens
+  @media (min-width: 1500px) {
+    margin: 0 auto;
+  }
 }
 
 // View Toggle
@@ -189,26 +194,28 @@ div.table-cell {
   padding: 0 0 0 15px;
 }
 
-.inner-nav-container .inner-nav li.home-title {
-  border-bottom: 3px solid transparent !important;
+.inner-nav-container .inner-nav {
+  li.home-title {
+    border-bottom: 3px solid transparent !important;
 
-  a {
-    color: #555;
-    font-weight: 400;
-    border-right: 0 solid transparent;
+    a {
+      color: #555;
+      font-weight: 400;
+      border-right: 0 solid transparent;
 
-    &:hover {
-      cursor: default;
+      &:hover {
+        cursor: default;
+      }
     }
   }
-}
 
-.inner-nav-container .inner-nav .layout-chooser {
-  float: right;
+  .layout-chooser {
+    float: right;
 
-  i {
-    font-size: 18px;
-    color: @color1;
+    i {
+      font-size: 18px;
+      color: @color1;
+    }
   }
 }
 
@@ -229,10 +236,8 @@ md-switch.app-header-toggle {
 .new-stuff p {
   color: inherit;
   width: auto;
-}
 
-/* New Stuff */
-.new-stuff p {
+  /* New Stuff */
   width: 100%;
   max-width: 100%;
 }
@@ -263,27 +268,20 @@ md-switch.app-header-toggle {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
 
-@media (min-width: 768px) {
-  #cards-sortable li {
-    float: left;
-    width: 50%;
-    height: 150px;
+  @media (min-width: 768px) {
+    li {
+      float: left;
+      width: 50%;
+      height: 150px;
+    }
   }
-}
 
-@media (min-width: 1105px) {
-  #cards-sortable li {
-    float: left;
-    width: 33.3333333%;
-    height: 150px;
-  }
-}
-
-// Super Large Screens
-@media (min-width: 1500px) {
-  .tile-list {
-    margin: 0 auto;
+  @media (min-width: 1105px) {
+    li {
+      float: left;
+      width: 33.3333333%;
+      height: 150px;
+    }
   }
 }
