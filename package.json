@@ -3,16 +3,14 @@
   "version": "7.0.1",
   "description": "uPortal-home",
   "scripts": {
-    "commitmsg": "commitlint -e",
-    "cz": "git-cz",
-    "lint-css": "stylelint --syntax less web/src/**/*.less",
+    "commit": "commit",
     "pretest": "mvn clean package",
     "test": "karma start web/target/web/karma.conf.js --single-run",
-    "dev-lint-js": "eslint --quiet --ext js --ext json --ext md --format html --output-file web/target/web/lint-out.html . --ignore-path .gitignore --ignore-pattern mock-portal",
+    "lint-css": "stylelint --syntax less web/src/**/*.less",
     "lint-js": "eslint --ext js --ext json --ext md . --ignore-path .gitignore --ignore-pattern mock-portal",
     "lint-md": "remark . --frail --ignore-path .gitignore",
     "lint-less": "stylelint --syntax less web/src/**/*.less",
-    "precommit": "eslint-git-changes",
+    "dev-lint-js": "eslint --quiet --ext js --ext json --ext md --format html --output-file web/target/web/lint-out.html . --ignore-path .gitignore --ignore-pattern mock-portal",
     "prestart": "mvn clean package",
     "start": "mvn jetty:run"
   },
@@ -38,14 +36,13 @@
   },
   "homepage": "https://github.com/uPortal-Project/uportal-home",
   "devDependencies": {
-    "@commitlint/cli": "^5.0.0",
-    "@commitlint/config-angular": "^5.0.0",
-    "commitizen": "^2.9.6",
-    "cz-conventional-changelog": "^2.0.0",
+    "@commitlint/cli": "^5.1.1",
+    "@commitlint/config-conventional": "^5.1.1",
+    "@commitlint/prompt-cli": "^5.1.2",
+    "@commitlint/travis-cli": "^5.1.1",
     "eslint": "^4.0.0",
     "eslint-config-angular": "^0.5.0",
     "eslint-config-google": "^0.9.1",
-    "eslint-git-changes": "^2.0.0",
     "eslint-plugin-angular": "^3.0.0",
     "eslint-plugin-compat": "^2.0.1",
     "eslint-plugin-jasmine": "^2.2.0",
@@ -53,6 +50,7 @@
     "eslint-plugin-markdown": "^1.0.0-beta.6",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-requirejs": "^3.1.1",
+    "greenkeeper-lockfile": "^1.12.0",
     "husky": "^0.14.3",
     "jasmine-core": "^2.3.4",
     "karma": "^1.5.0",
@@ -145,9 +143,9 @@
       "yield-star-spacing": "off"
     }
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
