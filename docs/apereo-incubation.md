@@ -19,7 +19,7 @@ Items are checked where the project believes it now fulfills the exit criteria.
   - [x] 4.1.1 Out-bound licensing
   - [x] 4.1.2 License marking
   - [x] 4.1.3 Contributor License Agreements
-  - [ ] 4.1.4 Name trademark clarity
+  - [x] 4.1.4 Name trademark clarity
 - [ ] 4.2 Community
   - [ ] 4.2.a Level of community involvement
   - [ ] 4.2.b Organization of community
@@ -76,6 +76,7 @@ Next actions:
 
 Naming considerations: Names should reflect uPortal commitment and represent how the product should be used.
 
+Benito Gonzalez confirmed via US Patent and Trademark search that uPortal-home is not registered.
 
 + Proposed names:
   + `uw-frame` → `uPortal-app-framework`
