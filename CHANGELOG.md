@@ -4,7 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased][] (7.1.0 ?)
+## [Unreleased][]
+
+## [7.1.0][] - 2017-12-06
 
 ### Features
 
@@ -256,9 +258,10 @@ This release overlays on [App-Framework v3.0.3](https://github.com/uPortal-Proje
 See also:
 - the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[Unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.0.3...HEAD
-[7.0.3]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.3
-[7.0.2]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.2
+[Unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.1.0...HEAD
+[7.1.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.3...uportal-home-parent-7.1.0
+[7.0.3]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.2..uportal-home-parent-7.0.3
+[7.0.2]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.1...uportal-home-parent-7.0.2
 [7.0.1]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-7.0.0...uportal-home-parent-7.0.1
 [7.0.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.7.0...uportal-home-parent-7.0.0
 [6.7.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.6.0...angularjs-portal-parent-6.7.0
