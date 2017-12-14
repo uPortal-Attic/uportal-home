@@ -27,6 +27,11 @@ install:
   - mvn --version
   - node --version
   - npm --version
+
+  # Work around for "Error: EPERM: operation not permitted" from require js
+  # This can be removed when https://github.com/uPortal-Project/uportal-app-framework/issues/346 is resolved
+  - npm config set unsafe-perm=true
+
   - npm install
 build_script:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
