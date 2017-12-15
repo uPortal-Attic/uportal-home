@@ -128,15 +128,7 @@
       line-height: 20px;
     }
 
-    :-moz-placeholder {
-      /* Firefox 18- */
-      color: @tabs-inactive;
-      font-size: 20px;
-      font-weight: 300;
-    }
-
     ::-moz-placeholder {
-      /* Firefox 19+ */
       color: @tabs-inactive;
       font-size: 20px;
       font-weight: 300;
@@ -303,9 +295,50 @@
   flex: auto;
   padding-bottom: 0;
 
+  h2 {
+    margin: 0 0 10px;
+    padding-top: 10px;
+  }
+
+  h3 {
+    margin: 5px auto 15px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  // stylelint-disable no-descending-specificity
+  p {
+    margin-bottom: 0;
+  }
+
   .portlet-title {
     padding-left: 5px;
   }
+
+  .back-to-home > .fa {
+    margin-right: 6px;
+  }
+
+  .enlarge li {
+    float: left;
+  }
+
+  .rating {
+    margin-left: 0;
+    cursor: default;
+
+    [role="button"] {
+      cursor: default;
+    }
+  }
+
+  a.md-button:hover {
+    text-decoration: none;
+  }
+  // stylelint-enable no-descending-specificity
 
   > md-card {
     margin: 15px;
@@ -327,52 +360,13 @@
     }
   }
 
-  a.md-button {
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  h2 {
-    margin: 0 0 10px;
-    padding-top: 10px;
-  }
-
-  .back-to-home {
-    > .fa {
-      margin-right: 6px;
-    }
-  }
-
-  .desc-item.rating-div {
-    padding-top: 10px;
-  }
-
-  .rating {
-    margin-left: 0;
-    cursor: default;
-
-    [role="button"] {
-      cursor: default;
-    }
-  }
-
   .desc-item {
     border-bottom: 2px solid @grayscale4;
     margin: 0 16px;
     padding: 16px 0;
 
-    h3 {
-      margin: 5px auto 15px;
-    }
-
-    ul {
-      margin: 0;
-      padding: 0;
-    }
-
-    p {
-      margin-bottom: 0;
+    &.rating-div {
+      padding-top: 10px;
     }
 
     .screenshot h3 {
@@ -383,16 +377,14 @@
       margin-left: 0;
     }
 
-    a.md-accent.md-raised {
-      &.category-links {
-        background-color: @white;
-        color: @category-blue;
-        margin: 6px 8px;
+    a.md-accent.md-raised.category-links {
+      background-color: @white;
+      color: @category-blue;
+      margin: 6px 8px;
 
-        &:hover {
-          background-color: @category-blue;
-          color: @white;
-        }
+      &:hover {
+        background-color: @category-blue;
+        color: @white;
       }
     }
   }
@@ -403,6 +395,11 @@
     padding: 0;
     display: inline-block;
     border-left: 1px solid @grayscale3;
+
+    img {
+      max-width: 100%;
+      width: 100%;
+    }
 
     ul {
       margin: 0;
@@ -452,11 +449,6 @@
       }
     }
 
-    img {
-      max-width: 100%;
-      width: 100%;
-    }
-
     @media only screen and (min-width: 768px) {
       ul.enlarge li:hover span {
         width: 60vw;
@@ -483,10 +475,6 @@
         text-decoration: none;
       }
     }
-  }
-
-  .enlarge li {
-    float: left;
   }
 
   .left {
