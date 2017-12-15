@@ -3,13 +3,19 @@
   "version": "7.0.1",
   "description": "uPortal-home",
   "scripts": {
+    "add-hooks": "npm install husky --no-save",
+    "commitmsg": "commitlint -e",
+    "precommit": "lint-staged",
     "commit": "commit",
     "pretest": "mvn clean package",
     "test": "karma start web/target/web/karma.conf.js --single-run",
+    "lint-all": "npm run lint-js && npm run lint-md && npm run lint-commit && npm run lint-css",
+    "lint-commit": "commitlint --from HEAD~1",
     "lint-css": "stylelint --syntax less web/src/**/*.less",
     "lint-js": "eslint --ext js --ext json --ext md . --ignore-path .gitignore --ignore-pattern mock-portal",
     "lint-md": "remark . --frail --ignore-path .gitignore",
     "lint-less": "stylelint --syntax less web/src/**/*.less",
+    "lint-staged": "lint-staged",
     "dev-lint-js": "eslint --quiet --ext js --ext json --ext md --format html --output-file web/target/web/lint-out.html . --ignore-path .gitignore --ignore-pattern mock-portal",
     "prestart": "mvn clean package",
     "start": "mvn jetty:run"
@@ -51,7 +57,6 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-requirejs": "^3.1.1",
     "greenkeeper-lockfile": "^1.12.0",
-    "husky": "^0.14.3",
     "jasmine-core": "^2.3.4",
     "karma": "^1.5.0",
     "karma-chrome-launcher": "^2.0.0",
@@ -66,6 +71,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-requirejs": "^1.1.0",
     "karma-safari-launcher": "^1.0.0",
+    "lint-staged": "^6.0.0",
     "remark-cli": "^4.0.0",
     "remark-preset-lint-consistent": "^2.0.0",
     "remark-preset-lint-recommended": "^3.0.0",
@@ -147,5 +153,10 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "lint-staged": {
+    "*.{js,json,md}": "eslint --ext js --ext json --ext md",
+    "*.md": "remark --frail",
+    "*.less": "stylelint --syntax less"
   }
 }
