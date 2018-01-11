@@ -6,6 +6,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## [7.2.0][] - 2018-01-11
+
+### Added
+* require npm version 5.6.0 or higher (#756)
+* update apereo-incubation.md to reflect incubation progress (#754)
+
+### Changed
+* update to latest 8.0.0 release of uportal-app-framework
+* update stylelint-config-standard to latest 17.0.0 version (#749)
+* update karma to latest 2.0.0 version (#759)
+
+### Fixed
+* resolve requireJS build flakiness (#757)
+
+### Removed
+
 ## [7.1.0][] - 2017-12-06
 
 ### Features
@@ -258,7 +282,8 @@ This release overlays on [App-Framework v3.0.3](https://github.com/uPortal-Proje
 See also:
 - the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[Unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.1.0...HEAD
+[Unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.2.0...HEAD
+[7.2.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.1.0...uportal-home-parent-7.2.0
 [7.1.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.3...uportal-home-parent-7.1.0
 [7.0.3]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.2..uportal-home-parent-7.0.3
 [7.0.2]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.1...uportal-home-parent-7.0.2
