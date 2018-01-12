@@ -43,7 +43,7 @@
   "homepage": "https://github.com/uPortal-Project/uportal-home",
   "devDependencies": {
     "@commitlint/cli": "^5.1.1",
-    "@commitlint/config-conventional": "^5.1.1",
+    "@commitlint/config-conventional": "^6.0.2",
     "@commitlint/prompt-cli": "^5.1.2",
     "@commitlint/travis-cli": "^5.1.1",
     "eslint": "^4.0.0",
