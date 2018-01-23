@@ -7,11 +7,11 @@ matrix:
     - os: linux
       dist: trusty
       jdk: oraclejdk8
-      env: BROWSERS=ChromeHeadless,FirefoxHeadless
+      env: BROWSERS=ChromeHeadlessNoSandbox,FirefoxHeadless
     - os: linux
       dist: trusty
       jdk: openjdk8
-      env: BROWSERS=ChromeHeadless,FirefoxHeadless
+      env: BROWSERS=ChromeHeadlessNoSandbox,FirefoxHeadless
     - os: osx
       osx_image: xcode8.3
       env: BROWSERS=ChromeHeadless,Safari
