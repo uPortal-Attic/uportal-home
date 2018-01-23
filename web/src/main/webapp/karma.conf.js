@@ -36,13 +36,13 @@ module.exports = function(config) {
         frameworks: ['jasmine', 'requirejs'],
 
         customLaunchers: {
-            FirefoxHeadless: {
-                base: 'Firefox',
-                flags: ['-headless'],
-            },
+          ChromeHeadlessNoSandbox: {
+            base: 'ChromeHeadless',
+            flags: ['--no-sandbox'],
+          },
         },
 
-        browsers: ['ChromeHeadless'], // or 'Chrome'
+        browsers: ['ChromeHeadless', 'FirefoxHeadless'], // or 'Chrome'
 
         plugins: [
             'karma-htmlfile-reporter',
