@@ -30,8 +30,6 @@ define(['angular'], function(angular) {
             'showUserSettingsPage': true,
           },
           'APP_OPTIONS': {
-            'optionsTemplateURL':
-              'my-app/layout/partials/app-header-options.html',
             'appMenuItems': [
               {
                 'label': 'Browse apps',

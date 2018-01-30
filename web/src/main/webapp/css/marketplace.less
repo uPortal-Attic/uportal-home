@@ -23,6 +23,8 @@
 /* MARKETPLACE BODY */
 
 .marketplace-body {
+  margin: 4px;
+
   input:focus,
   span:focus {
     outline: none;
@@ -86,34 +88,15 @@
     text-align: center;
   }
 
-  .show-categories {
-    padding: 10px;
-    display: inline-block;
-    background-color: @white;
-  }
-
-  @media (min-width: 600px) {
+  @media (min-width: @xs) {
     margin: 15px;
   }
 
   /* MARKETPLACE SEARCH */
-  .mp-search {
-    font-size: 20px;
-    font-weight: 300;
-    padding: 4px 4px 4px 12px;
-    height: 50px;
-    border: 0 solid transparent;
-  }
-
-  /* MARKETPLACE HEADER */
-  .mp-header {
-    background: @white;
-    margin-bottom: 15px;
-
+  .mp-search-container {
     md-input-container.browse-input {
+      padding-right: 36px;
       margin: 0;
-      padding: 0 0 0 40px;
-      height: 50px;
 
       > md-icon.material-icons {
         top: 14px;
@@ -123,21 +106,28 @@
 
     ::-webkit-input-placeholder {
       color: @tabs-inactive;
-      font-size: 20px;
-      font-weight: 300;
+      font-size: 18px;
+      font-weight: 400;
       line-height: 20px;
     }
 
     ::-moz-placeholder {
       color: @tabs-inactive;
-      font-size: 20px;
-      font-weight: 300;
+      font-size: 18px;
+      font-weight: 400;
     }
 
     :-ms-input-placeholder {
       color: @tabs-inactive;
-      font-size: 20px;
-      font-weight: 300;
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .mp-search {
+      font-size: 18px;
+      font-weight: 400;
+      padding: 4px 4px 4px 12px;
+      height: 50px;
     }
 
     @media (max-width: 767px) {
@@ -360,31 +350,28 @@
     }
   }
 
-  .desc-item {
-    border-bottom: 2px solid @grayscale4;
-    margin: 0 16px;
-    padding: 16px 0;
+  .details__content {
+    margin-bottom: 22px;
+    background: @white;
 
-    &.rating-div {
-      padding-top: 10px;
-    }
+    .desc-item {
+      margin: 0 16px;
+      padding: 16px 0;
 
-    .screenshot h3 {
-      margin: 5px 20px 15px;
-    }
+      &:not(:last-child) {
+        border-bottom: 2px solid @grayscale4;
+      }
 
-    .md-button:first-child {
-      margin-left: 0;
-    }
+      &.rating-div {
+        padding-top: 10px;
+      }
 
-    a.md-accent.md-raised.category-links {
-      background-color: @white;
-      color: @category-blue;
-      margin: 6px 8px;
+      .screenshot h3 {
+        margin: 5px 20px 15px;
+      }
 
-      &:hover {
-        background-color: @category-blue;
-        color: @white;
+      .md-button:first-child {
+        margin-left: 0;
       }
     }
   }
@@ -565,10 +552,6 @@
       a:not(.md-button):not(.btn):not(.launch-app-button) {
         color: rgb(66, 66, 66);
         display: block;
-
-        &.selected-category {
-          color: @category-blue;
-        }
 
         &:hover {
           text-decoration: none;

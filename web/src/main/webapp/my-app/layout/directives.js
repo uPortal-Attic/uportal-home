@@ -50,12 +50,11 @@ define(['angular', 'require'], function(angular, require) {
         };
     })
 
-    .directive('homeToggle', function() {
-        return {
-            restrict: 'E',
-            templateUrl: require.toUrl('./partials/home-toggle.html'),
-            controller: 'ToggleController',
-        };
+    .directive('homeControls', function() {
+      return {
+        restrict: 'E',
+        templateUrl: require.toUrl('./partials/home-controls.html'),
+      }
     })
 
     .directive('removeButton', function() {

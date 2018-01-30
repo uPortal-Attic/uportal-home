@@ -1,0 +1,41 @@
+<!-- BETA FILTER OPTION -->
+<div ng-show="$storage.showFilterOption">
+  <md-input-container md-no-float class="md-block home__filter">
+    <md-icon>search</md-icon>
+    <input type="text"
+           class="mp-search"
+           placeholder="Filter items on your home screen"
+           ng-model="filterText"
+           select-on-page-load
+           aria-label="search bar: start typing to filter home page items">
+  </md-input-container>
+</div>
+<!-- SPEED DIAL -->
+<div ng-cloak>
+  <md-fab-speed-dial md-direction="down" class="md-fling md-fab-top-right home__speed-dial">
+    <md-fab-trigger>
+      <md-button aria-label="Home view options" class="md-fab md-accent">
+        <md-icon>settings</md-icon>
+      </md-button>
+      <md-tooltip md-direction="left" md-delay="200" class="top-bar-tooltip">Home page options</md-tooltip>
+    </md-fab-trigger>
+
+    <md-fab-actions>
+      <md-button aria-label="Toggle expanded or compact widgets"
+                 class="md-fab md-raised md-mini"
+                 ng-controller="ToggleController"
+                 ng-click="switchMode(expandedMode)">
+        <md-icon>widgets</md-icon>
+        <md-tooltip md-direction="left" class="top-bar-tooltip">Toggle expanded mode</md-tooltip>
+      </md-button>
+      <md-button aria-label="Add more apps to home" class="md-fab md-raised md-mini" ng-if="!GuestMode" ng-href="/web/apps">
+        <md-icon>add</md-icon>
+        <md-tooltip md-direction="left" class="top-bar-tooltip">Add more to home</md-tooltip>
+      </md-button>
+      <md-button aria-label="Browse {{ portal.theme.title }} apps" class="md-fab md-raised md-mini" ng-if="GuestMode" ng-href="/web/apps">
+        <md-icon>explore</md-icon>
+        <md-tooltip md-direction="left" class="top-bar-tooltip">Browse {{ portal.theme.title }} apps</md-tooltip>
+      </md-button>
+    </md-fab-actions>
+  </md-fab-speed-dial>
+</div>

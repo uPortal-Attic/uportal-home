@@ -330,22 +330,13 @@ define(['angular', 'jquery'], function(angular, $) {
       var vm = this;
       /**
        * Switch between compact and expanded mode
-       * @param mode
+       * @param expandedMode
        */
-      $scope.switchMode = function(mode) {
+      $scope.switchMode = function(expandedMode) {
+        var mode = expandedMode ? 'compact' : 'expanded';
         $localStorage.layoutMode = mode;
         $location.path('/' + mode);
         miscService.pushGAEvent('Widgets', 'View', mode);
-      };
-
-      /**
-       * Respond to toggle click events
-       * @param expandedMode
-       */
-      $scope.toggleMode = function(expandedMode) {
-        $scope.expandedMode = expandedMode;
-        var mode = expandedMode ? 'expanded' : 'compact';
-        $scope.switchMode(mode);
       };
 
       /**
@@ -373,17 +364,5 @@ define(['angular', 'jquery'], function(angular, $) {
       };
 
       vm.init();
-  }])
-  .controller('OptionsController', [
-    '$scope', '$location', function($scope, $location) {
-      var expanded = '/expanded';
-      var compact = '/compact';
-      $scope.renderMe = false;
-      if (
-        $location.url().indexOf(expanded) == 0 ||
-        $location.url().indexOf(compact) == 0
-      ) {
-        $scope.renderMe = true;
-      }
   }]);
 });

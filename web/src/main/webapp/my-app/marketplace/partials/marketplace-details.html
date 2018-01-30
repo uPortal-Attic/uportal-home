@@ -19,13 +19,13 @@
 
 -->
 <div ng-controller="MarketplaceDetailsController as detailsCtrl" class="portlet-details-page">
-  <frame-page app-title="Details: {{::portlet.title}}" app-icon="details">
+  <frame-page>
     <md-card>
-      <div ng-if='loading' class="row details-header no-margin">
-        <loading-gif data-object='obj' data-empty='!loading'></loading-gif>
+      <div ng-if="loading" class="row details-header no-margin">
+        <loading-gif data-object="obj" data-empty="!loading"></loading-gif>
       </div>
-      <div ng-if='error'>
-        <div class="alert alert-danger" role="alert" style='margin: 20px;'>
+      <div ng-if="error">
+        <div class="alert alert-danger" role="alert" style="margin: 20px;">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
           <span class="sr-only">Error:</span>
           {{errorMessage}}
@@ -65,7 +65,7 @@
         </div>
 
         <!-- APP DETAILS -->
-        <md-content style="max-height: 800px;" flex>
+        <md-content flex class="details__content">
           <div layout="column">
             <div class="desc-item">
               <h3 tabindex="0" class="md-title">Description</h3>
