@@ -54,7 +54,7 @@ define(['angular', 'require'], function(angular, require) {
       return {
         restrict: 'E',
         templateUrl: require.toUrl('./partials/home-controls.html'),
-      }
+      };
     })
 
     .directive('removeButton', function() {
