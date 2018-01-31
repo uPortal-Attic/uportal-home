@@ -33,7 +33,6 @@ define(['angular', 'jquery'], function (angular, $) {
       $scope.homeUrl = MISC_URLS.rootURL;
       $scope.renderMe = $location.url().indexOf(expanded) === 0 ||
         $location.url().indexOf(compact) === 0;
-
     }])
   /**
    * Controller for toggling between expanded
