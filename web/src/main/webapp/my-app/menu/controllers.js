@@ -44,13 +44,22 @@ define(['angular', 'jquery'], function (angular, $) {
           var vm = this;
           /**
            * Switch between compact and expanded mode
-           * @param expandedMode
+           * @param mode
            */
-          $scope.switchMode = function (expandedMode) {
-            var mode = expandedMode ? 'compact' : 'expanded';
+          $scope.switchMode = function(mode) {
             $localStorage.layoutMode = mode;
             $location.path('/' + mode);
             miscService.pushGAEvent('Widgets', 'View', mode);
+          };
+
+          /**
+           * Respond to toggle click events
+           * @param expandedMode
+           */
+          $scope.toggleMode = function(expandedMode) {
+            $scope.expandedMode = expandedMode;
+            var mode = expandedMode ? 'compact' : 'expanded';
+            $scope.switchMode(mode);
           };
 
           /**
