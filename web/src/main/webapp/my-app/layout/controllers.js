@@ -318,51 +318,5 @@ define(['angular', 'jquery'], function(angular, $) {
         },
       };
       init();
-  }])
-
-  /**
-   * Controller for toggling between expanded
-   * and compact mode via the app-header's toggle
-   */
-  .controller('ToggleController',
-  ['$localStorage', '$scope', '$location', '$log', 'miscService', 'APP_FLAGS',
-    function($localStorage, $scope, $location, $log, miscService, APP_FLAGS) {
-      var vm = this;
-      /**
-       * Switch between compact and expanded mode
-       * @param expandedMode
-       */
-      $scope.switchMode = function(expandedMode) {
-        var mode = expandedMode ? 'compact' : 'expanded';
-        $localStorage.layoutMode = mode;
-        $location.path('/' + mode);
-        miscService.pushGAEvent('Widgets', 'View', mode);
-      };
-
-      /**
-       * Get user's last-used layout mode and initialize view
-       */
-      vm.init = function() {
-        $scope.toggle = APP_FLAGS.enableToggle;
-        $scope.$storage = localStorage;
-
-        if ($localStorage.layoutMode) {
-          // Determine whether the layout is expanded or compact mode
-          $scope.expandedMode = $localStorage.layoutMode === 'expanded';
-          // Ensure we're at the correct mode & url
-          if ($location.url().indexOf($localStorage.layoutMode) == -1) {
-            // Oops, we are in the wrong mode, switch!
-            // Check to make sure that mode is active
-            if (APP_FLAGS[$localStorage.layoutMode]) {
-              $location.path('/' + $localStorage.layoutMode);
-            } else {
-              $log.log('Something is weird, resetting to default layout view');
-              $scope.switchMode(APP_FLAGS.defaultView);
-            }
-          }
-        }
-      };
-
-      vm.init();
   }]);
 });
