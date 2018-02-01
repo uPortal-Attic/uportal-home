@@ -19,7 +19,7 @@
 
 -->
 <div ng-controller="MarketplaceDetailsController as detailsCtrl" class="portlet-details-page">
-  <frame-page>
+  <frame-page app-title="{{ portlet.title }} details">
     <md-card>
       <div ng-if="loading" class="row details-header no-margin">
         <loading-gif data-object="obj" data-empty="!loading"></loading-gif>

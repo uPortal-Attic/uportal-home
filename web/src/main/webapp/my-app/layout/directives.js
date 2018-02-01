@@ -43,13 +43,6 @@ define(['angular', 'require'], function(angular, require) {
         };
     })
 
-    .directive('homeHeader', function() {
-        return {
-            restrict: 'E',
-            templateUrl: require.toUrl('./partials/home-header.html'),
-        };
-    })
-
     .directive('homeControls', function() {
       return {
         restrict: 'E',
