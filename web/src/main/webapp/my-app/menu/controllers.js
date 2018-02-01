@@ -18,7 +18,7 @@
  */
 'use strict';
 
-define(['angular', 'jquery'], function (angular, $) {
+define(['angular', 'jquery'], function(angular, $) {
   return angular.module('my-app.menu.controllers', [])
 
   /**
@@ -39,12 +39,13 @@ define(['angular', 'jquery'], function (angular, $) {
    * and compact mode via the app-header's toggle
    */
     .controller('ToggleController',
-      ['$localStorage', '$scope', '$location', '$log', 'miscService', 'APP_FLAGS',
-        function ($localStorage, $scope, $location, $log, miscService, APP_FLAGS) {
+      ['$localStorage', '$scope', '$location', '$log', 'miscService',
+        'APP_FLAGS', function($localStorage, $scope, $location, $log,
+                               miscService, APP_FLAGS) {
           var vm = this;
           /**
            * Switch between compact and expanded mode
-           * @param mode
+           * @param {String} mode
            */
           $scope.switchMode = function(mode) {
             $localStorage.layoutMode = mode;
@@ -54,7 +55,7 @@ define(['angular', 'jquery'], function (angular, $) {
 
           /**
            * Respond to toggle click events
-           * @param expandedMode
+           * @param {Boolean} expandedMode
            */
           $scope.toggleMode = function(expandedMode) {
             $scope.expandedMode = expandedMode;
@@ -65,7 +66,7 @@ define(['angular', 'jquery'], function (angular, $) {
           /**
            * Get user's last-used layout mode and initialize view
            */
-          vm.init = function () {
+          vm.init = function() {
             $scope.toggle = APP_FLAGS.enableToggle;
             $scope.$storage = localStorage;
 
@@ -79,7 +80,8 @@ define(['angular', 'jquery'], function (angular, $) {
                 if (APP_FLAGS[$localStorage.layoutMode]) {
                   $location.path('/' + $localStorage.layoutMode);
                 } else {
-                  $log.log('Something is weird, resetting to default layout view');
+                  $log.log('Something is weird, ' +
+                    'resetting to default layout view');
                   $scope.switchMode(APP_FLAGS.defaultView);
                 }
               }
