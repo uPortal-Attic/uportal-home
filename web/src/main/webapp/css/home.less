@@ -16,6 +16,15 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+.home__compact {
+  margin: 0 16px;
+}
+
+.home__filter {
+  margin: 0 8px 0 0;
+}
+
 default-card portlet-icon img {
   padding-top: 25%;
   width: 40px;
@@ -174,8 +183,8 @@ div.table-cell {
 
 .tile-list {
   list-style-type: none;
-  margin: 15px auto;
   padding: 0;
+  margin: auto;
   max-width: 1200px;
 
   .list-container {
@@ -220,26 +229,8 @@ div.table-cell {
 }
 
 // MyUW Overrides
-md-switch.app-header-toggle {
-  text-transform: none;
-  margin: 0 12px;
-  line-height: 36px;
-  min-height: 36px;
-
-  &:last-of-type {
-    margin: 0 0 0 12px;
-  }
-}
-
-// List View
-
-.new-stuff p {
-  color: inherit;
-  width: auto;
-
-  /* New Stuff */
-  width: 100%;
-  max-width: 100%;
+md-switch.toggle__list-mode {
+  margin-right: 12px;
 }
 
 .header-opaque .second-description {

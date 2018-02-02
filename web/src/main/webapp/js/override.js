@@ -30,25 +30,8 @@ define(['angular'], function(angular) {
             'showUserSettingsPage': true,
           },
           'APP_OPTIONS': {
-            'optionsTemplateURL':
-              'my-app/layout/partials/app-header-options.html',
-            'appMenuItems': [
-              {
-                'label': 'Browse apps',
-                'icon': 'widgets',
-                'url': '/web/apps',
-              },
-              {
-                'label': 'New features',
-                'icon': 'new_releases',
-                'url': '/web/features',
-              },
-              {
-                'label': 'About',
-                'icon': 'info',
-                'url': '/web/about',
-              },
-            ],
+            'appMenuTemplateURL':
+              '/web/my-app/menu/partials/app-menu-template.html',
           },
           'SERVICE_LOC': {
             'aboutURL': '/portal/api/session.json',

@@ -22,7 +22,7 @@
   <div ng-if="!loaded" layout="row" layout-align="center center" layout-padding>
     <loading-gif data-object="loaded"></loading-gif>
   </div>
-  <frame-page ng-if="loaded" app-title="{{ portlet.title }}" app-icon="{{ portlet.faIcon }}" app-fname="portlet.fname" app-show-add-to-home="true">
+  <frame-page ng-if="loaded" app-title="{{ portlet.title }}" app-icon="{{ portlet.faIcon }}" page-title="{{ portlet.title }}" app-fname="portlet.fname" app-show-add-to-home="true">
     <md-card>
       <div ng-bind-html="::portlet.exclusiveContent" class="up-portlet-content-wrapper" id="content-{{ ::portlet.nodeId }}"></div>
       <div layout="row" layout-align="end center">

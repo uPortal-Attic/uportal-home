@@ -1,0 +1,12 @@
+<!-- BETA FILTER OPTION -->
+<div ng-show="$storage.showFilterOption">
+  <md-input-container md-no-float class="md-block home__filter">
+    <md-icon>search</md-icon>
+    <input type="text"
+           class="mp-search"
+           placeholder="Filter items on your home screen"
+           ng-model="filterText"
+           select-on-page-load
+           aria-label="search bar: start typing to filter home page items">
+  </md-input-container>
+</div>

@@ -1,0 +1,41 @@
+<div ng-controller="AppMenuController">
+  <md-menu-item>
+    <md-button ng-href="{{ homeUrl }}" ng-click="vm.closeMainMenu();" layout="row" layout-align="start center">
+      <md-icon>home</md-icon>
+      <span>{{ appTitle }} home</span>
+    </md-button>
+  </md-menu-item>
+  <md-menu-item>
+    <md-button href="/web/apps" ng-click="vm.closeMainMenu();" layout="row" layout-align="start center">
+      <md-icon>explore</md-icon>
+      <span>Browse apps</span>
+    </md-button>
+  </md-menu-item>
+  <md-menu-item>
+    <md-button href="/web/notifications" ng-click="vm.closeMainMenu();">
+      <md-icon>notifications</md-icon>
+      <span>Notifications</span>
+    </md-button>
+  </md-menu-item>
+  <md-menu-item>
+    <md-button href="/web/features" ng-click="vm.closeMainMenu();">
+      <md-icon>new_releases</md-icon>
+      <span>New features</span>
+    </md-button>
+  </md-menu-item>
+  <md-menu-item>
+    <md-button href="/web/about" ng-click="vm.closeMainMenu();" layout="row" layout-align="start center">
+      <md-icon>info</md-icon>
+      <span>About</span>
+    </md-button>
+  </md-menu-item>
+  <md-subheader ng-if="renderMe">{{ appTitle }} Home options</md-subheader>
+  <md-menu-item ng-if="renderMe">
+    <md-button aria-label="Toggle expanded or compact widgets"
+               ng-controller="ToggleController"
+               ng-click="toggleMode(expandedMode)">
+      <md-icon>widgets</md-icon>
+      <span>Toggle expanded widgets</span>
+    </md-button>
+  </md-menu-item>
+</div>
