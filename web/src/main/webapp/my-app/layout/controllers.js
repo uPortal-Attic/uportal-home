@@ -301,7 +301,8 @@ define(['angular', 'jquery'], function(angular, $) {
         delay: 250,
         cursorAt: {top: 30, left: 30},
         stop: function(e, ui) {
-          if (ui.item.sortable.dropindex != ui.item.sortable.index) {
+          if (angular.isDefined(ui.item.sortable.dropindex)
+            && ui.item.sortable.dropindex !== ui.item.sortable.index) {
             var node = $scope.layout[ui.item.sortable.dropindex];
             $log.log('Change happened, logging move of ' + node.fname +
               ' from ' + ui.item.sortable.index +
