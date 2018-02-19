@@ -219,7 +219,7 @@ Currently piggyback on uPortal email lists, only somewhat effectively.
 
 Next actions:
 
-+ Use Incubation check-in meetings, making these open meetings and drawing in would-be participants. (Continuing in Q3 2017).
++ Use Incubation check-in meetings, making these open meetings and drawing in would-be participants. (Continuing).
 + Consider advocating for an Apereo Discourse instance and adopt Discourse forums in lieu of traditional email list.
 + Consider how to better fit into existing uPortal email lists, or create new lists.
 
