@@ -114,7 +114,7 @@ nearly as clean as envisioned.)
 
 Next actions:
 
-+ Open, public incubation status check-in conference calls. (Continuing in Q3 2017).
++ Open, public incubation status check-in conference calls. (Continuing).
 + Move GitHub repositories to a uPortal-project context. (Intended for Q3 2017).
 
 #### b. Organization of community
