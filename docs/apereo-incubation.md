@@ -128,10 +128,11 @@ Roles:
 
 + [Committers][]
 + [Contributors][]
++ Adopters
 
 Next actions
 
-+ Document any roles not yet listed.
++ Document any roles not yet listed or documented.
 + Document how the roles interact.
 
 #### c. Operation of community
