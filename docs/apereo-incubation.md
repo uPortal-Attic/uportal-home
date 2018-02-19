@@ -8,7 +8,7 @@ uPortal-home [is presently][Apereo projects currently in incubation] in [Apereo 
 + Incubation requested: [2016-11-21][incubation@ proposal]
 + Apereo Board approved for incubation: [2016-12-20][2016-12-20 Apereo Board meeting minutes]
 + Entered incubation (initial conference call): 2017-03-13.
-+ Subsequent check-in calls: [2017-04-10][2017-04-10 incubation status call], [2017-05-25][2017-05-25 incubation status call Google Group topic], [2017-07-11 10][2017-07-11 incubation status call] ([audio][2017-07-11 incubation status audio]), [2017-09-20][2017-09-20 incubation status call] ([audio][2017-09-20 incubation status call audio]). **Next call [2018-02-19][2018-02-19 incubation status call] at 1p NYC**.
++ Subsequent check-in calls: [2017-04-10][2017-04-10 incubation status call], [2017-05-25][2017-05-25 incubation status call Google Group topic], [2017-07-11 10][2017-07-11 incubation status call] ([audio][2017-07-11 incubation status audio]), [2017-09-20][2017-09-20 incubation status call] ([audio][2017-09-20 incubation status call audio]), [2018-02-19][2018-02-19 incubation status call] (audio recording to follow). **Next call Monday 2018-03-12 at 1p NYC**.
 + Open Apereo 2017 pre-conference seminar: 2017-06-04, including [slides about incubation][Open Apereo 2017 seminar slides re incubation].
 
 ## Summary: Project status vis a vis exit criteria
