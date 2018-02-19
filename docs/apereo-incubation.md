@@ -144,6 +144,11 @@ Next actions
 + Pre-conference seminar and presentations about this project delivered at Open Apereo 2015, 2016, and 2017.
 + Incubation status calls are held as open conference calls.
 
+Next actions
+
++ Answer question: what activities/events/artifacts are created/managed to
+  foster participation and development?
+
 ### 4.3 Governance
 
 + [Committers][] are documented, with Apache-style governance by the Committers, process for adding Committers, and governance fail-safe falling back on uPortal steering.
