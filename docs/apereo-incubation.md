@@ -15,7 +15,7 @@ uPortal-home [is presently][Apereo projects currently in incubation] in [Apereo 
 
 Items are checked where the project believes it now fulfills the exit criteria.
 
-- [ ] 4.1 Legal
+- [x] 4.1 Legal
   - [x] 4.1.1 Out-bound licensing
   - [x] 4.1.2 License marking
   - [x] 4.1.3 Contributor License Agreements
