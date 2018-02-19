@@ -115,6 +115,10 @@ nearly as clean as envisioned.)
 Next actions:
 
 + Open, public incubation status check-in conference calls. (Continuing).
++ Answer the question: how many participants?
++ Answer the question: what level of participation?
++ Answer the question: What activities do participants undertake or what
+  artifacts have they created?
 
 #### b. Organization of community
 
