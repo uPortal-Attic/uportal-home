@@ -196,6 +196,8 @@ Next actions:
 
 + Factor out app directory as a microservice
 + Factor out user layout as a microservice
++ Factor out messages (announcements and notifications) as a microservice
++ Explore relationship with nascent Edinburgh Notifications
 
 ### 4.9 Infrastructure
 
