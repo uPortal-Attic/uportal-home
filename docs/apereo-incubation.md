@@ -31,7 +31,7 @@ Items are checked where the project believes it now fulfills the exit criteria.
 - [x] 4.7 Successful release during incubation
 - [ ] 4.8 Alignment and synergy with other Apereo software products
 - [ ] 4.9 Infrastructure
-  - [ ] 4.9.a Version control
+  - [x] 4.9.a Version control
   - [ ] 4.9.b Issue tracking
   - [ ] 4.9.c Communication channels
   - [ ] 4.9.d Plans, directions, and objectives are readily identifiable
@@ -203,11 +203,7 @@ Next actions:
 
 #### a. Version control
 
-Using GitHub repositories.
-
-Next actions:
-
-+ Move GitHub repositories to a non-UW-Madison-specific organizational context. (Intended for Q3 2017).
+Using GitHub repositories in `uPortal-Project` context.
 
 #### b. Issue tracking
 
