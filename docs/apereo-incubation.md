@@ -161,13 +161,14 @@ Committers include a non-University-of-Wisconsin committer (Christian Murphy).
 
 ### 4.5 Conflict resolution policy
 
-+ Inherits code of conduct considerations from uPortal which participates in the [Apereo Welcoming Policy][].
++ Inherits code of conduct considerations from uPortal which participates in the [Apereo Welcoming Policy][]. However, Apereo Welcoming Policy is not yet a mature code of conduct mechanism because while it states "Apereo will designate two Board members to receive complaints", it's not clear that Apereo has done so or who these "Duty Officers" are. This suggests that it might be unclear to a person who experiences conduct prohibited under the policy whom they might contact to report concerns.
 
 No formal conflict resolution policy is in place.
 
 Next actions:
 
 + Adopt a conflict resolution policy (or inherit from uPortal)
++ Advocate for maturing the Apereo Welcoming Policy to function as an adequate "code of conduct" for this and other Apereo projects
 
 ### 4.6 Release planning
 
