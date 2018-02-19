@@ -28,7 +28,7 @@ Items are checked where the project believes it now fulfills the exit criteria.
 - [x] 4.4 Voting practices
 - [ ] 4.5 Conflict resolution policy
 - [ ] 4.6 Release planning
-- [ ] 4.7 Successful release during incubation
+- [x] 4.7 Successful release during incubation
 - [ ] 4.8 Alignment and synergy with other Apereo software products
 - [ ] 4.9 Infrastructure
   - [ ] 4.9.a Version control
@@ -184,13 +184,7 @@ Next actions:
 
 ### 4.7 Successful release during Incubation
 
-uPortal-home has had many releases.
-
-Let's say Incubation starts for this purpose after governance and licensing is squared and the repos are moved to a uPortal-project context. Successfully releasing after those changes are in place will demonstrate that the product can still release under the new arrangements.
-
-Next actions:
-
-+ Make the transition to a uPortal-project GitHub organization context, then, cut a release.
+uPortal-home has had many releases, including many during incubation after governance and licensing squared and the repos moved to a uPortal-project context. Successfully releasing after those changes demonstrated that the product can still release under the Apereo arrangements.
 
 ### 4.8 Alignment and synergy with other Apereo software products
 
