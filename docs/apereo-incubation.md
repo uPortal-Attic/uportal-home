@@ -78,25 +78,31 @@ Naming considerations: Names should reflect uPortal commitment and represent how
 
 Benito Gonzalez confirmed via US Patent and Trademark search that uPortal-home is not registered.
 
-+ Proposed names:
-  + `uw-frame` → `uPortal-app-framework`
-    + The uPortal App Framework will house common functionality to be leveraged
-      by uPortal Apps.
-    + Institutions can provide a custom `uPortal-app-framework-config`
++ Names:
+  + `uPortal-app-framework`
+    + The uPortal App Framework houses common functionality to be leveraged by
+      uPortal Apps.
+    + TODO: Institutions can provide a custom `uPortal-app-framework-config`
     + Developers can create their own uPortal Apps drawing from common
       configuration, style and functionality.
-  + `angularjs-portal` → `uPortal-home`
-    + uPortal-home will be a standard uPortal App that handles layout of the
-      framework widgets for a cohesive user experience.
-    + Developers provide `uPortal-home-config` for environment specific
+  + `uPortal-home`
+    + uPortal-home is a standard uPortal App implementing portal home page
+      and other core portal user experiences (notifications, announcements,
+      settings, ...)
+    + TODO: Developers provide `uPortal-home-config` for environment specific
       configuration.
 
 Next actions:
 
-+ Implement repo re-naming in the course of migrating repos into a `uPortal-Project` GitHub organization. (Intended for Q3 2017).
-+ Apply product re-naming in documentation
-+ Apply product re-naming in source
++ Add `uPortal-app-framework-config` features for institutions to provide shared
+  configuration for uPortal App Framework apps. (That is, currently this is an
+  envisioned sub-module name rather than a concrete thing.)
++ Add `uPortal-home-config` for institutions to provide configuration for
+  uPortal-home as locally implemented. (That is, currently this is an
+  envisioned sub-module name rather than a concrete thing.)
 
+(Currently, the framework and the core product *are* configurable, but it's not
+nearly as clean as envisioned.)
 
 
 ### 4.2 Community
