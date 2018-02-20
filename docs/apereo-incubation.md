@@ -15,7 +15,7 @@ uPortal-home [is presently][Apereo projects currently in incubation] in [Apereo 
 
 Items are checked where the project believes it now fulfills the exit criteria.
 
-- [ ] 4.1 Legal
+- [x] 4.1 Legal
   - [x] 4.1.1 Out-bound licensing
   - [x] 4.1.2 License marking
   - [x] 4.1.3 Contributor License Agreements
@@ -28,10 +28,10 @@ Items are checked where the project believes it now fulfills the exit criteria.
 - [x] 4.4 Voting practices
 - [ ] 4.5 Conflict resolution policy
 - [ ] 4.6 Release planning
-- [ ] 4.7 Successful release during incubation
+- [x] 4.7 Successful release during incubation
 - [ ] 4.8 Alignment and synergy with other Apereo software products
 - [ ] 4.9 Infrastructure
-  - [ ] 4.9.a Version control
+  - [x] 4.9.a Version control
   - [ ] 4.9.b Issue tracking
   - [ ] 4.9.c Communication channels
   - [ ] 4.9.d Plans, directions, and objectives are readily identifiable
@@ -78,25 +78,31 @@ Naming considerations: Names should reflect uPortal commitment and represent how
 
 Benito Gonzalez confirmed via US Patent and Trademark search that uPortal-home is not registered.
 
-+ Proposed names:
-  + `uw-frame` → `uPortal-app-framework`
-    + The uPortal App Framework will house common functionality to be leveraged
-      by uPortal Apps.
-    + Institutions can provide a custom `uPortal-app-framework-config`
++ Names:
+  + `uPortal-app-framework`
+    + The uPortal App Framework houses common functionality to be leveraged by
+      uPortal Apps.
+    + TODO: Institutions can provide a custom `uPortal-app-framework-config`
     + Developers can create their own uPortal Apps drawing from common
       configuration, style and functionality.
-  + `angularjs-portal` → `uPortal-home`
-    + uPortal-home will be a standard uPortal App that handles layout of the
-      framework widgets for a cohesive user experience.
-    + Developers provide `uPortal-home-config` for environment specific
+  + `uPortal-home`
+    + uPortal-home is a standard uPortal App implementing portal home page
+      and other core portal user experiences (notifications, announcements,
+      settings, ...)
+    + TODO: Developers provide `uPortal-home-config` for environment specific
       configuration.
 
 Next actions:
 
-+ Implement repo re-naming in the course of migrating repos into a `uPortal-Project` GitHub organization. (Intended for Q3 2017).
-+ Apply product re-naming in documentation
-+ Apply product re-naming in source
++ Add `uPortal-app-framework-config` features for institutions to provide shared
+  configuration for uPortal App Framework apps. (That is, currently this is an
+  envisioned sub-module name rather than a concrete thing.)
++ Add `uPortal-home-config` for institutions to provide configuration for
+  uPortal-home as locally implemented. (That is, currently this is an
+  envisioned sub-module name rather than a concrete thing.)
 
+(Currently, the framework and the core product *are* configurable, but it's not
+nearly as clean as envisioned.)
 
 
 ### 4.2 Community
@@ -108,8 +114,11 @@ Next actions:
 
 Next actions:
 
-+ Open, public incubation status check-in conference calls. (Continuing in Q3 2017).
-+ Move GitHub repositories to a uPortal-project context. (Intended for Q3 2017).
++ Open, public incubation status check-in conference calls. (Continuing).
++ Answer the question: how many participants?
++ Answer the question: what level of participation?
++ Answer the question: What activities do participants undertake or what
+  artifacts have they created?
 
 #### b. Organization of community
 
@@ -119,10 +128,11 @@ Roles:
 
 + [Committers][]
 + [Contributors][]
++ Adopters
 
 Next actions
 
-+ Document any roles not yet listed.
++ Document any roles not yet listed or documented.
 + Document how the roles interact.
 
 #### c. Operation of community
@@ -133,6 +143,11 @@ Next actions
 + [Contributors][] are gratefully acknowledged.
 + Pre-conference seminar and presentations about this project delivered at Open Apereo 2015, 2016, and 2017.
 + Incubation status calls are held as open conference calls.
+
+Next actions
+
++ Answer question: what activities/events/artifacts are created/managed to
+  foster participation and development?
 
 ### 4.3 Governance
 
@@ -146,13 +161,14 @@ Committers include a non-University-of-Wisconsin committer (Christian Murphy).
 
 ### 4.5 Conflict resolution policy
 
-+ Inherits code of conduct considerations from uPortal which participates in the [Apereo Welcoming Policy][].
++ Inherits code of conduct considerations from uPortal which participates in the [Apereo Welcoming Policy][]. However, Apereo Welcoming Policy is not yet a mature code of conduct mechanism because while it states "Apereo will designate two Board members to receive complaints", it's not clear that Apereo has done so or who these "Duty Officers" are. This suggests that it might be unclear to a person who experiences conduct prohibited under the policy whom they might contact to report concerns.
 
 No formal conflict resolution policy is in place.
 
 Next actions:
 
 + Adopt a conflict resolution policy (or inherit from uPortal)
++ Advocate for maturing the Apereo Welcoming Policy to function as an adequate "code of conduct" for this and other Apereo projects
 
 ### 4.6 Release planning
 
@@ -168,13 +184,7 @@ Next actions:
 
 ### 4.7 Successful release during Incubation
 
-uPortal-home has had many releases.
-
-Let's say Incubation starts for this purpose after governance and licensing is squared and the repos are moved to a uPortal-project context. Successfully releasing after those changes are in place will demonstrate that the product can still release under the new arrangements.
-
-Next actions:
-
-+ Make the transition to a uPortal-project GitHub organization context, then, cut a release.
+uPortal-home has had many releases, including many during incubation after governance and licensing squared and the repos moved to a uPortal-project context. Successfully releasing after those changes demonstrated that the product can still release under the Apereo arrangements.
 
 ### 4.8 Alignment and synergy with other Apereo software products
 
@@ -186,16 +196,14 @@ Next actions:
 
 + Factor out app directory as a microservice
 + Factor out user layout as a microservice
++ Factor out messages (announcements and notifications) as a microservice
++ Explore relationship with nascent Edinburgh Notifications
 
 ### 4.9 Infrastructure
 
 #### a. Version control
 
-Using GitHub repositories.
-
-Next actions:
-
-+ Move GitHub repositories to a non-UW-Madison-specific organizational context. (Intended for Q3 2017).
+Using GitHub repositories in `uPortal-Project` context.
 
 #### b. Issue tracking
 
@@ -211,7 +219,7 @@ Currently piggyback on uPortal email lists, only somewhat effectively.
 
 Next actions:
 
-+ Use Incubation check-in meetings, making these open meetings and drawing in would-be participants. (Continuing in Q3 2017).
++ Use Incubation check-in meetings, making these open meetings and drawing in would-be participants. (Continuing).
 + Consider advocating for an Apereo Discourse instance and adopt Discourse forums in lieu of traditional email list.
 + Consider how to better fit into existing uPortal email lists, or create new lists.
 
