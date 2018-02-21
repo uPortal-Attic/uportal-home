@@ -70,7 +70,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-requirejs": "^1.1.0",
     "karma-safari-launcher": "^1.0.0",
-    "lint-staged": "^6.0.0",
+    "lint-staged": "^7.0.0",
     "remark-cli": "^5.0.0",
     "remark-preset-lint-consistent": "^2.0.0",
     "remark-preset-lint-recommended": "^3.0.0",
