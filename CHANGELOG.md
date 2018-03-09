@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
++ Made `relatedPortlets` arrays empty in `entries.json` (#787)
+
 ### Removed
 
 ## [7.2.0][] - 2018-01-11
