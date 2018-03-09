@@ -17,7 +17,8 @@ ecosystem.
   ([audio][2017-07-11 incubation status audio]),
   [2017-09-20][2017-09-20 incubation status call]
   ([audio][2017-09-20 incubation status call audio]),
-  [2018-02-19][2018-02-19 incubation status call] (audio recording to follow).
+  [2018-02-19][2018-02-19 incubation status call]
+  ([audio][2018-02-19 incubation status audio]).
   **Next call Monday 2018-03-12 at 1p NYC**.
 + Open Apereo 2017 pre-conference seminar: 2017-06-04, including
   [slides about incubation][Open Apereo 2017 seminar slides re incubation].
@@ -314,3 +315,4 @@ Next actions:
 [2017-09-20 incubation status call]: https://docs.google.com/document/d/10xEvhXZP6L381VBoDVkfMAoblwxVAqRQ2cuf9lUtMCI/edit?usp=sharing
 [2017-09-20 incubation status call audio]: https://soundcloud.com/andrew-petro-278980355/up-home-incubation-check-in-call-2017-09-20
 [2018-02-19 incubation status call]: https://docs.google.com/document/d/1K4JwXmsb1NotwSpp52R2zFxeYRQcQC5yPbPIql28ezQ/edit?usp=sharing
+[2018-02-19 incubation status audio]: https://soundcloud.com/andrew-petro-278980355/2018-02-19-uportal-home-apereo-incubation-check-in
