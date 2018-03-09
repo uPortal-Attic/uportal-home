@@ -139,10 +139,19 @@ nearly as clean as envisioned.)
 > What is the number of participants? What level of participation is there? What
 > activities do participants undertake or what artifacts have they created?)
 
++ Participants:
+  + Adopters: (3)
+    + Sinclair Community College
+    + [Université de Bretagne Occidentale for ENT][ent.univ-brest.fr]
+      ([ESUP-Days 24 presentation][] (at 1h04))
+    + [University of Wisconsin-Madison][public.my.wisc.edu]
+  + [Committers][]: (5)
+  + [Contributors][]: (11) (not double-counting Committers)
+    + 0 non-Committer Contributors in 2018
+
 Next actions:
 
 + Open, public incubation status check-in conference calls. (Continuing).
-+ Answer the question: how many participants?
 + Answer the question: what level of participation?
 + Answer the question: What activities do participants undertake or what
   artifacts have they created?
@@ -316,3 +325,6 @@ Next actions:
 [2017-09-20 incubation status call audio]: https://soundcloud.com/andrew-petro-278980355/up-home-incubation-check-in-call-2017-09-20
 [2018-02-19 incubation status call]: https://docs.google.com/document/d/1K4JwXmsb1NotwSpp52R2zFxeYRQcQC5yPbPIql28ezQ/edit?usp=sharing
 [2018-02-19 incubation status audio]: https://soundcloud.com/andrew-petro-278980355/2018-02-19-uportal-home-apereo-incubation-check-in
+[public.my.wisc.edu]: https://public.my.wisc.edu
+[ent.uiv-brest.fr]: https://ent.univ-brest.fr/
+[ESUP-Days 24 presentation]: https://mediasd.parisdescartes.fr/#/watch?id=NVIN4MmXdFXQ&fc=N6IFZMg4xNvV
