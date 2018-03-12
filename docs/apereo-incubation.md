@@ -288,6 +288,8 @@ Next actions:
 
 Long range plans don't so much exist.
 
+cf. [roadmap.md][]
+
 Next actions:
 
 + Articulate product plans, directions, objectives
