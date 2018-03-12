@@ -288,7 +288,7 @@ Next actions:
 
 Long range plans don't so much exist.
 
-cf. [roadmap.md][]
+cf. [roadmap][]
 
 Next actions:
 
@@ -330,3 +330,4 @@ Next actions:
 [public.my.wisc.edu]: https://public.my.wisc.edu
 [ent.univ-brest.fr]: https://ent.univ-brest.fr/
 [ESUP-Days 24 presentation]: https://mediasd.parisdescartes.fr/#/watch?id=NVIN4MmXdFXQ&fc=N6IFZMg4xNvV
+[roadmap]: roadmap.md
