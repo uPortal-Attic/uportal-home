@@ -128,11 +128,11 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         }
         if (filter === 'az') {
           $scope.selectedFilter = 'az';
-          $scope.sortParameter = 'name';
+          $scope.sortParameter = 'title';
         }
         if (filter === 'category') {
           $scope.selectedFilter = 'category';
-          $scope.sortParameter = 'name';
+          $scope.sortParameter = 'title';
           $scope.showCategories = true;
         }
 
@@ -251,8 +251,8 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           // Default filter is to sort by category for
           // marketplaceDetails back to marketplace
           $scope.selectedFilter = 'category';
-          // To sort by category, angular will use name to filter
-          $scope.sortParameter = 'name';
+          // To sort by category, angular will use title to filter
+          $scope.sortParameter = 'title';
           // Show category selection div by default
           $scope.showCategories = true;
 
