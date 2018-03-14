@@ -1,0 +1,85 @@
+{
+  "entry": {
+    "canAdd": false,
+    "categories": [
+      "Work"
+    ],
+    "description": "Public views on MyUW.",
+    "faIcon": "fa-thumbs-up",
+    "fname": "public-myuw",
+    "id": "10001",
+    "keywords": [
+      "MyUW",
+      "demo",
+      "public"
+    ],
+    "layoutObject": {
+      "altMaxUrl": true,
+      "description": "Public views on MyUW.",
+      "faIcon": "fa-thumbs-up",
+      "fname": "public-myuw",
+      "iconUrl": null,
+      "lifecycleState": "PUBLISHED",
+      "mdIcon": null,
+      "nodeId": "-1",
+      "pithyStaticContent": null,
+      "renderOnWeb": true,
+      "staticContent": "<p>Placeholder static content.</p>",
+      "target": "_blank",
+      "title": "Public MyUW",
+      "url": "https://public.my.wisc.edu",
+      "widgetConfig": {
+        "launchText": "Open website",
+        "links": [
+          {
+            "href": "https://public.predev.my.wisc.edu",
+            "icon": "fa-clock-o",
+            "target": "_blank",
+            "title": "predev"
+          },
+          {
+            "href": "https://public.test.my.wisc.edu",
+            "icon": "fa-calendar-times-o",
+            "target": "_blank",
+            "title": "Test"
+          },
+          {
+            "href": "https://public.qa.my.wisc.edu",
+            "icon": "fa-calendar-times-o",
+            "target": "_blank",
+            "title": "QA"
+          },
+          {
+            "href": "https://public.my.wisc.edu",
+            "icon": "fa-calendar-times-o",
+            "target": "_blank",
+            "title": "Production"
+          }
+        ]
+      },
+      "widgetTemplate": null,
+      "widgetType": "list-of-links",
+      "widgetURL": null
+    },
+    "lifecycleState": "PUBLISHED",
+    "marketplaceScreenshots": [
+    ],
+    "maxUrl": "https://public.my.wisc.edu",
+    "name": "Public MyUW",
+    "portletName": "advanced-cms",
+    "portletReleaseNotes": {
+      "initialReleaseDate": null,
+      "releaseDate": null,
+      "releaseNotes": null
+    },
+    "portletWebAppName": "/SimpleContentPortlet",
+    "rating": 0,
+    "relatedPortlets": null,
+    "renderUrl": "https://public.my.wisc.edu",
+    "shortUrl": null,
+    "target": null,
+    "title": "Public MyUW",
+    "type": "Portlet",
+    "userRated": 0
+  }
+}
