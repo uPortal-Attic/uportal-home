@@ -128,11 +128,11 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         }
         if (filter === 'az') {
           $scope.selectedFilter = 'az';
-          $scope.sortParameter = 'name';
+          $scope.sortParameter = 'title';
         }
         if (filter === 'category') {
           $scope.selectedFilter = 'category';
-          $scope.sortParameter = 'name';
+          $scope.sortParameter = 'title';
           $scope.showCategories = true;
         }
 
@@ -248,11 +248,10 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         if (currentPage === 'details') {
           // Empty string indicates no categories, show all portlets
           $scope.categoryToShow = '';
-          // Default filter is to sort by category for
-          // marketplaceDetails back to marketplace
+          // Default to filter by category on return back to app dir browse
           $scope.selectedFilter = 'category';
-          // To sort by category, angular will use name to filter
-          $scope.sortParameter = 'name';
+          // When filtering by category, sort by title
+          $scope.sortParameter = 'title';
           // Show category selection div by default
           $scope.showCategories = true;
 
