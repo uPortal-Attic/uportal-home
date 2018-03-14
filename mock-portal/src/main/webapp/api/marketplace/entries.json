@@ -10589,43 +10589,18 @@
       "layoutObject": {
         "nodeId": "-1",
         "title": "Public MyUW",
-        "description": "Public views on MyUW.",
+        "description": "Public views on MyUW. Demonstrates sourcing list-of-links content from URL rather than from portlet-preference.",
         "url": "https://public.my.wisc.edu",
         "iconUrl": null,
         "faIcon": "fa-thumbs-up",
         "fname": "public-myuw",
         "target": "_blank",
-        "widgetURL": null,
+        "widgetURL": "/web/staticFeeds/public-myuw-list-of-links.json",
         "widgetType": "list-of-links",
         "widgetTemplate": null,
         "widgetConfig": {
           "launchText": "Open website",
-          "links": [
-            {
-              "href": "https://public.predev.my.wisc.edu",
-              "icon": "fa-clock-o",
-              "target": "_blank",
-              "title": "predev"
-            },
-            {
-              "href": "https://public.test.my.wisc.edu",
-              "icon": "fa-calendar-times-o",
-              "target": "_blank",
-              "title": "Test"
-            },
-            {
-              "href": "https://public.qa.my.wisc.edu",
-              "icon": "fa-calendar-times-o",
-              "target": "_blank",
-              "title": "QA"
-            },
-            {
-              "href": "https://public.my.wisc.edu",
-              "icon": "fa-calendar-times-o",
-              "target": "_blank",
-              "title": "Production"
-            }
-          ]
+          "getLinksURL": "true"
         },
         "staticContent": "<p>Placeholder static content.</p>",
         "pithyStaticContent": null,
@@ -10658,11 +10633,16 @@
         "public"
       ],
       "fname": "public-myuw",
-      "description": "Public views on MyUW.",
+      "description": "Public views on MyUW. Demonstrates sourcing list-of-links content from URL rather than from portlet-preference.",
       "name": "Public MyUW",
       "id": "10001",
       "type": "Portlet",
-      "target": "_blank"
+      "target": "_blank",
+      "widgetConfig": {
+        "launchText": "Open website",
+        "getLinksURL": "true"
+      },
+      "widgetURL": "/web/staticFeeds/public-myuw-list-of-links.json"
     }
   ]
 }

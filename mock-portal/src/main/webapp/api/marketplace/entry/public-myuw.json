@@ -4,7 +4,7 @@
     "categories": [
       "Work"
     ],
-    "description": "Public views on MyUW.",
+    "description": "Public views on MyUW. Demonstrates sourcing list-of-links content from URL rather than from portlet-preference.",
     "faIcon": "fa-thumbs-up",
     "fname": "public-myuw",
     "id": "10001",
@@ -15,7 +15,7 @@
     ],
     "layoutObject": {
       "altMaxUrl": true,
-      "description": "Public views on MyUW.",
+      "description": "Public views on MyUW. Demonstrates sourcing list-of-links content from URL rather than from portlet-preference.",
       "faIcon": "fa-thumbs-up",
       "fname": "public-myuw",
       "iconUrl": null,
@@ -30,36 +30,11 @@
       "url": "https://public.my.wisc.edu",
       "widgetConfig": {
         "launchText": "Open website",
-        "links": [
-          {
-            "href": "https://public.predev.my.wisc.edu",
-            "icon": "fa-clock-o",
-            "target": "_blank",
-            "title": "predev"
-          },
-          {
-            "href": "https://public.test.my.wisc.edu",
-            "icon": "fa-calendar-times-o",
-            "target": "_blank",
-            "title": "Test"
-          },
-          {
-            "href": "https://public.qa.my.wisc.edu",
-            "icon": "fa-calendar-times-o",
-            "target": "_blank",
-            "title": "QA"
-          },
-          {
-            "href": "https://public.my.wisc.edu",
-            "icon": "fa-calendar-times-o",
-            "target": "_blank",
-            "title": "Production"
-          }
-        ]
+        "getLinksURL": "true"
       },
       "widgetTemplate": null,
       "widgetType": "list-of-links",
-      "widgetURL": null
+      "widgetURL": "/web/staticFeeds/public-myuw-list-of-links.json"
     },
     "lifecycleState": "PUBLISHED",
     "marketplaceScreenshots": [
