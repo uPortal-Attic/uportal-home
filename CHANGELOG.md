@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
+* Alphabetically sort by `title` not `name` in app directory browse (#791)
 * Made `relatedPortlets` arrays empty in `entries.json` (#787)
 
 ### Removed
