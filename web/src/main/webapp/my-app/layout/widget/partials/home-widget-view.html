@@ -26,11 +26,20 @@
     <!-- Loading -->
     <loading-gif data-object="layout" data-empty="layoutEmpty"></loading-gif>
     <!-- Widget View -->
-    <ul dnd-list="layout" dnd-allowed-types="['widget-container']" class="tile-list">
+    <ul dnd-list="layout"
+        dnd-horizontal-list="true"
+        class="layout-list">
       <example-widgets ng-if="$storage.exampleWidgets"></example-widgets>
       <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 no-padding widget-container"
-          ng-repeat="portlet in layout | filter:filterText">
-        <widget fname="{{ portlet.fname }}">
+          id="node-{{ widget.nodeId }}"
+          ng-repeat="widget in layout | filter:filterText"
+          ng-keydown="moveWithKeyboard(widget, $event)"
+          tabindex="0"
+          dnd-draggable="widget"
+          dnd-effect-allowed="move"
+          dnd-moved="layout.splice($index, 1)"
+          dnd-dragend="logEvent(widget.fname, $index, 'dragEnd')">
+        <widget fname="{{ widget.fname }}">
           <remove-button></remove-button>
         </widget>
       </li>
