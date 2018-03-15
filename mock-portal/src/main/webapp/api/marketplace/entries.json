@@ -10583,6 +10583,66 @@
       "id": "131",
       "type": "Portlet",
       "target": "_blank"
+    },
+    {
+      "canAdd": true,
+      "layoutObject": {
+        "nodeId": "-1",
+        "title": "Public MyUW",
+        "description": "Public views on MyUW. Demonstrates sourcing list-of-links content from URL rather than from portlet-preference.",
+        "url": "https://public.my.wisc.edu",
+        "iconUrl": null,
+        "faIcon": "fa-thumbs-up",
+        "fname": "public-myuw",
+        "target": "_blank",
+        "widgetURL": "/web/staticFeeds/public-myuw-list-of-links.json",
+        "widgetType": "list-of-links",
+        "widgetTemplate": null,
+        "widgetConfig": {
+          "launchText": "Open website",
+          "getLinksURL": "true"
+        },
+        "staticContent": "<p>Placeholder static content.</p>",
+        "pithyStaticContent": null,
+        "altMaxUrl": true,
+        "renderOnWeb": false
+      },
+      "portletName": "cms",
+      "categories": [
+        "Work"
+      ],
+      "title": "Public MyUW",
+      "relatedPortlets": [],
+      "lifecycleState": "PUBLISHED",
+      "rating": 0,
+      "portletReleaseNotes": {
+        "releaseDate": null,
+        "initialReleaseDate": null,
+        "releaseNotes": null
+      },
+      "renderUrl": "https://public.my.wisc.edu",
+      "portletWebAppName": "/SimpleContentPortlet",
+      "faIcon": "fa-thumbs-up",
+      "maxUrl": "https://public.my.wisc.edu",
+      "shortUrl": null,
+      "marketplaceScreenshots": [],
+      "userRated": 0,
+      "keywords": [
+        "MyUW",
+        "demo",
+        "public"
+      ],
+      "fname": "public-myuw",
+      "description": "Public views on MyUW. Demonstrates sourcing list-of-links content from URL rather than from portlet-preference.",
+      "name": "Public MyUW",
+      "id": "10001",
+      "type": "Portlet",
+      "target": "_blank",
+      "widgetConfig": {
+        "launchText": "Open website",
+        "getLinksURL": "true"
+      },
+      "widgetURL": "/web/staticFeeds/public-myuw-list-of-links.json"
     }
   ]
 }
