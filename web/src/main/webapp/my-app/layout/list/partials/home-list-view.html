@@ -28,15 +28,29 @@
       <loading-gif data-object="layout" data-empty="layoutEmpty"></loading-gif>
     </div>
     <!-- List View -->
-    <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list">
-       <li class="col-xs-6 col-sm-3 col-md-3 col-lg-2 no-padding list-container" ng-repeat="portlet in layout | filter:filterText">
-         <compact-widget fname="{{portlet.fname}}"><remove-button></remove-button></compact-widget>
-       </li>
+    <ul dnd-list="layout"
+        dnd-horizontal-list="true"
+        class="layout-list compact">
+      <li class="dndPlaceholder no-padding widget-container"></li>
+      <li class="no-padding widget-container"
+          id="focus-handle__{{ widget.nodeId }}"
+          tabindex="0"
+          aria-label="{{ widget.title }}"
+          ng-repeat="widget in layout | filter:filterText"
+          ng-keydown="moveWithKeyboard(widget, $event)"
+          dnd-draggable="widget"
+          dnd-effect-allowed="move"
+          dnd-moved="layout.splice($index, 1)"
+          dnd-dragend="logEvent('dragEnd', widget.fname, $index)">
+        <compact-widget fname="{{ widget.fname }}">
+          <remove-button></remove-button>
+        </compact-widget>
+      </li>
     </ul>
-    <ul class="tile-list" ng-hide="GuestMode">
-       <li class="col-xs-6 col-sm-3 col-md-3 col-lg-2 no-padding list-container">
-         <marketplace-light></marketplace-light>
-       </li>
+    <ul class="layout-list__compact" ng-hide="GuestMode">
+      <li class="no-padding widget-container">
+        <marketplace-light></marketplace-light>
+      </li>
     </ul>
   </div>
 </frame-page>
