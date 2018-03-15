@@ -53,7 +53,6 @@ define(['angular', 'require'], function(angular, require) {
     .directive('removeButton', function() {
       return {
           restrict: 'E',
-          controller: 'LayoutController',
           templateUrl: require.toUrl('./partials/remove-button.html'),
       };
   });

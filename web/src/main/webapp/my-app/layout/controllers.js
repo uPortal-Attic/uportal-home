@@ -268,11 +268,11 @@ define(['angular', 'jquery'], function(angular, $) {
       $controller('BaseWidgetFunctionsController',
       {$scope: $scope, childController: vm});
       /**
-       *
-       * @param eventType
-       * @param fname
-       * @param dropIndex
-       * @param startIndex (optional)
+       * Log whenever a widget is moved
+       * @param eventType {String} Kind of interaction that moved the widget
+       * @param fname {String} The moved widget's fname
+       * @param dropIndex {Number} Index where the widget landed
+       * @param startIndex {Number} (optional) Index before moving the widget
        * @returns {boolean}
        */
       $scope.logEvent = function(eventType, fname, dropIndex, startIndex) {
@@ -290,20 +290,22 @@ define(['angular', 'jquery'], function(angular, $) {
       };
 
       /**
-       *
-       * @param widget
-       * @param event
-       * @returns {boolean}
+       * Respond to arrow key-presses when focusing a movable list element
+       * @param widget {Object} The widget trying to move
+       * @param event {Object} The event object
+       * @returns {boolean} True if proper conditions aren't met
        */
       $scope.moveWithKeyboard = function(widget, event) {
         // get index independent of ng-repeat to avoid filter bugs
         var currentIndex = findLayoutIndex($scope.layout, 'nodeId', widget.nodeId);
         var previousIndex = currentIndex - 1;
         var nextIndex = currentIndex + 1;
+        var widgetElement = document.getElementById('focus-handle__' + widget.nodeId);
 
         // left or up
         if(event.which === 37 || event.which === 38) {
-          console.log('trying to move ' + widget.title + ' left or up');
+          // stop element from losing focus
+          event.preventDefault();
           // if currentIndex is already 0, do nothing
           if (currentIndex === 0) {
             return true;
@@ -312,8 +314,8 @@ define(['angular', 'jquery'], function(angular, $) {
             $scope.layout.splice(currentIndex, 1);
             // reinsert at new index
             $scope.layout.splice(previousIndex, 0, widget);
-            // refocus moved widget
-            document.getElementById('node-' + widget.nodeId).focus();
+            // todo: refocus moved widget
+
             // save new layout order
             saveLayoutOrder(previousIndex, $scope.layout.length, widget.nodeId);
             // log change
@@ -322,15 +324,14 @@ define(['angular', 'jquery'], function(angular, $) {
         }
         // right or down
         if(event.which === 39 || event.which === 40) {
-          console.log('trying to move ' + widget.title + ' right or down');
+          // stop screen from scrolling
+          event.preventDefault();
           // if currentIndex is end of the list, do nothing
           if (currentIndex !== $scope.layout.length - 1) {
             // remove item from the list
             $scope.layout.splice(currentIndex, 1);
-            console.log($scope.layout);
             // reinsert at desired index
             $scope.layout.splice(nextIndex, 0, widget);
-            console.log($scope.layout);
             // save new layout order
             saveLayoutOrder(nextIndex, $scope.layout.length, widget.nodeId);
             // log change
@@ -340,10 +341,11 @@ define(['angular', 'jquery'], function(angular, $) {
       };
 
       /**
-       *
-       * @param dropIndex
-       * @param length
-       * @param nodeId
+       * After a widget is moved, save the new layout using
+       * the given information
+       * @param dropIndex {Number} Where the widget ended up
+       * @param length {Number} Length of the layout array
+       * @param nodeId {String} ID of the moved widget
        */
       var saveLayoutOrder = function(dropIndex, length, nodeId) {
         // identify previous and next widgets
@@ -357,11 +359,11 @@ define(['angular', 'jquery'], function(angular, $) {
       };
 
       /**
-       *
-       * @param array
-       * @param attribute
-       * @param value
-       * @returns {number}
+       * Find an array object with the given attribute/value pair
+       * @param array {Array} The array to iterate on
+       * @param attribute {String} The name of the attribute
+       * @param value {String} The value to match on
+       * @returns {number} Index of the desired item or -1
        */
       var findLayoutIndex = function(array, attribute, value) {
         for(var i = 0; i < array.length; i+= 1) {

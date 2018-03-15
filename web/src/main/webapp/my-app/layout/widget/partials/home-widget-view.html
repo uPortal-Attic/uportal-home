@@ -30,22 +30,24 @@
         dnd-horizontal-list="true"
         class="layout-list">
       <example-widgets ng-if="$storage.exampleWidgets"></example-widgets>
-      <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 no-padding widget-container"
-          id="node-{{ widget.nodeId }}"
+      <li class="dndPlaceholder no-padding widget-container"></li>
+      <li class="no-padding widget-container"
+          id="focus-handle__{{ widget.nodeId }}"
+          tabindex="0"
+          aria-label="{{ widget.title }}"
           ng-repeat="widget in layout | filter:filterText"
           ng-keydown="moveWithKeyboard(widget, $event)"
-          tabindex="0"
           dnd-draggable="widget"
           dnd-effect-allowed="move"
           dnd-moved="layout.splice($index, 1)"
-          dnd-dragend="logEvent(widget.fname, $index, 'dragEnd')">
+          dnd-dragend="logEvent('dragEnd', widget.fname, $index)">
         <widget fname="{{ widget.fname }}">
           <remove-button></remove-button>
         </widget>
       </li>
     </ul>
-    <ul class="tile-list" ng-hide="GuestMode">
-      <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 no-padding list-container">
+    <ul class="layout-list" ng-hide="GuestMode">
+      <li class="no-padding widget-container">
         <div class="widget-frame add-favorites">
           <a href="apps">
             <div class="widget-icon-container">
