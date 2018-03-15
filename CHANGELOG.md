@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+* Added `public-myuw` to localhost mock app directory to demonstrate
+  `list-of-links` widget sourcing its links from a URL rather than from direct
+  configuration. (#792)
+
 ### Changed
 
 ### Fixed

@@ -1,0 +1,30 @@
+{
+  "content": {
+    "links": [
+      {
+        "href": "https://public.predev.my.wisc.edu",
+        "icon": "fa-clock-o",
+        "target": "_blank",
+        "title": "predev"
+      },
+      {
+        "href": "https://public.test.my.wisc.edu",
+        "icon": "fa-calendar-times-o",
+        "target": "_blank",
+        "title": "Test"
+      },
+      {
+        "href": "https://public.qa.my.wisc.edu",
+        "icon": "fa-calendar-times-o",
+        "target": "_blank",
+        "title": "QA"
+      },
+      {
+        "href": "https://public.my.wisc.edu",
+        "icon": "fa-calendar-times-o",
+        "target": "_blank",
+        "title": "Production"
+      }
+    ]
+  }
+}
