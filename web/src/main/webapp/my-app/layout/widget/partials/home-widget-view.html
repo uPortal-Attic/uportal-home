@@ -30,7 +30,6 @@
         dnd-horizontal-list="true"
         class="layout-list">
       <example-widgets ng-if="$storage.exampleWidgets"></example-widgets>
-      <li class="dndPlaceholder no-padding widget-container"></li>
       <li class="no-padding widget-container"
           id="focus-handle__{{ widget.nodeId }}"
           tabindex="0"
@@ -45,6 +44,7 @@
           <remove-button></remove-button>
         </widget>
       </li>
+      <li class="dndPlaceholder no-padding widget-container"></li>
     </ul>
     <ul class="layout-list" ng-hide="GuestMode">
       <li class="no-padding widget-container">

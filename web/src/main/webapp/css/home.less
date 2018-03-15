@@ -196,10 +196,6 @@ div.table-cell {
   grid-auto-rows: minmax(296px, 1fr);
   grid-gap: 4px 8px;
 
-  .dndDraggingSource {
-    display: none;
-  }
-
   .dndPlaceholder {
     background: rgba(0, 0, 0, 0.12);
     min-width: 290px;
@@ -208,7 +204,7 @@ div.table-cell {
     margin: auto;
   }
 
-  .widget-container {
+  .widget-container:not(.dndDraggingSource) {
     padding-right: 0;
     padding-left: 0;
     display: flex;
@@ -228,6 +224,10 @@ div.table-cell {
         margin: 0;
       }
     }
+  }
+
+  .dndDraggingSource {
+    display: none;
   }
 
   // Extra small screens
@@ -251,7 +251,7 @@ div.table-cell {
       min-height: 150px;
     }
 
-    .widget-container {
+    .widget-container:not(.dndDraggingSource) {
       overflow: visible;
 
       compact-widget {
