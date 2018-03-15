@@ -186,15 +186,10 @@ div.table-cell {
   padding: 0;
   margin: auto;
   max-width: 1230px;
+
   /* Grid Fallback */
   display: flex;
   flex-wrap: wrap;
-
-  /* Supports Grid */
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-auto-rows: minmax(296px, 1fr);
-  grid-gap: 4px 8px;
 
   .dndPlaceholder {
     background: rgba(0, 0, 0, 0.12);
@@ -268,6 +263,13 @@ div.table-cell {
   }
 }
 
+.layout-list {
+  /* Supports Grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: minmax(296px, 1fr);
+  grid-gap: 4px 8px;
+}
 
 // View Toggle
 .home-title {

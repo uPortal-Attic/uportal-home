@@ -58,6 +58,7 @@ define([
       service.formatLayoutForCache(layoutDoc);
       service.formatLayoutForCache(layoutV1);
       service.formatLayoutForCache(layoutV43);
+
       expect(true).toBe(true);
     });
   });
