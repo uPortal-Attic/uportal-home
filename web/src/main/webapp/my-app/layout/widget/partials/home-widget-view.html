@@ -31,11 +31,14 @@
         class="layout-list">
       <example-widgets ng-if="$storage.exampleWidgets"></example-widgets>
       <li class="no-padding widget-container"
-          id="focus-handle__{{ widget.nodeId }}"
           tabindex="0"
           aria-label="{{ widget.title }}"
+          keep-focus
+          node-id="{{ widget.nodeId }}"
+          selected-node-id="{{ selectedNodeId }}"
+          index="{{ $index }}"
           ng-repeat="widget in layout | filter:filterText"
-          ng-keydown="moveWithKeyboard(widget, $event)"
+          ng-keydown="moveWithKeyboard(widget, $event);selectNode(widget.nodeId);"
           dnd-draggable="widget"
           dnd-effect-allowed="move"
           dnd-moved="layout.splice($index, 1)"

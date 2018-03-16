@@ -47,6 +47,15 @@ define(['angular', 'jquery'], function(angular, $) {
     function($localStorage, $log, $sessionStorage,
       $scope, $rootScope, layoutService) {
       var vm = this;
+      $scope.selectedNodeId = '';
+
+      /**
+       * Set the selected widget in scope to track focus
+       * @param nodeId {string} The id of the selected widget
+       */
+      $scope.selectNode = function(nodeId) {
+        $scope.selectedNodeId = nodeId;
+      };
 
       /**
        * Log whenever a widget is moved
@@ -92,8 +101,6 @@ define(['angular', 'jquery'], function(angular, $) {
             $scope.layout.splice(currentIndex, 1);
             // reinsert at new index
             $scope.layout.splice(previousIndex, 0, widget);
-            // todo: refocus moved widget
-
             // save new layout order
             saveLayoutOrder(previousIndex,
               $scope.layout.length,
@@ -351,9 +358,20 @@ define(['angular', 'jquery'], function(angular, $) {
   ['$controller', '$log', '$scope', '$rootScope', 'layoutService',
     function($controller, $log, $scope, $rootScope, layoutService) {
       var vm = this;
+      $scope.selectedNodeId = '';
+
       // Inherit from BaseWidgetFunctionsController
       $controller('BaseWidgetFunctionsController',
       {$scope: $scope, childController: vm});
+
+      /**
+       * Set the selected widget in scope to track focus
+       * @param nodeId {string} The id of the selected widget
+       */
+      $scope.selectNode = function(nodeId) {
+        $scope.selectedNodeId = nodeId;
+      };
+
       /**
        * Log whenever a widget is moved
        * @param eventType {String} Kind of interaction that moved the widget
@@ -398,8 +416,6 @@ define(['angular', 'jquery'], function(angular, $) {
             $scope.layout.splice(currentIndex, 1);
             // reinsert at new index
             $scope.layout.splice(previousIndex, 0, widget);
-            // todo: refocus moved widget
-
             // save new layout order
             saveLayoutOrder(previousIndex,
               $scope.layout.length,
