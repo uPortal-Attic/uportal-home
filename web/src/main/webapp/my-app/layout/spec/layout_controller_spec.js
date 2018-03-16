@@ -98,6 +98,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           scope.$apply(function() {
             deferred.resolve({'layout': []});
           });
+
           expect(scope.layoutEmpty).toBe(true);
         }
       );
@@ -115,6 +116,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           scope.$apply(function() {
             deferred.resolve({'layout': [{'fake': true}]});
           });
+
           expect(scope.layoutEmpty).toBe(false);
       });
     });

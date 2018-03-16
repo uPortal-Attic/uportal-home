@@ -47,11 +47,131 @@ define(['angular', 'jquery'], function(angular, $) {
     function($localStorage, $log, $sessionStorage,
       $scope, $rootScope, layoutService) {
       var vm = this;
+      $scope.selectedNodeId = '';
+
+      /**
+       * Set the selected widget in scope to track focus
+       * @param nodeId {string} The id of the selected widget
+       */
+      $scope.selectNode = function(nodeId) {
+        $scope.selectedNodeId = nodeId;
+      };
+
+      /**
+       * Log whenever a widget is moved
+       * @param eventType {String} Kind of interaction that moved the widget
+       * @param fname {String} The moved widget's fname
+       * @param dropIndex {Number} Index where the widget landed
+       * @param startIndex {Number} (optional) Index before moving the widget
+       * @return
+       */
+      $scope.logEvent = function(eventType, fname, dropIndex, startIndex) {
+        switch (eventType) {
+          case 'dragEnd':
+            $log.info('Dragged ' + fname + ' to index ' + dropIndex);
+            break;
+          case 'keyboardMove':
+            $log.info('Moved ' + fname + 'from index ' + startIndex +
+              ' to index ' + dropIndex);
+            break;
+          default:
+            return;
+        }
+      };
+
+      /**
+       * Respond to arrow key-presses when focusing a movable list element
+       * @param widget {Object} The widget trying to move
+       * @param event {Object} The event object
+       */
+      $scope.moveWithKeyboard = function(widget, event) {
+        // get index independent of ng-repeat to avoid filter bugs
+        var currentIndex =
+          findLayoutIndex($scope.layout, 'nodeId', widget.nodeId);
+        var previousIndex = currentIndex - 1;
+        var nextIndex = currentIndex + 1;
+
+        // left or up
+        if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+          // stop element from losing focus
+          event.preventDefault();
+          // if currentIndex is already 0, do nothing
+          if (currentIndex !== 0) {
+            // remove item from the list
+            $scope.layout.splice(currentIndex, 1);
+            // reinsert at new index
+            $scope.layout.splice(previousIndex, 0, widget);
+            // save new layout order
+            saveLayoutOrder(previousIndex,
+              $scope.layout.length,
+              widget.nodeId);
+            // log change
+            $scope.logEvent( 'keyboardMove',
+              widget.fname,
+              previousIndex,
+              currentIndex);
+          }
+        }
+        // right or down
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+          // stop screen from scrolling
+          event.preventDefault();
+          // if currentIndex is end of the list, do nothing
+          if (currentIndex !== $scope.layout.length - 1) {
+            // remove item from the list
+            $scope.layout.splice(currentIndex, 1);
+            // reinsert at desired index
+            $scope.layout.splice(nextIndex, 0, widget);
+            // save new layout order
+            saveLayoutOrder(nextIndex, $scope.layout.length, widget.nodeId);
+            // log change
+            $scope.logEvent('keyboardMove',
+              widget.fname,
+              nextIndex,
+              currentIndex);
+          }
+        }
+      };
+
+      /**
+       * After a widget is moved, save the new layout using
+       * the given information
+       * @param dropIndex {Number} Where the widget ended up
+       * @param length {Number} Length of the layout array
+       * @param nodeId {String} ID of the moved widget
+       */
+      var saveLayoutOrder = function(dropIndex, length, nodeId) {
+        // identify previous and next widgets
+        var previousNodeId =
+          dropIndex !== 0 ? $scope.layout[dropIndex - 1].nodeId : '';
+        var nextNodeId =
+          dropIndex !== length - 1 ? $scope.layout[dropIndex + 1].nodeId : '';
+        // call layout service to save
+        layoutService.moveStuff(dropIndex,
+          length, nodeId, previousNodeId, nextNodeId);
+      };
+
+      /**
+       * Find an array object with the given attribute/value pair
+       * @param array {Array} The array to iterate on
+       * @param attribute {String} The name of the attribute
+       * @param value {String} The value to match on
+       * @return {number} Index of the desired item or -1
+       */
+      var findLayoutIndex = function(array, attribute, value) {
+        for (var i = 0; i < array.length; i+= 1) {
+          if (array[i][attribute] === value) {
+            return i;
+          }
+        }
+        return -1;
+      };
+
       /**
        * Set the href based on whether it's a static, exclusive,
        * or basic widget (based on attributes from entity file)
        * @param portlet
-       * @returns {String}
+       * @return {String}
        */
       vm.renderURL = function(portlet) {
         if (portlet.staticContent != null && portlet.altMaxUrl == false) {
@@ -89,32 +209,6 @@ define(['angular', 'jquery'], function(angular, $) {
              $sessionStorage.layout = layoutService.getLayout();
            });
        };
-      /**
-       * Configure ui-sortable options
-       * @type {{delay: number,
-       * cursorAt: {top: number, left: number},
-       * stop: $scope.sortableOptions.stop}}
-       */
-      $scope.sortableOptions = {
-        delay: 250,
-        cursorAt: {top: 30, left: 30},
-        stop: function(e, ui) {
-          if (ui.item.sortable.dropindex != ui.item.sortable.index) {
-            var node = $scope.layout[ui.item.sortable.dropindex];
-            $log.info('Change happened, logging move of ' + node.fname +
-            ' from ' + ui.item.sortable.index +
-            ' to ' + ui.item.sortable.dropindex);
-            // index, length, movingNodeId, previousNodeId, nextNodeId
-            var prevNodeId = ui.item.sortable.dropindex != 0 ?
-              $scope.layout[ui.item.sortable.dropindex - 1].nodeId : '';
-            var nextNodeId = ui.item.sortable.dropindex !=
-            $scope.layout.length - 1 ?
-              $scope.layout[ui.item.sortable.dropindex + 1].nodeId : '';
-            layoutService.moveStuff(ui.item.sortable.dropindex,
-              $scope.layout.length, node.nodeId, prevNodeId, nextNodeId);
-          }
-        },
-      };
 
       /**
        * Initialize LayoutController
@@ -128,6 +222,7 @@ define(['angular', 'jquery'], function(angular, $) {
           // Get user's home layout
           layoutService.getLayout().then(function(data) {
             $rootScope.layout = data.layout;
+            $scope.layout = data.layout;
             if (data.layout && data.layout.length == 0) {
               $scope.layoutEmpty = true;
             }
@@ -145,7 +240,6 @@ define(['angular', 'jquery'], function(angular, $) {
     '$sessionStorage', function($scope, $filter, layoutService,
                                 $sessionStorage) {
       var vm = this;
-
       /**
        * Remove widget from home layout
        * @param fname
@@ -193,7 +287,7 @@ define(['angular', 'jquery'], function(angular, $) {
       /**
        * Determine the type of widget to display
        * @param portlet
-       * @returns {*}
+       * @return {*}
        */
       childController.portletType = function portletType(portlet) {
         // If portlet has a defined widgetType,
@@ -239,7 +333,7 @@ define(['angular', 'jquery'], function(angular, $) {
       /**
        * Sets href attribute for 'BASIC' type widget
        * @param portlet
-       * @returns {*}
+       * @return {*}
        */
       childController.renderURL = function renderURL(portlet) {
         // Check if it's a static or exclusive portlet
@@ -264,9 +358,129 @@ define(['angular', 'jquery'], function(angular, $) {
   ['$controller', '$log', '$scope', '$rootScope', 'layoutService',
     function($controller, $log, $scope, $rootScope, layoutService) {
       var vm = this;
+      $scope.selectedNodeId = '';
+
       // Inherit from BaseWidgetFunctionsController
       $controller('BaseWidgetFunctionsController',
       {$scope: $scope, childController: vm});
+
+      /**
+       * Set the selected widget in scope to track focus
+       * @param nodeId {string} The id of the selected widget
+       */
+      $scope.selectNode = function(nodeId) {
+        $scope.selectedNodeId = nodeId;
+      };
+
+      /**
+       * Log whenever a widget is moved
+       * @param eventType {String} Kind of interaction that moved the widget
+       * @param fname {String} The moved widget's fname
+       * @param dropIndex {Number} Index where the widget landed
+       * @param startIndex {Number} (optional) Index before moving the widget
+       * @return
+       */
+      $scope.logEvent = function(eventType, fname, dropIndex, startIndex) {
+        switch (eventType) {
+          case 'dragEnd':
+            $log.info('Dragged ' + fname + ' to index ' + dropIndex);
+            break;
+          case 'keyboardMove':
+            $log.info('Moved ' + fname + 'from index ' + startIndex +
+              ' to index ' + dropIndex);
+            break;
+          default:
+            return;
+        }
+      };
+
+      /**
+       * Respond to arrow key-presses when focusing a movable list element
+       * @param widget {Object} The widget trying to move
+       * @param event {Object} The event object
+       */
+      $scope.moveWithKeyboard = function(widget, event) {
+        // get index independent of ng-repeat to avoid filter bugs
+        var currentIndex =
+          findLayoutIndex($scope.layout, 'nodeId', widget.nodeId);
+        var previousIndex = currentIndex - 1;
+        var nextIndex = currentIndex + 1;
+
+        // left or up
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+          // stop element from losing focus
+          event.preventDefault();
+          // if currentIndex is already 0, do nothing
+          if (currentIndex !== 0) {
+            // remove item from the list
+            $scope.layout.splice(currentIndex, 1);
+            // reinsert at new index
+            $scope.layout.splice(previousIndex, 0, widget);
+            // save new layout order
+            saveLayoutOrder(previousIndex,
+              $scope.layout.length,
+              widget.nodeId);
+            // log change
+            $scope.logEvent( 'keyboardMove',
+              widget.fname,
+              previousIndex,
+              currentIndex);
+          }
+        }
+        // right or down
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+          // stop screen from scrolling
+          event.preventDefault();
+          // if currentIndex is end of the list, do nothing
+          if (currentIndex !== $scope.layout.length - 1) {
+            // remove item from the list
+            $scope.layout.splice(currentIndex, 1);
+            // reinsert at desired index
+            $scope.layout.splice(nextIndex, 0, widget);
+            // save new layout order
+            saveLayoutOrder(nextIndex, $scope.layout.length, widget.nodeId);
+            // log change
+            $scope.logEvent('keyboardMove',
+              widget.fname,
+              nextIndex,
+              currentIndex);
+          }
+        }
+      };
+
+      /**
+       * After a widget is moved, save the new layout using
+       * the given information
+       * @param dropIndex {Number} Where the widget ended up
+       * @param length {Number} Length of the layout array
+       * @param nodeId {String} ID of the moved widget
+       */
+      var saveLayoutOrder = function(dropIndex, length, nodeId) {
+        // identify previous and next widgets
+        var previousNodeId =
+          dropIndex !== 0 ? $scope.layout[dropIndex - 1].nodeId : '';
+        var nextNodeId =
+          dropIndex !== length - 1 ? $scope.layout[dropIndex + 1].nodeId : '';
+        // call layout service to save
+        layoutService.moveStuff(dropIndex,
+          length, nodeId, previousNodeId, nextNodeId);
+      };
+
+      /**
+       * Find an array object with the given attribute/value pair
+       * @param array {Array} The array to iterate on
+       * @param attribute {String} The name of the attribute
+       * @param value {String} The value to match on
+       * @return {number} Index of the desired item or -1
+       */
+      var findLayoutIndex = function(array, attribute, value) {
+        for (var i = 0; i < array.length; i+= 1) {
+          if (array[i][attribute] === value) {
+            return i;
+          }
+        }
+        return -1;
+      };
 
       /**
        * Initialize expanded mode widget layout
@@ -279,6 +493,7 @@ define(['angular', 'jquery'], function(angular, $) {
           // Get user's home layout
           layoutService.getLayout().then(function(data) {
             $rootScope.layout = data.layout;
+            $scope.layout = data.layout;
             if (data.layout && data.layout.length == 0) {
               $scope.layoutEmpty = true;
             }
@@ -289,35 +504,6 @@ define(['angular', 'jquery'], function(angular, $) {
         }
       }
 
-      /**
-       * Configure ui-sortable options
-       * @type {{
-       * delay: number,
-       * cursorAt: {top: number, left: number},
-       * stop: $scope.sortableOptions.stop
-       * }}
-       */
-      $scope.sortableOptions = {
-        delay: 250,
-        cursorAt: {top: 30, left: 30},
-        stop: function(e, ui) {
-          if (angular.isDefined(ui.item.sortable.dropindex)
-            && ui.item.sortable.dropindex !== ui.item.sortable.index) {
-            var node = $scope.layout[ui.item.sortable.dropindex];
-            $log.log('Change happened, logging move of ' + node.fname +
-              ' from ' + ui.item.sortable.index +
-              ' to ' + ui.item.sortable.dropindex);
-            // index, length, movingNodeId, previousNodeId, nextNodeId
-            var prevNodeId = ui.item.sortable.dropindex != 0 ?
-              $scope.layout[ui.item.sortable.dropindex - 1].nodeId : '';
-            var nextNodeId = ui.item.sortable.dropindex !=
-            $scope.layout.length - 1 ?
-              $scope.layout[ui.item.sortable.dropindex + 1].nodeId : '';
-            layoutService.moveStuff(ui.item.sortable.dropindex,
-              $scope.layout.length, node.nodeId, prevNodeId, nextNodeId);
-          }
-        },
-      };
       init();
   }]);
 });

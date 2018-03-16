@@ -53,8 +53,26 @@ define(['angular', 'require'], function(angular, require) {
     .directive('removeButton', function() {
       return {
           restrict: 'E',
-          controller: 'LayoutController',
           templateUrl: require.toUrl('./partials/remove-button.html'),
       };
-  });
+    })
+    .directive('keepFocus', function($timeout) {
+      return {
+        restrict: 'A',
+        scope: {
+          nodeId: '@',
+          index: '@',
+          selectedNodeId: '@',
+        },
+        link: function($scope, $element, attrs) {
+          $scope.$watch('index', function(currentValue, previousValue) {
+            if ($scope.nodeId === $scope.selectedNodeId) {
+              $timeout(function() {
+                $element[0].focus();
+              });
+            }
+          });
+        },
+      };
+    });
 });

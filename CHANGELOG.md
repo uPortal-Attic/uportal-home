@@ -8,12 +8,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased][]
 
 ### Added
-
+* Sort widget layout by keyboard -- arrow keys when the widget has focus will move it left or right (#795)
 * Added `public-myuw` to localhost mock app directory to demonstrate
   `list-of-links` widget sourcing its links from a URL rather than from direct
   configuration. (#792)
 
 ### Changed
+* Replaced bootstrap in widget layout with CSS-grid and flex fallback (#795)
+* Replaced jQuery UI Sortable with angular-drag-and-drop-lists (#795)
 
 ### Fixed
 

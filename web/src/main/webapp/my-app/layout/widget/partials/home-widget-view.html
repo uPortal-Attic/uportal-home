@@ -20,23 +20,37 @@
 -->
 <!-- HOME-WIDGET-VIEW -->
 <frame-page app-title="Home">
-  <div role="main" class="col-xs-12 home__expanded" ng-controller="WidgetController as widgetCtrl">
+  <div role="main" class="home__expanded" ng-controller="WidgetController as widgetCtrl">
     <!-- HOME CONTROLS -->
     <home-controls></home-controls>
     <!-- Loading -->
     <loading-gif data-object="layout" data-empty="layoutEmpty"></loading-gif>
     <!-- Widget View -->
-    <ul ui-sortable="sortableOptions" ng-model="layout" class="tile-list">
+    <ul dnd-list="layout"
+        dnd-horizontal-list="true"
+        class="layout-list">
       <example-widgets ng-if="$storage.exampleWidgets"></example-widgets>
-      <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 no-padding list-container"
-          ng-repeat="portlet in layout | filter:filterText">
-        <widget fname="{{ portlet.fname }}">
+      <li class="no-padding widget-container"
+          tabindex="0"
+          aria-label="{{ widget.title }}"
+          keep-focus
+          node-id="{{ widget.nodeId }}"
+          selected-node-id="{{ selectedNodeId }}"
+          index="{{ $index }}"
+          ng-repeat="widget in layout | filter:filterText"
+          ng-keydown="moveWithKeyboard(widget, $event);selectNode(widget.nodeId);"
+          dnd-draggable="widget"
+          dnd-effect-allowed="move"
+          dnd-moved="layout.splice($index, 1)"
+          dnd-dragend="logEvent('dragEnd', widget.fname, $index)">
+        <widget fname="{{ widget.fname }}">
           <remove-button></remove-button>
         </widget>
       </li>
+      <li class="dndPlaceholder no-padding widget-container"></li>
     </ul>
-    <ul class="tile-list" ng-hide="GuestMode">
-      <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 no-padding list-container">
+    <ul class="layout-list" ng-hide="GuestMode">
+      <li class="no-padding widget-container">
         <div class="widget-frame add-favorites">
           <a href="apps">
             <div class="widget-icon-container">

@@ -157,44 +157,93 @@ div.table-cell {
   vertical-align: middle;
 }
 
-.ui-sortable-helper {
-  box-shadow: 0 0 25px #ccc;
-  -ms-transform: rotate(3deg); /* IE 9 */
-  -webkit-transform: rotate(3deg); /* Chrome, Safari, Opera */
-  transform: rotate(3deg);
-
-  &:active {
-    cursor: move;
-  }
-
-  a:-webkit-any-link {
-    cursor: move;
-  }
-
-  a:-moz-any-link {
-    cursor: move;
-  }
-}
-
-.ui-sortable-placeholder {
-  background-color: #eee !important;
-  visibility: visible !important;
-}
-
-.tile-list {
+.layout-list {
   list-style-type: none;
   padding: 0;
   margin: auto;
-  max-width: 1200px;
+  max-width: 1230px;
 
-  .list-container {
+  /* Grid Fallback */
+  display: flex;
+  flex-wrap: wrap;
+
+  /* Supports Grid */
+  /* stylelint-disable */
+  display: grid;
+  /* stylelint-enable */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: minmax(296px, 1fr);
+  grid-gap: 4px 8px;
+
+  .dndPlaceholder {
+    background: rgba(0, 0, 0, 0.12);
+    min-width: 290px;
+    min-height: 290px;
+    border-radius: 6px;
+    margin: auto;
+  }
+
+  .widget-container:not(.dndDraggingSource) {
     padding-right: 0;
     padding-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    flex: 1;
+    overflow: hidden;
+
+    widget {
+      display: flex;
+      flex: 1;
+
+      .widget-frame {
+        display: flex;
+        flex: 1;
+        margin: 0;
+      }
+    }
+  }
+
+  .dndDraggingSource {
+    display: none;
+  }
+
+  // Extra small screens
+  @media (max-width: @xs) {
+    max-width: 400px;
   }
 
   // Super Large Screens
   @media (min-width: 1500px) {
     margin: 0 auto;
+  }
+
+  &.compact {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: minmax(150px, 1fr);
+    grid-gap: 10px;
+
+    .dndPlaceholder {
+      min-width: 200px;
+      max-width: 200px;
+      min-height: 150px;
+    }
+
+    .widget-container:not(.dndDraggingSource) {
+      overflow: visible;
+
+      compact-widget {
+        display: flex;
+        flex: 1;
+
+        .list-content {
+          margin: 0;
+          display: flex;
+          flex: 1;
+        }
+      }
+    }
   }
 }
 

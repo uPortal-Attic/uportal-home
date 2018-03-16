@@ -26,7 +26,7 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
     doLogin().then(bootstrapApplication)
       .catch(function() {
         angular.element('#loading-splash').html(
-          '<b style="padding: 10px;">An error has occured during loading, ' +
+          '<b style="padding: 10px;">An error has occurred during loading, ' +
           'please try refreshing the page. If the issue persists please ' +
           'contact the helpdesk.</b>');
       });

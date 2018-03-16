@@ -34,6 +34,7 @@ define([
   'ngRoute',
   'ngSanitize',
   'ngStorage',
+  '../js/dnd-lists',
   './layout/controllers',
   './layout/directives',
   './layout/services',
@@ -68,6 +69,7 @@ define([
     'my-app.search.directives',
     'my-app.search.services',
     'ngStorage',
+    'dndLists',
     'portal',
     'web-config',
   ])
