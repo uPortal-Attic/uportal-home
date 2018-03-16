@@ -54,7 +54,7 @@ define(['angular', 'jquery'], function(angular, $) {
        * @param fname {String} The moved widget's fname
        * @param dropIndex {Number} Index where the widget landed
        * @param startIndex {Number} (optional) Index before moving the widget
-       * @return {boolean}
+       * @return
        */
       $scope.logEvent = function(eventType, fname, dropIndex, startIndex) {
         switch (eventType) {
@@ -66,7 +66,7 @@ define(['angular', 'jquery'], function(angular, $) {
               ' to index ' + dropIndex);
             break;
           default:
-            return true;
+            return;
         }
       };
 
@@ -74,7 +74,6 @@ define(['angular', 'jquery'], function(angular, $) {
        * Respond to arrow key-presses when focusing a movable list element
        * @param widget {Object} The widget trying to move
        * @param event {Object} The event object
-       * @return {boolean} True if proper conditions aren't met
        */
       $scope.moveWithKeyboard = function(widget, event) {
         // get index independent of ng-repeat to avoid filter bugs
@@ -84,13 +83,11 @@ define(['angular', 'jquery'], function(angular, $) {
         var nextIndex = currentIndex + 1;
 
         // left or up
-        if (event.which === 37 || event.which === 38) {
+        if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
           // stop element from losing focus
           event.preventDefault();
           // if currentIndex is already 0, do nothing
-          if (currentIndex === 0) {
-            return true;
-          } else {
+          if (currentIndex !== 0) {
             // remove item from the list
             $scope.layout.splice(currentIndex, 1);
             // reinsert at new index
@@ -109,7 +106,7 @@ define(['angular', 'jquery'], function(angular, $) {
           }
         }
         // right or down
-        if (event.which === 39 || event.which === 40) {
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
           // stop screen from scrolling
           event.preventDefault();
           // if currentIndex is end of the list, do nothing
@@ -363,7 +360,7 @@ define(['angular', 'jquery'], function(angular, $) {
        * @param fname {String} The moved widget's fname
        * @param dropIndex {Number} Index where the widget landed
        * @param startIndex {Number} (optional) Index before moving the widget
-       * @return {boolean}
+       * @return
        */
       $scope.logEvent = function(eventType, fname, dropIndex, startIndex) {
         switch (eventType) {
@@ -375,7 +372,7 @@ define(['angular', 'jquery'], function(angular, $) {
               ' to index ' + dropIndex);
             break;
           default:
-            return true;
+            return;
         }
       };
 
@@ -383,7 +380,6 @@ define(['angular', 'jquery'], function(angular, $) {
        * Respond to arrow key-presses when focusing a movable list element
        * @param widget {Object} The widget trying to move
        * @param event {Object} The event object
-       * @return {boolean} True if proper conditions aren't met
        */
       $scope.moveWithKeyboard = function(widget, event) {
         // get index independent of ng-repeat to avoid filter bugs
@@ -393,13 +389,11 @@ define(['angular', 'jquery'], function(angular, $) {
         var nextIndex = currentIndex + 1;
 
         // left or up
-        if (event.which === 37 || event.which === 38) {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
           // stop element from losing focus
           event.preventDefault();
           // if currentIndex is already 0, do nothing
-          if (currentIndex === 0) {
-            return true;
-          } else {
+          if (currentIndex !== 0) {
             // remove item from the list
             $scope.layout.splice(currentIndex, 1);
             // reinsert at new index
@@ -418,7 +412,7 @@ define(['angular', 'jquery'], function(angular, $) {
           }
         }
         // right or down
-        if (event.which === 39 || event.which === 40) {
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
           // stop screen from scrolling
           event.preventDefault();
           // if currentIndex is end of the list, do nothing
