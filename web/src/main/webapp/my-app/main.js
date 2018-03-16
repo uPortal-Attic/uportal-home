@@ -34,7 +34,7 @@ define([
   'ngRoute',
   'ngSanitize',
   'ngStorage',
-  'dndLists',
+  '../js/dnd-lists',
   './layout/controllers',
   './layout/directives',
   './layout/services',
