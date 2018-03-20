@@ -39,7 +39,7 @@
       "featureImageUrl": null,
       "priority": "high",
       "audienceFilter": {
-        "groups": [""],
+        "groups": ["no-one-is-in-this-made-up-group"],
         "dataUrl": "",
         "dataObject": "",
         "dataArrayFilter": {}
