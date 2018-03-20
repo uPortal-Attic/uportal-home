@@ -152,7 +152,6 @@ define([
         $scope.googleSearchEnabled = false;
         $scope.googleResultsEstimatedCount = 0;
         $scope.googleEmptyResults = false;
-        $scope.totalCount = 0;
         $scope.searchResultLimit = 20;
         $scope.showAll = $rootScope.GuestMode || false;
         base.setupSearchTerm();
@@ -166,22 +165,6 @@ define([
         }).catch(function() {
           $log.warn('Could not getPortlets');
         });
-        $scope.$watchGroup([
-            'googleResultsEstimatedCount',
-            'myuwFilteredResults.length',
-            'wiscDirectoryResultCount'],
-          function() {
-            $scope.totalCount = 0;
-            if ($scope.googleResultsEstimatedCount) {
-              $scope.totalCount+= parseInt($scope.googleResultsEstimatedCount);
-            }
-            if ($scope.myuwFilteredResults) {
-              $scope.totalCount+= parseInt($scope.myuwFilteredResults.length);
-            }
-            if ($scope.wiscDirectoryResultCount) {
-              $scope.totalCount+= parseInt($scope.wiscDirectoryResultCount);
-            }
-          });
       };
       init();
 
