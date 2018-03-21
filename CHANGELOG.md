@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Removed defective (always zero) search results total badge (#797)
 * Alphabetically sort by `title` not `name` in app directory browse (#791)
 * Made `relatedPortlets` arrays empty in `entries.json` (#787)
+* Fail safe when `portlet` data record lacks `title` (#798)
 
 ### Dependency upgrades
 
