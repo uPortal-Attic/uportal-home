@@ -257,7 +257,9 @@ define(['angular', 'jquery'], function(angular, $) {
           var lowerSearchTerm = searchTerm.toLowerCase();
 
           // check title
-          if (portlet.title.toLowerCase().indexOf(lowerSearchTerm) !== -1) {
+          if (portlet
+              && portlet.title
+              && portlet.title.toLowerCase().indexOf(lowerSearchTerm) !== -1) {
             return true;
           }
 
