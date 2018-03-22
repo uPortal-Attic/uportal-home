@@ -33,7 +33,13 @@ identity.
 uPortal-home may trigger other cache population. Widgets and messages
 (notifications and announcements) that rely upon portlet resource URLs for
 their JSON may cause portlets to cache data as the identity
-active when the widget was rendered.
+active when the widget was rendered or message was resolved.
+
+This may mean that users need to bookmark URLs that actuate the uPortal
+rendering pipeline rather than `uPortal-home` (e.g.
+`/uPortal/p/user-administration`) and initiate their uPortal sessions with those
+bookmarked URLs taking care to not visit any pages rendered by `uPortal-home`
+before activating the attribute swapping or impersonation features.
 
 ### Impersonation and attribute swapping may only apply selectively
 
