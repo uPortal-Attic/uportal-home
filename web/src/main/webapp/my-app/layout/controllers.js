@@ -36,318 +36,45 @@ define(['angular', 'jquery'], function(angular, $) {
       $location.path('/' + $localStorage.layoutMode);
   }])
 
-  /**
-   * Controller for the compact mode widget layout
-   * (layout/list/partials/home-list-view.html and
-   * layout/partials/default-card.html)
-   */
-  .controller('LayoutController',
-    ['$localStorage', '$log', '$sessionStorage',
-    '$scope', '$rootScope', 'layoutService',
-    function($localStorage, $log, $sessionStorage,
-      $scope, $rootScope, layoutService) {
-      var vm = this;
-      $scope.selectedNodeId = '';
-
-      /**
-       * Set the selected widget in scope to track focus
-       * @param nodeId {string} The id of the selected widget
-       */
-      $scope.selectNode = function(nodeId) {
-        $scope.selectedNodeId = nodeId;
-      };
-
-      /**
-       * Log whenever a widget is moved
-       * @param eventType {String} Kind of interaction that moved the widget
-       * @param fname {String} The moved widget's fname
-       * @param dropIndex {Number} Index where the widget landed
-       * @param startIndex {Number} (optional) Index before moving the widget
-       * @return
-       */
-      $scope.logEvent = function(eventType, fname, dropIndex, startIndex) {
-        switch (eventType) {
-          case 'dragEnd':
-            $log.info('Dragged ' + fname + ' to index ' + dropIndex);
-            break;
-          case 'keyboardMove':
-            $log.info('Moved ' + fname + 'from index ' + startIndex +
-              ' to index ' + dropIndex);
-            break;
-          default:
-            return;
-        }
-      };
-
-      /**
-       * Respond to arrow key-presses when focusing a movable list element
-       * @param widget {Object} The widget trying to move
-       * @param event {Object} The event object
-       */
-      $scope.moveWithKeyboard = function(widget, event) {
-        // get index independent of ng-repeat to avoid filter bugs
-        var currentIndex =
-          findLayoutIndex($scope.layout, 'nodeId', widget.nodeId);
-        var previousIndex = currentIndex - 1;
-        var nextIndex = currentIndex + 1;
-
-        // left or up
-        if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
-          // stop element from losing focus
-          event.preventDefault();
-          // if currentIndex is already 0, do nothing
-          if (currentIndex !== 0) {
-            // remove item from the list
-            $scope.layout.splice(currentIndex, 1);
-            // reinsert at new index
-            $scope.layout.splice(previousIndex, 0, widget);
-            // save new layout order
-            saveLayoutOrder(previousIndex,
-              $scope.layout.length,
-              widget.nodeId);
-            // log change
-            $scope.logEvent( 'keyboardMove',
-              widget.fname,
-              previousIndex,
-              currentIndex);
-          }
-        }
-        // right or down
-        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-          // stop screen from scrolling
-          event.preventDefault();
-          // if currentIndex is end of the list, do nothing
-          if (currentIndex !== $scope.layout.length - 1) {
-            // remove item from the list
-            $scope.layout.splice(currentIndex, 1);
-            // reinsert at desired index
-            $scope.layout.splice(nextIndex, 0, widget);
-            // save new layout order
-            saveLayoutOrder(nextIndex, $scope.layout.length, widget.nodeId);
-            // log change
-            $scope.logEvent('keyboardMove',
-              widget.fname,
-              nextIndex,
-              currentIndex);
-          }
-        }
-      };
-
-      /**
-       * After a widget is moved, save the new layout using
-       * the given information
-       * @param dropIndex {Number} Where the widget ended up
-       * @param length {Number} Length of the layout array
-       * @param nodeId {String} ID of the moved widget
-       */
-      var saveLayoutOrder = function(dropIndex, length, nodeId) {
-        // identify previous and next widgets
-        var previousNodeId =
-          dropIndex !== 0 ? $scope.layout[dropIndex - 1].nodeId : '';
-        var nextNodeId =
-          dropIndex !== length - 1 ? $scope.layout[dropIndex + 1].nodeId : '';
-        // call layout service to save
-        layoutService.moveStuff(dropIndex,
-          length, nodeId, previousNodeId, nextNodeId);
-      };
-
-      /**
-       * Find an array object with the given attribute/value pair
-       * @param array {Array} The array to iterate on
-       * @param attribute {String} The name of the attribute
-       * @param value {String} The value to match on
-       * @return {number} Index of the desired item or -1
-       */
-      var findLayoutIndex = function(array, attribute, value) {
-        for (var i = 0; i < array.length; i+= 1) {
-          if (array[i][attribute] === value) {
-            return i;
-          }
-        }
-        return -1;
-      };
-
-      /**
-       * Set the href based on whether it's a static, exclusive,
-       * or basic widget (based on attributes from entity file)
-       * @param portlet
-       * @return {String}
-       */
-      vm.renderURL = function(portlet) {
-        if (portlet.staticContent != null && portlet.altMaxUrl == false) {
-          return 'static/' + portlet.fname;
-        } else if (portlet.altMaxUrl == false &&
-          (portlet.renderOnWeb || $localStorage.webPortletRender)) {
-          return 'exclusive/' + portlet.fname;
-        } else {
-          return portlet.url;
-        }
-      };
-
-      $rootScope.addPortletToHome = function(fname) {
-          layoutService.addToLayoutByFname(fname).success(function() {
-            layoutService.getUncachedLayout().then(function(data) {
-              $scope.$apply($scope.layout.unshift(data.layout[0]));
-              return true;
-          }).catch(function() {
-            $log.warn('Could not getLayout while adding to home');
-            return false;
-          });
-        });
-      };
-
-      /**
-       * Add widget to home layout
-       */
-       vm.addPortlet = function addPortletFunction(fname) {
-         $rootScope.addToLayoutByFname(fname).success(function() {
-           $scope.$apply(function() {
-             $sessionStorage.layout = $scope.layout;
-           });
-         }).error(
-           function() {
-             $sessionStorage.layout = layoutService.getLayout();
-           });
-       };
-
-      /**
-       * Initialize LayoutController
-       */
-      vm.init = function() {
-        if (angular.isUndefined($rootScope.layout) ||
-        $rootScope.layout == null) {
-          $rootScope.layout = [];
-          $scope.layoutEmpty = false;
-
-          // Get user's home layout
-          layoutService.getLayout().then(function(data) {
-            $rootScope.layout = data.layout;
-            $scope.layout = data.layout;
-            if (data.layout && data.layout.length == 0) {
-              $scope.layoutEmpty = true;
-            }
-            return data;
-          }).catch(function() {
-            $log.warn('Could not getLayout');
-          });
-        }
-      };
-
-      vm.init();
-    }])
-
-  .controller('RemoveWidgetController', ['$scope', '$filter', 'layoutService',
-    '$sessionStorage', function($scope, $filter, layoutService,
-                                $sessionStorage) {
+  .controller('RemoveWidgetController', ['$scope', '$filter', '$sessionStorage',
+    '$mdToast', 'layoutService', function($scope, $filter, layoutService,
+                                $mdToast, $sessionStorage) {
       var vm = this;
       /**
-       * Remove widget from home layout
+       * Show toast message confirming widget removal
        * @param fname
        */
-      vm.removePortlet = function removePortletFunction(fname) {
-        layoutService.removeFromHome(fname).success(function() {
-          // Filter for fname match in layout
-          var result = $filter('filter')($scope.$parent.layout, fname);
-          var index = $scope.$parent.layout.indexOf(result[0]);
+      vm.removeWidget = function(fname) {
 
-          // Remove from layout
-          $scope.$apply($scope.$parent.layout.splice(index, 1));
+      };
 
-          // Clear marketplace flag
-          if ($sessionStorage.marketplace != null) {
-            // Filter for fname match in marketplace
-            var marketplaceEntries = $filter('filter')(
-              $sessionStorage.marketplace, result[0].fname
-            );
-            if (marketplaceEntries.length > 0) {
-              // Remove the entry flag
-              marketplaceEntries[0].hasInLayout = false;
-            }
-          }
-        }).error(
-          function(request, text, error) {
-            alert('Issue deleting ' + fname +
-              ' from your list of favorites, try again later.');
-          });
+      var confirmWidgetRemoval = function() {
+        // layoutService.removeFromHome(fname).success(function() {
+        //   // Filter for fname match in layout
+        //   var result = $filter('filter')($scope.$parent.layout, fname);
+        //   var index = $scope.$parent.layout.indexOf(result[0]);
+        //
+        //   // Remove from layout
+        //   $scope.$apply($scope.$parent.layout.splice(index, 1));
+        //
+        //   // Clear marketplace flag
+        //   if ($sessionStorage.marketplace != null) {
+        //     // Filter for fname match in marketplace
+        //     var marketplaceEntries = $filter('filter')(
+        //       $sessionStorage.marketplace, result[0].fname
+        //     );
+        //     if (marketplaceEntries.length > 0) {
+        //       // Remove the entry flag
+        //       marketplaceEntries[0].hasInLayout = false;
+        //     }
+        //   }
+        // }).error(
+        //   function(request, text, error) {
+        //     alert('Issue deleting ' + fname +
+        //       ' from your list of favorites, try again later.');
+        //   });
       };
     }])
-
-    /**
-   * Basic widget logic leveraged by WidgetController,
-   * expanded mode widget layout
-   * (/widget/partials/home-widget-view.html and
-   * /widget/partials/widget-card.html),
-   * and 'widget' component (/widget/directives.js)
-   */
-  .controller('BaseWidgetFunctionsController',
-    ['$scope', '$sessionStorage', '$localStorage',
-    'layoutService', 'childController',
-    function($scope, $sessionStorage, $localStorage,
-      layoutService, childController) {
-      /**
-       * Determine the type of widget to display
-       * @param portlet
-       * @return {*}
-       */
-      childController.portletType = function portletType(portlet) {
-        // If portlet has a defined widgetType,
-        // check if it's one we have a defined template for
-        if (portlet.widgetType) {
-          if ('option-link' === portlet.widgetType) {
-            return 'OPTION_LINK';
-          } else if ('weather' === portlet.widgetType) {
-            return 'WEATHER';
-          } else if ('rss' === portlet.widgetType) {
-            return 'RSS';
-          } else if ('list-of-links' === portlet.widgetType) {
-            if (portlet.widgetConfig.links.length === 1 &&
-              portlet.altMaxUrl &&
-              portlet.widgetConfig.links[0].href === portlet.url) {
-              // If list of links has only one link and
-              // if it is the same as the portlet URL,
-              // display the default widget view
-              return 'BASIC';
-            } else {
-              return 'LOL';
-            }
-          } else if ('search-with-links' === portlet.widgetType) {
-            return 'SWL';
-          } else if ('generic' === portlet.widgetType) {
-            // DEPRECATED: Include 'generic' for the
-            // sake of backwards compatibility,
-            // but return what it really is: CUSTOM
-            return 'CUSTOM';
-          } else if ('custom' === portlet.widgetType) {
-            return 'CUSTOM';
-          } else {
-            return 'WIDGET';
-          }
-        } else {
-          // Return "BASIC" widget type for anything
-          // else lacking an explicit widget
-          // type definition (default experience)
-          return 'BASIC';
-        }
-      };
-
-      /**
-       * Sets href attribute for 'BASIC' type widget
-       * @param portlet
-       * @return {*}
-       */
-      childController.renderURL = function renderURL(portlet) {
-        // Check if it's a static or exclusive portlet
-        if (portlet.staticContent != null && portlet.altMaxUrl == false) {
-          return 'static/' + portlet.fname;
-        } else if (portlet.altMaxUrl == false && (portlet.renderOnWeb ||
-          $localStorage.webPortletRender)) {
-          return 'exclusive/' + portlet.fname;
-        } else {
-          return portlet.url;
-        }
-      };
-    },
-  ])
 
   /**
    * Widget initialization and sorting for expanded mode widget layout
@@ -359,10 +86,6 @@ define(['angular', 'jquery'], function(angular, $) {
     function($controller, $log, $scope, $rootScope, layoutService) {
       var vm = this;
       $scope.selectedNodeId = '';
-
-      // Inherit from BaseWidgetFunctionsController
-      $controller('BaseWidgetFunctionsController',
-      {$scope: $scope, childController: vm});
 
       /**
        * Set the selected widget in scope to track focus
@@ -480,6 +203,36 @@ define(['angular', 'jquery'], function(angular, $) {
           }
         }
         return -1;
+      };
+
+      /**
+       *
+       * @param fname
+       */
+      $rootScope.addPortletToHome = function(fname) {
+        layoutService.addToLayoutByFname(fname).success(function() {
+          layoutService.getUncachedLayout().then(function(data) {
+            $scope.$apply($scope.layout.unshift(data.layout[0]));
+            return true;
+          }).catch(function() {
+            $log.warn('Could not getLayout while adding to home');
+            return false;
+          });
+        });
+      };
+
+      /**
+       * Add widget to home layout
+       */
+      vm.addPortlet = function addPortletFunction(fname) {
+        $rootScope.addToLayoutByFname(fname).success(function() {
+          $scope.$apply(function() {
+            $sessionStorage.layout = $scope.layout;
+          });
+        }).error(
+          function() {
+            $sessionStorage.layout = layoutService.getLayout();
+          });
       };
 
       /**
