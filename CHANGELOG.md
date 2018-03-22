@@ -8,6 +8,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased][]
 
 ### Added
+
+
+### Changed
+
+
+### Fixed
+
+
+### Dependency upgrades
+
+
+### Removed
+
+## [8.0.0][] - 2018-03-21
+
+### Added
 * Sort widget layout by keyboard -- arrow keys when the widget has focus will move it left or right (#795)
 * Added `public-myuw` to localhost mock app directory to demonstrate
   `list-of-links` widget sourcing its links from a URL rather than from direct
@@ -18,17 +34,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Replaced jQuery UI Sortable with angular-drag-and-drop-lists (#795)
 
 ### Fixed
-
 * Removed defective (always zero) search results total badge (#797)
 * Alphabetically sort by `title` not `name` in app directory browse (#791)
 * Made `relatedPortlets` arrays empty in `entries.json` (#787)
 * Fail safe when `portlet` data record lacks `title` (#798)
 
 ### Dependency upgrades
-
 * chore(deps): update stylelint to version 9.1.3 #793
-
-### Removed
 
 ## [7.2.0][] - 2018-01-11
 
@@ -336,7 +348,8 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.2.0...HEAD
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.0.0...HEAD
+[8.0.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.2.0...uportal-home-parent-8.0.0
 [7.2.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.1.0...uportal-home-parent-7.2.0
 [7.1.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.3...uportal-home-parent-7.1.0
 [7.0.3]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.2..uportal-home-parent-7.0.3
