@@ -43,17 +43,15 @@ define(['angular', 'jquery'], function(angular, $) {
        * Capture information about removed widget, then
        * pass it up the chain to the layout scope in
        * WidgetController
-       * @param title {String} Human-readable widget title
-       * @param fname {String} Widget fname for matching in layout
+       * @param widget {Object} The widget being removed
        */
-      vm.removeWidget = function(title, fname) {
+      vm.removeWidget = function(widget) {
         // Match layout entry with fname
-        var result = $filter('filter')($scope.$parent.layout, fname);
+        var result = $filter('filter')($scope.$parent.layout, widget.fname);
         var index = $scope.$parent.layout.indexOf(result[0]);
         var data = {
-          removedTitle: title,
-          removedName: fname,
           removedIndex: index,
+          removedWidget: widget,
         };
         $scope.$emit('REMOVE_WIDGET', data);
       };
@@ -66,9 +64,9 @@ define(['angular', 'jquery'], function(angular, $) {
    */
   .controller('WidgetController',
   ['$controller', '$log', '$scope', '$rootScope', '$mdToast',
-    '$sessionStorage', '$filter', 'layoutService',
+    '$sessionStorage', '$filter', '$mdColors', 'layoutService',
     function($controller, $log, $scope, $rootScope, $mdToast,
-             $sessionStorage, $filter, layoutService) {
+             $sessionStorage, $filter, $mdColors, layoutService) {
       var vm = this;
       $scope.selectedNodeId = '';
       $scope.hideWidgetIndex = null;
@@ -179,14 +177,29 @@ define(['angular', 'jquery'], function(angular, $) {
        * @param data {Object} Information about the removed widget
        */
       var showConfirmationToast = function(data) {
-        $scope.removedTitle = data.removedTitle;
-        $scope.removedFname = data.removedName;
+        // Add widget to scope for <widget-icon> directive
+        $scope.widget = data.removedWidget;
+
+        $scope.removedTitle = data.removedWidget.title;
+        $scope.removedFname = data.removedWidget.fname;
         $scope.hideWidgetIndex = data.removedIndex;
+
+        if ($sessionStorage.portal.theme) {
+          // theme already in session, use primary color from it
+          $scope.accentColorRgb =
+            $mdColors.getThemeColor($sessionStorage.portal.theme.name
+              + '-accent');
+        } else {
+          // theme not yet in session, use primary color from zeroth theme
+          $scope.primaryColorRgb =
+            $mdColors.getThemeColor($rootScope.THEMES[0].name
+              + '-accent');
+        }
 
         // Configure and show the toast message
         $mdToast.show({
           hideDelay: false,
-          parent: angular.element(document).find('.layout-list')[0],
+          parent: angular.element(document).find('.wrapper__frame-page')[0],
           position: 'top right',
           scope: $scope,
           preserveScope: true,
