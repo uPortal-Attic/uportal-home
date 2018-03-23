@@ -50,6 +50,8 @@ Browse a directory of apps, sort them alphabetically or by rating, and filter th
 Search app directory entries, the web (with Google Custom Search integration), or a directory of people (with directory search integration).
 
 ## Integration with uPortal
+
++ [uPortal-home considerations in implementing uPortal impersonation features][]
 + [Silent Login Configuration](silent-login.md)
 
 ## Developing
@@ -59,3 +61,5 @@ Search app directory entries, the web (with Google Custom Search integration), o
 
 [uPortal]: http://jasig.github.io/uPortal/
 [uportal-user@]: https://groups.google.com/a/apereo.org/forum/#!forum/uportal-user
+
+[uPortal-home considerations in implementing uPortal impersonation features]: impersonation.md
