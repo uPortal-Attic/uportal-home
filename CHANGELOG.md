@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
++ Documentation about `uPortal-home` specific considerations in implementing
+  uPortal's identity impersonation and attribute swapping features (#802)
 
 ### Changed
 * Removing widget from home screen now prompts for confirmation (allowing UNDO action) before saving changes (#805)
