@@ -41,38 +41,65 @@ define(['angular', 'jquery'], function(angular, $) {
                                 $mdToast, $sessionStorage) {
       var vm = this;
       /**
-       * Show toast message confirming widget removal
+       * Remove widget from visible layout, then trigger confirmation toast
+       * before persisting the layout change
        * @param fname
        */
-      vm.removeWidget = function(fname) {
+      vm.removeWidget = function(title, fname) {
+        // Filter for fname match in layout
+        var result = $filter('filter')($scope.$parent.layout, fname);
+        var index = $scope.$parent.layout.indexOf(result[0]);
 
+        // Remove from layout
+        $scope.$parent.layout.splice(index, 1);
+
+        // Trigger confirmation toast
+        confirmWidgetRemoval(title, fname);
       };
 
-      var confirmWidgetRemoval = function() {
-        // layoutService.removeFromHome(fname).success(function() {
-        //   // Filter for fname match in layout
-        //   var result = $filter('filter')($scope.$parent.layout, fname);
-        //   var index = $scope.$parent.layout.indexOf(result[0]);
-        //
-        //   // Remove from layout
-        //   $scope.$apply($scope.$parent.layout.splice(index, 1));
-        //
-        //   // Clear marketplace flag
-        //   if ($sessionStorage.marketplace != null) {
-        //     // Filter for fname match in marketplace
-        //     var marketplaceEntries = $filter('filter')(
-        //       $sessionStorage.marketplace, result[0].fname
-        //     );
-        //     if (marketplaceEntries.length > 0) {
-        //       // Remove the entry flag
-        //       marketplaceEntries[0].hasInLayout = false;
-        //     }
-        //   }
-        // }).error(
-        //   function(request, text, error) {
-        //     alert('Issue deleting ' + fname +
-        //       ' from your list of favorites, try again later.');
-        //   });
+
+      var confirmWidgetRemoval = function(title, fname) {
+        $mdToast.show({
+          hideDelay: false,
+          parent: angular.element('.layout-list'),
+          position: 'top right',
+          scope: $scope,
+          templateUrl:
+            require.toUrl('my-app/layout/partials/toast-widget-removal.html'),
+          controller: function RemoveWidgetToastController(
+            $scope,
+            $sessionStorage,
+            layoutService
+          ) {
+            console.log(angular.element('.layout-list').scope());
+            console.log(angular.element('.toast__widget-removal').scope());
+            // If user clicked OK, persist change
+            // layoutService.removeFromHome(fname).success(function() {
+            //   // Filter for fname match in layout
+            //   var result = $filter('filter')($scope.$parent.layout, fname);
+            //   var index = $scope.$parent.layout.indexOf(result[0]);
+            //
+            //   // Remove from layout
+            //   $scope.$apply($scope.$parent.layout.splice(index, 1));
+            //
+            //   // Clear marketplace flag
+            //   if ($sessionStorage.marketplace != null) {
+            //     // Filter for fname match in marketplace
+            //     var marketplaceEntries = $filter('filter')(
+            //       $sessionStorage.marketplace, result[0].fname
+            //     );
+            //     if (marketplaceEntries.length > 0) {
+            //       // Remove the entry flag
+            //       marketplaceEntries[0].hasInLayout = false;
+            //     }
+            //   }
+            // }).error(
+            //   function(request, text, error) {
+            //     alert('Issue deleting ' + fname +
+            //       ' from your list of favorites, try again later.');
+            //   });
+          }
+        });
       };
     }])
 

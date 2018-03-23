@@ -1,0 +1,11 @@
+<md-toast class="toast__widget-removal">
+  <div class="md-toast-content">
+    <span class="md-toast-text" flex>Removed {{ title }}</span>
+    <md-button class="md-highlight" ng-click="undoWidgetRemoval($event)">
+      Undo
+    </md-button>
+    <md-button ng-click="closeToast()">
+      OK
+    </md-button>
+  </div>
+</md-toast>
