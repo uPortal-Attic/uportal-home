@@ -28,6 +28,7 @@
     <!-- Widget View -->
     <ul dnd-list="layout"
         dnd-horizontal-list="true"
+        dnd-disable-if="isToastDisplayed === true"
         class="layout-list">
       <example-widgets ng-if="$storage.exampleWidgets"></example-widgets>
       <li class="no-padding widget-container"

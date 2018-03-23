@@ -108,7 +108,11 @@ define(['angular', 'jquery'], function(angular, $) {
        * @param event {Object} The event object
        */
       $scope.moveWithKeyboard = function(widget, event) {
-        // get index independent of ng-repeat to avoid filter bugs
+        if ($scope.isToastDisplayed) {
+          return;
+        }
+
+        // Get index independent of ng-repeat to avoid filter bugs
         var currentIndex =
           findLayoutIndex($scope.layout, 'nodeId', widget.nodeId);
         var previousIndex = currentIndex - 1;
