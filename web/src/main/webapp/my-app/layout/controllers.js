@@ -346,11 +346,12 @@ define(['angular', 'jquery'], function(angular, $) {
       /**
        * Initialize expanded mode widget layout
        */
-      function init() {
+      vm.init = function() {
         if (angular.isUndefined($rootScope.layout) ||
         $rootScope.layout == null) {
           $rootScope.layout = [];
           $scope.layoutEmpty = false;
+
           // Get user's home layout
           layoutService.getLayout().then(function(data) {
             $rootScope.layout = data.layout;
@@ -363,8 +364,8 @@ define(['angular', 'jquery'], function(angular, $) {
             $log.warn('Could not getLayout');
           });
         }
-      }
+      };
 
-      init();
+      vm.init();
   }]);
 });
