@@ -69,8 +69,6 @@ define(['angular', 'jquery'], function(angular, $) {
              $sessionStorage, $filter, $mdColors, layoutService) {
       var vm = this;
       $scope.selectedNodeId = '';
-      $scope.hideWidgetIndex = null;
-      $scope.isToastDisplayed = false;
 
       /**
        * Set the selected widget in scope to track focus
@@ -108,10 +106,6 @@ define(['angular', 'jquery'], function(angular, $) {
        * @param event {Object} The event object
        */
       $scope.moveWithKeyboard = function(widget, event) {
-        if ($scope.isToastDisplayed) {
-          return;
-        }
-
         // Get index independent of ng-repeat to avoid filter bugs
         var currentIndex =
           findLayoutIndex($scope.layout, 'nodeId', widget.nodeId);
@@ -163,16 +157,22 @@ define(['angular', 'jquery'], function(angular, $) {
       // Listen for removal event
       $scope.$on('REMOVE_WIDGET',
         /**
-         * Listen for widget removal event, then show confirmation toast
+         * Listen for widget removal event, then show undo toast
          * if one is not already showing.
          * @param event {Object} The angularjs event object
          * @param data {Object} Data about the widget being removed
          */
         function(event, data) {
-          // Make sure no toasts are already open
-          if (!$scope.isToastDisplayed) {
+          // Remove the widget from layout in scope
+          $scope.layout.splice(data.removedIndex, 1);
+
+          // Dismiss any open toasts (success), then show new one
+          // eslint-disable-next-line promise/always-return
+          $mdToast.hide().then(function() {
             showConfirmationToast(data);
-          }
+          }).catch(function(error) {
+            $log.error(error);
+          });
         });
 
       /**
@@ -181,66 +181,60 @@ define(['angular', 'jquery'], function(angular, $) {
        * @param data {Object} Information about the removed widget
        */
       var showConfirmationToast = function(data) {
-        // Add widget to scope for <widget-icon> directive
-        $scope.widget = data.removedWidget;
-
-        $scope.removedTitle = data.removedWidget.title;
-        $scope.removedFname = data.removedWidget.fname;
-        $scope.hideWidgetIndex = data.removedIndex;
-
         if ($sessionStorage.portal.theme) {
-          // theme already in session, use primary color from it
+          // theme already in session, use accent color from it
           $scope.accentColorRgb =
             $mdColors.getThemeColor($sessionStorage.portal.theme.name
               + '-accent');
         } else {
-          // theme not yet in session, use primary color from zeroth theme
-          $scope.primaryColorRgb =
+          // theme not yet in session, use accent color from first theme
+          $scope.accentColorRgb =
             $mdColors.getThemeColor($rootScope.THEMES[0].name
               + '-accent');
         }
 
         // Configure and show the toast message
+        // Pass in widget for <widget-icon> directive
+        // Pass in widget title for toast text display
         $mdToast.show({
-          hideDelay: false,
+          hideDelay: 2000,
           parent: angular.element(document).find('.wrapper__frame-page')[0],
           position: 'top right',
-          scope: $scope,
-          preserveScope: true,
+          locals: {
+            widget: data.removedWidget,
+            removedTitle: data.removedWidget.title,
+          },
+          bindToController: true,
           templateUrl:
             require.toUrl('my-app/layout/partials/toast-widget-removal.html'),
-          controller: function RemoveToastController(
-            $scope,
-            $sessionStorage,
-            $log,
-            $mdToast
-          ) {
-            $scope.isToastDisplayed = true;
+          controller: function RemoveToastController($scope, $mdToast,
+                                                     widget, removedTitle) {
+            $scope.widget = widget;
+            $scope.removedTitle = removedTitle;
             /**
-             * Un-hide the widget with CSS
-             * and don't persist changes
+             * Resolve show() promise with 'undo'
+             *   Note: a successful timeout or hide() without argument
+             *   resolves with undefined)
              */
             $scope.undoRemoveWidget = function() {
               // Hide toast message
-              $mdToast.hide();
-              // Reset CSS hiding
-              $scope.hideWidgetIndex = null;
-              // Reset toast displayed
-              $scope.isToastDisplayed = false;
-            };
-
-            /**
-             * Persist removal of the widget
-             */
-            $scope.confirmRemoveWidget = function() {
-              // Hide toast message
-              $mdToast.hide();
-              // Persist changes
-              saveLayoutRemoval($scope.removedFname, $scope.hideWidgetIndex);
-              // Reset toast displayed
-              $scope.isToastDisplayed = false;
+              $mdToast.hide('undo');
             };
           },
+        })
+        // If user clicked undo, do not proceed
+        .then(function(response) {
+          if (response === 'undo') {
+            // Add the removed widget back to the layout
+            $scope.layout.splice(data.removedIndex, 0, data.removedWidget);
+          } else {
+            // Persist changes
+            saveLayoutRemoval(data.removedWidget.fname, data.removedIndex);
+          }
+          return response;
+        })
+        .catch(function(error) {
+          $log.error(error);
         });
       };
 
@@ -255,7 +249,7 @@ define(['angular', 'jquery'], function(angular, $) {
         layoutService.removeFromHome(fname)
           .success(function() {
             // Remove from layout in scope
-            $scope.layout.splice(index, 1);
+            // $scope.layout.splice(index, 1);
 
             // Reset CSS hiding
             $scope.hideWidgetIndex = null;
