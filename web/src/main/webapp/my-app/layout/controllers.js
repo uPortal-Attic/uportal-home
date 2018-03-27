@@ -181,14 +181,15 @@ define(['angular', 'jquery'], function(angular, $) {
        * @param data {Object} Information about the removed widget
        */
       var showConfirmationToast = function(data) {
+        var accentColor = '';
         if ($sessionStorage.portal.theme) {
           // theme already in session, use accent color from it
-          $scope.accentColorRgb =
+          accentColor =
             $mdColors.getThemeColor($sessionStorage.portal.theme.name
               + '-accent');
         } else {
           // theme not yet in session, use accent color from first theme
-          $scope.accentColorRgb =
+          accentColor =
             $mdColors.getThemeColor($rootScope.THEMES[0].name
               + '-accent');
         }
@@ -202,14 +203,16 @@ define(['angular', 'jquery'], function(angular, $) {
           position: 'top right',
           locals: {
             widget: data.removedWidget,
+            color: accentColor,
             removedTitle: data.removedWidget.title,
           },
           bindToController: true,
           templateUrl:
             require.toUrl('my-app/layout/partials/toast-widget-removal.html'),
-          controller: function RemoveToastController($scope, $mdToast,
-                                                     widget, removedTitle) {
+          controller: function RemoveToastController($scope, $mdToast, widget,
+                                                     color, removedTitle) {
             $scope.widget = widget;
+            $scope.accentColorRgb = color;
             $scope.removedTitle = removedTitle;
             /**
              * Resolve show() promise with 'undo'
