@@ -198,7 +198,7 @@ define(['angular', 'jquery'], function(angular, $) {
         // Pass in widget for <widget-icon> directive
         // Pass in widget title for toast text display
         $mdToast.show({
-          hideDelay: false,
+          hideDelay: 2500,
           parent: angular.element(document).find('.wrapper__frame-page')[0],
           position: 'top right',
           locals: {
