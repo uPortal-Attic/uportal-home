@@ -43,6 +43,7 @@ md-toast {
           height: 44px;
           width: 44px;
           max-width: 44px;
+          margin-right: 16px;
           background: #e5e5e5;
           border-radius: 50%;
           justify-content: center;
@@ -62,6 +63,22 @@ md-toast {
 
       .md-button {
         min-width: 60px;
+      }
+    }
+
+    @media (max-width: @sm) {
+      position: fixed;
+      padding: 16px;
+
+      .md-toast-content {
+        max-width: none;
+
+        .toast__actions {
+          .md-button {
+            margin-left: 0;
+            margin-right: 12px;
+          }
+        }
       }
     }
   }

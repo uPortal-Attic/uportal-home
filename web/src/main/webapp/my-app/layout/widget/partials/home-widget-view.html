@@ -20,7 +20,7 @@
 -->
 <!-- HOME-WIDGET-VIEW -->
 <frame-page app-title="Home">
-  <div role="main" class="home__expanded" ng-controller="WidgetController as widgetCtrl">
+  <div role="main" class="home__expanded toast__anchor" ng-controller="WidgetController as widgetCtrl">
     <!-- HOME CONTROLS -->
     <home-controls></home-controls>
     <!-- Loading -->
@@ -28,7 +28,6 @@
     <!-- Widget View -->
     <ul dnd-list="layout"
         dnd-horizontal-list="true"
-        dnd-disable-if="isToastDisplayed === true"
         class="layout-list">
       <example-widgets ng-if="$storage.exampleWidgets"></example-widgets>
       <li class="no-padding widget-container"

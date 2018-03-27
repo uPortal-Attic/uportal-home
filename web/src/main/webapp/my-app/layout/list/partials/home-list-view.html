@@ -20,7 +20,7 @@
 -->
 <!-- COMPACT MODE -->
 <frame-page app-title="Home">
-  <div role="main" class="no-padding home__compact" ng-controller="WidgetController as widgetCtrl">
+  <div role="main" class="no-padding home__compact toast__anchor" ng-controller="WidgetController as widgetCtrl">
     <!-- HOME CONTROLS -->
     <home-controls></home-controls>
     <!-- Loading -->
@@ -30,7 +30,6 @@
     <!-- List View -->
     <ul dnd-list="layout"
         dnd-horizontal-list="true"
-        dnd-disable-if="isToastDisplayed"
         class="layout-list compact">
       <li class="dndPlaceholder no-padding widget-container"></li>
       <li class="no-padding widget-container"
