@@ -13,10 +13,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   uPortal's identity impersonation and attribute swapping features (#802)
 
 ### Changed
-
+* Removing widget from home screen now displays a toast allowing UNDO action before saving changes (#805)
 
 ### Fixed
-
+* Fixed bug that sometimes caused the wrong widget to be removed from user's layout (#804)
 
 ### Dependency upgrades
 
