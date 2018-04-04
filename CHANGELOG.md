@@ -357,7 +357,7 @@ See also:
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
 [unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.1...HEAD
-[8.1.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-8.1.0...uportal-home-parent-8.1.1
+[8.1.1]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-8.1.0...uportal-home-parent-8.1.1
 [8.1.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-8.0.0...uportal-home-parent-8.1.0
 [8.0.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.2.0...uportal-home-parent-8.0.0
 [7.2.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.1.0...uportal-home-parent-7.2.0
