@@ -18,9 +18,21 @@
     under the License.
 
 -->
-<md-button ng-controller="RemoveWidgetController as removeCtrl" class="widget-action widget-remove md-icon-button"
-           aria-label="remove {{ widget.fname }} widget from your home screen"
-           ng-click="removeCtrl.removeWidget(widget)"
-           ng-hide="GuestMode">
-  <md-icon>close</md-icon>
-</md-button>
+<md-toast class="toast__widget-removal">
+  <div class="md-toast-content" layout="column">
+    <div class="toast__message" layout="row" layout-align="start center">
+      <span class="toast__icon-container">
+        <widget-icon></widget-icon>
+      </span>
+      <div class="toast__text" layout="column" layout-align="center start">
+        <span class="toast__source" ng-style="{ color: accentColorRgb }">Undo change?</span>
+        <span>Removed {{ removedTitle }}</span>
+      </div>
+    </div>
+    <div class="toast__actions" layout="row" layout-align="end center">
+      <md-button class="md-accent" ng-click="undoRemoveWidget($event)" aria-label="undo remove">
+        Undo
+      </md-button>
+    </div>
+  </div>
+</md-toast>

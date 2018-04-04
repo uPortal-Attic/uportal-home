@@ -20,7 +20,7 @@
 /* eslint-env node, phantomjs, jasmine */
 /* global inject */
 define(['angular-mocks', 'portal', 'my-app'], function() {
-    describe('LayoutController', function() {
+    describe('WidgetController', function() {
       var scope;
       var controller;
       var $localStorage;
@@ -67,7 +67,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
         loginSilentURL = _SERVICE_LOC_.loginSilentURL;
 
         sharedPortletService = {};
-        controller = $controller('LayoutController', {
+        controller = $controller('WidgetController', {
             '$localStorage': $localStorage,
             '$scope': scope,
             '$rootScope': rootScope,
