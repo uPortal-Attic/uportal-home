@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased][]
 
+## [8.1.1][] - 2018-03-30
+
+### Dependency upgrades
+* Updated app-framework to 9.0.2
+
+## [8.1.0][] - 2018-03-30
+
 ### Added
 
 + Documentation about `uPortal-home` specific considerations in implementing
@@ -19,7 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Fixed bug that sometimes caused the wrong widget to be removed from user's layout (#804)
 
 ### Dependency upgrades
-
+* Updated app-framework to 9.0.1
 
 ### Removed
 
@@ -349,7 +356,9 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.0.0...HEAD
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.1...HEAD
+[8.1.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-8.1.0...uportal-home-parent-8.1.1
+[8.1.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-8.0.0...uportal-home-parent-8.1.0
 [8.0.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.2.0...uportal-home-parent-8.0.0
 [7.2.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.1.0...uportal-home-parent-7.2.0
 [7.1.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.3...uportal-home-parent-7.1.0
