@@ -159,21 +159,13 @@ div.table-cell {
 
 .layout-list {
   list-style-type: none;
-  padding: 0;
+  padding: 0 12px;
   margin: auto;
-  max-width: 1230px;
-
-  /* Grid Fallback */
+  max-width: @md;
   display: flex;
   flex-wrap: wrap;
-
-  /* Supports Grid */
-  /* stylelint-disable */
-  display: grid;
-  /* stylelint-enable */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-auto-rows: minmax(296px, 1fr);
-  grid-gap: 4px 8px;
+  flex-direction: row;
+  justify-content: flex-start;
 
   .dndPlaceholder {
     background: rgba(0, 0, 0, 0.12);
@@ -184,24 +176,53 @@ div.table-cell {
   }
 
   .widget-container:not(.dndDraggingSource) {
-    padding-right: 0;
-    padding-left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    flex: 1;
+    flex: 0 0 25%;
     overflow: hidden;
+    transition: flex 0.2s linear, transform 0.3s ease-out, opacity 0.3s linear;
+    padding: 8px;
+
+    &.ng-enter.ng-enter-active,
+    &.ng-leave {
+      opacity: 1;
+      flex: 0 0 25%;
+      transform: scaleX(1);
+
+      @media (max-width: @md) {
+        flex: 0 0 33%;
+      }
+
+      @media (max-width: @sm) {
+        flex: 0 0 50%;
+      }
+
+      @media (max-width: @widget-xs) {
+        flex: 0 0 100%;
+      }
+    }
+
+    &.ng-leave.ng-leave-active,
+    &.ng-enter {
+      opacity: 0;
+      flex: 0;
+      transform: scaleX(0);
+    }
 
     widget {
-      display: flex;
-      flex: 1;
-
       .widget-frame {
-        display: flex;
-        flex: 1;
         margin: 0;
       }
+    }
+
+    @media (max-width: @md) {
+      flex: 0 0 33%;
+    }
+
+    @media (max-width: @sm) {
+      flex: 0 0 50%;
+    }
+
+    @media (max-width: @widget-xs) {
+      flex: 0 0 100%;
     }
   }
 
