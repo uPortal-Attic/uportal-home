@@ -197,7 +197,7 @@ define(['angular', 'jquery'], function(angular, $) {
         // Configure and show the toast message
         // Pass in widget title for toast text display
         $mdToast.show({
-          hideDelay: 3000,
+          hideDelay: 4000,
           parent: angular.element(document).find('.wrapper__frame-page')[0],
           position: 'bottom right',
           locals: {
