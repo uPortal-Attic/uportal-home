@@ -195,23 +195,20 @@ define(['angular', 'jquery'], function(angular, $) {
         }
 
         // Configure and show the toast message
-        // Pass in widget for <widget-icon> directive
         // Pass in widget title for toast text display
         $mdToast.show({
-          hideDelay: 2500,
+          hideDelay: 3000,
           parent: angular.element(document).find('.wrapper__frame-page')[0],
-          position: 'top right',
+          position: 'bottom right',
           locals: {
-            widget: data.removedWidget,
             color: accentColor,
             removedTitle: data.removedWidget.title,
           },
           bindToController: true,
           templateUrl:
             require.toUrl('my-app/layout/partials/toast-widget-removal.html'),
-          controller: function RemoveToastController($scope, $mdToast, widget,
+          controller: function RemoveToastController($scope, $mdToast,
                                                      color, removedTitle) {
-            $scope.widget = widget;
             $scope.accentColorRgb = color;
             $scope.removedTitle = removedTitle;
             /**

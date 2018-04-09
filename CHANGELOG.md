@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [8.1.1][] - 2018-03-30
 
+
+### Changes
+* Tweaked "Undo" action toasts to better conform to []material guidelines](https://material.io/guidelines/components/snackbars-toasts.html#) (#808)
+
 ### Dependency upgrades
 * Updated app-framework to 9.0.2
 
