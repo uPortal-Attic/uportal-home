@@ -20,6 +20,7 @@
 -->
 <frame-page app-title="Search results" app-icon="search" page-title="Search results" white-background="true">
   <md-content class="search-results">
+    <p class="search-term">Showing results for <span>"{{ searchTerm }}"</span></p>
     <md-tabs md-dynamic-height md-border-bottom >
 
       <!-- ALL RESULTS -->
@@ -68,7 +69,7 @@
       <!-- MyUW RESULTS ONLY -->
       <md-tab ng-if="googleSearchEnabled || directoryEnabled">
         <md-tab-label>
-          {{portal.theme.title}}&nbsp;&nbsp;<span class="badge">{{ myuwFilteredResults.length }}</span>
+          {{ portal.theme.title }}&nbsp;&nbsp;<span class="badge">{{ filteredApps.length }}</span>
         </md-tab-label>
         <md-tab-body>
           <md-content>

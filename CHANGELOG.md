@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 * Removing widget from home screen now displays a toast allowing UNDO action before saving changes (#805)
+* App search results now order by matching titles first, then matching descriptions/keywords (#809)
 
 ### Fixed
 * Fixed bug that sometimes caused the wrong widget to be removed from user's layout (#804)
