@@ -19,20 +19,10 @@
 
 -->
 <md-toast class="toast__widget-removal">
-  <div class="md-toast-content" layout="column">
-    <div class="toast__message" layout="row" layout-align="start center">
-      <span class="toast__icon-container">
-        <widget-icon></widget-icon>
-      </span>
-      <div class="toast__text" layout="column" layout-align="center start">
-        <span class="toast__source" ng-style="{ color: accentColorRgb }">Undo change?</span>
-        <span>Removed {{ removedTitle }}</span>
-      </div>
-    </div>
-    <div class="toast__actions" layout="row" layout-align="end center">
-      <md-button class="md-accent" ng-click="undoRemoveWidget($event)" aria-label="undo remove">
-        Undo
-      </md-button>
-    </div>
+  <div class="md-toast-content" layout="row">
+    <span flex>Removed {{ removedTitle }}</span>
+    <md-button class="md-accent md-raised" ng-click="undoRemoveWidget($event)" aria-label="undo remove">
+      Undo
+    </md-button>
   </div>
 </md-toast>
