@@ -39,9 +39,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Dependency upgrades
 * Updated app-framework to 9.0.1
 
-### Removed
-
-
 ## [8.0.0][] - 2018-03-21
 
 ### Added
