@@ -86,11 +86,28 @@ Description text displays
 
 App directory entries optionally have an icon.
 
+##### Preferred: Material icons
+
+```xml
+<parameter>
+  <name>mdIcon</name>
+  <value>person</value>
+</parameter>
+```
+
+These can be any of the [Material icons][].
+
+##### Deprecated: Font Awesome icons
+
 ```xml
 <parameter><name>faIcon</name><value>fa-user</value></parameter>
 ```
 
-These can be any of the [Font Awesome icons][]. (uPortal-home intends to transition to using [Material icons][] instead in the near future.)
+These can be any of the [Font Awesome icons][].
+
+Support for Font Awesome icons is deprecated and will be removed in some future
+release, in the interest of continuing to standardize on and leverage Material
+Design.
 
 #### Categories
 
