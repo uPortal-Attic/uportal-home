@@ -101,6 +101,30 @@ define(['angular', 'jquery'], function(angular, $) {
       };
 
       /**
+       * Move a widget with a drag and drop action
+       * @param  {Object} widget    the widget being moved
+       * @param  {Number} dropIndex index of the new location
+       * @return {Boolean}           true if widget moved, false if otherwise
+       */
+      $scope.moveWithDrag = function(widget, dropIndex) {
+        var sourceIndex =
+          findLayoutIndex($scope.layout, 'nodeId', widget.nodeId);
+        $log.info('index:'+sourceIndex+' dropIndex:'+dropIndex);
+        if (sourceIndex != dropIndex) {
+          $scope.layout.splice(sourceIndex, 1);
+          if (dropIndex > sourceIndex) {
+            dropIndex--;
+          }
+          $scope.layout.splice(dropIndex, 0, widget);
+          saveLayoutOrder(dropIndex, $scope.layout.length, widget.nodeId);
+          $scope.logMoveEvent('dragEnd', widget.fname, dropIndex);
+          return true;
+        } else {
+          return false;
+        }
+      };
+
+      /**
        * Respond to arrow key-presses when focusing a movable list element
        * @param widget {Object} The widget trying to move
        * @param event {Object} The event object
