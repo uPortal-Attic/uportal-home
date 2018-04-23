@@ -194,6 +194,7 @@ define(['angular', 'jquery'], function(angular, $) {
           // Track the widget fname for removal upon
           // toast timeout
           $scope.widgetsToRemove.push(data.removedWidget.fname);
+          console.log($scope.widgetsToRemove);
 
           // Dismiss any open toasts (success), then show new one
           // eslint-disable-next-line promise/always-return
@@ -257,7 +258,7 @@ define(['angular', 'jquery'], function(angular, $) {
             // Add the removed widget back to the layout
             $scope.layout.splice(data.removedIndex, 0, data.removedWidget);
 
-            // Remove the widget's fname from the tracking array
+            // Delete the last fname added to the removal array
             $scope.widgetsToRemove.pop();
           } else {
             // Save deletion of any widgets in the tracking array
