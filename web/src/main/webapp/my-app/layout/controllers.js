@@ -194,7 +194,6 @@ define(['angular', 'jquery'], function(angular, $) {
           // Track the widget fname for removal upon
           // toast timeout
           $scope.widgetsToRemove.push(data.removedWidget.fname);
-          console.log($scope.widgetsToRemove);
 
           // Dismiss any open toasts (success), then show new one
           // eslint-disable-next-line promise/always-return
@@ -285,8 +284,6 @@ define(['angular', 'jquery'], function(angular, $) {
         // Call layout service to persist change
         layoutService.removeFromHome(fname)
           .success(function() {
-            console.log('service removed ' + fname + ' from home layout');
-
             // Clear marketplace flag
             if ($sessionStorage.marketplace != null) {
               // Filter for fname match in marketplace
