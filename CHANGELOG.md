@@ -8,20 +8,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased][]
 
 ### Deprecated
-* Support for Font Awesome icons (the `faIcon` parameter in `portlet-definition` entity files) is formally deprecated, 
-with Material icons (`mdIcon`) preferred instead. Documentation is updated to reflect this preference and deprecation. 
+
+* Support for Font Awesome icons (the `faIcon` parameter in `portlet-definition` entity files) is formally deprecated,
+with Material icons (`mdIcon`) preferred instead. Documentation is updated to reflect this preference and deprecation.
 Support for Font Awesome icons will be removed in some future release.
-  
+
 ### Changed
+
 * Adjusted "Undo" action toasts to better support rapid widget deletion (#812)
 
 ## [8.1.1][] - 2018-03-30
 
 
 ### Changes
+
 * Tweaked "Undo" action toasts to better conform to [material guidelines](https://material.io/guidelines/components/snackbars-toasts.html#) (#808)
 
 ### Dependency upgrades
+
 * Updated app-framework to 9.0.2
 
 ## [8.1.0][] - 2018-03-30
@@ -32,33 +36,40 @@ Support for Font Awesome icons will be removed in some future release.
   uPortal's identity impersonation and attribute swapping features (#802)
 
 ### Changed
+
 * Removing widget from home screen now displays a toast allowing UNDO action before saving changes (#805)
 * App search results now order by matching titles first, then matching descriptions/keywords (#809)
 
 ### Fixed
+
 * Fixed bug that sometimes caused the wrong widget to be removed from user's layout (#804)
 
 ### Dependency upgrades
+
 * Updated app-framework to 9.0.1
 
 ## [8.0.0][] - 2018-03-21
 
 ### Added
+
 * Sort widget layout by keyboard -- arrow keys when the widget has focus will move it left or right (#795)
 * Added `public-myuw` to localhost mock app directory to demonstrate
   `list-of-links` widget sourcing its links from a URL rather than from direct
   configuration. (#792)
 
 ### Changed
+
 * Replaced bootstrap in widget layout with CSS-grid and flex fallback (#795)
 * Replaced jQuery UI Sortable with angular-drag-and-drop-lists (#795)
 
 ### Fixed
+
 * Removed defective (always zero) search results total badge (#797)
 * Alphabetically sort by `title` not `name` in app directory browse (#791)
 * Made `relatedPortlets` arrays empty in `entries.json` (#787)
 
 ### Dependency upgrades
+
 * chore(deps): update stylelint to version 9.1.3 #793
 
 ## [7.2.0][] - 2018-01-11
