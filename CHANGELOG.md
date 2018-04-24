@@ -3,15 +3,17 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+and this project adheres to
+[Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased][]
 
 ### Deprecated
 
-* Support for Font Awesome icons (the `faIcon` parameter in `portlet-definition` entity files) is formally deprecated,
-with Material icons (`mdIcon`) preferred instead. Documentation is updated to reflect this preference and deprecation.
-Support for Font Awesome icons will be removed in some future release.
+* Support for Font Awesome icons (the `faIcon` parameter in `portlet-definition`
+  entity files) is formally deprecated, with Material icons (`mdIcon`) preferred
+  instead. Documentation is updated to reflect this preference and deprecation.
+  Support for Font Awesome icons will be removed in some future release.
 
 ### Changed
 
@@ -37,12 +39,15 @@ Support for Font Awesome icons will be removed in some future release.
 
 ### Changed
 
-* Removing widget from home screen now displays a toast allowing UNDO action before saving changes (#805)
-* App search results now order by matching titles first, then matching descriptions/keywords (#809)
+* Removing widget from home screen now displays a toast allowing UNDO action
+  before saving changes (#805)
+* App search results now order by matching titles first, then matching
+  descriptions/keywords (#809)
 
 ### Fixed
 
-* Fixed bug that sometimes caused the wrong widget to be removed from user's layout (#804)
+* Fixed bug that sometimes caused the wrong widget to be removed from user's
+  layout (#804)
 
 ### Dependency upgrades
 
@@ -52,7 +57,8 @@ Support for Font Awesome icons will be removed in some future release.
 
 ### Added
 
-* Sort widget layout by keyboard -- arrow keys when the widget has focus will move it left or right (#795)
+* Sort widget layout by keyboard -- arrow keys when the widget has focus will
+  move it left or right (#795)
 * Added `public-myuw` to localhost mock app directory to demonstrate
   `list-of-links` widget sourcing its links from a URL rather than from direct
   configuration. (#792)
