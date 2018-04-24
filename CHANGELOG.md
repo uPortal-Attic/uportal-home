@@ -8,11 +8,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased][]
 
 ### Deprecated
-
-* Support for Font Awesome icons (the `faIcon` parameter in `portlet-definition`
-  entity files) is formally deprecated, with Material icons (`mdIcon`) preferred
-  instead. Documentation is updated to reflect this preference and deprecation.
-  Support for Font Awesome icons will be removed in some future release.
+* Support for Font Awesome icons (the `faIcon` parameter in `portlet-definition` entity files) is formally deprecated, 
+with Material icons (`mdIcon`) preferred instead. Documentation is updated to reflect this preference and deprecation. 
+Support for Font Awesome icons will be removed in some future release.
+  
+### Changed
+* Adjusted "Undo" action toasts to better support rapid widget deletion (#812)
 
 ## [8.1.1][] - 2018-03-30
 

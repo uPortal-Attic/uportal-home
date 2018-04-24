@@ -69,6 +69,7 @@ define(['angular', 'jquery'], function(angular, $) {
              $sessionStorage, $filter, $mdColors, layoutService) {
       var vm = this;
       $scope.selectedNodeId = '';
+      $scope.widgetsToRemove = [];
 
       /**
        * Set the selected widget in scope to track focus
@@ -190,6 +191,10 @@ define(['angular', 'jquery'], function(angular, $) {
           // Remove the widget from layout in scope
           $scope.layout.splice(data.removedIndex, 1);
 
+          // Track the widget fname for removal upon
+          // toast timeout
+          $scope.widgetsToRemove.push(data.removedWidget.fname);
+
           // Dismiss any open toasts (success), then show new one
           // eslint-disable-next-line promise/always-return
           $mdToast.hide().then(function() {
@@ -251,9 +256,17 @@ define(['angular', 'jquery'], function(angular, $) {
           if (response === 'undo') {
             // Add the removed widget back to the layout
             $scope.layout.splice(data.removedIndex, 0, data.removedWidget);
+
+            // Delete the last fname added to the removal array
+            $scope.widgetsToRemove.pop();
           } else {
-            // Persist changes
-            saveLayoutRemoval(data.removedWidget.fname, data.removedIndex);
+            // Save deletion of any widgets in the tracking array
+            for (var i = 0; i < $scope.widgetsToRemove.length; i++) {
+              var fname = $scope.widgetsToRemove[i];
+              saveLayoutRemoval(fname);
+              // Remove saved deletions from tracking array
+              $scope.widgetsToRemove.splice(i, 1);
+            }
           }
           return response;
         })
@@ -266,18 +279,11 @@ define(['angular', 'jquery'], function(angular, $) {
        * Call layout service to save the removal of the widget from the user's
        * home layout.
        * @param fname {String} The fname of the removed widget
-       * @param index {Number} The index of the removed widget in the layout
        */
-      var saveLayoutRemoval = function(fname, index) {
+      var saveLayoutRemoval = function(fname) {
         // Call layout service to persist change
         layoutService.removeFromHome(fname)
           .success(function() {
-            // Remove from layout in scope
-            // $scope.layout.splice(index, 1);
-
-            // Reset CSS hiding
-            $scope.hideWidgetIndex = null;
-
             // Clear marketplace flag
             if ($sessionStorage.marketplace != null) {
               // Filter for fname match in marketplace
