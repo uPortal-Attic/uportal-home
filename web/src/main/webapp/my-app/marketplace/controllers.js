@@ -60,7 +60,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
       $scope.getLaunchURL = function(marketplaceEntry) {
         var layoutObj = marketplaceEntry.layoutObject;
-        if ($rootScope.GuestMode && !marketplaceEntry.hasInLayout) {
+        if ($sessionStorage.GuestMode && !marketplaceEntry.hasInLayout) {
           return $scope.loginToAuthPage +
               '/web/apps/details/'+ marketplaceEntry.fname;
         } else if (layoutObj.altMaxUrl == false &&
@@ -244,7 +244,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         // initialize variables
 
         $scope.searchResultLimit = 20;
-        $scope.showAll = $rootScope.GuestMode || false;
+        $scope.showAll = $scope.GuestMode || false;
         if (currentPage === 'details') {
           // Empty string indicates no categories, show all portlets
           $scope.categoryToShow = '';

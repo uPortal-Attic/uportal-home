@@ -191,7 +191,7 @@ define([
         $scope.googleResultsEstimatedCount = 0;
         $scope.googleEmptyResults = false;
         $scope.searchResultLimit = 20;
-        $scope.showAll = $rootScope.GuestMode || false;
+        $scope.showAll = $scope.GuestMode || false;
         base.setupSearchTerm();
         // in case the search field is not set for whatever reason, reset it
         PortalSearchService.setQuery($scope.searchTerm);
