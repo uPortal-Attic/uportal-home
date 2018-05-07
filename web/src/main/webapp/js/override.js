@@ -35,6 +35,7 @@ define(['angular'], function(angular) {
           },
           'SERVICE_LOC': {
             'aboutURL': '/portal/api/session.json',
+            'aboutPageURL': '/web/staticFeeds/about-page.json',
             'sessionInfo': '/portal/api/session.json',
             'sidebarInfo': '/web/staticFeeds/sidebar.json',
             'newstuffInfo': '/web/staticFeeds/new-stuff.json',
