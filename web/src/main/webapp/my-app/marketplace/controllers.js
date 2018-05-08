@@ -57,10 +57,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           && portlet.portletName // there is a portletName
           && portlet.portletName.indexOf('cms') != -1; // static content portlet
       };
-
       $scope.GuestMode = $sessionStorage.GuestMode;
-    
-
       $scope.getLaunchURL = function(marketplaceEntry) {
         var layoutObj = marketplaceEntry.layoutObject;
         if ($sessionStorage.GuestMode && !marketplaceEntry.hasInLayout) {
