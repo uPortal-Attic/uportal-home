@@ -58,6 +58,9 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           && portlet.portletName.indexOf('cms') != -1; // static content portlet
       };
 
+      $scope.GuestMode = $sessionStorage.GuestMode;
+    
+
       $scope.getLaunchURL = function(marketplaceEntry) {
         var layoutObj = marketplaceEntry.layoutObject;
         if ($sessionStorage.GuestMode && !marketplaceEntry.hasInLayout) {
@@ -223,8 +226,8 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
   ])
 
   .controller('MarketplaceController', [
-    '$log', '$rootScope', '$scope', '$controller', 'marketplaceService',
-    function($log, $rootScope, $scope, $controller, marketplaceService) {
+    '$log', '$scope', '$controller', 'marketplaceService',
+    function($log, $scope, $controller, marketplaceService) {
       var base = $controller('MarketplaceCommonFunctionsController',
         {$scope: $scope});
 
