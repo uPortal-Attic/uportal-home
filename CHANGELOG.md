@@ -18,6 +18,11 @@ and this project adheres to
 ### Changed
 
 * Adjusted "Undo" action toasts to better support rapid widget deletion (#812)
+* Removed side navigation link to unused "New Features" page (#814)
+* "About" page now actually has information about MyUW (#814)
+
+### Added
+* Side navigation link to new "Version information" page (#814)
 
 ## [8.1.1][] - 2018-03-30
 
