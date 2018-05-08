@@ -63,7 +63,6 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
       // init stuff
       var initInjector = angular.injector(['ng', 'ngStorage']);
       var $sessionStorage = initInjector.get('$sessionStorage');
-      var $rootScope = initInjector.get('$rootScope');
 
       // login stuff
       if (loginConfig.loginURL && !lastLoginValid($sessionStorage)) {
