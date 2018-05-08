@@ -23,7 +23,7 @@ define([
   './layout/list/route',
   'portal/messages/routes',
   'portal/settings/routes',
-  'portal/about/route',
+  'portal/about/routes',
   './layout/route',
   './layout/static/routes',
   './layout/widget/routes',
@@ -49,7 +49,7 @@ define([
   './search/directives',
   './search/services',
 ], function(angular, require, marketplaceRoutes, listRoute, messagesRoutes,
-    portalSettingsRoutes, aboutRoute, layoutRoute, staticRoutes,
+    portalSettingsRoutes, aboutRoutes, layoutRoute, staticRoutes,
     widgetRoutes, searchRoutes) {
   return angular.module('my-app', [
     'ngRoute',
@@ -93,7 +93,8 @@ define([
           .when('/static/:fname', staticRoutes.staticMax)
           .when('/exclusive/:fname', staticRoutes.exclusiveMax)
           .when('/widget/:fname', widgetRoutes.widgetFullScreen)
-          .when('/about', aboutRoute)
+          .when('/about', aboutRoutes.about)
+          .when('/session-info', aboutRoutes.sessionInfo)
           .when('/widget-creator', widgetRoutes.widgetCreator)
           .otherwise(layoutRoute);
     }]);
