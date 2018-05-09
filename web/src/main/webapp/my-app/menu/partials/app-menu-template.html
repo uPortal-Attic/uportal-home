@@ -38,15 +38,15 @@
     </md-button>
   </md-menu-item>
   <md-menu-item>
-    <md-button href="/web/features" ng-click="vm.closeMainMenu();">
-      <md-icon>new_releases</md-icon>
-      <span>New features</span>
-    </md-button>
-  </md-menu-item>
-  <md-menu-item>
     <md-button href="/web/about" ng-click="vm.closeMainMenu();" layout="row" layout-align="start center">
       <md-icon>info</md-icon>
       <span>About</span>
+    </md-button>
+  </md-menu-item>
+  <md-menu-item>
+    <md-button href="/web/session-info" ng-click="vm.closeMainMenu();">
+      <md-icon>help_outline</md-icon>
+      <span>Version information</span>
     </md-button>
   </md-menu-item>
   <md-subheader ng-if="renderMe">{{ appTitle }} Home options</md-subheader>

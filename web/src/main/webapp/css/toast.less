@@ -18,58 +18,19 @@
  */
 md-toast {
   &.toast__widget-removal {
+    position: fixed;
+    padding: 16px;
+
     .md-toast-content {
-      background-color: @white;
-      color: @black;
-      padding: 0;
-      align-items: flex-start;
-      max-height: 126px;
-      max-width: 320px;
+      background: @grayscale9;
+      color: @white;
 
-      &::before {
-        min-height: 0;
-      }
-
-      .toast__message {
-        padding: 16px;
-        width: 100%;
-
-        .toast__source {
-          font-size: 12px;
-        }
-
-        .toast__icon-container {
-          display: flex;
-          height: 44px;
-          width: 44px;
-          max-width: 44px;
-          margin-right: 16px;
-          background: #e5e5e5;
-          border-radius: 50%;
-          justify-content: center;
-          align-items: center;
-
-          .fa,
-          .material-icons {
-            font-size: 24px;
-          }
-        }
-      }
-
-      .toast__actions {
-        background-color: @grayscale2;
-        width: 100%;
-      }
-
-      .md-button {
-        min-width: 60px;
+      @media (min-width: @sm) {
+        min-width: 350px;
       }
     }
 
     @media (max-width: @sm) {
-      position: fixed;
-      padding: 16px;
-
       .md-toast-content {
         max-width: none;
 

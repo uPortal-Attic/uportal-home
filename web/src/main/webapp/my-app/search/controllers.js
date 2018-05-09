@@ -136,14 +136,52 @@ define([
         $scope.wiscDirectoryResultLimit = 3;
       };
 
+      /**
+       * Filter first by title matches, then by other matches,
+       * then merge the two arrays (maintaining order without
+       * duplicates).
+       * @param apps {Array} Array of all apps
+       */
+      var filterAppsBySearchTerm = function(apps) {
+        // Filter by title matches first
+        var appsWithMatchingTitle =
+          marketplaceService.filterPortletsBySearchTerm(
+            apps,
+            $scope.searchTerm,
+            {
+              searchDescription: false,
+              searchKeywords: false,
+              defaultReturn: true,
+            }
+          );
+        // Then filter matching the rest
+        var appsWithMatchingDetails =
+          marketplaceService.filterPortletsBySearchTerm(
+            apps,
+            $scope.searchTerm,
+            {
+              searchDescription: true,
+              searchKeywords: true,
+              defaultReturn: true,
+            }
+          );
+
+        // Merge arrays without duplicates
+        $scope.filteredApps = appsWithMatchingTitle
+          .concat(appsWithMatchingDetails
+            .filter(function(i) {
+              return appsWithMatchingTitle.indexOf(i) === -1;
+        }));
+      };
+
       $scope.showAllDirectoryResults = function() {
         $scope.wiscDirectoryResultLimit = $scope.wiscDirectoryResultCount;
       };
 
       var init = function() {
-        $scope.sortParameter = ['-rating', '-userRated'];
         initwiscDirectoryResultLimit();
         $scope.myuwResults = [];
+        $scope.filteredApps = [];
         $scope.googleResults = [];
         $scope.directoryEnabled = false;
         $scope.wiscDirectoryResults = [];
@@ -161,6 +199,7 @@ define([
         // get marketplace entries
         marketplaceService.getPortlets().then(function(data) {
             $scope.myuwResults = data.portlets;
+            filterAppsBySearchTerm(data.portlets);
             return data;
         }).catch(function() {
           $log.warn('Could not getPortlets');
