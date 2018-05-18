@@ -27,7 +27,6 @@ and this project adheres to
 
 ## [8.1.1][] - 2018-03-30
 
-
 ### Changes
 
 * Tweaked "Undo" action toasts to better conform to [material guidelines](https://material.io/guidelines/components/snackbars-toasts.html#) (#808)
