@@ -22,6 +22,7 @@ and this project adheres to
 * "About" page now actually has information about MyUW (#814)
 
 ### Added
+
 * Side navigation link to new "Version information" page (#814)
 
 ## [8.1.1][] - 2018-03-30
