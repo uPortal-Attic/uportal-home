@@ -8,22 +8,29 @@ and this project adheres to
 
 ## [Unreleased][]
 
-### Deprecated
-
-* Support for Font Awesome icons (the `faIcon` parameter in `portlet-definition`
-  entity files) is formally deprecated, with Material icons (`mdIcon`) preferred
-  instead. Documentation is updated to reflect this preference and deprecation.
-  Support for Font Awesome icons will be removed in some future release.
-
 ### Changed
 
-* Adjusted "Undo" action toasts to better support rapid widget deletion (#812)
 * Removed side navigation link to unused "New Features" page (#814)
 * "About" page now actually has information about MyUW (#814)
 
 ### Added
 
 * Side navigation link to new "Version information" page (#814)
+
+## [8.1.2][] - 2018-04-17
+
+### Deprecated
+
+* Support for Font Awesome icons (the `faIcon` parameter in `portlet-definition`
+  entity files) is formally deprecated, with Material icons (`mdIcon`) preferred
+  instead. Documentation is updated to reflect this preference and deprecation.
+  Support for Font Awesome icons will be removed in some future release. (#801)
+
+### Fixed
+
+* Adjusted "Undo" action toasts to better support rapid widget deletion (#812)
+* Prioritized matching `title`s in search results (#809)
+* `.gitignore` `.vscode` (#788)
 
 ## [8.1.1][] - 2018-03-30
 
@@ -389,7 +396,8 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.1...HEAD
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.2...HEAD
+[8.1.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.1...uportal-home-parent-8.1.2
 [8.1.1]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-8.1.0...uportal-home-parent-8.1.1
 [8.1.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-8.0.0...uportal-home-parent-8.1.0
 [8.0.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.2.0...uportal-home-parent-8.0.0
