@@ -398,13 +398,13 @@ See also:
 
 [unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.2...HEAD
 [8.1.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.1...uportal-home-parent-8.1.2
-[8.1.1]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-8.1.0...uportal-home-parent-8.1.1
-[8.1.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-8.0.0...uportal-home-parent-8.1.0
-[8.0.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.2.0...uportal-home-parent-8.0.0
-[7.2.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.1.0...uportal-home-parent-7.2.0
-[7.1.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.3...uportal-home-parent-7.1.0
-[7.0.3]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.2..uportal-home-parent-7.0.3
-[7.0.2]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.1...uportal-home-parent-7.0.2
+[8.1.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.0...uportal-home-parent-8.1.1
+[8.1.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.0.0...uportal-home-parent-8.1.0
+[8.0.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.2.0...uportal-home-parent-8.0.0
+[7.2.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.1.0...uportal-home-parent-7.2.0
+[7.1.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.0.3...uportal-home-parent-7.1.0
+[7.0.3]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.0.2..uportal-home-parent-7.0.3
+[7.0.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.0.1...uportal-home-parent-7.0.2
 [7.0.1]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-7.0.0...uportal-home-parent-7.0.1
 [7.0.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.7.0...uportal-home-parent-7.0.0
 [6.7.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.6.0...angularjs-portal-parent-6.7.0
