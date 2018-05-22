@@ -10,6 +10,14 @@ and this project adheres to
 
 ### Changed
 
+### Added
+
+### Fixed
+
+## [8.2.0][] - 2018-06-22
+
+### Changed
+
 * Removed side navigation link to unused "New Features" page (#814)
 * "About" page now actually has information about MyUW (#814)
 
@@ -396,7 +404,8 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.2...HEAD
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.0...HEAD
+[8.2.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.2...uportal-home-parent-8.2.0
 [8.1.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.1...uportal-home-parent-8.1.2
 [8.1.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.0...uportal-home-parent-8.1.1
 [8.1.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.0.0...uportal-home-parent-8.1.0
