@@ -24,7 +24,7 @@ define([
   'portal/messages/routes',
   'portal/settings/routes',
   'portal/about/route',
-  'portal/help/route',
+  'portal/help/routes',
   './layout/route',
   './layout/static/routes',
   './layout/widget/routes',
