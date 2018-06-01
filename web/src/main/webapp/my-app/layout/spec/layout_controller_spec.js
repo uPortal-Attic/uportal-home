@@ -94,6 +94,8 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           httpBackend.whenGET(groupURL).respond([]);
           httpBackend.whenGET('/base/my-app/layout/partials/default-view.html')
             .respond('<div></div>');
+          httpBackend.whenGET('/web/staticFeeds/about-page.json')
+            .respond("{}");
           controller.init();
           scope.$apply(function() {
             deferred.resolve({'layout': []});
@@ -108,6 +110,8 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           httpBackend.whenGET(groupURL).respond([]);
           httpBackend.whenGET('/base/my-app/layout/partials/default-view.html')
             .respond('<div></div>');
+          httpBackend.whenGET('/web/staticFeeds/about-page.json')
+            .respond('{}');
           controller.init();
           if (loginSilentURL) {
             httpBackend.whenGET(loginSilentURL)
