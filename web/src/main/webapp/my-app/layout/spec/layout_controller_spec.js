@@ -95,7 +95,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           httpBackend.whenGET('/base/my-app/layout/partials/default-view.html')
             .respond('<div></div>');
           httpBackend.whenGET('/web/staticFeeds/about-page.json')
-            .respond("{}");
+            .respond('{}');
           controller.init();
           scope.$apply(function() {
             deferred.resolve({'layout': []});
