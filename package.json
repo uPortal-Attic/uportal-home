@@ -42,7 +42,7 @@
   },
   "homepage": "https://github.com/uPortal-Project/uportal-home",
   "devDependencies": {
-    "@commitlint/cli": "^6.2.0",
+    "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^6.0.2",
     "@commitlint/prompt-cli": "^6.0.2",
     "@commitlint/travis-cli": "^6.2.0",
