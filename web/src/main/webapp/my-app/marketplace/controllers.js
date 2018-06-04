@@ -57,10 +57,16 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           && portlet.portletName // there is a portletName
           && portlet.portletName.indexOf('cms') != -1; // static content portlet
       };
-      $scope.GuestMode = $sessionStorage.GuestMode;
+      $scope.GuestMode = function amIGuest() {
+          return marketplaceService.isGuest()
+          .then(function(data) {
+              return data;
+          });
+      };
+
       $scope.getLaunchURL = function(marketplaceEntry) {
         var layoutObj = marketplaceEntry.layoutObject;
-        if ($sessionStorage.GuestMode && !marketplaceEntry.hasInLayout) {
+        if ($scope.GuestMode && !marketplaceEntry.hasInLayout) {
           return $scope.loginToAuthPage +
               '/web/apps/details/'+ marketplaceEntry.fname;
         } else if (layoutObj.altMaxUrl == false &&
@@ -228,6 +234,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       var base = $controller('MarketplaceCommonFunctionsController',
         {$scope: $scope});
 
+
       var init = function() {
         // init variables
         $scope.portlets = [];
@@ -241,10 +248,19 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
         base.setupSearchTerm();
 
+        var guestMode = function() {
+           marketplaceService.isGuest().then(function(result) {
+              return result;
+           }).catch(function() {
+             $log.warn('Could not get guest mode');
+           });
+        }
+
         // initialize variables
 
         $scope.searchResultLimit = 20;
-        $scope.showAll = $scope.GuestMode || false;
+
+        $scope.showAll = guestMode() || false;
         if (currentPage === 'details') {
           // Empty string indicates no categories, show all portlets
           $scope.categoryToShow = '';
