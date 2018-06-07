@@ -14,6 +14,9 @@ and this project adheres to
 
 ### Fixed
 
++ Gracefully handle case where directory search JSON URL is bad, as is the case
+  in naive localhost demo against stub data (#825)
+
 ## [8.2.0][] - 2018-06-22
 
 ### Changed
