@@ -135,7 +135,6 @@ define([
           }).catch(function() {
             $log.warn('Directory search error on term ' + $scope.searchTerm);
             $scope.wiscDirectoryLoading = false;
-            $scope.wiscDirectoryError = true;
             $scope.wiscDirectoryErrorMessage =
               'Error. Unable to search the directory.';
           }
