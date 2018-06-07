@@ -88,7 +88,7 @@ By default Jetty runs on port 8080.
 ## Deploying to a Running Local Tomcat
 
 We added in support to deploy the artifact to Tomcat using Maven. To setup add a
-server to your .m2/settings.xml for Tomcat. Example:
+server to your `.m2/settings.xml` for Tomcat. Example:
 
 ```xml
 <server>
