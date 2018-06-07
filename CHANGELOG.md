@@ -14,6 +14,9 @@ and this project adheres to
 
 ### Fixed
 
+* Hide app directory search loading indicator when search returns zero results
+  (#826)
+
 ## [8.2.0][] - 2018-06-22
 
 ### Changed
