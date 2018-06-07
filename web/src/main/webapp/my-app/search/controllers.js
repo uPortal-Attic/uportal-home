@@ -120,12 +120,12 @@ define([
                   results.errors[1].error_msg) {
                 if (results.errors[0].code == 4) {
                   $log.warn(
-                    "Too many directory results for term " + $scope.searchTerm);
+                    'Too many directory results for term ' + $scope.searchTerm);
                   $scope.wiscDirectoryTooManyResults = true;
                 } else {
                   $log.warn(
-                    "Directory search error [" + results.errors[1].error_msg +
-                    "] on term " + $scope.searchTerm);
+                    'Directory search error [' + results.errors[1].error_msg +
+                    '] on term ' + $scope.searchTerm);
                 }
 
                 $scope.wiscDirectoryErrorMessage= results.errors[1].error_msg;
@@ -133,7 +133,7 @@ define([
             }
             return results;
           }).catch(function() {
-            $log.warn("Directory search error on term " + $scope.searchTerm);
+            $log.warn('Directory search error on term ' + $scope.searchTerm);
             $scope.wiscDirectoryLoading = false;
             $scope.wiscDirectoryError = true;
           }
