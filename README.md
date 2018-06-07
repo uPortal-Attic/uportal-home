@@ -41,7 +41,7 @@ implement or inline (so, for more complex JSR-286 Portlet experiences).
 
 See [this project's documentation][GitHub Pages site].
 
-#### Resources for understanding what you can do with `uPortal-home`:
+#### Resources for understanding what you can do with `uPortal-home`
 
 + [MyUW Overview slide deck][]
 + [MyUW Introduction YouTube video](https://www.youtube.com/watch?v=4kM9pPnH_hA)
