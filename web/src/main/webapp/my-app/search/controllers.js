@@ -103,6 +103,7 @@ define([
 
       var initDirectorySearch = function() {
         $scope.wiscDirectoryLoading = true;
+        $scope.wiscDirectoryResultsBadge = '?';
         directorySearchService.directorySearch($scope.searchTerm).then(
           function(results) {
             $scope.wiscDirectoryLoading = false;
@@ -110,8 +111,10 @@ define([
               if (results.records && results.count) {
                 $scope.wiscDirectoryResults = results.records;
                 $scope.wiscDirectoryResultCount = results.count;
+                $scope.wiscDirectoryResultsBadge = results.count;
               } else {
                 $scope.wiscDirectoryResultsEmpty = true;
+                $scope.wiscDirectoryResultsBadge = '0';
               }
               if (results.errors &&
                   results.errors[0] &&
@@ -122,10 +125,12 @@ define([
                   $log.warn(
                     'Too many directory results for term ' + $scope.searchTerm);
                   $scope.wiscDirectoryTooManyResults = true;
+                  $scope.wiscDirectoryResultsBadge = '25+';
                 } else {
                   $log.warn(
                     'Directory search error [' + results.errors[1].error_msg +
                     '] on term ' + $scope.searchTerm);
+                  $scope.wiscDirectoryResultsBadge = '!';
                 }
 
                 $scope.wiscDirectoryErrorMessage= results.errors[1].error_msg;
@@ -137,6 +142,7 @@ define([
             $scope.wiscDirectoryLoading = false;
             $scope.wiscDirectoryErrorMessage =
               'Error. Unable to search the directory.';
+            $scope.wiscDirectoryResultsBadge = '!';
           }
         );
       };
@@ -192,11 +198,13 @@ define([
         $scope.myuwResults = [];
         $scope.filteredApps = [];
         $scope.appDirectoryLoading = true;
+        $scope.appDirectoryResultsBadge = '?';
         $scope.appDirectoryErrorMessage = '';
         $scope.googleResults = [];
         $scope.directoryEnabled = false;
         $scope.wiscDirectoryResults = [];
         $scope.wiscDirectoryResultCount = 0;
+        $scope.wiscDirectoryResultsBadge = '?';
         $scope.wiscDirectoryTooManyResults = false;
         $scope.googleSearchEnabled = false;
         $scope.googleResultsEstimatedCount = 0;
@@ -212,10 +220,12 @@ define([
             $scope.myuwResults = data.portlets;
             filterAppsBySearchTerm(data.portlets);
             $scope.appDirectoryLoading = false;
+            $scope.appDirectoryResultsBadge = $scope.filteredApps.length;
             return data;
         }).catch(function() {
           $log.warn('Could not getPortlets');
           $scope.appDirectoryLoading = false;
+          $scope.appDirectoryResultsBadge = '!';
           $scope.appDirectoryErrorMessage =
             'Error: Could not load app directory.';
         });
