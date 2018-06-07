@@ -83,7 +83,7 @@ configured).  The home will now be deployed to `/web`.
 ## Running w/ Mock Data
 
 To run simply type `mvn clean package && mvn jetty:run` from the root directory.
-By default jetty runs on port 8080.
+By default Jetty runs on port 8080.
 
 ## Deploying to a Running Local Tomcat
 
