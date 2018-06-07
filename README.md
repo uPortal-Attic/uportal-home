@@ -4,11 +4,11 @@ Questions? [Get in touch][uportal-user@].
 
 <!-- current project status -->
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apereo.uportal/uportal-home/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.apereo.uportal/uportal-home)
-[![Linux and MacOS Build Status](https://travis-ci.org/uPortal-Project/uportal-home.svg)](https://travis-ci.org/uPortal-Project/uportal-home)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/80kfnn3469oybst2/branch/master?svg=true)](https://ci.appveyor.com/project/ChristianMurphy/uportal-home/branch/master)
-[![Coverage Status](https://coveralls.io/repos/uPortal-Project/uportal-home/badge.svg?branch=master&service=github)](https://coveralls.io/github/uPortal-Project/uportal-home?branch=master)
-[![devDependencies Status](https://david-dm.org/uPortal-Project/uportal-home/dev-status.svg)](https://david-dm.org/uPortal-Project/uportal-home?type=dev)
-[![bitHound Overall Score](https://www.bithound.io/github/uPortal-Project/uportal-home/badges/score.svg)](https://www.bithound.io/github/uPortal-Project/uportal-home)
+[![Linux and MacOS build status](https://travis-ci.org/uPortal-Project/uportal-home.svg)](https://travis-ci.org/uPortal-Project/uportal-home)
+[![Windows build status](https://ci.appveyor.com/api/projects/status/80kfnn3469oybst2/branch/master?svg=true)](https://ci.appveyor.com/project/ChristianMurphy/uportal-home/branch/master)
+[![Test coverage status](https://coveralls.io/repos/uPortal-Project/uportal-home/badge.svg?branch=master&service=github)](https://coveralls.io/github/uPortal-Project/uportal-home?branch=master)
+[![devDependencies status](https://david-dm.org/uPortal-Project/uportal-home/dev-status.svg)](https://david-dm.org/uPortal-Project/uportal-home?type=dev)
+[![bitHound overall score](https://www.bithound.io/github/uPortal-Project/uportal-home/badges/score.svg)](https://www.bithound.io/github/uPortal-Project/uportal-home)
 [![Code Climate](https://codeclimate.com/github/uPortal-Project/uportal-home/badges/gpa.svg)](https://codeclimate.com/github/uPortal-Project/uportal-home)
 [![Greenkeeper](https://badges.greenkeeper.io/uPortal-Project/uportal-home.svg)](https://greenkeeper.io/)
 
