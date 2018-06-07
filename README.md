@@ -58,6 +58,7 @@ cp web/src/main/resources/endpoint.properties.example web/src/main/resources/end
 
 This file contains your server side proxy configurations. See the example file
 for examples
+
 + run `mvn clean package` from the root directory to build the war files.
 
 ### Building, Deploying, and Running with [Apereo uPortal](https://github.com/Jasig/uPortal)
