@@ -24,9 +24,20 @@ Questions? [Get in touch][uportal-user@].
 
 ### What is this?
 
-This is an Angular approach to the dashboard view of uPortal. This dashboard
-will work along side uPortal, more of a companion app. It utilizes the uPortal
-rest APIs to collect layout info.
+`uPortal-home` is an alternative user interface for some of the most frequent
+user interactions in `uPortal`, namely
+
++ home page
++ widgets
++ app directory
++ search
++ rendering static content
++ rendering simple Portlets
+
+This alternative user interface is implemented using AngularJS as a client-side
+in-browser experience. It relies upon uPortal (through uPortal REST APIs) and
+delegates to uPortal for the user experiences that uPortal-home doesn't directly
+implement or inline (so, for more complex JSR-286 Portlet experiences).
 
 See [this project's documentation][GitHub Pages site].
 
