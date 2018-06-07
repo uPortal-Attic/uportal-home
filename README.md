@@ -50,10 +50,12 @@ See [this project's documentation][GitHub Pages site].
 ## Building
 
 + Generate `endpoint.properties`
+
 ```shell
 cd uportal-home
 cp web/src/main/resources/endpoint.properties.example web/src/main/resources/endpoint.properties
 ```
+
 This file contains your server side proxy configurations. See the example file
 for examples
 + run `mvn clean package` from the root directory to build the war files.
@@ -86,6 +88,7 @@ By default jetty runs on port 8080.
 
 We added in support to deploy the artifact to Tomcat using Maven. To setup add a
 server to your .m2/settings.xml for Tomcat. Example:
+
 ```xml
 <server>
    <id>TomcatServer</id>
@@ -94,15 +97,18 @@ server to your .m2/settings.xml for Tomcat. Example:
 </server>
 
 ```
+
 The id of `TomcatServer` is important here. Add that user/pass combo to your `$TOMCAT_HOME/conf/tomcat-users.xml`. Also be sure you have a role of manager
 listed.
 
 Example:
+
 ```xml
 <role rolename="manager"/>
 <user username="user" password="password" roles="manager-script"/>
 
 ```
+
 The role of `manager-script` gives them the ability to use the `/text` api from
 Tomcat.
 
