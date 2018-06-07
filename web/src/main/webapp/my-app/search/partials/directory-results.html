@@ -33,12 +33,10 @@
   No directory results.
 </div>
 
-<div ng-if="wiscDirectoryError" layout="row" layout-align="center center">
-  <p ng-if="wiscDirectoryErrorMessage">
+<div ng-if="wiscDirectoryErrorMessage"
+  layout="row" layout-align="center center">
+  <p>
     {{wiscDirectoryErrorMessage}}
-  </p>
-  <p ng-if="!wiscDirectoryErrorMessage">
-    Error. Unable to search the directory.
   </p>
 </div>
 
