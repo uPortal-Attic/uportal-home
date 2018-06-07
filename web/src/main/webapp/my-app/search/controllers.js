@@ -182,6 +182,8 @@ define([
         initwiscDirectoryResultLimit();
         $scope.myuwResults = [];
         $scope.filteredApps = [];
+        $scope.appDirectoryLoading = true;
+        $scope.appDirectoryErrorMessage = '';
         $scope.googleResults = [];
         $scope.directoryEnabled = false;
         $scope.wiscDirectoryResults = [];
@@ -200,9 +202,13 @@ define([
         marketplaceService.getPortlets().then(function(data) {
             $scope.myuwResults = data.portlets;
             filterAppsBySearchTerm(data.portlets);
+            $scope.appDirectoryLoading = false;
             return data;
         }).catch(function() {
           $log.warn('Could not getPortlets');
+          $scope.appDirectoryLoading = false;
+          $scope.appDirectoryErrorMessage =
+            'Error: Could not load app directory.';
         });
       };
       init();
