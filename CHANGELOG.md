@@ -6,14 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased][]
+## [Unreleased][] (8.3.0 ?)
 
 ### Changed
+
+* App directory and person directory search result tabs now reflect more nuance
+  about the state of their respective searches in the result tab badges. (#827)
 
 ### Added
 
 ### Fixed
 
+* May have fixed a bug where app directory search result badge could get out of
+  sync with the number of search results actually being displayed. (#827)
 * Hide app directory search loading indicator when search returns zero results
   (#826)
 * Gracefully handle case where directory search JSON URL is bad, as is the case
