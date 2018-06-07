@@ -10,7 +10,7 @@ Questions? [Get in touch][uportal-user@].
 [![devDependencies Status](https://david-dm.org/uPortal-Project/uportal-home/dev-status.svg)](https://david-dm.org/uPortal-Project/uportal-home?type=dev)
 [![bitHound Overall Score](https://www.bithound.io/github/uPortal-Project/uportal-home/badges/score.svg)](https://www.bithound.io/github/uPortal-Project/uportal-home)
 [![Code Climate](https://codeclimate.com/github/uPortal-Project/uportal-home/badges/gpa.svg)](https://codeclimate.com/github/uPortal-Project/uportal-home)
-[![Greenkeeper badge](https://badges.greenkeeper.io/uPortal-Project/uportal-home.svg)](https://greenkeeper.io/)
+[![Greenkeeper](https://badges.greenkeeper.io/uPortal-Project/uportal-home.svg)](https://greenkeeper.io/)
 
 <!-- standards used in project -->
 [![Semver](http://img.shields.io/SemVer/2.0.0.png)](http://semver.org/spec/v2.0.0.html)
