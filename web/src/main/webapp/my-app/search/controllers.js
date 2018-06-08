@@ -202,7 +202,6 @@ define([
         $scope.filteredApps = [];
         $scope.appDirectoryLoading = true;
         $scope.appDirectoryErrorMessage = '';
-        $scope.googleResults = [];
         // there's hope when there are or might be nonzero results
         // hopeless when we know there will be no results to show
         $scope.appDirectoryHopeForResults = true;
@@ -214,6 +213,7 @@ define([
         $scope.wiscDirectoryHopeForResults = false;
 
         $scope.googleSearchEnabled = false;
+        $scope.googleResults = [];
         $scope.googleResultsEstimatedCount = 0;
         $scope.googleEmptyResults = false;
         $scope.googleHopeForResults = false;
