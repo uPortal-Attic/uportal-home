@@ -8,7 +8,9 @@ uPortal-home uses search to scale beyond the limitations of stuffing content int
 
 You can search the directory of apps.
 
-If configured, you can also search a directory of people, and the Web.
+If configured, you can also search a directory of people.
+
+Deprecated: Web search integration.
 
 ### Search the app directory
 
@@ -34,7 +36,13 @@ This is optional. If you don't configure it, the directory results section and t
 
 ### Search the Web
 
-TODO: Document expectations of this integration.
+**Deprecated.** No `uPortal-home` adopter actively involved in the maintenance
+of this open source software product relies upon this feature, so you should
+already be skeptical that it works and is maintained. Will be removed in a
+future release to more clearly set the expectation that you cannot rely upon
+this feature. This feature is nonetheless probably a great idea and if you want
+it don't hesitate to get involved in developing and maintaining this
+integration. :)
 
 This is optional. If you don't configure it, the Web results section and tab simply do not display.
 
@@ -87,7 +95,7 @@ Directory searching (optional):
 
 Web searching (optional; declare all or none):
 
-+ `googleSearchURL` : JSON web service for Web search.
++ `googleSearchURL` : JSON web service for Web search. **DEPRECATED.**
 + `webSearchURL` : human-facing URL for launching the search query into a full Web search experience. Search query will be appended.
 + `domainResultsLabel` : Your Web search doesn't search the whole Web. That's what the browser address bar is for, after all. So what does it search? This label characterizes that for the user.
 
