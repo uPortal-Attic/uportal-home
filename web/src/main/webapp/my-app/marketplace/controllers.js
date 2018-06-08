@@ -26,11 +26,11 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
   .controller('MarketplaceCommonFunctionsController',
     ['googleCustomSearchService', 'miscSearchService', 'layoutService',
-      '$log', 'marketplaceService', 'miscService', 'MISC_URLS',
+      '$log', 'marketplaceService', 'mainService', 'miscService', 'MISC_URLS',
       '$sessionStorage', '$localStorage', '$rootScope', '$scope',
       '$routeParams', '$timeout', '$location', '$mdColors',
     function(googleCustomSearchService, miscSearchService, layoutService,
-      $log, marketplaceService, miscService, MISC_URLS,
+      $log, marketplaceService, mainService, miscService, MISC_URLS,
         $sessionStorage, $localStorage, $rootScope, $scope,
         $routeParams, $timeout, $location, $mdColors) {
       var vm = this;
@@ -57,6 +57,16 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           && portlet.portletName // there is a portletName
           && portlet.portletName.indexOf('cms') != -1; // static content portlet
       };
+
+      var isGuest = function() {
+          return mainService.isGuest().
+           .then(function(result) {
+              return result;
+           });
+      };
+
+
+      }
       $scope.GuestMode = function amIGuest() {
           return marketplaceService.isGuest()
           .then(function(data) {
