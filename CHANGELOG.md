@@ -14,12 +14,6 @@ and this project adheres to
 
 ### Fixed
 
-* Hide app directory search loading indicator when search returns zero results
-  (#826)
-* Suggest ways to recover from a search with zero results (#828)
-* Gracefully handle case where directory search JSON URL is bad, as is the case
-  in naive localhost demo against stub data (#825)
-
 ### Deprecated
 
 **Web search integration is deprecated.** This integration is not actually used
@@ -32,7 +26,17 @@ from working from the legacy implementation of this abandoned feature.
 **Engagement to implement and maintain this feature going forward is welcome.**
 It's not that this feature is unwelcome, it's just that it's not currently real.
 
-## [8.2.0][] - 2018-06-22
+## [8.2.1][] - 2018-06-08
+
+### Fixed
+
+* Hide app directory search loading indicator when search returns zero results
+  (#826)
+* Suggest ways to recover from a search with zero results (#828)
+* Gracefully handle case where directory search JSON URL is bad, as is the case
+  in naive localhost demo against stub data (#825)
+
+## [8.2.0][] - 2018-05-22
 
 ### Changed
 
@@ -422,7 +426,8 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.0...HEAD
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.1...HEAD
+[8.2.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.0...uportal-home-parent-8.2.1
 [8.2.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.2...uportal-home-parent-8.2.0
 [8.1.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.1...uportal-home-parent-8.1.2
 [8.1.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.0...uportal-home-parent-8.1.1
