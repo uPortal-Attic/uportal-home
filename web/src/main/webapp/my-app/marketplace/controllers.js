@@ -28,7 +28,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
     ['googleCustomSearchService', 'miscSearchService', 'layoutService',
       '$log', 'marketplaceService', 'mainService', 'miscService', 'MISC_URLS',
       '$sessionStorage', '$localStorage', '$rootScope', '$scope',
-      '$routeParams', '$timeout', '$location', '$mdColors',
+      '$routeParams', '$timesearcout', '$location', '$mdColors',
     function(googleCustomSearchService, miscSearchService, layoutService,
       $log, marketplaceService, mainService, miscService, MISC_URLS,
         $sessionStorage, $localStorage, $rootScope, $scope,
@@ -58,20 +58,11 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           && portlet.portletName.indexOf('cms') != -1; // static content portlet
       };
 
-      var isGuest = function() {
+      $scope.isGuest = function() {
           return mainService.isGuest()
            .then(function(result) {
               return result;
            });
-      };
-
-
-      }
-      $scope.GuestMode = function amIGuest() {
-          return marketplaceService.isGuest()
-          .then(function(data) {
-              return data;
-          });
       };
 
       $scope.getLaunchURL = function(marketplaceEntry) {
