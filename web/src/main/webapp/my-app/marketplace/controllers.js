@@ -226,7 +226,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $scope.feedbackUrl = MISC_URLS.feedbackURL;
         $scope.loginToAuthPage = MISC_URLS.myuwHome;
       };
-    },
+    };
   ])
 
   .controller('MarketplaceController', [
