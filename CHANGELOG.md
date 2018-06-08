@@ -29,6 +29,8 @@ un-maintained. Removing it clarifies expectations. The web search integration
 will still be in the source history so when the feature comes up again (fair to
 expect it will), it will still be feasible to get whatever goodness can be had
 from working from the legacy implementation of this abandoned feature.
+**Engagement to implement and maintain this feature going forward is welcome.**
+It's not that this feature is unwelcome, it's just that it's not currently real.
 
 ## [8.2.0][] - 2018-06-22
 
