@@ -16,6 +16,7 @@ and this project adheres to
 
 * Hide app directory search loading indicator when search returns zero results
   (#826)
+* Suggest ways to recover from a search with zero results (#828)
 * Successfully launch searches into today.wisc.edu from Madison's theme (#829)
 * Gracefully handle case where directory search JSON URL is bad, as is the case
   in naive localhost demo against stub data (#825)
