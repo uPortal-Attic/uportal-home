@@ -104,6 +104,7 @@ define([
       var initDirectorySearch = function() {
         $scope.wiscDirectoryLoading = true;
         $scope.wiscDirectoryResultsBadge = '?';
+        $scope.wiscDirectoryHopeForResults = true;
         directorySearchService.directorySearch($scope.searchTerm).then(
           function(results) {
             $scope.wiscDirectoryLoading = false;
@@ -112,9 +113,11 @@ define([
                 $scope.wiscDirectoryResults = results.records;
                 $scope.wiscDirectoryResultCount = results.count;
                 $scope.wiscDirectoryResultsBadge = results.count;
+               // hope for results is well justified, leave it true
               } else {
                 $scope.wiscDirectoryResultsEmpty = true;
                 $scope.wiscDirectoryResultsBadge = '0';
+                $scope.wiscDirectoryHopeForResults = false;
               }
               if (results.errors &&
                   results.errors[0] &&
@@ -131,6 +134,7 @@ define([
                     'Directory search error [' + results.errors[1].error_msg +
                     '] on term ' + $scope.searchTerm);
                   $scope.wiscDirectoryResultsBadge = '!';
+                  $scope.wiscDirectoryHopeForResults = false;
                 }
 
                 $scope.wiscDirectoryErrorMessage= results.errors[1].error_msg;
@@ -143,6 +147,7 @@ define([
             $scope.wiscDirectoryErrorMessage =
               'Error. Unable to search the directory.';
             $scope.wiscDirectoryResultsBadge = '!';
+            $scope.wiscDirectoryHopeForResults = false;
           }
         );
       };
@@ -187,6 +192,10 @@ define([
             .filter(function(i) {
               return appsWithMatchingTitle.indexOf(i) === -1;
         }));
+
+        if ($scope.filteredApps.length === 0) {
+          $scope.appDirectoryHopeForResults = false;
+        }
       };
 
       $scope.showAllDirectoryResults = function() {
@@ -200,15 +209,22 @@ define([
         $scope.appDirectoryLoading = true;
         $scope.appDirectoryResultsBadge = '?';
         $scope.appDirectoryErrorMessage = '';
-        $scope.googleResults = [];
+        // there's hope when there are or might be nonzero results
+        // hopeless when we know there will be no results to show
+        $scope.appDirectoryHopeForResults = true;
+
         $scope.directoryEnabled = false;
         $scope.wiscDirectoryResults = [];
         $scope.wiscDirectoryResultCount = 0;
         $scope.wiscDirectoryResultsBadge = '?';
         $scope.wiscDirectoryTooManyResults = false;
+        $scope.wiscDirectoryHopeForResults = false;
+
         $scope.googleSearchEnabled = false;
+        $scope.googleResults = [];
         $scope.googleResultsEstimatedCount = 0;
         $scope.googleEmptyResults = false;
+        $scope.googleHopeForResults = false;
         $scope.searchResultLimit = 20;
         $scope.showAll = $rootScope.GuestMode || false;
         base.setupSearchTerm();
@@ -228,6 +244,7 @@ define([
           $scope.appDirectoryResultsBadge = '!';
           $scope.appDirectoryErrorMessage =
             'Error: Could not load app directory.';
+          $scope.appDirectoryHopeForResults = false;
         });
       };
       init();

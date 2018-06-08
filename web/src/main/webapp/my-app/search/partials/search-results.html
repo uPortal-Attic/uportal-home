@@ -30,6 +30,40 @@
         </md-tab-label>
         <md-tab-body>
           <md-content>
+
+           <!-- No results and no hope for results;
+            Offer some failed search recovery suggestions. -->
+           <div id="no-results" class="search-results-container search-results"
+              ng-show="!appDirectoryHopeForResults
+                && !wiscDirectoryHopeForResults
+                && !googleHopeForResults">
+              <p><strong>No matches.</strong></p>
+              <p>Suggestions:</p>
+              <p ng-if="kbSearchUrl">
+                Search the
+                  <a ng-href="{{kbSearchUrl}}{{searchText}}"
+                    target="_blank" rel="noopener noreferrer">
+                      KnowledgeBase</a>
+              </p>
+              <p ng-if="eventsSearchUrl">
+                Look for
+                  <a ng-href="{{eventsSearchUrl}}{{searchText}}"
+                    target="_blank" rel="noopener noreferrer">
+                    events</a>
+              </p>
+              <p ng-if="helpdeskUrl">
+                Get help from the
+                  <a ng-href="{{helpdeskUrl}}"
+                  target="_blank" rel="noopener noreferrer">
+                    Help Desk</a>
+              </p>
+              <p ng-if="feedbackUrl">
+                <a ng-href="{{feedbackUrl}}"
+                  target="_blank" rel="noopener noreferrer">Give feedback</a>
+                on {{portal.theme.title}} search
+              </p>
+            </div>
+
             <!-- MyUW results -->
             <div class="search-results-container">
               <marketplace-results></marketplace-results>
@@ -43,24 +77,6 @@
             <!--Campus domain results-->
             <div ng-show="googleSearchEnabled" class="search-results-container">
               <campus-domain-results></campus-domain-results>
-            </div>
-
-            <!-- No search results found -->
-            <div id="no-results" class="search-results-container search-results" ng-show="totalCount === 0">
-              <p><strong>No matches.</strong></p>
-              <p>Suggestions:</p>
-              <p ng-if="kbSearchUrl">
-                Search the <a ng-href="{{kbSearchUrl}}{{searchText}}" target="_blank" rel="noopener noreferrer">KnowledgeBase</a>
-              </p>
-              <p ng-if="eventsSearchUrl">
-                Look for <a ng-href="{{eventsSearchUrl}}{{searchText}}" target="_blank" rel="noopener noreferrer">events</a>
-              </p>
-              <p ng-if="helpdeskUrl">
-                Get help from the <a ng-href="{{helpdeskUrl}}" target="_blank" rel="noopener noreferrer">Help Desk</a>
-              </p>
-              <p ng-if="feedbackUrl">
-                <a ng-href="{{feedbackUrl}}" target="_blank" rel="noopener noreferrer">Give feedback</a> on {{portal.theme.title}} search
-              </p>
             </div>
           </md-content>
         </md-tab-body>
