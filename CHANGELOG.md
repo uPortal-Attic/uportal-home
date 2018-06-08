@@ -22,14 +22,13 @@ and this project adheres to
 
 ### Deprecated
 
-**Web search integration is deprecated.** This integration is not actually in use
+**Web search integration is deprecated.** This integration is not actually used
 by `uPortal-home` adopters actively involved in maintaining this open source
-software product, so there's a lot of risk for this feature to go un-loved and
-un-maintained. Removing it will clarify expectations that one shouldn't really
-expect it to work or to be maintained -- it'll still be in the source history so
-when the feature comes up again (fair to expect it will), it'll still be
-feasible to get whatever goodness can be had from working from the legacy
-implementation of this abandoned feature.
+software product, so there's risk for this feature to go un-loved and
+un-maintained. Removing it clarifies expectations. The web search integration
+will still be in the source history so when the feature comes up again (fair to
+expect it will), it will still be feasible to get whatever goodness can be had
+from working from the legacy implementation of this abandoned feature.
 
 ## [8.2.0][] - 2018-06-22
 
