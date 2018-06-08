@@ -23,7 +23,12 @@
   {{ portal.theme.title }}
 </h4>
 <div layout="row" layout-align="center center">
-  <loading-gif data-object="filteredApps"></loading-gif>
+  <loading-gif
+    ng-show="appDirectoryLoading"
+    data-object="filteredApps"></loading-gif>
+</div>
+<div ng-show="appDirectoryErrorMessage" class="no-result">
+  {{ appDirectoryErrorMessage }}
 </div>
 <div ng-show="myuwResults.length != 0 && filteredApps.length == 0" class="no-result">
   No {{ portal.theme.title }} results. <a href="apps">See all apps?</a>
