@@ -59,7 +59,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       };
 
       var isGuest = function() {
-          return mainService.isGuest().
+          return mainService.isGuest()
            .then(function(result) {
               return result;
            });
