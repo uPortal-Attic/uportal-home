@@ -24,11 +24,22 @@
 </h4>
 
 <div layout="row" layout-align="center center">
-  <loading-gif data-object="wiscDirectoryResults" data-empty="wiscDirectoryResultsEmpty"></loading-gif>
+  <loading-gif
+    ng-show="wiscDirectoryLoading"
+    data-object="wiscDirectoryResults"
+    data-empty="wiscDirectoryResultsEmpty"></loading-gif>
 </div>
 <div ng-show="wiscDirectoryResultsEmpty && !wiscDirectoryTooManyResults" class='no-result'>
   No directory results.
 </div>
+
+<div ng-if="wiscDirectoryErrorMessage"
+  layout="row" layout-align="center center">
+  <p>
+    {{wiscDirectoryErrorMessage}}
+  </p>
+</div>
+
 <div class="result" ng-repeat="item in wiscDirectoryResults | limitTo:wiscDirectoryResultLimit">
   <h4>{{item.fullName}}</h4>
   <p ng-if="item.formalName">Also known as {{item.formalName}}</p>
@@ -61,8 +72,5 @@
 <div class="seeMoreResults">
   <p ng-if="wiscDirectoryResultCount>wiscDirectoryResultLimit">
     <a href="" ng-click="showAllDirectoryResults()">See all {{wiscDirectoryResultCount}} directory results</a>
-  </p>
-  <p ng-if="wiscDirectoryErrorMessage">
-    {{wiscDirectoryErrorMessage}}
   </p>
 </div>

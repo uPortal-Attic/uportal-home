@@ -103,6 +103,7 @@ define([
 
       var initDirectorySearch = function() {
         $scope.wiscDirectoryLoading = true;
+        $scope.wiscDirectoryHopeForResults = true;
         directorySearchService.directorySearch($scope.searchTerm).then(
           function(results) {
             $scope.wiscDirectoryLoading = false;
@@ -110,8 +111,10 @@ define([
               if (results.records && results.count) {
                 $scope.wiscDirectoryResults = results.records;
                 $scope.wiscDirectoryResultCount = results.count;
+                // hope for results is well justified, leave it true
               } else {
                 $scope.wiscDirectoryResultsEmpty = true;
+                $scope.wiscDirectoryHopeForResults = false;
               }
               if (results.errors &&
                   results.errors[0] &&
@@ -119,15 +122,26 @@ define([
                   results.errors[1] &&
                   results.errors[1].error_msg) {
                 if (results.errors[0].code == 4) {
+                  $log.warn(
+                    'Too many directory results for term ' + $scope.searchTerm);
                   $scope.wiscDirectoryTooManyResults = true;
+                } else {
+                  $log.warn(
+                    'Directory search error [' + results.errors[1].error_msg +
+                    '] on term ' + $scope.searchTerm);
+                  $scope.wiscDirectoryHopeForResults = false;
                 }
+
                 $scope.wiscDirectoryErrorMessage= results.errors[1].error_msg;
               }
             }
             return results;
           }).catch(function() {
+            $log.warn('Directory search error on term ' + $scope.searchTerm);
             $scope.wiscDirectoryLoading = false;
-            $scope.wiscDirectoryError = true;
+            $scope.wiscDirectoryErrorMessage =
+              'Error. Unable to search the directory.';
+            $scope.wiscDirectoryHopeForResults = false;
           }
         );
       };
@@ -172,6 +186,10 @@ define([
             .filter(function(i) {
               return appsWithMatchingTitle.indexOf(i) === -1;
         }));
+
+        if ($scope.filteredApps.length === 0) {
+          $scope.appDirectoryHopeForResults = false;
+        }
       };
 
       $scope.showAllDirectoryResults = function() {
@@ -182,14 +200,23 @@ define([
         initwiscDirectoryResultLimit();
         $scope.myuwResults = [];
         $scope.filteredApps = [];
-        $scope.googleResults = [];
+        $scope.appDirectoryLoading = true;
+        $scope.appDirectoryErrorMessage = '';
+        // there's hope when there are or might be nonzero results
+        // hopeless when we know there will be no results to show
+        $scope.appDirectoryHopeForResults = true;
+
         $scope.directoryEnabled = false;
         $scope.wiscDirectoryResults = [];
         $scope.wiscDirectoryResultCount = 0;
         $scope.wiscDirectoryTooManyResults = false;
+        $scope.wiscDirectoryHopeForResults = false;
+
         $scope.googleSearchEnabled = false;
+        $scope.googleResults = [];
         $scope.googleResultsEstimatedCount = 0;
         $scope.googleEmptyResults = false;
+        $scope.googleHopeForResults = false;
         $scope.searchResultLimit = 20;
         $scope.showAll = $scope.GuestMode || false;
         base.setupSearchTerm();
@@ -200,9 +227,14 @@ define([
         marketplaceService.getPortlets().then(function(data) {
             $scope.myuwResults = data.portlets;
             filterAppsBySearchTerm(data.portlets);
+            $scope.appDirectoryLoading = false;
             return data;
         }).catch(function() {
           $log.warn('Could not getPortlets');
+          $scope.appDirectoryLoading = false;
+          $scope.appDirectoryErrorMessage =
+            'Error: Could not load app directory.';
+          $scope.appDirectoryHopeForResults = false;
         });
       };
       init();
