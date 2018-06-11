@@ -14,6 +14,8 @@ and this project adheres to
 
 ### Fixed
 
+* Successfully launch searches into today.wisc.edu from Madison's theme (#829)
+
 ### Deprecated
 
 **Web search integration is deprecated.** This integration is not actually used
