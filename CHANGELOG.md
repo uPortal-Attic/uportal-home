@@ -17,6 +17,7 @@ and this project adheres to
 
 ### Fixed
 
+* Successfully launch searches into today.wisc.edu from Madison's theme (#829)
 * May have fixed a bug where app directory search result badge could get out of
   sync with the number of search results actually being displayed. (#827)
 
