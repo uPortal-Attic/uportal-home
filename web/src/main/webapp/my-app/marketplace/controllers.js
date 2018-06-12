@@ -58,14 +58,16 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           && portlet.portletName.indexOf('cms') != -1; // static content portlet
       };
 
-      $scope.isGuest = function(mainService.isGuest()) {
+      mainService.isGuest()
           .then(function(isGuest) {
+            if (isGuest) {
+              $scope.isGuest = true;
+            }
             return isGuest;
         }).catch(function() {
           $log.warn('Cannot get isGuest');
           return true;
         });
-       };
 
       $scope.getLaunchURL = function(marketplaceEntry) {
         var layoutObj = marketplaceEntry.layoutObject;
