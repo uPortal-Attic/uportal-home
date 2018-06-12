@@ -60,7 +60,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
       $scope.GuestMode = function(mainService) {
         return mainService.isGuest;
-      }
+      };
 
       $scope.getLaunchURL = function(marketplaceEntry) {
         var layoutObj = marketplaceEntry.layoutObject;
@@ -228,7 +228,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
   .controller('MarketplaceController', [
     '$log', '$rootScope', '$scope', '$controller', 'marketplaceService',
-    'mainService' ,
+    'mainService',
     function($log, $rootScope, $scope, $controller, marketplaceService,
       mainService) {
       var base = $controller('MarketplaceCommonFunctionsController',
