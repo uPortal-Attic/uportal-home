@@ -223,8 +223,8 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
   ])
 
   .controller('MarketplaceController', [
-    '$log', '$rootScope', '$scope', '$controller', 'marketplaceService',
-    function($log, $rootScope, $scope, $controller, marketplaceService) {
+    '$log', '$rootScope', '$scope', '$controller', 'mainService', 'marketplaceService',
+    function($log, $rootScope, $scope, $controller, mainService, marketplaceService) {
       var base = $controller('MarketplaceCommonFunctionsController',
         {$scope: $scope});
 
