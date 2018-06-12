@@ -26,12 +26,12 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
   .controller('MarketplaceCommonFunctionsController',
     ['googleCustomSearchService', 'miscSearchService', 'layoutService',
-      '$log', 'marketplaceService', 'miscService', 'MISC_URLS',
-      '$sessionStorage', '$localStorage', '$rootScope', '$scope',
+      '$log', 'marketplaceService', 'miscService', 'mainService',
+      'MISC_URLS', '$sessionStorage', '$localStorage', '$rootScope', '$scope',
       '$routeParams', '$timeout', '$location', '$mdColors',
     function(googleCustomSearchService, miscSearchService, layoutService,
-      $log, marketplaceService, miscService, MISC_URLS,
-        $sessionStorage, $localStorage, $rootScope, $scope,
+      $log, marketplaceService, miscService, mainService,
+        MISC_URLS, $sessionStorage, $localStorage, $rootScope, $scope,
         $routeParams, $timeout, $location, $mdColors) {
       var vm = this;
 
@@ -58,9 +58,17 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           && portlet.portletName.indexOf('cms') != -1; // static content portlet
       };
 
+      $scope.isGuest = function(mainService.isGuest())
+          .then(function(isGuest) {
+            return isGuest;
+        }).catch(function() {
+          $log.warn('Cannot get isGuest');
+          return true;
+        });
+
       $scope.getLaunchURL = function(marketplaceEntry) {
         var layoutObj = marketplaceEntry.layoutObject;
-        if ($rootScope.GuestMode && !marketplaceEntry.hasInLayout) {
+        if ($scope.isGuest && !marketplaceEntry.hasInLayout) {
           return $scope.loginToAuthPage +
               '/web/apps/details/'+ marketplaceEntry.fname;
         } else if (layoutObj.altMaxUrl == false &&
@@ -253,6 +261,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
             if (isGuest) {
               $scope.showAll = true;
             }
+            return isGuest;
         }).catch(function() {
           $log.warn('Cannot get isGuest');
           return true;
