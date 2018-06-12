@@ -28,7 +28,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
     ['googleCustomSearchService', 'miscSearchService', 'layoutService',
       '$log', 'marketplaceService', 'mainService', 'miscService', 'MISC_URLS',
       '$sessionStorage', '$localStorage', '$rootScope', '$scope',
-      '$routeParams', '$timesearcout', '$location', '$mdColors',
+      '$routeParams', '$timeout', '$location', '$mdColors',
     function(googleCustomSearchService, miscSearchService, layoutService,
       $log, marketplaceService, mainService, miscService, MISC_URLS,
         $sessionStorage, $localStorage, $rootScope, $scope,
@@ -58,12 +58,9 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           && portlet.portletName.indexOf('cms') != -1; // static content portlet
       };
 
-      $scope.isGuest = function() {
-          return mainService.isGuest()
-           .then(function(result) {
-              return result;
-           });
-      };
+      $scope.GuestMode = function(mainService) {
+        return mainService.isGuest;
+      }
 
       $scope.getLaunchURL = function(marketplaceEntry) {
         var layoutObj = marketplaceEntry.layoutObject;
@@ -226,15 +223,22 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $scope.feedbackUrl = MISC_URLS.feedbackURL;
         $scope.loginToAuthPage = MISC_URLS.myuwHome;
       };
-    };
+    },
   ])
 
   .controller('MarketplaceController', [
-    '$log', '$scope', '$controller', 'marketplaceService',
-    function($log, $scope, $controller, marketplaceService) {
+    '$log', '$rootScope', '$scope', '$controller', 'marketplaceService',
+    'mainService' ,
+    function($log, $rootScope, $scope, $controller, marketplaceService,
+      mainService) {
       var base = $controller('MarketplaceCommonFunctionsController',
         {$scope: $scope});
 
+      $scope.GuestMode = function(mainService) {
+         return mainService.isGuest().then(function(data) {
+               return data;
+         });
+      };
 
       var init = function() {
         // init variables
@@ -249,19 +253,10 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
         base.setupSearchTerm();
 
-        var guestMode = function() {
-           marketplaceService.isGuest().then(function(result) {
-              return result;
-           }).catch(function() {
-             $log.warn('Could not get guest mode');
-           });
-        }
-
         // initialize variables
 
         $scope.searchResultLimit = 20;
-
-        $scope.showAll = guestMode() || false;
+        $scope.showAll = $scope.GuestMode || false;
         if (currentPage === 'details') {
           // Empty string indicates no categories, show all portlets
           $scope.categoryToShow = '';
