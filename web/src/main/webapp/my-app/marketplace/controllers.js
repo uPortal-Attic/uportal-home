@@ -26,11 +26,11 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
   .controller('MarketplaceCommonFunctionsController',
     ['googleCustomSearchService', 'miscSearchService', 'layoutService',
-      '$log', 'marketplaceService', 'miscService', 'MISC_URLS',
+      '$log', 'marketplaceService', 'mainService', 'miscService', 'MISC_URLS',
       '$sessionStorage', '$localStorage', '$rootScope', '$scope',
       '$routeParams', '$timeout', '$location', '$mdColors',
     function(googleCustomSearchService, miscSearchService, layoutService,
-      $log, marketplaceService, miscService, MISC_URLS,
+      $log, marketplaceService, mainService, miscService, MISC_URLS,
         $sessionStorage, $localStorage, $rootScope, $scope,
         $routeParams, $timeout, $location, $mdColors) {
       var vm = this;
@@ -58,9 +58,13 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           && portlet.portletName.indexOf('cms') != -1; // static content portlet
       };
 
+      $scope.GuestMode = function(mainService) {
+        return mainService.isGuest;
+      };
+
       $scope.getLaunchURL = function(marketplaceEntry) {
         var layoutObj = marketplaceEntry.layoutObject;
-        if ($rootScope.GuestMode && !marketplaceEntry.hasInLayout) {
+        if ($scope.GuestMode && !marketplaceEntry.hasInLayout) {
           return $scope.loginToAuthPage +
               '/web/apps/details/'+ marketplaceEntry.fname;
         } else if (layoutObj.altMaxUrl == false &&
@@ -224,9 +228,17 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
   .controller('MarketplaceController', [
     '$log', '$rootScope', '$scope', '$controller', 'marketplaceService',
-    function($log, $rootScope, $scope, $controller, marketplaceService) {
+    'mainService',
+    function($log, $rootScope, $scope, $controller, marketplaceService,
+      mainService) {
       var base = $controller('MarketplaceCommonFunctionsController',
         {$scope: $scope});
+
+      $scope.GuestMode = function(mainService) {
+         return mainService.isGuest().then(function(data) {
+               return data;
+         });
+      };
 
       var init = function() {
         // init variables
@@ -244,7 +256,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         // initialize variables
 
         $scope.searchResultLimit = 20;
-        $scope.showAll = $rootScope.GuestMode || false;
+        $scope.showAll = $scope.GuestMode || false;
         if (currentPage === 'details') {
           // Empty string indicates no categories, show all portlets
           $scope.categoryToShow = '';

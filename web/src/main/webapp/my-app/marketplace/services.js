@@ -311,6 +311,13 @@ define(['angular', 'jquery'], function(angular, $) {
             });
         };
 
+        var isGuest = function() {
+               return mainService.isGuest()
+               .then(function(result) {
+                       return result;
+               });
+        };
+
         // return list of avaliable functions
         return {
             getPortlet: getPortlet,
@@ -324,6 +331,7 @@ define(['angular', 'jquery'], function(angular, $) {
             portletMatchesSearchTerm: portletMatchesSearchTerm,
             setFromInfo: setFromInfo,
             getFromInfo: getFromInfo,
+            isGuest: isGuest,
         };
     }]);
 });
