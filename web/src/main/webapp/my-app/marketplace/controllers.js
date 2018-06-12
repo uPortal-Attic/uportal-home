@@ -244,7 +244,14 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         // initialize variables
 
         $scope.searchResultLimit = 20;
-        $scope.showAll = $rootScope.GuestMode || false;
+        $scope.showAll = false;
+        
+        mainService.isGuest().then(function(isGuest) {
+          if (isGuest) {
+            $scope.showAll = true;
+          }
+        });
+        
         if (currentPage === 'details') {
           // Empty string indicates no categories, show all portlets
           $scope.categoryToShow = '';
