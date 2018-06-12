@@ -223,8 +223,10 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
   ])
 
   .controller('MarketplaceController', [
-    '$log', '$rootScope', '$scope', '$controller', 'mainService', 'marketplaceService',
-    function($log, $rootScope, $scope, $controller, mainService, marketplaceService) {
+    '$log', '$rootScope', '$scope', '$controller',
+    'mainService', 'marketplaceService',
+    function($log, $rootScope, $scope, $controller,
+      mainService, marketplaceService) {
       var base = $controller('MarketplaceCommonFunctionsController',
         {$scope: $scope});
 
@@ -245,13 +247,17 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
         $scope.searchResultLimit = 20;
         $scope.showAll = false;
-        
-        mainService.isGuest().then(function(isGuest) {
-          if (isGuest) {
-            $scope.showAll = true;
-          }
+
+        mainService.isGuest()
+          .then(function(isGuest) {
+            if (isGuest) {
+              $scope.showAll = true;
+            }
+        }).catch(function() {
+          $log.warn('Cannot get isGuest');
+          return true;
         });
-        
+
         if (currentPage === 'details') {
           // Empty string indicates no categories, show all portlets
           $scope.categoryToShow = '';
