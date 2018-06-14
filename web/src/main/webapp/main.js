@@ -80,7 +80,7 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
             }
             $sessionStorage.portal.lastAccessed = (new Date).getTime();
             $sessionStorage.portal.username = response.data.username;
-            //rootScope.GuestMode is deprecated. This will be going away.
+            // rootScope.GuestMode is deprecated. This will be going away.
             if (response.data.username === 'guest') {
               $rootScope.GuestMode = true;
             }
