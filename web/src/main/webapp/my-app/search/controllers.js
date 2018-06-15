@@ -72,10 +72,10 @@ define([
 
     .controller('SearchResultController',
       ['$log', '$rootScope', '$scope', '$controller',
-      'marketplaceService', 'googleCustomSearchService',
+      'marketplaceService', 'mainService', 'googleCustomSearchService',
       'directorySearchService', 'PortalSearchService',
       function($log, $rootScope, $scope, $controller,
-        marketplaceService, googleCustomSearchService,
+        marketplaceService, mainService, googleCustomSearchService,
         directorySearchService, PortalSearchService) {
       var base = $controller('MarketplaceCommonFunctionsController',
         {$scope: $scope});
@@ -226,7 +226,19 @@ define([
         $scope.googleEmptyResults = false;
         $scope.googleHopeForResults = false;
         $scope.searchResultLimit = 20;
-        $scope.showAll = $rootScope.GuestMode || false;
+        $scope.showAll = false;
+
+        mainService.isGuest()
+          .then(function(isGuest) {
+            if (isGuest) {
+              $scope.showAll = true;
+            }
+            return isGuest;
+        }).catch(function() {
+          $log.warn('Cannot get isGuest');
+          return true;
+        });
+
         base.setupSearchTerm();
         // in case the search field is not set for whatever reason, reset it
         PortalSearchService.setQuery($scope.searchTerm);
