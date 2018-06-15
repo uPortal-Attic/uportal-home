@@ -9,6 +9,16 @@ Concretely this has meant or might soon mean:
 + Attention to focus order.
 + Enabling re-ordering home page content via keyboard controls.
 
+Hoping to automate some accessibility checking to make accessibility progress
+sustainable.
+
+## Enable easier adoption
+
++ Internationalization
++ Easier build and deploy process
++ Update the technology stack
++ Update adoption documentation
+
 ## Development framework as Web Components
 
 Vision: enable development of "uPortal application framework" applications
