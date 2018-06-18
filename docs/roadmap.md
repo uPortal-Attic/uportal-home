@@ -30,3 +30,5 @@ without constraining those applications' other technology choices. Use Angular
 or Vue or React or Preact or whatever -- the
 "uPortal-application-framework-ness" is happening at a different architectural
 level via Web Components that you import and drop in.
+
+[uportal-user@ visions]: https://groups.google.com/a/apereo.org/d/msg/uportal-user/bCQCcswtcJ4/lyQJ1RE2BAAJ
