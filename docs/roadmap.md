@@ -1,5 +1,9 @@
 # uPortal-home product roadmap
 
+See also
+
++ [Discussion of project visions on uportal-user@][uportal-user@ visions]
+
 ## Accessibility
 
 Working towards WCAG2:A compliance with confidence in remaining compliant.
