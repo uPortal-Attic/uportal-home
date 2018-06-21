@@ -6,26 +6,71 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased][]
+## [Unreleased][] (8.3.0 ?)
+
+### Changed
+
+* App directory and person directory search result tabs now reflect more nuance
+  about the state of their respective searches in the result tab badges. (#827)
+
+### Added
+
+### Fixed
+
+* Successfully launch searches into today.wisc.edu from Madison's theme (#829)
+* May have fixed a bug where app directory search result badge could get out of
+  sync with the number of search results actually being displayed. (#827)
+
+### Deprecated
+
+**Web search integration is deprecated.** This integration is not actually used
+by `uPortal-home` adopters actively involved in maintaining this open source
+software product, so there's risk for this feature to go un-loved and
+un-maintained. Removing it clarifies expectations. The web search integration
+will still be in the source history so when the feature comes up again (fair to
+expect it will), it will still be feasible to get whatever goodness can be had
+from working from the legacy implementation of this abandoned feature.
+**Engagement to implement and maintain this feature going forward is welcome.**
+It's not that this feature is unwelcome, it's just that it's not currently real.
+(#830)
+
+## [8.2.1][] - 2018-06-08
+
+### Fixed
+
+* Hide app directory search loading indicator when search returns zero results
+  (#826)
+* Suggest ways to recover from a search with zero results (#828)
+* Gracefully handle case where directory search JSON URL is bad, as is the case
+  in naive localhost demo against stub data (#825)
+
+## [8.2.0][] - 2018-05-22
+
+### Changed
+
+* Removed side navigation link to unused "New Features" page (#814)
+* "About" page now actually has information about MyUW (#814)
+
+### Added
+
+* Side navigation link to new "Version information" page (#814)
+
+## [8.1.2][] - 2018-04-17
 
 ### Deprecated
 
 * Support for Font Awesome icons (the `faIcon` parameter in `portlet-definition`
   entity files) is formally deprecated, with Material icons (`mdIcon`) preferred
   instead. Documentation is updated to reflect this preference and deprecation.
-  Support for Font Awesome icons will be removed in some future release.
+  Support for Font Awesome icons will be removed in some future release. (#801)
 
-### Changed
+### Fixed
 
 * Adjusted "Undo" action toasts to better support rapid widget deletion (#812)
-* Removed side navigation link to unused "New Features" page (#814)
-* "About" page now actually has information about MyUW (#814)
-
-### Added
-* Side navigation link to new "Version information" page (#814)
+* Prioritized matching `title`s in search results (#809)
+* `.gitignore` `.vscode` (#788)
 
 ## [8.1.1][] - 2018-03-30
-
 
 ### Changes
 
@@ -390,14 +435,17 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.1...HEAD
-[8.1.1]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-8.1.0...uportal-home-parent-8.1.1
-[8.1.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-8.0.0...uportal-home-parent-8.1.0
-[8.0.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.2.0...uportal-home-parent-8.0.0
-[7.2.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.1.0...uportal-home-parent-7.2.0
-[7.1.0]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.3...uportal-home-parent-7.1.0
-[7.0.3]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.2..uportal-home-parent-7.0.3
-[7.0.2]: https://github.com/uPortal-Project/uportal-home/releases/tag/uportal-home-parent-7.0.1...uportal-home-parent-7.0.2
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.1...HEAD
+[8.2.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.0...uportal-home-parent-8.2.1
+[8.2.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.2...uportal-home-parent-8.2.0
+[8.1.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.1...uportal-home-parent-8.1.2
+[8.1.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.0...uportal-home-parent-8.1.1
+[8.1.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.0.0...uportal-home-parent-8.1.0
+[8.0.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.2.0...uportal-home-parent-8.0.0
+[7.2.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.1.0...uportal-home-parent-7.2.0
+[7.1.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.0.3...uportal-home-parent-7.1.0
+[7.0.3]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.0.2..uportal-home-parent-7.0.3
+[7.0.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.0.1...uportal-home-parent-7.0.2
 [7.0.1]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-7.0.0...uportal-home-parent-7.0.1
 [7.0.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.7.0...uportal-home-parent-7.0.0
 [6.7.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.6.0...angularjs-portal-parent-6.7.0
