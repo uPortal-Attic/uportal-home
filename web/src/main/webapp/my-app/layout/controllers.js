@@ -55,6 +55,18 @@ define(['angular', 'jquery'], function(angular, $) {
         };
         $scope.$emit('REMOVE_WIDGET', data);
       };
+
+      $scope.guestMode = function(mainService) {
+        mainService.isGuest()
+          .then(function(isGuest) {
+            if (isGuest) {
+              return true;
+            }
+            return isGuest;
+        }).catch(function() {
+          $log.warn('Cannot get isGuest');
+          return true;
+        });
     }])
 
   /**
@@ -63,9 +75,9 @@ define(['angular', 'jquery'], function(angular, $) {
    * /widget/partials/widget-card.html)
    */
   .controller('WidgetController',
-  ['$controller', '$log', '$scope', '$rootScope', '$mdToast',
+  ['$controller', '$log', '$scope', '$rootScope', '$mdToast', '$mainService',
     '$sessionStorage', '$filter', '$mdColors', 'layoutService',
-    function($controller, $log, $scope, $rootScope, $mdToast,
+    function($controller, $log, $scope, $rootScope, $mdToast, $mainService,
              $sessionStorage, $filter, $mdColors, layoutService) {
       var vm = this;
       $scope.selectedNodeId = '';
@@ -78,6 +90,19 @@ define(['angular', 'jquery'], function(angular, $) {
       $scope.selectNode = function(nodeId) {
         $scope.selectedNodeId = nodeId;
       };
+
+      $scope.guestMode = function(mainService) {
+        mainService.isGuest()
+          .then(function(isGuest) {
+            if (isGuest) {
+              return true;
+            }
+            return isGuest;
+        }).catch(function() {
+          $log.warn('Cannot get isGuest');
+          return true;
+        });
+      } 
 
       /**
        * Log whenever a widget is moved
