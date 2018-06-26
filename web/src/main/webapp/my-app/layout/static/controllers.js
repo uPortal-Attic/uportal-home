@@ -22,8 +22,10 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
   return angular.module('my-app.layout.static.controllers', [])
 
   .controller('ExclusiveContentController',
-    ['$location', '$log', '$routeParams', '$scope', 'layoutService',
-    function($location, $log, $routeParams, $scope, layoutService) {
+    ['$location', '$log', '$routeParams', '$scope',
+     'mainService', 'layoutService',
+    function($location, $log, $routeParams, $scope, 
+      mainService, layoutService) {
       // BINDABLE MEMBERS
       $scope.portlet = {};
       $scope.loaded = false;
@@ -35,17 +37,17 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           $scope.portlet.exclusiveContent.length > 0 ? false : true;
       };
 
-      $scope.guestMode = function(mainService) {
-        mainService.isGuest()
+      mainService.isGuest()
           .then(function(isGuest) {
             if (isGuest) {
-              return true;
+              $scope.guestMode = true;
             }
             return isGuest;
         }).catch(function() {
           $log.warn('Cannot get isGuest');
           return true;
         });
+      
 
       // Get the requested app from layoutService
       layoutService.getApp($routeParams.fname).then(function(result) {

@@ -25,8 +25,10 @@ define(['angular', 'jquery'], function(angular, $) {
    * Controller for default view (my-app/layout/partials/default-view.html)
    */
   .controller('DefaultViewController',
-    ['$scope', '$location', '$mdMedia', '$localStorage', 'APP_FLAGS',
-    function($scope, $location, $mdMedia, $localStorage, APP_FLAGS) {
+    ['$scope', '$location', '$mdMedia', '$mainService',
+    '$localStorage', 'APP_FLAGS',
+    function($scope, $location, $mdMedia, $mainService, 
+      $localStorage, APP_FLAGS) {
       $scope.loading = [];
       if (!APP_FLAGS[$localStorage.layoutMode]) {
         // Layout mode set weird, reset to default
@@ -56,11 +58,10 @@ define(['angular', 'jquery'], function(angular, $) {
         $scope.$emit('REMOVE_WIDGET', data);
       };
 
-      $scope.guestMode = function(mainService) {
-        mainService.isGuest()
+      $mainService.isGuest()
           .then(function(isGuest) {
             if (isGuest) {
-              return true;
+              $scope.guestMode = true;
             }
             return isGuest;
         }).catch(function() {
