@@ -6,15 +6,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased][]
+## [Unreleased][] (8.3.0 ?)
 
 ### Changed
+
+* App directory and person directory search result tabs now reflect more nuance
+  about the state of their respective searches in the result tab badges. (#827)
 
 ### Added
 
 ### Fixed
 
 * Successfully launch searches into today.wisc.edu from Madison's theme (#829)
+* May have fixed a bug where app directory search result badge could get out of
+  sync with the number of search results actually being displayed. (#827)
 
 ### Deprecated
 
@@ -27,6 +32,7 @@ expect it will), it will still be feasible to get whatever goodness can be had
 from working from the legacy implementation of this abandoned feature.
 **Engagement to implement and maintain this feature going forward is welcome.**
 It's not that this feature is unwelcome, it's just that it's not currently real.
+(#830)
 
 ## [8.2.1][] - 2018-06-08
 

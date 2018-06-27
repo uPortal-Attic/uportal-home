@@ -85,7 +85,7 @@
       <!-- MyUW RESULTS ONLY -->
       <md-tab ng-if="googleSearchEnabled || directoryEnabled">
         <md-tab-label>
-          {{ portal.theme.title }}&nbsp;&nbsp;<span class="badge">{{ filteredApps.length }}</span>
+          {{ portal.theme.title }}&nbsp;&nbsp;<span class="badge">{{ appDirectoryResultsBadge }}</span>
         </md-tab-label>
         <md-tab-body>
           <md-content>
@@ -100,7 +100,8 @@
       <!-- DIRECTORY RESULTS ONLY -->
       <md-tab ng-if="directoryEnabled">
         <md-tab-label>
-          Directory&nbsp;&nbsp;<span class="badge">{{ wiscDirectoryTooManyResults ? '25+' : wiscDirectoryResultCount }}</span>
+          Directory&nbsp;&nbsp;
+          <span class="badge">{{ wiscDirectoryResultsBadge }}</span>
         </md-tab-label>
         <md-tab-body>
           <md-content>
