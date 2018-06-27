@@ -55,18 +55,7 @@ define(['angular', 'jquery'], function(angular, $) {
         };
         $scope.$emit('REMOVE_WIDGET', data);
       };
-
-      $mainService.isGuest()
-          .then(function(isGuest) {
-            if (isGuest) {
-              $scope.guestMode = true;
-            }
-            return isGuest;
-        }).catch(function() {
-          $log.warn('Cannot get isGuest');
-          return true;
-        });
-    }])
+  }])
 
   /**
    * Widget initialization and sorting for expanded mode widget layout
@@ -74,9 +63,9 @@ define(['angular', 'jquery'], function(angular, $) {
    * /widget/partials/widget-card.html)
    */
   .controller('WidgetController',
-  ['$controller', '$log', '$scope', '$rootScope', '$mdToast', 'mainService',
+  ['$controller', '$log', '$scope', '$rootScope', '$mdToast',
     '$sessionStorage', '$filter', '$mdColors', 'layoutService',
-    function($controller, $log, $scope, $rootScope, $mdToast, mainService,
+    function($controller, $log, $scope, $rootScope, $mdToast,
              $sessionStorage, $filter, $mdColors, layoutService) {
       var vm = this;
       $scope.selectedNodeId = '';
@@ -90,17 +79,8 @@ define(['angular', 'jquery'], function(angular, $) {
         $scope.selectedNodeId = nodeId;
       };
 
-      $scope.guestMode = function(mainService) {
-        mainService.isGuest()
-          .then(function(isGuest) {
-            if (isGuest) {
-              return true;
-            }
-            return isGuest;
-        }).catch(function() {
-          $log.warn('Cannot get isGuest');
-          return true;
-        });
+      $scope.guestMode = function() {
+        return layoutService.isGuest()
       } 
 
       /**
@@ -399,6 +379,10 @@ define(['angular', 'jquery'], function(angular, $) {
         $rootScope.layout == null) {
           $rootScope.layout = [];
           $scope.layoutEmpty = false;
+
+          layoutService.isGuest().then(function(guest) {
+            $scope.guestMode = guest;
+          });
 
           // Get user's home layout
           layoutService.getLayout().then(function(data) {

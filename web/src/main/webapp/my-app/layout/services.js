@@ -321,6 +321,15 @@ define(['angular', 'jquery'], function(angular, $) {
               );
         };
 
+        var isGuest = function() {
+          return mainService.isGuest()
+            .then(function(result) {
+              return result;
+            }).catch(function() {
+              $log.warn('Could not getUser');
+            });
+        };
+
           var getRSSJsonified = function(feedURL) {
             // This is a hack.
             // It would be maybe healthier to enhance RSS widget to
@@ -346,6 +355,7 @@ define(['angular', 'jquery'], function(angular, $) {
             removeFromHome: removeFromHome,
             getWidgetJson: getWidgetJson,
             getExclusiveMarkup: getExclusiveMarkup,
+            isGuest: isGuest,
             getRSSJsonified: getRSSJsonified,
         };
     }]);

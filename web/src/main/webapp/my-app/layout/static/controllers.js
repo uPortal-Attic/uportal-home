@@ -22,10 +22,9 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
   return angular.module('my-app.layout.static.controllers', [])
 
   .controller('ExclusiveContentController',
-    ['$location', '$log', '$routeParams', '$scope',
-     'mainService', 'layoutService',
-    function($location, $log, $routeParams, $scope, 
-      mainService, layoutService) {
+    ['$location', '$log', '$routeParams', '$scope', 'layoutService',
+    function($location, $log, $routeParams, $scope, layoutService) {
+      var vm = this;
       // BINDABLE MEMBERS
       $scope.portlet = {};
       $scope.loaded = false;
@@ -36,18 +35,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $scope.empty = $scope.portlet.exclusiveContent &&
           $scope.portlet.exclusiveContent.length > 0 ? false : true;
       };
-
-      mainService.isGuest()
-          .then(function(isGuest) {
-            if (isGuest) {
-              $scope.guestMode = true;
-            }
-            return isGuest;
-        }).catch(function() {
-          $log.warn('Cannot get isGuest');
-          return true;
-        });
-      
 
       // Get the requested app from layoutService
       layoutService.getApp($routeParams.fname).then(function(result) {
@@ -74,6 +61,13 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       }).catch(function() {
         $log.warn('Could not getApp ' + $routeParams.fname);
       });
+      vm.init = function() {
+          layoutService.isGuest.then(function(guest) {
+            $scope.guestMode = guest;
+          });
+        }
+      vm.init();
+
     }])
 
   .controller('StaticContentController',
