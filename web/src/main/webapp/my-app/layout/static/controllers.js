@@ -66,13 +66,11 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           $scope.guestMode = guest;
           return guest;
         }).catch(function() {
-          $log.warn("could not retrieve guest mode");
+          $log.warn('could not retrieve guest mode');
         });
-        }
+        };
       vm.init();
-
     }])
-
   .controller('StaticContentController',
     ['$location', '$log', '$sessionStorage', '$routeParams',
       '$rootScope', '$scope', 'layoutService',

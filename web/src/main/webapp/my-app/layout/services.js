@@ -322,7 +322,7 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         var isGuest = function() {
-          return mainService.isGuest() 
+          return mainService.isGuest()
             .then(function(result) {
               $scope.guestMode = result;
               return result;

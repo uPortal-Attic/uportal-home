@@ -12,6 +12,7 @@ and this project adheres to
 
 * App directory and person directory search result tabs now reflect more nuance
   about the state of their respective searches in the result tab badges. (#827)
+* $rootScope.GuestMode removed in favor of more locally scoped variables (#836)  
 
 ### Added
 

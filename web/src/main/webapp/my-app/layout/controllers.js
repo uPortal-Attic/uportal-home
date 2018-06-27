@@ -385,7 +385,7 @@ define(['angular', 'jquery'], function(angular, $) {
             $scope.guestMode = guest;
             return guest;
           }).catch(function() {
-            $log.warn("could not retrieve guest mode");
+            $log.warn('could not retrieve guest mode');
           });
 
           // Get user's home layout
