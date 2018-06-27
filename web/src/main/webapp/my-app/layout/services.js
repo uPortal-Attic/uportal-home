@@ -322,13 +322,14 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         var isGuest = function() {
-          return mainService.isGuest()
+          return mainService.isGuest() 
             .then(function(result) {
+              $scope.guestMode = result;
               return result;
-            }).catch(function() {
+            }.catch(function() {
               $log.warn('Could not getUser');
-            });
-        };
+            }))
+          };
 
           var getRSSJsonified = function(feedURL) {
             // This is a hack.
