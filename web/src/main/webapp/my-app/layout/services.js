@@ -30,9 +30,9 @@ define(['angular', 'jquery'], function(angular, $) {
 
   return angular.module('my-app.layout.services', [])
     .factory('layoutService',
-      ['$sce', '$http', '$log', 'miscService', '$scope',
+      ['$sce', '$http', '$log', 'miscService',
       'mainService', '$sessionStorage', '$q', 'SERVICE_LOC',
-      function($sce, $http, $log, miscService, $scope,
+      function($sce, $http, $log, miscService,
         mainService, $sessionStorage, $q, SERVICE_LOC) {
         var addToHome = function addToHomeFunction(portlet) {
             var fname = portlet.fname;
@@ -321,14 +321,23 @@ define(['angular', 'jquery'], function(angular, $) {
               );
         };
 
+        var storeLayoutInCache = function(data) {
+          userPromise.then(function(user) {
+              $sessionStorage.sessionKey = user.sessionKey;
+              $sessionStorage.layout = data;
+              return user;
+          }).catch(function() {
+            $log.warn('Could not getUser');
+          });
+      };
+
         var isGuest = function() {
-          return mainService.isGuest()
+          mainService.isGuest()
             .then(function(result) {
-              $scope.guestMode = result;
               return result;
-            }.catch(function() {
+            }).catch(function() {
               $log.warn('Could not getUser');
-            }));
+            });
           };
 
           var getRSSJsonified = function(feedURL) {
