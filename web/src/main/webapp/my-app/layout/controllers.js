@@ -80,8 +80,8 @@ define(['angular', 'jquery'], function(angular, $) {
       };
 
       $scope.guestMode = function() {
-        return layoutService.isGuest()
-      } 
+        return layoutService.isGuest();
+      };
 
       /**
        * Log whenever a widget is moved
@@ -379,9 +379,13 @@ define(['angular', 'jquery'], function(angular, $) {
         $rootScope.layout == null) {
           $rootScope.layout = [];
           $scope.layoutEmpty = false;
+        }
 
-          layoutService.isGuest().then(function(guest) {
+        layoutService.isGuest().then(function(guest) {
             $scope.guestMode = guest;
+            return guest;
+          }).catch(function() {
+            $log.warn("could not retrieve guest mode");
           });
 
           // Get user's home layout
@@ -395,7 +399,6 @@ define(['angular', 'jquery'], function(angular, $) {
           }).catch(function() {
             $log.warn('Could not getLayout');
           });
-        }
       };
 
       vm.init();

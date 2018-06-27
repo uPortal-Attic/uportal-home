@@ -62,9 +62,12 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $log.warn('Could not getApp ' + $routeParams.fname);
       });
       vm.init = function() {
-          layoutService.isGuest.then(function(guest) {
-            $scope.guestMode = guest;
-          });
+        layoutService.isGuest().then(function(guest) {
+          $scope.guestMode = guest;
+          return guest;
+        }).catch(function() {
+          $log.warn("could not retrieve guest mode");
+        });
         }
       vm.init();
 
