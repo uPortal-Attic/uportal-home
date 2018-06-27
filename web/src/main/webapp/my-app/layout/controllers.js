@@ -25,10 +25,8 @@ define(['angular', 'jquery'], function(angular, $) {
    * Controller for default view (my-app/layout/partials/default-view.html)
    */
   .controller('DefaultViewController',
-    ['$scope', '$location', '$mdMedia', '$mainService',
-    '$localStorage', 'APP_FLAGS',
-    function($scope, $location, $mdMedia, $mainService, 
-      $localStorage, APP_FLAGS) {
+    ['$scope', '$location', '$mdMedia', '$localStorage', 'APP_FLAGS',
+    function($scope, $location, $mdMedia, $localStorage, APP_FLAGS) {
       $scope.loading = [];
       if (!APP_FLAGS[$localStorage.layoutMode]) {
         // Layout mode set weird, reset to default
@@ -76,9 +74,9 @@ define(['angular', 'jquery'], function(angular, $) {
    * /widget/partials/widget-card.html)
    */
   .controller('WidgetController',
-  ['$controller', '$log', '$scope', '$rootScope', '$mdToast', '$mainService',
+  ['$controller', '$log', '$scope', '$rootScope', '$mdToast', 'mainService',
     '$sessionStorage', '$filter', '$mdColors', 'layoutService',
-    function($controller, $log, $scope, $rootScope, $mdToast, $mainService,
+    function($controller, $log, $scope, $rootScope, $mdToast, mainService,
              $sessionStorage, $filter, $mdColors, layoutService) {
       var vm = this;
       $scope.selectedNodeId = '';
