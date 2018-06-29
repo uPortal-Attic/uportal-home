@@ -26,7 +26,7 @@ define(['angular'], function(angular) {
         'webSearchURL': 'http://www.wisc.edu/search/?q=',
         'domainResultsLabel': 'Wisc.edu',
         'kbSearchURL': 'https://kb.wisc.edu/search.php?q=',
-        'eventsSearchURL': 'https://today.wisc.edu/events/search?term=',
+        'eventsSearchURL': 'https://today.wisc.edu/events/search?search[term]=',
         'helpdeskURL': 'https://kb.wisc.edu/helpdesk/',
       },
       {
