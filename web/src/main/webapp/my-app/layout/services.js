@@ -321,17 +321,6 @@ define(['angular', 'jquery'], function(angular, $) {
               );
         };
 
-        var storeLayoutInCache = function(data) {
-          var userPromise = mainService.getUser();
-          userPromise.then(function(user) {
-              $sessionStorage.sessionKey = user.sessionKey;
-              $sessionStorage.layout = data;
-              return user;
-          }).catch(function() {
-            $log.warn('Could not getUser');
-          });
-      };
-
         var getGuestMode = function() {
          return mainService.isGuest()
             .then(function(result) {

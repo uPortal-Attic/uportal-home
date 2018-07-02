@@ -396,11 +396,11 @@ define(['angular', 'jquery'], function(angular, $) {
         });
 
         layoutService.getGuestMode().then(function(data) {
-          if(!angular.isUndefined(data) && !data) {
+          if (angular.isDefined(data) && !data) {
             $scope.guestMode = false;
             return false;
-          } 
-          if(data) {
+          }
+          if (data) {
             $scope.guestMode = true;
             return true;
           }
