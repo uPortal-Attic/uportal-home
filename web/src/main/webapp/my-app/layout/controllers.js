@@ -381,23 +381,32 @@ define(['angular', 'jquery'], function(angular, $) {
           $scope.layoutEmpty = false;
         }
 
-        layoutService.isGuest().then(function(guest) {
-            $scope.guestMode = guest;
-            return guest;
+        $scope.guestMode = null;
+
+        // Get user's home layout
+        layoutService.getLayout().then(function(data) {
+          $rootScope.layout = data.layout;
+          $scope.layout = data.layout;
+          if (data.layout && data.layout.length == 0) {
+            $scope.layoutEmpty = true;
+          }
+          return data;
+        }).catch(function() {
+          $log.warn('Could not getLayout');
+        });
+
+        layoutService.getGuestMode().then(function(data) {
+          if(!angular.isUndefined(data) && !data) {
+            $scope.guestMode = false;
+            return false;
+          } 
+          if(data) {
+            $scope.guestMode = true;
+            return true;
+          }
+          return data;
           }).catch(function() {
             $log.warn('could not retrieve guest mode');
-          });
-
-          // Get user's home layout
-          layoutService.getLayout().then(function(data) {
-            $rootScope.layout = data.layout;
-            $scope.layout = data.layout;
-            if (data.layout && data.layout.length == 0) {
-              $scope.layoutEmpty = true;
-            }
-            return data;
-          }).catch(function() {
-            $log.warn('Could not getLayout');
           });
       };
 

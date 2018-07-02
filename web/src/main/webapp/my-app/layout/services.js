@@ -331,8 +331,8 @@ define(['angular', 'jquery'], function(angular, $) {
           });
       };
 
-        var isGuest = function() {
-          mainService.isGuest()
+        var getGuestMode = function() {
+         return mainService.isGuest()
             .then(function(result) {
               return result;
             }).catch(function() {
@@ -365,7 +365,7 @@ define(['angular', 'jquery'], function(angular, $) {
             removeFromHome: removeFromHome,
             getWidgetJson: getWidgetJson,
             getExclusiveMarkup: getExclusiveMarkup,
-            isGuest: isGuest,
+            getGuestMode: getGuestMode,
             getRSSJsonified: getRSSJsonified,
         };
     }]);
