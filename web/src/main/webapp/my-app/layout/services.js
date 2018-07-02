@@ -322,6 +322,7 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         var storeLayoutInCache = function(data) {
+          var userPromise = mainService.getUser();
           userPromise.then(function(user) {
               $sessionStorage.sessionKey = user.sessionKey;
               $sessionStorage.layout = data;
