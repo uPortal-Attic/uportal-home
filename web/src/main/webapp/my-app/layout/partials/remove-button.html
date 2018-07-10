@@ -18,9 +18,11 @@
     under the License.
 
 -->
-<md-button ng-controller="RemoveWidgetController as removeCtrl" class="widget-action widget-remove md-icon-button"
-           aria-label="remove {{ widget.fname }} widget from your home screen"
-           ng-click="removeCtrl.removeWidget(widget)"
-           ng-hide="GuestMode">
-  <md-icon>close</md-icon>
-</md-button>
+<md-menu-item>
+  <md-button ng-controller="RemoveWidgetController as removeCtrl"  class="widget-remove"
+             aria-label="remove {{ widget.fname }} widget from your home screen"
+             ng-click="removeCtrl.removeWidget(widget)"
+             ng-hide="GuestMode">
+    <md-icon>delete_forever</md-icon><span>Remove from home</span>
+  </md-button>
+</md-menu-item>
