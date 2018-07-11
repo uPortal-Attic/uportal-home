@@ -95,10 +95,10 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
 
       it('should set layoutEmpty to true after return empty layout',
         function() {
-          httpBackend.whenGET(groupURL).respond([]);
-          httpBackend.whenGET('/base/my-app/layout/partials/default-view.html')
-            .respond('<div></div>');
-          httpBackend.whenGET('/web/staticFeeds/about-page.json')
+         httpBackend.whenGET(groupURL).respond([]);
+         httpBackend.whenGET('/base/my-app/layout/partials/default-view.html')
+           .respond('<div></div>');
+         httpBackend.whenGET('/web/staticFeeds/about-page.json')
             .respond('{}');
           controller.init();
           scope.$apply(function() {
