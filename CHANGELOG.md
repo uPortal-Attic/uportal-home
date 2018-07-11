@@ -12,6 +12,7 @@ and this project adheres to
 
 * App directory and person directory search result tabs now reflect more nuance
   about the state of their respective searches in the result tab badges. (#827)
+* Widget removal button is now a menu item to conform to [upstream changes][uportal-app-framework #786] (#840)
 
 ### Added
 
@@ -20,6 +21,7 @@ and this project adheres to
 * Successfully launch searches into today.wisc.edu from Madison's theme (#829)
 * May have fixed a bug where app directory search result badge could get out of
   sync with the number of search results actually being displayed. (#827)
+* Fix compact mode layout changes not persisting when using click+drag (#838)
 
 ### Deprecated
 
@@ -459,3 +461,4 @@ See also:
 [6.2.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.1.0...angularjs-portal-parent-6.2.0
 [6.1.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.0.0...angularjs-portal-parent-6.1.0
 [6.0.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-5.5.0...angularjs-portal-parent-6.0.0
+[uportal-app-framework #786]: https://github.com/uPortal-Project/uportal-app-framework/pull/786
