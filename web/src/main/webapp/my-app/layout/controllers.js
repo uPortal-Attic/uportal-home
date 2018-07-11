@@ -80,7 +80,7 @@ define(['angular', 'jquery'], function(angular, $) {
       };
 
       $scope.guestMode = function() {
-        return layoutService.isGuest();
+        return layoutService.getGuestMode();
       };
 
       /**

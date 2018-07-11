@@ -56,6 +56,10 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
             deferred = q.defer();
             return deferred.promise;
           },
+          'getGuestMode': function() {
+            deferred = q.defer();
+            return deferred.promise;
+          },
         };
         miscService = {
           'pushPageview': function() {
