@@ -4,7 +4,7 @@ This documentation describes [uPortal-home](https://github.com/uPortal-Project/u
 
 [uPortal-home is an Apereo Incubating project](apereo-incubation.md) in the uPortal ecosystem.
 
-[![Apereo Incubating badge](https://www.apereo.org/sites/default/files/Incubation%20Logos/incubating%20w%20logo%2015MAR17.png)](https://www.apereo.org/content/projects-currently-incubation)
+[![Apereo Incubating badge](https://www.apereo.org/sites/default/files/Incubation%20Logos/incubating%20w%20logo%2015MAR17.png)](https://www.apereo.org/content/projects-communities)
 
 Many [contributors](contributors.md) make this project possible.
 

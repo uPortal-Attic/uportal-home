@@ -4,7 +4,7 @@ uPortal-home [is presently][Apereo projects currently in incubation] in
 [Apereo Incubation][], aspiring to be an [Apereo][] project in the [uPortal][]
 ecosystem.
 
-[![Apereo Incubating badge](https://www.apereo.org/sites/default/files/Incubation%20Logos/incubating%20w-out%20logo%2015mar17.png)](https://www.apereo.org/content/projects-currently-incubation)
+[![Apereo Incubating badge](https://www.apereo.org/sites/default/files/Incubation%20Logos/incubating%20w-out%20logo%2015mar17.png)](https://www.apereo.org/content/projects-communities)
 
 + [Formal incubation record][]
 + Incubation requested: [2016-11-21][incubation@ proposal]
@@ -309,7 +309,7 @@ Next actions:
 
 [Apereo]: https://www.apereo.org/
 [Apereo Incubation]: https://www.apereo.org/incubation
-[Apereo projects currently in incubation]: https://www.apereo.org/content/projects-currently-incubation
+[Apereo projects currently in incubation]: https://www.apereo.org/content/projects-communities
 [uPortal]: https://www.apereo.org/projects/uportal
 [incubation@ proposal]: https://groups.google.com/a/apereo.org/d/msg/incubation/tPBN3-YSSPM/Xk4yghH1AwAJ
 [2016-12-20 Apereo Board meeting minutes]: https://www.apereo.org/sites/default/files/meeting_minutes/2016/Apereo%20Board%20Minutes%20-%20Dec%202016%20-%20002.pdf
