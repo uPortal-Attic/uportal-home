@@ -370,13 +370,10 @@ define(['angular', 'jquery'], function(angular, $) {
             $sessionStorage.layout = layoutService.getLayout();
           });
       };
-
       vm.setGuestMode = function() {
 
         $scope.guestMode = false;
-    
         layoutService.getGuestMode().then(function(result) {
-
           if (angular.isDefined(result) && !result) {
             $scope.guestMode = false;
             return false;
@@ -387,12 +384,9 @@ define(['angular', 'jquery'], function(angular, $) {
           }
           return result;
         })
-
         .catch(function() {
-
           $log.warn('could not retrieve guest mode');
-        }); 
- 
+        });
       };
 
       /**
