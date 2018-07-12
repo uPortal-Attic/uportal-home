@@ -34,15 +34,15 @@
   No {{ portal.theme.title }} results. <a href="apps">See all apps?</a>
 </div>
 <div class="result" ng-repeat="app in filteredApps | showApplicable:showAll | limitTo:searchResultLimit">
-  <h4><a ng-href="{{ getLaunchURL(app) }}" target="{{::app.target}}" rel="{{::app.target | targetToRel}}">{{ app.title }}</a> <small ng-if="$scope.guestMode && !app.canAdd">(login to use)</small></h4>
+  <h4><a ng-href="{{ getLaunchURL(app, guestMode) }}" target="{{::app.target}}" rel="{{::app.target | targetToRel}}">{{ app.title }}</a> <small ng-if="$scope.guestMode && !app.canAdd">(login to use)</small></h4>
   <p>{{ app.description }}</p>
   <p>
     <md-button ng-click="addToHome(app)"
-               ng-if="app.canAdd && !app.hasInLayout && !$scope.guestMode"
+               ng-if="app.canAdd && !app.hasInLayout && !guestMode"
                class="md-primary add" aria-label="add {{ app.title }} to home">
       <i class="fa fa-plus"></i> Add to home
     </md-button>
-    <span ng-if="app.canAdd && app.hasInLayout && !$scope.guestMode" class="added"><i class="fa fa-check"></i> Added to home</span>
+    <span ng-if="app.canAdd && app.hasInLayout && !guestMode" class="added"><i class="fa fa-check"></i> Added to home</span>
     <md-button class="md-default" aria-label="See more about {{ app.title }}" ng-click="navToDetails(app, 'Search')">Details</md-button>
     <span><span uib-rating ng-if="app.userRating" ng-model="app.rating" read-only="true" class="rating"></span></span>
   </p>

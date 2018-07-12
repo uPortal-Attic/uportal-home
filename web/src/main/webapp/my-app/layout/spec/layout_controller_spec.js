@@ -95,9 +95,9 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
           expect(scope.layoutEmpty).toBe(false);
       });
 
-      it('should set guestMode to false',
+      it('should set guestMode to true',
       function() {
-         expect(scope.guestMode).toBe(false);
+         expect(scope.guestMode).toBe(true);
       });
 
       it('should set layoutEmpty to true after return empty layout',

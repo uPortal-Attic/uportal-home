@@ -24,10 +24,10 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
   .controller('ExclusiveContentController',
     ['$location', '$log', '$routeParams', '$scope', 'layoutService',
     function($location, $log, $routeParams, $scope, layoutService) {
-      var vm = this;
       // BINDABLE MEMBERS
       $scope.portlet = {};
       $scope.loaded = false;
+      $scope.guestMode = true;
 
       // Resolve promises
       var endFn = function() {
@@ -61,15 +61,13 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       }).catch(function() {
         $log.warn('Could not getApp ' + $routeParams.fname);
       });
-      vm.init = function() {
-        layoutService.getGuestMode().then(function(guest) {
-          $scope.guestMode = guest;
-          return guest;
-        }).catch(function() {
-          $log.warn('could not retrieve guest mode');
-        });
-        };
-      vm.init();
+
+      layoutService.getGuestMode().then(function(guest) {
+        $scope.guestMode = guest;
+        return guest;
+      }).catch(function() {
+        $log.warn('could not retrieve guest mode');
+      });
     }])
   .controller('StaticContentController',
     ['$location', '$log', '$sessionStorage', '$routeParams',
@@ -80,6 +78,14 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       // BINDABLE MEMBERS
       $scope.portlet = {};
       $scope.loaded = false;
+      $scope.guestMode = true;
+
+      layoutService.getGuestMode().then(function(guest) {
+        $scope.guestMode = guest;
+        return guest;
+      }).catch(function() {
+        $log.warn('could not retrieve guest mode');
+      });
 
       // Get requested app from layoutService
       layoutService.getApp($routeParams.fname).then(function(result) {

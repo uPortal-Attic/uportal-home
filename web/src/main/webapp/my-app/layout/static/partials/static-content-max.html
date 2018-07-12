@@ -26,7 +26,7 @@
     <md-card>
       <div ng-bind-html="::portlet.staticContent" class="up-portlet-content-wrapper" id="content-{{ ::portlet.nodeId }}"></div>
       <div layout="row" layout-align="end center">
-        <rating-button ng-if="loaded" ng-hide="$scope.guestMode" portlet="portlet" button-text="Rate {{ portlet.title }}"></rating-button>
+        <rating-button ng-if="loaded" ng-hide="guestMode" portlet="portlet" button-text="Rate {{ portlet.title }}"></rating-button>
       </div>
     </md-card>
   </frame-page>

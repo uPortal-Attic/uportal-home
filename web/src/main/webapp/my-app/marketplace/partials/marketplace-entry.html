@@ -28,9 +28,9 @@
 		<md-button aria-label="view details of this app" class="md-accent mp-mobile-details" ng-click="navToDetails(portlet, 'Browse')" hide-gt-xs>
 			Details
 		</md-button>
-		<div ng-hide="$scope.guestMode" hide-xs layout="row">
+		<div ng-hide="guestMode" hide-xs layout="row">
       <!-- Launch button with access -->
-      <md-button class="md-default" aria-label="launch {{::portlet.title}}" ng-href="{{getLaunchURL(portlet)}}"
+      <md-button class="md-default" aria-label="launch {{::portlet.title}}" ng-href="{{getLaunchURL(portlet, guestMode)}}"
                  target="{{::portlet.target}}" rel="{{::portlet.target | targetToRel}}" ng-if="portlet.canAdd">
         <span class="fa fa-arrow-circle-o-right"></span> Launch
       </md-button>
@@ -62,12 +62,12 @@
 		</div>
 
 		<!--GuestMode buttons-->
-		<div ng-show="$scope.guestMode" hide-xs layout="row">
-			<md-button class="md-accent md-raised" ng-href="{{getLaunchURL(portlet)}}"
+		<div ng-show="guestMode" hide-xs layout="row">
+			<md-button class="md-accent md-raised" ng-href="{{getLaunchURL(portlet, guestMode)}}"
 			           aria-label="Launch" ng-if='portlet.hasInLayout'>
 				Launch
 			</md-button>
-			<md-button class="md-accent" ng-href="{{getLaunchURL(portlet)}}"
+			<md-button class="md-accent" ng-href="{{getLaunchURL(portlet, guestMode)}}"
 			           aria-label="Login" ng-if='!portlet.hasInLayout'>
 				Login
 			</md-button>
@@ -90,14 +90,14 @@
 
   <!-- Action buttons for mobile -->
   <div hide-gt-xs layout="row">
-    <div ng-show="$scope.guestMode" layout="row" layout-align="end center" class="mp-mobile-buttons">
+    <div ng-show="guestMode" layout="row" layout-align="end center" class="mp-mobile-buttons">
       <md-button class="md-primary" ng-href="{{loginToAuthPage + '/web/apps/details/'+ portlet.fname}}">
 	      Log in
       </md-button>
     </div>
-    <div ng-hide="$scope.guestMode" layout="row" layout-align="end center" class="mp-mobile-buttons">
+    <div ng-hide="guestMode" layout="row" layout-align="end center" class="mp-mobile-buttons">
       <!-- Launch button with access on mobile-->
-      <md-button class="md-default" aria-label="launch {{::portlet.title}}" ng-href="{{getLaunchURL(portlet)}}"
+      <md-button class="md-default" aria-label="launch {{::portlet.title}}" ng-href="{{getLaunchURL(portlet, guestMode)}}"
                  target="{{::portlet.target}}" rel="{{::portlet.target | targetToRel}}" ng-if="portlet.canAdd">
         <span class="fa fa-arrow-circle-o-right"></span> Launch
       </md-button>

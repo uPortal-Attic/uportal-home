@@ -79,9 +79,8 @@ define(['angular', 'jquery'], function(angular, $) {
         $scope.selectedNodeId = nodeId;
       };
 
-      $scope.guestMode = function() {
-        return layoutService.getGuestMode();
-      };
+      // default to unauthenticated experience
+      $scope.guestMode = true;
 
       /**
        * Log whenever a widget is moved
@@ -370,17 +369,10 @@ define(['angular', 'jquery'], function(angular, $) {
             $sessionStorage.layout = layoutService.getLayout();
           });
       };
-      vm.setGuestMode = function() {
-        $scope.guestMode = false;
+
+      var updateGuestMode = function() {
         layoutService.getGuestMode().then(function(result) {
-          if (angular.isDefined(result) && !result) {
-            $scope.guestMode = false;
-            return false;
-          }
-          if (result) {
-            $scope.guestMode = true;
-            return true;
-          }
+          $scope.guestMode = result;
           return result;
         })
         .catch(function() {
@@ -409,7 +401,7 @@ define(['angular', 'jquery'], function(angular, $) {
         }).catch(function() {
           $log.warn('Could not getLayout');
         });
-        vm.setGuestMode();
+        updateGuestMode();
       };
 
       vm.init();
