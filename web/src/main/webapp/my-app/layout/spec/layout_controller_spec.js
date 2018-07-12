@@ -56,6 +56,10 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
             deferred = q.defer();
             return deferred.promise;
           },
+          'getGuestMode': function() {
+             deferred = q.defer();
+             return deferred.promise;
+          },
         };
         miscService = {
           'pushPageview': function() {
@@ -91,6 +95,18 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
 
       it('should set layoutEmpty to true after return empty layout',
         function() {
+          layoutService = {
+            'getLayout': function() {
+              deferred = q.defer();
+              return deferred.promise;
+            },
+             'getGuestMode': function() {
+              deferred = q.defer();
+              deferred.resolve(false);
+              return deferred.promise;
+              //return false;
+            },
+            }
           httpBackend.whenGET(groupURL).respond([]);
           httpBackend.whenGET('/base/my-app/layout/partials/default-view.html')
             .respond('<div></div>');

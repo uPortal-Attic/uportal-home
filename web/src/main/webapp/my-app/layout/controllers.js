@@ -367,10 +367,36 @@ define(['angular', 'jquery'], function(angular, $) {
           });
       };
 
+      vm.setGuestMode = function() {
+
+        $scope.guestMode = false;
+    /*
+        layoutService.getGuestMode() //.then(function(result) {
+
+          if (angular.isDefined(result) && !result) {
+            $scope.guestMode = false;
+            return false;
+          }
+          if (result) {
+            $scope.guestMode = true;
+            return true;
+          }
+          return result;
+        })
+
+        .catch(function() {
+
+          $log.warn('could not retrieve guest mode');
+        }); 
+        */
+      };
+
       /**
        * Initialize expanded mode widget layout
        */
       vm.init = function() {
+
+
         if (angular.isUndefined($rootScope.layout) ||
         $rootScope.layout == null) {
           $rootScope.layout = [];
@@ -387,7 +413,11 @@ define(['angular', 'jquery'], function(angular, $) {
           }).catch(function() {
             $log.warn('Could not getLayout');
           });
+          
         }
+
+        vm.setGuestMode();
+        
       };
 
       vm.init();
