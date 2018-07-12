@@ -371,6 +371,30 @@ define(['angular', 'jquery'], function(angular, $) {
           });
       };
 
+      vm.setGuestMode = function() {
+
+        $scope.guestMode = false;
+    
+        layoutService.getGuestMode().then(function(result) {
+
+          if (angular.isDefined(result) && !result) {
+            $scope.guestMode = false;
+            return false;
+          }
+          if (result) {
+            $scope.guestMode = true;
+            return true;
+          }
+          return result;
+        })
+
+        .catch(function() {
+
+          $log.warn('could not retrieve guest mode');
+        }); 
+ 
+      };
+
       /**
        * Initialize expanded mode widget layout
        */
@@ -380,8 +404,6 @@ define(['angular', 'jquery'], function(angular, $) {
           $rootScope.layout = [];
           $scope.layoutEmpty = false;
         }
-
-        $scope.guestMode = null;
 
         // Get user's home layout
         layoutService.getLayout().then(function(data) {
@@ -395,20 +417,8 @@ define(['angular', 'jquery'], function(angular, $) {
           $log.warn('Could not getLayout');
         });
 
-        layoutService.getGuestMode().then(function(data) {
-          if (angular.isDefined(data) && !data) {
-            $scope.guestMode = false;
-            return false;
-          }
-          if (data) {
-            $scope.guestMode = true;
-            return true;
-          }
-          return data;
-          }).catch(function() {
-            $log.warn('could not retrieve guest mode');
-          });
-      };
+        vm.setGuestMode();
+      }
 
       vm.init();
   }]);

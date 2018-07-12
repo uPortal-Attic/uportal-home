@@ -35,6 +35,7 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
 
       var q;
       var deferred;
+      var deferredGuestMode;
 
       // load the marketplace controller
       beforeEach(function() {
@@ -57,8 +58,9 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
             return deferred.promise;
           },
           'getGuestMode': function() {
-            deferred = q.defer();
-            return deferred.promise;
+            deferredGuestMode = q.defer();
+            deferredGuestMode.resolve(false);
+            return deferredGuestMode.promise;
           },
         };
         miscService = {
@@ -91,6 +93,11 @@ define(['angular-mocks', 'portal', 'my-app'], function() {
 
       it('should set layoutEmpty to false initially', function() {
           expect(scope.layoutEmpty).toBe(false);
+      });
+
+      it('should set guestMode to false',
+      function() {
+         expect(scope.guestMode).toBe(false);
       });
 
       it('should set layoutEmpty to true after return empty layout',
