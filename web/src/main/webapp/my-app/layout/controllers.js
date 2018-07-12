@@ -388,19 +388,18 @@ define(['angular', 'jquery'], function(angular, $) {
         $rootScope.layout == null) {
           $rootScope.layout = [];
           $scope.layoutEmpty = false;
+          // Get user's home layout
+          layoutService.getLayout().then(function(data) {
+            $rootScope.layout = data.layout;
+            $scope.layout = data.layout;
+            if (data.layout && data.layout.length == 0) {
+              $scope.layoutEmpty = true;
+            }
+            return data;
+          }).catch(function() {
+            $log.warn('Could not getLayout');
+          });
         }
-
-        // Get user's home layout
-        layoutService.getLayout().then(function(data) {
-          $rootScope.layout = data.layout;
-          $scope.layout = data.layout;
-          if (data.layout && data.layout.length == 0) {
-            $scope.layoutEmpty = true;
-          }
-          return data;
-        }).catch(function() {
-          $log.warn('Could not getLayout');
-        });
         updateGuestMode();
       };
 
