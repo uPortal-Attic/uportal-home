@@ -63,7 +63,6 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
       // init stuff
       var initInjector = angular.injector(['ng', 'ngStorage']);
       var $sessionStorage = initInjector.get('$sessionStorage');
-      var $rootScope = initInjector.get('$rootScope');
 
       // login stuff
       if (loginConfig.loginURL && !lastLoginValid($sessionStorage)) {
@@ -80,10 +79,6 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
             }
             $sessionStorage.portal.lastAccessed = (new Date).getTime();
             $sessionStorage.portal.username = response.data.username;
-            // rootScope.GuestMode is deprecated. This will be going away.
-            if (response.data.username === 'guest') {
-              $rootScope.GuestMode = true;
-            }
             // for some really weird reason the $sessionStorage here isn't being
             // persisted to real session storage, so we have to do it manually.
             $sessionStorage.$apply();
