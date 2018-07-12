@@ -34,7 +34,7 @@
   No {{ portal.theme.title }} results. <a href="apps">See all apps?</a>
 </div>
 <div class="result" ng-repeat="app in filteredApps | showApplicable:showAll | limitTo:searchResultLimit">
-  <h4><a ng-href="{{ getLaunchURL(app, guestMode) }}" target="{{::app.target}}" rel="{{::app.target | targetToRel}}">{{ app.title }}</a> <small ng-if="$scope.guestMode && !app.canAdd">(login to use)</small></h4>
+  <h4><a ng-href="{{ getLaunchURL(app, guestMode) }}" target="{{::app.target}}" rel="{{::app.target | targetToRel}}">{{ app.title }}</a> <small ng-if="guestMode && !app.canAdd">(login to use)</small></h4>
   <p>{{ app.description }}</p>
   <p>
     <md-button ng-click="addToHome(app)"
