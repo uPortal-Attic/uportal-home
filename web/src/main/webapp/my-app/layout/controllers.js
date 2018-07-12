@@ -371,7 +371,6 @@ define(['angular', 'jquery'], function(angular, $) {
           });
       };
       vm.setGuestMode = function() {
-
         $scope.guestMode = false;
         layoutService.getGuestMode().then(function(result) {
           if (angular.isDefined(result) && !result) {
@@ -410,9 +409,8 @@ define(['angular', 'jquery'], function(angular, $) {
         }).catch(function() {
           $log.warn('Could not getLayout');
         });
-
         vm.setGuestMode();
-      }
+      };
 
       vm.init();
   }]);
