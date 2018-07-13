@@ -6,7 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased][] (8.3.0 ?)
+## [Unreleased][]
+
+### Changed
+
+### Added
+
+### Fixed
+
+### Deprecated
+
+## [8.3.0][] - 2018-07-13
 
 ### Changed
 
@@ -438,7 +448,8 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.1...HEAD
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.0...HEAD
+[8.3.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.1...uportal-home-parent-8.3.0
 [8.2.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.0...uportal-home-parent-8.2.1
 [8.2.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.2...uportal-home-parent-8.2.0
 [8.1.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.1...uportal-home-parent-8.1.2
