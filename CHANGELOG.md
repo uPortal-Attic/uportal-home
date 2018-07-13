@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased][]
 
+### Changed
+
+### Added
+
 ### Fixed
 
 * Restores app directory search results count badge that had been removed in
@@ -15,14 +19,6 @@ and this project adheres to
   reliably show a correct count. Since the BROWSE-but-not-SUBSCRIBE items that
   it had been counting now show in search results, the counts it reports are
   correct.
-
-## [8.3.0][] - 2018-07-13
-
-### Changed
-
-### Added
-
-### Fixed
 
 ### Deprecated
 
