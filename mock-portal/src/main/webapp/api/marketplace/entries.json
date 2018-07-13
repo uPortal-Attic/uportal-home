@@ -45,30 +45,30 @@
         "target": "_blank"
     },
     {
-      "canAdd": true,
+      "canAdd": false,
       "layoutObject": {
         "nodeId": "-1",
-        "title": "Box",
-        "description": "Access your UW-Madison Box account.",
+        "title": "Not SUBSCRIBE-able",
+        "description": "Mock app directory entry on which the user has BROWSE but not SUBSCRIBE.",
         "url": "https://uwmadison.box.com",
         "iconUrl": null,
         "faIcon": "fa-cube",
-        "fname": "box",
+        "fname": "no-subscribe-for-you",
         "target": "_blank",
         "widgetURL": null,
         "widgetType": null,
         "widgetTemplate": null,
         "widgetConfig": null,
-        "staticContent": "\n            \n                Click <a href=\"https://uwmadison.box.com\">here</a> to access Box.\n            \n\t\t",
-        "pithyStaticContent": "\n            \n<p><a class=\"btn btn-default\"\n  href=\"https://uwmadison.box.com\" target=\"_blank\"\n  title=\"Launch Box.\">Launch Box</a></p>\n  <p>Box is a file storage and sharing service.</p>\n            \n        ",
-        "altMaxUrl": true,
-        "renderOnWeb": false
+        "staticContent": "<p>You cannot add this to your layout.</p>",
+        "pithyStaticContent": "<p>You still cannot add this to your layout.</p>",
+        "altMaxUrl": false,
+        "renderOnWeb": true
       },
       "portletName": "cms",
       "categories": [
         "Applications"
       ],
-      "title": "Box",
+      "title": "Not SUBSCRIBE-able",
       "relatedPortlets": [],
       "lifecycleState": "PUBLISHED",
       "rating": 0,
@@ -87,11 +87,13 @@
       "keywords": [
         "dropbox",
         "UW Box",
-        "drop box"
+        "drop box",
+        "BROWSE",
+        "permissions demo"
       ],
-      "fname": "box",
-      "description": "Access your UW-Madison Box account.",
-      "name": "Box",
+      "fname": "no-subscribe-for-you",
+      "description": "Mock app directory entry on which the user has BROWSE but not SUBSCRIBE.",
+      "name": "Not SUBSCRIBE-able",
       "id": "45",
       "type": "Portlet",
       "target": "_blank"
