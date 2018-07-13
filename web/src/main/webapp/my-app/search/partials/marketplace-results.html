@@ -77,7 +77,8 @@
       </md-tooltip>
     </span>
     <small ng-if="guestMode">
-      <a ng-href="{{ getLaunchURL(app, guestMode) }}"
+      <a aria-label="Log in to use {{ app.title }}."
+        ng-href="{{ getLaunchURL(app, guestMode) }}"
         target="{{::app.target}}" rel="{{::app.target | targetToRel}}">
         (login to use)
       </a>
