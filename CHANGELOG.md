@@ -19,6 +19,9 @@ and this project adheres to
 
 ### Fixed
 
+* Removes app directory search results count badge. Intended as temporary
+  mitigation for bug wherein the badge did not reliably show a correct count.
+  (#843)
 * Successfully launch searches into today.wisc.edu from Madison's theme (#829)
 * Fix compact mode layout changes not persisting when using click+drag (#838)
 
