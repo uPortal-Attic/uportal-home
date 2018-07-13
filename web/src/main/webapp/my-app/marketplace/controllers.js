@@ -59,19 +59,17 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
       };
 
       mainService.isGuest()
-          .then(function(isGuest) {
-            if (isGuest) {
-              $scope.isGuest = true;
-            }
-            return isGuest;
+        .then(function(result) {
+          $scope.guestMode = result;
+          return result;
         }).catch(function() {
           $log.warn('Cannot get isGuest');
           return true;
         });
 
-      $scope.getLaunchURL = function(marketplaceEntry) {
+      $scope.getLaunchURL = function(marketplaceEntry, guestMode) {
         var layoutObj = marketplaceEntry.layoutObject;
-        if ($scope.isGuest && !marketplaceEntry.hasInLayout) {
+        if (guestMode && !marketplaceEntry.hasInLayout) {
           return $scope.loginToAuthPage +
               '/web/apps/details/'+ marketplaceEntry.fname;
         } else if (layoutObj.altMaxUrl == false &&
@@ -260,11 +258,11 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $scope.showAll = false;
 
         mainService.isGuest()
-          .then(function(isGuest) {
-            if (isGuest) {
-              $scope.showAll = true;
-            }
-            return isGuest;
+        .then(function(isGuest) {
+          if (isGuest) {
+            $scope.showAll = true;
+          }
+          return isGuest;
         }).catch(function() {
           $log.warn('Cannot get isGuest');
           return true;

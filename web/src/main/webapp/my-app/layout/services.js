@@ -321,6 +321,10 @@ define(['angular', 'jquery'], function(angular, $) {
               );
         };
 
+        var getGuestMode = function() {
+          return mainService.isGuest();
+        };
+
           var getRSSJsonified = function(feedURL) {
             // This is a hack.
             // It would be maybe healthier to enhance RSS widget to
@@ -346,6 +350,7 @@ define(['angular', 'jquery'], function(angular, $) {
             removeFromHome: removeFromHome,
             getWidgetJson: getWidgetJson,
             getExclusiveMarkup: getExclusiveMarkup,
+            getGuestMode: getGuestMode,
             getRSSJsonified: getRSSJsonified,
         };
     }]);
