@@ -70,7 +70,12 @@
 <div class="result"
   ng-repeat="app in filteredApps | canAdd:false | limitTo:searchResultLimit">
   <h4>
-    {{ app.title }}
+    <span>
+      {{ app.title }}
+      <md-tooltip ng-if="!guestMode">
+        You do not have sufficient permissions to launch {{app.title}}.
+      </md-tooltip>
+    </span>
     <small ng-if="guestMode">
       <a ng-href="{{ getLaunchURL(app, guestMode) }}"
         target="{{::app.target}}" rel="{{::app.target | targetToRel}}">
