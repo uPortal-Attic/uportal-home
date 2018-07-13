@@ -70,11 +70,13 @@
 <div class="result"
   ng-repeat="app in filteredApps | canAdd:false | limitTo:searchResultLimit">
   <h4>
-    <a ng-href="{{ getLaunchURL(app, guestMode) }}"
-    target="{{::app.target}}" rel="{{::app.target | targetToRel}}">
-      {{ app.title }}
-    </a>
-    <small ng-if="guestMode">(login to use)</small>
+    {{ app.title }}
+    <small ng-if="guestMode">
+      <a ng-href="{{ getLaunchURL(app, guestMode) }}"
+        target="{{::app.target}}" rel="{{::app.target | targetToRel}}">
+        (login to use)
+      </a>
+    </small>
   </h4>
   <p>{{ app.description }}</p>
   <p>
