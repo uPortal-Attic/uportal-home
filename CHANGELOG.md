@@ -18,7 +18,7 @@ and this project adheres to
   8.3.0 (#843) as temporary mitigation for bug wherein the badge did not
   reliably show a correct count. Since the BROWSE-but-not-SUBSCRIBE items that
   it had been counting now show in search results, the counts it reports are
-  correct.
+  correct. (#844)
 
 ### Deprecated
 
