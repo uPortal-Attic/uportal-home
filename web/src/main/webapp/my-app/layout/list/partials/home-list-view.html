@@ -44,7 +44,6 @@
           ng-keydown="moveWithKeyboard(widget, $event);selectNode(widget.nodeId);"
           dnd-draggable="widget"
           dnd-effect-allowed="move"
-          dnd-moved="layout.splice($index, 1)"
           dnd-dragend="logEvent('dragEnd', widget.fname, $index)">
         <compact-widget fname="{{ widget.fname }}">
           <remove-button></remove-button>
