@@ -14,6 +14,8 @@ and this project adheres to
 
 ### Fixed
 
+* Compact widgets no longer disappear when reordering via click-and-drag (#848)
+
 ### Deprecated
 
 ## [8.3.1][] - 2018-07-26
