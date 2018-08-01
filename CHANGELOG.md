@@ -14,9 +14,13 @@ and this project adheres to
 
 ### Fixed
 
-* Compact widgets no longer disappear when reordering via click-and-drag (#848)
-
 ### Deprecated
+
+## [8.3.2][] - 2018-08-01
+
+### Fixed
+
+* Compact widgets no longer disappear when reordering via click-and-drag (#848)
 
 ## [8.3.1][] - 2018-07-26
 
@@ -456,7 +460,8 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.1...HEAD
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.2...HEAD
+[8.3.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.1...uportal-home-parent-8.3.2
 [8.3.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.0...uportal-home-parent-8.3.1
 [8.3.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.1...uportal-home-parent-8.3.0
 [8.2.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.0...uportal-home-parent-8.2.1
