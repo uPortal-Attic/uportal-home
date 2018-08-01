@@ -1,7 +1,6 @@
 {
   "name": "@uportal/home",
-  "version": "7.0.1",
-  "description": "uPortal-home",
+  "private": true,
   "scripts": {
     "add-hooks": "npm install husky --no-save",
     "commitmsg": "commitlint -e",
