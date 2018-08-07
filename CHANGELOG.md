@@ -13,6 +13,7 @@ and this project adheres to
 ### Added
 
 ### Fixed
+* Trimmed excess spaces off the `fname` attribute in widget view that is no longer trimmed by angularjs (#851)
 
 ### Deprecated
 
