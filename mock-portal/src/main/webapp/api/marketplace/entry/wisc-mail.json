@@ -4,7 +4,7 @@
     "categories": [
       "Applications"
     ],
-    "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+    "description": "Access UW-Madison Office 365 email account",
     "faIcon": "fa-envelope",
     "fname": "wisc-mail",
     "id": "40",
@@ -15,7 +15,7 @@
     ],
     "layoutObject": {
       "altMaxUrl": true,
-      "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+      "description": "Access UW-Madison Office 365 email account",
       "faIcon": "fa-envelope",
       "fname": "wisc-mail",
       "iconUrl": null,
