@@ -16,6 +16,24 @@ and this project adheres to
 
 ### Deprecated
 
+## [8.3.3][] - 2018-08-07
+
+### Fixed
+
+* Trimmed excess spaces off the `fname` attribute in widget view that is no longer trimmed by angularjs (#851)
+
+## [8.3.2][] - 2018-08-01
+
+### Fixed
+
+* Compact widgets no longer disappear when reordering via click-and-drag (#848)
+
+## [8.3.1][] - 2018-07-26
+
+### Updated
+
+* Using uportal-app-framework 10.1.0
+
 ## [8.3.0][] - 2018-07-13
 
 ### Changed
@@ -448,7 +466,10 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.0...HEAD
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.3...HEAD
+[8.3.3]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.2...uportal-home-parent-8.3.3
+[8.3.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.1...uportal-home-parent-8.3.2
+[8.3.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.0...uportal-home-parent-8.3.1
 [8.3.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.1...uportal-home-parent-8.3.0
 [8.2.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.0...uportal-home-parent-8.2.1
 [8.2.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.2...uportal-home-parent-8.2.0
