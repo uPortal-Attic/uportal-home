@@ -75,7 +75,7 @@
           "layoutObject": {
             "nodeId": "-1",
             "title": "Email",
-            "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+            "description": "Access UW-Madison Office 365 email account",
             "url": null,
             "iconUrl": null,
             "faIcon": "fa-envelope",
@@ -121,7 +121,7 @@
             "wismail"
           ],
           "fname": "wisc-mail",
-          "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+          "description": "Access UW-Madison Office 365 email account",
           "name": "Email",
           "id": "64",
           "type": "Portlet",
@@ -232,7 +232,7 @@
           "layoutObject": {
             "nodeId": "-1",
             "title": "Email",
-            "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+            "description": "Access UW-Madison Office 365 email account",
             "url": null,
             "iconUrl": null,
             "faIcon": "fa-envelope-o",
@@ -274,7 +274,7 @@
           "userRated": 0,
           "keywords": null,
           "fname": "single-wisc-mail",
-          "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+          "description": "Access UW-Madison Office 365 email account",
           "name": "Simgle Email",
           "id": "49",
           "type": "Portlet",
@@ -2784,7 +2784,7 @@
           "layoutObject": {
             "nodeId": "-1",
             "title": "Email",
-            "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+            "description": "Access UW-Madison Office 365 email account",
             "url": null,
             "iconUrl": null,
             "faIcon": "fa-envelope",
@@ -2830,7 +2830,7 @@
             "wismail"
           ],
           "fname": "wisc-mail",
-          "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+          "description": "Access UW-Madison Office 365 email account",
           "name": "Email",
           "id": "64",
           "type": "Portlet",
@@ -6342,7 +6342,7 @@
           "layoutObject": {
             "nodeId": "-1",
             "title": "Email",
-            "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+            "description": "Access UW-Madison Office 365 email account",
             "url": null,
             "iconUrl": null,
             "faIcon": "fa-envelope",
@@ -6388,7 +6388,7 @@
             "wismail"
           ],
           "fname": "wisc-mail",
-          "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+          "description": "Access UW-Madison Office 365 email account",
           "name": "Email",
           "id": "64",
           "type": "Portlet",
@@ -6655,7 +6655,7 @@
       "userRated": 0,
       "keywords": null,
       "fname": "single-wisc-mail",
-      "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+      "description": "Access UW-Madison Office 365 email account",
       "name": "Simgle Email",
       "id": "49",
       "type": "Portlet",
@@ -9276,7 +9276,7 @@
           "layoutObject": {
             "nodeId": "-1",
             "title": "Email",
-            "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+            "description": "Access UW-Madison Office 365 email account",
             "url": null,
             "iconUrl": null,
             "faIcon": "fa-envelope",
@@ -9322,7 +9322,7 @@
             "wismail"
           ],
           "fname": "wisc-mail",
-          "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+          "description": "Access UW-Madison Office 365 email account",
           "name": "Email",
           "id": "64",
           "type": "Portlet",
@@ -27032,7 +27032,7 @@
       "layoutObject": {
         "nodeId": "-1",
         "title": "Email",
-        "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+        "description": "Access UW-Madison Office 365 email account",
         "url": null,
         "iconUrl": null,
         "faIcon": "fa-envelope",
@@ -27397,7 +27397,7 @@
         "wismail"
       ],
       "fname": "wisc-mail",
-      "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+      "description": "Access UW-Madison Office 365 email account",
       "name": "Email",
       "id": "64",
       "type": "Portlet",
@@ -28196,7 +28196,7 @@
           "layoutObject": {
             "nodeId": "-1",
             "title": "Email",
-            "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+            "description": "Access UW-Madison Office 365 email account",
             "url": null,
             "iconUrl": null,
             "faIcon": "fa-envelope",
@@ -28242,7 +28242,7 @@
             "wismail"
           ],
           "fname": "wisc-mail",
-          "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+          "description": "Access UW-Madison Office 365 email account",
           "name": "Email",
           "id": "64",
           "type": "Portlet",
@@ -28856,7 +28856,7 @@
           "layoutObject": {
             "nodeId": "-1",
             "title": "Email",
-            "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+            "description": "Access UW-Madison Office 365 email account",
             "url": null,
             "iconUrl": null,
             "faIcon": "fa-envelope",
@@ -28902,7 +28902,7 @@
             "wismail"
           ],
           "fname": "wisc-mail",
-          "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+          "description": "Access UW-Madison Office 365 email account",
           "name": "Email",
           "id": "64",
           "type": "Portlet",
@@ -39652,7 +39652,7 @@
           "layoutObject": {
             "nodeId": "-1",
             "title": "Email",
-            "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+            "description": "Access UW-Madison Office 365 email account",
             "url": null,
             "iconUrl": null,
             "faIcon": "fa-envelope",
@@ -39698,7 +39698,7 @@
             "wismail"
           ],
           "fname": "wisc-mail",
-          "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+          "description": "Access UW-Madison Office 365 email account",
           "name": "Email",
           "id": "64",
           "type": "Portlet",
@@ -39757,7 +39757,7 @@
           "layoutObject": {
             "nodeId": "-1",
             "title": "Email",
-            "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+            "description": "Access UW-Madison Office 365 email account",
             "url": null,
             "iconUrl": null,
             "faIcon": "fa-envelope-o",
@@ -39799,7 +39799,7 @@
           "userRated": 0,
           "keywords": null,
           "fname": "single-wisc-mail",
-          "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+          "description": "Access UW-Madison Office 365 email account",
           "name": "Simgle Email",
           "id": "49",
           "type": "Portlet",
@@ -48362,7 +48362,7 @@
           "layoutObject": {
             "nodeId": "-1",
             "title": "Email",
-            "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+            "description": "Access UW-Madison Office 365 email account",
             "url": null,
             "iconUrl": null,
             "faIcon": "fa-envelope-o",
@@ -48404,7 +48404,7 @@
           "userRated": 0,
           "keywords": null,
           "fname": "single-wisc-mail",
-          "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+          "description": "Access UW-Madison Office 365 email account",
           "name": "Simgle Email",
           "id": "49",
           "type": "Portlet",

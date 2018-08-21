@@ -3,7 +3,7 @@
     {
       "nodeId": "n143",
       "title": "Email",
-      "description": "Access your UW email account (Office 365, WiscMail, and WiscMail Plus).",
+      "description": "Access UW-Madison Office 365 email account",
       "url": "/web/widget/wisc-mail",
       "iconUrl": null,
       "faIcon": "fa-envelope",
