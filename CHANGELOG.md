@@ -16,6 +16,12 @@ and this project adheres to
 
 ### Deprecated
 
+## [8.3.4][] - 2018-09-12
+
+### Updated
+
+* Using uportal-app-framework 10.2.0
+
 ## [8.3.3][] - 2018-08-07
 
 ### Fixed
@@ -466,7 +472,8 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.3...HEAD
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.4...HEAD
+[8.3.4]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.3...uportal-home-parent-8.3.4
 [8.3.3]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.2...uportal-home-parent-8.3.3
 [8.3.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.1...uportal-home-parent-8.3.2
 [8.3.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.0...uportal-home-parent-8.3.1
