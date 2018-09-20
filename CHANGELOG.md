@@ -14,6 +14,16 @@ and this project adheres to
 
 ### Fixed
 
+* Includes in search results items the searching user has permission to `BROWSE`
+  but not permission to `SUBSCRIBE`. Previously these results had been
+  suppressed. This fulfills some of the intention of the `BROWSE` permission.
+  (#844)
+* Restores app directory search results count badge that had been removed in
+  8.3.0 (#843) as temporary mitigation for bug wherein the badge did not
+  reliably show a correct count. Since the BROWSE-but-not-SUBSCRIBE items that
+  it had been counting now show in search results, the counts it reports are
+  correct. (#844)
+
 ### Deprecated
 
 ## [8.3.5][] - 2018-09-19

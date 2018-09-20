@@ -33,17 +33,65 @@
 <div ng-show="myuwResults.length != 0 && filteredApps.length == 0" class="no-result">
   No {{ portal.theme.title }} results. <a href="apps">See all apps?</a>
 </div>
-<div class="result" ng-repeat="app in filteredApps | showApplicable:showAll | limitTo:searchResultLimit">
-  <h4><a ng-href="{{ getLaunchURL(app, guestMode) }}" target="{{::app.target}}" rel="{{::app.target | targetToRel}}">{{ app.title }}</a> <small ng-if="guestMode && !app.canAdd">(login to use)</small></h4>
+
+<!-- matching app directory entries directly usable by viewing user -->
+<div class="result"
+  ng-repeat="app in filteredApps | canAdd:true | limitTo:searchResultLimit">
+  <h4>
+    <a ng-href="{{ getLaunchURL(app, guestMode) }}"
+      target="{{::app.target}}" rel="{{::app.target | targetToRel}}">
+      {{ app.title }}
+    </a>
+  </h4>
   <p>{{ app.description }}</p>
   <p>
-    <md-button ng-click="addToHome(app)"
-               ng-if="app.canAdd && !app.hasInLayout && !guestMode"
-               class="md-primary add" aria-label="add {{ app.title }} to home">
+    <md-button
+      aria-label="add {{ app.title }} to home"
+      ng-click="addToHome(app)"
+      ng-if="!app.hasInLayout && !guestMode"
+      class="md-primary add">
       <i class="fa fa-plus"></i> Add to home
     </md-button>
-    <span ng-if="app.canAdd && app.hasInLayout && !guestMode" class="added"><i class="fa fa-check"></i> Added to home</span>
-    <md-button class="md-default" aria-label="See more about {{ app.title }}" ng-click="navToDetails(app, 'Search')">Details</md-button>
+    <span ng-if="app.hasInLayout && !guestMode" class="added">
+      <i class="fa fa-check"></i> Added to home
+    </span>
+    <md-button
+      aria-label="See more about {{ app.title }}"
+      ng-click="navToDetails(app, 'Search')"
+      class="md-default">
+      Details
+    </md-button>
+    <span><span uib-rating ng-if="app.userRating" ng-model="app.rating" read-only="true" class="rating"></span></span>
+  </p>
+</div>
+
+<!-- matching app directory entries browseable
+  but not directly usable by viewing user-->
+<div class="result"
+  ng-repeat="app in filteredApps | canAdd:false | limitTo:searchResultLimit">
+  <h4>
+    <span>
+      {{ app.title }}
+      <md-tooltip ng-if="!guestMode">
+        You do not have sufficient permissions to launch {{app.title}}.
+      </md-tooltip>
+    </span>
+    <small ng-if="guestMode">
+      <a aria-label="Log in to use {{ app.title }}."
+        ng-href="{{ getLaunchURL(app, guestMode) }}"
+        target="{{::app.target}}" rel="{{::app.target | targetToRel}}">
+        (login to use)
+      </a>
+    </small>
+  </h4>
+  <p>{{ app.description }}</p>
+  <p>
+    <md-button
+      aria-label="See more about {{ app.title }}"
+      ng-click="navToDetails(app, 'Search')"
+      class="md-default">
+      Details
+    </md-button>
     <span><span uib-rating ng-if="app.userRating" ng-model="app.rating" read-only="true" class="rating"></span></span>
   </p>
 </div>
