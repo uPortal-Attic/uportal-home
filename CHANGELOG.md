@@ -16,6 +16,17 @@ and this project adheres to
 
 ### Deprecated
 
+## [8.3.6][] - 2018-11-19
+
+### Updated
+* Using uportal-app-framework 11.0.0
+
+### Added
+* Add css-vars-ponyfill for CSS Variables support #859
+
+### Fixed
+* Revert "Removing unneeded session logic" #858
+
 ## [8.3.5][] - 2018-09-19
 
 ### Updated
@@ -480,7 +491,8 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.5...HEAD
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.6...HEAD
+[8.3.6]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.5...uportal-home-parent-8.3.6
 [8.3.5]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.4...uportal-home-parent-8.3.5
 [8.3.4]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.3...uportal-home-parent-8.3.4
 [8.3.3]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.2...uportal-home-parent-8.3.3
