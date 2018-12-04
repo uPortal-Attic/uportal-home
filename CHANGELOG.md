@@ -14,7 +14,7 @@ and this project adheres to
 
 ### Fixed
 
-* Removed rate app button from `exclusive` and `static` templates
+* Removed rate app button from `exclusive` and `static` templates #868
 
 ### Deprecated
 
