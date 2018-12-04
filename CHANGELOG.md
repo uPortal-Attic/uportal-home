@@ -14,6 +14,8 @@ and this project adheres to
 
 ### Fixed
 
+* Removed rate app button from `exclusive` and `static` templates
+
 ### Deprecated
 
 ## [8.3.6][] - 2018-11-19

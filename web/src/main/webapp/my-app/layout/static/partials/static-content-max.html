@@ -25,9 +25,6 @@
   <frame-page ng-if="loaded" app-title="{{ portlet.title }}" app-icon="{{ portlet.faIcon }}" page-title="{{ portlet.title }}" app-fname="portlet.fname" app-show-add-to-home="true">
     <md-card>
       <div ng-bind-html="::portlet.staticContent" class="up-portlet-content-wrapper" id="content-{{ ::portlet.nodeId }}"></div>
-      <div layout="row" layout-align="end center">
-        <rating-button ng-if="loaded" ng-hide="guestMode" portlet="portlet" button-text="Rate {{ portlet.title }}"></rating-button>
-      </div>
     </md-card>
   </frame-page>
 </div>
