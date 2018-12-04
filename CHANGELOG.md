@@ -16,8 +16,8 @@ and this project adheres to
 
 * Changed label on UI control for switching home page between expanded and
   compact widget modes, to make this feature more recognizable to and
-  understandable by users. New label is "Change widget display mode"; was
-  "Toggle expanded widgets". Also updates associated `aria-label`. #866
+  understandable by users. New label is "Change tile size"; was
+  "Toggle expanded widgets". Also updates the associated `aria-label`. #866
 
 ### Deprecated
 
