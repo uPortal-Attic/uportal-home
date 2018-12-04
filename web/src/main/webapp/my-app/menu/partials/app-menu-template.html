@@ -51,11 +51,12 @@
   </md-menu-item>
   <md-subheader ng-if="renderMe">{{ appTitle }} Home options</md-subheader>
   <md-menu-item ng-if="renderMe">
-    <md-button aria-label="Toggle expanded or compact widgets"
-               ng-controller="ToggleController"
-               ng-click="toggleMode(expandedMode)">
+    <md-button
+      aria-label="Toggle between small simple tiles and larger richer tiles"
+      ng-controller="ToggleController"
+      ng-click="toggleMode(expandedMode)">
       <md-icon>widgets</md-icon>
-      <span>Toggle expanded widgets</span>
+      <span>Change tile size</span>
     </md-button>
   </md-menu-item>
 </div>
