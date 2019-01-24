@@ -74,13 +74,7 @@
 		</div>
 	</div>
 
-  <!-- RATINGS ROW -->
-	<p>
-		<span uib-rating ng-model="portlet.rating" read-only="true" class="rating"></span>
-		( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
-	</p>
-
-	<!-- DESCRIPTION AND DETAILS ROW -->
+  <!-- DESCRIPTION AND DETAILS ROW -->
 	<div layout="row" layout-align="start center">
 		<span tabindex="0">{{::portlet.description}}</span>
 		<md-button class="md-primary" ng-click="navToDetails(portlet, 'Browse')" hide-xs>
