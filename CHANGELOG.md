@@ -19,6 +19,7 @@ and this project adheres to
   compact widget modes, to make this feature more recognizable to and
   understandable by users. New label is "Change tile size"; was
   "Toggle expanded widgets". Also updates the associated `aria-label`. #866
+* Removed references to ratings from marketplace pages. #870
 
 ### Deprecated
 

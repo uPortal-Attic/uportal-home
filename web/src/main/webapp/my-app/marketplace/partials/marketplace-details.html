@@ -71,21 +71,6 @@
               <h3 tabindex="0" class="md-title">Description</h3>
               <p tabindex="0" class="app-description">{{::portlet.description}}</p>
             </div>
-            <div class="desc-item">
-              <h3 tabindex="0" class="md-title">Ratings</h3>
-              <span ng-if="$storage.linkRatingsApi">
-                <span uib-rating ng-model="portlet.rating" read-only="true" class="rating"></span>
-
-                ( <md-button ng-click="clickRatingReviewAdmin()">{{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span></md-button> )
-              </span>
-              <span ng-if="!$storage.linkRatingsApi">
-                <span uib-rating ng-model="portlet.rating" read-only="true" class="rating"></span>
-                ( {{::portlet.userRated}} rating<span ng-if="portlet.userRated !== 1">s</span> )
-              </span>
-              <br>
-              <rating-button ng-hide="guestMode" portlet='portlet' button-text="Rate"
-                             button-classes="md-raised"></rating-button>
-            </div>
             <div class="desc-item"
                  ng-if="portlet.relatedPortlets.length > 0">
               <h3 tabindex="0" class="md-title">Related Apps</h3>
