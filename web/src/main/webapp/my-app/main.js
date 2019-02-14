@@ -90,7 +90,6 @@ define([
           .when('/notifications', messagesRoutes.notifications)
           .when('/settings', portalSettingsRoutes.betaSettings)
           .when('/user-settings', portalSettingsRoutes.userSettings)
-          .when('/features', messagesRoutes.announcements)
           .when('/static/:fname', staticRoutes.staticMax)
           .when('/exclusive/:fname', staticRoutes.exclusiveMax)
           .when('/widget/:fname', widgetRoutes.widgetFullScreen)
