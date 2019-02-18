@@ -36,6 +36,7 @@ require(['./config', './js/login-config'], function(config, loginConfig) {
     */
     function bootstrapApplication() {
       angular.bootstrap(document, ['my-app']);
+      // eslint-disable-next-line angular/timeout-service
       setTimeout(function() {
         // eslint-disable-next-line no-undef
         cssVars({shadowDOM: true});
