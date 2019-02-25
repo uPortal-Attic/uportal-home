@@ -15,11 +15,11 @@ and this project adheres to
 ### Fixed
 
 * Removed rate app button from `exclusive` and `static` templates #868
+* Removed references to ratings from marketplace pages. #870
 * Changed label on UI control for switching home page between expanded and
   compact widget modes, to make this feature more recognizable to and
   understandable by users. New label is "Change tile size"; was
   "Toggle expanded widgets". Also updates the associated `aria-label`. #866
-* Removed references to ratings from marketplace pages. #870
 
 ### Deprecated
 
