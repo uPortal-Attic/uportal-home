@@ -24,8 +24,6 @@ and this project adheres to
   IE11. Delays init by one second, because trying to run it directly after the
   bootstrapping is too early for IE on the first render. #872
 
-### Deprecated
-
 ## [8.3.6][] - 2018-11-19
 
 ### Updated
