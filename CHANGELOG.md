@@ -20,6 +20,9 @@ and this project adheres to
   compact widget modes, to make this feature more recognizable to and
   understandable by users. New label is "Change tile size"; was
   "Toggle expanded widgets". Also updates the associated `aria-label`. #866
+* Removed watch configuration from `cssVars`, because it made loading slow in
+  IE11. Delays init by one second, because trying to run it directly after the
+  bootstrapping is too early for IE on the first render. #872
 
 ### Deprecated
 
