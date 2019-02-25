@@ -15,7 +15,7 @@ No changes so far
 Breaking change: messages of type `announcement` no longer have any effect.
 `/features` no longer routed.
 
-Via uPortal-app-framework 12.0.0:
+Via [uPortal-app-framework 12.0.0][]:
 
 * Tells IE users about recommended browsers during bootstrapping.
 * `list-of-links` widget appears more consistent across browsers and screen
@@ -549,3 +549,4 @@ See also:
 [6.1.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.0.0...angularjs-portal-parent-6.1.0
 [6.0.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-5.5.0...angularjs-portal-parent-6.0.0
 [uportal-app-framework #786]: https://github.com/uPortal-Project/uportal-app-framework/pull/786
+[uPortal-app-framework 12.0.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1200---2019-02-25
