@@ -8,9 +8,13 @@ and this project adheres to
 
 ## [Unreleased][]
 
-### Changed
+Breaking change: messages of type `announcement` no longer have any effect.
+`/features` no longer routed.
 
-### Added
+### Removed
+
+* `/features` route (#871) and, by adopting uPortal-app-framework 12, removed
+  mascot "announcements" more generally.
 
 ### Fixed
 
