@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased][]
 
+No changes so far
+
+## [9.0.0][] - 2019-02-25
+
 Breaking change: messages of type `announcement` no longer have any effect.
 `/features` no longer routed.
 
@@ -503,7 +507,8 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.6...HEAD
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-9.0.0...HEAD
+[9.0.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.6...uportal-home-parent-9.0.0
 [8.3.6]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.5...uportal-home-parent-8.3.6
 [8.3.5]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.4...uportal-home-parent-8.3.5
 [8.3.4]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.3...uportal-home-parent-8.3.4
