@@ -15,6 +15,14 @@ No changes so far
 Breaking change: messages of type `announcement` no longer have any effect.
 `/features` no longer routed.
 
+Via uPortal-app-framework 12.0.0:
+
+* Tells IE users about recommended browsers during bootstrapping.
+* `list-of-links` widget appears more consistent across browsers and screen
+  sizes
+* `action-items` widget degrades to basic widget when configured with just one
+  indicator and that one indicator is failing.
+
 ### Removed
 
 * `/features` route (#871) and, by adopting uPortal-app-framework 12, removed
