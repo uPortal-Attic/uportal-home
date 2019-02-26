@@ -10,7 +10,7 @@ and this project adheres to
 
 No changes so far
 
-## [9.0.0][] - 2019-02-25
+## [9.0.0][] - 2019-02-26
 
 Breaking change: messages of type `announcement` no longer have any effect.
 `/features` no longer routed.
