@@ -10,9 +10,20 @@ and this project adheres to
 
 No changes so far
 
+### Documentation in unreleased
+
+* Fixed 9.0.0 changelog entry to correctly characterize nature of breaking
+  change to messageType anouncement.
+
 ## [9.0.0][] - 2019-02-26
 
-Breaking change: messages of type `announcement` no longer have any effect.
+Breaking change: Messages of type `announcement` are no longer treated
+differently. All messages, regardless of `messageType`, are treated as if they
+were of `messageType` `notification`.
+
+(These release notes previously erroneously characterized this change as making
+messages of type `announcement` have no effect.)
+
 `/features` no longer routed.
 
 Via [uPortal-app-framework 12.0.0][]:
