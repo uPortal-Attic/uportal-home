@@ -24,7 +24,7 @@
   </div>
   <frame-page ng-if="loaded" app-title="{{ portlet.title }}" app-icon="{{ portlet.faIcon }}" page-title="{{ portlet.title }}" app-fname="portlet.fname" app-show-add-to-home="true">
     <md-card>
-      <div ng-bind-html="::portlet.staticContent" class="up-portlet-content-wrapper" id="content-{{ ::portlet.nodeId }}"></div>
+      <div ng-bind-html="::portlet.staticContent" class="up-portlet-content-wrapper" id="content-{{ ::portlet.fname}}"></div>
     </md-card>
   </frame-page>
 </div>

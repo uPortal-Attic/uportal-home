@@ -8,7 +8,8 @@ and this project adheres to
 
 ## [Unreleased][]
 
-No changes so far
+* Generate static content div identifier by fname rather than by
+  not-reliably-unique nodeId #876
 
 ## [9.0.0][] - 2019-02-26
 
