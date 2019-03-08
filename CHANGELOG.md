@@ -8,19 +8,38 @@ and this project adheres to
 
 ## [Unreleased][]
 
-### Changed
+* Generate static content div identifier by fname rather than by
+  not-reliably-unique nodeId #876
 
-### Added
+## [9.0.0][] - 2019-02-26
+
+Breaking change: messages of type `announcement` no longer have any effect.
+`/features` no longer routed.
+
+Via [uPortal-app-framework 12.0.0][]:
+
+* Tells IE users about recommended browsers during bootstrapping.
+* `list-of-links` widget appears more consistent across browsers and screen
+  sizes
+* `action-items` widget degrades to basic widget when configured with just one
+  indicator and that one indicator is failing.
+
+### Removed
+
+* `/features` route (#871) and, by adopting uPortal-app-framework 12, removed
+  mascot "announcements" more generally.
 
 ### Fixed
 
 * Removed rate app button from `exclusive` and `static` templates #868
+* Removed references to ratings from marketplace pages. #870
 * Changed label on UI control for switching home page between expanded and
   compact widget modes, to make this feature more recognizable to and
   understandable by users. New label is "Change tile size"; was
   "Toggle expanded widgets". Also updates the associated `aria-label`. #866
-
-### Deprecated
+* Removed watch configuration from `cssVars`, because it made loading slow in
+  IE11. Delays init by one second, because trying to run it directly after the
+  bootstrapping is too early for IE on the first render. #872
 
 ## [8.3.6][] - 2018-11-19
 
@@ -71,7 +90,7 @@ and this project adheres to
 
 * App directory and person directory search result tabs now reflect more nuance
   about the state of their respective searches in the result tab badges. (#827)
-* $rootScope.GuestMode removed in favor of more locally scoped variables (#836)  
+* $rootScope.GuestMode removed in favor of more locally scoped variables (#836)
 * Widget removal button is now a menu item to conform to [upstream changes][uportal-app-framework #786] (#840)
 
 ### Added
@@ -497,7 +516,8 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.6...HEAD
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-9.0.0...HEAD
+[9.0.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.6...uportal-home-parent-9.0.0
 [8.3.6]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.5...uportal-home-parent-8.3.6
 [8.3.5]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.4...uportal-home-parent-8.3.5
 [8.3.4]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.3...uportal-home-parent-8.3.4
@@ -530,3 +550,4 @@ See also:
 [6.1.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.0.0...angularjs-portal-parent-6.1.0
 [6.0.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-5.5.0...angularjs-portal-parent-6.0.0
 [uportal-app-framework #786]: https://github.com/uPortal-Project/uportal-app-framework/pull/786
+[uPortal-app-framework 12.0.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1200---2019-02-25

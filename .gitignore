@@ -24,3 +24,4 @@ docs/Gemfile.lock
 docs/\.ruby-version
 web/src/main/webapp/META-INF
 .vscode
+.java-version
