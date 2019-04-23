@@ -11,6 +11,10 @@ and this project adheres to
 * Generate static content div identifier by fname rather than by
   not-reliably-unique nodeId #876
 
+### Fixed
+
+* Fixed widget grid not displaying properly in Firefox #881
+
 ## [9.0.0][] - 2019-02-26
 
 Breaking change: messages of type `announcement` no longer have any effect.
