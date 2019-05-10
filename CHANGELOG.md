@@ -8,6 +8,8 @@ and this project adheres to
 
 ## [Unreleased][]
 
+## [9.1.0][] - 2019-05-10
+
 ### Fixes in unreleased
 
 * Generates static content div identifier by fname rather than by
@@ -530,6 +532,7 @@ See also:
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
 [unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-9.0.0...HEAD
+[9.1.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-9.0.0...uportal-home-parent-9.1.0
 [9.0.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.6...uportal-home-parent-9.0.0
 [8.3.6]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.5...uportal-home-parent-8.3.6
 [8.3.5]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.4...uportal-home-parent-8.3.5
