@@ -8,12 +8,11 @@ and this project adheres to
 
 ## [Unreleased][]
 
-* Generate static content div identifier by fname rather than by
+### Fixes in unreleased
+
+* Generates static content div identifier by fname rather than by
   not-reliably-unique nodeId #876
-
-### Fixed
-
-* Fixed widget grid not displaying properly in Firefox #881
+* Fixes widget grid not displaying properly in Firefox #881
 
 ## [9.0.0][] - 2019-02-26
 
