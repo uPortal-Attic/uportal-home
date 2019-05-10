@@ -14,6 +14,16 @@ and this project adheres to
   not-reliably-unique nodeId #876
 * Fixes widget grid not displaying properly in Firefox #881
 
+### Dependency upgrades in unreleased
+
+Upgrades to uPortal-app-framework 12.1.0 from 12.0.0. Highlights:
+
+* myuw-banner feature
+* `widgetConfig.launchUrl` support
+* fix for uniqueness of widget HTML element ids
+* improved loading splash screen
+* fix reducing duplicate session expiration dialogs
+
 ## [9.0.0][] - 2019-02-26
 
 Breaking change: messages of type `announcement` no longer have any effect.
