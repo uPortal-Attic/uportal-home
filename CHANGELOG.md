@@ -8,8 +8,23 @@ and this project adheres to
 
 ## [Unreleased][]
 
-* Generate static content div identifier by fname rather than by
+## [9.1.0][] - 2019-05-10
+
+### Fixes in unreleased
+
+* Generates static content div identifier by fname rather than by
   not-reliably-unique nodeId #876
+* Fixes widget grid not displaying properly in Firefox #881
+
+### Dependency upgrades in unreleased
+
+Upgrades to uPortal-app-framework 12.1.0 from 12.0.0. Highlights:
+
+* myuw-banner feature
+* `widgetConfig.launchUrl` support
+* fix for uniqueness of widget HTML element ids
+* improved loading splash screen
+* fix reducing duplicate session expiration dialogs
 
 ### Documentation in unreleased
 
@@ -528,6 +543,7 @@ See also:
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
 [unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-9.0.0...HEAD
+[9.1.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-9.0.0...uportal-home-parent-9.1.0
 [9.0.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.6...uportal-home-parent-9.0.0
 [8.3.6]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.5...uportal-home-parent-8.3.6
 [8.3.5]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.4...uportal-home-parent-8.3.5
