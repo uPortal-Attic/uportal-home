@@ -43,7 +43,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^7.0.0",
-    "@commitlint/prompt-cli": "^7.0.0",
+    "@commitlint/prompt-cli": "^8.0.0",
     "@commitlint/travis-cli": "^7.0.0",
     "angular-drag-and-drop-lists": "^2.1.0",
     "eslint": "^5.0.0",
