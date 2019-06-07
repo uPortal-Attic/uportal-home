@@ -8,6 +8,11 @@ and this project adheres to
 
 ## [Unreleased][]
 
+Upgrades to uPortal-app-framework 12.2.0 from 12.1.0. Highlights:
+
+* `remote-content` widget type
+* suppressLaunchButton configuration option for `list-of-links` type widgets
+
 ## [9.1.0][] - 2019-05-13
 
 ### Fixes in 9.1.0
