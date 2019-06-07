@@ -10,13 +10,13 @@ and this project adheres to
 
 ## [9.1.0][] - 2019-05-13
 
-### Fixes in unreleased
+### Fixes in 9.1.0
 
 * Generates static content div identifier by fname rather than by
   not-reliably-unique nodeId #876
 * Fixes widget grid not displaying properly in Firefox #881
 
-### Dependency upgrades in unreleased
+### Dependency upgrades in 9.1.0
 
 Upgrades to uPortal-app-framework 12.1.0 from 12.0.0. Highlights:
 
