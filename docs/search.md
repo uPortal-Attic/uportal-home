@@ -59,7 +59,7 @@ Search is configured in `web-config.js`:
 .value('SEARCH_CONFIG', [
   {
     "group" : "UW-Madison",
-    "directorySearchURL" : "/web/api/proxy/wiscdirectory",
+    "directorySearchURL" : "/aries/proxy/wiscdirectory",
     "googleSearchURL" : "/web/api/proxy/wiscedusearch?v=1.0&rsz=10&start=0&cx=02:22m",
     "webSearchURL" : "http://www.wisc.edu/search/?q=",
     "domainResultsLabel" : "Wisc.edu",
