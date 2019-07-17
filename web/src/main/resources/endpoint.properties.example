@@ -46,8 +46,6 @@ uwmadisonreddit.username=
 uwmadisonreddit.password=
 uwmadisonreddit.attributes=
 
-wiscdirectory.uri=http://www.wisc.edu/directories/json
-
 wiscedusearch.uri=https://www.googleapis.com/customsearch/v1element
 
 uwrfsearch.uri=https://www.googleapis.com/customsearch/v1element
