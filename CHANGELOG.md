@@ -6,7 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased][]
+## [Unreleased][] (10.0.0)
+
+* Removes embedded rest-proxy. Local implementations of uPortal-home needing a
+  proxy should deploy a proxy alongside rather than within uPortal-home.
 
 ## [9.2.0][] - 2019-06-07
 

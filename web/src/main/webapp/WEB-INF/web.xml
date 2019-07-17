@@ -70,29 +70,6 @@
     </filter>
 
     <servlet>
-      <servlet-name>rest-proxy-api</servlet-name>
-      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-      <load-on-startup>1</load-on-startup>
-      <init-param>
-        <param-name>contextClass</param-name>
-        <param-value>
-          org.springframework.web.context.support.AnnotationConfigWebApplicationContext
-        </param-value>
-      </init-param>
-      <init-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>
-          edu.wisc.my.home.api.RestProxyApplicationConfiguration
-        </param-value>
-      </init-param>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>rest-proxy-api</servlet-name>
-        <url-pattern>/api/*</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
       <servlet-name>StaticServlet</servlet-name>
       <jsp-file>/index.jsp</jsp-file>
     </servlet>

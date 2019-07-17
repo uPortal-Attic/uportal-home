@@ -54,10 +54,6 @@
     </dependency>
 
     <!-- compile -->
-    <dependency>
-        <groupId>edu.wisc.my.restproxy</groupId>
-        <artifactId>rest-proxy-core</artifactId>
-    </dependency>
 
     <dependency>
         <groupId>commons-codec</groupId>
