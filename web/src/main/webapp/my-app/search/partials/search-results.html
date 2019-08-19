@@ -31,39 +31,6 @@
         <md-tab-body>
           <md-content>
 
-           <!-- No results and no hope for results;
-            Offer some failed search recovery suggestions. -->
-           <div id="no-results" class="search-results-container search-results"
-              ng-show="!appDirectoryHopeForResults
-                && !wiscDirectoryHopeForResults
-                && !googleHopeForResults">
-              <p><strong>No matches.</strong></p>
-              <p>Suggestions:</p>
-              <p ng-if="kbSearchUrl">
-                Search the
-                  <a ng-href="{{kbSearchUrl}}{{searchText}}"
-                    target="_blank" rel="noopener noreferrer">
-                      KnowledgeBase</a>
-              </p>
-              <p ng-if="eventsSearchUrl">
-                Look for
-                  <a ng-href="{{eventsSearchUrl}}{{searchText}}"
-                    target="_blank" rel="noopener noreferrer">
-                    events</a>
-              </p>
-              <p ng-if="helpdeskUrl">
-                Get help from the
-                  <a ng-href="{{helpdeskUrl}}"
-                  target="_blank" rel="noopener noreferrer">
-                    Help Desk</a>
-              </p>
-              <p ng-if="feedbackUrl">
-                <a ng-href="{{feedbackUrl}}"
-                  target="_blank" rel="noopener noreferrer">Give feedback</a>
-                on {{portal.theme.title}} search
-              </p>
-            </div>
-
             <!-- MyUW results -->
             <div class="search-results-container">
               <marketplace-results></marketplace-results>
@@ -78,6 +45,52 @@
             <div ng-show="googleSearchEnabled" class="search-results-container">
               <campus-domain-results></campus-domain-results>
             </div>
+
+           <!-- Offer some failed search recovery suggestions. -->
+            <div id="other-search-options"
+              class="search-results-container search-results">
+
+              <h4 class="md-subhead">
+                <div class="subhead-border" ng-style="{background: primaryColorRgb}"></div>
+                Not finding what you need?
+              </h4>
+
+              <div class="result" ng-if="kbSearchUrl">
+                <h4>
+                  <a ng-href="{{kbSearchUrl}}{{searchText}}"
+                    target="_blank" rel="noopener noreferrer">
+                    Search the KnowledgeBase</a>
+                </h4>
+              </div>
+
+              <div class="result" ng-if="eventsSearchUrl">
+                <h4>
+                  <a ng-href="{{eventsSearchUrl}}{{searchText}}"
+                    target="_blank" rel="noopener noreferrer">
+                    Look for events</a>
+                </h4>
+              </div>
+
+              <div class="result" ng-if="helpdeskUrl">
+                <h4>
+                  <a ng-href="{{helpdeskUrl}}"
+                    target="_blank" rel="noopener noreferrer">
+                    Get help from the Help Desk</a>
+                </h4>
+              </div>
+
+              <div class="result" ng-if="feedbackUrl">
+                <h4>
+                  <a ng-href="{{feedbackUrl}}"
+                    target="_blank" rel="noopener noreferrer">
+                    Give feedback on {{portal.theme.title}} search</a>
+                </h4>
+              </div>
+
+            </div>
+
+          </div>
+
           </md-content>
         </md-tab-body>
       </md-tab>
