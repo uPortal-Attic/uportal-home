@@ -59,7 +59,7 @@
     "jasmine-core": "^3.0.0",
     "karma": "^2.0.2",
     "karma-chrome-launcher": "^2.0.0",
-    "karma-coverage": "^1.1.2",
+    "karma-coverage": "^2.0.1",
     "karma-coveralls": "^2.0.0",
     "karma-edge-launcher": "^0.4.2",
     "karma-firefox-launcher": "^1.0.1",
