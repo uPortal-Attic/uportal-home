@@ -18,6 +18,11 @@
     under the License.
 
 -->
+<style>
+  .widget-container {
+    max-width: 310px;
+  }
+</style>
 <frame-page app-title="Search results" app-icon="search" page-title="Search results" white-background="true">
   <md-content class="search-results">
     <p class="search-term">Showing results for <span>"{{ searchTerm }}"</span></p>
@@ -140,6 +145,60 @@
           </md-content>
         </md-tab-body>
       </md-tab>
+
+      <md-tab>
+        <md-tab-label>
+          Other
+        </md-tab-label>
+        <md-tab-body>
+          <md-content>
+            <div style="padding:18px;">
+              In addition to searching within MyUW, you can use MyUW to launch
+              searches into some of the many resources of the university.
+            </div>
+
+            <div layout="row" layout-align="center start"
+              style="flex-wrap:wrap;padding:18px;">
+              <div flex-xs="100" class="widget-container">
+                <widget fname="wisc-kb" fail-silently="true"></widget>
+              </div>
+              <div flex-xs="100" class="widget-container">
+                <widget fname="uwec-kb" fail-silently="true"></widget>
+              </div>
+              <div flex-xs="100" class="widget-container">
+                <widget fname="madison-public-course-search"
+                  fail-silently="true"></widget>
+              </div>
+              <div flex-xs="100" class="widget-container">
+                <widget fname="ResearcherPortlet" fail-silently="true"></widget>
+              </div>
+              <div flex-xs="100" class="widget-container">
+                <widget fname="rprg" fail-silently="true"></widget>
+              </div>
+              <div flex-xs="100" class="widget-container">
+                <widget fname="directory-of-resources-for-researchers"
+                  fail-silently="true"></widget>
+              </div>
+              <div flex-xs="100" class="widget-container">
+                <widget fname="madison-library-catalog"
+                  fail-silently="true"></widget>
+              </div>
+              <div flex-xs="100" class="widget-container">
+                <widget fname="uw-service-center" fail-silently="true"></widget>
+              </div>
+              <div flex-xs="100" class="widget-container">
+                <widget fname="speakers-bureau" fail-silently="true"></widget>
+              </div>
+            </div>
+
+            <div style="padding:18px;">
+              <a href="/portal/p/feedback">Suggest an addition to this page</a>.
+            </div>
+
+            </md-content>
+          </md-tab-body>
+        </md-tab>
+
     </md-tabs>
   </md-content>
 </frame-page>
