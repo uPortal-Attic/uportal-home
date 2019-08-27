@@ -10,6 +10,10 @@ and this project adheres to
 
 * Removes embedded rest-proxy. Local implementations of uPortal-home needing a
   proxy should deploy a proxy alongside rather than within uPortal-home.
+* Always shows suggestions for recovering from search not finding what the user
+  needs, instead of only showing these options when there were no search
+  results. (There might be results, but those results may not have met the user
+  need).
 
 ## [9.2.0][] - 2019-06-07
 
