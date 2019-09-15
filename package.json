@@ -78,7 +78,7 @@
     "requirejs": "^2.1.18",
     "requirejs-text": "^2.0.15",
     "stylelint": "^9.2.1",
-    "stylelint-config-standard": "^18.0.0"
+    "stylelint-config-standard": "^19.0.0"
   },
   "engines": {
     "npm": ">=5.6.0"
