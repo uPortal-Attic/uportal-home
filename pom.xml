@@ -30,7 +30,7 @@
   <groupId>org.apereo.uportal</groupId>
   <artifactId>uportal-home-parent</artifactId>
   <packaging>pom</packaging>
-  <version>9.2.1-SNAPSHOT</version>
+  <version>10.0.0</version>
   <name>uPortal-home Parent Project</name>
   <description>An alternative homepage for uPortal</description>
   <url>https://github.com/uPortal-Project/uportal-home</url>
@@ -55,7 +55,7 @@
     <connection>scm:git:git@github.com:uPortal-Project/uportal-home.git</connection>
     <developerConnection>scm:git:git@github.com:uPortal-Project/uportal-home.git</developerConnection>
     <url>https://github.com/uPortal-Project/uportal-home</url>
-    <tag>HEAD</tag>
+    <tag>uportal-home-parent-10.0.0</tag>
   </scm>
 
   <properties>
