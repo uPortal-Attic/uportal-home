@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [10.1.0][] - 2020-02-07
+
+Uses [uPortal-app-framework 13.1.0][], which adds help dialog launcher to
+the top app bar.
+
 ## [10.0.0][] - 2020-01-07
 
 * Removes embedded rest-proxy. Local implementations of uPortal-home needing a
@@ -547,7 +552,9 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-9.2.0...HEAD
+[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-10.1.0...HEAD
+[10.1.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-10.0.0...uportal-home-parent-10.1.0
+[10.0.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-9.2.0...uportal-home-parent-10.0.0
 [9.2.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-9.1.0...uportal-home-parent-9.2.0
 [9.1.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-9.0.0...uportal-home-parent-9.1.0
 [9.0.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.6...uportal-home-parent-9.0.0
@@ -584,3 +591,4 @@ See also:
 [6.0.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-5.5.0...angularjs-portal-parent-6.0.0
 [uportal-app-framework #786]: https://github.com/uPortal-Project/uportal-app-framework/pull/786
 [uPortal-app-framework 12.0.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1200---2019-02-25
+[uPortal-app-framework 13.1.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1310---2020-02-07
