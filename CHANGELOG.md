@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [10.1.1][] - 2020-03-06
+
+Uses uPortal-app-framework 13.1.1, which
+
++ removes a problematic un-needed `myuw-compact-card` import
++ upgrades the myuw-help Web Component
+
 ## [10.1.0][] - 2020-02-07
 
 Uses [uPortal-app-framework 13.1.0][], which adds help dialog launcher to
