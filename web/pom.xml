@@ -23,7 +23,7 @@
   <parent>
     <groupId>org.apereo.uportal</groupId>
     <artifactId>uportal-home-parent</artifactId>
-    <version>10.1.2</version>
+    <version>10.1.3-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -42,7 +42,7 @@
       <groupId>org.apereo.uportal</groupId>
       <artifactId>uportal-app-framework</artifactId>
       <type>war</type>
-      <version>13.1.2</version>
+      <version>13.1.3-SNAPSHOT</version>
     </dependency>
 
     <!-- Test -->
