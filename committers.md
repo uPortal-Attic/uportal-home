@@ -3,6 +3,7 @@
 ## Who are the committers?
 
 + [Christian Murphy][Christian Murphy committer election record] ( @ChristianMurphy )
++ Paulina Nogal ( @nogalpaulina )
 + Andrew Petro ( @apetro )
 + Doug Reed ( @Doug-Reed )
 + Dave Sibley ( @davidmsibley )
