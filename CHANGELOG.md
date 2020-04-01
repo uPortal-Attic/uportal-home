@@ -258,6 +258,7 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 * Removed defective (always zero) search results total badge (#797)
 * Alphabetically sort by `title` not `name` in app directory browse (#791)
 * Made `relatedPortlets` arrays empty in `entries.json` (#787)
+* Fail safe when `portlet` data record lacks `title` (#798)
 
 ### Dependency upgrades
 
