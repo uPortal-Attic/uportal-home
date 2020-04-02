@@ -9,6 +9,10 @@ and this project adheres to
 ## [unreleased][]
 
 No changes yet.
+## [10.2.0][] - 2020-04-02
+
+Uses uPortal-app-framework 14.0.0, which
++ replaces current Search functionality with the myuw-search Web Component
 
 ## [10.1.2][] - 2020-03-09
 
