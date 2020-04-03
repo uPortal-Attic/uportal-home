@@ -9,6 +9,7 @@ and this project adheres to
 ## [unreleased][]
 
 No changes yet.
+
 ## [10.2.0][] - 2020-04-02
 
 Uses uPortal-app-framework 14.0.0, which
