@@ -6,35 +6,35 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [unreleased][]
+## unreleased
 
 No changes yet.
 
-## [10.2.0][] - 2020-04-02
+## 10.2.0 - 2020-04-02
 
 Uses uPortal-app-framework 14.0.0, which
 
 + replaces current Search functionality with the myuw-search Web Component
 
-## [10.1.2][] - 2020-03-09
+## 10.1.2 - 2020-03-09
 
 Uses uPortal-app-framework 13.1.2, which
 
 + fixes a CSS issue with display of the new myuw-help dialog
 
-## [10.1.1][] - 2020-03-06
+## 10.1.1 - 2020-03-06
 
 Uses uPortal-app-framework 13.1.1, which
 
 + removes a problematic un-needed `myuw-compact-card` import
 + upgrades the myuw-help Web Component
 
-## [10.1.0][] - 2020-02-07
+## 10.1.0 - 2020-02-07
 
 Uses [uPortal-app-framework 13.1.0][], which adds help dialog launcher to
 the top app bar.
 
-## [10.0.0][] - 2020-01-07
+## 10.0.0 - 2020-01-07
 
 * Removes embedded rest-proxy. Local implementations of uPortal-home needing a
   proxy should deploy a proxy alongside rather than within uPortal-home.
@@ -45,14 +45,14 @@ the top app bar.
 
 Uses uPortal-app-framework 13.0.0.
 
-## [9.2.0][] - 2019-06-07
+## 9.2.0 - 2019-06-07
 
 Upgrades to uPortal-app-framework 12.2.0 from 12.1.0. Highlights:
 
 * Adds `remote-user` widget type
 * Adds `suppressLaunchButton` `list-of-links` widget configuration option
 
-## [9.1.0][] - 2019-05-13
+## 9.1.0 - 2019-05-13
 
 ### Fixes in 9.1.0
 
@@ -70,7 +70,7 @@ Upgrades to uPortal-app-framework 12.1.0 from 12.0.0. Highlights:
 * improved loading splash screen
 * fix reducing duplicate session expiration dialogs
 
-## [9.0.0][] - 2019-02-26
+## 9.0.0 - 2019-02-26
 
 Breaking change: messages of type `announcement` no longer have any effect.
 `/features` no longer routed.
@@ -100,7 +100,7 @@ Via [uPortal-app-framework 12.0.0][]:
   IE11. Delays init by one second, because trying to run it directly after the
   bootstrapping is too early for IE on the first render. #872
 
-## [8.3.6][] - 2018-11-19
+## 8.3.6 - 2018-11-19
 
 ### Updated
 * Using uportal-app-framework 11.0.0
@@ -111,7 +111,7 @@ Via [uPortal-app-framework 12.0.0][]:
 ### Fixed
 * Revert "Removing unneeded session logic" #858
 
-## [8.3.5][] - 2018-09-19
+## 8.3.5 - 2018-09-19
 
 ### Updated
 * Using uportal-app-framework 10.3.0
@@ -119,31 +119,31 @@ Via [uPortal-app-framework 12.0.0][]:
 ### Removed
 * Removing unneeded session logic #856
 
-## [8.3.4][] - 2018-09-12
+## 8.3.4 - 2018-09-12
 
 ### Updated
 
 * Using uportal-app-framework 10.2.0
 
-## [8.3.3][] - 2018-08-07
+## 8.3.3 - 2018-08-07
 
 ### Fixed
 
 * Trimmed excess spaces off the `fname` attribute in widget view that is no longer trimmed by angularjs (#851)
 
-## [8.3.2][] - 2018-08-01
+## 8.3.2 - 2018-08-01
 
 ### Fixed
 
 * Compact widgets no longer disappear when reordering via click-and-drag (#848)
 
-## [8.3.1][] - 2018-07-26
+## 8.3.1 - 2018-07-26
 
 ### Updated
 
 * Using uportal-app-framework 10.1.0
 
-## [8.3.0][] - 2018-07-13
+## 8.3.0 - 2018-07-13
 
 ### Changed
 
@@ -175,7 +175,7 @@ from working from the legacy implementation of this abandoned feature.
 It's not that this feature is unwelcome, it's just that it's not currently real.
 (#830)
 
-## [8.2.1][] - 2018-06-08
+## 8.2.1 - 2018-06-08
 
 ### Fixed
 
@@ -185,7 +185,7 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 * Gracefully handle case where directory search JSON URL is bad, as is the case
   in naive localhost demo against stub data (#825)
 
-## [8.2.0][] - 2018-05-22
+## 8.2.0 - 2018-05-22
 
 ### Changed
 
@@ -196,7 +196,7 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 
 * Side navigation link to new "Version information" page (#814)
 
-## [8.1.2][] - 2018-04-17
+## 8.1.2 - 2018-04-17
 
 ### Deprecated
 
@@ -211,7 +211,7 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 * Prioritized matching `title`s in search results (#809)
 * `.gitignore` `.vscode` (#788)
 
-## [8.1.1][] - 2018-03-30
+## 8.1.1 - 2018-03-30
 
 ### Changes
 
@@ -221,7 +221,7 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 
 * Updated app-framework to 9.0.2
 
-## [8.1.0][] - 2018-03-30
+## 8.1.0 - 2018-03-30
 
 ### Added
 
@@ -244,7 +244,7 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 
 * Updated app-framework to 9.0.1
 
-## [8.0.0][] - 2018-03-21
+## 8.0.0 - 2018-03-21
 
 ### Added
 
@@ -269,7 +269,7 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 
 * chore(deps): update stylelint to version 9.1.3 #793
 
-## [7.2.0][] - 2018-01-11
+## 7.2.0 - 2018-01-11
 
 ### Added
 
@@ -288,7 +288,7 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 
 ### Removed
 
-## [7.1.0][] - 2017-12-06
+## 7.1.0 - 2017-12-06
 
 ### Features
 
@@ -314,7 +314,7 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 
 * style(lint): Style marketplace controller per style guide #738
 
-## [7.0.3][] - 2017-10-10
+## 7.0.3 - 2017-10-10
 
 Uses [uPortal-app-framework 6.0.4](https://github.com/uPortal-Project/uportal-app-framework/releases/tag/uportal-app-framework-maven-6.0.4).
 
@@ -331,21 +331,21 @@ Uses [uPortal-app-framework 6.0.4](https://github.com/uPortal-Project/uportal-ap
 * Update @commitlint/cli to the latest version #719
 * update `eslint-plugin-compat` to version `2.0.1` #721
 
-## [7.0.2][] - 2017-10-02
+## 7.0.2 - 2017-10-02
 
 Uses [uPortal-app-framework 6.0.3](https://github.com/uPortal-Project/uportal-app-framework/releases/tag/uportal-app-framework-maven-6.0.3).
 
-## [7.0.1][] - 2017-09-29
+## 7.0.1 - 2017-09-29
 
 * Updating to [uPortal-app-framework 6.0.2](https://github.com/uPortal-Project/uportal-app-framework/releases/tag/uportal-app-framework-maven-6.0.2)
 * [Link to MyUW examples deck](https://github.com/uPortal-Project/uportal-home/pull/705)
 * [Update references to github repos](https://github.com/uPortal-Project/uportal-home/pull/706)
 
-## [7.0.0][] - 2017-09-27
+## 7.0.0 - 2017-09-27
 
 * Changing name from angularjs-portal to uPortal-home
 
-## [6.7.0][] - 2017-09-26
+## 6.7.0 - 2017-09-26
 
 ### Minor Changes
 
@@ -376,7 +376,7 @@ Uses [uPortal-app-framework 6.0.3](https://github.com/uPortal-Project/uportal-ap
 * [Change Maven Commit format](https://github.com/uPortal-Project/uportal-home/pull/686)
 * [Use uportal-app-framework](https://github.com/uPortal-Project/uportal-home/pull/701)
 
-## [6.6.0][] - 2017-09-01
+## 6.6.0 - 2017-09-01
 
 ### Documentation updates
 
@@ -441,7 +441,7 @@ Uses [uPortal-app-framework 6.0.3](https://github.com/uPortal-Project/uportal-ap
 
 * [Add support and detection for using layout.json v4.3](https://github.com/uPortal-Project/uportal-home/pull/634)
 
-## [6.5.0][] - 2017-05-04
+## 6.5.0 - 2017-05-04
 
 ### CI Enhancements
 
@@ -469,16 +469,16 @@ Uses [uPortal-app-framework 6.0.3](https://github.com/uPortal-Project/uportal-ap
 * [Uses a new api `layout.json` to retrieve a users layout](https://github.com/uPortal-Project/uportal-home/pull/624)
 * [Updates to App-Framework v4.1.0](https://github.com/uPortal-Project/uportal-app-framework/releases/tag/uw-frame-maven-4.1.0)
 
-## [6.4.2][] - 2017-04-13
+## 6.4.2 - 2017-04-13
 
 [Upgrades to use latest 4.0.3 release of App-Framework](https://github.com/uPortal-Project/uportal-app-framework/releases/tag/uw-frame-maven-4.0.3)
 
-## [6.4.1][] - 2017-04-13
+## 6.4.1 - 2017-04-13
 
 [Adds back in compact mode for user's layouts](https://github.com/uPortal-Project/uportal-home/pull/614)
 [Upgrades to the latest App Framework 4.0.2](https://github.com/uPortal-Project/uportal-app-framework)
 
-## [6.4.0][] - 2017-04-13
+## 6.4.0 - 2017-04-13
 
 Release 6.4.0 Adds thoughtful automation tools. Style checkers were added and our Travis CI integration (is that word redundant) is back and working once more. Continued progress in Apereo Incubation was well as bug fixes and routine maintenance, including upgrading to the latest [App Framework version 4.0.1](https://github.com/uPortal-Project/uportal-app-framework/releases/tag/uw-frame-maven-4.0.1).
 
@@ -509,7 +509,7 @@ Release 6.4.0 Adds thoughtful automation tools. Style checkers were added and ou
 * [Add function documentation and removes a code TODO](https://github.com/uPortal-Project/uportal-home/pull/611)
 * [Upgrade to the latest App Framework](https://github.com/uPortal-Project/uportal-home/pull/612)
 
-## [6.3.0][] - 2017-03-21
+## 6.3.0 - 2017-03-21
 
 ### Apereo Incubation Work
 
@@ -531,16 +531,16 @@ Release 6.4.0 Adds thoughtful automation tools. Style checkers were added and ou
 * [Adds feature to apply linter recommendations](https://github.com/uPortal-Project/uportal-home/pull/595)
 * [Applies stylelint recommended changes](https://github.com/uPortal-Project/uportal-home/pull/596)
 
-## [6.2.2][] - 2017-03-09
+## 6.2.2 - 2017-03-09
 
 * Documentation updates <https://github.com/uPortal-Project/uportal-home/pull/579>
 * Upgrades to [App-Framework version 3.1.3](https://github.com/uPortal-Project/uportal-app-framework/releases/tag/v3.1.3) which adds a fix for UW-Lacrosse UI
 
-## [6.2.1][] - 2017-03-02
+## 6.2.1 - 2017-03-02
 
 Updates the version of App-Framework to use version 3.1.1
 
-## [6.2.0][] - 2017-02-21
+## 6.2.0 - 2017-02-21
 
 * Removes unneeded doc building shell scripts <https://github.com/uPortal-Project/uportal-home/pull/570>
 * Switches Jekyll theme to minimal and customizes <https://github.com/uPortal-Project/uportal-home/pull/571>
@@ -549,7 +549,7 @@ Updates the version of App-Framework to use version 3.1.1
 * Adds the ability for weather widgets to show temperature in Kelvin <https://github.com/uPortal-Project/uportal-home/pull/578>
 * Adds keywords to the Grad Student Portal in sample feeds <https://github.com/uPortal-Project/uportal-home/pull/561>
 
-## [6.1.0][] - 2017-02-02
+## 6.1.0 - 2017-02-02
 
 * Utilizes maintenance mode attribute being sent in layout feeds <https://github.com/uPortal-Project/uportal-home/pull/565>, <https://github.com/uPortal-Project/uportal-home/pull/567>, <https://github.com/uPortal-Project/uportal-home/pull/568>
 * Uses GitHub pages for documentation now <https://github.com/uPortal-Project/uportal-home/pull/563>, <https://github.com/uPortal-Project/uportal-home/pull/564>, <https://github.com/uPortal-Project/uportal-home/pull/569>
@@ -557,7 +557,7 @@ Updates the version of App-Framework to use version 3.1.1
 * Adds LTI-launch as a widget type <https://github.com/uPortal-Project/uportal-home/pull/562>
 * Fixes display bug in LOL widgets with greater than five links <https://github.com/uPortal-Project/uportal-home/pull/566>
 
-## [6.0.0][] - 2016-12-20
+## 6.0.0 - 2016-12-20
 
 ### RSS widget type configuration change
 
@@ -575,45 +575,6 @@ See also:
 
 * the [6.0.0 milestone](https://github.com/uPortal-Project/uportal-home/milestone/5?closed=1).
 
-[unreleased]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-10.1.2...HEAD
-[10.1.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-10.1.1...uportal-home-parent-10.1.2
-[10.1.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-10.1.0...uportal-home-parent-10.1.1
-[10.1.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-10.0.0...uportal-home-parent-10.1.0
-[10.0.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-9.2.0...uportal-home-parent-10.0.0
-[9.2.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-9.1.0...uportal-home-parent-9.2.0
-[9.1.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-9.0.0...uportal-home-parent-9.1.0
-[9.0.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.6...uportal-home-parent-9.0.0
-[8.3.6]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.5...uportal-home-parent-8.3.6
-[8.3.5]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.4...uportal-home-parent-8.3.5
-[8.3.4]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.3...uportal-home-parent-8.3.4
-[8.3.3]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.2...uportal-home-parent-8.3.3
-[8.3.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.1...uportal-home-parent-8.3.2
-[8.3.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.3.0...uportal-home-parent-8.3.1
-[8.3.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.1...uportal-home-parent-8.3.0
-[8.2.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.2.0...uportal-home-parent-8.2.1
-[8.2.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.2...uportal-home-parent-8.2.0
-[8.1.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.1...uportal-home-parent-8.1.2
-[8.1.1]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.1.0...uportal-home-parent-8.1.1
-[8.1.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-8.0.0...uportal-home-parent-8.1.0
-[8.0.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.2.0...uportal-home-parent-8.0.0
-[7.2.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.1.0...uportal-home-parent-7.2.0
-[7.1.0]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.0.3...uportal-home-parent-7.1.0
-[7.0.3]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.0.2..uportal-home-parent-7.0.3
-[7.0.2]: https://github.com/uPortal-Project/uportal-home/compare/uportal-home-parent-7.0.1...uportal-home-parent-7.0.2
-[7.0.1]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-7.0.0...uportal-home-parent-7.0.1
-[7.0.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.7.0...uportal-home-parent-7.0.0
-[6.7.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.6.0...angularjs-portal-parent-6.7.0
-[6.6.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.5.0...angularjs-portal-parent-6.6.0
-[6.5.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.4.2...angularjs-portal-parent-6.5.0
-[6.4.2]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.4.1...angularjs-portal-parent-6.4.2
-[6.4.1]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.4.0...angularjs-portal-parent-6.4.1
-[6.4.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.3.0...angularjs-portal-parent-6.4.0
-[6.3.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.2.2...angularjs-portal-parent-6.3.0
-[6.2.2]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.2.1...angularjs-portal-parent-6.2.2
-[6.2.1]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.2.0...angularjs-portal-parent-6.2.1
-[6.2.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.1.0...angularjs-portal-parent-6.2.0
-[6.1.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-6.0.0...angularjs-portal-parent-6.1.0
-[6.0.0]: https://github.com/uPortal-Project/uportal-home/compare/angularjs-portal-parent-5.5.0...angularjs-portal-parent-6.0.0
 [uportal-app-framework #786]: https://github.com/uPortal-Project/uportal-app-framework/pull/786
 [uPortal-app-framework 12.0.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1200---2019-02-25
 [uPortal-app-framework 13.1.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1310---2020-02-07
