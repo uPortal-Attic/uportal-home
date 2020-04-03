@@ -183,7 +183,7 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
   instead. Documentation is updated to reflect this preference and deprecation.
   Support for Font Awesome icons will be removed in some future release. (#801)
 
-### Fixed
+### Fixed in 8.1.2
 
 + Adjusted "Undo" action toasts to better support rapid widget deletion (#812)
 + Prioritized matching `title`s in search results (#809)
