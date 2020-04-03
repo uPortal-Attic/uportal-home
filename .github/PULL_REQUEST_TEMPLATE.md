@@ -2,6 +2,12 @@
 
 ----
 
+Review for security considerations
+
+<!-- Place an x in the checkbox for YES. -->
+
+- [ ] The change has been examined for security impact.
+
 Contributor License Agreement adherence:
 
 <!-- Place an x in the checkbox for YES. -->

@@ -8,8 +8,7 @@
     "commit": "commit",
     "pretest": "mvn clean package",
     "test": "karma start web/target/web/karma.conf.js --single-run",
-    "lint-all": "npm run lint-js && npm run lint-md && npm run lint-commit && npm run lint-css",
-    "lint-commit": "commitlint --from HEAD~1",
+    "lint-all": "npm run lint-js && npm run lint-md && npm run lint-css",
     "lint-css": "stylelint --syntax less web/src/**/*.less",
     "lint-js": "eslint --ext js --ext json --ext md . --ignore-path .gitignore --ignore-pattern mock-portal",
     "lint-md": "remark . --frail --ignore-path .gitignore",
@@ -41,10 +40,6 @@
   },
   "homepage": "https://github.com/uPortal-Project/uportal-home",
   "devDependencies": {
-    "@commitlint/cli": "^7.0.0",
-    "@commitlint/config-conventional": "^7.0.0",
-    "@commitlint/prompt-cli": "^7.0.0",
-    "@commitlint/travis-cli": "^7.0.0",
     "angular-drag-and-drop-lists": "^2.1.0",
     "eslint": "^5.0.0",
     "eslint-config-angular": "^0.5.0",
@@ -150,11 +145,6 @@
       "rest-spread-spacing": "off",
       "yield-star-spacing": "off"
     }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
   },
   "lint-staged": {
     "*.{js,json,md}": "eslint --ext js --ext json --ext md",
