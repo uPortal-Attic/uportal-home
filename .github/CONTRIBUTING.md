@@ -6,6 +6,8 @@ In short:
 + All Contributors must appear in the public [Apereo CLA roster][].
 + Use [Google code style][].
 + Use [Conventional Commits][].
++ Run `npm run lint-all` locally to earlier catch what the Travis-CI continuous
+  integration build is going to complain about.
 
 However: *please do not let contribution guidance be an insurmountable barrier to your contribution.* Project participants can work with you to hone your contribution, but only if we know you're trying to contribute.
 
@@ -71,6 +73,15 @@ We have not yet formalized scopes. In practice scopes used so far include:
 + `package`
 + `presentations` : the documentation linking related presentations
 + `readme`
+
+## Linting
+
+The Travis-CI continual integration build continually lints the codebase.
+
+You can run linting locally to discover earlier what Travis-CI might be
+concerned about in your changes.
+
+`npm run lint-all`
 
 ## Contribution welcome
 
