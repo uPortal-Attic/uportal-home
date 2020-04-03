@@ -221,11 +221,6 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 
 ## 8.1.0 - 2018-03-30
 
-### Added
-
-+ Documentation about `uPortal-home` specific considerations in implementing
-  uPortal's identity impersonation and attribute swapping features (#802)
-
 ### Changed
 
 + Removing widget from home screen now displays a toast allowing UNDO action
@@ -287,10 +282,6 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 + fix: use `mdColors` to get primary color in app directory #723
 + fix: Calculate rel on marketplace anchors #725
 
-### Style
-
-+ style(lint): Style marketplace controller per style guide #738
-
 ## 7.0.3 - 2017-10-10
 
 Uses [uPortal-app-framework 6.0.4](https://github.com/uPortal-Project/uportal-app-framework/releases/tag/uportal-app-framework-maven-6.0.4).
@@ -324,7 +315,6 @@ Uses [uPortal-app-framework 6.0.3](https://github.com/uPortal-Project/uportal-ap
 #### Bug Fixes
 
 + [Remove google domain search](https://github.com/uPortal-Project/uportal-home/pull/689)
-+ [Clean up Lint Errors](https://github.com/uPortal-Project/uportal-home/pull/694)
 + [Clean up category remnants](https://github.com/uPortal-Project/uportal-home/pull/698)
 + [Fix auto-redirect introduced in 6.6.0](https://github.com/uPortal-Project/uportal-home/pull/703)
 
@@ -338,9 +328,7 @@ Uses [uPortal-app-framework 6.0.3](https://github.com/uPortal-Project/uportal-ap
 
 + [Update requirejs-text to new version](https://github.com/uPortal-Project/uportal-home/pull/665)
 + [Remove phantomjs and possible security risk](https://github.com/uPortal-Project/uportal-home/pull/653)
-+ [Add layout service tests](https://github.com/uPortal-Project/uportal-home/pull/638)
 + [Stop assuming application deployed at /web on web server](https://github.com/uPortal-Project/uportal-home/pull/641)
-+ [Clear all markdown lint warnings](https://github.com/uPortal-Project/uportal-home/pull/636)
 
 ### Header
 
@@ -353,7 +341,6 @@ Uses [uPortal-app-framework 6.0.3](https://github.com/uPortal-Project/uportal-ap
 ### Widgets
 
 + [Allow widgets to be removable even when in maintenance mode](https://github.com/uPortal-Project/uportal-home/pull/663)
-+ [Document new action-items widget type](https://github.com/uPortal-Project/uportal-home/pull/652)
 
 ### Search
 
