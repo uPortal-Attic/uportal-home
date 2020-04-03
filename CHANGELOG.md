@@ -152,8 +152,6 @@ Via [uPortal-app-framework 12.0.0][]:
 + $rootScope.GuestMode removed in favor of more locally scoped variables (#836)
 + Widget removal button is now a menu item to conform to [upstream changes][uportal-app-framework #786] (#840)
 
-### Added
-
 ### Fixed
 
 + Removes app directory search results count badge. Intended as temporary
@@ -285,8 +283,6 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 ### Fixed
 
 + resolve requireJS build flakiness (#757)
-
-### Removed
 
 ## 7.1.0 - 2017-12-06
 
