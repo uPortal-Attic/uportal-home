@@ -5,7 +5,8 @@ In short:
 + [Be kind][code of conduct].
 + All Contributors must appear in the public [Apereo CLA roster][].
 + Use [Google code style][].
-+ Use [Conventional Commits][].
++ Run `npm run lint-all` locally to earlier catch what the Travis-CI continuous
+  integration build is going to complain about.
 
 However: *please do not let contribution guidance be an insurmountable barrier to your contribution.* Project participants can work with you to hone your contribution, but only if we know you're trying to contribute.
 
@@ -46,31 +47,14 @@ npm run lint-md
 npm run lint-less
 ```
 
-## Conventional Commits
+## Linting
 
-We use [Conventional Commits][] as our commit message format. This leads to more
-uniform messages in the project history.
+The Travis-CI continual integration build continually lints the codebase.
 
-### Type
+You can run linting locally to discover earlier what Travis-CI might be
+concerned about in your changes.
 
-We use [the change types Angular uses][].
-
-
-### Scope
-
-We have not yet formalized scopes. In practice scopes used so far include:
-
-+ `changelog`
-+ `ci`
-+ `contributing` : guidance to contributors
-+ `dependency`
-+ `dependency upgrade`
-+ `github`
-+ `md`
-+ `npm`
-+ `package`
-+ `presentations` : the documentation linking related presentations
-+ `readme`
+`npm run lint-all`
 
 ## Contribution welcome
 
@@ -79,7 +63,6 @@ Contribution guidance is intended to help you make the most effective contributi
 The [code of conduct][] is not negotiable. Please do be kind.
 
 Everything else the project participants welcome helping you to work through in your contributions.
-
 
 [uPortal-home website on incubating]: http://uportal-project.github.io/uportal-home/apereo-incubation.html
 [Apereo CLA roster]: http://licensing.apereo.org/completed-clas
@@ -91,6 +74,4 @@ Everything else the project participants welcome helping you to work through in 
 [Apereo website on licensing]: https://www.apereo.org/licensing
 [Apereo Welcoming Policy]: https://www.apereo.org/content/apereo-welcoming-policy
 [code of conduct]: ../CODE_OF_CONDUCT.md
-[Conventional Commits]: https://conventionalcommits.org/
 [Google code style]: https://google.github.io/styleguide/
-[the change types Angular uses]: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit
