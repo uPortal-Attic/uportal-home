@@ -102,21 +102,13 @@ Via [uPortal-app-framework 12.0.0][]:
 
 ## 8.3.6 - 2018-11-19
 
-### Updated
 + Using uportal-app-framework 11.0.0
-
-### Added
 + Add css-vars-ponyfill for CSS Variables support #859
-
-### Fixed
 + Revert "Removing unneeded session logic" #858
 
 ## 8.3.5 - 2018-09-19
 
-### Updated
 + Using uportal-app-framework 10.3.0
-
-### Removed
 + Removing unneeded session logic #856
 
 ## 8.3.4 - 2018-09-12
@@ -127,19 +119,13 @@ Via [uPortal-app-framework 12.0.0][]:
 
 ## 8.3.3 - 2018-08-07
 
-### Fixed
-
 + Trimmed excess spaces off the `fname` attribute in widget view that is no longer trimmed by angularjs (#851)
 
 ## 8.3.2 - 2018-08-01
 
-### Fixed
-
 + Compact widgets no longer disappear when reordering via click-and-drag (#848)
 
 ## 8.3.1 - 2018-07-26
-
-### Updated
 
 + Using uportal-app-framework 10.1.0
 
@@ -175,8 +161,6 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 
 ## 8.2.1 - 2018-06-08
 
-### Fixed
-
 + Hide app directory search loading indicator when search returns zero results
   (#826)
 + Suggest ways to recover from a search with zero results (#828)
@@ -184,8 +168,6 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
   in naive localhost demo against stub data (#825)
 
 ## 8.2.0 - 2018-05-22
-
-### Changed
 
 + Removed side navigation link to unused "New Features" page (#814)
 + "About" page now actually has information about MyUW (#814)
@@ -196,10 +178,8 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 
 ## 8.1.2 - 2018-04-17
 
-### Deprecated
-
 + Support for Font Awesome icons (the `faIcon` parameter in `portlet-definition`
-  entity files) is formally deprecated, with Material icons (`mdIcon`) preferred
+  entity files) is formally DEPRECATED, with Material icons (`mdIcon`) preferred
   instead. Documentation is updated to reflect this preference and deprecation.
   Support for Font Awesome icons will be removed in some future release. (#801)
 
@@ -211,25 +191,15 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 
 ## 8.1.1 - 2018-03-30
 
-### Changes
-
 + Tweaked "Undo" action toasts to better conform to [material guidelines](https://material.io/guidelines/components/snackbars-toasts.html#) (#808)
-
-### Dependency upgrades
-
 + Updated app-framework to 9.0.2
 
 ## 8.1.0 - 2018-03-30
-
-### Changed
 
 + Removing widget from home screen now displays a toast allowing UNDO action
   before saving changes (#805)
 + App search results now order by matching titles first, then matching
   descriptions/keywords (#809)
-
-### Fixed
-
 + Fixed bug that sometimes caused the wrong widget to be removed from user's
   layout (#804)
 
@@ -239,45 +209,27 @@ It's not that this feature is unwelcome, it's just that it's not currently real.
 
 ## 8.0.0 - 2018-03-21
 
-### Added
-
 + Sort widget layout by keyboard -- arrow keys when the widget has focus will
   move it left or right (#795)
 + Added `public-myuw` to localhost mock app directory to demonstrate
   `list-of-links` widget sourcing its links from a URL rather than from direct
   configuration. (#792)
-
-### Changed
-
 + Replaced bootstrap in widget layout with CSS-grid and flex fallback (#795)
 + Replaced jQuery UI Sortable with angular-drag-and-drop-lists (#795)
-
-### Fixed
-
 + Removed defective (always zero) search results total badge (#797)
 + Alphabetically sort by `title` not `name` in app directory browse (#791)
 + Made `relatedPortlets` arrays empty in `entries.json` (#787)
 
 ## 7.2.0 - 2018-01-11
 
-### Changed
-
 + update to latest 8.0.0 release of uportal-app-framework
-
-### Fixed
-
 + resolve requireJS build flakiness (#757)
 
 ## 7.1.0 - 2017-12-06
 
-### Features
-
 + Implement `uportal-app-framework` `7.0.0`'s new sidebar navigation #730
 + Use frame-page directive for all views #739, #742 (supports upgrade to
   `uportal-app-framework` `7.0.0` with its new side navigation feature.)
-
-### Bug Fixes
-
 + fix: support deep link to details page about an app #732, #735
 + fix: use `mdColors` to get primary color in app directory #723
 + fix: Calculate rel on marketplace anchors #725
@@ -305,15 +257,8 @@ Uses [uPortal-app-framework 6.0.3](https://github.com/uPortal-Project/uportal-ap
 
 ## 6.7.0 - 2017-09-26
 
-### Minor Changes
-
 + [Add from feature button](https://github.com/uPortal-Project/uportal-home/pull/692)
 + [Remove "categories" from app directory](https://github.com/uPortal-Project/uportal-home/pull/695)
-
-### Patch Changes
-
-#### Bug Fixes
-
 + [Remove google domain search](https://github.com/uPortal-Project/uportal-home/pull/689)
 + [Clean up category remnants](https://github.com/uPortal-Project/uportal-home/pull/698)
 + [Fix auto-redirect introduced in 6.6.0](https://github.com/uPortal-Project/uportal-home/pull/703)
@@ -329,25 +274,10 @@ Uses [uPortal-app-framework 6.0.3](https://github.com/uPortal-Project/uportal-ap
 + [Update requirejs-text to new version](https://github.com/uPortal-Project/uportal-home/pull/665)
 + [Remove phantomjs and possible security risk](https://github.com/uPortal-Project/uportal-home/pull/653)
 + [Stop assuming application deployed at /web on web server](https://github.com/uPortal-Project/uportal-home/pull/641)
-
-### Header
-
 + [Allow the subheader to be more configurable and in an easier to implement](https://github.com/uPortal-Project/uportal-home/pull/676)
-
-### Messaging
-
 + [Update configuration to use new messages model](https://github.com/uPortal-Project/uportal-home/pull/674)
-
-### Widgets
-
 + [Allow widgets to be removable even when in maintenance mode](https://github.com/uPortal-Project/uportal-home/pull/663)
-
-### Search
-
 + [Fix bug where show all directory results button doesn't do anything](https://github.com/uPortal-Project/uportal-home/pull/637)
-
-### Vanilla uPortal
-
 + [Add support and detection for using layout.json v4.3](https://github.com/uPortal-Project/uportal-home/pull/634)
 
 ## 6.5.0 - 2017-05-04
