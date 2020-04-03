@@ -5,7 +5,6 @@ In short:
 + [Be kind][code of conduct].
 + All Contributors must appear in the public [Apereo CLA roster][].
 + Use [Google code style][].
-+ Use [Conventional Commits][].
 + Run `npm run lint-all` locally to earlier catch what the Travis-CI continuous
   integration build is going to complain about.
 
@@ -48,32 +47,6 @@ npm run lint-md
 npm run lint-less
 ```
 
-## Conventional Commits
-
-We use [Conventional Commits][] as our commit message format. This leads to more
-uniform messages in the project history.
-
-### Type
-
-We use [the change types Angular uses][].
-
-
-### Scope
-
-We have not yet formalized scopes. In practice scopes used so far include:
-
-+ `changelog`
-+ `ci`
-+ `contributing` : guidance to contributors
-+ `dependency`
-+ `dependency upgrade`
-+ `github`
-+ `md`
-+ `npm`
-+ `package`
-+ `presentations` : the documentation linking related presentations
-+ `readme`
-
 ## Linting
 
 The Travis-CI continual integration build continually lints the codebase.
@@ -102,6 +75,4 @@ Everything else the project participants welcome helping you to work through in 
 [Apereo website on licensing]: https://www.apereo.org/licensing
 [Apereo Welcoming Policy]: https://www.apereo.org/content/apereo-welcoming-policy
 [code of conduct]: ../CODE_OF_CONDUCT.md
-[Conventional Commits]: https://conventionalcommits.org/
 [Google code style]: https://google.github.io/styleguide/
-[the change types Angular uses]: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit
