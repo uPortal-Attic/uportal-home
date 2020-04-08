@@ -10,6 +10,12 @@ and this project adheres to
 
 No changes yet.
 
+## 10.2.1 - 2020-04-08
+
+Uses uPortal-app-framework 14.0.1, which
+
++ includes accessibility improvement of Submit Search button
+
 ## 10.2.0 - 2020-04-02
 
 Uses uPortal-app-framework 14.0.0, which
