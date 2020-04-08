@@ -150,5 +150,6 @@
     "*.{js,json,md}": "eslint --ext js --ext json --ext md",
     "*.md": "remark --frail",
     "*.less": "stylelint --syntax less"
-  }
+  },
+  "version": "10.2.1"
 }
