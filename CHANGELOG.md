@@ -10,6 +10,10 @@ and this project adheres to
 
 No changes yet.
 
+## 10.2.2 - 2020-04-14
+
+Update releasing steps of uPortal-home app
+
 ## 10.2.1 - 2020-04-08
 
 Uses uPortal-app-framework 14.0.1, which
