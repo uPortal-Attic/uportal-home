@@ -52,7 +52,7 @@
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-requirejs": "^3.2.0",
     "jasmine-core": "^3.0.0",
-    "karma": "^2.0.2",
+    "karma": "^5.0.5",
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.2",
     "karma-coveralls": "^2.0.0",
