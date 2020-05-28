@@ -61,7 +61,7 @@
     "karma-html-reporter": "^0.2.4",
     "karma-htmlfile-reporter": "^0.3.5",
     "karma-ie-launcher": "^1.0.0",
-    "karma-jasmine": "^1.1.2",
+    "karma-jasmine": "^3.3.0",
     "karma-jasmine-html-reporter": "^1.1.0",
     "karma-requirejs": "^1.1.0",
     "karma-safari-launcher": "^1.0.0",
