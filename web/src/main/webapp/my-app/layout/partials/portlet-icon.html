@@ -19,7 +19,7 @@
 
 -->
 <md-icon ng-if="portlet.mdIcon">{{ portlet.mdIcon }}</md-icon>
-<img style="width:24px; height:24px;" ng-if="!portlet.mdIcon && !portlet.faIcon && portlet.layoutObject && portlet.layoutObject.iconUrl" ng-src="{{portlet.layoutObject.iconUrl}}" alt="App icon">
+<img style="width:24px; height:24px;" ng-if="!portlet.mdIcon && !portlet.faIcon && portlet.layoutObject && portlet.layoutObject.iconUrl" ng-src="{{portlet.layoutObject.iconUrl}}" alt="">
 <i ng-if="!portlet.mdIcon && portlet.faIcon && portlet.faIcon.indexOf('fa-')===0" class="fa {{::portlet.faIcon}}"></i>
 <i ng-if="!portlet.mdIcon && portlet.faIcon && portlet.faIcon.indexOf('fa-')!==0" class="{{::portlet.faIcon}}"></i>
 <i ng-if="!portlet.mdIcon && !portlet.faIcon && (!portlet.layoutObject.iconUrl || !portlet.layoutObject.iconUrl )" class="fa fa-star"></i>
