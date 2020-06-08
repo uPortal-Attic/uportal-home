@@ -1,0 +1,72 @@
+{
+  "entry": {
+    "canAdd": true,
+    "layoutObject": {
+      "nodeId": "-1",
+      "title": "Box",
+      "description": "Access your UW-Madison Box account.",
+      "url": "https://uwmadison.box.com",
+      "iconUrl": "/portal/api/images/cube.svg",
+      "faIcon": null,
+      "mdIcon": null,
+      "fname": "box",
+      "lifecycleState": "PUBLISHED",
+      "target": "_blank",
+      "widgetURL": null,
+      "widgetType": null,
+      "widgetTemplate": null,
+      "widgetExternalMessageUrl": "/aries/proxy/wiscmailLoginAlert",
+      "widgetExternalMessageTextObjectLocation": [
+        "result",
+        "0",
+        "short"
+      ],
+      "widgetExternalMessageLearnMoreUrl": [
+        "result",
+        "0",
+        "url"
+      ],
+      "widgetConfig": null,
+      "staticContent": "\n            \n                Click <a href=\"https://uwmadison.box.com\" target='_blank'>here</a> to access Box.\n            \n\t\t",
+      "pithyStaticContent": null,
+      "widgetExtneralMessageTextObjectLocation": [
+        "result",
+        "0",
+        "short"
+      ],
+      "renderOnWeb": false,
+      "altMaxUrl": true
+    },
+    "portletName": "advanced-cms",
+    "title": "Box",
+    "categories": [
+      "Applications"
+    ],
+    "marketplaceScreenshots": [],
+    "fname": "box",
+    "lifecycleState": "PUBLISHED",
+    "rating": 0,
+    "relatedPortlets": [],
+    "portletWebAppName": "/SimpleContentPortlet",
+    "renderUrl": "https://uwmadison.box.com",
+    "portletReleaseNotes": {
+      "releaseDate": null,
+      "initialReleaseDate": null,
+      "releaseNotes": null
+    },
+    "faIcon": null,
+    "maxUrl": "https://uwmadison.box.com",
+    "shortUrl": null,
+    "userRated": 0,
+    "keywords": [
+      "dropbox",
+      "UW Box",
+      "drop box"
+    ],
+    "name": "Box",
+    "id": "3196",
+    "type": "Portlet",
+    "target": "_blank",
+    "description": "Access your UW-Madison Box account."
+  }
+}
