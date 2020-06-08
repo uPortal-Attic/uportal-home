@@ -8,7 +8,10 @@ and this project adheres to
 
 ## unreleased
 
-No changes yet.
++ fix `portlet-icon` directive to support `iconUrl`
+  (the now preferred URL-to-an-SVG-file way of referencing icons).
+  so that app directory details pages show the entry icon rather than defaulting
+  to showing a star icon.
 
 ## 10.2.2 - 2020-04-14
 
