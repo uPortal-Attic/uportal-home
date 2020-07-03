@@ -44,6 +44,13 @@
     <md-card>
       <loading-gif data-object="portlets" layout="row" layout-align="center center"></loading-gif>
 
+      <md-card-title ng-show="portlets.length">
+        <md-card-title-text>
+          <span ng-show="portlets.length > 0 && !searchTerm">{{portlets.length}} entries are available to you</span>
+          <span ng-show="portlets.length > 0 && searchTerm">{{(portlets | filter:searchTermFilter | showApplicable:showAll ).length}} entries matching &quot;{{searchTerm}}&quot; are available to you</span>
+        </md-card-title-text>
+      </md-card-title>
+
       <div class="portlet-container"
            ng-repeat="portlet in portlets | filter:searchTermFilter | showApplicable:showAll |  orderBy:sortParameter | limitTo:searchResultLimit"
            ng-class="{portlet_hover: hover}"
