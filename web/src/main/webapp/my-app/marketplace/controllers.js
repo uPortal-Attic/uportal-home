@@ -127,34 +127,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         );
       };
 
-      $scope.selectFilter = function(filter, category) {
-        $scope.sortParameter = filter;
-        $scope.categoryToShow = category;
-        $scope.showCategories = false;
-        if (filter === 'popular') {
-          $scope.selectedFilter = 'popular';
-          $scope.sortParameter = ['-rating', '-userRated'];
-        }
-        if (filter === 'az') {
-          $scope.selectedFilter = 'az';
-          $scope.sortParameter = 'title';
-        }
-        if (filter === 'category') {
-          $scope.selectedFilter = 'category';
-          $scope.sortParameter = 'title';
-          $scope.showCategories = true;
-        }
-
-        miscService.pushGAEvent('Marketplace', 'Tab Select', filter);
-      };
-
-      $scope.slideTabs = function(direction) {
-        $scope.tabsPosition = 'start';
-        if (direction === 'right') {
-          $scope.tabsPosition = 'end';
-        }
-      };
-
       $scope.toggleShowAll = function() {
         $scope.showAll = !$scope.showAll;
       };
@@ -268,31 +240,15 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
           return true;
         });
 
-        if (currentPage === 'details') {
           // Empty string indicates no categories, show all portlets
           $scope.categoryToShow = '';
-          // Default to filter by category on return back to app dir browse
-          $scope.selectedFilter = 'category';
-          // When filtering by category, sort by title
-          $scope.sortParameter = 'title';
-          // Show category selection div by default
-          $scope.showCategories = true;
 
+          // Default to alphabetical sort by title on return to app dir browse
+          $scope.selectedFilter = 'az';
+          $scope.sortParameter = 'title';
+
+        if (currentPage === 'details') {
           currentPage = 'market';
-          if (currentCategory !== '') {
-            $scope.categoryToShow = currentCategory;
-          } else {
-            $scope.categoryToShow = '';
-          }
-        } else {
-          // Empty string indicates no categories, show all portlets
-          $scope.categoryToShow = '';
-          // Default filter is to sort by popularity
-          $scope.selectedFilter = 'popular';
-          // To sort by popularity, angular will use portlet.rating to filter
-          $scope.sortParameter = ['-rating', '-userRated'];
-          // Hide category selection div by default
-          $scope.showCategories = false;
         }
 
         base.initializeConstants();
