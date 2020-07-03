@@ -266,11 +266,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $controller('MarketplaceCommonFunctionsController',
           {$scope: $scope});
 
-        $scope.specifyCategory = function(category) {
-          currentCategory=category;
-          currentPage='details';
-        };
-
         var figureOutBackStuff = function() {
           var fromInfo = marketplaceService.getFromInfo();
           if (fromInfo.term) {
