@@ -20,7 +20,6 @@
 
 define(['angular', 'jquery', 'require'], function(angular, $, require) {
   var currentPage = 'market';
-  var currentCategory = '';
 
   return angular.module('my-app.marketplace.controllers', [])
 
