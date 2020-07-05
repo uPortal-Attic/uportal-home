@@ -12,6 +12,10 @@ and this project adheres to
   (the now preferred URL-to-an-SVG-file way of referencing icons).
   so that app directory details pages show the entry icon rather than defaulting
   to showing a star icon.
++ remove "popularity" sorting option when browsing app directory entries,
+  since users are no longer able to rate entries.
++ tell users how many entries match
+  when filtering when browsing the app directory
 
 ## 10.2.2 - 2020-04-14
 
