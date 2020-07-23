@@ -30,7 +30,7 @@
   <groupId>org.apereo.uportal</groupId>
   <artifactId>uportal-home-parent</artifactId>
   <packaging>pom</packaging>
-  <version>10.2.2-SNAPSHOT</version>
+  <version>10.2.3-SNAPSHOT</version>
   <name>uPortal-home Parent Project</name>
   <description>An alternative homepage for uPortal</description>
   <url>https://github.com/uPortal-Project/uportal-home</url>
