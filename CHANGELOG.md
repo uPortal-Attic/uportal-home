@@ -6,20 +6,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## unreleased
 
-+ fix `portlet-icon` directive to support `iconUrl`
+## 10.2.2 - 2020-07-22
+
++ Update releasing steps of uPortal-home app
++ Fix `portlet-icon` directive to support `iconUrl`
   (the now preferred URL-to-an-SVG-file way of referencing icons).
   so that app directory details pages show the entry icon rather than defaulting
   to showing a star icon.
-+ remove "popularity" sorting option when browsing app directory entries,
++ Remove "popularity" sorting option when browsing app directory entries,
   since users are no longer able to rate entries.
-+ tell users how many entries match
++ Tell users how many entries match
   when filtering when browsing the app directory
 
-## 10.2.2 - 2020-04-14
++ Uses uPortal-app-framework 16.0.2, which
 
-Update releasing steps of uPortal-home app
++ replaces current Profile functionality with the myuw-profile Web Component
++ downgrades angular-resource to 1.5.8 from 1.7.8
 
 ## 10.2.1 - 2020-04-08
 
