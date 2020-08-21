@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+Versions in this document should match those
+[published to Sonatype Maven Central Repository][].
+
 ## Next
 
 + Excludes the widget context menu on the widget rendered on the details page
@@ -383,3 +386,5 @@ See also:
 [uportal-app-framework #786]: https://github.com/uPortal-Project/uportal-app-framework/pull/786
 [uPortal-app-framework 12.0.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1200---2019-02-25
 [uPortal-app-framework 13.1.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1310---2020-02-07
+
+[published to Sonatype Maven Central Repository]: https://search.maven.org/artifact/org.apereo.uportal/uportal-home-parent
