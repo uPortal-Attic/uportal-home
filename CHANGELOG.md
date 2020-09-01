@@ -11,8 +11,15 @@ Versions in this document should match those
 
 ## Next
 
+(No changes yet).
+
+## 10.3.0 - 2020-09-01
+
 + Excludes the widget context menu on the widget rendered on the details page
   about an app directory entry.
+
+Uses uPortal-app-framework 17.0.1,
+which changes parts of the notifications UI to use Web Components.
 
 ## 10.2.2 - 2020-07-22
 
