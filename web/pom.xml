@@ -42,7 +42,7 @@
       <groupId>org.apereo.uportal</groupId>
       <artifactId>uportal-app-framework</artifactId>
       <type>war</type>
-      <version>17.0.2</version>
+      <version>17.0.3-SNAPSHOT</version>
     </dependency>
 
     <!-- Test -->
