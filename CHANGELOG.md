@@ -13,6 +13,14 @@ Versions in this document should match those
 
 (No changes yet).
 
+## 10.3.2 - 2020-10-13
+
++ Uses [uPortal-app-framework 17.0.3][], which updates a couple Web Components.
+
+## 10.3.1
+
+(Goofy release - skip it.)
+
 ## 10.3.0 - 2020-09-01
 
 + Excludes the widget context menu on the widget rendered on the details page
@@ -393,5 +401,6 @@ See also:
 [uportal-app-framework #786]: https://github.com/uPortal-Project/uportal-app-framework/pull/786
 [uPortal-app-framework 12.0.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1200---2019-02-25
 [uPortal-app-framework 13.1.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1310---2020-02-07
+[uPortal-app-framework 17.0.3]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1703---2020-10-02
 
 [published to Sonatype Maven Central Repository]: https://search.maven.org/artifact/org.apereo.uportal/uportal-home-parent
