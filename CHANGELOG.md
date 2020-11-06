@@ -13,6 +13,12 @@ Versions in this document should match those
 
 (No changes yet).
 
+## 11.0.0 - 2020-11-06
+
++ Uses uPortal-app-framework 18.0.0,
+  which stops integrating with Google Analytics directly
+  and instead integrates with Google Analytics via Google Tag Manager.
+
 ## 10.3.2 - 2020-10-13
 
 + Uses [uPortal-app-framework 17.0.3][], which updates a couple Web Components.
