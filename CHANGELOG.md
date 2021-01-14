@@ -13,6 +13,12 @@ Versions in this document should match those
 
 (No changes yet).
 
+## 11.0.1 - 20210-01-14
+
++ Uses uPortal-app-framework 18.0.1,
+  which fixes the Google Tag Manager integration to capture outbound link events
+  and upgrades Web Components.
+
 ## 11.0.0 - 2020-11-06
 
 + Uses uPortal-app-framework 18.0.0,
