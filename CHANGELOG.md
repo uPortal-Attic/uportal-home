@@ -13,7 +13,11 @@ Versions in this document should match those
 
 (No changes yet).
 
-## 11.0.1 - 20210-01-14
+## 11.0.2 - 2021-01-28
++ Uses uPortal-app-framework 18.1.1-SNAPSHOT,
+  which updates MyUW Web Components versions
+
+## 11.0.1 - 2021-01-14
 
 + Uses uPortal-app-framework 18.0.1,
   which fixes the Google Tag Manager integration to capture outbound link events
