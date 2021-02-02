@@ -18,8 +18,8 @@ Versions in this document should match those
 
 ## 11.0.2 - 2021-01-28
 
-+ Uses uPortal-app-framework 18.1.1-SNAPSHOT,
-  which updates MyUW Web Components versions
++ Uses [uPortal-app-framework 18.1.0][]
+  which adds myuw-feedback Web Component predicated on a feature flag
 
 ## 11.0.1 - 2021-01-14
 
@@ -422,6 +422,7 @@ See also:
 [uPortal-app-framework 12.0.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1200---2019-02-25
 [uPortal-app-framework 13.1.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1310---2020-02-07
 [uPortal-app-framework 17.0.3]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1703---2020-10-02
+[uPortal-app-framework 18.1.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1810---2021-01-27
 [uPortal-app-framework 18.1.1]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1811---2021-02-02
 
 [published to Sonatype Maven Central Repository]: https://search.maven.org/artifact/org.apereo.uportal/uportal-home-parent
