@@ -14,6 +14,7 @@ Versions in this document should match those
 (No changes yet).
 
 ## 11.0.2 - 2021-01-28
+
 + Uses uPortal-app-framework 18.1.1-SNAPSHOT,
   which updates MyUW Web Components versions
 
