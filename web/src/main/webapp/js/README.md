@@ -13,8 +13,4 @@ This file doesn't itself do anything. It's just an example. It's the configurati
 
 uPortal-home configuration about being uPortal-home (rather than the `override.js` about being a part of uPortal-app-framework.)
 
-## `login-config.js`
-
-Configuration specific to `uPortal-home` delegating to uPortal for user login. See [documentation](http://uportal-project.github.io/uportal-home/silent-login.html).
-
 [uPortal-app-framework configuration docs]: http://uportal-project.github.io/uportal-app-framework/configuration.html

@@ -9,6 +9,21 @@ and this project adheres to
 Versions in this document should match those
 [published to Sonatype Maven Central Repository][].
 
+## Next
+
+**Breaking change: "silent" login is no longer a thing.**
+
+Instead uses `miscService.redirectUser`
+to trigger login when API calls fail for lack of login.
+This makes more uniform the ways that login happen --
+whether the user just opened their browser for the day and is starting fresh,
+or the user is mid-session and something timed out or failed server-side,
+the mechanism for detecting the need for login and performing login is the same.
+Login happens via a user-facing redirect whenever, and only when, it's needed.
+
++ `login-config.js` no longer has effect.
+
+
 ## 11.0.3 2021-02-02
 
 + Uses [uPortal-app-framework 18.1.1][], which

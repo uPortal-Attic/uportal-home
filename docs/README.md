@@ -52,7 +52,6 @@ Search app directory entries, the web (with Google Custom Search integration), o
 ## Integration with uPortal
 
 + [uPortal-home considerations in implementing uPortal impersonation features][]
-+ [Silent Login Configuration](silent-login.md)
 
 ## Developing
 
