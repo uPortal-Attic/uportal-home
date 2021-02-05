@@ -9,7 +9,7 @@ and this project adheres to
 Versions in this document should match those
 [published to Sonatype Maven Central Repository][].
 
-## Next
+## 12.0.0 - 2021-02-05
 
 **Breaking change: "silent" login is no longer a thing.**
 
