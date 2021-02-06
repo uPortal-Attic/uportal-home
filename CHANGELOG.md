@@ -24,7 +24,7 @@ Login happens via a user-facing redirect whenever, and only when, it's needed.
 + `login-config.js` no longer has effect.
 
 
-## 11.0.3 2021-02-02
+## 11.0.3 - 2021-02-02
 
 + Uses [uPortal-app-framework 18.1.1][], which
   + redirects to log the user in again on some 401 Unauthorized responses
