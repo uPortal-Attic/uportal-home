@@ -181,7 +181,7 @@ define(['angular', 'jquery'], function(angular, $) {
 
         var getUserRating = function(fname) {
             return $http.get(SERVICE_LOC.base + SERVICE_LOC.marketplace.base +
-                fname + '/getRating')
+                fname + '/getRating', {cache: true})
               .then(function(result) {
                 return result.data.rating;
               });
@@ -305,7 +305,7 @@ define(['angular', 'jquery'], function(angular, $) {
           return $http.get(
               SERVICE_LOC.base +
               SERVICE_LOC.marketplace.base + fname +
-              '/ratings')
+              '/ratings', {cache: true})
             .then(function(result) {
               return result.data.ratings;
             });

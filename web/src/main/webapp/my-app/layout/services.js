@@ -179,7 +179,7 @@ define(['angular', 'jquery'], function(angular, $) {
               };
 
               // no caching...  request from the server
-              return $http.get(SERVICE_LOC.context + SERVICE_LOC.layout)
+              return $http.get(SERVICE_LOC.context + SERVICE_LOC.layout, {cache: true} )
                   .then(successFn, errorFn);
       };
 
@@ -207,13 +207,14 @@ define(['angular', 'jquery'], function(angular, $) {
                 };
 
                 // no caching...  request from the server
-                return $http.get(SERVICE_LOC.context + SERVICE_LOC.layout)
+                return $http.get(
+                  SERVICE_LOC.context + SERVICE_LOC.layout, {cache: true} )
                     .then(successFn, errorFn);
             });
         };
 
         var getApp = function(fname) {
-            return $http.get(SERVICE_LOC.base + 'portlet/' +fname + '.json')
+            return $http.get(SERVICE_LOC.base + 'portlet/' +fname + '.json', {cache: true})
               .then(
                 function(result) {
                     return result;
@@ -335,7 +336,7 @@ define(['angular', 'jquery'], function(angular, $) {
             //    run that through an RSS to JSON converter.
             // Whereas this hack repurposes existing configuration for (3)
             // to do (1).
-          return $http.get(feedURL);
+          return $http.get(feedURL, {cache: true});
         };
 
         return {
