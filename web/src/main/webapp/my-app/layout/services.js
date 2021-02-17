@@ -179,7 +179,8 @@ define(['angular', 'jquery'], function(angular, $) {
               };
 
               // no caching...  request from the server
-              return $http.get(SERVICE_LOC.context + SERVICE_LOC.layout, {cache: true} )
+              return $http.get(SERVICE_LOC.context + SERVICE_LOC.layout,
+                {cache: true} )
                   .then(successFn, errorFn);
       };
 
@@ -214,7 +215,8 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         var getApp = function(fname) {
-            return $http.get(SERVICE_LOC.base + 'portlet/' +fname + '.json', {cache: true})
+            return $http.get(SERVICE_LOC.base + 'portlet/' +fname + '.json',
+              {cache: true})
               .then(
                 function(result) {
                     return result;

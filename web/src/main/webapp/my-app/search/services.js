@@ -101,7 +101,8 @@ define(['angular', 'jquery'], function(angular, $) {
         return getGoogleSearchURL().then(function(googleSearchURL) {
           return $q(function(resolve, reject) {
             if (googleSearchURL) {
-              return $http.get(googleSearchURL + '&q=' + term, {cache: true}).then(
+              return $http.get(googleSearchURL + '&q=' + term,
+                {cache: true}).then(
                 function(response) {
                   var data = {
                     results: null,
@@ -327,7 +328,8 @@ define(['angular', 'jquery'], function(angular, $) {
         return getDirectorySearchURL().then(function(searchDirectoryURL) {
           return $q(function(resolve, reject) {
             if (searchDirectoryURL) {
-              return $http.get(searchDirectoryURL + '/?name=' + term, {cache: true}).then(
+              return $http.get(searchDirectoryURL + '/?name=' + term,
+                {cache: true}).then(
                 function(response) {
                   return resolve(response.data);
                 },
