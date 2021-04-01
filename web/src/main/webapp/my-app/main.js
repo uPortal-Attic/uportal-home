@@ -20,6 +20,7 @@ define([
   'angular',
   'require',
   './marketplace/routes',
+  './learningAnalytics/route',
   './layout/list/route',
   'portal/messages/routes',
   'portal/settings/routes',
@@ -49,7 +50,7 @@ define([
   './search/controllers',
   './search/directives',
   './search/services',
-], function(angular, require, marketplaceRoutes, listRoute, messagesRoutes,
+], function(angular, require, marketplaceRoutes, learningAnalyticsRoute, listRoute, messagesRoutes,
     portalSettingsRoutes, aboutRoute, helpRoutes, layoutRoute, staticRoutes,
     widgetRoutes, searchRoutes) {
   return angular.module('my-app', [
@@ -96,6 +97,7 @@ define([
           .when('/about', aboutRoute)
           .when('/session-info', helpRoutes.sessionInfo)
           .when('/widget-creator', widgetRoutes.widgetCreator)
+          .when('/learningAnalytics', learningAnalyticsRoute)
           .otherwise(layoutRoute);
     }]);
 });
