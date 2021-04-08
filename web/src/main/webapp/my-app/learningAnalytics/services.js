@@ -16,9 +16,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+'use strict';
 
-define(['require'], function(require) {
-  return {
-	templateUrl: require.toUrl('./partials/learningAnalytics.html'),
-  };
+define(['angular', 'jquery'], function(angular, $) {
+
+    return angular.module('my-app.learningAnalytics.services', [])
+
+	.factory('learningAnalyticsService',
+		['portalGroupService',
+		function(portalGroupService) {
+
+	        var getGroups = function(groups) {
+	          return portalGroupService.getGroups()
+	            .then(function(groups) {
+            		return {
+        		 	 	groups: groups,
+      				}
+	       		});
+			}
+			return {
+				getGroups: getGroups,
+			}
+		}
+	])
 });

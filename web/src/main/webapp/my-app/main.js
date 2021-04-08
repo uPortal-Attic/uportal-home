@@ -50,6 +50,8 @@ define([
   './search/controllers',
   './search/directives',
   './search/services',
+  './learningAnalytics/controllers',
+  './learningAnalytics/services',
 ], function(angular, require, marketplaceRoutes, learningAnalyticsRoute, listRoute, messagesRoutes,
     portalSettingsRoutes, aboutRoute, helpRoutes, layoutRoute, staticRoutes,
     widgetRoutes, searchRoutes) {
@@ -64,6 +66,8 @@ define([
     'my-app.marketplace.controllers',
     'my-app.marketplace.directives',
     'my-app.marketplace.services',
+    'my-app.learningAnalytics.controllers',
+    'my-app.learningAnalytics.services',
     'my-app.menu.controllers',
     'my-app.rating.components',
     'my-app.rating.controllers',

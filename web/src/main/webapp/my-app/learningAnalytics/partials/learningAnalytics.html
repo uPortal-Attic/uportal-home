@@ -22,13 +22,16 @@
     app-title="Learning Analytics for Instructors"
     page-title="Learning Analytics for Instructors"
     white-background="true">
+    <div ng-controller="LearningAnalyticsController as learningAnalyticsCtrl" class="portlet-details-page">
     <md-content class="learningAnalytics__content md-uwMadison-theme">
       <div data-role='content'>
-        <h2>Learning Analytics Tools</h2>
+        <h2>Tools</h2>
         <ul data-role='listview'>
           <li>Learner Engagement Analytics Dashboard (LEAD)
             <ul style="padding-left:1.2em" data-role='listview'>
-              <li ng-if="content.groups.name ==='All DoIT Employees'">I'm a DoIT emplyee</li>
+              <!-- Leaving for test purpose only -->
+              <li ng-if="forInstructorsOnly">this is for instructors only</li>
+              <li ng-if="!forInstructorsOnly">this is for everybody</li>
               <li><a href="" target="_blank" rel="noopener noreferer">Current semester (S21)</a></li>
               <li><a href="" target="_blank" rel="noopener noreferer">Fall 2020</a></li>
             </ul>
@@ -39,7 +42,7 @@
           <li><a href="" target="_blank" rel="noopener noreferer">Kaltura Analytics</a></li>
         </ul>
 
-        <h2>Learning Analytics Resources</h2>
+        <h2>Resources</h2>
         <ul data-role='listview'>
           <li><a href="" target="_blank" rel="noopener noreferer">Learning Analytics at UW-Madison</a></li>
           <li><a href="" target="_blank" rel="noopener noreferer">Learning Analytics Guiding Principles</a></li>
@@ -48,7 +51,7 @@
           <li><a href="" target="_blank" rel="noopener noreferer">Learning Analytics KnowledgeBase</a></li>
         </ul>
 
-        <h2>Learning Analytics Events</h2>
+        <h2>Events</h2>
         <ul data-role='listview'>
           <li><a href="" target="_blank" rel="noopener noreferer">Learning Analytics Community of Practice</a></li>
           <li><a href="" target="_blank" rel="noopener noreferer">Learning Analytics Speaker Series</a></li>
@@ -56,4 +59,5 @@
         </ul>
       </div>
     </md-content>
+    </div>
   </frame-page>

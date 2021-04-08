@@ -16,9 +16,26 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+'use strict';
 
-define(['require'], function(require) {
-  return {
-	templateUrl: require.toUrl('./partials/learningAnalytics.html'),
-  };
+ define(['angular'], function(angular) {
+  return angular.module('my-app.learningAnalytics.controllers', [])
+
+    .controller('LearningAnalyticsController',
+      ['$scope', 'learningAnalyticsService',
+      function($scope, learningAnalyticsService) {
+
+		// Promise to resolve group memberships
+		learningAnalyticsService.getGroups().then(function(data) {
+			$scope.groups = data.groups;
+
+			for (var i = 0; i > $scope.groups.length; i++) {
+				if ($scope.groups[i].name === 'Users - Service Activation Required') { // This Group name will be updated
+					$scope.forInstructorsOnly = true;
+                    return;
+            	}
+			}
+ 			$scope.forInstructorsOnly = false;
+		});
+	}]);
 });
