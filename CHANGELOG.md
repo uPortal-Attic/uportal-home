@@ -9,7 +9,11 @@ and this project adheres to
 Versions in this document should match those
 [published to Sonatype Maven Central Repository][].
 
-## 12.0.1- 2021-03-03
+## 12.0.2 - 2021-04-12
+
++ Built on [uPortal-app-framework 19.0.2][]
+
+## 12.0.1 - 2021-03-03
 
 + Configure usages of `$http.get` to cache.
   Previously some usages did not turn on caching.
@@ -446,5 +450,6 @@ See also:
 [uPortal-app-framework 18.1.0]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1810---2021-01-27
 [uPortal-app-framework 18.1.1]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1811---2021-02-02
 [uPortal-app-framework 19.0.1]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1901---2021-03-03
+[uPortal-app-framework 19.0.2]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1902---2021-04-12
 
 [published to Sonatype Maven Central Repository]: https://search.maven.org/artifact/org.apereo.uportal/uportal-home-parent
