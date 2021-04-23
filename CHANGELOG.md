@@ -9,6 +9,10 @@ and this project adheres to
 Versions in this document should match those
 [published to Sonatype Maven Central Repository][].
 
+## 13.0.0 - 2021-04-23
+
++ Built on [uPortal-app-framework 20.0.0.][]
+
 ## 12.0.3 - 2021-04-12
 
 + Built on [uPortal-app-framework 19.0.3][]
@@ -456,5 +460,6 @@ See also:
 [uPortal-app-framework 19.0.1]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1901---2021-03-03
 [uPortal-app-framework 19.0.2]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1902---2021-04-12
 [uPortal-app-framework 19.0.3]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1903---2021-04-12
+[uPortal-app-framework 20.0.0.]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#2000---2021-04-23
 
 [published to Sonatype Maven Central Repository]: https://search.maven.org/artifact/org.apereo.uportal/uportal-home-parent
