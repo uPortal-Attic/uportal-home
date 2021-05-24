@@ -84,34 +84,40 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
 
       $scope.addToHome = function addToHome(portlet) {
         var fname = portlet.fname;
-        var ret = layoutService.addToHome(portlet);
-        ret.success(function(request, text) {
-          angular.element('.fname-'+fname)
+        var ret = layoutService.addToHome(portlet, $sessionStorage.layout);
+        ret.then(
+          function successCallback(response) {
+            $log.log('Added ' + portlet.fname + ' successfully');
+            angular.element('.fname-'+fname)
             .html('<i class="fa fa-check"></i> Added Successfully')
             .prop('disabled', true)
             .removeClass('btn-add')
             .addClass('btn-added');
-          $scope.$apply(function() {
-            var marketplaceEntries = $.grep(
-              $sessionStorage.marketplace,
-              function(e) {
-                return e.fname === portlet.fname;
+
+              var marketplaceEntries = $.grep(
+                $sessionStorage.marketplace,
+                function(e) {
+                  return e.fname === portlet.fname;
+                }
+              );
+              if (marketplaceEntries.length > 0) {
+                marketplaceEntries[0].hasInLayout = true;
               }
-            );
-            if (marketplaceEntries.length > 0) {
-              marketplaceEntries[0].hasInLayout = true;
-            }
-            $rootScope.layout = null; // reset layout due to modifications
-            $sessionStorage.layout = null;
-          });
-        })
-          .error(function(request, text, error) {
+              $rootScope.layout = null; // reset layout due to modifications
+              $sessionStorage.layout = null;
+              miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
+          },
+
+          function errorCallback(response) {
+            $log.warn('failed to add app to home.');
             angular.element('.fname-'+fname)
               .parent()
               .append(
                 '<span>Issue adding to home, please try again later</span>'
               );
-          });
+          }).catch(function() {
+            console.log("more errors occurred");
+        });
       };
 
       $scope.searchTermFilter = function(portlet) {

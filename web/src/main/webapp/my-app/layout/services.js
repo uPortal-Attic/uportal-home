@@ -31,33 +31,167 @@ define(['angular', 'jquery'], function(angular, $) {
   return angular.module('my-app.layout.services', [])
     .factory('layoutService',
       ['$sce', '$http', '$log', 'miscService',
-      'mainService', '$sessionStorage', '$q', 'SERVICE_LOC',
+      'mainService', '$sessionStorage', '$q', 'SERVICE_LOC', 'APP_FLAGS',
       function($sce, $http, $log, miscService,
-        mainService, $sessionStorage, $q, SERVICE_LOC) {
-        var addToHome = function addToHomeFunction(portlet) {
-            var fname = portlet.fname;
-            var tabName = SERVICE_LOC.layoutTab;
-            return $.ajax({
-                url: SERVICE_LOC.base + 'layout?action=addPortlet&fname=' +
-                  fname + '&tabName=' + tabName,
-                type: 'POST',
-                data: null,
-                dataType: 'json',
-                async: true,
-                success: function(request, text) {
-                    $log.log('Added ' + portlet.fname + ' successfully');
-                    miscService.pushGAEvent(
-                      'Layout Modification', 'Add', portlet.name);
-                    return true;
-                },
-                error: function(request, text, error) {
-                    $log.warn('failed to add app to home.');
-                    return false;
-                },
+        mainService, $sessionStorage, $q, SERVICE_LOC, APP_FLAGS) {
+
+        /************************
+        * NEW LAYOUT
+        * To use new service layout set useNewLayout flag in override.js to true,
+        * and useOldLayout to false
+        ************************/
+
+        if (APP_FLAGS.useNewLayout) {
+          console.log("SERVICE_LOC.newLayout: ", SERVICE_LOC);
+
+          var getUncachedLayout = function() {
+            var successFn = function(result) {
+                var data = formatLayoutForCache(result.data);
+                storeLayoutInCache(data);
+                return data;
+            };
+
+            var errorFn = function(reason) {
+                miscService.redirectUser(reason.status, 'layout call');
+            };
+
+            // no caching...  request from the server
+            return $http.get(SERVICE_LOC.newLayout,
+              {cache: true} )
+                .then(successFn, errorFn);
+          };
+
+          var getLayout = function() {
+            return checkLayoutCache().then(function(data) {
+              var successFn;
+              var errorFn;
+              var defer;
+
+              // first, check the local storage...
+              if (data) {
+                  defer = $q.defer();
+                  defer.resolve(data);
+                  return defer.promise;
+              }
+
+              successFn = function(result) {
+                console.log("result", result);
+                  var data = formatLayoutForCache(result.data);
+                  storeLayoutInCache(data);
+                  return data;
+              };
+
+              errorFn = function(reason) {
+                  miscService.redirectUser(reason.status, 'layout call');
+              };
+
+              // no caching...  request from the server
+              return $http.get(
+                SERVICE_LOC.newLayout, {cache: true} )
+                  .then(successFn, errorFn);
             });
-        };
+          };
+
+          var addToHome = function addToHomeFunction(portlet) {
+            var fname = portlet.fname;
+            return getLayout().then(function(data) {
+              console.log("data: ", data);
+              data.layout.push(fname);
+              return $http({
+                method: 'POST',
+                url: SERVICE_LOC.newLayout,
+                data: {"layout" : data.layout,"new" : false},
+                dataType: 'json',
+                headers : {
+                  'eppn': 'pnogal@wisc.edu',
+                  'Content-Type': 'application/x-www-form-urlencoded'
+                }
+              });
+            })
+          };
+        }
+
+        /************************
+        ** OLD LAYOUT
+        ** To use old service layout set useOldLayout flag in override.js to true,
+        ** and useNewLayout to false
+        *************************/
+
+        if (APP_FLAGS.useOldLayout) {
+          console.log("using old layout");
+          var getUncachedLayout = function() {
+            var successFn = function(result) {
+                var data = formatLayoutForCache(result.data);
+                storeLayoutInCache(data);
+                return data;
+            };
+
+            var errorFn = function(reason) {
+                miscService.redirectUser(reason.status, 'layout call');
+            };
+
+            // no caching...  request from the server
+            return $http.get(SERVICE_LOC.context + SERVICE_LOC.layout,
+              {cache: true} )
+                .then(successFn, errorFn);
+          };
+
+          var getLayout = function() {
+            return checkLayoutCache().then(function(data) {
+                var successFn;
+                var errorFn;
+                var defer;
+
+                // first, check the local storage...
+                if (data) {
+                    defer = $q.defer();
+                    defer.resolve(data);
+                    return defer.promise;
+                }
+
+                successFn = function(result) {
+                    var data = formatLayoutForCache(result.data);
+                    storeLayoutInCache(data);
+                    return data;
+                };
+
+                errorFn = function(reason) {
+                    miscService.redirectUser(reason.status, 'layout call');
+                };
+
+                // no caching...  request from the server
+                return $http.get(
+                  SERVICE_LOC.context + SERVICE_LOC.layout, {cache: true} )
+                    .then(successFn, errorFn);
+            });
+          };
+
+          var addToHome = function addToHomeFunction(portlet) {
+              var fname = portlet.fname;
+              var tabName = SERVICE_LOC.layoutTab;
+              return $.ajax({
+                  url: SERVICE_LOC.base + 'layout?action=addPortlet&fname=' +
+                    fname + '&tabName=' + tabName,
+                  type: 'POST',
+                  data: null,
+                  dataType: 'json',
+                  async: true,
+                  success: function(request, text) {
+                      $log.log('Added ' + portlet.fname + ' successfully');
+                      miscService.pushGAEvent(
+                        'Layout Modification', 'Add', portlet.name);
+                      return true;
+                  },
+                  error: function(request, text, error) {
+                      $log.warn('failed to add app to home.');
+                      return false;
+                  },
+              });
+          };
+        }
 
         var addToLayoutByFname = function addToLayoutByFname(fname) {
+          console.log('in addToLayoutByFname', fname);
           var tabName = SERVICE_LOC.layoutTab;
           return $.ajax({
               url: SERVICE_LOC.base + 'layout?action=addPortlet&fname=' +
@@ -165,53 +299,6 @@ define(['angular', 'jquery'], function(angular, $) {
           }
 
           return result;
-        };
-
-        var getUncachedLayout = function() {
-              var successFn = function(result) {
-                  var data = formatLayoutForCache(result.data);
-                  storeLayoutInCache(data);
-                  return data;
-              };
-
-              var errorFn = function(reason) {
-                  miscService.redirectUser(reason.status, 'layout call');
-              };
-
-              // no caching...  request from the server
-              return $http.get(SERVICE_LOC.context + SERVICE_LOC.layout,
-                {cache: true} )
-                  .then(successFn, errorFn);
-      };
-
-        var getLayout = function() {
-            return checkLayoutCache().then(function(data) {
-                var successFn;
-                var errorFn;
-                var defer;
-
-                // first, check the local storage...
-                if (data) {
-                    defer = $q.defer();
-                    defer.resolve(data);
-                    return defer.promise;
-                }
-
-                successFn = function(result) {
-                    var data = formatLayoutForCache(result.data);
-                    storeLayoutInCache(data);
-                    return data;
-                };
-
-                errorFn = function(reason) {
-                    miscService.redirectUser(reason.status, 'layout call');
-                };
-
-                // no caching...  request from the server
-                return $http.get(
-                  SERVICE_LOC.context + SERVICE_LOC.layout, {cache: true} )
-                    .then(successFn, errorFn);
-            });
         };
 
         var getApp = function(fname) {
