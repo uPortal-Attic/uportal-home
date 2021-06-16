@@ -40,42 +40,57 @@ define(['angular', 'jquery'], function(angular, $) {
     function($sessionStorage, $scope, $filter, layoutService, APP_FLAGS, marketplaceService) {
       var vm = this;
 
-     // if (APP_FLAGS.useNewLayout) {
      /**
      * Capture information about removed widget, then
      * pass it up the chain to the layout scope in
      * WidgetController
      * @param widget {Object} The widget being removed
      */
+     if (APP_FLAGS.useNewLayout) {
+        vm.removeWidget = function(widget) {
+          var fname = APP_FLAGS.useNewLayout ? widget : widget.fname;
+          // Match layout entry with fname
+          var result = $filter('filter')($scope.$parent.layout, fname);
+          var index = $scope.$parent.layout.indexOf(result[0]);
+          var title;
+
+          marketplaceService.getPortlets().then(function(data) {
+            var marketplaceEntries = $filter('filter')(
+              $sessionStorage.marketplace, fname
+            );
+            if (marketplaceEntries.length > 0) {
+              // Remove the flag
+              title = marketplaceEntries[0].title;
+            } else {
+              title = fname;
+            }
+
+            var data = {
+              removedIndex: index,
+              removedWidget: fname,
+              title: title
+            };
+            console.log("data:", data);
+            $scope.$emit('REMOVE_WIDGET', data);
+          }).catch(function() {
+            $log.warn('Could not getPortlets');
+          });
+       };
+     }
+
+     if (APP_FLAGS.useOldLayout) {
       vm.removeWidget = function(widget) {
-        var fname = APP_FLAGS.useNewLayout ? widget : widget.fname;
         // Match layout entry with fname
-        var result = $filter('filter')($scope.$parent.layout, fname);
+        var result = $filter('filter')($scope.$parent.layout, widget.fname);
         var index = $scope.$parent.layout.indexOf(result[0]);
-        var title;
-
-        marketplaceService.getPortlets().then(function(data) {
-          var marketplaceEntries = $filter('filter')(
-            $sessionStorage.marketplace, fname
-          );
-          if (marketplaceEntries.length > 0) {
-            // Remove the flag
-            title = marketplaceEntries[0].title;
-          } else {
-            title = fname;
-          }
-
-          var data = {
-            removedIndex: index,
-            removedWidget: fname,
-            title: title
-          };
-          $scope.$emit('REMOVE_WIDGET', data);
-        }).catch(function() {
-          $log.warn('Could not getPortlets');
-        });
+        var data = {
+          removedIndex: index,
+          removedWidget: widget.fname,
+          title: widget.title
+        };
+        $scope.$emit('REMOVE_WIDGET', data);
       };
-     // };
+     }
 
   }])
 
@@ -204,6 +219,31 @@ define(['angular', 'jquery'], function(angular, $) {
         }
       };
 
+      // Listen for removal event
+      $scope.$on('REMOVE_WIDGET',
+      /**
+       * Listen for widget removal event, then show undo toast
+       * if one is not already showing.
+       * @param event {Object} The angularjs event object
+       * @param data {Object} Data about the widget being removed
+       */
+      function(event, data) {
+        // Remove the widget from layout in scope
+        $scope.layout.splice(data.removedIndex, 1);
+
+        // Track the widget fname for removal upon
+        // toast timeout
+        $scope.widgetsToRemove.push(data.removedWidget);
+
+        // Dismiss any open toasts (success), then show new one
+        // eslint-disable-next-line promise/always-return
+        $mdToast.hide().then(function() {
+          showConfirmationToast(data);
+        }).catch(function(error) {
+          $log.error(error);
+        });
+      });
+
       /**
        * Show toast message allowing user to confirm or undo
        * the removal of a widget from his/her layout.
@@ -302,31 +342,6 @@ define(['angular', 'jquery'], function(angular, $) {
                 + 'from home screen. Try again later.');
             });
         };
-
-        // Listen for removal event
-        $scope.$on('REMOVE_WIDGET',
-        /**
-         * Listen for widget removal event, then show undo toast
-         * if one is not already showing.
-         * @param event {Object} The angularjs event object
-         * @param data {Object} Data about the widget being removed
-         */
-        function(event, data) {
-          // Remove the widget from layout in scope
-          $scope.layout.splice(data.removedIndex, 1);
-
-          // Track the widget fname for removal upon
-          // toast timeout
-          $scope.widgetsToRemove.push(data.removedWidget);
-
-          // Dismiss any open toasts (success), then show new one
-          // eslint-disable-next-line promise/always-return
-          $mdToast.hide().then(function() {
-            showConfirmationToast(data);
-          }).catch(function(error) {
-            $log.error(error);
-          });
-        });
       }
 
      if (APP_FLAGS.useOldLayout) {
@@ -357,31 +372,6 @@ define(['angular', 'jquery'], function(angular, $) {
               $log.debug(error);
             });
         };
-
-      // Listen for removal event
-       $scope.$on('REMOVE_WIDGET',
-        /**
-         * Listen for widget removal event, then show undo toast
-         * if one is not already showing.
-         * @param event {Object} The angularjs event object
-         * @param data {Object} Data about the widget being removed
-         */
-        function(event, data) {
-          // Remove the widget from layout in scope
-          $scope.layout.splice(data.removedIndex, 1);
-
-          // Track the widget fname for removal upon
-          // toast timeout
-          $scope.widgetsToRemove.push(data.removedWidget.fname);
-
-          // Dismiss any open toasts (success), then show new one
-          // eslint-disable-next-line promise/always-return
-          $mdToast.hide().then(function() {
-            showConfirmationToast(data);
-          }).catch(function(error) {
-            $log.error(error);
-          });
-        });
       }
 
       /**
