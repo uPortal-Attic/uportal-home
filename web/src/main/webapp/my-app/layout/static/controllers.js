@@ -71,9 +71,9 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
     }])
   .controller('StaticContentController',
     ['$location', '$log', '$sessionStorage', '$routeParams',
-      '$rootScope', '$scope', 'layoutService',
+      '$rootScope', '$scope', 'layoutService', 'APP_FLAGS',
     function($location, $log, $sessionStorage, $routeParams,
-        $rootScope, $scope, layoutService) {
+        $rootScope, $scope, layoutService, APP_FLAGS) {
       var vm = this;
       // BINDABLE MEMBERS
       $scope.portlet = {};
@@ -111,40 +111,76 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $log.warn('Could not getApp ' + $routeParams.fname);
       });
 
-      vm.addToHome = function(portlet) {
-        var ret = layoutService.addToHome(portlet);
-        ret.success(function(request, text) {
-          angular.element('.fname-' + portlet.fname)
-            .html('<span style="color : green;">' +
-              '<i class="fa fa-check"></i> Added Successfully</span>')
-            .prop('disabled', true);
-          $scope.$apply(function() {
-            if (angular.isDefined($sessionStorage.marketplace)) {
-              var marketplaceEntries = $.grep(
-                $sessionStorage.marketplace,
-                function(e) {
-                  return e.fname === portlet.fname;
+      if (APP_FLAGS.useNewLayout) {
+        vm.addToHome = function(portlet) {
+          var ret = layoutService.addToHome(portlet);
+          ret.success(function(request, text) {
+            angular.element('.fname-' + portlet.fname)
+              .html('<span style="color : green;">' +
+                '<i class="fa fa-check"></i> Added Successfully</span>')
+              .prop('disabled', true);
+            $scope.$apply(function() {
+              if (angular.isDefined($sessionStorage.marketplace)) {
+                var marketplaceEntries = $.grep(
+                  $sessionStorage.marketplace,
+                  function(e) {
+                    return e.fname === portlet.fname;
+                  }
+                );
+                if (marketplaceEntries.length > 0) {
+                  marketplaceEntries[0].hasInLayout = true;
                 }
-              );
-              if (marketplaceEntries.length > 0) {
-                marketplaceEntries[0].hasInLayout = true;
               }
-            }
 
-            // reset layout due to modifications
-            $rootScope.layout = null;
-            $sessionStorage.layout = null;
+              // reset layout due to modifications
+              $rootScope.layout = null;
+              $sessionStorage.layout = null;
+            });
+          })
+          .error(function(request, text, error) {
+            angular.element('.fname-' + portlet.fname)
+              .html(
+                '<span style="color : red;">' +
+                'Issue adding to home, please try again later' +
+                '</span>'
+              );
           });
-        })
-        .error(function(request, text, error) {
-          angular.element('.fname-' + portlet.fname)
-            .html(
-              '<span style="color : red;">' +
-              'Issue adding to home, please try again later' +
-              '</span>'
-            );
-        });
-      };
+        };
+      }
+
+    if (APP_FLAGS.useOldLayout) {
+     $scope.addToHome = function addToHome(portlet) {
+       var fname = portlet.fname;
+       var ret = layoutService.addToHome(portlet);
+       ret.success(function(request, text) {
+         angular.element('.fname-'+ fname)
+           .html('<i class="fa fa-check"></i> Added Successfully')
+           .prop('disabled', true)
+           .removeClass('btn-add')
+           .addClass('btn-added');
+         $scope.$apply(function() {
+           var marketplaceEntries = $.grep(
+             $sessionStorage.marketplace,
+             function(e) {
+               return e.fname === portlet.fname;
+             }
+           );
+           if (marketplaceEntries.length > 0) {
+             marketplaceEntries[0].hasInLayout = true;
+           }
+           $rootScope.layout = null; // reset layout due to modifications
+           $sessionStorage.layout = null;
+         });
+       })
+         .error(function(request, text, error) {
+           angular.element('.fname-'+fname)
+             .parent()
+             .append(
+               '<span>Issue adding to home, please try again later</span>'
+             );
+         });
+       };
+     }
 
       vm.inLayout = function() {
         var layout = $rootScope.layout;

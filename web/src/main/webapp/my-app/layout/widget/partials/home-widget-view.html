@@ -42,8 +42,10 @@
           ng-keydown="moveWithKeyboard(widget, $event);selectNode(widget.nodeId);"
           dnd-draggable="widget"
           dnd-effect-allowed="move">
-        <!-- if useOldLayout is set to true update to widget.fname-->
-        <widget fname="{{ widget }}">
+        <widget ng-if="APP_FLAGS.useOldLayout" fname="{{ widget.fname }}">
+          <remove-button></remove-button>
+        </widget>
+        <widget ng-if="APP_FLAGS.useNewLayout" fname="{{ widget }}">
           <remove-button></remove-button>
         </widget>
       </li>

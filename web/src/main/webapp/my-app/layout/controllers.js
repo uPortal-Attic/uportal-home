@@ -36,25 +36,47 @@ define(['angular', 'jquery'], function(angular, $) {
       $location.path('/' + $localStorage.layoutMode);
   }])
 
-  .controller('RemoveWidgetController', ['$scope', '$filter',
-    function($scope, $filter) {
+  .controller('RemoveWidgetController', ['$sessionStorage', '$scope', '$filter', 'layoutService', 'APP_FLAGS', 'marketplaceService',
+    function($sessionStorage, $scope, $filter, layoutService, APP_FLAGS, marketplaceService) {
       var vm = this;
-      /**
-       * Capture information about removed widget, then
-       * pass it up the chain to the layout scope in
-       * WidgetController
-       * @param widget {Object} The widget being removed
-       */
+
+     // if (APP_FLAGS.useNewLayout) {
+     /**
+     * Capture information about removed widget, then
+     * pass it up the chain to the layout scope in
+     * WidgetController
+     * @param widget {Object} The widget being removed
+     */
       vm.removeWidget = function(widget) {
+        var fname = APP_FLAGS.useNewLayout ? widget : widget.fname;
         // Match layout entry with fname
-        var result = $filter('filter')($scope.$parent.layout, widget.fname);
+        var result = $filter('filter')($scope.$parent.layout, fname);
         var index = $scope.$parent.layout.indexOf(result[0]);
-        var data = {
-          removedIndex: index,
-          removedWidget: widget,
-        };
-        $scope.$emit('REMOVE_WIDGET', data);
+        var title;
+
+        marketplaceService.getPortlets().then(function(data) {
+          var marketplaceEntries = $filter('filter')(
+            $sessionStorage.marketplace, fname
+          );
+          if (marketplaceEntries.length > 0) {
+            // Remove the flag
+            title = marketplaceEntries[0].title;
+          } else {
+            title = fname;
+          }
+
+          var data = {
+            removedIndex: index,
+            removedWidget: fname,
+            title: title
+          };
+          $scope.$emit('REMOVE_WIDGET', data);
+        }).catch(function() {
+          $log.warn('Could not getPortlets');
+        });
       };
+     // };
+
   }])
 
   /**
@@ -64,9 +86,9 @@ define(['angular', 'jquery'], function(angular, $) {
    */
   .controller('WidgetController',
   ['$controller', '$log', '$scope', '$rootScope', '$mdToast',
-    '$sessionStorage', '$filter', '$mdColors', 'layoutService',
+    '$sessionStorage', '$filter', '$mdColors', 'layoutService', 'APP_FLAGS',
     function($controller, $log, $scope, $rootScope, $mdToast,
-             $sessionStorage, $filter, $mdColors, layoutService) {
+             $sessionStorage, $filter, $mdColors, layoutService, APP_FLAGS) {
       var vm = this;
       $scope.selectedNodeId = '';
       $scope.widgetsToRemove = [];
@@ -182,37 +204,14 @@ define(['angular', 'jquery'], function(angular, $) {
         }
       };
 
-      // Listen for removal event
-      $scope.$on('REMOVE_WIDGET',
-        /**
-         * Listen for widget removal event, then show undo toast
-         * if one is not already showing.
-         * @param event {Object} The angularjs event object
-         * @param data {Object} Data about the widget being removed
-         */
-        function(event, data) {
-          // Remove the widget from layout in scope
-          $scope.layout.splice(data.removedIndex, 1);
-
-          // Track the widget fname for removal upon
-          // toast timeout
-          $scope.widgetsToRemove.push(data.removedWidget.fname);
-
-          // Dismiss any open toasts (success), then show new one
-          // eslint-disable-next-line promise/always-return
-          $mdToast.hide().then(function() {
-            showConfirmationToast(data);
-          }).catch(function(error) {
-            $log.error(error);
-          });
-        });
-
       /**
        * Show toast message allowing user to confirm or undo
        * the removal of a widget from his/her layout.
        * @param data {Object} Information about the removed widget
        */
       var showConfirmationToast = function(data) {
+        var widgetTitle = data.title;
+
         var accentColor = '';
         if ($sessionStorage.portal.theme) {
           // theme already in session, use accent color from it
@@ -234,7 +233,7 @@ define(['angular', 'jquery'], function(angular, $) {
           position: 'bottom right',
           locals: {
             color: accentColor,
-            removedTitle: data.removedWidget.title,
+            removedTitle: widgetTitle
           },
           bindToController: true,
           templateUrl:
@@ -278,33 +277,112 @@ define(['angular', 'jquery'], function(angular, $) {
         });
       };
 
+      if (APP_FLAGS.useNewLayout) {
       /**
        * Call layout service to save the removal of the widget from the user's
        * home layout.
        * @param fname {String} The fname of the removed widget
        */
-      var saveLayoutRemoval = function(fname) {
-        // Call layout service to persist change
-        layoutService.removeFromHome(fname)
-          .success(function() {
-            // Clear marketplace flag
+        var saveLayoutRemoval = function(fname) {
+          // Call layout service to persist change
+          layoutService.removeFromHome(fname).then(function(result) {
             if ($sessionStorage.marketplace != null) {
-              // Filter for fname match in marketplace
-              var marketplaceEntries = $filter('filter')(
-                $sessionStorage.marketplace, fname
-              );
+                // Filter for fname match in marketplace
+                var marketplaceEntries = $filter('filter')(
+                  $sessionStorage.marketplace, fname
+                );
               if (marketplaceEntries.length > 0) {
                 // Remove the flag
                 marketplaceEntries[0].hasInLayout = false;
               }
             }
-          })
-          .error(function(error) {
-            $log.debug('Problem deleting ' + fname
-              + 'from home screen. Try again later.');
-            $log.debug(error);
+              return result;
+            }).catch(function() {
+              $log.warn('Problem deleting ' + fname
+                + 'from home screen. Try again later.');
+            });
+        };
+
+        // Listen for removal event
+        $scope.$on('REMOVE_WIDGET',
+        /**
+         * Listen for widget removal event, then show undo toast
+         * if one is not already showing.
+         * @param event {Object} The angularjs event object
+         * @param data {Object} Data about the widget being removed
+         */
+        function(event, data) {
+          // Remove the widget from layout in scope
+          $scope.layout.splice(data.removedIndex, 1);
+
+          // Track the widget fname for removal upon
+          // toast timeout
+          $scope.widgetsToRemove.push(data.removedWidget);
+
+          // Dismiss any open toasts (success), then show new one
+          // eslint-disable-next-line promise/always-return
+          $mdToast.hide().then(function() {
+            showConfirmationToast(data);
+          }).catch(function(error) {
+            $log.error(error);
           });
-      };
+        });
+      }
+
+     if (APP_FLAGS.useOldLayout) {
+      /**
+       * Call layout service to save the removal of the widget from the user's
+       * home layout.
+       * @param fname {String} The fname of the removed widget
+       */
+        var saveLayoutRemoval = function(fname) {
+          // Call layout service to persist change
+          layoutService.removeFromHome(fname)
+            .success(function() {
+              // Clear marketplace flag
+              if ($sessionStorage.marketplace != null) {
+                // Filter for fname match in marketplace
+                var marketplaceEntries = $filter('filter')(
+                  $sessionStorage.marketplace, fname
+                );
+                if (marketplaceEntries.length > 0) {
+                  // Remove the flag
+                  marketplaceEntries[0].hasInLayout = false;
+                }
+              }
+            })
+            .error(function(error) {
+              $log.debug('Problem deleting ' + fname
+                + 'from home screen. Try again later.');
+              $log.debug(error);
+            });
+        };
+
+      // Listen for removal event
+       $scope.$on('REMOVE_WIDGET',
+        /**
+         * Listen for widget removal event, then show undo toast
+         * if one is not already showing.
+         * @param event {Object} The angularjs event object
+         * @param data {Object} Data about the widget being removed
+         */
+        function(event, data) {
+          // Remove the widget from layout in scope
+          $scope.layout.splice(data.removedIndex, 1);
+
+          // Track the widget fname for removal upon
+          // toast timeout
+          $scope.widgetsToRemove.push(data.removedWidget.fname);
+
+          // Dismiss any open toasts (success), then show new one
+          // eslint-disable-next-line promise/always-return
+          $mdToast.hide().then(function() {
+            showConfirmationToast(data);
+          }).catch(function(error) {
+            $log.error(error);
+          });
+        });
+      }
 
       /**
        * After a widget is moved, save the new layout using

@@ -42,24 +42,6 @@ define(['angular', 'jquery'], function(angular, $) {
         ************************/
 
         if (APP_FLAGS.useNewLayout) {
-          console.log("SERVICE_LOC.newLayout: ", SERVICE_LOC);
-
-          var getUncachedLayout = function() {
-            var successFn = function(result) {
-                var data = formatLayoutForCache(result.data);
-                storeLayoutInCache(data);
-                return data;
-            };
-
-            var errorFn = function(reason) {
-                miscService.redirectUser(reason.status, 'layout call');
-            };
-
-            // no caching...  request from the server
-            return $http.get(SERVICE_LOC.newLayout,
-              {cache: true} )
-                .then(successFn, errorFn);
-          };
 
           var getLayout = function() {
             return checkLayoutCache().then(function(data) {
@@ -69,25 +51,22 @@ define(['angular', 'jquery'], function(angular, $) {
 
               // first, check the local storage...
               if (data) {
-                  defer = $q.defer();
-                  defer.resolve(data);
-                  return defer.promise;
+                defer = $q.defer();
+                defer.resolve(data);
+                return defer.promise;
               }
 
               successFn = function(result) {
-                console.log("result", result);
-                  var data = formatLayoutForCache(result.data);
-                  storeLayoutInCache(data);
-                  return data;
+                var data = formatLayoutForCache(result.data);
+                storeLayoutInCache(data);
+                return data;
               };
 
               errorFn = function(reason) {
-                  miscService.redirectUser(reason.status, 'layout call');
+                miscService.redirectUser(reason.status, 'layout call');
               };
-
-              // no caching...  request from the server
-              return $http.get(
-                SERVICE_LOC.newLayout, {cache: true} )
+            return $http.get(
+                SERVICE_LOC.newLayout)
                   .then(successFn, errorFn);
             });
           };
@@ -95,17 +74,32 @@ define(['angular', 'jquery'], function(angular, $) {
           var addToHome = function addToHomeFunction(portlet) {
             var fname = portlet.fname;
             return getLayout().then(function(data) {
-              console.log("data: ", data);
-              data.layout.push(fname);
+              var newLayout = data.layout.concat(fname);
               return $http({
                 method: 'POST',
                 url: SERVICE_LOC.newLayout,
-                data: {"layout" : data.layout,"new" : false},
+                data: {"layout" : newLayout, "new" : false},
                 dataType: 'json',
                 headers : {
                   'eppn': 'pnogal@wisc.edu',
                   'Content-Type': 'application/x-www-form-urlencoded'
                 }
+              });
+            })
+          };
+
+          var removeFromHome = function removeFromHomeFunction(fname) {
+            return getLayout().then(function(data) {
+              var newLayout = data.layout.filter(val => val !== fname);
+              return $http({
+                  method: 'POST',
+                  url: SERVICE_LOC.newLayout,
+                  data: {"layout" : newLayout, "new" : false},
+                  dataType: 'json',
+                  headers : {
+                    'eppn': 'pnogal@wisc.edu',
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                  }
               });
             })
           };
@@ -188,10 +182,27 @@ define(['angular', 'jquery'], function(angular, $) {
                   },
               });
           };
+
+          var removeFromHome = function removeFromHomeFunction(fname) {
+              return $.ajax({
+                  url: SERVICE_LOC.base +
+                    'layout?action=removeByFName&fname=' + fname,
+                  type: 'POST',
+                  data: null,
+                  dataType: 'json',
+                  async: true,
+                  success: function(request, text) {
+                      $log.log('removed ' + fname + ' successfully.');
+                      miscService.pushGAEvent(
+                        'Layout Modification', 'Remove', fname);
+                  },
+                  error: function(request, text, error) {
+                  },
+              });
+          };
         }
 
         var addToLayoutByFname = function addToLayoutByFname(fname) {
-          console.log('in addToLayoutByFname', fname);
           var tabName = SERVICE_LOC.layoutTab;
           return $.ajax({
               url: SERVICE_LOC.base + 'layout?action=addPortlet&fname=' +
@@ -210,24 +221,6 @@ define(['angular', 'jquery'], function(angular, $) {
                   return false;
               },
           });
-        };
-
-        var removeFromHome = function removeFromHomeFunction(fname) {
-            return $.ajax({
-                url: SERVICE_LOC.base +
-                  'layout?action=removeByFName&fname=' + fname,
-                type: 'POST',
-                data: null,
-                dataType: 'json',
-                async: true,
-                success: function(request, text) {
-                    $log.log('removed ' + fname + ' successfully.');
-                    miscService.pushGAEvent(
-                      'Layout Modification', 'Remove', fname);
-                },
-                error: function(request, text, error) {
-                },
-            });
         };
 
         var checkLayoutCache = function() {
@@ -318,6 +311,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 }
             );
         };
+
         var moveStuff = function moveStuffFunction(
               index, length, sourceId, previousNodeId, nextNodeId) {
           var insertNode = function(sourceId, previousNodeId, nextNodeId) {

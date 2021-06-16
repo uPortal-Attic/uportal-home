@@ -27,11 +27,11 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
     ['googleCustomSearchService', 'miscSearchService', 'layoutService',
       '$log', 'marketplaceService', 'miscService', 'mainService',
       'MISC_URLS', '$sessionStorage', '$localStorage', '$rootScope', '$scope',
-      '$routeParams', '$timeout', '$location', '$mdColors',
+      '$routeParams', '$timeout', '$location', '$mdColors', 'APP_FLAGS',
     function(googleCustomSearchService, miscSearchService, layoutService,
       $log, marketplaceService, miscService, mainService,
         MISC_URLS, $sessionStorage, $localStorage, $rootScope, $scope,
-        $routeParams, $timeout, $location, $mdColors) {
+        $routeParams, $timeout, $location, $mdColors, APP_FLAGS) {
       var vm = this;
 
       if ($sessionStorage.portal.theme) {
@@ -82,43 +82,83 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         }
       };
 
-      $scope.addToHome = function addToHome(portlet) {
-        var fname = portlet.fname;
-        var ret = layoutService.addToHome(portlet, $sessionStorage.layout);
-        ret.then(
-          function successCallback(response) {
-            $log.log('Added ' + portlet.fname + ' successfully');
-            angular.element('.fname-'+fname)
-            .html('<i class="fa fa-check"></i> Added Successfully')
-            .prop('disabled', true)
-            .removeClass('btn-add')
-            .addClass('btn-added');
+      if (APP_FLAGS.useNewLayout) {
+        $scope.addToHome = function addToHome(portlet) {
+          var fname = portlet.fname;
+          var ret = layoutService.addToHome(portlet, $sessionStorage.layout);
+          ret.then(
+            function successCallback(response) {
+              $log.log('Added ' + portlet.fname + ' successfully');
+              angular.element('.fname-'+fname)
+              .html('<i class="fa fa-check"></i> Added Successfully')
+              .prop('disabled', true)
+              .removeClass('btn-add')
+              .addClass('btn-added');
 
-              var marketplaceEntries = $.grep(
-                $sessionStorage.marketplace,
-                function(e) {
-                  return e.fname === portlet.fname;
+                var marketplaceEntries = $.grep(
+                  $sessionStorage.marketplace,
+                  function(e) {
+                    return e.fname === portlet.fname;
+                  }
+                );
+                if (marketplaceEntries.length > 0) {
+                  marketplaceEntries[0].hasInLayout = true;
                 }
-              );
-              if (marketplaceEntries.length > 0) {
-                marketplaceEntries[0].hasInLayout = true;
-              }
-              $rootScope.layout = null; // reset layout due to modifications
-              $sessionStorage.layout = null;
-              miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
-          },
+                $rootScope.layout = null; // reset layout due to modifications
+                $sessionStorage.layout = null;
+                miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
+            },
 
-          function errorCallback(response) {
-            $log.warn('failed to add app to home.');
-            angular.element('.fname-'+fname)
-              .parent()
-              .append(
-                '<span>Issue adding to home, please try again later</span>'
-              );
-          }).catch(function() {
-            console.log("more errors occurred");
-        });
-      };
+            function errorCallback(response) {
+              $log.warn('failed to add app to home.');
+              angular.element('.fname-'+fname)
+                .parent()
+                .append(
+                  '<span>Issue adding to home, please try again later</span>'
+                );
+            }).catch(function() {
+              console.log("more errors occurred");
+          });
+        };
+      }
+
+      if (APP_FLAGS.useOldLayout) {
+       $scope.addToHome = function(portlet) {
+         var ret = layoutService.addToHome(portlet);
+         ret.success(function(request, text) {
+           angular.element('.fname-' + portlet.fname)
+             .html('<span style="color : green;">' +
+               '<i class="fa fa-check"></i> Added Successfully</span>')
+             .prop('disabled', true);
+           $scope.$apply(function() {
+             if (angular.isDefined($sessionStorage.marketplace)) {
+               var marketplaceEntries = $.grep(
+                 $sessionStorage.marketplace,
+                 function(e) {
+                   return e.fname === portlet.fname;
+                 }
+               );
+               if (marketplaceEntries.length > 0) {
+                 marketplaceEntries[0].hasInLayout = true;
+               }
+             }
+
+             // reset layout due to modifications
+             $rootScope.layout = null;
+             $sessionStorage.layout = null;
+             miscService.pushGAEvent('Layout Modification', 'Add', portlet.name);
+           });
+         })
+         .error(function(request, text, error) {
+           angular.element('.fname-' + portlet.fname)
+             .html(
+               '<span style="color : red;">' +
+               'Issue adding to home, please try again later' +
+               '</span>'
+             );
+         });
+       };
+      }
 
       $scope.searchTermFilter = function(portlet) {
         return marketplaceService.portletMatchesSearchTerm(
