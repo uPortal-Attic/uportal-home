@@ -103,6 +103,24 @@ define(['angular', 'jquery'], function(angular, $) {
               });
             })
           };
+
+          var moveStuff = function moveStuffFunction() {
+            return getLayout().then(function(data) {
+              var newLayout = data.layout;
+              console.log("newLayout", newLayout);
+                return $http({
+                  method: 'POST',
+                  url: SERVICE_LOC.newLayout,
+                  data: {"layout" : newLayout, "new" : false},
+                  dataType: 'json',
+                  headers : {
+                    'eppn': 'pnogal@wisc.edu',
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                  }
+              });
+            });
+
+          };
         }
 
         /************************
@@ -199,6 +217,33 @@ define(['angular', 'jquery'], function(angular, $) {
                   error: function(request, text, error) {
                   },
               });
+          };
+
+          var moveStuff = function moveStuffFunction(
+                index, length, sourceId, previousNodeId, nextNodeId) {
+            var insertNode = function(sourceId, previousNodeId, nextNodeId) {
+              var saveOrderURL = SERVICE_LOC.base +
+                  'layout?action=movePortletAjax' +
+                  '&sourceId=' + sourceId +
+                  '&previousNodeId=' + previousNodeId +
+                  '&nextNodeId=' + nextNodeId;
+              $log.log(saveOrderURL);
+              $.ajax({
+                  url: saveOrderURL,
+                  type: 'POST',
+                  data: null,
+                  dataType: 'json',
+                  async: true,
+                  success: function() {
+                    $log.log('layout move successful.');
+                  },
+                  error: function(request, text, error) {
+                    $log.error('Error persisting move ' + saveOrderURL);
+                  },
+              });
+            };
+
+            insertNode(sourceId, previousNodeId, nextNodeId);
           };
         }
 
@@ -310,33 +355,6 @@ define(['angular', 'jquery'], function(angular, $) {
                     return reason;
                 }
             );
-        };
-
-        var moveStuff = function moveStuffFunction(
-              index, length, sourceId, previousNodeId, nextNodeId) {
-          var insertNode = function(sourceId, previousNodeId, nextNodeId) {
-            var saveOrderURL = SERVICE_LOC.base +
-                'layout?action=movePortletAjax' +
-                '&sourceId=' + sourceId +
-                '&previousNodeId=' + previousNodeId +
-                '&nextNodeId=' + nextNodeId;
-            $log.log(saveOrderURL);
-            $.ajax({
-                url: saveOrderURL,
-                type: 'POST',
-                data: null,
-                dataType: 'json',
-                async: true,
-                success: function() {
-                  $log.log('layout move successful.');
-                },
-                error: function(request, text, error) {
-                  $log.error('Error persisting move ' + saveOrderURL);
-                },
-            });
-          };
-
-          insertNode(sourceId, previousNodeId, nextNodeId);
         };
 
         var getNewStuffFeed = function() {

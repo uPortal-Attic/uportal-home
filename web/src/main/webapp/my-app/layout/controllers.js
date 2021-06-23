@@ -70,7 +70,6 @@ define(['angular', 'jquery'], function(angular, $) {
               removedWidget: fname,
               title: title
             };
-            console.log("data:", data);
             $scope.$emit('REMOVE_WIDGET', data);
           }).catch(function() {
             $log.warn('Could not getPortlets');
@@ -142,35 +141,12 @@ define(['angular', 'jquery'], function(angular, $) {
       };
 
       /**
-       * Move a widget with a drag and drop action
-       * @param  {Object} widget    the widget being moved
-       * @param  {Number} dropIndex index of the new location
-       * @return {Boolean}           true if widget moved, false if otherwise
-       */
-      $scope.moveWithDrag = function(widget, dropIndex) {
-        var sourceIndex =
-          findLayoutIndex($scope.layout, 'nodeId', widget.nodeId);
-        $log.info('index:'+sourceIndex+' dropIndex:'+dropIndex);
-        if (sourceIndex != dropIndex) {
-          $scope.layout.splice(sourceIndex, 1);
-          if (dropIndex > sourceIndex) {
-            dropIndex--;
-          }
-          $scope.layout.splice(dropIndex, 0, widget);
-          saveLayoutOrder(dropIndex, $scope.layout.length, widget.nodeId);
-          $scope.logMoveEvent('dragEnd', widget.fname, dropIndex);
-          return true;
-        } else {
-          return false;
-        }
-      };
-
-      /**
        * Respond to arrow key-presses when focusing a movable list element
        * @param widget {Object} The widget trying to move
        * @param event {Object} The event object
        */
       $scope.moveWithKeyboard = function(widget, event) {
+        console.log("in moveWithKeyboard");
         // Get index independent of ng-repeat to avoid filter bugs
         var currentIndex =
           findLayoutIndex($scope.layout, 'nodeId', widget.nodeId);
@@ -342,6 +318,52 @@ define(['angular', 'jquery'], function(angular, $) {
                 + 'from home screen. Try again later.');
             });
         };
+
+        /**
+         * Move a widget with a drag and drop action
+         * @param  {Object} widget    the widget being moved
+         * @param  {Number} dropIndex index of the new location
+         * @return {Boolean}           true if widget moved, false if otherwise
+         */
+        $scope.moveWithDrag = function(widget, dropIndex) {
+            var result = $filter('filter')($scope.$parent.layout, widget);
+            var sourceIndex = $scope.$parent.layout.indexOf(result[0]);
+
+          $log.info('index:'+sourceIndex+' dropIndex:'+dropIndex);
+          if (sourceIndex != dropIndex) {
+            $scope.layout.splice(sourceIndex, 1);
+            if (dropIndex > sourceIndex) {
+              dropIndex--;
+            }
+
+            $scope.layout.splice(dropIndex, 0, widget);
+            saveLayoutOrder(dropIndex, $scope.layout.length, widget);
+            $scope.logMoveEvent('dragEnd', widget, dropIndex);
+            return true;
+          } else {
+            return false;
+          }
+        };
+
+        /**
+         * After a widget is moved, save the new layout using
+         * the given information
+         * @param dropIndex {Number} Where the widget ended up
+         * @param length {Number} Length of the layout array
+         * @param nodeId {String} ID of the moved widget
+         */
+        var saveLayoutOrder = function(dropIndex, length, fname) {
+          $scope.selectedNodeId
+          // identify previous and next widgets
+          var previousNodeId =
+            dropIndex !== 0 ? $scope.layout[dropIndex - 1].fname : '';
+          var nextNodeId =
+            dropIndex !== length - 1 ? $scope.layout[dropIndex + 1].fname : '';
+          // call layout service to save
+          layoutService.moveStuff(dropIndex,
+            length, fname, previousNodeId, nextNodeId);
+        };
+
       }
 
      if (APP_FLAGS.useOldLayout) {
@@ -372,25 +394,49 @@ define(['angular', 'jquery'], function(angular, $) {
               $log.debug(error);
             });
         };
-      }
 
-      /**
-       * After a widget is moved, save the new layout using
-       * the given information
-       * @param dropIndex {Number} Where the widget ended up
-       * @param length {Number} Length of the layout array
-       * @param nodeId {String} ID of the moved widget
-       */
-      var saveLayoutOrder = function(dropIndex, length, nodeId) {
-        // identify previous and next widgets
-        var previousNodeId =
-          dropIndex !== 0 ? $scope.layout[dropIndex - 1].nodeId : '';
-        var nextNodeId =
-          dropIndex !== length - 1 ? $scope.layout[dropIndex + 1].nodeId : '';
-        // call layout service to save
-        layoutService.moveStuff(dropIndex,
-          length, nodeId, previousNodeId, nextNodeId);
-      };
+        /**
+         * Move a widget with a drag and drop action
+         * @param  {Object} widget    the widget being moved
+         * @param  {Number} dropIndex index of the new location
+         * @return {Boolean}           true if widget moved, false if otherwise
+         */
+        $scope.moveWithDrag = function(widget, dropIndex) {
+          var sourceIndex =
+            findLayoutIndex($scope.layout, 'nodeId', widget.nodeId);
+          $log.info('index:'+sourceIndex+' dropIndex:'+dropIndex);
+          if (sourceIndex != dropIndex) {
+            $scope.layout.splice(sourceIndex, 1);
+            if (dropIndex > sourceIndex) {
+              dropIndex--;
+            }
+            $scope.layout.splice(dropIndex, 0, widget);
+            saveLayoutOrder(dropIndex, $scope.layout.length, widget.nodeId);
+            $scope.logMoveEvent('dragEnd', widget.fname, dropIndex);
+            return true;
+          } else {
+            return false;
+          }
+        };
+
+        /**
+         * After a widget is moved, save the new layout using
+         * the given information
+         * @param dropIndex {Number} Where the widget ended up
+         * @param length {Number} Length of the layout array
+         * @param nodeId {String} ID of the moved widget
+         */
+        var saveLayoutOrder = function(dropIndex, length, nodeId) {
+          // identify previous and next widgets
+          var previousNodeId =
+            dropIndex !== 0 ? $scope.layout[dropIndex - 1].nodeId : '';
+          var nextNodeId =
+            dropIndex !== length - 1 ? $scope.layout[dropIndex + 1].nodeId : '';
+          // call layout service to save
+          layoutService.moveStuff(dropIndex,
+            length, nodeId, previousNodeId, nextNodeId);
+        };
+      }
 
       /**
        * Find an array object with the given attribute/value pair
