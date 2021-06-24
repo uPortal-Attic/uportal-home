@@ -210,17 +210,31 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         // private functions
+        if (APP_FLAGS.useNewLayout) {
+          var processInLayout = function(portlet, layout) {
+            var inLayout = $.grep(layout, function(e) {
+              return e === portlet.fname;
+            }).length;
+            if (inLayout > 0) {
+              portlet.hasInLayout = true;
+            } else {
+              portlet.hasInLayout = false;
+            }
+          };
+        }
 
-        var processInLayout = function(portlet, layout) {
-          var inLayout = $.grep(layout, function(e) {
-            return e.fname === portlet.fname;
-          }).length;
-          if (inLayout > 0) {
-            portlet.hasInLayout = true;
-          } else {
-            portlet.hasInLayout = false;
-          }
-        };
+        if (APP_FLAGS.useOldLayout) {
+          var processInLayout = function(portlet, layout) {
+            var inLayout = $.grep(layout, function(e) {
+              return e.fname === portlet.fname;
+            }).length;
+            if (inLayout > 0) {
+              portlet.hasInLayout = true;
+            } else {
+              portlet.hasInLayout = false;
+            }
+          };
+        }
 
         var postProcessing = function(result, data) {
             result.portlets = data[0].data.portlets;

@@ -131,22 +131,6 @@ define(['angular', 'jquery'], function(angular, $) {
 
         if (APP_FLAGS.useOldLayout) {
           console.log("using old layout");
-          var getUncachedLayout = function() {
-            var successFn = function(result) {
-                var data = formatLayoutForCache(result.data);
-                storeLayoutInCache(data);
-                return data;
-            };
-
-            var errorFn = function(reason) {
-                miscService.redirectUser(reason.status, 'layout call');
-            };
-
-            // no caching...  request from the server
-            return $http.get(SERVICE_LOC.context + SERVICE_LOC.layout,
-              {cache: true} )
-                .then(successFn, errorFn);
-          };
 
           var getLayout = function() {
             return checkLayoutCache().then(function(data) {
@@ -246,6 +230,24 @@ define(['angular', 'jquery'], function(angular, $) {
             insertNode(sourceId, previousNodeId, nextNodeId);
           };
         }
+
+        var getUncachedLayout = function() {
+          console.log("in getUncachedLayout");
+          var successFn = function(result) {
+              var data = formatLayoutForCache(result.data);
+              storeLayoutInCache(data);
+              return data;
+          };
+
+          var errorFn = function(reason) {
+              miscService.redirectUser(reason.status, 'layout call');
+          };
+
+          // no caching...  request from the server
+          return $http.get(SERVICE_LOC.context + SERVICE_LOC.layout,
+            {cache: true} )
+              .then(successFn, errorFn);
+        };
 
         var addToLayoutByFname = function addToLayoutByFname(fname) {
           var tabName = SERVICE_LOC.layoutTab;
