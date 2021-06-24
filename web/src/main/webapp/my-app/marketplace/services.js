@@ -210,20 +210,20 @@ define(['angular', 'jquery'], function(angular, $) {
         };
 
         // private functions
-          var processInLayout = function(portlet, layout) {
-            var inLayout = $.grep(layout, function(e) {
-              if (APP_FLAGS.useNewLayout) {
-                return e === portlet.fname;
-              } else {
-                return e.fname === portlet.fname;
-              }
-            }).length;
-            if (inLayout > 0) {
-              portlet.hasInLayout = true;
+        var processInLayout = function(portlet, layout) {
+          var inLayout = $.grep(layout, function(e) {
+            if (APP_FLAGS.useNewLayout) {
+              return e === portlet.fname;
             } else {
-              portlet.hasInLayout = false;
+              return e.fname === portlet.fname;
             }
-          };
+          }).length;
+          if (inLayout > 0) {
+            portlet.hasInLayout = true;
+          } else {
+            portlet.hasInLayout = false;
+          }
+        };
 
         var postProcessing = function(result, data) {
             result.portlets = data[0].data.portlets;
