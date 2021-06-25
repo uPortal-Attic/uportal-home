@@ -132,66 +132,11 @@ define(['angular', 'jquery'], function(angular, $) {
             $log.info('Dragged ' + fname + ' to index ' + dropIndex);
             break;
           case 'keyboardMove':
-            $log.info('Moved ' + fname + 'from index ' + startIndex +
+            $log.info('Moved ' + fname + ' from index ' + startIndex +
               ' to index ' + dropIndex);
             break;
           default:
             return;
-        }
-      };
-
-      /**
-       * Respond to arrow key-presses when focusing a movable list element
-       * @param widget {Object} The widget trying to move
-       * @param event {Object} The event object
-       */
-      $scope.moveWithKeyboard = function(widget, event) {
-        console.log("in moveWithKeyboard");
-        // Get index independent of ng-repeat to avoid filter bugs
-        var currentIndex =
-          findLayoutIndex($scope.layout, 'nodeId', widget.nodeId);
-        var previousIndex = currentIndex - 1;
-        var nextIndex = currentIndex + 1;
-
-        // left or up
-        if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-          // stop element from losing focus
-          event.preventDefault();
-          // if currentIndex is already 0, do nothing
-          if (currentIndex !== 0) {
-            // remove item from the list
-            $scope.layout.splice(currentIndex, 1);
-            // reinsert at new index
-            $scope.layout.splice(previousIndex, 0, widget);
-            // save new layout order
-            saveLayoutOrder(previousIndex,
-              $scope.layout.length,
-              widget.nodeId);
-            // log change
-            $scope.logMoveEvent( 'keyboardMove',
-              widget.fname,
-              previousIndex,
-              currentIndex);
-          }
-        }
-        // right or down
-        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-          // stop screen from scrolling
-          event.preventDefault();
-          // if currentIndex is end of the list, do nothing
-          if (currentIndex !== $scope.layout.length - 1) {
-            // remove item from the list
-            $scope.layout.splice(currentIndex, 1);
-            // reinsert at desired index
-            $scope.layout.splice(nextIndex, 0, widget);
-            // save new layout order
-            saveLayoutOrder(nextIndex, $scope.layout.length, widget.nodeId);
-            // log change
-            $scope.logMoveEvent('keyboardMove',
-              widget.fname,
-              nextIndex,
-              currentIndex);
-          }
         }
       };
 
@@ -294,6 +239,60 @@ define(['angular', 'jquery'], function(angular, $) {
       };
 
       if (APP_FLAGS.useNewLayout) {
+
+      /**
+       * Respond to arrow key-presses when focusing a movable list element
+       * @param widget {Object} The widget trying to move
+       * @param event {Object} The event object
+       */
+      $scope.moveWithKeyboard = function(widget, event) {
+        var result = $filter('filter')($scope.$parent.layout, widget);
+        var currentIndex = $scope.$parent.layout.indexOf(result[0]);
+        var previousIndex = currentIndex - 1;
+        var nextIndex = currentIndex + 1;
+
+        // left or up
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+          // stop element from losing focus
+          event.preventDefault();
+          // if currentIndex is already 0, do nothing
+          if (currentIndex !== 0) {
+            // remove item from the list
+            $scope.layout.splice(currentIndex, 1);
+            // reinsert at new index
+            $scope.layout.splice(previousIndex, 0, widget);
+            // save new layout order
+            saveLayoutOrder(previousIndex,
+              $scope.layout.length,
+              widget);
+            // log change
+            $scope.logMoveEvent( 'keyboardMove',
+              widget,
+              previousIndex,
+              currentIndex);
+          }
+        }
+        // right or down
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+          // stop screen from scrolling
+          event.preventDefault();
+          // if currentIndex is end of the list, do nothing
+          if (currentIndex !== $scope.layout.length - 1) {
+            // remove item from the list
+            $scope.layout.splice(currentIndex, 1);
+            // reinsert at desired index
+            $scope.layout.splice(nextIndex, 0, widget);
+            // save new layout order
+            saveLayoutOrder(nextIndex, $scope.layout.length, widget);
+            // log change
+            $scope.logMoveEvent('keyboardMove',
+              widget,
+              nextIndex,
+              currentIndex);
+          }
+        }
+      };
+
       /**
        * Call layout service to save the removal of the widget from the user's
        * home layout.
@@ -367,6 +366,60 @@ define(['angular', 'jquery'], function(angular, $) {
       }
 
      if (APP_FLAGS.useOldLayout) {
+
+      /**
+       * Respond to arrow key-presses when focusing a movable list element
+       * @param widget {Object} The widget trying to move
+       * @param event {Object} The event object
+       */
+      $scope.moveWithKeyboard = function(widget, event) {
+        // Get index independent of ng-repeat to avoid filter bugs
+        var currentIndex =
+          findLayoutIndex($scope.layout, 'nodeId', widget.nodeId);
+        var previousIndex = currentIndex - 1;
+        var nextIndex = currentIndex + 1;
+        // left or up
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+          // stop element from losing focus
+          event.preventDefault();
+          // if currentIndex is already 0, do nothing
+          if (currentIndex !== 0) {
+            // remove item from the list
+            $scope.layout.splice(currentIndex, 1);
+            // reinsert at new index
+            $scope.layout.splice(previousIndex, 0, widget);
+            // save new layout order
+            saveLayoutOrder(previousIndex,
+              $scope.layout.length,
+              widget.nodeId);
+            // log change
+            $scope.logMoveEvent( 'keyboardMove',
+              widget.fname,
+              previousIndex,
+              currentIndex);
+          }
+        }
+        // right or down
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+          // stop screen from scrolling
+          event.preventDefault();
+          // if currentIndex is end of the list, do nothing
+          if (currentIndex !== $scope.layout.length - 1) {
+            // remove item from the list
+            $scope.layout.splice(currentIndex, 1);
+            // reinsert at desired index
+            $scope.layout.splice(nextIndex, 0, widget);
+            // save new layout order
+            saveLayoutOrder(nextIndex, $scope.layout.length, widget.nodeId);
+            // log change
+            $scope.logMoveEvent('keyboardMove',
+              widget.fname,
+              nextIndex,
+              currentIndex);
+          }
+        }
+      };
+
       /**
        * Call layout service to save the removal of the widget from the user's
        * home layout.
