@@ -102,8 +102,15 @@
       </md-button>
 
       <!-- Add to home button with access on mobile-->
-      <md-button class="md-primary fname-{{::portlet.fname}}" ng-click="addToHome(portlet)" ng-show="portlet.canAdd">
+      <md-button class="md-primary fname-{{::portlet.fname}}" ng-click="addToHome(portlet)" ng-show="portlet.canAdd && !portlet.hasInLayout">
         <span class="fa fa-plus"></span> Add to home
+      </md-button>
+
+      <!-- Added to home -->
+      <md-button class="fname-{{::portlet.fname}}"
+                 ng-disabled="true"
+                 ng-if="portlet.canAdd && portlet.hasInLayout">
+        <i class="fa fa-check"></i> Added to home
       </md-button>
 
       <!-- Add to home button without access on mobile-->
