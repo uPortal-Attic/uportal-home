@@ -42,6 +42,7 @@ define(['angular', 'jquery'], function(angular, $) {
         ************************/
 
         if (APP_FLAGS.useNewLayout) {
+          console.log("using new layout");
 
           var getLayout = function() {
             return checkLayoutCache().then(function(data) {
@@ -79,27 +80,21 @@ define(['angular', 'jquery'], function(angular, $) {
                 method: 'POST',
                 url: SERVICE_LOC.newLayout,
                 data: {"layout" : newLayout, "new" : false},
-                dataType: 'json',
-                headers : {
-                  'eppn': 'pnogal@wisc.edu',
-                  'Content-Type': 'application/x-www-form-urlencoded'
-                }
+                dataType: 'json'
               });
             })
           };
 
           var removeFromHome = function removeFromHomeFunction(fname) {
             return getLayout().then(function(data) {
-              var newLayout = data.layout.filter(val => val !== fname);
+              var newLayout = data.layout.filter(function(val){
+                return val !== fname;
+              });
               return $http({
                   method: 'POST',
                   url: SERVICE_LOC.newLayout,
                   data: {"layout" : newLayout, "new" : false},
-                  dataType: 'json',
-                  headers : {
-                    'eppn': 'pnogal@wisc.edu',
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                  }
+                  dataType: 'json'
               });
             })
           };
@@ -112,11 +107,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   method: 'POST',
                   url: SERVICE_LOC.newLayout,
                   data: {"layout" : newLayout, "new" : false},
-                  dataType: 'json',
-                  headers : {
-                    'eppn': 'pnogal@wisc.edu',
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                  }
+                  dataType: 'json'
               });
             });
 
