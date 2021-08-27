@@ -69,16 +69,35 @@ define(['angular', 'jquery'], function(angular, $) {
                 var formattedOldLayout = formatLayoutForCache(result.data);
 
                 $log.log('persistAndUse: formatted old layout data as: ' + formattedOldLayout.layout);
+                // Parse out the fnames from the old layout JSON
+                // The array of fnames is the new layout
+                // Publish that to the new backend, and use it.
+                // Old format:
+                //  {layout: [ {"fname": "some-fname", ...}, {"fname": "some-other-fname", ...}]}
+                // New format:
+                //  {layout: ["some-fname", "some-other-fname"]}
+
+                var oldArrayOfMaps = formattedOldLayout.layout;
+                var newLayoutRepresentation = [];
+
+                for (var i = 0; i < oldArrayOfMaps.length; i++) {
+                  var fname = oldArrayOfMaps[i].fname;
+                  $log.log('Object in the array is ' + angular.toJson(oldArrayOfMaps[i]));
+                  $log.log('fname is ' + fname);
+                  newLayoutRepresentation.push(fname);
+                }
+
+                $log.log('persistAndUse: parsed to fname array representation: ' + newLayoutRepresentation);
                 // persist the old layout to the new layout store
                 $http({
                   method: 'POST',
                   url: SERVICE_LOC.newLayout,
-                  data: {'layout': formattedOldLayout, 'new': false},
+                  data: {'layout': newLayoutRepresentation, 'new': false},
                   dataType: 'json',
                 });
 
-                storeLayoutInCache(formattedOldLayout);
-                return formattedOldLayout;
+                storeLayoutInCache({'layout': newLayoutRepresentation, 'new': false});
+                return {'layout': newLayoutRepresentation, 'new': false};
               };
 
               successFn = function(result) {
