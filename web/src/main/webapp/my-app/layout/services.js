@@ -115,7 +115,7 @@ define(['angular', 'jquery'], function(angular, $) {
 
           var removeFromHome = function removeFromHomeFunction(fname) {
             return getLayout().then(function(data) {
-              var newLayout = data.layout.filter(function(val){
+              var newLayout = data.layout.filter(function(val) {
                 return val !== fname;
               });
               return $http({
