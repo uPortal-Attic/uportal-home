@@ -79,10 +79,10 @@ define(['angular', 'jquery'], function(angular, $) {
               return $http({
                 method: 'POST',
                 url: SERVICE_LOC.newLayout,
-                data: {"layout" : newLayout, "new" : false},
-                dataType: 'json'
+                data: {'layout': newLayout, 'new': false},
+                dataType: 'json',
               });
-            })
+            });
           };
 
           var removeFromHome = function removeFromHomeFunction(fname) {
