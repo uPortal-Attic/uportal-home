@@ -35,7 +35,7 @@ define(['angular', 'jquery'], function(angular, $) {
       function($sce, $http, $log, miscService,
         mainService, $sessionStorage, $q, SERVICE_LOC, APP_FLAGS) {
 
-        /************************
+        /**
         * NEW LAYOUT
         * To use new service layout set useNewLayout flag in override.js to true,
         * and useOldLayout to false
@@ -142,7 +142,7 @@ define(['angular', 'jquery'], function(angular, $) {
           };
         }
 
-        /************************
+        /**
         ** OLD LAYOUT
         ** To use old service layout set useOldLayout flag in override.js to true,
         ** and useNewLayout to false
