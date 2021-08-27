@@ -57,10 +57,38 @@ define(['angular', 'jquery'], function(angular, $) {
                 return defer.promise;
               }
 
+              /**
+               * Persists old layout data as new layout and uses that old-is-new
+               * layout in current session.
+               */
+              var persistAndUse = function(result) {
+                var formattedOldLayout = formatLayoutForCache(result.data);
+
+                // persist the old layout to the new layout store
+                $http({
+                  method: 'POST',
+                  url: SERVICE_LOC.newLayout,
+                  data: {'layout': formattedOldLayout, 'new': false},
+                  dataType: 'json',
+                });
+
+                storeLayoutInCache(formattedOldLayout);
+                return formattedOldLayout;
+              };
+
               successFn = function(result) {
-                var data = formatLayoutForCache(result.data);
-                storeLayoutInCache(data);
-                return data;
+                if (result.data.new) {
+                  // oh! It's a new user never before seen by new layout service.
+                  // check the old layout service for the user's old layout
+                  // and paste it into the new service.
+                  return $http.get(
+                    SERVICE_LOC.context + SERVICE_LOC.layout, {cache: true} )
+                      .then(persistAndUse);
+                } else {
+                  var data = formatLayoutForCache(result.data);
+                  storeLayoutInCache(data);
+                  return data;
+                }
               };
 
               errorFn = function(reason) {
