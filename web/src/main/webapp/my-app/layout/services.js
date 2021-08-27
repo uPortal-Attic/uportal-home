@@ -124,7 +124,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   data: {'layout': newLayout, 'new': false},
                   dataType: 'json',
               });
-            })
+            });
           };
 
           var moveStuff = function moveStuffFunction() {
