@@ -45,6 +45,7 @@ define(['angular', 'jquery'], function(angular, $) {
           $log.log('using new layout');
 
           var getLayout = function() {
+            $log.log('getLayout (new backend version)');
             return checkLayoutCache().then(function(data) {
               var successFn;
               var errorFn;
@@ -52,18 +53,22 @@ define(['angular', 'jquery'], function(angular, $) {
 
               // first, check the local storage...
               if (data) {
+                $log.log('getLayout (new version): found layout in cache: ' + data);
                 defer = $q.defer();
                 defer.resolve(data);
                 return defer.promise;
               }
+              $log.log('getlayout (new version) did not find layout in cache');
 
               /**
                * Persists old layout data as new layout and uses that old-is-new
                * layout in current session.
                */
               var persistAndUse = function(result) {
+                $log.log('persistAndUse: got data from old layout backend: ' + result.data.layout);
                 var formattedOldLayout = formatLayoutForCache(result.data);
 
+                $log.log('persistAndUse: formatted old layout data as: ' + formattedOldLayout.layout);
                 // persist the old layout to the new layout store
                 $http({
                   method: 'POST',
@@ -77,7 +82,9 @@ define(['angular', 'jquery'], function(angular, $) {
               };
 
               successFn = function(result) {
+                $log.log('successFn with data from new layout service: ' + result.data.layout);
                 if (result.data.new) {
+                  $log.log('User is new to the new layout service.');
                   // oh! It's a new user never before seen by new layout service.
                   // check the old layout service for the user's old layout
                   // and paste it into the new service.
@@ -85,7 +92,9 @@ define(['angular', 'jquery'], function(angular, $) {
                     SERVICE_LOC.context + SERVICE_LOC.layout, {cache: true} )
                       .then(persistAndUse);
                 } else {
+                  $log.log('User is NOT new to new layout service.');
                   var data = formatLayoutForCache(result.data);
+                  $log.log('Formatted new layout data as ' + data.layout);
                   storeLayoutInCache(data);
                   return data;
                 }
