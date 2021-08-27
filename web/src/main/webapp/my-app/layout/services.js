@@ -75,7 +75,7 @@ define(['angular', 'jquery'], function(angular, $) {
           var addToHome = function addToHomeFunction(portlet) {
             var fname = portlet.fname;
             return getLayout().then(function(data) {
-              var newLayout = data.layout.concat(fname);
+              var newLayout = [fname].concat(data.layout);
               return $http({
                 method: 'POST',
                 url: SERVICE_LOC.newLayout,
@@ -102,7 +102,6 @@ define(['angular', 'jquery'], function(angular, $) {
           var moveStuff = function moveStuffFunction() {
             return getLayout().then(function(data) {
               var newLayout = data.layout;
-              console.log("newLayout", newLayout);
                 return $http({
                   method: 'POST',
                   url: SERVICE_LOC.newLayout,
