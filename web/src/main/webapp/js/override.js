@@ -29,7 +29,7 @@ define(['angular'], function(angular) {
             'debug': true,
             'showUserSettingsPage': true,
             'useNewLayout': true,
-            'useOldLayout': false
+            'useOldLayout': false,
           },
           'APP_OPTIONS': {
             'appMenuTemplateURL':
