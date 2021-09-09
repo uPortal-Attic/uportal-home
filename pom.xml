@@ -279,4 +279,17 @@
       </plugin>
     </plugins>
   </build>
+
+  <distributionManagement>
+    <repository>
+      <id>myuw-public-releases</id>
+      <name>myuw-public-releases</name>
+      <url>https://artifacts.doit.wisc.edu/artifactory/myuw-public-releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>myuw-public-snapshots</id>
+      <name>myuw-public-snapshots</name>
+      <url>https://artifacts.doit.wisc.edu/artifactory/myuw-public-snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
