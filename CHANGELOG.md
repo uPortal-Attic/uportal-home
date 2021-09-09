@@ -11,6 +11,8 @@ Versions in this document should match those
 
 ## Next
 
+## 14.0.0 - 2021-09-09
+
 + Automate migrating layout from old layout backend to new layout backend.
 
 ## 13.0.0 - 2021-04-23
