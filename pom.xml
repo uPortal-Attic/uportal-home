@@ -75,6 +75,28 @@
       <id>central-snapshots</id>
       <name>Central Snapshots</name>
       <url>https://oss.sonatype.org/content/groups/public</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>myuw-public-releases</id>
+      <name>myuw-public-releases</name>
+      <url>https://artifacts.doit.wisc.edu/artifactory/myuw-public-releases</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>myuw-public-snapshots</id>
+      <name>myuw-public-snapshots</name>
+      <url>https://artifacts.doit.wisc.edu/artifactory/myuw-public-snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
     </repository>
   </repositories>
 
