@@ -23,7 +23,7 @@
   <parent>
     <groupId>org.apereo.uportal</groupId>
     <artifactId>uportal-home-parent</artifactId>
-    <version>14.0.0</version>
+    <version>14.0.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>uportal-home-mock-portal</artifactId>
