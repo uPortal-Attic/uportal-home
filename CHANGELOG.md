@@ -14,6 +14,7 @@ Versions in this document should match those
 ## 14.0.0 - 2021-09-09
 
 + Automate migrating layout from old layout backend to new layout backend.
++ Ensure there are no duplicate fnames in layout
 
 ## 13.0.0 - 2021-04-23
 
