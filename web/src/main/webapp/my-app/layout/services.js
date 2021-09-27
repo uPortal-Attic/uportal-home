@@ -50,7 +50,6 @@ define(['angular', 'jquery'], function(angular, $) {
               var successFn;
               var errorFn;
               var defer;
-
               // first, check the local storage...
               if (data) {
                 $log.log('getLayout (new version): found layout in cache: ' + data);
@@ -343,10 +342,15 @@ define(['angular', 'jquery'], function(angular, $) {
           var result = {
             'layout': [],
           };
+          //  Check if there are duplicate fnames in data.layout
+          var filteredDataLayout = data.layout.filter(function (item, ind) {
+              return data.layout.indexOf(item) == ind;
+          });
+
           // layout will map to an array of objects each with an fname field.
           // those fnames represent, in order,
           // the home page content for the user
-          if ($.isPlainObject(data.layout) &&
+          if ($.isPlainObject(filteredDataLayout) &&
               $.isArray(data.layout.folders)) { // layout.json v1
             var folders = data.layout.folders.filter(function(el) {
               var result = false;
@@ -380,8 +384,8 @@ define(['angular', 'jquery'], function(angular, $) {
               }
               result.layout = portlets;
             }
-          } else if ($.isArray(data.layout)) { // layoutDoc
-            result.layout = data.layout;
+          } else if ($.isArray(filteredDataLayout)) { // layoutDoc
+            result.layout = filteredDataLayout;
           }
 
           return result;
