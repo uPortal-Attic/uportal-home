@@ -162,7 +162,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 return $http({
                   method: 'POST',
                   url: SERVICE_LOC.newLayout,
-                  data: {"layout" : newLayout, "new" : false},
+                  data: {'layout' : newLayout, 'new' : false},
                   dataType: 'json'
               });
             });
@@ -177,7 +177,7 @@ define(['angular', 'jquery'], function(angular, $) {
         *************************/
 
         if (APP_FLAGS.useOldLayout) {
-          console.log("using old layout");
+          console.log('using old layout');
 
           var getLayout = function() {
             return checkLayoutCache().then(function(data) {
@@ -279,7 +279,7 @@ define(['angular', 'jquery'], function(angular, $) {
         }
 
         var getUncachedLayout = function() {
-          console.log("in getUncachedLayout");
+          console.log('in getUncachedLayout');
           var successFn = function(result) {
               var data = formatLayoutForCache(result.data);
               storeLayoutInCache(data);
