@@ -355,7 +355,7 @@ define(['angular', 'jquery'], function(angular, $) {
             'layout': [],
           };
           //  Check if there are duplicate fnames in data.layout
-          var filteredDataLayout = data.layout.filter(function (item, ind) {
+          var filteredDataLayout = data.layout.filter(function(item, ind) {
               return data.layout.indexOf(item) == ind;
           });
 
