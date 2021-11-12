@@ -119,7 +119,9 @@ define(['angular', 'jquery'], function(angular, $) {
               };
 
               errorFn = function(reason) {
-                miscService.redirectUser(reason.status, 'layout call');
+                miscService.redirectUser(reason.status,
+                  'layoutService request to ' + SERVICE_LOC.newLayout +
+                    ' in new getLayout');
               };
             return $http.get(
                 SERVICE_LOC.newLayout)
@@ -197,7 +199,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 };
 
                 errorFn = function(reason) {
-                    miscService.redirectUser(reason.status, 'layout call');
+                    miscService.redirectUser(reason.status, 'layoutService getLayout call (old implementation)');
                 };
 
                 // no caching...  request from the server
@@ -285,7 +287,7 @@ define(['angular', 'jquery'], function(angular, $) {
           };
 
           var errorFn = function(reason) {
-              miscService.redirectUser(reason.status, 'layout call');
+              miscService.redirectUser(reason.status, 'layoutService getUncachedLayout');
           };
 
           // no caching...  request from the server
