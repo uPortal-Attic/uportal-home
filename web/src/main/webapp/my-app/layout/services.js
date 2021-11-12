@@ -37,7 +37,8 @@ define(['angular', 'jquery'], function(angular, $) {
 
         /**
         * NEW LAYOUT
-        * To use new service layout set useNewLayout flag in override.js to true,
+        * To use new service layout
+        * set useNewLayout flag in override.js to true,
         * and useOldLayout to false
         ************************/
 
@@ -52,7 +53,8 @@ define(['angular', 'jquery'], function(angular, $) {
               var defer;
               // first, check the local storage...
               if (data) {
-                $log.log('getLayout (new version): found layout in cache: ' + data);
+                $log.log('getLayout (new version): found layout in cache: ' +
+                  data);
                 defer = $q.defer();
                 defer.resolve(data);
                 return defer.promise;
@@ -64,15 +66,18 @@ define(['angular', 'jquery'], function(angular, $) {
                * layout in current session.
                */
               var persistAndUse = function(result) {
-                $log.log('persistAndUse: got data from old layout backend: ' + result.data.layout);
+                $log.log('persistAndUse: got data from old layout backend: ' +
+                  result.data.layout);
                 var formattedOldLayout = formatLayoutForCache(result.data);
 
-                $log.log('persistAndUse: formatted old layout data as: ' + formattedOldLayout.layout);
+                $log.log('persistAndUse: formatted old layout data as: ' +
+                  formattedOldLayout.layout);
                 // Parse out the fnames from the old layout JSON
                 // The array of fnames is the new layout
                 // Publish that to the new backend, and use it.
                 // Old format:
-                //  {layout: [ {"fname": "some-fname", ...}, {"fname": "some-other-fname", ...}]}
+                //  {layout: [ {"fname": "some-fname", ...},
+                // {"fname": "some-other-fname", ...}]}
                 // New format:
                 //  {layout: ["some-fname", "some-other-fname"]}
 
@@ -81,12 +86,15 @@ define(['angular', 'jquery'], function(angular, $) {
 
                 for (var i = 0; i < oldArrayOfMaps.length; i++) {
                   var fname = oldArrayOfMaps[i].fname;
-                  $log.log('Object in the array is ' + angular.toJson(oldArrayOfMaps[i]));
+                  $log.log('Object in the array is ' +
+                    angular.toJson(oldArrayOfMaps[i]));
                   $log.log('fname is ' + fname);
                   newLayoutRepresentation.push(fname);
                 }
 
-                $log.log('persistAndUse: parsed to fname array representation: ' + newLayoutRepresentation);
+                $log.log('persistAndUse: ' +
+                  'parsed to fname array representation: ' +
+                  newLayoutRepresentation);
                 // persist the old layout to the new layout store
                 $http({
                   method: 'POST',
@@ -95,15 +103,18 @@ define(['angular', 'jquery'], function(angular, $) {
                   dataType: 'json',
                 });
 
-                storeLayoutInCache({'layout': newLayoutRepresentation, 'new': false});
+                storeLayoutInCache(
+                  {'layout': newLayoutRepresentation, 'new': false});
                 return {'layout': newLayoutRepresentation, 'new': false};
               };
 
               successFn = function(result) {
-                $log.log('successFn with data from new layout service: ' + result.data.layout);
+                $log.log('successFn with data from new layout service: ' +
+                  result.data.layout);
                 if (result.data.new) {
                   $log.log('User is new to the new layout service.');
-                  // oh! It's a new user never before seen by new layout service.
+                  // oh! It's a new user
+                  // never before seen by new layout service.
                   // check the old layout service for the user's old layout
                   // and paste it into the new service.
                   return $http.get(
@@ -172,7 +183,8 @@ define(['angular', 'jquery'], function(angular, $) {
 
         /**
         ** OLD LAYOUT
-        ** To use old service layout set useOldLayout flag in override.js to true,
+        ** To use old service layout
+        ** set useOldLayout flag in override.js to true,
         ** and useNewLayout to false
         *************************/
 
