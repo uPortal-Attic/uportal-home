@@ -173,7 +173,7 @@ define(['angular', 'jquery'], function(angular, $) {
                   method: 'POST',
                   url: SERVICE_LOC.newLayout,
                   data: {'layout': newLayout, 'new': false},
-                  dataType: 'json'
+                  dataType: 'json',
               });
             });
           };
