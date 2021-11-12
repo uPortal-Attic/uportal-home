@@ -34,7 +34,6 @@ define(['angular', 'jquery'], function(angular, $) {
       'mainService', '$sessionStorage', '$q', 'SERVICE_LOC', 'APP_FLAGS',
       function($sce, $http, $log, miscService,
         mainService, $sessionStorage, $q, SERVICE_LOC, APP_FLAGS) {
-
         /**
         * NEW LAYOUT
         * To use new service layout
@@ -177,7 +176,6 @@ define(['angular', 'jquery'], function(angular, $) {
                   dataType: 'json'
               });
             });
-
           };
         }
 
