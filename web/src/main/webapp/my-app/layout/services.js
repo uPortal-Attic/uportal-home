@@ -187,7 +187,7 @@ define(['angular', 'jquery'], function(angular, $) {
         *************************/
 
         if (APP_FLAGS.useOldLayout) {
-          console.log('using old layout');
+          $log.log('using old layout');
 
           var getLayout = function() {
             return checkLayoutCache().then(function(data) {
@@ -289,7 +289,7 @@ define(['angular', 'jquery'], function(angular, $) {
         }
 
         var getUncachedLayout = function() {
-          console.log('in getUncachedLayout');
+          $log.log('in getUncachedLayout');
           var successFn = function(result) {
               var data = formatLayoutForCache(result.data);
               storeLayoutInCache(data);
