@@ -172,7 +172,7 @@ define(['angular', 'jquery'], function(angular, $) {
                 return $http({
                   method: 'POST',
                   url: SERVICE_LOC.newLayout,
-                  data: {'layout' : newLayout, 'new' : false},
+                  data: {'layout': newLayout, 'new': false},
                   dataType: 'json'
               });
             });
