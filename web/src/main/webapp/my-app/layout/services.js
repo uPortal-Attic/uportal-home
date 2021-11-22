@@ -83,12 +83,19 @@ define(['angular', 'jquery'], function(angular, $) {
                 var oldArrayOfMaps = formattedOldLayout.layout;
                 var newLayoutRepresentation = [];
 
+                // use a Set to drop subsequent duplicates when migrating
+                var fnameSet = new Set();
                 for (var i = 0; i < oldArrayOfMaps.length; i++) {
                   var fname = oldArrayOfMaps[i].fname;
                   $log.log('Object in the array is ' +
                     angular.toJson(oldArrayOfMaps[i]));
                   $log.log('fname is ' + fname);
-                  newLayoutRepresentation.push(fname);
+                  if (!fnameSet.has(fname)) {
+                    fnameSet.add(fname);
+                    newLayoutRepresentation.push(fname);
+                  } else {
+                    $log.log('Dropped duplicate fname ' + fname);
+                  }
                 }
 
                 $log.log('persistAndUse: ' +
