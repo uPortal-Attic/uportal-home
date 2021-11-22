@@ -11,6 +11,10 @@ Versions in this document should match those
 
 ## Next
 
+## 14.0.1 - 2021-11-22
+
++ Built on [uPortal-app-framework 21.0.2][].
+
 ## 14.0.0 - 2021-09-09
 
 + Automate migrating layout from old layout backend to new layout backend.
@@ -469,5 +473,6 @@ See also:
 [uPortal-app-framework 19.0.2]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1902---2021-04-12
 [uPortal-app-framework 19.0.3]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#1903---2021-04-12
 [uPortal-app-framework 20.0.0.]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#2000---2021-04-23
+[uPortal-app-framework 21.0.2]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#2102---2021-11-22
 
 [published to Sonatype Maven Central Repository]: https://search.maven.org/artifact/org.apereo.uportal/uportal-home-parent
