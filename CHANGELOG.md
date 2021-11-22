@@ -9,7 +9,7 @@ and this project adheres to
 Versions in this document should match those
 [published to Sonatype Maven Central Repository][].
 
-## Next
+## 14.0.2 - 2021-11-22
 
 + Drops duplicate fnames when migrating from old layout backend
   to new layout backend.
