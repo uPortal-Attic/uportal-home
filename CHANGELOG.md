@@ -11,6 +11,9 @@ Versions in this document should match those
 
 ## Next
 
++ Drops duplicate fnames when migrating from old layout backend
+  to new layout backend.
+
 ## 14.0.1 - 2021-11-22
 
 + Built on [uPortal-app-framework 21.0.2][].
