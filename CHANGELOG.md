@@ -9,6 +9,8 @@ and this project adheres to
 Versions in this document should match those
 [published to Sonatype Maven Central Repository][].
 
+## Next
++ Removes white border style when hovering over 'Add more to home' on compact layout
 ## 14.0.2 - 2021-11-22
 
 + Drops duplicate fnames when migrating from old layout backend
