@@ -10,7 +10,9 @@ Versions in this document should match those
 [published to Sonatype Maven Central Repository][].
 
 ## 14.0.3 - 2022-02-04
-+ Removes unnecessary taindex from list items surrounding widgets
+
++ Adds tabindex to Add to home button as a fix for button being inaccessible in Firefox
++ Removes unnecessary tabindex from list items surrounding widgets
 + Removes white border style when hovering over 'Add more to home' on compact layout
 ## 14.0.2 - 2021-11-22
 
