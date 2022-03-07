@@ -9,11 +9,16 @@ and this project adheres to
 Versions in this document should match those
 [published to Sonatype Maven Central Repository][].
 
+## 14.0.4 - 2022-03-07
+
++ Built on [uPortal-app-framework 21.0.4][].
+
 ## 14.0.3 - 2022-02-04
 
 + Adds tabindex to Add to home button as a fix for button being inaccessible in Firefox
 + Removes unnecessary tabindex from list items surrounding widgets
 + Removes white border style when hovering over 'Add more to home' on compact layout
+
 ## 14.0.2 - 2021-11-22
 
 + Drops duplicate fnames when migrating from old layout backend
@@ -484,3 +489,5 @@ See also:
 [uPortal-app-framework 21.0.2]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#2102---2021-11-22
 
 [published to Sonatype Maven Central Repository]: https://search.maven.org/artifact/org.apereo.uportal/uportal-home-parent
+
+[uPortal-app-framework 21.0.4]: https://github.com/uPortal-Project/uportal-app-framework/blob/master/CHANGELOG.md#2104---2022-03-07
