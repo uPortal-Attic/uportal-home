@@ -27,6 +27,15 @@
     <div ng-if="layout.length == 0" layout="row" layout-align="center center">
       <loading-gif data-object="layout" data-empty="layoutEmpty"></loading-gif>
     </div>
+    <div>
+      You're viewing MyUW in compact mode.
+      Compact mode is one of
+        <a
+          href="https://kb.wisconsin.edu/51574"
+          target="_blank" rel="noopener noreferrer"
+        >two MyUW modes</a>.
+      For a richer experience, try <a href="/expanded">expanded mode</a>.
+    </div>
     <!-- List View -->
     <ul dnd-list="layout"
         dnd-drop="moveWithDrag(item, index)"
