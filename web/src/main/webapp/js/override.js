@@ -28,8 +28,6 @@ define(['angular'], function(angular) {
             'defaultTheme': 'group',
             'debug': true,
             'showUserSettingsPage': true,
-            'useNewLayout': true,
-            'useOldLayout': false,
           },
           'APP_OPTIONS': {
             'appMenuTemplateURL':
@@ -43,9 +41,7 @@ define(['angular'], function(angular) {
             'newstuffInfo': '/web/staticFeeds/new-stuff.json',
             'context': '/portal/',
             'base': '/portal/api/',
-            'layout': 'api/layoutDoc?tab=UW Bucky Home',
             'newLayout': 'http://localhost:3000/layout.json',
-            'layoutTab': 'UW Bucky Home',
             'marketplace': {
                 'base': 'marketplace/',
                 'entry': 'entry/',
