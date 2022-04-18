@@ -46,7 +46,6 @@ define(['angular', 'jquery'], function(angular, $) {
      * WidgetController
      * @param widget {Object} The widget being removed
      */
-     if (APP_FLAGS.useNewLayout) {
         vm.removeWidget = function(widget) {
           var fname = APP_FLAGS.useNewLayout ? widget : widget.fname;
           // Match layout entry with fname
@@ -75,21 +74,6 @@ define(['angular', 'jquery'], function(angular, $) {
             $log.warn('Could not getPortlets');
           });
        };
-     }
-
-     if (APP_FLAGS.useOldLayout) {
-      vm.removeWidget = function(widget) {
-        // Match layout entry with fname
-        var result = $filter('filter')($scope.$parent.layout, widget.fname);
-        var index = $scope.$parent.layout.indexOf(result[0]);
-        var data = {
-          removedIndex: index,
-          removedWidget: widget.fname,
-          title: widget.title
-        };
-        $scope.$emit('REMOVE_WIDGET', data);
-      };
-     }
 
   }])
 
