@@ -60,79 +60,13 @@ define(['angular', 'jquery'], function(angular, $) {
               }
               $log.log('getlayout (new version) did not find layout in cache');
 
-              /**
-               * Persists old layout data as new layout and uses that old-is-new
-               * layout in current session.
-               */
-              var persistAndUse = function(result) {
-                $log.log('persistAndUse: got data from old layout backend: ' +
-                  result.data.layout);
-                var formattedOldLayout = formatLayoutForCache(result.data);
-
-                $log.log('persistAndUse: formatted old layout data as: ' +
-                  formattedOldLayout.layout);
-                // Parse out the fnames from the old layout JSON
-                // The array of fnames is the new layout
-                // Publish that to the new backend, and use it.
-                // Old format:
-                //  {layout: [ {"fname": "some-fname", ...},
-                // {"fname": "some-other-fname", ...}]}
-                // New format:
-                //  {layout: ["some-fname", "some-other-fname"]}
-
-                var oldArrayOfMaps = formattedOldLayout.layout;
-                var newLayoutRepresentation = [];
-
-                // use a Set to drop subsequent duplicates when migrating
-                var fnameSet = new Set();
-                for (var i = 0; i < oldArrayOfMaps.length; i++) {
-                  var fname = oldArrayOfMaps[i].fname;
-                  $log.log('Object in the array is ' +
-                    angular.toJson(oldArrayOfMaps[i]));
-                  $log.log('fname is ' + fname);
-                  if (!fnameSet.has(fname)) {
-                    fnameSet.add(fname);
-                    newLayoutRepresentation.push(fname);
-                  } else {
-                    $log.log('Dropped duplicate fname ' + fname);
-                  }
-                }
-
-                $log.log('persistAndUse: ' +
-                  'parsed to fname array representation: ' +
-                  newLayoutRepresentation);
-                // persist the old layout to the new layout store
-                $http({
-                  method: 'POST',
-                  url: SERVICE_LOC.newLayout,
-                  data: {'layout': newLayoutRepresentation, 'new': false},
-                  dataType: 'json',
-                });
-
-                storeLayoutInCache(
-                  {'layout': newLayoutRepresentation, 'new': false});
-                return {'layout': newLayoutRepresentation, 'new': false};
-              };
-
               successFn = function(result) {
                 $log.log('successFn with data from new layout service: ' +
                   result.data.layout);
-                if (result.data.new) {
-                  $log.log('User is new to the new layout service.');
-                  // oh! It's a new user
-                  // never before seen by new layout service.
-                  // check the old layout service for the user's old layout
-                  // and paste it into the new service.
-                  return $http.get(
-                    SERVICE_LOC.context + SERVICE_LOC.layout, {cache: true} )
-                      .then(persistAndUse);
-                } else {
-                  $log.log('User is NOT new to new layout service.');
                   var data = formatLayoutForCache(result.data);
                   $log.log('Formatted new layout data as ' + data.layout);
                   storeLayoutInCache(data);
                   return data;
-                }
               };
 
               errorFn = function(reason) {
