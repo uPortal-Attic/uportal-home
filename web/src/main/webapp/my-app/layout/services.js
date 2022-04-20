@@ -34,15 +34,6 @@ define(['angular', 'jquery'], function(angular, $) {
       'mainService', '$sessionStorage', '$q', 'SERVICE_LOC', 'APP_FLAGS',
       function($sce, $http, $log, miscService,
         mainService, $sessionStorage, $q, SERVICE_LOC, APP_FLAGS) {
-        /**
-        * NEW LAYOUT
-        * To use new service layout
-        * set useNewLayout flag in override.js to true,
-        * and useOldLayout to false
-        ************************/
-
-        if (APP_FLAGS.useNewLayout) {
-          $log.log('using new layout');
 
           var getLayout = function() {
             $log.log('getLayout (new backend version)');
@@ -118,7 +109,6 @@ define(['angular', 'jquery'], function(angular, $) {
               });
             });
           };
-        }
 
         var getUncachedLayout = function() {
           $log.log('in getUncachedLayout');
