@@ -8,7 +8,7 @@ The uPortal project is an ecosystem of open source software products, communitie
 
 ## uPortal?
 
-uPortal a software product implementing the server-side portions of an enterprise portal, with facilities for user authentication, user attribute gathering, groups and permissions, user layouts, content directory modeling, containing JSR-286 Portlets, and administrative functions over all of this.
+uPortal a software product implementing the server-side portions of an enterprise portal, with facilities for user authentication, user attribute gathering, groups and permissions, content directory modeling, containing JSR-286 Portlets, and administrative functions over all of this.
 
 ## Getting uPortal
 
