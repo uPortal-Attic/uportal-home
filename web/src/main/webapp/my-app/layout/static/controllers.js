@@ -148,45 +148,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         };
       }
 
-      if (APP_FLAGS.useOldLayout) {
-        vm.addToHome = function(portlet) {
-          console.log("addToHome: pportlet", portlet);
-          var ret = layoutService.addToHome(portlet);
-          console.log("addToHome: ret", ret);
-          ret.success(function(request, text) {
-            angular.element('.fname-' + portlet.fname)
-              .html('<span style="color : green;">' +
-                '<i class="fa fa-check"></i> Added Successfully</span>')
-              .prop('disabled', true);
-            $scope.$apply(function() {
-              if (angular.isDefined($sessionStorage.marketplace)) {
-                var marketplaceEntries = $.grep(
-                  $sessionStorage.marketplace,
-                  function(e) {
-                    return e.fname === portlet.fname;
-                  }
-                );
-                if (marketplaceEntries.length > 0) {
-                  marketplaceEntries[0].hasInLayout = true;
-                }
-              }
-
-              // reset layout due to modifications
-              $rootScope.layout = null;
-              $sessionStorage.layout = null;
-            });
-          })
-          .error(function(request, text, error) {
-            angular.element('.fname-' + portlet.fname)
-              .html(
-                '<span style="color : red;">' +
-                'Issue adding to home, please try again later' +
-                '</span>'
-              );
-          });
-        };
-      }
-
       vm.inLayout = function() {
         var layout = $rootScope.layout;
         var ret = false;
