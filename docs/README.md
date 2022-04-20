@@ -24,10 +24,10 @@ Of course for a more sophisticated demo or to adopt for real you will need to [c
 ### Home page
 
 #### Persistent layout of widgets
+
 The home page presents widgets in a remembered order. Logged in users can add to, remove from, and re-order this list.
 
-Under the hood, the home page layout is implemented as a personalized layout fragment in [uPortal][]'s `DLM`, so uPortal-home delivers (and updates) a
-default set and ordering of home page content that is filtered to the viewing user's permissions.
+Server-side, expects the [layout-service][] microservice.
 
 #### Toggleable view modes
 
@@ -62,3 +62,5 @@ Search app directory entries, the web (with Google Custom Search integration), o
 [uportal-user@]: https://groups.google.com/a/apereo.org/forum/#!forum/uportal-user
 
 [uPortal-home considerations in implementing uPortal impersonation features]: impersonation.md
+
+[layout-service]: https://git.doit.wisc.edu/wps/myuw-service/myuw-legacy/layout-service
