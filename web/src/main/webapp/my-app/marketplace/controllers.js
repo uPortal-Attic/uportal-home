@@ -82,7 +82,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         }
       };
 
-      if (APP_FLAGS.useNewLayout) {
         $scope.addToHome = function addToHome(portlet) {
           var fname = portlet.fname;
           var ret = layoutService.addToHome(portlet, $sessionStorage.layout);
@@ -120,7 +119,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
               console.log("more errors occurred");
           });
         };
-      }
 
       $scope.searchTermFilter = function(portlet) {
         return marketplaceService.portletMatchesSearchTerm(

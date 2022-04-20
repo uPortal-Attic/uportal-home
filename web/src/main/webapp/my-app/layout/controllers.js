@@ -47,7 +47,7 @@ define(['angular', 'jquery'], function(angular, $) {
      * @param widget {Object} The widget being removed
      */
         vm.removeWidget = function(widget) {
-          var fname = APP_FLAGS.useNewLayout ? widget : widget.fname;
+          var fname = widget;
           // Match layout entry with fname
           var result = $filter('filter')($scope.$parent.layout, fname);
           var index = $scope.$parent.layout.indexOf(result[0]);

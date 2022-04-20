@@ -212,11 +212,7 @@ define(['angular', 'jquery'], function(angular, $) {
         // private functions
         var processInLayout = function(portlet, layout) {
           var inLayout = $.grep(layout, function(e) {
-            if (APP_FLAGS.useNewLayout) {
               return e === portlet.fname;
-            } else {
-              return e.fname === portlet.fname;
-            }
           }).length;
           if (inLayout > 0) {
             portlet.hasInLayout = true;

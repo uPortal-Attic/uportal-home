@@ -111,7 +111,6 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
         $log.warn('Could not getApp ' + $routeParams.fname);
       });
 
-      if (APP_FLAGS.useNewLayout) {
         vm.addToHome = function(portlet) {
           var ret = layoutService.addToHome(portlet);
           ret.success(function(request, text) {
@@ -146,7 +145,7 @@ define(['angular', 'jquery', 'require'], function(angular, $, require) {
               );
           });
         };
-      }
+
 
       vm.inLayout = function() {
         var layout = $rootScope.layout;
