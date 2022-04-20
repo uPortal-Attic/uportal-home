@@ -53,11 +53,7 @@
           dnd-effect-allowed="move"
           dnd-dragend="logEvent('dragEnd', widget.fname, $index)">
 
-        <compact-widget ng-if="APP_FLAGS.useOldLayout" fname="{{ widget.fname }}">
-          <remove-button></remove-button>
-        </compact-widget>
-
-        <compact-widget ng-if="APP_FLAGS.useNewLayout" fname="{{ widget }}">
+        <compact-widget fname="{{ widget }}">
           <remove-button></remove-button>
         </compact-widget>
 
