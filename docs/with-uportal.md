@@ -16,6 +16,11 @@ Clone the uPortal Git repository. This will get you the latest `master` branch c
 
 ## Basic localhost demonstration
 
+**This basic demonstration no longer works.**
+
+uPortal-home no longer depends only or even mostly on uPortal.
+Instead it depends on additional microservices.
+
 ### Tomcat
 
 You'll need a Servlet container to run uPortal. Because of uPortal's portlet container, that Servlet container probably needs to be Tomcat. Since you'll have a Tomcat anyway, we'll use that to serve up `uPortal-home` too.
