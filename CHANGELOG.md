@@ -9,6 +9,10 @@ and this project adheres to
 Versions in this document should match those
 [published to Sonatype Maven Central Repository][].
 
+## Next (15?)
+
+Removes support for old layout service, including migration of layouts from old service into new service.
+
 ## 14.0.4 - 2022-03-07
 
 + Built on [uPortal-app-framework 21.0.4][].
