@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to Apereo under one or more contributor license
  * agreements. See the NOTICE file distributed with this work
  * for additional information regarding copyright ownership.
@@ -16,21 +16,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-//For some reason if you use the md-select in a mdDialog the background
-//is transparent, which is not helpful
-md-select-menu {
-  background-color: #fff;
-}
+'use strict';
 
-.no-padding {
-  padding-right: 0;
-  padding-left: 0;
-}
+define(['angular', 'jquery'], function(angular, $) {
 
-.center {
-  text-align: center;
-}
+    return angular.module('my-app.learningAnalytics.services', [])
 
-.learningAnalytics__content {
-	padding: 0 18px 18px 18px;
-}
+	.factory('learningAnalyticsService',
+		['portalGroupService',
+		function(portalGroupService) {
+
+	        var getGroups = function(groups) {
+	          return portalGroupService.getGroups()
+	            .then(function(groups) {
+            		return {
+        		 	 	groups: groups,
+      				}
+	       		});
+			}
+			return {
+				getGroups: getGroups,
+			}
+		}
+	])
+});

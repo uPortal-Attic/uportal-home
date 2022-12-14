@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed to Apereo under one or more contributor license
  * agreements. See the NOTICE file distributed with this work
  * for additional information regarding copyright ownership.
@@ -16,21 +16,26 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-//For some reason if you use the md-select in a mdDialog the background
-//is transparent, which is not helpful
-md-select-menu {
-  background-color: #fff;
-}
+'use strict';
 
-.no-padding {
-  padding-right: 0;
-  padding-left: 0;
-}
+ define(['angular'], function(angular) {
+  return angular.module('my-app.learningAnalytics.controllers', [])
 
-.center {
-  text-align: center;
-}
+    .controller('LearningAnalyticsController',
+      ['$scope', 'learningAnalyticsService',
+      function($scope, learningAnalyticsService) {
 
-.learningAnalytics__content {
-	padding: 0 18px 18px 18px;
-}
+		// Promise to resolve group memberships
+		learningAnalyticsService.getGroups().then(function(data) {
+			$scope.groups = data.groups;
+
+			for (var i = 0; i > $scope.groups.length; i++) {
+				if ($scope.groups[i].name === 'Users - Service Activation Required') { // This Group name will be updated
+					$scope.forInstructorsOnly = true;
+                    return;
+            	}
+			}
+ 			$scope.forInstructorsOnly = false;
+		});
+	}]);
+});
